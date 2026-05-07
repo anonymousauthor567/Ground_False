@@ -41,22 +41,32 @@
   },
   "@type": "sc:Dataset",
   "name": "ProofNet-Verified",
-  "description": "A cleaned and verified version of the ProofNet dataset upgraded to Lean v4.28.0. Contains 367 formally verified undergraduate-level mathematics theorem statements with proofs, covering real and complex analysis, linear algebra, abstract algebra, and topology.",
+  "description": "A corrected and audit-certified version of the ProofNet benchmark upgraded to Lean 4 v4.28.0 with Mathlib v4.28.0. An expert audit found that 204 of the original 367 items (56%) carried unfaithful ground-truth formalizations—including 104 mathematically false statements—due to errors such as misunderstandings of informal math, missing premises, and misuse of Mathlib APIs. ProofNet-Verified replaces every unfaithful ground truth with a revised, machine-checked formalization (or flags the item as unsuitable when the natural-language source is ambiguous or incorrect), and provides formal Lean 4 proofs for all 367 theorem statements, verified by the Lean type-checker. Each item is annotated with a per-item taxonomy label along three axes: truth value, logical relation to a correct formalization, and cause of error. The dataset covers undergraduate-level pure mathematics (real and complex analysis, linear algebra, abstract algebra, and topology) drawn from textbooks by Artin, Axler, Dummit & Foote, Herstein, Ireland & Rosen, Munkres, Pugh, Rudin, and Shakarchi, plus selected Putnam competition problems.",
   "url": "https://github.com/anonymousauthor567/Ground_False",
   "license": "https://spdx.org/licenses/Apache-2.0.html",
   "version": "1.0.0",
   "datePublished": "2026-05-07",
-  "citeAs": "@misc{proofnetverified2026, title={ProofNet-Verified}, year={2026}, url={https://github.com/anonymousauthor567/Ground_False}}",
+  "keywords": [
+    "formal mathematics",
+    "theorem proving",
+    "autoformalization",
+    "Lean 4",
+    "Mathlib",
+    "benchmark quality",
+    "dataset audit",
+    "proof verification"
+  ],
+  "citeAs": "@misc{groundfalse2026, title={Ground False: Uncovering Errors in Formal Mathematics Benchmarks}, year={2026}, url={https://github.com/anonymousauthor567/Ground_False}}",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
-  "rai:dataLimitations": "The dataset covers only undergraduate-level pure mathematics from a fixed set of English-language textbooks (Artin, Axler, Dummit-Foote, Herstein, Ireland-Rosen, Munkres, Pugh, Rudin, Shakarchi, and selected Putnam/Cambridge Tripos problems). It does not cover applied mathematics, statistics, computer science theory, or graduate-level topics. All formal statements target Lean 4 (v4.28.0) with Mathlib; results may not transfer to other proof assistants (Coq, Isabelle, etc.). The dataset is not recommended for evaluating general natural language understanding or for tasks outside formal mathematics.",
+  "rai:dataLimitations": "The dataset covers only undergraduate-level pure mathematics from a fixed set of English-language textbooks (Artin, Axler, Dummit & Foote, Herstein, Ireland & Rosen, Munkres, Pugh, Rudin, Shakarchi, and selected Putnam competition problems). It does not cover applied mathematics, statistics, computer science theory, or graduate-level topics. All formal statements target Lean 4 v4.28.0 with Mathlib v4.28.0; results may not transfer to other proof assistants (Coq, Isabelle, etc.) or other Lean/Mathlib versions without adaptation. Of the 367 items, 10 are flagged as unsuitable for equivalence-based evaluation (9 NL-ambiguous, 1 NL-incorrect). The audit taxonomy labels reflect human expert judgment and may contain residual errors. The dataset is not recommended for evaluating general natural language understanding or for tasks outside formal mathematics.",
   "rai:dataBiases": "The dataset inherits a selection bias toward canonical Western undergraduate mathematics curricula. Topics such as real/complex analysis, abstract algebra, linear algebra, and topology are well-represented, while combinatorics, number theory beyond introductory level, and geometry are underrepresented. The natural language statements are in English only, reflecting the source textbooks. There is no demographic or population data involved.",
   "rai:personalSensitiveInformation": "This dataset contains no personal or sensitive information. All content consists of mathematical theorem statements and formal proofs derived from published textbooks. No human subjects, demographic data, or personally identifiable information is present.",
-  "rai:dataUseCases": "The dataset is designed to benchmark (1) autoformalization: translating informal mathematical statements into formal Lean 4 specifications, and (2) automatic theorem proving: generating machine-checkable proofs of formal statements. Construct validity is established by verifying each formal statement against its natural language counterpart from a published textbook, and by machine-checking all proofs in Lean 4. The dataset has not been validated for use cases outside formal mathematics benchmarking, such as general NLP evaluation or educational assessment.",
+  "rai:dataUseCases": "The dataset is designed to benchmark (1) autoformalization: translating informal mathematical statements into formal Lean 4 specifications, where equivalence-based metrics can now be applied against faithful ground truths; and (2) automatic theorem proving: generating machine-checkable proofs of formal statements, free of the false-GT ceiling effect that caps measurable signal on unsound items. The per-item taxonomy labels additionally enable (3) fine-grained error analysis of benchmark quality, and (4) studying how specific categories of ground-truth error (missing premises, Mathlib misunderstandings, etc.) bias downstream evaluation. Construct validity is established by expert human review of each formal statement against its natural language counterpart, and by machine-checking all formalizations in Lean 4 v4.28.0. The dataset has not been validated for use cases outside formal mathematics benchmarking, such as general NLP evaluation or educational assessment.",
   "rai:dataSocialImpact": "Positive impacts include advancing automated reasoning and formal verification research, which can improve software reliability and mathematical knowledge accessibility. Negative risks are minimal given the purely mathematical nature of the content; however, overstating model capabilities on this benchmark could mislead users about AI systems' true mathematical reasoning abilities. No specific community fairness concerns apply.",
   "rai:hasSyntheticData": false,
   "prov:wasDerivedFrom": [
     {
-      "@type": "sc:Dataset",
+      "@type": "cr:Dataset",
       "@id": "proofnet-source",
       "name": "ProofNet",
       "url": "https://github.com/zhangir-azerbayev/ProofNet",
@@ -67,7 +77,7 @@
       }
     },
     {
-      "@type": "sc:Dataset",
+      "@type": "cr:Dataset",
       "@id": "proofnet-sharp-source",
       "name": "ProofNet-Sharp",
       "url": "https://huggingface.co/datasets/PAug/ProofNetSharp",
@@ -81,15 +91,34 @@
   "prov:wasGeneratedBy": [
     {
       "@type": "prov:Activity",
-      "@id": "filtering",
-      "name": "Filtering",
-      "description": "Removed 4 problems with inconsistent natural language and formal statements (Axler exercise 1_6, Axler exercise 1_7, Rudin exercise 1_14, Rudin exercise 1_19), resulting in 367 problems.",
+      "@id": "audit",
+      "name": "Expert Audit",
+      "description": "Full manual audit of all 371 original ProofNet items. Found 204 of 367 retained items (56%) with unfaithful ground truths: 104 mathematically false, 99 true-but-unfaithful, and 1 with an incorrect NL source. Errors classified along three axes (truth value, logical relation, cause of error) with five dominant causes: misunderstanding of informal math (94), missing premise (30), misunderstanding of Mathlib (26), implicit premise (18), and misunderstanding of Lean (10). Removed 4 problems with irreconcilable inconsistencies (Axler exercise 1_6, Axler exercise 1_7, Rudin exercise 1_14, Rudin exercise 1_19), resulting in 367 problems.",
       "cr:activityType": "https://www.wikidata.org/wiki/Q1520468",
       "prov:qualifiedAssociation": [
         {
           "@type": "prov:Agent",
           "name": "Human experts",
-          "description": "Manual review of natural language and formal statement alignment."
+          "description": "Manual review and taxonomy labeling of natural language and formal statement alignment for all 367 items."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "@id": "correction",
+      "name": "Ground-Truth Correction",
+      "description": "Replaced 194 unfaithful ground-truth formalizations with revised statements that faithfully encode the natural-language claim. Correction candidates were generated via a semi-automated pipeline (provability checks, LLM-based faithfulness judge, human review) and accepted only when all three independent faithfulness checks returned zero issues. The remaining 10 unfaithful items (9 NL-ambiguous, 1 NL-incorrect) were flagged as unsuitable rather than revised.",
+      "cr:activityType": "https://www.wikidata.org/wiki/Q1520468",
+      "prov:qualifiedAssociation": [
+        {
+          "@type": "prov:Agent",
+          "name": "Human experts",
+          "description": "Authored revised formalizations and performed final review of all corrections."
+        },
+        {
+          "@type": "prov:SoftwareAgent",
+          "name": "LLM faithfulness judge",
+          "description": "Three independent LLM checks per candidate to assess faithfulness of formalization against natural-language source."
         }
       ]
     },
@@ -129,10 +158,28 @@
   ],
   "distribution": [
     {
+      "@type": "cr:FileObject",
+      "@id": "proofnet-verified-jsonl",
+      "name": "proofnet_verified.jsonl",
+      "description": "JSONL file containing all 367 ProofNet-Verified items with natural-language statements, formal Lean 4 statements, informal proofs, and metadata (index, name, textbook, header, helper).",
+      "contentUrl": "data/proofnet_verified.jsonl",
+      "encodingFormat": "application/jsonlines",
+      "sha256": "381f4a06548a4ff6d9b923633c94a97b9c70f41033e13023aae31e1161b7f142"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "proofnet-verified-proofs",
+      "name": "proofnet_verified_gt.zip",
+      "description": "ZIP archive containing formal Lean 4 proofs for all 367 items, distributed separately to avoid data contamination in theorem-proving evaluations.",
+      "contentUrl": "data/proofnet_verified_gt.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "c07de41c117b406934b716d848dcb8dd030cee4c6e0581d6d0d1243652143dc3"
+    },
+    {
       "@type": "cr:FileSet",
-      "@id": "proofnet-verified-files",
-      "name": "proofnet-verified-files",
-      "description": "Lean 4 source files containing formal theorem statements and proofs for the ProofNet-Verified benchmark.",
+      "@id": "proofnet-verified-lean-files",
+      "name": "proofnet-verified-lean-files",
+      "description": "Individual Lean 4 source files containing formal theorem statements (without proofs) for the ProofNet-Verified benchmark.",
       "containedIn": [],
       "encodingFormat": "text/x-lean4",
       "includes": "proofnet_verified/proofnet-*.lean"
@@ -143,28 +190,105 @@
       "@type": "cr:RecordSet",
       "@id": "theorems",
       "name": "theorems",
-      "description": "Each record corresponds to one verified theorem from an undergraduate mathematics textbook.",
+      "description": "Each record corresponds to one verified theorem from an undergraduate mathematics textbook, with both natural-language and formal Lean 4 representations.",
       "field": [
         {
           "@type": "cr:Field",
-          "@id": "theorems/filename",
-          "name": "filename",
-          "description": "Name of the Lean source file (e.g., proofnet-1.lean).",
-          "dataType": "sc:Text",
+          "@id": "theorems/index",
+          "name": "index",
+          "description": "1-based integer index uniquely identifying the theorem within the dataset.",
+          "dataType": "sc:Integer",
           "source": {
-            "fileSet": {"@id": "proofnet-verified-files"},
-            "extract": {"fileProperty": "filename"}
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.index"}
           }
         },
         {
           "@type": "cr:Field",
-          "@id": "theorems/content",
-          "name": "content",
-          "description": "Full content of the Lean 4 file, including imports, informal statement comment, and formal theorem statement.",
+          "@id": "theorems/name",
+          "name": "name",
+          "description": "Canonical name of the theorem (e.g., Artin_exercise_2_2_9), derived from the source textbook and problem number.",
           "dataType": "sc:Text",
           "source": {
-            "fileSet": {"@id": "proofnet-verified-files"},
-            "extract": {"fileProperty": "content"}
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.name"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/textbook",
+          "name": "textbook",
+          "description": "Source textbook or problem collection (one of: Artin, Axler, Dummit Foote, Herstein, Ireland Rosen, Munkres, Pugh, Putnam, Rudin, Shakarchi).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.textbook"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/header",
+          "name": "header",
+          "description": "Lean 4 import and open statements required before the theorem statement.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.header"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/helper",
+          "name": "helper",
+          "description": "Auxiliary Lean 4 definitions or lemmas required by the theorem statement (empty string if none needed).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.helper"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/informal_stmt",
+          "name": "informal_stmt",
+          "description": "Natural-language statement of the theorem as it appears in the source textbook.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.informal_stmt"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/formal_stmt",
+          "name": "formal_stmt",
+          "description": "Formal Lean 4 theorem statement (ending with 'by sorry'), verified to faithfully encode the natural-language claim.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.formal_stmt"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/informal_proof",
+          "name": "informal_proof",
+          "description": "Natural-language proof sketch from the source textbook.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.informal_proof"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/formal_proof",
+          "name": "formal_proof",
+          "description": "Machine-checked Lean 4 proof (distributed in proofnet_verified_gt.zip to avoid data contamination in theorem-proving evaluations).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {"@id": "proofnet-verified-jsonl"},
+            "extract": {"jsonPath": "$.formal_proof"}
           }
         }
       ]
