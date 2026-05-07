@@ -1,0 +1,8 @@
+{
+  "file": "93.lean",
+  "stem": "93",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `[Mul S]` provides the binary operation `*` on a generic type `S`; hypotheses `h₁` and `h₂` match the two rules verbatim (∀ a b, a*b = a and ∀ a b, a*b = b*a). The conclusion `Subsingleton S` is defined as ∀ a b : S, a = b, which is the standard formalization of \"S has at most one element\" (it includes the empty case, matching \"at most one\"). There are no extra hypotheses (e.g., no Nonempty, Fintype, or associativity assumption) and no hidden weakening. The quantifier structure and types align precisely with the informal statement.",
+  "duration_ms": 81357,
+  "cost_usd": 0.18832500000000002
+}

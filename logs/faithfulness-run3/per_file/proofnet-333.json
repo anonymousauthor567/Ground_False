@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `[LinearOrder α]` is Mathlib's notion of a totally ordered set, `Set.Nonempty s` encodes \"nonempty subset E\", `x ∈ lowerBounds s` and `y ∈ upperBounds s` are the standard Mathlib encodings of \"x is a lower bound of E\" and \"y is an upper bound of E\", and the conclusion `x ≤ y` matches \"α ≤ β\". The nonemptiness hypothesis is essential (without it, any pair of elements would be both a lower and an upper bound of ∅, and x ≤ y could fail). No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 11786,
+  "cost_usd": 0.04953225
+}

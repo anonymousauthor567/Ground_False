@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (from Axler) asserts that for every vector v in a vector space V, we have -(-v) = v. The Lean signature sets up V as an AddCommGroup with a Module F V structure over a field F — which is precisely the definition of a vector space over F. The implicit binder {v : V} yields a universally quantified statement over V, matching \"for every v ∈ V\". The conclusion -(-v) = v matches exactly. No hypotheses are added or dropped, and the types match the ambient context.",
+  "duration_ms": 11556,
+  "cost_usd": 0.037492000000000004
+}

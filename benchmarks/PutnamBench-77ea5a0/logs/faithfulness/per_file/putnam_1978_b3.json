@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_b3.lean",
+  "stem": "putnam_1978_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. Base cases P 1 = 1+X and P 2 = 1+2X match. The recursion uses ℕ+ (making explicit the implicit premise n ≥ 1 needed for well-posedness), and PNat subtraction gives the correct value for 2n-1 since 2n ≥ 2 > 1. Checking: for n=1, hPodd gives P 3 = P 2 + 2X·P 1, matching the informal P_3 = P_2 + 2x·P_1. The coefficient C((n:ℝ)+1) matches (n+1). The combination of `haroot` (a n is a root) and `haub` (a n is ≥ all roots) correctly encodes \"largest real root\". The conclusion `StrictMono a ∧ Tendsto a atTop (𝓝 0)` precisely captures \"strictly monotonically increasing and tends to zero\". Taking the existence of a_n as a hypothesis is the standard way to formalize \"let a_n be the largest real root\".",
+  "duration_ms": 220859,
+  "cost_usd": 0.6770605000000001
+}

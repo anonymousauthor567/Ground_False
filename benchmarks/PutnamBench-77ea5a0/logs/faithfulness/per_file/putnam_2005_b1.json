@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b1.lean",
+  "stem": "putnam_2005_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem: (1) it asserts the polynomial `putnam_2005_b1_solution : MvPolynomial (Fin 2) ℝ` is nonzero, matching \"nonzero polynomial P(x,y)\"; (2) it uses 2 variables indexed by `Fin 2`, with index 0 for x and index 1 for y; (3) the evaluation function `fun n : Fin 2 => if (n = 0) then ⌊a⌋ else ⌊2a⌋` correctly maps the two variables to `⌊a⌋` and `⌊2a⌋` cast to ℝ; (4) the universal quantification over `a : ℝ` matches \"for all real numbers a\"; (5) the conclusion `= 0` matches \"P(⌊a⌋, ⌊2a⌋) = 0\". The choice of ℝ as coefficient ring is natural and does not weaken or strengthen the statement — since the existence of such a nonzero polynomial over ℝ is equivalent to the existence of one with real coefficients as asked in the informal statement. The MvPolynomial.eval API is used correctly.",
+  "duration_ms": 78850,
+  "cost_usd": 0.26764625
+}

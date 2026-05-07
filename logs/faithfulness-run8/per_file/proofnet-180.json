@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all hypotheses: boundedness (`Bornology.IsBounded`), openness (`IsOpen`), holomorphy on Ω (`DifferentiableOn ℂ f Ω`), self-map (`Set.MapsTo f Ω Ω`), and the fixed point conditions φ(z₀) = z₀ with φ'(z₀) = 1. The added `IsPreconnected Ω` hypothesis is an implicit premise needed for the theorem's truth: without connectedness, a counterexample exists (Ω = D(0,1/2) ∪ D(3,1/2) with φ = identity on one component and φ = 3 on the other satisfies all informal hypotheses but is not linear). This is exactly the \"surfacing an implicit premise\" case that counts as faithful. The conclusion \"∃ ℂ-linear f_lin, f = f_lin on Ω\" combined with the hypotheses forces f = identity on Ω, matching \"φ is linear\" under either the ℂ-linear or affine interpretation (both forced to the identity by the fixed-point and derivative conditions). Hence the Lean statement is logically equivalent to the intended informal claim.",
+  "duration_ms": 314987,
+  "cost_usd": 0.97515825
+}

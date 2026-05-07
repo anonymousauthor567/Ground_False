@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p8_3.lean",
+  "stem": "linear_algebra__p8_3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asks to prove that rank A = rank [A|b] = 2. In the Lean file, this claim is stated as an unproven `axiom rank_of_matrix`, not as the theorem to be proven. The actual theorem with `sorry` (`unique_solution`) instead asserts `∃! x, ...` — that the system has a unique solution. These are fundamentally different conclusions: with 3 unknowns, rank = 2 would imply infinitely many solutions (kernel of dimension 1), whereas a unique solution requires rank = 3. Indeed, one can verify that the matrix actually has rank 3 (columns c1, c2, c3 are linearly independent), and (4, −4, −2) is the unique solution. Thus the Lean theorem's conclusion neither implies nor is implied by the informal rank claim — it proves a different (and in fact logically incompatible) statement.",
+  "duration_ms": 471086,
+  "cost_usd": 0.9251822499999999
+}

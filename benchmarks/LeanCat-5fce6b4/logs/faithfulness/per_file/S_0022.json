@@ -1,0 +1,8 @@
+{
+  "file": "S_0022.lean",
+  "stem": "S_0022",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one precisely. `F.IsLeftAdjoint` in Mathlib is defined as \"there exists a right adjoint\" (∃ right : D ⥤ C, Nonempty (F ⊣ right)), which is exactly \"F admits a right adjoint\". The functor `F.op ⋙ yoneda.obj d : Cᵒᵖ ⥤ Type v` computes, at X : Cᵒᵖ, to `F.obj X.unop ⟶ d`, which is exactly $\\hom_{\\mathcal{D}}(F(-), d)$. `IsRepresentable` on a `Cᵒᵖ ⥤ Type v` functor is the standard notion of representability (∃ Y, Nonempty (yoneda.obj Y ≅ F)). The universal quantification over `d : D` matches \"for each d ∈ D\". The locally small hypothesis is encoded by the `Category.{v}` instances with a common morphism universe (required for type-checking of yoneda and IsRepresentable). The iff structure and all quantifier placements match exactly.",
+  "duration_ms": 112945,
+  "cost_usd": 0.4406245
+}

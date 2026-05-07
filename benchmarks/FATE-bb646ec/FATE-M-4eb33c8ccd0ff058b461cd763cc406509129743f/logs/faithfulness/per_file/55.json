@@ -1,0 +1,8 @@
+{
+  "file": "55.lean",
+  "stem": "55",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: \"a group with no proper nontrivial subgroups is cyclic.\" The Lean hypothesis `∀ H : Subgroup G, H = ⊥ ∨ H = ⊤` expresses exactly the condition that every subgroup is either trivial (⊥) or the whole group (⊤) — i.e., there are no proper nontrivial subgroups. The conclusion `IsCyclic G` (Mathlib's standard definition: a generator exists via `g ^ · : ℤ → G` surjective) matches \"cyclic\". No extra hypotheses are imposed (no finiteness, commutativity, etc.), matching the unrestricted \"a group\" in the informal statement. The trivial group case (where ⊥ = ⊤) is handled correctly on both sides. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 144608,
+  "cost_usd": 0.3802645
+}

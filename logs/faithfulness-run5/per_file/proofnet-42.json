@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a standard Mathlib encoding of the index multiplication formula. `H.index = Nat.card (G ⧸ H)` corresponds to |G:H|, `K.index` to |G:K|, and `H.relindex K = (H.subgroupOf K).index` corresponds to |K:H| under the hypothesis `H ≤ K` (since then H ∩ K = H). This is exactly the Mathlib theorem `relIndex_mul_index`, which holds without any finiteness assumption thanks to the `Nat.card` convention (returning 0 for infinite quotients, making the equation 0 = 0 · anything in the infinite case). The quantification is over an arbitrary group G with no `Fintype` instance, respecting \"do not assume G is finite.\" The order of factors and the H ≤ K hypothesis match the informal chain H ≤ K ≤ G.",
+  "duration_ms": 111045,
+  "cost_usd": 0.33174975
+}

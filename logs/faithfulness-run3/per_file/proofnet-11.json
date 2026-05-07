@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}$ (meaning in $\\mathbb{Q}[x]$). The Lean statement writes the same polynomial as `12 + 6 * X + X ^ 3` (just with reversed ordering of terms) in `Polynomial ℚ`, and applies `Irreducible` to it. For polynomials over a field like $\\mathbb{Q}$, Mathlib's `Irreducible` predicate is exactly the standard notion of irreducibility (not a unit, and every factorization has one unit factor). The polynomial matches exactly and the irreducibility notion matches exactly, so this is a faithful formalization.",
+  "duration_ms": 15639,
+  "cost_usd": 0.04186675
+}

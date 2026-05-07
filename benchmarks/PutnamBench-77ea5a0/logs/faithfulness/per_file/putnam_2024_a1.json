@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_a1.lean",
+  "stem": "putnam_2024_a1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to determine all positive integers $n$ for which there exist positive integers $a$, $b$, $c$ satisfying $2a^n + 3b^n = 4c^n$. The Lean statement defines exactly this set: `{n : ℕ | 0 < n ∧ ∃ (a b c : ℕ), 0 < a ∧ 0 < b ∧ 0 < c ∧ 2*a^n + 3*b^n = 4*c^n}` and equates it to `putnam_2024_a1_solution`. Positive integers are encoded as `ℕ` with `0 < ...` hypotheses, which is the standard Lean/Mathlib convention. The quantifier structure, the equation, and the positivity constraints all match the informal statement exactly. This is a faithful \"determine the set\" formalization.",
+  "duration_ms": 61288,
+  "cost_usd": 0.0564435
+}

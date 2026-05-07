@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_a4.lean",
+  "stem": "putnam_1975_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The hypothesis `Odd m ∧ m > 1` matches \"m is an odd integer greater than 1\" (using ℕ is fine since m > 1 ensures positivity). The definition `θ = cexp(2πi/(2m))` correctly encodes $\\theta = e^{2\\pi i/n}$ with $n = 2m$. The conclusion `1/(1-θ) = Polynomial.aeval θ (solution m)` asks to express $(1-\\theta)^{-1}$ as a polynomial in θ, and using `Polynomial ℤ` ensures integer coefficients as required. The requirement that θ ≠ 1 (so that 1/(1-θ) is well-defined) follows from the hypotheses since 2m > 2 makes θ a non-trivial root of unity. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 124513,
+  "cost_usd": 0.4418517500000001
+}

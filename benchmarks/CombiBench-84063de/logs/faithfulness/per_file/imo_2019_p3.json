@@ -1,0 +1,8 @@
+{
+  "file": "imo_2019_p3.lean",
+  "stem": "imo_2019_p3",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement fails to connect `users` to the initial graph of the sequence `seq`. The conclusion `∃ seq : ExpectSeq, ∀ i, ((final_state seq).neighborFinset i).card ≤ 1` merely asserts the existence of *some* valid update-sequence ending in a graph with maximum degree 1, but the `ExpectSeq` structure has no field requiring `seq.l[0].1 = users`. Thus the theorem is trivially provable by constructing a tiny ExpectSeq (e.g., a single-step sequence on some artificial graph) that ignores `users` and the degree hypothesis entirely. The informal IMO 2019/P3 problem explicitly requires the sequence of events to be applied starting from the given `users` graph with the specified degree distribution — that connection is the entire mathematical content of the problem. Since the informal claim implies the Lean claim but not vice versa, the Lean statement is strictly weaker.",
+  "duration_ms": 243464,
+  "cost_usd": 0.758642
+}

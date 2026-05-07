@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_a6.lean",
+  "stem": "putnam_2004_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes every piece of the informal inequality. The domain `Set.Icc (0:ℝ) 1 × Set.Icc (0:ℝ) 1` represents the closed unit square, `Continuous f` captures the continuity hypothesis, and integration over `Set.Icc (0:ℝ) 1` uses the canonical `Measure.Subtype.measureSpace` instance, which is the Lebesgue measure restricted to [0,1] and corresponds to the informal $\\int_0^1$. The four terms match exactly: LHS has `∫ y, (∫ x, f(x,y))^2` and `∫ x, (∫ y, f(x,y))^2`, matching $\\int_0^1 F(y)^2\\,dy + \\int_0^1 G(x)^2\\,dx$; RHS has `(∫ y, ∫ x, f(x,y))^2` matching $(\\iint f)^2$, and `∫ y, ∫ x, (f(x,y))^2` matching $\\iint f^2$. Since $f$ is continuous on a compact set, it is integrable and Fubini applies, so the choice of iteration order for the double integrals is immaterial. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 130146,
+  "cost_usd": 0.48447949999999995
+}

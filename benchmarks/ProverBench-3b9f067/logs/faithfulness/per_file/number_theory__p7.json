@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p7.lean",
+  "stem": "number_theory__p7",
+  "verdict": "weaker",
+  "reasoning": "The informal statement says \"exactly one\" of x² - py² = 2 or x² - py² = -2 has an integral solution. Due to Lean 4 operator precedence (∧ at 35 binds tighter than ∨ at 30), the Lean expression `A ∨ B ∧ ¬(A ∧ B)` parses as `A ∨ (B ∧ ¬(A ∧ B))`, which is logically equivalent to `A ∨ B` — i.e., \"at least one has a solution\". This is weaker than \"exactly one has a solution\": it is true even when both have solutions, whereas the informal claim asserts they cannot both have solutions. The intended encoding would need parenthesization like `((∃...=2) ∨ (∃...=-2)) ∧ ¬((∃...=2) ∧ (∃...=-2))`. Since the informal claim implies the Lean claim but not vice versa, the Lean formalization is strictly weaker.",
+  "duration_ms": 854188,
+  "cost_usd": 1.9418535000000001
+}

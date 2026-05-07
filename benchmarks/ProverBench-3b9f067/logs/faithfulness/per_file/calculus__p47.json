@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p47.lean",
+  "stem": "calculus__p47",
+  "verdict": "faithful",
+  "reasoning": "With `relaxedAutoImplicit` enabled, the free `C` is auto-bound as a universal parameter of type ℝ. The statement then reads: ∀ C ∈ ℝ, ∃ F : ℝ → ℝ such that for all x, F'(x) = x/(x²+1) and F(x) = (1/2)log(x²+1) + C. The second conjunct pins F to be the function x ↦ (1/2)log(x²+1) + C, and the first conjunct verifies that this function is indeed an antiderivative of x/(x²+1) — which is the standard calculus meaning of \"∫ x/(x²+1) dx = (1/2)ln(x²+1) + C\". Since x²+1 > 0 on ℝ, no domain hypotheses are needed. The ∃ F is redundant given the pointwise equality constraint, but it doesn't change the mathematical content. The formalization captures the intended statement faithfully.",
+  "duration_ms": 1174915,
+  "cost_usd": 3.0228825
+}

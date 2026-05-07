@@ -1,0 +1,8 @@
+{
+  "file": "izho_2014_p3.lean",
+  "stem": "izho_2014_p3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `Fin 100 ↪ ℕ+` represents 100 distinct positive integers. The `goodPairs` structure counts ordered pairs `(i, j)` with `s i = 2 * s j ∨ s i = 3 * s j`; by proof irrelevance on `Prop`, each such pair contributes exactly one element. Since `ℕ+` excludes 0, `i = j` is impossible, and each unordered \"good pair\" `{a, b}` with ratio 2 or 3 corresponds to exactly one ordered pair (the one with larger first, since `b = 2a` etc. is impossible for positive `a`). Thus `Fintype.card (goodPairs s)` equals the number of unordered good pairs as in the informal problem. `IsGreatest (Set.range ...)` correctly expresses the maximum over all possible 100-element configurations. The formalization matches the informal semantics exactly.",
+  "duration_ms": 157399,
+  "cost_usd": 0.4909425
+}

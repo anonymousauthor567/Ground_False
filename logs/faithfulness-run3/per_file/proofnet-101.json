@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. The hypotheses `hp : Odd p` and `hp' : p.Prime` encode \"p is an odd prime\". Taking `a : (ZMod p)ˣ` is the natural encoding of \"a is an integer being considered as an element of (Z/pZ)*\", and `IsPrimitiveRoot (a : ZMod p) (p - 1)` is logically equivalent to \"a has order p-1 in (Z/pZ)*\" (i.e., a is a primitive root mod p), since `p - 1 ≥ 2` under these hypotheses. The right-hand side `∀ q : ℕ, q ∣ (p - 1) → q.Prime → ¬ (a^((p-1)/q) = 1)` precisely states \"for every prime divisor q of p-1, a^((p-1)/q) ≠ 1 (mod p)\". Both directions of the iff correspond to standard arguments in elementary number theory, and no hypothesis is added or dropped silently.",
+  "duration_ms": 129695,
+  "cost_usd": 0.4031245
+}

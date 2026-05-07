@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `I : Set ℝ := Icc 0 1` represents the closed interval [0,1], and via Lean's coercion `f : I → I` becomes a function on the subtype {x : ℝ // x ∈ [0,1]}, which inherits the standard subspace topology. `Continuous f` is precisely continuity of f: [0,1] → [0,1]. The conclusion `∃ (x : I), f x = x` asserts the existence of a fixed point, which is exactly what the informal statement requires. No hypotheses are added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 40831,
+  "cost_usd": 0.11684749999999999
+}

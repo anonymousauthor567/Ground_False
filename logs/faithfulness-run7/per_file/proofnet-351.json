@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if f: ℝ → ℝ is uniformly continuous on a bounded set E ⊆ ℝ, then f is bounded on E. The Lean signature uses `f : ℝ → ℝ` and `E : Set ℝ` (matching \"real function\" and \"set in R¹\"), `UniformContinuousOn f E` (matching \"uniformly continuous on E\"), and `Bornology.IsBounded E` (matching \"bounded set\"; on ℝ this coincides with standard metric boundedness). The conclusion `Bornology.IsBounded (Set.image f E)` expresses exactly \"f(E) is bounded\", i.e., \"f is bounded on E\". All hypotheses and conclusions match precisely with no extra or missing assumptions, so this is a faithful formalization.",
+  "duration_ms": 57221,
+  "cost_usd": 0.284683
+}

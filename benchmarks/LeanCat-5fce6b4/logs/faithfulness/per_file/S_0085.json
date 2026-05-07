@@ -1,0 +1,8 @@
+{
+  "file": "S_0085.lean",
+  "stem": "S_0085",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks for a single biconditional: F is left exact ⟺ (F is additive AND F preserves 0→x→y→z sequences). The Lean statement is Mathlib's `preservesFiniteLimits_tfae`, which, under the hypothesis [F.Additive], asserts a 4-way TFAE including: (1) F preserves short exact sequences 0→A→B→C→0 with mono; (2) F preserves left-exact sequences 0→X→Y→Z (this matches the informal's condition); (3) F preserves kernels (via `PreservesLimit (parallelPair f 0)`); (4) F preserves finite limits. The item-2 ↔ item-4 equivalence under [F.Additive] corresponds to the informal biconditional (since in abelian categories `PreservesFiniteLimits → Additive` is automatic via `additive_of_preserves_binary_products`). However, the Lean TFAE asserts two additional equivalences (items 1 and 3: preservation of short exact sequences and preservation of kernels) that are genuine extra conclusions beyond the informal biconditional. These are separate mathematical claims not requested by the informal statement, making the Lean strictly stronger.",
+  "duration_ms": 1056832,
+  "cost_usd": 3.0009925000000006
+}

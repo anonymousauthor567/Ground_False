@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_a1.lean",
+  "stem": "putnam_1994_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `∀ n ≥ 1, 0 < a n ∧ a n ≤ a (2 * n) + a (2 * n + 1)` matches exactly the informal condition $0 < a_n \\leq a_{2n}+a_{2n+1}$ for $n \\geq 1$; leaving `a 0` unconstrained is standard since the informal sequence starts at index 1. The conclusion `Tendsto (fun N => ∑ n : Set.Icc 1 N, a n) atTop atTop` states that the partial sums $S_N = \\sum_{n=1}^N a_n$ tend to +∞ (the subtype-sum over `Set.Icc 1 N` equals the finite sum from 1 to N). Since all terms are strictly positive by hypothesis, the partial sums are monotonically increasing, so \"diverges\" in the informal sense is equivalent to \"tends to +∞\". The Lean conclusion is therefore logically equivalent to the informal \"series diverges\".",
+  "duration_ms": 179763,
+  "cost_usd": 0.492929
+}

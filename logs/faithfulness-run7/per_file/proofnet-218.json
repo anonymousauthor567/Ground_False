@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims S_Ω for Ω = {1,2,3,...} is an infinite group. In Mathlib, `Equiv.Perm ℕ` is the group of bijections ℕ → ℕ, i.e. the symmetric group on ℕ, and `Infinite α` means α is not finite. Although the informal Ω = {1,2,3,...} excludes 0 while ℕ = {0,1,2,...} includes it, both are countably infinite sets of the same cardinality, so their symmetric groups are isomorphic — the claim \"the symmetric group on a countably infinite set is infinite\" is what's being asserted either way. The group structure is automatic on `Equiv.Perm ℕ`, and asserting the underlying type is infinite is equivalent to the group being infinite. No hypotheses are silently added or dropped; the statement matches.",
+  "duration_ms": 52646,
+  "cost_usd": 0.14224849999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-159.lean",
+  "stem": "proofnet-159",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `f` is a 0-indexed version of the 1-indexed informal sequence: `f 0 = √2` corresponds to $s_1$, and the recursion `f (n+1) = √(2 + √(f n))` matches $s_{n+1} = \\sqrt{2+\\sqrt{s_n}}$ exactly. The convergence claim `∃ x, Tendsto f atTop (𝓝 x)` is the standard Mathlib encoding of \"the sequence converges\". The bound `∀ n, f n < 2` (over ℕ starting at 0) covers `f 0, f 1, ...` which equals $s_1, s_2, ...$, matching the informal \"$s_n < 2$ for $n=1,2,3,\\ldots$\". No extra or missing hypotheses, and the quantifier structure and ambient types are preserved.",
+  "duration_ms": 50282,
+  "cost_usd": 0.20816075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_a5.lean",
+  "stem": "putnam_1965_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. `permsOfFinset (Finset.Icc 1 n)` gives exactly the orderings of {1,...,n} (via permutations of ℕ that fix everything outside this set, with cardinality n!). The condition quantifies m over positions 2 to n (Finset.Icc 2 n) with earlier positions k ∈ Finset.Ico 1 m = {1,...,m-1}, and `p m = p k + 1 ∨ p m = p k - 1` correctly captures \"differs by 1\" — in ℕ subtraction, when p(k) = 1 the `p k - 1 = 0` case is harmlessly excluded since p(m) ∈ {1,...,n} can never be 0, leaving only the p(m) = p(k) + 1 option. The quantification \"for every integer i except the first\" is equivalent to iterating over positions 2,...,n since each integer appears at a unique position. The `n > 0` condition aligns with \"integers from 1 to n\" being non-empty.",
+  "duration_ms": 136769,
+  "cost_usd": 0.4460525
+}

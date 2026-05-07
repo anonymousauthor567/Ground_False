@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies universally over all topological spaces X with LocallyCompactSpace X and T2Space X (Hausdorff), and concludes CompletelyRegularSpace X. Mathlib's `CompletelyRegularSpace` encodes exactly the separation-by-continuous-functions-to-[0,1] property. Munkres' definition of \"completely regular\" additionally bundles T1, but the T2Space hypothesis already yields T1 for free, so the two readings coincide in this context. The hypotheses (locally compact, Hausdorff) are an exact match, and the conclusion correctly captures \"completely regular\" under the given hypotheses. This is a strictly faithful formalization.",
+  "duration_ms": 76376,
+  "cost_usd": 0.21322775000000002
+}

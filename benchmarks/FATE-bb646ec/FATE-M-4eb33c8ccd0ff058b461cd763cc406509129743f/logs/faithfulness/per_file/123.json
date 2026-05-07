@@ -1,0 +1,8 @@
+{
+  "file": "123.lean",
+  "stem": "123",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that the additive group of ℚ is not cyclic. The Lean statement `¬ (IsAddCyclic ℚ)` uses Mathlib's `IsAddCyclic`, which is defined (in Mathlib/Algebra/Group/Defs.lean) as: `∃ g : G, Function.Surjective (· • g : ℤ → G)` — i.e., the group has a generator, matching the standard definition of a cyclic (additive) group. The natural additive group structure on ℚ is the canonical one implied by the informal statement. Thus the Lean theorem asserts exactly the same mathematical content as the informal claim, neither stronger nor weaker.",
+  "duration_ms": 35092,
+  "cost_usd": 0.07455025000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_b2.lean",
+  "stem": "putnam_1963_b2",
+  "verdict": "faithful",
+  "reasoning": "The informal question asks whether S = {2^m · 3^n : m, n ∈ ℤ} is dense in the positive reals P = (0, ∞). Since S ⊆ P and P is open in ℝ, the closure of S in the subspace topology of P equals (closure in ℝ) ∩ P, so \"S dense in P\" is equivalent to P ⊆ closure_ℝ(S). The Lean statement `closure S ⊇ Set.Ioi (0 : ℝ)` captures exactly this: every positive real is a limit point of S. The definition of S in Lean — `{2^m * 3^n | (m : ℤ) (n : ℤ)}` in ℝ with integer exponents — matches the informal definition exactly. The answer is wrapped in the iff with the solution `True`, which makes the theorem say \"S is indeed dense in P\". This is a logically equivalent, faithful formalization.",
+  "duration_ms": 72233,
+  "cost_usd": 0.2273485
+}

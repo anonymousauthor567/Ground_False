@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p19_1.lean",
+  "stem": "number_theory__p19_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts TWO conjunctive claims: (a) there are infinitely many primes of the form 4k+1, AND (b) there are infinitely many primes of the form 10k+9. The Lean signature only formalizes part (a) — it asserts the existence of an infinite set of primes p with p ≡ 1 [MOD 4], but says nothing about primes of the form 10k+9. The encoding of part (a) itself is faithful (Nat.ModEq with modulus 4 correctly captures \"of form 4k+1\", and Set.Infinite captures infinitely many). However, since the Lean theorem omits part (b) entirely, it is logically implied by the informal claim but does not imply it, making it strictly weaker.",
+  "duration_ms": 342526,
+  "cost_usd": 0.107907
+}

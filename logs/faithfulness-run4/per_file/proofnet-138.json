@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show by counterexample that \"S connected ⟹ interior S connected\" fails in general, and the informal proof itself uses ℝ² with a union of two closed squares meeting at the origin. The Lean statement `∃ S : Set (ℝ × ℝ), IsConnected S ∧ ¬ IsConnected (interior S)` captures exactly this: the existence of a connected subset of ℝ² whose interior is disconnected. Mathlib's `IsConnected` matches the standard definition (nonempty + preconnected). The ambient space (ℝ × ℝ) matches Pugh's chosen $X = \\mathbb{R}^2$ in the informal proof. This is the natural faithful formalization of \"not true in general\" — formulating it over an arbitrary topological space would actually be unprovable (fails for one-point spaces), so specializing to ℝ² is the correct reading.",
+  "duration_ms": 145027,
+  "cost_usd": 0.47346075
+}

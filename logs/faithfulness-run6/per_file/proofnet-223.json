@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-223.lean",
+  "stem": "proofnet-223",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"G is a cyclic group of order n ≥ 1\" via (n : ℕ+), orderOf x = n, and closure {x} = ⊤. The LHS of the iff captures \"H = ⟨x^p⟩ for some prime p dividing n\" exactly. The RHS (H ≠ ⊤ ∧ ∀ K, H ≤ K → K = H ∨ K = ⊤) is the standard unfolding of \"H is a maximal proper subgroup\" — equivalent to H being a coatom in the subgroup lattice. The n = 1 edge case is handled trivially on both sides. The iff direction is symmetric, so the ordering in Lean vs informal is irrelevant. No hypotheses are silently added or dropped, and types match the informal content.",
+  "duration_ms": 144938,
+  "cost_usd": 0.5040304999999999
+}

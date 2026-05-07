@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"if u is a unit in R then so is -u\" is formalized as: given a ring R, an element u : R with hypothesis `IsUnit u`, conclude `IsUnit (-u)`. Mathlib's `Ring` typeclass is the standard (not necessarily commutative) ring with 1, matching the Dummit & Foote convention. `IsUnit` is the standard notion of unit. The hypothesis and conclusion line up exactly with the informal claim, and the quantification over R and u is implicit via Lean's generalization. No hypotheses are added or dropped; this is a direct, faithful formalization (indeed, `IsUnit.neg` in Mathlib is exactly this statement).",
+  "duration_ms": 26650,
+  "cost_usd": 0.09921124999999999
+}

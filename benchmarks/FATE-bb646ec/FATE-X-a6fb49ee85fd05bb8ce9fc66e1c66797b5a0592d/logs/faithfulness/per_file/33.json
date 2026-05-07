@@ -1,0 +1,8 @@
+{
+  "file": "33.lean",
+  "stem": "33",
+  "verdict": "faithful",
+  "reasoning": "This is the Eakin-Nagata theorem. The Lean formalization correctly captures all components: (1) `A : Subring B` with `[CommRing B]` encodes \"A ⊂ B commutative rings\" since a Subring of a CommRing automatically inherits a CommRing structure via Mathlib's `SubringClass.toCommRing` instance; (2) `Module.Finite A B` is definitionally `(⊤ : Submodule A B).FG`, which is exactly \"B is finitely generated as an A-module\" (the Module A B structure comes from the standard Subring Module instance); (3) `[IsNoetherianRing B]` matches \"B is Noetherian\"; (4) the conclusion `IsNoetherianRing A` matches \"A is Noetherian\". The types and hypothesis structure exactly mirror the informal statement with no added or dropped hypotheses.",
+  "duration_ms": 177567,
+  "cost_usd": 0.31169800000000003
+}

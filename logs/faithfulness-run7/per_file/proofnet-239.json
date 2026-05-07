@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: for any group G with |G| = 2907, G is not simple. The Lean signature universally quantifies over `G : Type*` with `[Fintype G] [Group G]` and hypothesis `card G = 2907`, concluding `¬ IsSimpleGroup G`. This exactly matches the informal claim. `Fintype.card G = 2907` correctly encodes |G| = 2907, and `IsSimpleGroup` in Mathlib (defined in `Mathlib/GroupTheory/Subgroup/Simple.lean`) is the standard definition requiring `Nontrivial G` and that every normal subgroup is ⊥ or ⊤ — this is exactly the standard notion of simple group. The `Nontrivial G` component built into `IsSimpleGroup` is no stronger than the informal reading, since a group of order 2907 is automatically nontrivial. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 35096,
+  "cost_usd": 0.17002824999999996
+}

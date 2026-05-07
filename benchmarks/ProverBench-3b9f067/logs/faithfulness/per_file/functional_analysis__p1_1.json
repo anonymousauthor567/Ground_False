@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_1.lean",
+  "stem": "functional_analysis__p1_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement gives two hypotheses (H1: the partial derivative equation, H2: f(u,0)=u²e^(-u)) and asks to prove three conclusions (a), (b), (c). The Lean file instead defines f concretely as (u²+v²)e^(-(u+v)) — baking in conclusion (b) as a definition rather than proving it — and then only proves a single lemma verifying that H1 holds for this specific f. None of the three required conclusions are stated as theorems: (a) about ∂g/∂x = (4x-2y)e^(-y) is absent, (b) is embedded in the definition rather than derived from H1 and H2, and (c) about the unique global minimum at (0,0) is missing entirely. The Lean lemma is a logical consequence of the informal claim (given (b), H1 holds for the displayed f by hypothesis), but it proves far less than what the informal statement requires.",
+  "duration_ms": 196357,
+  "cost_usd": 0.520464
+}

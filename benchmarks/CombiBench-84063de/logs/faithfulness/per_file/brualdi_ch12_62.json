@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch12_62.lean",
+  "stem": "brualdi_ch12_62",
+  "verdict": "incomparable",
+  "reasoning": "The Lean predicate `G'.coe.IsCycles` (from Mathlib.Combinatorics.SimpleGraph.Matching) means \"every non-isolated vertex has exactly 2 neighbors\", which describes a disjoint union of cycles (possibly with isolated vertices), NOT a single cycle as the informal statement requires. Counterexample: let G = K₃ ∪ {isolated d}. Then TwoConnected G is FALSE (not connected), and the informal RHS is also FALSE (no cycle contains the isolated d), so informal iff holds (F↔F). But Lean RHS is TRUE: for any (x,e) we can take G' = K₃ ∪ {d}, which satisfies IsCycles vacuously at d and with ncard=2 at the triangle vertices. So Lean iff is F↔T = FALSE. Letting A = \"cycle through x,e\" and B = \"subgraph containing x,e with IsCycles\", we have A → B but not B → A. Hence informal's forward direction (TwoConnected → A) is strictly stronger than Lean's forward, while Lean's backward (B → TwoConnected) is strictly stronger than informal's backward. Each iff implies only half of the other, so the claims are incomparable. The formalization needed a connectedness requirement on G'.coe (or a Walk.IsCycle-based encoding) to capture \"a single cycle\".",
+  "duration_ms": 1777051,
+  "cost_usd": 5.02621175
+}

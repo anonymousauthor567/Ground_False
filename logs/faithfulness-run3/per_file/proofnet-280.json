@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the correct mathematical content: for odd a the gcd is 2, and for even a the gcd is 1, which matches the classical result (odd a makes a^(2^n)+1 even with gcd=2; even a makes it odd with gcd=1). The auto-bound variable f_a is pinned by hypothesis hf to be the gcd function, so the statement is logically equivalent to the direct formulation. Hypotheses `a ≠ 0` and `n > m` match the informal. The informal English ordering \"1 or 2 depending on whether a is odd or even\" is ambiguous in parse order but the only mathematically true reading is odd→2, even→1, which is what the Lean asserts. Types (ℤ for a, ℕ for exponents, Int.gcd yielding ℕ) are standard. No hypotheses are added or dropped beyond the informal.",
+  "duration_ms": 80212,
+  "cost_usd": 0.183186
+}

@@ -1,0 +1,13 @@
+import Mathlib
+
+open CategoryTheory
+
+variable (p : ℕ) [Fact p.Prime]
+
+/-Informal Statement
+
+Theorem: $\mathbb{Z}_p$ is simple object in $\mathcal{A}\mathrm{b}$ when $p$ is prime number.
+-/
+
+theorem ZMod_simple : CategoryTheory.Simple (ModuleCat.of ℤ (ZMod p)) := by
+  sorry

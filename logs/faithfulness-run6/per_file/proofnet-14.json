@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: given a prime p of the form 2^r + 1, it concludes p has the form 2^(2^k) + 1. The only deviation is the added hypothesis `1 ≤ r`, but this is an implicit premise needed for the statement to be true — without it, r = 0 gives p = 2 (prime) which cannot be written as 2^(2^k) + 1 for any k ∈ ℕ (the minimum such value is 3). This is precisely the scenario described in the system prompt's worked example, where making an implicit truth-preserving premise explicit is considered faithful. The types (ℕ), the quantifier structure (∃ r, ∃ k), and the conclusion all match the informal statement.",
+  "duration_ms": 16878,
+  "cost_usd": 0.062059
+}

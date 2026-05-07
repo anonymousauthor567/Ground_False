@@ -1,0 +1,8 @@
+{
+  "file": "139.lean",
+  "stem": "139",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if G has exactly one subgroup H of order n, then H is normal. The Lean formalization fixes H as a subgroup of G and encodes \"H is the unique subgroup of its order\" as `∀ K, Nat.card K = Nat.card H → K = H`. This is exactly the standard encoding of uniqueness: given that H has some order n = Nat.card H, saying \"H is the only subgroup of order n\" is logically equivalent to saying every subgroup K with the same cardinality as H equals H. The conclusion `H.Normal` matches \"H is a normal subgroup of G\". The quantifier structure, types (arbitrary group G, arbitrary subgroup H, Nat.card for order), and the implication direction all faithfully correspond to the informal statement.",
+  "duration_ms": 178505,
+  "cost_usd": 0.4699375
+}

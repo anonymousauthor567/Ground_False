@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `DifferentiableOn ℝ f (Ioi 0)` captures \"f differentiable for every x > 0\". The hypothesis `Tendsto (deriv f) atTop (𝓝 0)` faithfully encodes \"f'(x) → 0 as x → +∞\": since `Ioi 0` is open, `DifferentiableOn` implies `DifferentiableAt` at every x > 0, so `deriv f x` equals the usual derivative for all large x, which is all that matters for the `atTop` filter. The conclusion `Tendsto (λ x => f (x + 1) - f x) atTop (𝓝 0)` matches \"g(x) → 0 as x → +∞\" exactly, since for large x both x+1 and x lie in Ioi 0. The typing `f : ℝ → ℝ` (total function) is a standard Lean convention whose values for x ≤ 0 are irrelevant to both hypothesis and conclusion. No hypotheses are dropped or added, and the conclusion is identical.",
+  "duration_ms": 155750,
+  "cost_usd": 0.544543
+}

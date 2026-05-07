@@ -1,0 +1,8 @@
+{
+  "file": "102.lean",
+  "stem": "102",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. |G| = p³ is encoded as `Fintype.card G = p ^ 3`, |Z(G)| ≥ p² is encoded via `Fintype.card (Subgroup.center G) ≥ p ^ 2` (Mathlib's `Subgroup.center` matches the standard group-theoretic center by `mem_center_iff`), and \"G is abelian\" is encoded as `∀ a b : G, a * b = b * a`, which is precisely commutativity. The `pp : p.Prime` hypothesis is not an unwarranted addition: without primality, the claim is false (e.g., for p = 4, G = D₄ × (ℤ/2)³ has order 64 = 4³ with center of order 16 = 4², yet is non-abelian). Since the informal statement conventionally uses \"p\" to denote a prime in p-group contexts, making this explicit is surfacing a necessary implicit premise, which per the guidelines is faithful, not weaker.",
+  "duration_ms": 155102,
+  "cost_usd": 0.41324849999999996
+}

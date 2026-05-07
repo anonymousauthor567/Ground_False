@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if a, b are integers and a | b in the Gaussian integers, then a | b in ℤ. The Lean statement quantifies over a b : ℤ, uses `ofInt a : GaussianInt` (which by `Zsqrtd.ofInt` is ⟨a, 0⟩, equivalent to the standard Int cast into ℤ[i] per `ofInt_eq_intCast`), asserts `(ofInt a : GaussianInt) ∣ ofInt b` (divisibility in the Gaussian integers) as the hypothesis, and concludes `a ∣ b` (divisibility in ℤ). The types, quantifier structure, hypothesis, and conclusion all precisely match the informal claim, with the correct implication direction.",
+  "duration_ms": 39715,
+  "cost_usd": 0.283201
+}

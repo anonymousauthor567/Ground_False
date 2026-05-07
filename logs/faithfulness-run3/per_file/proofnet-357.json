@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal Rudin 5.5 claim. Although `f : ℝ → ℝ` is defined globally (unlike the informal \"defined for x > 0\"), this is a standard encoding: the only hypothesis is `DifferentiableOn ℝ f (Ioi 0)`, and the conclusion is a limit at `atTop`, which only depends on behavior for large x (all > 0). Since `Ioi 0` is open, `DifferentiableOn` at each x > 0 implies `DifferentiableAt`, so `deriv f x` on the tail equals the true derivative, making `Tendsto (deriv f) atTop (𝓝 0)` equivalent to \"f'(x) → 0 as x → ∞\". The conclusion `f(x+1) - f(x) → 0` as x → ∞ precisely captures g(x) → 0. No hypothesis is added or dropped relative to the mathematical content.",
+  "duration_ms": 32160,
+  "cost_usd": 0.11612525000000001
+}

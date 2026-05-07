@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. `n : ℕ+` captures \"positive integer n\"; `orderOf x = n` captures \"|x| = n\" (since `orderOf` returning a ℕ+ value means x has finite order equal to n); and `x⁻¹ = x ^ (n - 1 : ℕ)` captures the conclusion using natural number subtraction after coercing n : ℕ+ to ℕ, which is well-defined since n ≥ 1. The statement holds in both edge cases (n=1 gives x = 1 so x⁻¹ = x^0, and n ≥ 2 gives the standard argument). No hypotheses are added or dropped relative to the informal claim, and the ambient objects (arbitrary group G, arbitrary element x) match.",
+  "duration_ms": 92858,
+  "cost_usd": 0.28976450000000004
+}

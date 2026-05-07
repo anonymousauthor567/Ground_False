@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "theorem_name": "Pugh_exercise_2_92_corrected",
+  "informal": "Give a direct proof that the nested decreasing intersection of nonempty covering compact sets is nonempty.",
+  "lean": "\ntheorem Pugh_exercise_2_92_corrected {α : Type*} [TopologicalSpace α] [T2Space α]\n    {s : ℕ → Set α}\n    (hcomp : ∀ i, IsCompact (s i))\n    (hne : ∀ i, (s i).Nonempty)\n    (hmono : ∀ i, s i ⊇ s (i + 1)) :\n    (⋂ i, s i).Nonempty",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the standard nested compact sets theorem: a decreasing sequence of nonempty compact sets has nonempty intersection. The Lean signature captures this with `hcomp` (each `s i` compact), `hne` (each nonempty), `hmono` (decreasing: `s i ⊇ s (i+1)`), and concludes `(⋂ i, s i).Nonempty`. The T2Space assumption is mild and consistent with Pugh's setting (compact sets in Hausdorff spaces are closed, ensuring the standard proof works); the informal statement implicitly works in such ambient spaces. Quantifier structure and types match exactly. No strengthening or weakening is introduced.",
+  "duration_ms": 7871,
+  "cost_usd": 0.04768800000000001
+}

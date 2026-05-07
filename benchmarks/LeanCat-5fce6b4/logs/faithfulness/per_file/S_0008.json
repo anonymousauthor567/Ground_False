@@ -1,0 +1,8 @@
+{
+  "file": "S_0008.lean",
+  "stem": "S_0008",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in the category Grp, the categorical coproduct of two groups G_1, G_2 is isomorphic to their free product. The Lean statement expresses exactly this: `coprod G H` is the categorical binary coproduct in Grp (from CategoryTheory.Limits), and `Monoid.Coprod G H` is Mathlib's name for the free product of two groups/monoids. The claimed `≅` is an isomorphism between these two objects. The `HasBinaryCoproduct G H` hypothesis is required as a technical prerequisite so that `coprod G H` is even defined; since Grp has all binary coproducts in Mathlib, this hypothesis is always satisfiable and does not restrict the scope of the claim beyond the informal statement. The `Nonempty` wrapper is a standard way to state \"there exists an isomorphism\" which matches the informal phrasing \"is equivalent to.\" No hypotheses are added or dropped that would change the mathematical content.",
+  "duration_ms": 164985,
+  "cost_usd": 0.3340525
+}

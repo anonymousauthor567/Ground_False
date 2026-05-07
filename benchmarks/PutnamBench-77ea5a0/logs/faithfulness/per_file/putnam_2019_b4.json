@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b4.lean",
+  "stem": "putnam_2019_b4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement requires $f$ to be twice continuously differentiable only on the closed quadrant $\\{x \\geq 1, y \\geq 1\\}$. The Lean formalization uses `ContDiff ℝ 2 f` with `f : (Fin 2 → ℝ) → ℝ`, which requires $f$ to be $C^2$ on the entire $\\mathbb{R}^2$ plane — a strictly stronger hypothesis. The file's own comment (\"boosts the domain of f to the entire 2D plane\") acknowledges this deviation. Adding this extra hypothesis narrows the class $\\mathcal{F}$ to functions that extend to globally $C^2$ functions on $\\mathbb{R}^2$, so the Lean statement asserts the result for a strict subset of the informally-intended functions. The informal claim implies the Lean claim (by restriction to the smaller class), but not directly vice versa, making the Lean statement logically weaker. Other aspects (partial derivatives via `deriv`/`iteratedDeriv`, the `sInf` vs `min` which coincide when the min is attained, and universal quantification over $f$ capturing \"independent of $f$\") are faithful.",
+  "duration_ms": 628395,
+  "cost_usd": 1.50226925
+}

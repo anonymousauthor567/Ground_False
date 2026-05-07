@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. Both `X` and `Y` are metric spaces (via `[MetricSpace X]` and `[MetricSpace Y]`), `f : X → Y` is hypothesized uniformly continuous via the standard Mathlib `UniformContinuous` definition (which on metric spaces is the usual ε-δ uniform continuity), and `x : ℕ → X` together with `hx : CauchySeq x` encodes \"for every Cauchy sequence in X\" (universally quantified as hypotheses). The conclusion `CauchySeq (λ n => f (x n))` matches \"{f(x_n)} is a Cauchy sequence in Y\". No hypotheses are added or dropped, types match, and the quantifier structure is preserved.",
+  "duration_ms": 57849,
+  "cost_usd": 0.15495949999999997
+}

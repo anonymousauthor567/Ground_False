@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal statement from Axler's LADR Ex. 6.2. `[RCLike F]` encodes that F is ℝ or ℂ, which is Axler's convention for the scalar field $\\mathbf{F}$. `[NormedAddCommGroup V]` plus `[InnerProductSpace F V]` makes V an inner product space over F with its canonical scalar action (since `InnerProductSpace` extends `NormedSpace`, the `•` resolves to the canonical Module structure, not an external/twisted one). The conclusion `⟪u, v⟫_F = 0 ↔ ∀ (a : F), ‖u‖ ≤ ‖u + a • v‖` matches the informal iff and the universal quantification over `a ∈ F` verbatim. There are no added or dropped hypotheses, no direction of the iff is omitted, and no types are changed. Confirmed against Mathlib's `InnerProductSpace` class in `Analysis/InnerProductSpace/Defs.lean`.",
+  "duration_ms": 74391,
+  "cost_usd": 0.36706525
+}

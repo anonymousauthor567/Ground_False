@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the classical Ireland-Rosen result: for primes p ≡ 1 (mod 4), 2 is a biquadratic residue mod p iff p = A² + 64B². The hypotheses `hp : p.Prime` and `hp1 : p ≡ 1 [MOD 4]` match the informal premises. The conclusion is an iff between `∃ x, x^4 ≡ 2 [MOD p]` (the solvability of x⁴ ≡ 2 mod p) and `∃ A B, p = A^2 + 64*B^2` (p being of the required form). The inferred types (ℕ for x, A, B) are logically equivalent to the standard integer formulation since squares and mod-p reductions are sign-independent, and any natural number solution corresponds to an integer solution and vice versa. The quantifier structure and directions of the biconditional are preserved exactly.",
+  "duration_ms": 25430,
+  "cost_usd": 0.11376725000000001
+}

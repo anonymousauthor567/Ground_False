@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `a^5 + √2·a^3 + √5·a^2 + √7·a + √11 = 0` exactly matches the informal p(a) = 0, using Real.sqrt cast to ℂ for the principal square roots. The conclusion `∃ q : Polynomial ℚ, q ≠ 0 ∧ q.natDegree ≤ 80 ∧ Polynomial.aeval a q = 0` is equivalent to \"a is algebraic over ℚ of degree at most 80\": by Mathlib's definition, IsAlgebraic ℚ a says there exists a nonzero annihilating polynomial, and the degree of an algebraic number equals the degree of its minimal polynomial, which in turn is ≤ 80 iff some nonzero annihilating polynomial has natDegree ≤ 80 (since the minimal polynomial divides any annihilator). No extra or missing hypotheses; the quantifier structure and types all match.",
+  "duration_ms": 81370,
+  "cost_usd": 0.32891374999999995
+}

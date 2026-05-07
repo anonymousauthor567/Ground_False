@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_a2.lean",
+  "stem": "putnam_1992_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `C α = taylorCoeffWithin (fun x ↦ (1+x)^α) 1992 Set.univ 0` equals `(1992!)⁻¹ · iteratedDerivWithin 1992 (fun x ↦ (1+x)^α) Set.univ 0`, which on `Set.univ` equals `f^(1992)(0)/1992!`. Since `(1+x)^α` (using `Real.rpow` for `α : ℝ`) is smooth at 0, this equals the coefficient of $x^{1992}$ in the power series $\\sum \\binom{\\alpha}{n} x^n$ of $(1+x)^\\alpha$ about 0, matching the informal definition of $C(\\alpha)$. The integral `∫ y in (0)..1, C(-y-1) * ∑ k ∈ Finset.Icc (1:ℕ) 1992, 1/(y+k)` faithfully encodes $\\int_0^1 C(-y-1) \\sum_{k=1}^{1992} \\frac{1}{y+k}\\,dy$, with `Finset.Icc 1 1992` giving indices 1 through 1992 and `k` coerced to ℝ in `y+k`. All types, bounds, and quantifiers match exactly.",
+  "duration_ms": 207957,
+  "cost_usd": 0.6535425
+}

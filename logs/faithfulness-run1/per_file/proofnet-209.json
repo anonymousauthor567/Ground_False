@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "informal": "Prove that a normal operator on a complex inner-product space is self-adjoint if and only if all its eigenvalues are real.",
+  "lean": "\ntheorem Axler_exercise_7_9 {V : Type*} [NormedAddCommGroup V] [InnerProductSpace ℂ V]\n  [FiniteDimensional ℂ V] (T : End ℂ V)\n  (hT : T * adjoint T = adjoint T * T) :\n  IsSelfAdjoint T ↔ ∀ e : T.Eigenvalues, (e : ℂ).im = 0",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes Axler's Exercise 7.9: T is a normal endomorphism (hT : T * adjoint T = adjoint T * T) on a complex inner product space, and the conclusion is the biconditional that T is self-adjoint iff every eigenvalue has zero imaginary part (i.e., is real). The FiniteDimensional ℂ V hypothesis matches Axler's standing assumption for this exercise (without it, \"eigenvalue\" vs \"spectrum\" would diverge and the statement would be more subtle). T.Eigenvalues ranges over all eigenvalues, so ∀ e, (e:ℂ).im = 0 correctly expresses \"all eigenvalues are real.\" Both directions of the iff are present, the normality hypothesis is included, and the underlying field is ℂ. This matches the informal claim faithfully.",
+  "duration_ms": 15095,
+  "cost_usd": 0.0658015
+}

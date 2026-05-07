@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_a6.lean",
+  "stem": "putnam_1964_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly represents collinear points as `S : Finset ℝ` (points on a line), and encodes unordered pairs as ordered pairs with `a < b`, making `distance (a,b) = b - a` positive and well-defined. The hypothesis \"d < k\" (where k is the max distance) is equivalently captured by \"∃ m ∈ pairs, distance m > distance p\", since S is finite so the maximum is achieved. The \"another pair\" requirement is correctly encoded with `q ≠ p ∧ distance p = distance q`. The conclusion `∀ p q : pairs, q ≠ p → ∃ r : ℚ, distance p / distance q = r` matches the informal claim; the `q ≠ p` restriction is inconsequential since `distance p / distance p = 1 ∈ ℚ` trivially. All hypotheses and conclusions align semantically with the informal statement.",
+  "duration_ms": 214717,
+  "cost_usd": 0.6483700000000001
+}

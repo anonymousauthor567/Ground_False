@@ -1,0 +1,8 @@
+{
+  "file": "115.lean",
+  "stem": "115",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts R is transitive iff R⁻¹ is transitive, where R⁻¹(x,y) ↔ R(y,x). In Lean, `R : A → A → Prop` is the standard encoding of a binary relation on the type A (treating the \"set A\" as a type), and `fun x y => R y x` is exactly the inverse relation R⁻¹ (applied to (x,y) it yields R(y,x)). Mathlib's `Transitive` unfolds to `∀ ⦃x y z⦄, x ≺ y → y ≺ z → x ≺ z`, the standard notion of transitivity. The iff captures both directions as stated. No hypotheses are added or dropped and the quantifier/type structure matches the informal claim.",
+  "duration_ms": 28407,
+  "cost_usd": 0.10070425
+}

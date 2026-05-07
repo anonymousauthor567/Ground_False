@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that over a field F of characteristic p ≠ 0, the polynomial x^m - x with m = p^n has all distinct roots. The Lean encoding captures this: `CharP F p` together with `hp : p ≠ 0` encodes \"characteristic p ≠ 0\" (and since F is a field, this forces p to be prime automatically), `hm : m = p^n` defines m, and `(X^m - X).Separable` is the standard Mathlib encoding of \"has no repeated roots\" (coprime to its derivative, equivalent to distinct roots in the algebraic closure). The added `hn : n > 0` hypothesis only rules out the degenerate case n = 0 where the polynomial becomes X - X = 0, which is implicitly excluded in the informal statement since the claim about \"distinct roots\" is only sensible for n ≥ 1. The types (ℕ for exponents, Polynomial F for the polynomial) and quantifier structure match, so this is a faithful formalization.",
+  "duration_ms": 78187,
+  "cost_usd": 0.16459549999999998
+}

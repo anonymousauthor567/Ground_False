@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. `hp : Odd p` with `hp' : p.Prime` captures \"odd prime\". `IsPrimitiveRoot (a : ZMod p) (p - 1)` is equivalent to the order of `a` being `p - 1` in `(ZMod p)ˣ`, which is the standard definition of a primitive root mod `p`. The right-hand side `∀ q : ℕ, q ∣ (p - 1) → q.Prime → ¬ ((a : ZMod p) ^ ((p - 1) / q) = 1)` correctly encodes \"a^((p-1)/q) ≠ 1 for all prime divisors q of p-1\". Taking `a : (ZMod p)ˣ` rather than `a : ZMod p` makes explicit the implicit premise that `a` is coprime to `p` — without this, the iff would fail for `a ≡ 0 (mod p)` (LHS false, RHS true since 0 ≠ 1). Per the guidelines, surfacing such an implicit premise needed for the statement's truth is faithful, not weaker.",
+  "duration_ms": 121137,
+  "cost_usd": 0.41919199999999995
+}

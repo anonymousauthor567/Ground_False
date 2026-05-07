@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal claim. `I := Icc 0 1` is the closed interval [0,1] ⊂ ℝ, so `f : I → I` gives a self-map of [0,1] using the standard subtype coercion, and `Continuous f` uses the subspace topology — matching \"continuous f : X → X with X = [0,1]\". The conclusion `∃ x : I, f x = x` asserts the existence of a fixed point in [0,1], which is exactly the informal conclusion. No extra hypotheses are imposed, no hypotheses are dropped, and types/quantifiers align.",
+  "duration_ms": 25294,
+  "cost_usd": 0.049076499999999995
+}

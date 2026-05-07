@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"Finite group G\" is encoded as `[Group G] [Fintype G]`; the group ring RG is `MonoidAlgebra R G`; the element N = g₁ + ... + gₙ is `∑ g : G, MonoidAlgebra.of R G g`, since `MonoidAlgebra.of R G` sends each g to `single g 1`, the canonical basis embedding. Membership in `center (MonoidAlgebra R G)` resolves to `Subring.center`, which by `Subring.mem_center_iff` means commuting multiplicatively with every element — exactly the meaning of \"in the center of the group ring.\" The universal quantification over arbitrary rings R and arbitrary finite groups G is captured by the type-variable signature. No hypotheses are dropped, added, or narrowed, and the conclusion matches directly.",
+  "duration_ms": 129298,
+  "cost_usd": 0.57785825
+}

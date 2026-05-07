@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "GaussianInt is Zsqrtd (-1), with elements ⟨re, im⟩ where re, im : ℤ. A Gaussian integer with im = 0 is exactly the image of a rational integer under the canonical embedding ℤ → ℤ[i] (since Zsqrtd.ofInt n = ⟨n, 0⟩). The Lean statement asserts: for every nonzero ideal I, there exists z ∈ I (subtype element) with z ≠ 0 and (z : GaussianInt).im = 0. Since the subtype zero corresponds to the GaussianInt zero, this says I contains a nonzero element that is (the image of) a rational integer — precisely the informal claim. Quantifier structure, hypotheses, and conclusion match exactly.",
+  "duration_ms": 99956,
+  "cost_usd": 0.35578849999999995
+}

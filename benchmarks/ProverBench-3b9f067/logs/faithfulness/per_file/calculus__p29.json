@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p29.lean",
+  "stem": "calculus__p29",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement uses `Set.Icc 0 x` (an unordered set) rather than the interval integral `∫ y in (0)..x, ...`. Crucially, `Set.Icc 0 x` is empty when x < 0, so the LHS evaluates to 0, while the RHS is arctan(x) - arctan(0) = arctan(x), which is nonzero (e.g., -π/4 at x = -1). Thus the Lean claim is false for negative x, whereas the informal antiderivative relationship \"∫ 1/(x²+1) dx = arctan x + C\" is true for all x under the standard sign convention used by `intervalIntegral` (cf. Mathlib's `integral_one_div_one_add_sq`, which uses `∫ x : ℝ in a..b`). The statements therefore disagree for x < 0 — the informal claim is true, the Lean claim is false — so they are not logically equivalent and neither cleanly implies the other in the intended sense. The error is using the unordered set integral in place of the signed interval integral, which is a genuine semantic mismatch.",
+  "duration_ms": 867245,
+  "cost_usd": 2.2641427499999995
+}

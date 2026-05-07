@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p64_4.lean",
+  "stem": "calculus__p64_4",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement concerns the equation cos(2x) - √3 sin(2x) = √2, but the Lean main lemma `all_solutions_found` tests `equation x = 0` where `equation x` is defined as just the LHS `cos(2x) - √3 sin(2x)`. So the Lean lemma literally asserts that solutions to cos(2x) - √3 sin(2x) = 0 in [0, 2π) are among {0, π/3, π, 4π/3} — a different equation. The actual solutions to LHS = 0 are {π/12, 7π/12, 13π/12, 19π/12}, and the actual solutions to LHS = √2 are {17π/24, 23π/24, 41π/24, 47π/24}, neither matching the claimed set. The Lean statement and the informal statement concern different equations whose solution sets differ, so neither implies the other. Additionally, the `simplified_equation` axiom is internally inconsistent with the definition (since cos(2x) - √3 sin(2x) = 2cos(2x + π/3), not 2cos(2x + π/3) − √2), confirming the formalization does not encode the intended equation.",
+  "duration_ms": 401407,
+  "cost_usd": 0.9534775
+}

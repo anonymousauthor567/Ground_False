@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every continuous open mapping ℝ → ℝ is monotonic, where \"monotonic\" in Rudin (Def. 4.28) means either monotonically increasing or decreasing (non-strict). The Lean signature takes `f : ℝ → ℝ` with hypotheses `Continuous f` and `IsOpenMap f`, and concludes `Monotone f ∨ Antitone f`. Mathlib's `IsOpenMap f := ∀ U, IsOpen U → IsOpen (f '' U)` matches \"open mapping\"; `Monotone f := ∀ a b, a ≤ b → f a ≤ f b` and its dual `Antitone` precisely correspond to Rudin's notions of monotonically increasing/decreasing. The disjunction captures exactly what \"monotonic\" means. No hypotheses are added or dropped, and the types and quantifier structure match the informal claim.",
+  "duration_ms": 55436,
+  "cost_usd": 0.22162749999999998
+}

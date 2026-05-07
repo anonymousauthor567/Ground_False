@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says: for a ring R and elements a, x with a² = 0, the element ax + xa commutes with a, i.e., a·(ax+xa) = (ax+xa)·a. The Lean signature universally quantifies over R (a general ring via [Ring R]) and a, x : R, assumes a ^ 2 = 0, and concludes a * (a * x + x * a) = (a * x + x * a) * a. This exactly encodes \"ax+xa commutes with a\". No hypotheses are added or dropped, the types match, and the conclusion is logically equivalent to the informal statement. Hence the formalization is strictly faithful.",
+  "duration_ms": 26206,
+  "cost_usd": 0.08989649999999999
+}

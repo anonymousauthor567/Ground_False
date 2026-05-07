@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses n ≥ 3, ‖x - y‖ = d, d > 0, r > 0, and 2*r > d exactly match the informal conditions k ≥ 3, |x - y| = d > 0, r > 0, and 2r > d. The conclusion Set.Infinite {z | ‖z - x‖ = r ∧ ‖z - y‖ = r} directly captures \"infinitely many z in ℝ^k with |z-x| = |z-y| = r\". The extra bound variable z in the theorem signature is harmlessly shadowed by the z in the set comprehension — since EuclideanSpace ℝ (Fin n) is always inhabited, universally quantifying over an unused variable does not change the logical content of the statement. EuclideanSpace ℝ (Fin n) is the standard Mathlib encoding of ℝ^n with the Euclidean norm, which matches the informal ℝ^k.",
+  "duration_ms": 62092,
+  "cost_usd": 0.19220749999999998
+}

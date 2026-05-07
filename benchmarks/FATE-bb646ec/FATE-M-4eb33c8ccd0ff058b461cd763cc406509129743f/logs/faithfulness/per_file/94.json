@@ -1,0 +1,8 @@
+{
+  "file": "94.lean",
+  "stem": "94",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"a ∈ Z(G) iff C(a) = G\" is rendered in Lean as `a ∈ Subgroup.center G ↔ Subgroup.centralizer {a} = ⊤`. In Mathlib, `Subgroup.center G` is precisely {z ∈ G : ∀ g, g*z = z*g} (the center) and `Subgroup.centralizer {a}` is {k : k*a = a*k} (the centralizer of a, as confirmed by `mem_centralizer_singleton_iff`). Writing \"C(a) = G\" as `centralizer {a} = ⊤` is the standard Mathlib idiom for \"equals the whole group\". The theorem universally quantifies over arbitrary groups G via `{G : Type*} [Group G]`, matching the informal scope. No hypotheses have been added or dropped and the biconditional structure is preserved, so this is a strictly faithful formalization.",
+  "duration_ms": 88566,
+  "cost_usd": 0.2414485
+}

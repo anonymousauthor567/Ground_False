@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b1.lean",
+  "stem": "putnam_1967_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly maps A,B,C,D,E,F to L 0,...,L 5. The hypotheses capture AB=CD=EF=r (hlens), all vertices on a circle of radius r (hcyclic), and the midpoints P, Q, R of BC, DE, FA. The conclusion `dist P Q = dist R P ∧ dist Q R = dist P Q` correctly encodes that triangle PQR is equilateral. The added hypotheses (r > 0, non-degeneracy of BC/DE/FA, and the horder ordering condition) surface implicit premises inherent in \"hexagon ABCDEF inscribed in a circle\" — namely that it is a proper circle, a non-degenerate hexagon, and the vertices occur in cyclic order (not a self-intersecting labeling). Without these, the informal statement would not be well-posed or true. Per the guidance, making such implicit premises explicit is a faithful formalization, not a weakening.",
+  "duration_ms": 502407,
+  "cost_usd": 1.4874949999999998
+}

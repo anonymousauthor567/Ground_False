@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G of order 1365 is not simple. The Lean theorem universally quantifies over types G with Group and Fintype instances, assumes card G = 1365, and concludes ¬ IsSimpleGroup G. Mathlib's IsSimpleGroup corresponds to the standard notion (nontrivial with only trivial normal subgroups); since |G| = 1365 > 1, the nontriviality condition is automatically consistent. The hypotheses and conclusion match the informal statement exactly.",
+  "duration_ms": 8447,
+  "cost_usd": 0.0347245
+}

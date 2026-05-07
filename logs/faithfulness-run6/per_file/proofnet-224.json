@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over an arbitrary group `G` (via `(G : Type*) [Group G]`) and over two subgroups `H K : Subgroup G`, both assumed normal via the `[Normal H] [Normal K]` instance arguments, and concludes `Normal (H ⊓ K)`. In Mathlib, `H ⊓ K` for `Subgroup G` is by definition the subgroup whose underlying set is `H ∩ K`, and `Subgroup.Normal N` is exactly the property that `g * n * g⁻¹ ∈ N` for all `n ∈ N, g ∈ G` — the textbook definition of a normal subgroup. Hypotheses and conclusion match the informal statement exactly, with no added or omitted assumptions.",
+  "duration_ms": 61805,
+  "cost_usd": 0.23694074999999998
+}

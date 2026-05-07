@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p14_3.lean",
+  "stem": "elementary_algebra__p14_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for non-zero reals p, q, r, the equation (q³r²·(2p²q²r³)²)/(2p³) = 2q⁷r⁸p holds. The Lean formalization declares `variable (p q r : ℝ)` and `variable [Fact (p ≠ 0)] [Fact (q ≠ 0)] [Fact (r ≠ 0)]`. In Lean 4, instance-implicit variables are auto-bound to any declaration that transitively uses the explicit variables — since `simplify_expression` uses `p`, `q`, `r`, the three `Fact` hypotheses are auto-included. `Fact` is just a wrapper (Fact P ↔ P) so `[Fact (p ≠ 0)]` is logically equivalent to `p ≠ 0`. The conclusion `(q^3 * r^2 * square_expression p q r) / (2 * p^3) = 2 * p * q^7 * r^8`, with `square_expression p q r = (2*p^2*q^2*r^3)^2`, matches the informal equality up to commutativity of multiplication. The extra `axiom` declarations are standalone and do not affect the signature of `simplify_expression`. The hypotheses and conclusion match the informal claim exactly.",
+  "duration_ms": 1054097,
+  "cost_usd": 2.4895272499999996
+}

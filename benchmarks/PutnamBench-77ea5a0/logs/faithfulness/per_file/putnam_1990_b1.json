@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_b1.lean",
+  "stem": "putnam_1990_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"find all C^1 real functions f such that (f(x))² = ∫₀ˣ [(f(t))² + (f'(t))²] dt + 1990 for all x\". `ContDiff ℝ 1 f` is the standard Mathlib definition for continuously differentiable; the interval integral `∫ t in (0:ℝ)..x, ...` matches ∫₀ˣ; and since f is C^1, `deriv f t` agrees with f'(t) everywhere, so `(deriv f t)^2` correctly represents (f'(t))². The biconditional with `putnam_1990_b1_solution` captures the \"find all\" aspect, and the quantifier structure (∀ x in P_def) matches. The solution set {√1990·eˣ, -√1990·eˣ} is consistent with the equation. No hypotheses are dropped or added beyond what the informal statement requires.",
+  "duration_ms": 38213,
+  "cost_usd": 0.14778299999999997
+}

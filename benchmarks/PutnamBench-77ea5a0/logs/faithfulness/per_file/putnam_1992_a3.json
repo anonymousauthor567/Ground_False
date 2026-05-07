@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_a3.lean",
+  "stem": "putnam_1992_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal problem. The hypothesis `m : ℕ` with `mpos : m > 0` encodes \"positive integer m\". The set S is characterized via `hS` as exactly those triples (n, x, y) of positive naturals (n > 0, x > 0, y > 0) with `Coprime n m` (resolving to `Nat.Coprime n m` since `open Nat` is in effect and the arguments are naturals, i.e., `gcd n m = 1`) satisfying `(x^2 + y^2)^m = (x*y)^n`. The \"find all triples\" framing is properly encoded by asking S to equal the solution set. The quantifier structure, hypotheses, types, and conclusion all align with the informal statement.",
+  "duration_ms": 64816,
+  "cost_usd": 0.1959375
+}

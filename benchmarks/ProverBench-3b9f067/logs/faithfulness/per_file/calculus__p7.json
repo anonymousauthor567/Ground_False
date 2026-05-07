@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p7.lean",
+  "stem": "calculus__p7",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is a multiple choice question asking which of F, G, H, K are antiderivatives of φ(x) = -4 sin(x) cos(x). Computing derivatives: F'(x) = -4sin(x)cos(x) = φ(x), G'(x) = 2·2cos(x)·(-sin(x)) = -4sin(x)cos(x) = φ(x), H'(x) = 4sin(x)cos(x) ≠ φ(x), K'(x) = -2sin(2x) = -4sin(x)cos(x) = φ(x). So F, G, K are all antiderivatives — the correct informal answer is (C). However, the Lean theorem asserts `deriv G x ≠ φ x`, claiming G is NOT an antiderivative (corresponding to answer (B) F and K only). This directly contradicts the informal claim that G is an antiderivative. The two claims are logically incomparable: the informal asserts G' = φ while the Lean asserts G' ≠ φ, so neither implies the other. (The Lean statement is in fact false.)",
+  "duration_ms": 134527,
+  "cost_usd": 0.332466
+}

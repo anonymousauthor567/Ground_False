@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the triangle inequality for finite sums of complex numbers. The informal sequence $z_1, \\ldots, z_n$ is encoded as a function `f : ℕ → ℂ` summed over `range n`, which is the standard Mathlib idiom for finite sequences of complex numbers. The norm `‖·‖` on `ℂ` is defined in Mathlib as `√(normSq z)`, which is exactly the complex modulus `|·|` used informally. The universal quantification over `f : ℕ → ℂ` is equivalent to quantifying over all n-tuples of complex numbers since only the values `f 0, ..., f (n-1)` appear in both sides. Edge cases like `n = 0` yield the trivially true `0 ≤ 0`, which does not make the statement stronger or weaker. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 43892,
+  "cost_usd": 0.1808285
+}

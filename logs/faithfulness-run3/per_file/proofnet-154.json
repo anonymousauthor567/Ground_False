@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. The condition $k \\geq 2$ is encoded as `n > 1` (equivalent to n ≥ 2 in ℕ). The space $R^k$ is correctly represented as `EuclideanSpace ℝ (Fin n)`, which is the standard Mathlib formalization of ℝ^n with the Euclidean inner product. The conclusion `∃ y, y ≠ 0 ∧ ⟪x, y⟫_ℝ = 0` directly asserts the existence of a nonzero vector y orthogonal to x with respect to the dot product (the real inner product on EuclideanSpace coincides with the standard dot product). No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 26497,
+  "cost_usd": 0.04353475
+}

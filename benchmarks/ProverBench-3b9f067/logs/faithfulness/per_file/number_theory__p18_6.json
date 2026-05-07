@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_6.lean",
+  "stem": "number_theory__p18_6",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims the specific value: \"the greatest negative element in B is −4\". The Lean theorem signature only asserts the existence of some greatest negative element (∃ b, b < 0 ∧ b ∈ B ∧ ∀ b' < 0, b' ∈ B → b' ≤ b), without requiring that this b equals −4. A proof of the Lean statement does not establish the numerical claim −4. While the file contains auxiliary axioms like `neg_four_in_B` and `neg_elements_bound` that could together identify the witness, the theorem's conclusion itself omits the value −4 and is therefore strictly weaker than the informal claim.",
+  "duration_ms": 39980,
+  "cost_usd": 0.10249250000000001
+}

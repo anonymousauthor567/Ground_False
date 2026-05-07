@@ -1,0 +1,8 @@
+{
+  "file": "65.lean",
+  "stem": "65",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `∃!` (ExistsUnique, defined in Mathlib as `∃ x, p x ∧ ∀ y, p y → y = x`) to assert there is exactly one h with g*h = 1 ∧ h*g = 1, which is the standard two-sided definition of \"inverse\" in group theory. The \"in a group\" context is captured by `{G : Type*} [Group G]`, and \"every element\" is captured by the implicit variable `{g : G}` which is universally quantified. Using the two-sided condition (both g*h = 1 and h*g = 1) matches the standard definition of an inverse in group theory. Thus the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 65569,
+  "cost_usd": 0.19692725
+}

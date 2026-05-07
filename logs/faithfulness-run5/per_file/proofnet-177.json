@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim: holomorphicity is encoded as `DifferentiableOn ℂ f Ω`, \"|f| is constant\" as `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c`, and \"f is constant\" via the universally-bound pair `a b : Ω` with conclusion `f a = f b`, which is the standard way to say f is constant on Ω. The `IsPreconnected Ω` hypothesis is not in the literal informal text, but the statement is false without it (e.g., Ω = two disjoint disks with f = 1 on one and f = -1 on the other makes |f| constant but f non-constant). This is an implicit premise needed for the claim to be true (and matches the usual convention that such results are stated on a \"region\" = open connected set), so per the rubric's guidance, surfacing it explicitly is a faithful reading rather than a weakening. All types and quantifier structure match.",
+  "duration_ms": 120890,
+  "cost_usd": 0.37672125000000006
+}

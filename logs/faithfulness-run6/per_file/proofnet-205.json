@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all parts of the informal claim: V is a real vector space (AddCommGroup + Module ℝ V), T is a linear operator on V (End ℝ V), \"T has no eigenvalues\" is encoded as `∀ c : ℝ, eigenspace T c = ⊥` (equivalent to ¬HasEigenvalue since Mathlib has `HasEigenvalue μ ↔ eigenspace μ ≠ ⊥`), T-invariant subspace is expressed as `Submodule.map T U ≤ U` (i.e., T(U) ⊆ U), and \"even dimension\" is `Even (finrank ℝ U)`. The only addition is `[FiniteDimensional ℝ V]`, which is a natural implicit premise: the informal claim about \"even dimension\" is only mathematically substantive when the ambient space is finite-dimensional, and this is the standard reading of such dimension-based claims. Making this implicit premise explicit is faithful per the rubric.",
+  "duration_ms": 382674,
+  "cost_usd": 1.1507809999999998
+}

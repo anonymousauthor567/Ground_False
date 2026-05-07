@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"no group of order 224 is simple.\" The Lean theorem universally quantifies over a `Group G` with `Fintype G` and `card G = 224` (using `Fintype.card` via `open Fintype`), and concludes `IsSimpleGroup G → false`. In Lean 4, `false` in a Prop context is coerced to `False`, so the conclusion `IsSimpleGroup G → false` is logically equivalent to `¬ IsSimpleGroup G`. The `Fintype G` assumption is natural and required to speak of \"order 224\" as a finite cardinality. `IsSimpleGroup` in Mathlib (defined as `Nontrivial G` + every normal subgroup is ⊥ or ⊤) matches the standard notion of a simple group. So the Lean statement asserts exactly: \"every finite group of cardinality 224 is not simple,\" which is the informal claim.",
+  "duration_ms": 185933,
+  "cost_usd": 0.74215175
+}

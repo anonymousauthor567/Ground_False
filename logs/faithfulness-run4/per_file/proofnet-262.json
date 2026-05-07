@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"a group of order 9 must be abelian\". The hypothesis `[Group G] [Fintype G]` together with `card G = 9` (where `card` is `Fintype.card` from `open Fintype`) is the standard way to express \"a group of order 9\" in Mathlib. The conclusion `∀ a b : G, a * b = b * a` is precisely the definition of an abelian group (commutativity of the group operation). The universal quantification over all such groups G is properly captured by the `Type*` parameter and typeclass arguments. No hypotheses are silently added or removed, and the types match exactly.",
+  "duration_ms": 28853,
+  "cost_usd": 0.08257375
+}

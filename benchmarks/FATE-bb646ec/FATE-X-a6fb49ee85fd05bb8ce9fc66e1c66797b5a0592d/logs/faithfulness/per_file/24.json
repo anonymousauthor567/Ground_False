@@ -1,0 +1,8 @@
+{
+  "file": "24.lean",
+  "stem": "24",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"r distinct prime numbers\" is encoded via `[Finite I]`, `p : I → ℕ`, `hp : ∀ i, (p i).Prime`, and `h_inj : p.Injective` — any finite indexing type is equivalent to Fin r. The field ℚ(√p_1,...,√p_r) is encoded as `Algebra.adjoin ℚ (Set.range (fun i ↦ Real.sqrt (p i)))`; since √p_i is algebraic over ℚ, this subalgebra of ℝ is a field and coincides with the intermediate field adjoin. The Galois group Gal(K/ℚ) is represented as the ℚ-algebra automorphism group `RatAdjoinSqrt p ≃ₐ[ℚ] RatAdjoinSqrt p`. The group (ℤ/2ℤ)^r is encoded as `Multiplicative (I → ZMod 2)`, which is the multiplicative group of the direct product of |I| copies of ℤ/2ℤ. The assertion of a group isomorphism `≃*` wrapped in `Nonempty` correctly captures \"is isomorphic to\". No hypotheses are silently added or dropped.",
+  "duration_ms": 826023,
+  "cost_usd": 1.5031515000000002
+}

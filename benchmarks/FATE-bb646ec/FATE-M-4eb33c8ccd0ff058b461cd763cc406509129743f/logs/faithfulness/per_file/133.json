@@ -1,0 +1,8 @@
+{
+  "file": "133.lean",
+  "stem": "133",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ IsField (ℚ[X] ⧸ Ideal.span {(X^2 - 5*X + 6 : ℚ[X])})` directly mirrors the informal claim that $\\mathbb{Q}[x]/\\langle x^2 - 5x + 6\\rangle$ is not a field. `ℚ[X]` is the polynomial ring, `Ideal.span {p}` is precisely the principal ideal $\\langle p \\rangle$, `⧸` is quotient, and `IsField` is Mathlib's standard predicate (a structure asserting nontriviality, commutativity, and existence of multiplicative inverses for nonzeros). There are no added or dropped hypotheses and no change of objects or quantifier structure. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 42794,
+  "cost_usd": 0.11513625000000001
+}

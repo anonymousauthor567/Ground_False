@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b5.lean",
+  "stem": "putnam_2009_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization is logically equivalent to the informal statement. The informal function f: (1,∞) → ℝ is encoded as f : ℝ → ℝ with DifferentiableOn ℝ f (Ioi 1); since the hypotheses only constrain f on (1,∞) and the conclusion only concerns behavior as x → ∞, values outside (1,∞) are irrelevant, making this encoding equivalent. The use of `deriv f x` (rather than `derivWithin`) is correct because Ioi 1 is open, so for x > 1, deriv f x equals the correct derivative (via derivWithin_of_isOpen). The ODE is precisely transcribed, and `Tendsto f atTop atTop` in ℝ captures exactly the claim that lim_{x→∞} f(x) = ∞. No hypotheses are added or dropped.",
+  "duration_ms": 132806,
+  "cost_usd": 0.43285724999999997
+}

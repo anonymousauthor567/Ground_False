@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_b3.lean",
+  "stem": "putnam_2000_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The function f is correctly defined as the trig polynomial, with a_N ≠ 0. The `mult` function is characterized via hmult as the smallest order at which an iterated derivative is nonzero, which equals the multiplicity of the zero (and 0 when not a zero). Since iterated derivatives of a nonzero trig polynomial are themselves nonzero trig polynomials (with leading coefficient a_N(2πN)^k ≠ 0), the hypothesis condition is always satisfied. Summing via tsum over [0,1) correctly counts zeros with multiplicity on one period (support is finite for trig polynomials). The periodicity makes counting over a fundamental period [0,1) the natural choice consistent with the answer 2N — making this an implicit premise surfaced explicitly. The monotonicity `∀ i j, i ≤ j → M i ≤ M j` is equivalent to the chain N_0 ≤ N_1 ≤ ..., and since ℕ has discrete topology, Tendsto M atTop (𝓝 (2*N)) means M is eventually constant at 2N, matching the limit claim.",
+  "duration_ms": 639510,
+  "cost_usd": 1.697372
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "informal": "Show that if $\\operatorname{dim} V \\geq 2$, then the set of normal operators on $V$ is not a subspace of $\\mathcal{L}(V)$.",
+  "lean": "\ntheorem Axler_exercise_7_5 {V : Type*} [NormedAddCommGroup V] [RCLike F] [InnerProductSpace F V]\n  [FiniteDimensional F V] (hV : finrank F V ≥ 2) :\n  ∀ U : Submodule F (End F V), U.carrier ≠\n  {T | T * adjoint T = adjoint T * T}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that when dim V ≥ 2, the set of normal operators on V is not a subspace of L(V). The Lean version states that for every submodule U of End F V, the carrier of U is not equal to {T | T*adjoint T = adjoint T*T}, which is precisely the set of normal operators. Saying \"no submodule has this set as its underlying set\" is logically equivalent to \"this set is not a subspace.\" The ambient setting (finite-dimensional inner product space over RCLike F, i.e., ℝ or ℂ) matches Axler's standard setup, and the hypothesis finrank F V ≥ 2 matches dim V ≥ 2. No hypotheses are silently added or dropped, and the conclusion is a direct rendering.",
+  "duration_ms": 11444,
+  "cost_usd": 0.056007249999999995
+}

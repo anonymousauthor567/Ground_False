@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: G is an arbitrary group, the hypothesis `∀ (H : Subgroup G), H.Normal` captures \"all subgroups of G are normal in G\" using Mathlib's standard `Subgroup.Normal` structure (defined in Algebra/Group/Subgroup/Defs.lean), a and b are arbitrary elements of G, and the conclusion `∃ (j : ℤ), b*a = a^j * b` matches \"ba = a^j b for some j.\" In Herstein's context, j is naturally an integer — since ⟨a⟩ is normal, bab⁻¹ ∈ ⟨a⟩ = {a^k : k ∈ ℤ}, so j ∈ ℤ is the correct type. The quantifier structure (∀ a, b. ∃ j) and the ambient objects all align with the informal claim.",
+  "duration_ms": 156474,
+  "cost_usd": 0.30435625000000005
+}

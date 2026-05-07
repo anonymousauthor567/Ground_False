@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a5.lean",
+  "stem": "putnam_1988_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"there exists a unique function f: R^+ → R^+ with f(f(x)) = 6x - f(x) and f(x) > 0 for all x > 0.\" The use of f : ℝ → ℝ with the condition `f x > 0 for x > 0` is equivalent to f: R^+ → R^+ (the behavior outside R^+ is unconstrained in both the existence and uniqueness parts, so restriction/extension gives a bijection between satisfying f's on R^+ and equivalence classes of satisfying f's on R mod equality on positives). The uniqueness clause quantifies over all such g and asserts agreement only on positive reals, which exactly matches \"unique function on R^+\". The functional equation and positivity conditions are correctly translated. No hypotheses are added or dropped.",
+  "duration_ms": 88366,
+  "cost_usd": 0.26739399999999997
+}

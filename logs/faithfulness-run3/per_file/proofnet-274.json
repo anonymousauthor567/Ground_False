@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $f(x) = x^3 + 3x + 2$ is irreducible in $\\mathbb{Q}[x]$. The Lean statement `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)` directly expresses this: the polynomial literal matches (X³ + 3X + 2 over Polynomial ℚ), and `Irreducible` in Mathlib is the standard notion (not a unit and any factorization has a unit factor), which over a field like ℚ coincides with the classical notion of irreducibility of a polynomial in ℚ[x]. No hypotheses are added or dropped, and the types match exactly.",
+  "duration_ms": 7638,
+  "cost_usd": 0.03680325
+}

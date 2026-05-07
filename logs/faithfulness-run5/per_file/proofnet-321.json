@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each component of the informal statement exactly: M is a MetricSpace, A and B are subsets with IsCompact A, IsCompact B (compactness), Disjoint A B (disjointness), and A ≠ ∅, B ≠ ∅ (nonemptiness — equivalent to A.Nonempty for sets). The conclusion ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ a b, a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b matches the informal \"there are a₀ ∈ A and b₀ ∈ B such that for all a ∈ A, b ∈ B, d(a₀, b₀) ≤ d(a, b)\" precisely. Types of a₀, b₀ are inferred as M from context. The quantifier structure and logical content are identical, so this is a strictly faithful formalization.",
+  "duration_ms": 37306,
+  "cost_usd": 0.13824825
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "informal": "Suppose $V$ is a complex inner-product space and $T \\in \\mathcal{L}(V)$ is a normal operator such that $T^{9}=T^{8}$. Prove that $T$ is self-adjoint and $T^{2}=T$.",
+  "lean": "theorem Axler_exercise_7_10 {V : Type*} [NormedAddCommGroup V] [InnerProductSpace ℂ V]\n  [FiniteDimensional ℂ V] (T : End ℂ V)\n  (hT : T * adjoint T = adjoint T * T) (hT1 : T^9 = T^8) :\n  IsSelfAdjoint T ∧ T^2 = T",
+  "verdict": "faithful",
+  "reasoning": "This is exercise 7.10 from Axler's \"Linear Algebra Done Right,\" where the standing assumption throughout the inner-product-space chapters is that V is finite-dimensional, so the `FiniteDimensional ℂ V` hypothesis matches the textbook context. The hypothesis `hT : T * adjoint T = adjoint T * T` is exactly the definition of a normal operator. The conclusion `IsSelfAdjoint T ∧ T^2 = T` matches \"T is self-adjoint and T² = T\". The use of `End ℂ V` (i.e., `V →ₗ[ℂ] V`) corresponds to T ∈ L(V). Powers via the monoid structure on `End` agree with iterated composition, so `T^9 = T^8` matches the informal hypothesis. No quantifier or type drift; the formalization is logically equivalent to the informal claim under the standard Axler reading.",
+  "duration_ms": 18791,
+  "cost_usd": 0.07556075000000001
+}

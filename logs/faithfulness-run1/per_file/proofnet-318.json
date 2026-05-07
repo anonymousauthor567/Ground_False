@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "theorem_name": "Munkres_exercise_43_2_corrected",
+  "informal": "Let $(X, d_X)$ and $(Y, d_Y)$ be metric spaces; let $Y$ be complete. Let $A \\subset X$. Show that if $f \\colon A \\rightarrow Y$ is uniformly continuous, then $f$ can be uniquely extended to a continuous function $g \\colon \\bar{A} \\rightarrow Y$, and $g$ is uniformly continuous.",
+  "lean": "\ntheorem Munkres_exercise_43_2_corrected {X : Type*} [MetricSpace X]\n    {Y : Type*} [MetricSpace Y] [CompleteSpace Y] (A : Set X)\n    (f : X → Y) (hf : UniformContinuousOn f A) :\n    ∃! (g : closure A → Y),\n      Continuous g ∧ UniformContinuous g ∧\n        ∀ x : A, g ⟨x, subset_closure x.property⟩ = f x",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the same mathematical content. (1) Modeling f as `X → Y` with `UniformContinuousOn f A` rather than `A → Y` is the standard Mathlib idiom and is logically equivalent: any uniformly continuous map on A extends arbitrarily to X (when Y is nonempty; otherwise both sides are vacuous). (2) The conclusion `∃! g : closure A → Y, Continuous g ∧ UniformContinuous g ∧ (g agrees with f on A)` matches \"uniquely extended to a continuous function which is uniformly continuous\": since A is dense in closure(A) and Y is Hausdorff, uniqueness of a continuous agreeing extension is automatic, so packaging UniformContinuous inside the ∃! predicate is equivalent to the informal \"unique continuous extension, which happens to be uniformly continuous.\" (3) `Continuous g` is redundant given `UniformContinuous g` but does not change meaning. (4) Completeness of Y is correctly assumed; the domain `closure A` and the agreement condition on the subtype A are the right encodings. No hypotheses are silently added or dropped.",
+  "duration_ms": 31515,
+  "cost_usd": 0.10327925
+}

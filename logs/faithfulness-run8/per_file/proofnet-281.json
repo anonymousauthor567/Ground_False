@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes divergence of the sum over squarefree integers as non-Summability of (1/p) : ℚ over the subtype {p : ℤ // Squarefree p}. Although this subtype includes negative squarefree integers (Squarefree in ℤ includes ±n for positive squarefree n, excluding 0), the resulting statement is logically equivalent to the informal claim. Specifically: Summable over ℚ means unconditional summability, which in ℝ equals absolute summability. The absolute sum equals 2·(sum over positive squarefree 1/n), so absolute summability holds iff the positive-squarefree sum converges. If absolute summability holds, the paired terms 1/n + 1/(-n) = 0 give unconditional sum 0 ∈ ℚ, so the family is Summable in ℚ. Thus ¬Summable holds iff the positive squarefree sum diverges, matching the informal statement exactly.",
+  "duration_ms": 643815,
+  "cost_usd": 1.9411277500000004
+}

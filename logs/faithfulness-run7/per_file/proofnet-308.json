@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures both sides of the iff. `countably_compact X` encodes \"every countable open cover (U : ℕ → Set X with all U i open and covering X) has a finite subcover (a Finset t with ⋃ i ∈ t, U i covering X)\", exactly matching the given informal definition. `limit_point_compact_strong X` says every infinite subset U has some x with `ClusterPt x (𝓟 (U \\ {x}))`, which unfolds to `𝓝 x ⊓ 𝓟 (U \\ {x}) ≠ ⊥`, i.e., every neighborhood of x meets U \\ {x} — the standard definition of x being a limit point of U. The coercion `Infinite U` for `U : Set X` means the subtype is infinite, i.e., U is infinite as a set. The theorem asserts the iff under the T1 hypothesis, matching the informal claim exactly. No hypotheses are added or dropped, and the quantifier structure (∀ infinite subsets, ∃ limit point) is preserved.",
+  "duration_ms": 206317,
+  "cost_usd": 0.689879
+}

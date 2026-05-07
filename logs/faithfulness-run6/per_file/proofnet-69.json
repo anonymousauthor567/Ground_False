@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `p.Prime ∧ p > 2` correctly encodes \"odd prime\" since 2 is the only even prime. For f = (X+2)^p, by the binomial theorem coeff n = C(p,n)·2^(p-n), which is nonzero for 0 ≤ n ≤ p, so f.support \\ {0} = {1, ..., p}. The Lean sum ∑ₙ f.coeff n · X^(n-1) thus equals ∑_{n=1}^p C(p,n)·2^(p-n)·X^(n-1), which equals ((X+2)^p - 2^p)/X in ℤ[X] since (X+2)^p - 2^p = X · ∑_{n=1}^p C(p,n)·2^(p-n)·X^(n-1). The ambient ring Polynomial ℤ matches ℤ[x], and Irreducible is Mathlib's standard irreducibility predicate. The `hf` binding pattern is logically equivalent to directly substituting the polynomial. The formalization is faithful.",
+  "duration_ms": 163372,
+  "cost_usd": 0.54431075
+}

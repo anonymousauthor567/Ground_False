@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a1.lean",
+  "stem": "putnam_1967_a1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove $|a_1| + |2a_2| + \\dots + |na_n| \\leq 1$, i.e., the sum of absolute values $\\sum_i |i \\cdot a_i| \\leq 1$. The Lean statement instead asserts `abs (∑ i, i * a i) ≤ 1`, i.e., the absolute value of the sum $|\\sum_i i \\cdot a_i| \\leq 1$. By the triangle inequality, the informal claim implies the Lean claim but not conversely (e.g., $a_1=1, a_2=-1$ gives $\\sum|i a_i|=3$ but $|\\sum i a_i|=1$). The Lean version is actually a much easier statement — equivalent to $|f'(0)| \\leq 1$ — whereas the original Putnam problem's substance lies in bounding the sum of the absolute values. Hence the Lean formalization is strictly logically weaker.",
+  "duration_ms": 29086,
+  "cost_usd": 0.11480574999999998
+}

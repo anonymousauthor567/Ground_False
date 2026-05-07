@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_7.lean",
+  "stem": "functional_analysis__p1_7",
+  "verdict": "weaker",
+  "reasoning": "The Lean formalization fails to capture the informal statement in multiple ways. (1) Part (b) — deriving f(u,v) = (u²+v²)e^{-(u+v)} from the PDE and initial condition — is not proved but rather baked into the definition of `f`. (2) Parts (a) and (c) are stated as `axiom` declarations (`partial_g_x`, `f_global_minimum`, `critical_points`, `g_expression`), so they are assumed rather than proven. (3) The only actual proof obligation (marked `sorry`) is `f_unique_minimum : f u v = 0 ↔ u = 0 ∧ v = 0`, which is just a small sub-claim (f vanishes only at the origin), not the full content of parts (a), (b), or (c). The single theorem to be proved is logically implied by the informal conclusions but is strictly weaker than the three-part claim being asked for.",
+  "duration_ms": 98340,
+  "cost_usd": 0.21850225000000004
+}

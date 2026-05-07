@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "informal": "Assume that $f$ is a continuous real function defined in $(a, b)$ such that $f\\left(\\frac{x+y}{2}\\right) \\leq \\frac{f(x)+f(y)}{2}$ for all $x, y \\in(a, b)$. Prove that $f$ is convex.",
+  "lean": "\ntheorem Rudin_exercise_4_24 {f : ℝ → ℝ}\n  (hf : Continuous f) (a b : ℝ) (_hab : a < b)\n  (h : ∀ x y : ℝ, a < x → x < b → a < y → y < b → f ((x + y) / 2) ≤ (f x + f y) / 2) :\n  ConvexOn ℝ (Set.Ioo a b) f",
+  "verdict": "weaker",
+  "reasoning": "The informal statement only requires f to be continuous on the open interval (a,b). The Lean signature instead assumes `Continuous f` (continuity on all of ℝ), which is a strictly stronger hypothesis. Thus the Lean theorem applies only to a proper subclass of the functions covered by the informal statement: it does not, for instance, address an f defined only on (a,b) (or extended arbitrarily off it) that is continuous on (a,b) but not on ℝ. The conclusion `ConvexOn ℝ (Set.Ioo a b) f` and the midpoint hypothesis correctly correspond to the informal versions, so the only mismatch is the strengthened continuity assumption, which makes the formalized claim logically weaker than the informal one.",
+  "duration_ms": 13665,
+  "cost_usd": 0.06771350000000001
+}

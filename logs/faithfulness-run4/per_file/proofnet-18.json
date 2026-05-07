@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. `p.rootSet ℂ` is defined as `(p.aroots ℂ).toFinset`, so its cardinality counts distinct roots; `@card (p.rootSet ℂ) (rootSetFintype p ℂ) = m` faithfully encodes \"p has m distinct roots\". `Disjoint (p.rootSet ℂ) ((Polynomial.derivative p).rootSet ℂ)` correctly expresses that p and p' share no common roots. The hypothesis `hm : m = p.degree` (with `m : ℕ` coerced to `WithBot ℕ`) captures \"p has degree m\" and already implies `p ≠ 0`, making `hp` redundant but not weakening or strengthening the statement. The iff matches the informal biconditional.",
+  "duration_ms": 259960,
+  "cost_usd": 0.626367
+}

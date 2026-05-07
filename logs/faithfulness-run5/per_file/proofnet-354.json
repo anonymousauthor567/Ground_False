@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: X is a metric space, K and F are subsets with K compact (`IsCompact K`), F closed (`IsClosed F`), and disjoint (`Disjoint K F`). The conclusion `∃ δ > 0, ∀ p q, p ∈ K → q ∈ F → dist p q > δ` is precisely the claim that there is a positive δ with d(p,q) > δ for all p ∈ K, q ∈ F. Types, hypotheses, and quantifier structure all line up correctly with Rudin's statement. No hypotheses are added or dropped.",
+  "duration_ms": 14358,
+  "cost_usd": 0.04729325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b2.lean",
+  "stem": "putnam_1992_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly defines Q(n,k) as the coefficient of X^k in (1+X+X²+X³)^n via `coeff ((1 + X + X^2 + X^3)^n) k`. The sum range `Finset.Iic k` for k : ℕ gives exactly {0, 1, ..., k}, matching the informal $\\sum_{j=0}^k$. For the inner term, `choose n j` corresponds to $\\binom{n}{j}$ (Mathlib's `Nat.choose` returns 0 when j > n, matching the stated convention). The guard `if 2 * j ≤ k then choose n (k - 2 * j) else 0` correctly handles the convention that $\\binom{n}{k-2j} = 0$ when $k - 2j < 0$; this is essential because natural-number subtraction would otherwise truncate k - 2j to 0 and give the wrong value choose n 0 = 1. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 162126,
+  "cost_usd": 0.45845175
+}

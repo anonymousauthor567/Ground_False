@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the Dirichlet integral $\\int_0^\\infty \\frac{\\sin x}{x}\\,dx = \\pi/2$, which is a classical improper Riemann integral (it does not converge as a Lebesgue integral because $|\\sin x|/x$ is not integrable on $(0,\\infty)$). The Lean statement encodes exactly this improper integral as the limit `Tendsto (fun y => ∫ x in (0:ℝ)..y, Real.sin x / x) atTop (𝓝 (π/2))`, i.e., $\\lim_{y\\to\\infty}\\int_0^y \\frac{\\sin x}{x}\\,dx = \\pi/2$. This is the standard and correct formal interpretation of $\\int_0^\\infty$ for a non-absolutely-convergent integrand. The integrand, bounds, limit target, and quantifier structure all match exactly. No hypotheses are needed (the identity is unconditional).",
+  "duration_ms": 44501,
+  "cost_usd": 0.13611675
+}

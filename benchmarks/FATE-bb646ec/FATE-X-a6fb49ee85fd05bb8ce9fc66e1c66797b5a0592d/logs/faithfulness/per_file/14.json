@@ -1,0 +1,8 @@
+{
+  "file": "14.lean",
+  "stem": "14",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. R being a UFD is captured by `CommRing R`, `IsDomain R`, and `UniqueFactorizationMonoid R`, which is the standard Mathlib encoding. `FractionRing R` is the field of fractions of the integral domain R (i.e., the \"quotient field\"). \"Isomorphic to ℝ\" is naturally expressed as `Nonempty (_ ≃+* ℝ)`, which is the standard way to express \"there exists a ring isomorphism\"; for fields, ring-isomorphism coincides with field-isomorphism. The hypothesis `Nonempty ((FractionRing R) ≃+* ℝ)` and conclusion `Nonempty (R ≃+* ℝ)` match the informal hypothesis and conclusion respectively. No hidden hypotheses added or dropped.",
+  "duration_ms": 148404,
+  "cost_usd": 0.33051525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b3.lean",
+  "stem": "putnam_2005_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal Putnam 2005 B3 problem. The domain/codomain $f:(0,\\infty)\\to(0,\\infty)$ with differentiability is encoded via `hf : ∀ x > 0, 0 < f x` and `hf' : DifferentiableOn ℝ f (Ioi 0)`, which is the standard encoding for a function on an open subset of ℝ. The condition `∃ a > 0, ∀ x > 0, deriv f (a / x) = x / f x` correctly matches \"there is a positive real $a$ such that $f'(a/x) = x/f(x)$ for all $x > 0$\"; since Ioi 0 is open and $a/x > 0$, `deriv f` agrees with the derivative-within-Ioi-0. The solution set correctly describes $f(x) = cx^d$ on $(0,\\infty)$ for $c, d > 0$ with the constraint that if $d=1$ then $c=1$ — this matches the computation $c^2 d \\cdot a^{d-1} = 1$, which forces $c=1$ when $d=1$. Here `x ^ d` with real exponent denotes `Real.rpow`, which agrees with $x^d$ for $x > 0$. The iff structure correctly formalizes the \"find all\" characterization.",
+  "duration_ms": 217156,
+  "cost_usd": 0.6797135
+}

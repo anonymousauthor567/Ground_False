@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p2_3.lean",
+  "stem": "complex_analysis__p2_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $(1+i)^{10} = 32i$ with $i$ the imaginary unit satisfying $i^2 = -1$. The Lean signature `(1 + I)^10 = 32 * I` uses `Complex.I`, which is defined in Mathlib as `⟨0, 1⟩ : ℂ` — precisely the imaginary unit with `I^2 = -1`. Both sides of the equality are in `ℂ`, and `32` is the standard numeric literal. This is a direct, logically equivalent formalization. The two `axiom` declarations are auxiliary lemmas intended for use in the proof and do not alter the content of the theorem statement itself.",
+  "duration_ms": 42972,
+  "cost_usd": 0.10588299999999999
+}

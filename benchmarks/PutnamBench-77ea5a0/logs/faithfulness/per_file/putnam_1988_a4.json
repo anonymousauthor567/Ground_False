@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a4.lean",
+  "stem": "putnam_1988_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement models the plane as `EuclideanSpace ℝ (Fin 2)`, a coloring as a function into `Fin n`, and \"necessarily exist two points of the same color one inch apart\" as `∀ color, ∃ p q, color p = color q ∧ dist p q = 1`. The universal quantifier correctly captures \"necessarily\" (for any coloring), and while `∃ p q` does not explicitly require `p ≠ q`, this is automatic because `dist p q = 1` forces distinctness. The answer pair `(True, False)` encodes the known result: every 3-coloring of the plane contains a monochromatic pair at unit distance (e.g., via the Moser spindle), while a suitable 9-coloring exists avoiding this (since the chromatic number of the plane is at most 7). Both parts (a) and (b) are captured by `(p 3 ↔ a) ∧ (p 9 ↔ b)`, matching the informal question's structure faithfully.",
+  "duration_ms": 102146,
+  "cost_usd": 0.31746575
+}

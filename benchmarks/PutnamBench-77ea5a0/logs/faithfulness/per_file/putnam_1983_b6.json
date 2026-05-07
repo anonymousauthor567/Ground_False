@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_b6.lean",
+  "stem": "putnam_1983_b6",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement says α is a (2n+1)-th root of unity, i.e., α^(2n+1) = 1 (linear in n). The Lean hypothesis `α ^ (2 ^ n + 1) - 1 = 0` parses as α^(2^n + 1) = 1 (exponential in n), because `^` binds tighter than `+`. For n = 1 and n = 2 the two exponents coincide (3 and 5), but for n ≥ 3 they diverge: the informal requires α^7 = 1 while Lean requires α^9 = 1, etc. Since 2n+1 and 2^n+1 do not divide each other in general, the two hypotheses restrict α to different (incomparable) sets of roots of unity, so neither the informal nor the Lean claim logically implies the other. This is not merely a stricter or looser hypothesis — it is a different mathematical statement entirely.",
+  "duration_ms": 317369,
+  "cost_usd": 0.9916135000000003
+}

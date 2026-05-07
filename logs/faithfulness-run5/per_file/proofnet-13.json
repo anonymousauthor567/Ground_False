@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes $x^n - p \\in \\mathbb{Q}[x]$ as `X ^ n - (p : Polynomial ℚ)` and asserts `Irreducible`, which correctly captures \"irreducible in $\\mathbb{Q}[x]$\". Using `p : ℕ` with `Prime p` matches the standard reading of \"prime integer\" as a positive prime. The hypothesis `n > 0` appears only because it is needed for truth: when $n=0$, $x^0 - p = 1 - p$ is a nonzero constant which is a unit in $\\mathbb{Q}[x]$ and hence not irreducible. Without `n > 0` the claim literally fails, so the Lean formalization is surfacing an implicit premise (that $n$ is a positive exponent — the natural reading of \"the polynomial $x^n - p$\") rather than narrowing the scope. This is precisely the kind of implicit-premise surfacing that the guidelines count as faithful.",
+  "duration_ms": 102122,
+  "cost_usd": 0.2999245
+}

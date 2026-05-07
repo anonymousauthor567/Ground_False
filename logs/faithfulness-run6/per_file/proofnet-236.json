@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-236.lean",
+  "stem": "proofnet-236",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal claim. It asserts that there exists a natural number p and a Sylow p-subgroup P of G such that p is prime, p divides card G (= 351), and P is normal — which is exactly \"G has a normal Sylow p-subgroup for some prime p dividing its order.\" The hypotheses `p.Prime` and `p ∣ card G` correctly restrict p to primes dividing |G| (necessary because `Sylow p G` is defined in Mathlib for arbitrary p, with the trivial subgroup serving as the Sylow p-subgroup when p does not divide |G|). The `Sylow` type from Mathlib denotes a maximal p-subgroup, and `P.Normal` is the standard normality condition on the underlying subgroup. No hypotheses are added or dropped beyond what the informal statement entails, so the formalization is faithful.",
+  "duration_ms": 60102,
+  "cost_usd": 0.19984049999999998
+}

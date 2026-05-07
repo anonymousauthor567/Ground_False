@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says no order turns ℂ into an ordered field. In modern Mathlib, \"ordered field\" on a type K is `[Field K] [LinearOrder K] [IsStrictOrderedRing K]` (see the deprecation note in Mathlib/Algebra/Order/Field/Defs.lean). Since ℂ is already a `Field`, asserting that ℂ cannot be made into an ordered field is equivalent to asserting ¬∃ (LinearOrder ℂ) making `IsStrictOrderedRing ℂ` hold. The `let _ : LinearOrder ℂ := inst` step ensures the provided order is used when elaborating `IsStrictOrderedRing ℂ` (which needs a `PartialOrder`, available from `LinearOrder`). The use of `LinearOrder` rather than `PartialOrder` matches the standard definition of an ordered field (total order). Therefore the Lean signature faithfully captures the informal claim.",
+  "duration_ms": 103570,
+  "cost_usd": 0.27145475
+}

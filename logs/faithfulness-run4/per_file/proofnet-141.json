@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes \"∑ 1/(k (log k)^p) diverges when p ≤ 1\". The summand `1 / (k * (Real.log k) ^ p)` exactly matches the informal formula, the hypothesis `hp : p ≤ 1` matches the stated range, and `¬ Summable f` is the standard Mathlib encoding of series divergence. Boundary issues at k = 0, 1 (where Real.log evaluates to 0, giving 1/0 = 0 or 1) don't affect summability since changing finitely many terms preserves divergence — and for k ≥ 3 the terms dominate 1/(k log k), which diverges by Cauchy condensation. This matches the `Pugh_exercise_3_63b_corrected` version in proofnet_verified_gt/proofnet-141.lean, confirmed as the faithful formulation (the alternative sequence-limit encoding was explicitly flagged as incorrect there).",
+  "duration_ms": 123583,
+  "cost_usd": 0.46708475
+}

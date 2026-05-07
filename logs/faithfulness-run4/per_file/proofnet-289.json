@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"T_∞ does not need to be a topology\" via ∃ X, ¬(topology axioms). The encoding of T_∞ is correct: `Set.Infinite tᶜ` = \"X−U infinite\", `t = ∅` = \"X−U all of X\", `t = Set.univ` = \"X−U empty\". The three conjuncts (univ ∈ T_inf, closure under arbitrary union via `∀ s ⊆ T_inf, ⋃₀ s ∈ T_inf`, and closure under binary intersection) correspond exactly to Mathlib's `TopologicalSpace` axioms (`isOpen_univ`, `isOpen_sUnion`, `isOpen_inter`); the empty set being open follows from sUnion of the empty family. Negating the conjunction means \"at least one axiom fails\", i.e., not a topology. The ∃ X quantifier correctly captures \"does not need to be\", since for finite X the collection actually is a topology, and a counterexample requires an infinite X (e.g., ℕ).",
+  "duration_ms": 128323,
+  "cost_usd": 0.43738525
+}

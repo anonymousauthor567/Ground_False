@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. Each prime condition (hp, hq), the ordering p > q, the divisibility q ∣ p - 1, and the order conditions card G = card H = p*q are all present. The \"nonabelian\" property for each group is correctly expressed as ∃ x y, x * y ≠ y * x, which is the negation of full commutativity. The universal quantification over \"any two nonabelian groups\" is captured by G, H being free type variables with Fintype/Group instances. The conclusion Nonempty (G ≃* H) is the standard Mathlib encoding of \"G and H are isomorphic as groups\". No extra or missing hypotheses; the quantifier structure and mathematical content align precisely.",
+  "duration_ms": 64407,
+  "cost_usd": 0.2077035
+}

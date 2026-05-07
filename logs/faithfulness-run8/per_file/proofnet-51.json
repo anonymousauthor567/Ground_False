@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement unfolds exactly the definition of \"P.subgroupOf H is a Sylow p-subgroup of H\". In Mathlib, Sylow p G is a structure with two fields: isPGroup' (IsPGroup p toSubgroup) and is_maximal' (maximality among p-subgroups). The Lean conclusion is a conjunction of these two properties applied to P.subgroupOf H inside H, which is the standard encoding of \"P ∈ Syl_p(H)\" when P ≤ H. The hypothesis hH : P ≤ H captures \"H contains P\" (the coercion from Sylow to Subgroup makes this well-typed). No extra hypotheses are introduced and the quantifier structure matches the Mathlib Sylow definition exactly.",
+  "duration_ms": 72338,
+  "cost_usd": 0.36019125
+}

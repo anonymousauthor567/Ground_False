@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_b6.lean",
+  "stem": "putnam_1970_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The hypotheses establish a non-degenerate convex quadrilateral (hSquad: 4 distinct, no 3 collinear; horder: sides don't cross interior of convex hull, forcing cyclic vertex order and convexity). The key hypothesis `hcircum` encodes tangentiality: uniqueness of I with collinearity and dist(O,I)=r forces each side-line to be tangent to the circle centered at O with radius r, and O ∈ convexHull with r > 0 puts O strictly inside the quadrilateral — this is equivalent (via Pitot's theorem for convex quadrilaterals) to the existence of an inscribed circle. The area condition uses the 2D Lebesgue measure of the convex hull, which equals the quadrilateral's area. The conclusion `Cospherical S` is equivalent to concyclic (cyclic quadrilateral) in 2D since coplanarity is automatic. All quantifiers and types match the standard reading.",
+  "duration_ms": 1077282,
+  "cost_usd": 3.12268625
+}

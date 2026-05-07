@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The universal quantification over \"any two nonabelian groups of order 21\" is encoded via the type variables `G H : Type*` with `[Group G] [Group H]`. The order condition `card G = 21` (using `Fintype.card` given the `[Fintype G]` instance) matches \"order 21\". The nonabelian condition `∃ a b : G, a * b ≠ b * a` is the correct negation of commutativity. The conclusion `Nonempty (G ≃* H)` is Mathlib's standard way to express \"G and H are isomorphic as groups\" via `MulEquiv`. No hypotheses are added or dropped, and the conclusion matches the informal assertion of isomorphism.",
+  "duration_ms": 40004,
+  "cost_usd": 0.14315424999999998
+}

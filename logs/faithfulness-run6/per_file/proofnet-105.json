@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly encodes the informal statement: `X` is an arbitrary topological space, `A : Set X` is an arbitrary subset, the hypothesis `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A` captures \"for each x ∈ A there is an open set U containing x such that U ⊂ A\", and the conclusion `IsOpen A` matches \"A is open in X\". This is exactly the forward direction of Mathlib's `isOpen_iff_forall_mem_open : IsOpen s ↔ ∀ x ∈ s, ∃ t, t ⊆ s ∧ IsOpen t ∧ x ∈ t` (with the conjuncts reordered, which is semantically identical). No hypothesis is added or dropped, and no quantifier or type is changed.",
+  "duration_ms": 48063,
+  "cost_usd": 0.2164555
+}

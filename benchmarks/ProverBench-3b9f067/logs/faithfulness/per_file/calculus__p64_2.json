@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p64_2.lean",
+  "stem": "calculus__p64_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims the equation cos(2x) - √3 sin(2x) = √2 has exactly four solutions in [0, 2π), namely 0, π/3, π, 4π/3. The Lean file, however, only contains one lemma (`solutions_in_interval`) to prove, and it merely asserts that each of 0, π/3, π, 4π/3 lies in the interval [0, 2π). This is a trivial numerical fact that does not mention the equation at all. The Lean statement does not capture (a) that these values are solutions of the equation, nor (b) that there are exactly four solutions (completeness). The `simplified_equation` is given as an axiom (not a claim to prove), and `solution_set` is just a definition. Thus the Lean lemma is strictly weaker than — and in fact almost entirely disconnected from — the informal claim.",
+  "duration_ms": 102460,
+  "cost_usd": 0.21369624999999998
+}

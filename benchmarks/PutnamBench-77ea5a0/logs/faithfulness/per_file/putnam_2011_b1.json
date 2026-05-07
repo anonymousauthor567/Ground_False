@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b1.lean",
+  "stem": "putnam_2011_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"Positive integers h, k\" is encoded as h, k : ℤ with h > 0 ∧ k > 0, which is equivalent to taking positive naturals. The quantifier \"∀ ε > 0\" implicitly has ε : ℝ (by unification with the absolute value of the real expression |h * Real.sqrt m - k * Real.sqrt n|), matching the informal real ε. The existence of positive integers m, n is encoded as m n : ℤ with m > 0 ∧ n > 0. The inequalities ε < |h√m - k√n| < 2ε are expressed correctly via automatic coercions of h, k, m, n to ℝ inside the absolute value expression. No hypotheses are added or dropped, and the logical structure matches exactly.",
+  "duration_ms": 106194,
+  "cost_usd": 0.29228075
+}

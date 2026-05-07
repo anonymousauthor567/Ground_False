@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "informal": "Prove that the convergence of $\\Sigma a_{n}$ implies the convergence of $\\sum \\frac{\\sqrt{a_{n}}}{n}$ if $a_n\\geq 0$.",
+  "lean": "\ntheorem Rudin_exercise_3_7\n  (a : ℕ → ℝ)\n  (hnneg : ∀ n, a n ≥ 0)\n  (h : ∃ y, (Tendsto (λ n => (∑ i ∈ (range n), a i)) atTop (𝓝 y))) :\n  ∃ y, Tendsto (λ n => (∑ i ∈ (range n), sqrt (a i) / (i + 1))) atTop (𝓝 y)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the standard reading of Rudin's exercise: a nonnegative sequence whose series converges, with conclusion that the related series converges. The use of `i + 1` in the denominator is the conventional Lean device to avoid division by zero when indexing from 0; it corresponds to summing over n ≥ 1 in the informal version. The hypothesis `∀ n, a n ≥ 0` matches `a_n ≥ 0`, and the existence of a limit of partial sums is the standard formalization of \"Σ a_n converges\". The conclusion likewise asserts existence of a limit of partial sums of √(a_i)/(i+1), which (under reindexing m = i+1) is the convergence of Σ √(a_n)/n for a nonnegative sequence — the same mathematical content as the informal claim.",
+  "duration_ms": 37759,
+  "cost_usd": 0.13562025
+}

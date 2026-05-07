@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch4_59.lean",
+  "stem": "brualdi_ch4_59",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis n ≥ 2 matches the informal \"Let n ≥ 2\". The custom `invNum σ` correctly counts inversions: `finPairsLT n` contains pairs (a,b) with b < a, and we count those where σ(a) ≤ σ(b), which (since σ is a bijection) is σ(a) < σ(b), i.e., pairs (i=b, j=a) with i < j and σ(i) > σ(j) — the standard inversion count. The summation `∑ σ : Equiv.Perm (Fin n), invNum σ` totals inversions over all n! permutations. The right-hand side `n! * n * (n-1) / 4` equals (1/2)·n!·C(n,2) = n!·n(n-1)/4 and the ℕ division is exact for n ≥ 2 (verified: n=2→1, n=3→9, n=4→72). The formalization matches the informal statement exactly.",
+  "duration_ms": 216669,
+  "cost_usd": 0.7419419999999999
+}

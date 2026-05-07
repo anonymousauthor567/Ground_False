@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The positive integer n is encoded with `hn : n > 0`. The polynomial f_n(z) = n + (n-1)z + ... + z^(n-1) is correctly expressed as `∑ i : Fin n, (n-i) * z^i` — for i ∈ {0,...,n-1}, the coefficient (n-i) gives n, n-1, ..., 1, matching the informal coefficients. Since the expected type of the sum is ℂ, the subtraction (n-i) is performed in ℂ, avoiding truncated ℕ subtraction issues. The closed unit disk {|z| ≤ 1} is correctly encoded as ‖z‖ ≤ 1 (Complex.norm agrees with |·|). The conclusion \"no roots in the closed unit disk\" is correctly negated as ¬∃ z, ‖z‖ ≤ 1 ∧ f n z = 0. The universal quantification over n in `hf` is harmless — it specializes to the theorem's specific n.",
+  "duration_ms": 72186,
+  "cost_usd": 0.210927
+}

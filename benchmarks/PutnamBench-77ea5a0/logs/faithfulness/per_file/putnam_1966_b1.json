@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b1.lean",
+  "stem": "putnam_1966_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes a convex polygon as a cyclic sequence of n ≥ 3 vertices indexed by ZMod n. The hypotheses are: (1) each vertex lies in [0,1]×[0,1] (the unit square — WLOG by translation/rotation), (2) hnoncol ensures vertices are distinct and no three are collinear, and (3) hconvex ensures each edge lies on the boundary of the convex hull (not entering the interior), which together with hnoncol correctly captures \"convex polygon with n distinct vertices in convex position\". The conclusion ∑ (dist (L i) (L (i+1)))² ≤ 4 correctly sums the squared side lengths, using Fin n as the index (equivalent to ZMod n for n ≥ 1, with i+1 wrapping cyclically). Since the polygon is the convex hull of its vertices and the unit square is convex, vertices in the unit square implies the whole polygon is in the unit square. These conditions make explicit the standard implicit assumptions of \"convex polygon with n sides\" without narrowing the claim beyond what the informal statement intends.",
+  "duration_ms": 1188030,
+  "cost_usd": 1.278265
+}

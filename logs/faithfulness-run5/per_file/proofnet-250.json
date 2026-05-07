@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-250.lean",
+  "stem": "proofnet-250",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the ring ℤ[x₁,x₂,…] as MvPolynomial ℕ ℤ, and the ideal (x₁x₂, x₃x₄, …) as span (range f) where f i = X(2i)·X(2i+1). The only cosmetic difference is 0-indexing vs 1-indexing of the variables: the Lean generators are x₀x₁, x₂x₃, x₄x₅, …, while the informal ones are x₁x₂, x₃x₄, x₅x₆, …. These produce isomorphic rings and isomorphic ideals (a relabeling of the index set ℕ), hence isomorphic quotient rings with the same set of minimal primes (up to bijection). `minimalPrimes R` in Mathlib is defined as `Ideal.minimalPrimes ⊥`, which gives exactly the minimal prime ideals of R. `Infinite (minimalPrimes …)` expresses that this set is infinite, matching \"infinitely many minimal prime ideals.\" No hypotheses are silently added or dropped.",
+  "duration_ms": 113942,
+  "cost_usd": 0.4356522500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "39.lean",
+  "stem": "39",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `n : ℕ` (which includes 0) while the informal says \"for every positive integer\" (n ≥ 1). However, at n = 0, both sides trivially reduce to the identity element (1 = b·1·b⁻¹ = 1) in any group, so this degenerate case adds no substantive mathematical content. This matches Mathlib's standard formulation `conj_pow` which uses `i : ℕ`. The conjugation, the group operations, the exponentiation, and the conclusion are all encoded correctly without silent changes to the hypotheses or ambient mathematical objects. This is a standard convention choice rather than a semantic mismatch — the core claim about conjugation commuting with powers is preserved exactly.",
+  "duration_ms": 209416,
+  "cost_usd": 0.4963635
+}

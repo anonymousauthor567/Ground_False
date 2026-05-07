@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p58.lean",
+  "stem": "calculus__p58",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the critical points of f(x) = 2x³ - 3x² - 36x + 18 are exactly x = -2 and x = 3 (the informal uses \"critical values\" loosely to mean the x-coordinates of critical points, a common abuse). The derivative of f is f'(x) = 6x² - 6x - 36, and the Lean file defines `f_deriv_poly` = (2·3)X² - (3·2)X - 36 = 6X² - 6X - 36, which is precisely the correct derivative computed symbolically. The theorem then states ∀ x, f_deriv(x) = 0 ↔ x = -2 ∨ x = 3, which is a biconditional capturing \"exactly these are the critical points\". This matches the informal claim's content under standard mathematical reading. The manual encoding of the derivative as a polynomial (rather than invoking Mathlib's `deriv`) doesn't alter the semantic content, since the polynomial used is exactly the derivative.",
+  "duration_ms": 184130,
+  "cost_usd": 0.41351875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for a surjective ring homomorphism φ: R → S, the image of the center of R is contained in the center of S. The Lean signature takes `[Ring R] [Ring S]`, a ring homomorphism `φ : R →+* S`, a surjectivity hypothesis `Function.Surjective φ`, and concludes `φ '' (center R) ⊆ center S`. With `open Set` and rings having `[Mul]` (but not `[Group]`), `center R`/`center S` resolve to `Set.center`, which for associative rings coincides exactly with the standard ring-theoretic center `{z | ∀ a, z * a = a * z}` (the associativity conditions in `IsMulCentral` are automatic in a Ring). Thus the hypotheses and conclusion match the informal claim precisely; there is no drift in quantifiers, types, or strength.",
+  "duration_ms": 708062,
+  "cost_usd": 0.477927
+}

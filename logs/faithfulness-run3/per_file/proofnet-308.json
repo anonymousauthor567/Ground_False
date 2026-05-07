@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `countably_compact` quantifies over ℕ-indexed open covers and requires a finite subcover (`t : Finset ℕ`), which is equivalent to \"every countable open cover has a finite subcollection covering X\". `limit_point_compact_strong` uses `∃ x, ClusterPt x (𝓟 (U \\ {x}))` which, by Mathlib's `accPt_principal_iff_clusterPt`, is exactly `AccPt x (𝓟 U)` — the standard Munkres notion of limit point (every neighborhood of x contains a point of U different from x), with x not required to be in U. `Infinite U` for `U : Set X` uses the subtype coercion and is equivalent to `U.Infinite`. The T₁ hypothesis and the biconditional match the informal claim exactly, with no added/missing hypotheses or changed quantifier structure.",
+  "duration_ms": 245680,
+  "cost_usd": 0.6244775
+}

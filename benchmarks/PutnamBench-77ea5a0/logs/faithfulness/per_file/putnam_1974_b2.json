@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b2.lean",
+  "stem": "putnam_1974_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. `y : ℝ → ℝ` is a real-valued function of a real variable; `ContDiff ℝ 1 y` is exactly the standard C^1 / continuously differentiable condition. The hypothesis `Tendsto (fun x => (deriv y x)^2 + (y x)^3) atTop (𝓝 0)` directly mirrors \"(y')² + y³ → 0 as x → +∞\" (using `deriv` is appropriate for functions ℝ → ℝ). The conclusion `Tendsto y atTop (𝓝 0) ∧ Tendsto (deriv y) atTop (𝓝 0)` is precisely \"y(x) → 0 and y'(x) → 0 as x → +∞\". No extra or missing hypotheses, no type changes, no quantifier drift.",
+  "duration_ms": 39663,
+  "cost_usd": 0.1606195
+}

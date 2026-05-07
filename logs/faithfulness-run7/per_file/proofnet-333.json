@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `LinearOrder α` is the standard Mathlib encoding of a totally ordered set. The Mathlib definitions `lowerBounds s = { x | ∀ a ∈ s, x ≤ a }` and `upperBounds s = { x | ∀ a ∈ s, a ≤ x }` are the standard lower/upper bound notions used in the informal statement. The nonemptiness hypothesis `h₀` matches \"nonempty subset E\", and the conclusion `x ≤ y` is precisely α ≤ β. No hypothesis is added or dropped, and no type is changed.",
+  "duration_ms": 116312,
+  "cost_usd": 0.18859175
+}

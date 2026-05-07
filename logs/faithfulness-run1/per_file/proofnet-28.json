@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "informal": "Prove that the addition of residue classes $\\mathbb{Z}/n\\mathbb{Z}$ is associative.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_3 (n : ℕ) : \n  ∀ (x y z : ZMod n), (x + y) + z = x + (y + z)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of addition on Z/nZ. The Lean signature states ∀ x y z : ZMod n, (x+y)+z = x+(y+z), which is exactly associativity of addition in ZMod n. ZMod n is Mathlib's encoding of Z/nZ (with ZMod 0 = ℤ, but the informal statement also implicitly covers any n, and integer addition is associative too, so this is fine). No extra hypotheses are added and none are dropped. This matches the informal claim exactly.",
+  "duration_ms": 6247,
+  "cost_usd": 0.04272225
+}

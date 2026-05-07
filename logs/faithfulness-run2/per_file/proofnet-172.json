@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the three conclusions: strict monotonicity of f on (a,b), differentiability of g on the image f((a,b)), and the inverse derivative formula g'(f(x)) = 1/f'(x) for x ∈ (a,b). The hypothesis `deriv f x > 0` implicitly encodes differentiability (since Lean's `deriv` is 0 at non-differentiable points, positivity forces differentiability), matching the informal \"f'(x) > 0 in (a,b)\". The hypothesis `g(f x) = x` on (a,b) gives g as a left inverse; while weaker than \"g is THE inverse function\" globally, f is injective on (a,b) (after proving strict monotonicity), so g is uniquely determined on f((a,b)), which is an open interval — and since DifferentiableOn on an open set plus `deriv g` at points in that open set only depend on g's values on f((a,b)), the conclusions are equivalent to those of the informal statement. The universal quantification over a,b (including degenerate cases a ≥ b) is vacuously fine. Thus the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 66202,
+  "cost_usd": 0.2360055
+}

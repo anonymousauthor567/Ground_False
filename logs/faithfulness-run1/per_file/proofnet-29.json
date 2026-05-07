@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "theorem_name": "Dummit_Foote_exercise_1_1_5_corrected",
+  "informal": "Prove that for all $n>1$ that $\\mathbb{Z}/n\\mathbb{Z}$ is not a group under multiplication of residue classes.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_5_corrected (n : ℕ) (hn : 1 < n) :\n  ¬ (∀ x : ZMod n, ∃ y : ZMod n, x * y = (1 : ZMod n) ∧ y * x = 1)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that (ℤ/nℤ, ·) fails to be a group when n>1. Since multiplication on ZMod n is always associative, closed, and has identity 1, the only group axiom that can fail is the existence of inverses. The Lean statement asserts ¬(∀ x, ∃ y, x·y = 1 ∧ y·x = 1), i.e. not every element has a two-sided multiplicative inverse, which is exactly the failure of the only non-automatic group axiom. Hence \"not a group under multiplication\" and the Lean negation-of-inverses statement are logically equivalent for ZMod n. The hypothesis 1 < n matches the informal n > 1. So the formalization is strictly faithful.",
+  "duration_ms": 18307,
+  "cost_usd": 0.0579505
+}

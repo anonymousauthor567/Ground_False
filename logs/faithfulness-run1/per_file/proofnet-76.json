@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "informal": "Suppose that $|G| = pm$, where $p \\nmid m$ and $p$ is a prime. If $H$ is a normal subgroup of order $p$ in $G$, prove that $H$ is characteristic.",
+  "lean": "\ntheorem Herstein_exercise_2_5_30 {G : Type*} [Group G] [Fintype G]\n  {p m : ℕ} (hp : Nat.Prime p) (hp1 : ¬ p ∣ m) (hG : card G = p*m)\n  {H : Subgroup G} [Fintype H] [H.Normal] (hH : card H = p):\n  Subgroup.Characteristic H",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all components of the informal statement: G is a finite group with |G| = p·m, p prime, p ∤ m, H is a normal subgroup of G with |H| = p, and the conclusion is that H is characteristic. The Fintype assumption is implicit in the informal \"|G| = pm\" notation. The hypotheses on p (prime), the divisibility condition, the order of H, and the normality of H all match. The conclusion `Subgroup.Characteristic H` directly corresponds to \"H is characteristic\". No hypotheses are added or dropped.",
+  "duration_ms": 7403,
+  "cost_usd": 0.053003499999999995
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "theorem_name": "Munkres_exercise_33_8_corrected",
+  "informal": "Let $X$ be completely regular, let $A$ and $B$ be disjoint closed subsets of $X$. Show that if $A$ is compact, there is a continuous function $f \\colon X \\rightarrow [0, 1]$ such that $f(A) = \\{0\\}$ and $f(B) = \\{1\\}$.",
+  "lean": "theorem Munkres_exercise_33_8_corrected\n  (X : Type*) [TopologicalSpace X] [CompletelyRegularSpace X]\n  (A B : Set X) (_hA : IsClosed A) (hB : IsClosed B)\n  (hAB : Disjoint A B) (hAc : IsCompact A)\n  (hAn : A.Nonempty) (hBn : B.Nonempty) :\n  ∃ (f : X → I), Continuous f ∧ f '' A = {0} ∧ f '' B = {1}",
+  "verdict": "weaker",
+  "reasoning": "The Lean signature adds two extra hypotheses, `hAn : A.Nonempty` and `hBn : B.Nonempty`, that are not present in Munkres's informal statement. The informal statement applies to any disjoint closed A, B (with A compact), including degenerate cases where A or B might be empty (in which case the conclusion is either vacuous, under the \"f = 0 on A\" reading, or trivially provable by a constant function on the other set). By restricting to nonempty A and B, the Lean theorem only covers a subset of the cases the informal statement claims. The remaining structure (CompletelyRegularSpace, IsClosed A, IsClosed B, Disjoint A B, IsCompact A, continuous f : X → I with images {0} and {1}) matches the informal claim correctly. So Lean is implied by, but does not imply, the informal statement.",
+  "duration_ms": 23855,
+  "cost_usd": 0.08809349999999999
+}

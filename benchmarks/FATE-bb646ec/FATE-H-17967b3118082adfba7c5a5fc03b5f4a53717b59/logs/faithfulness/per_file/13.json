@@ -1,0 +1,8 @@
+{
+  "file": "13.lean",
+  "stem": "13",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the number of Sylow p-subgroups of GL_2(F_p) equals p+1. The Lean signature encodes this as `Nat.card (Sylow p (GL (Fin 2) (ZMod p))) = p + 1` with `[Fact p.Prime]`. Each component matches: `GL (Fin 2) (ZMod p)` is Mathlib's notation for GL_2 over ZMod p, which is the field F_p when p is prime; `Sylow p G` is the type of Sylow p-subgroups; and `Nat.card` gives their count. The `[Fact p.Prime]` hypothesis surfaces the implicit premise that p is prime (required for F_p notation and the \"Sylow p-subgroup\" concept to be meaningful as intended). The mathematical claim is correct: |GL_2(F_p)| = p(p-1)²(p+1), the Sylow p-subgroup (unipotent upper-triangular) has order p, normalizer is the Borel of order p(p-1)², yielding n_p = p+1. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 139930,
+  "cost_usd": 0.37971475
+}

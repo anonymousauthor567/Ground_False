@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a2.lean",
+  "stem": "putnam_1979_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to characterize the real numbers $k$ for which there exists a continuous $f : \\mathbb{R} \\to \\mathbb{R}$ satisfying $f(f(x)) = kx^9$ for all real $x$. The Lean statement formalizes this as a universal biconditional: for every $k$, the existence of such a continuous $f$ is equivalent to `putnam_1979_a2_solution k`. This is the standard way to formalize a \"for which $k$\" characterization problem. The continuity condition, the domain/codomain types, the functional equation $f(f(x)) = kx^9$, and the universal quantifier over $x$ all match the informal statement exactly. The expression `k*x^9` matches $kx^9$. No extra hypotheses are imposed and none are missing.",
+  "duration_ms": 13054,
+  "cost_usd": 0.045518499999999996
+}

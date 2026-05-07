@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p3_1.lean",
+  "stem": "number_theory__p3_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that n = 8 is the smallest positive integer satisfying all three congruences (mod 3, mod 5, mod 7). The Lean statement is a helper lemma saying: for every m, there exists n = 15m+8 satisfying only the first two congruences (mod 3 and mod 5). It completely omits the third congruence (n ≡ 1 mod 7), omits the minimality requirement, and does not pin down n = 8 as the specific answer — it merely asserts a parametric family satisfies two of the three conditions. The informal claim implies the Lean claim (since 15m+8 ≡ 8 ≡ 2 mod 3 and ≡ 3 mod 5), but the Lean claim clearly does not imply the informal one. Hence the Lean formalization is strictly logically weaker.",
+  "duration_ms": 210875,
+  "cost_usd": 0.34013024999999997
+}

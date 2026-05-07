@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b6.lean",
+  "stem": "putnam_1992_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all four conditions: (i) `1 ∈ M` captures $I \\in M$; (ii) `Xor' (A*B ∈ M) (-A*B ∈ M)` correctly expresses \"exactly one of $AB$, $-AB$ in $M$\" since `Xor'` is defined as exclusive-or and `-A * B = -(A*B)`; (iii) and (iv) are transcribed verbatim. The conclusion `M.encard ≤ n^2` expresses \"at most $n^2$ matrices\" using the extended natural cardinality. The extra `npos : 0 < n` hypothesis merely surfaces the implicit premise that \"$n \\times n$ matrices\" means positive $n$, which is standard mathematical convention and does not narrow the intended scope (for $n = 0$, conditions (i) and (ii) are inconsistent anyway). No hypotheses are dropped or added beyond the implicit positivity.",
+  "duration_ms": 134410,
+  "cost_usd": 0.368429
+}

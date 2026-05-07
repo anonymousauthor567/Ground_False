@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each component of the informal claim: `[MetricSpace α]` matches \"metric space X\", `f : α → ℝ` with `Continuous f` matches \"continuous real function\", and `z = f⁻¹' {0}` defines `z` as the zero set since `f⁻¹' {0} = {x | f x = 0}` — exactly Z(f). The conclusion `IsClosed z` matches \"Z(f) is closed\". The encoding using an auxiliary set `z` with a hypothesis stating `z = f⁻¹' {0}` is logically equivalent to directly stating `IsClosed (f⁻¹' {0})`. The minor restriction to `Type` (Type 0) is a standard ProofNet convention and doesn't alter the mathematical content.",
+  "duration_ms": 18708,
+  "cost_usd": 0.0561175
+}

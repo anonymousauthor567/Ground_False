@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for any real p ≤ 1, the function f(k) = 1/(k·(log k)^p) (using Real.rpow since p : ℝ) on ℕ is not summable. The informal claim is that the series diverges for p ≤ 1. Since all terms are non-negative (for k ≥ 2, log k > 0, giving positive terms; at k = 0, 1 the terms are 0 or a finite constant by Mathlib's div/rpow conventions, which doesn't affect summability), \"¬ Summable f\" is equivalent to \"the series diverges\". The quantification over p ≤ 1 is universal in both the informal and formal statements, and no extra hypotheses (like p > 0) are added to narrow the scope. The use of `h : f = fun k => ...` is a stylistic equivalent of inlining the definition. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 151662,
+  "cost_usd": 0.47959375000000004
+}

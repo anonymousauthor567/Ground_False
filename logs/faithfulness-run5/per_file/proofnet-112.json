@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has two parts: (1) if U is open and A is closed, then U \\ A is open; (2) A \\ U is closed. The Lean signature captures both: U and A are arbitrary subsets of a topological space X, with hypotheses `IsOpen U` and `IsClosed A`, and the conclusion is the conjunction `IsOpen (U \\ A) ∧ IsClosed (A \\ U)`. The set-difference `\\` in Lean matches the \"−\" in the informal statement. There are no extra or missing hypotheses, the quantifier structure matches (U, A free/universal over the space X), and the types (Set X) and topological notions (IsOpen, IsClosed) align precisely with the informal claim.",
+  "duration_ms": 23672,
+  "cost_usd": 0.09738925
+}

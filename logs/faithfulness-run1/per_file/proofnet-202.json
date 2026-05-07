@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "informal": "Suppose $T \\in \\mathcal{L}(V)$. Prove that if $U_{1}, \\ldots, U_{m}$ are subspaces of $V$ invariant under $T$, then $U_{1}+\\cdots+U_{m}$ is invariant under $T$.",
+  "lean": "\ntheorem Axler_exercise_5_1 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] {L : V →ₗ[F] V} {n : ℕ} (U : Fin n → Submodule F V)\n  (hU : ∀ i : Fin n, Submodule.map L (U i) = U i) :\n  Submodule.map L (∑ i : Fin n, U i : Submodule F V) =\n  (∑ i : Fin n, U i : Submodule F V)",
+  "verdict": "different",
+  "reasoning": "The informal statement says each U_i is T-invariant, which standardly means T(U_i) ⊆ U_i, and the conclusion is T(U_1+⋯+U_m) ⊆ U_1+⋯+U_m. The Lean signature instead encodes both the hypothesis and the conclusion using `Submodule.map L (U i) = U i`, i.e. T(U_i) = U_i (set-theoretic equality, equivalent to T being surjective onto each U_i when restricted). This is a strictly stronger notion than invariance in both places. So the Lean theorem has a stronger hypothesis (does not follow from the informal claim) and a stronger conclusion (the informal proof would not establish equality). The two theorems are not logically comparable: the informal one is about ⊆-invariance while the Lean one is about exact preservation, so neither implies the other.",
+  "duration_ms": 19168,
+  "cost_usd": 0.08099375
+}

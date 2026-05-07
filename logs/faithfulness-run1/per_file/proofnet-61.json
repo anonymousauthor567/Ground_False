@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "informal": "Let $G=\\left\\{g_{1}, \\ldots, g_{n}\\right\\}$ be a finite group. Prove that the element $N=g_{1}+g_{2}+\\ldots+g_{n}$ is in the center of the group ring $R G$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_2_12 {R G : Type*} [Ring R] [Group G] [Fintype G] :\n  ∑ g : G, MonoidAlgebra.of R G g ∈ center (MonoidAlgebra R G)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for a finite group G, the sum N = g_1 + ... + g_n of all group elements lies in the center of the group ring RG. The Lean signature takes a ring R, a group G with [Fintype G] (capturing finiteness), forms the sum ∑ g : G, MonoidAlgebra.of R G g (which is exactly the embedding of each group element into the group algebra summed over all elements), and asserts membership in center (MonoidAlgebra R G). MonoidAlgebra R G is Mathlib's group ring RG. No extra hypotheses (e.g., commutativity of R) are imposed, and none are dropped. The quantifier structure (∀ R, ∀ G finite) matches the universal scope of the informal claim.",
+  "duration_ms": 8973,
+  "cost_usd": 0.047347
+}

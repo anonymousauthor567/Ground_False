@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis exactly encodes p(a) = 0 for p(x) = x^5 + √2·x^3 + √5·x^2 + √7·x + √11 with the square roots cast from ℝ to ℂ. The conclusion \"a is algebraic over ℚ of degree at most 80\" is formalized as the existence of a nonzero polynomial q ∈ ℚ[X] with natDegree ≤ 80 such that aeval a q = 0. This is logically equivalent to the standard definition of \"algebraic of degree ≤ 80\": if the minimal polynomial has degree n ≤ 80 it serves as q, and conversely any nonzero q of degree ≤ 80 vanishing at a forces the minimal polynomial (which divides q) to have degree ≤ 80. The quantifier structure, types (ℂ for a, ℚ for coefficients), and bound (80) all match the informal claim.",
+  "duration_ms": 61918,
+  "cost_usd": 0.21530625
+}

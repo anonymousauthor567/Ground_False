@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the limit-symmetry condition does not force continuity, i.e., to exhibit a counterexample. The Lean formalization correctly encodes this as an existence statement: `∃ f, (∀ x, limit condition) ∧ ¬ Continuous f`. The type `ℝ → ℝ` matches \"real function on ℝ\". The limit `Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)` uses the full neighborhood filter rather than the punctured one, but since at y = 0 we have f(x+0) - f(x-0) = 0 (equal to the target limit), the two formulations are equivalent here. The universal quantifier over x and the negation of continuity are both faithfully represented.",
+  "duration_ms": 43157,
+  "cost_usd": 0.18054599999999998
+}

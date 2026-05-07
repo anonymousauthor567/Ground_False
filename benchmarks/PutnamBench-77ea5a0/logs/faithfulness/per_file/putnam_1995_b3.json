@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_b3.lean",
+  "stem": "putnam_1995_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes n²-digit positive integers as functions f : ℕ → ℕ satisfying: f 0 ≠ 0 (leading digit nonzero), f i ≤ 9 for i < n², and f i = 0 for i ≥ n² (padding for uniqueness of representation). For n=2 this yields exactly 9·10³ = 9000 integers, matching the example. The matrix construction M(i,j) = f(i·n + j) correctly places digits \"in order across the rows\" — for 8617 this gives [[8,6],[1,7]] with det = 50, matching the example. Although ∑' is `tsum`, the subtype `digits_set` is finite (9·10^(n²-1) elements), so the tsum equals the intended finite sum over all n²-digit integers. The quantification structure (sum as function of n) and the type (ℤ for the determinant) match the informal claim exactly.",
+  "duration_ms": 171763,
+  "cost_usd": 0.48902950000000006
+}

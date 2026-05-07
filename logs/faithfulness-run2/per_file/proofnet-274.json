@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $f(x) = x^3 + 3x + 2$ is irreducible in $\\mathbb{Q}[x]$. The Lean statement `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)` asserts exactly this: the polynomial $X^3 + 3X + 2$ in $\\mathbb{Q}[X]$ is irreducible. Mathlib's `Irreducible` predicate on a commutative (semi)ring element means it is not a unit and cannot be factored as a product of two non-units, which is the standard notion of irreducibility for polynomials over a field like $\\mathbb{Q}$. The coefficients, variable, ambient ring, and conclusion all match.",
+  "duration_ms": 16738,
+  "cost_usd": 0.037097000000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b5.lean",
+  "stem": "putnam_2003_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures both claims of the informal statement. The hypothesis `hABC` encodes A, B, C on the unit circle with equal pairwise distances and the added `dist A B ≠ 0` surfaces the implicit premise that the three points are distinct (an equilateral triangle is implied by \"equidistant points\"). The first claim (a, b, c form a triangle) is captured by the existence of X, Y, Z with matching pairwise distances in ℝ² — this existence is equivalent to the triangle inequality holding. The second claim (area depends only on |OP|) is correctly captured by placing `∃ f : ℝ → ℝ` OUTSIDE the `∀ P`, so a single function f ties all areas to |OP|. The volume of `convexHull ℝ {X, Y, Z}` in EuclideanSpace ℝ (Fin 2) is the area of the triangle. The strict inequality `dist 0 P < 1` correctly encodes \"in the circle's interior\". The side-length mapping (XY=PA, YZ=PB, XZ=PC) is a valid assignment of the three sides.",
+  "duration_ms": 251295,
+  "cost_usd": 0.7028125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_a4.lean",
+  "stem": "putnam_1993_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the problem: `x : Fin 19 → ℤ` with `0 < x i ∧ x i ≤ 93` encodes 19 positive integers each ≤ 93, and `y : Fin 93 → ℤ` with `0 < y j ∧ y j ≤ 19` encodes 93 positive integers each ≤ 19. The conclusion uses subsets `is : Finset (Fin 19)` and `js : Finset (Fin 93)`, and `∑ i : is, x i` (sum over the subtype) equals `∑ i ∈ is, x i` by `Finset.sum_coe_sort`, correctly representing \"sum of some x_i's.\" Only `is ≠ ∅` is required, but this is not a weakening: since all x_i > 0, a nonempty x-sum is strictly positive, and since all y_j > 0, the y-sum can only equal it if js is also nonempty. Thus the two nonemptiness conditions are equivalent under the other hypotheses, and the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 259264,
+  "cost_usd": 0.77874525
+}

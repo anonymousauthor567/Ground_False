@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-98.lean",
+  "stem": "proofnet-98",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3` directly mirrors the informal claim: the type ℤ matches \"integers\", the equation 7x³ + 2 = y³ is exactly transcribed, and \"has no solution\" is properly encoded as the negation of existence over both variables. The quantifier structure (no solution = no pair (x,y) satisfying the equation) is correct. There are no added or dropped hypotheses and no type changes.",
+  "duration_ms": 17433,
+  "cost_usd": 0.037796
+}

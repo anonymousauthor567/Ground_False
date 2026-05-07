@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The quantifier \"for all n ∈ ℤ⁺\" is represented by the implicit binder `{n : ℕ+}`, which ranges over positive integers — equivalent to ℤ⁺. The vector space ℝⁿ is encoded as `Fin n → ℝ`, which is the standard Mathlib model of n-tuples of reals. The phrase \"isomorphic as vector spaces over ℚ\" is captured by `≃ₗ[ℚ]` (i.e. `LinearEquiv (RingHom.id ℚ) _ _`), using the canonical ℚ-module structures on ℝ and on `Fin n → ℝ`. The existence of an isomorphism is expressed by `Nonempty`, which is standard. No hypotheses are added or dropped, and the types match. Hence the formalization is strictly faithful.",
+  "duration_ms": 83708,
+  "cost_usd": 0.274478
+}

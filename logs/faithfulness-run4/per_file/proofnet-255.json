@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: a finite group G of even order has a non-identity element equal to its own inverse. The Lean statement assumes `[Group G] [Fintype G]` (finite group) and `Even (card G)` (even order), with `card` resolving to `Fintype.card` given the `open Fintype` — this matches \"order of a finite group\". The conclusion `∃ a : G, a ≠ 1 ∧ a = a⁻¹` directly encodes \"some element a ≠ e with a = a⁻¹\". The quantifier structure, hypotheses, and conclusion all match the informal claim exactly, with no added or omitted assumptions.",
+  "duration_ms": 8295,
+  "cost_usd": 0.039092
+}

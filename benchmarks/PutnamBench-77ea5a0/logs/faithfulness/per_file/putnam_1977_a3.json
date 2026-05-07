@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a3.lean",
+  "stem": "putnam_1977_a3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for an expression of h(x) in terms of f and g given the two averaging relations. The Lean formalization encodes this faithfully: it takes f, g, h : ℝ → ℝ, assumes the two functional equations f(x) = (h(x+1)+h(x-1))/2 and g(x) = (h(x+4)+h(x-4))/2 (matching exactly), and concludes h equals the solution formula applied to f and g. The solution `g(x) - f(x-3) + f(x-1) + f(x+1) - f(x+3)` correctly yields h(x) by telescoping: the h(x-4), h(x-2), h(x+2), h(x+4) terms cancel, leaving 2h(x)/2 = h(x). This is the standard Lean encoding of \"find a formula\" problems, equivalent in content to the informal claim.",
+  "duration_ms": 134294,
+  "cost_usd": 0.291682
+}

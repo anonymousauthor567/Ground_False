@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims any group of order 9 is abelian. The Lean theorem universally considers an arbitrary type G with a `Group` structure and `Fintype` instance such that `card G = 9`, and concludes `∀ a b : G, a * b = b * a`. This conclusion is exactly the defining property of an abelian group (commutativity of the multiplication), so asserting it for all a, b : G is equivalent to asserting that G is abelian. The hypotheses (Group, Fintype, card = 9) correctly encode \"a group of order 9\". No extra hypotheses are added and none are missing, so the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 21660,
+  "cost_usd": 0.0690145
+}

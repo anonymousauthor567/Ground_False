@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes each piece: \"A proper subset of X\" becomes `A ⊂ (Set.univ : Set X)` (which unfolds to A ⊆ univ ∧ A ≠ univ, the standard meaning of proper subset); \"X and Y connected\" becomes `IsConnected (Set.univ : Set X)` and similarly for Y, which is equivalent to `ConnectedSpace` in Mathlib; \"(X × Y) − (A × B)\" is `(Set.univ : Set (X × Y)) \\ (A ×ˢ B)`; and \"is connected\" is `IsConnected`. Mathlib's `IsConnected` requires nonemptiness, but this imposes no extra restriction since hA already forces X nonempty (empty set has no proper subset), likewise hY for Y, and the difference set is automatically nonempty because A ⊊ X yields some x ∉ A making (x,y) ∉ A × B. No hypothesis is silently added, dropped, or strengthened.",
+  "duration_ms": 164526,
+  "cost_usd": 0.5435767499999999
+}

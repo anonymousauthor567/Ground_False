@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_a5.lean",
+  "stem": "putnam_2000_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures every element of the informal claim. The plane is represented by `EuclideanSpace ℝ (Fin 2)`, three distinct points by `p : Fin 3 → ...` with `pdiff`, integer coordinates by `p n i = round (p n i)` (valid since `round` returns ℤ that is coerced back, so equality holds iff the coordinate is an integer), and the circle condition by `Metric.sphere z r` with `rpos : r > 0`. The center `z` being left free (rather than required to have integer coordinates) is correct — the informal statement does not constrain the circle's center. The conclusion `∃ n m, n ≠ m ∧ dist (p n) (p m) ≥ r^(1/3)` precisely matches \"two of these points are separated by a distance of at least r^(1/3)\". Using `(1:ℝ)/3` as the exponent gives the cube root as intended. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 107118,
+  "cost_usd": 0.32249825
+}

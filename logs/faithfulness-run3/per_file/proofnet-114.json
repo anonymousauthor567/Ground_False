@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Munkres Exercise 19.6a. The product space $\\prod X_\\alpha$ is encoded as `Πa, f a` with the canonical `Pi.topologicalSpace` instance inferred from `[Πa, TopologicalSpace (f a)]`, which is precisely the product (Tychonoff) topology. The sequence is `x : ℕ → Πa, f a`, its limit candidate is `y`, and `Tendsto x atTop (𝓝 y)` is sequence convergence in the product. The right side `∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))` is exactly \"for each α, $\\pi_\\alpha(\\mathbf{x}_j) \\to \\pi_\\alpha(\\mathbf{x})$\". The biconditional matches \"if and only if\". This is essentially `tendsto_pi_nhds` specialized to `atTop`, so the formalization is logically equivalent to the informal claim with no hidden weakening or strengthening.",
+  "duration_ms": 59195,
+  "cost_usd": 0.1949995
+}

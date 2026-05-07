@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℂ cannot be made into an ordered field, meaning no total order on ℂ is compatible with the ring operations in the standard ordered-field sense. The Lean statement says there is no `LinearOrder ℂ` for which `IsStrictOrderedRing ℂ` holds. Since ℂ is already a `Field` in Mathlib, and since the modern Mathlib idiom for `LinearOrderedField` is precisely `[Field K] [LinearOrder K] [IsStrictOrderedRing K]` (per the deprecation note in `Mathlib/Algebra/Order/Field/Defs.lean`), the Lean formulation exactly corresponds to \"no linear-ordered-field structure exists on ℂ\". The class `IsStrictOrderedRing` packages exactly the monotonicity axioms (addition strictly monotone, multiplication by positives strictly monotone, `0 < 1`, nontriviality) that, combined with a linear order, define an ordered field. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 119809,
+  "cost_usd": 0.4009985
+}

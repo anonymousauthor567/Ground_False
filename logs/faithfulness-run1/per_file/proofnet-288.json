@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-288.lean",
+  "stem": "proofnet-288",
+  "informal": "Show that $\\sin (\\pi / 12)$ is an algebraic number.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_12_12 : IsAlgebraic ℚ (sin (Real.pi/12))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show sin(π/12) is an algebraic number, which standardly means algebraic over ℚ. The Lean signature `IsAlgebraic ℚ (sin (Real.pi/12))` asserts exactly that sin(π/12) (as a real number) is algebraic over ℚ. The types and quantifiers match the informal claim precisely, with no extra hypotheses or weakened conclusions.",
+  "duration_ms": 5201,
+  "cost_usd": 0.0401165
+}

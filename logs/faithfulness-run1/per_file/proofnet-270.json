@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "informal": "If $a^2 = 0$ in $R$, show that $ax + xa$ commutes with $a$.",
+  "lean": "\ntheorem Herstein_exercise_4_2_6 {R : Type*} [Ring R] (a x : R)\n  (h : a ^ 2 = 0) : a * (a * x + x * a) = (a * x + x * a) * a",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says ax+xa commutes with a, i.e., a(ax+xa) = (ax+xa)a, given a²=0 in a ring R. The Lean signature takes an arbitrary ring R, elements a x : R, hypothesis a^2 = 0, and concludes a*(a*x+x*a) = (a*x+x*a)*a. This is exactly the statement that a commutes with ax+xa. Quantifier structure (universal in R, a, x) and hypothesis match. No extra assumptions like commutativity or finiteness are added.",
+  "duration_ms": 6854,
+  "cost_usd": 0.0448355
+}

@@ -1,0 +1,8 @@
+{
+  "file": "63.lean",
+  "stem": "63",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims Aut(ℚ) has exactly one element. In Mathlib, `RingAut ℚ` is defined as `RingEquiv ℚ ℚ` (the group of ring automorphisms), and since ℚ is a field, ring automorphisms coincide with field automorphisms — which is the intended meaning of \"Aut(ℚ)\" (the only interpretation that makes the claim true, since additive automorphisms of ℚ form ℚ*). The statement `Nat.card (RingAut ℚ) = 1` asserts exactly that this group has cardinality 1, i.e., a single element. The group structure is inherent in `RingAut` (Mathlib provides a `Group` instance), so \"is a group with a single element\" is faithfully captured. This is a logically equivalent formalization.",
+  "duration_ms": 57451,
+  "cost_usd": 0.18613849999999998
+}

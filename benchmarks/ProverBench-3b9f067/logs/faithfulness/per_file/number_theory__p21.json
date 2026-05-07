@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p21.lean",
+  "stem": "number_theory__p21",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly counts integer pairs (x,y) with x² + xy + y² ≤ 2012. The bounding box Finset.Ico (-n) (n+1) × Finset.Ico (-n) (n+1) with n=2012 gives integer coordinates in [-2012, 2012]². Since 4(x² + xy + y²) = (2x+y)² + 3y², any solution has |y| ≤ √(8048/3) ≈ 51.8 and similarly |x| ≤ 51, so the bounding box comfortably contains every integer solution — no solutions are missed. The filter condition p.1² + p.1·p.2 + p.2² ≤ n (with n : ℕ coerced to ℤ) exactly matches the informal inequality in ℤ × ℤ. The conclusion ¬(3 ∣ countPoints 2012) faithfully encodes 'the number ... is not divisible by 3'. The unused quadraticFormPoints definition does not affect the theorem statement.",
+  "duration_ms": 192162,
+  "cost_usd": 0.45977549999999995
+}

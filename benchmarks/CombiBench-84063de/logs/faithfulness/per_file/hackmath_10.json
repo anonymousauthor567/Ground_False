@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_10.lean",
+  "stem": "hackmath_10",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the number of ways 3 people can divide 7 pears and 5 apples. The Lean encoding uses `Fin 3 → (ℕ × ℕ)` (3 distinguishable people, each assigned a pair of natural numbers representing pear count and apple count) with constraints that the pear counts sum to 7 and apple counts sum to 5. This correctly captures the standard combinatorial interpretation: distinguishable people, identical pears, identical apples, all items distributed (sums match the totals), and allowing zero items per person (standard stars-and-bars reading). The cardinality `sols.card` is then the count of such distributions. The Finset is characterized extensionally via `h_sols`, uniquely determining it as exactly the set of valid distributions. The types (ℕ), quantifier structure, and conditions all match the intended meaning, giving the expected answer of C(9,2)·C(7,2) = 756.",
+  "duration_ms": 128433,
+  "cost_usd": 0.39947425
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim precisely. The hypotheses `hp : p.Prime`, `ha : α > 0`, and `hG : card G = p ^ α` together encode \"p prime, α positive integer, |G| = p^α\". The `[Fintype G]` typeclass is needed to make `card G` well-typed and is implicit in the informal statement of finite order p^α. The conclusion `∀ H : Subgroup G, H.index = p → H.Normal` directly says \"every subgroup of index p is normal\", using Mathlib's standard `Subgroup.index` and `Subgroup.Normal`. No hypotheses are dropped or added beyond what the informal statement demands.",
+  "duration_ms": 27567,
+  "cost_usd": 0.07166999999999998
+}

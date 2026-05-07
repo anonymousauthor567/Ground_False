@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a5.lean",
+  "stem": "putnam_2021_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The set A is formalized as a Finset ℕ equal to {n | 1 ≤ n ∧ n ≤ 2021 ∧ Nat.gcd n 2021 = 1}, matching the informal definition of A (the `1 ≤ n` condition is in both, and the bound n ≤ 2021 and coprimality condition match). The function S : ℕ → ℕ satisfies S(j') = ∑_{n ∈ A} n^{j'}, matching S(j) = Σ n^j. The conclusion \"(2021 ∣ S j) ↔ j ∈ putnam_2021_a5_solution\" correctly encodes the \"determine all j\" style problem as an iff characterization of the solution set. The universal quantification over j (as a free variable), A, and S combined with the defining hypotheses hA and hS is the standard faithful way to formalize such problems. No extra hypotheses are added or dropped, no types are changed incorrectly (Finset for a manifestly finite set is appropriate), and the quantifier structure matches the informal question.",
+  "duration_ms": 689644,
+  "cost_usd": 1.9826912500000002
+}

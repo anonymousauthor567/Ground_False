@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a6.lean",
+  "stem": "putnam_1967_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal problem. The condition `a 0 * b 1 - a 1 * b 0 ≠ 0` corresponds (under 0-indexing) to $a_1 b_2 - a_2 b_1 \\neq 0$. The `numtuples` function counts (via `Set.encard`) the distinct sign-functions `s : Fin 4 → ℝ` attainable as `Real.sign ∘ x` for some nonzero-component solution `x` of the two linear equations; since each `x i ≠ 0`, `Real.sign (x i) = ±1`, matching \"plus and minus signs\". The set is always finite (≤ 16 elements), so the ℕ/ℕ∞ coercion in `numtuples a b = ...encard` is well-behaved. The conclusion — existence of a witness achieving 8 AND a universal upper bound of 8 under `abneq0` — is precisely the standard encoding of \"the maximum is 8\". Quantifier structure, hypotheses, and conclusion all match the informal statement.",
+  "duration_ms": 233944,
+  "cost_usd": 0.76871975
+}

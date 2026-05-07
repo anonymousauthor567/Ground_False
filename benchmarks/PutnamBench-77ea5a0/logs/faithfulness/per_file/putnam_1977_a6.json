@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a6.lean",
+  "stem": "putnam_1977_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formulation parameterizes all axis-aligned squares Y ⊆ X with at least one side on ∂X by their centers P ∈ X via the \"max-square at P\" construction: `room P = min(min a (1-a)) (min b (1-b))` is the L∞-distance to ∂X, and the resulting square always has a side on the boundary. Conversely, any Y satisfying (1)(2)(3) with center (a,b) and half-side s must satisfy s ≤ room(a,b) (from Y⊆X) and s ≥ min{a,1-a,b,1-b} (from one side touching ∂X), giving s = room(a,b). Thus there is a bijection between qualifying squares and centers P ∈ X (degenerate cases with room P=0 give trivial integrals). By Fubini for continuous f, the iterated intervalIntegral equals the double integral over the square. Though Lean quantifies over f : ℝ² → ℝ instead of f : X → ℝ, Tietze extension makes the two quantifications equivalent since hypothesis and conclusion only depend on f|X. The conclusion `∀ P ∈ X, f P = 0` correctly captures \"f(x,y) = 0 for all x,y\" on the domain X.",
+  "duration_ms": 282343,
+  "cost_usd": 0.8050427499999999
+}

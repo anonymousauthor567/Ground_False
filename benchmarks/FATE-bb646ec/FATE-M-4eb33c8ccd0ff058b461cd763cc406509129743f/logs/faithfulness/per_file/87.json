@@ -1,0 +1,8 @@
+{
+  "file": "87.lean",
+  "stem": "87",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The homomorphism `f : G →* H` matches \"homomorphism f: G → H\". The `[Fintype G]` and `[Fintype H]` instances are not extra hypotheses that narrow the scope beyond the informal statement — they are required to give meaning to the coprimality hypothesis $(|G|,|H|)=1$, since coprimality is defined for natural numbers and $|G|$, $|H|$ must be well-defined natural numbers for the gcd notation to make sense. The hypothesis `(Fintype.card G).Coprime (Fintype.card H)` corresponds exactly to $(|G|,|H|)=1$, and the conclusion `∀ x : G, f x = 1` matches \"f(x)=1 for all x ∈ G\". This is a standard faithful formalization where implicit finiteness premises (needed for the statement to be well-posed) are made explicit.",
+  "duration_ms": 53787,
+  "cost_usd": 0.1175545
+}

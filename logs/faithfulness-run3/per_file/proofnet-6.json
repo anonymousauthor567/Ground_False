@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over finite groups G with |G| = p²q (via `Fintype.card G`, from the opened `Fintype` namespace) where p, q : ℕ are prime (`Prime` on ℕ coincides with `Nat.Prime` by `Nat.prime_iff`). The conclusion `IsSimpleGroup G → False` is definitionally `¬ IsSimpleGroup G`, directly expressing \"G is not simple.\" No spurious distinctness hypothesis like `p ≠ q` is needed — the statement is true whether p = q (giving order p³, a nilpotent group) or p ≠ q, mirroring the informal wording which also does not require distinctness. The quantifier structure, types, and conclusion all match the informal claim precisely.",
+  "duration_ms": 94966,
+  "cost_usd": 0.23403575000000001
+}

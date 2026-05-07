@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_a1.lean",
+  "stem": "putnam_2009_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The parameterization (O, v) with v ≠ (0,0) ranges over all non-degenerate squares: A = O, B = O+v, C = O+v+Rv, D = O+Rv where R is rotation by 90°, so the four sides all have length |v| and consecutive sides are perpendicular. Every square in the plane arises from some such (O, v). The restriction v ≠ (0,0) is the standard reading of \"square\" (requiring non-degenerate vertices); allowing v = 0 would trivialize the problem. The function type ℝ × ℝ → ℝ matches \"real-valued function on the plane\", the sum condition is faithfully transcribed, and the conclusion ∀ P, f P = 0 matches \"f(P)=0 for all points P\". Wrapping the implication in an iff with the solution (to be set True) correctly formalizes the yes/no question \"Does it follow that...\".",
+  "duration_ms": 58764,
+  "cost_usd": 0.18049175
+}

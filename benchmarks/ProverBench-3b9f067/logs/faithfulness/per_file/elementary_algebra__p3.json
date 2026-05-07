@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p3.lean",
+  "stem": "elementary_algebra__p3",
+  "verdict": "stronger",
+  "reasoning": "In Lean 4, variables declared via `variable` are only auto-included in a theorem when they are actually referenced in its statement or proof. Here `ha : 0 < a`, `hb : 0 < b`, `hc : 0 < c` are never mentioned in the statement or proof body of `imo_inequality`, so they are dropped, and the effective signature quantifies over all real numbers `a b c : ℝ` with no positivity constraint. The informal statement explicitly restricts to positive reals, and this restriction is essential: with a=1, b=1, c=-1 one gets s=1/2, LHS = 1/2, RHS = -3/2, violating the inequality. Thus the Lean statement drops hypotheses explicitly required by the informal claim and asserts the inequality for extra cases (non-positive reals), making it strictly stronger than what was asked (and in fact false).",
+  "duration_ms": 563432,
+  "cost_usd": 1.72890825
+}

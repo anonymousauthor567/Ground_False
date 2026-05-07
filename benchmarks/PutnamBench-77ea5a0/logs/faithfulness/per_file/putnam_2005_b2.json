@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b2.lean",
+  "stem": "putnam_2005_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the equality between the set of valid tuples (n, k) satisfying: n > 0, all k i positive for i < n, their sum equals 5n-4, and the sum of reciprocals (in ℝ) equals 1, and the explicit solution set. The encoding uses k : ℕ → ℤ where only the first n values are constrained, and both sides of the equation are invariant under changes to k i for i ≥ n, making the set equality well-defined. The solution cases correctly capture: n=1 with k_0=1; n=3 with {k_0,k_1,k_2}={2,3,6} (which captures all 6 permutations since the sets have equal cardinality 3); and n=4 with all four values equal to 4. The `k '' {0,1,2}` image-set formulation correctly forces a bijection onto {2,3,6} yielding all permutations. The positivity and sum/reciprocal conditions match the informal statement exactly. This is a faithful formalization.",
+  "duration_ms": 551975,
+  "cost_usd": 1.2642317500000002
+}

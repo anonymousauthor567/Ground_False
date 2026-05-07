@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "weaker",
+  "reasoning": "The informal statement (Munkres) asserts two things: (1) f extends uniquely to a continuous function g : Ā → Y (uniqueness among continuous extensions), and (2) this g is uniformly continuous. The Lean formalization combines Continuous, UniformContinuous, and the extension property all inside the `∃!` predicate, which yields `∃ g, (Cont g ∧ UC g ∧ ext g) ∧ ∀ h, (Cont h ∧ UC h ∧ ext h) → h = g`. This only asserts uniqueness among continuous uniformly continuous extensions, not uniqueness among all continuous extensions. The informal claim implies the Lean claim, but not conversely: in principle the Lean version would still hold even if there existed a non-UC continuous extension distinct from g, which would falsify the informal statement. Hence the Lean version is strictly logically weaker.",
+  "duration_ms": 338358,
+  "cost_usd": 1.01286925
+}

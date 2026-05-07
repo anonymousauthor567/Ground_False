@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The encoding of $f : A \\to Y$ as $f : X \\to Y$ with `UniformContinuousOn f A` is the standard Mathlib idiom and constrains only the values on $A$. The conclusion asks for a unique $g : \\bar{A} \\to Y$ that is continuous, uniformly continuous, and agrees with $f$ on $A$. The `Continuous` conjunct is redundant given `UniformContinuous`, but not harmful. The uniqueness is nominally over (continuous ∧ uniformly continuous) extensions rather than all continuous extensions, but since $A$ is dense in $\\bar{A}$ and $Y$ is Hausdorff, any two continuous extensions of $f$ automatically agree, so the two uniqueness assertions are equivalent. Thus the Lean signature expresses exactly \"there exists a unique continuous extension, and it is uniformly continuous.\"",
+  "duration_ms": 65508,
+  "cost_usd": 0.2260895
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-251.lean",
+  "stem": "proofnet-251",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $x^4 - 4x^3 + 6$ is irreducible in $\\mathbb{Z}[x]$. The Lean statement `Irreducible (X^4 - 4*X^3 + 6 : Polynomial ℤ)` encodes this directly: `Polynomial ℤ` is $\\mathbb{Z}[x]$, the polynomial `X^4 - 4*X^3 + 6` is literally $x^4 - 4x^3 + 6$, and Mathlib's `Irreducible` predicate (non-unit, and any factorization has a unit factor) is precisely the standard notion of irreducibility in a commutative ring. No hypotheses have been added or dropped, no types have been altered, and the conclusion matches exactly.",
+  "duration_ms": 27697,
+  "cost_usd": 0.0884805
+}

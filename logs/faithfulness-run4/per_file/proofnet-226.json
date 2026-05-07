@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over `p : ℕ` with `Nat.Prime p` and `a : ℤ`, and concludes `a ^ p ≡ a [ZMOD p]`. The notation `[ZMOD p]` (from `Mathlib/Data/Int/ModEq.lean`) is `Int.ModEq p`, so the conclusion is exactly $a^p \\equiv a \\pmod p$. This matches Fermat's Little Theorem as stated informally — a prime $p$, an integer $a$, and the standard mod-$p$ congruence. No extra hypotheses (e.g., $p \\nmid a$) and no missing ones; the types ($\\mathbb{N}$ prime, $\\mathbb{Z}$ for $a$) are the standard reading of the informal statement.",
+  "duration_ms": 44995,
+  "cost_usd": 0.15723850000000003
+}

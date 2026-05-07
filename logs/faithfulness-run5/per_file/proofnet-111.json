@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the projection maps π₁ : X × Y → X and π₂ : X × Y → Y are open maps (using the standard definition: for every open U, f(U) is open). The Lean signature introduces arbitrary topological spaces X and Y, parameterizes functions π₁, π₂ together with hypotheses h₁ : π₁ = Prod.fst and h₂ : π₂ = Prod.snd, and concludes IsOpenMap π₁ ∧ IsOpenMap π₂. This is logically equivalent to asserting IsOpenMap (Prod.fst : X×Y → X) ∧ IsOpenMap (Prod.snd : X×Y → Y). Mathlib's IsOpenMap (in Topology/Defs/Basic.lean) is defined as ∀ U, IsOpen U → IsOpen (f '' U), matching the informal definition exactly. No hypotheses are added or dropped, and the universal quantification over topological spaces X, Y is preserved.",
+  "duration_ms": 39555,
+  "cost_usd": 0.15990350000000003
+}

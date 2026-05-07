@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "theorem_name": "Munkres_exercise_26_11_corrected",
+  "informal": "Let $X$ be a compact Hausdorff space. Let $\\mathcal{A}$ be a collection of closed connected subsets of $X$ that is simply ordered by proper inclusion. Then $Y=\\bigcap_{A \\in \\mathcal{A}} A$ is connected.",
+  "lean": "theorem Munkres_exercise_26_11_corrected\n  {X : Type*} [TopologicalSpace X] [CompactSpace X] [T2Space X]\n  (A : Set (Set X))\n  (_hChain : ∀ (a b : Set X), a ∈ A → b ∈ A → a ⊆ b ∨ b ⊆ a)\n  (_hClosed : ∀ a ∈ A, IsClosed a) (hA'' : ∀ a ∈ A, IsConnected a)\n  (hMin : ∃ a₀ ∈ A, ∀ a ∈ A, a₀ ⊆ a) :\n  IsConnected (⋂₀ A)",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds an extra hypothesis `hMin` asserting that the chain `A` has a minimum element `a₀` (with `a₀ ⊆ a` for all `a ∈ A`). The informal Munkres statement makes no such assumption — the result is interesting precisely when there is no minimum (otherwise ⋂₀ A = a₀ and connectedness is immediate from `hA''`). With this extra hypothesis the Lean theorem becomes a trivial corollary, strictly weaker than the informal claim. (The other ingredients — chain condition via pairwise comparability, closedness, connectedness, and `IsConnected (⋂₀ A)` which also captures nonemptiness as expected for a nested intersection of closed sets in a compact Hausdorff space — are fine.)",
+  "duration_ms": 16275,
+  "cost_usd": 0.060211749999999994
+}

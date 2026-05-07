@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p10_3.lean",
+  "stem": "linear_algebra__p10_3",
+  "verdict": "incomparable",
+  "reasoning": "In Mathlib's convention, for `A : Matrix m n K = m → n → K`, the index `i` in `fun i => A i` ranges over `m` (rows), so `A i : n → K` is the i-th row. Thus `LinearIndependent K (fun i => A i)` encodes row linear independence, not column linear independence (this is explicitly confirmed by Mathlib's `linearIndependent_rows_iff_isUnit` vs `linearIndependent_cols_iff_isUnit`). The Lean `column_full_rank` is therefore mislabeled — it actually means \"rows are linearly independent\". The theorem to prove becomes `rank(A) = card n → rows of A are linearly independent`, which is FALSE in general: for the 3×2 matrix `[[1,0],[0,1],[0,0]]` over ℝ, rank equals 2 = n but the three rows in ℝ² cannot be linearly independent. Meanwhile the informal claim (rank = n ↔ columns independent) is standard linear algebra and holds for this matrix. The two statements are about different mathematical conditions (rows vs columns) and are not faithful to each other: there exist matrices where the informal holds but the Lean claim fails (any m × n matrix with m > n and rank = n), and the Lean changes both the conclusion (rows instead of columns) and reduces the biconditional to a one-sided implication.",
+  "duration_ms": 1487099,
+  "cost_usd": 3.913069750000001
+}

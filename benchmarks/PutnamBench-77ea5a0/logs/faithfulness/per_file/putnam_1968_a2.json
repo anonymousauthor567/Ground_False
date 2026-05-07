@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a2.lean",
+  "stem": "putnam_1968_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim in every component. The integer variables $a, b, c, d, e, f$ are typed as `ℤ`, the real $\\epsilon > 0$ is `ε : ℝ` with `hε : ε > 0`, and the hypothesis `a * d ≠ b * c` matches $ad \\neq bc$. The existential is over rationals `r s : ℚ`. `Set.Ioo 0 ε` is defined as $\\{x \\mid 0 < x \\land x < \\epsilon\\}$, so membership encodes exactly the strict two-sided inequalities $0 < |\\cdot| < \\epsilon$ from the informal statement. The integer-to-rational-to-real coercions in `(|r * a + s * b - e| : ℝ)` give the mathematically correct value. No hypothesis is added or dropped and the quantifier structure is preserved.",
+  "duration_ms": 54857,
+  "cost_usd": 0.19683824999999996
+}

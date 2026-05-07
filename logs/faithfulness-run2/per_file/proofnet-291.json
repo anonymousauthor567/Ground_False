@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a unique topology T' on X which (a) is itself a topology, (b) is contained in each T i, and (c) contains every topology that is contained in every T i — this exactly expresses \"the unique largest topology contained in all T_α.\" The `is_topology` definition correctly encodes a topology (univ ∈ T, closed under binary intersections, closed under arbitrary unions, with ∅ arising from the empty union). The use of `∃!` is consistent with the informal \"unique largest\", since a largest element is automatically unique when it exists. Set containment `⊆` correctly represents \"topology contained in a collection.\" No hypotheses are silently added or dropped.",
+  "duration_ms": 23848,
+  "cost_usd": 0.09605974999999999
+}

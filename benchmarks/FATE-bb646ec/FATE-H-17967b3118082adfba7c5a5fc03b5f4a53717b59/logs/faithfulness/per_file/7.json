@@ -1,0 +1,8 @@
+{
+  "file": "7.lean",
+  "stem": "7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. (1) `H K : Subgroup G` with `[H.Normal]` captures \"H ⊲ G\" and `h1 : K ≤ H` captures \"K ⊆ H\". (2) `[(K.subgroupOf H).Normal]` encodes \"K ⊲ H\" since `K.subgroupOf H := K.comap H.subtype` is K viewed as a subgroup of H, and its Normal instance corresponds to K being normal in H (given K ≤ H). (3) `Subgroup.centralizer (K.subgroupOf H) = (⊥ : Subgroup H)` correctly encodes C_H(K) = 1, since the centralizer is computed in group H (the input being a Subgroup H coerced to Set H) and the bottom subgroup of H is trivial. (4) The conclusion `H ≤ centralizer (centralizer (K : Set G) : Set G)` is exactly \"every h ∈ H commutes with every element of C_G(K)\", which is the standard meaning of \"H centralizes C_G(K)\". No hypotheses are added or removed, and the types/quantifiers match.",
+  "duration_ms": 194455,
+  "cost_usd": 0.6286595
+}

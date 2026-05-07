@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for Y ⊆ X and A ⊆ Y, the subspace topology on A from Y equals the subspace topology on A from X. In Lean, `Y : Set X` gets the canonical subspace topology from X, and `A : Set Y` gets the subspace topology from Y. The function `fun a : A => (a : X)` is the composite inclusion A ↪ Y ↪ X. `IsInducing f` unfolds to `tA = tX.induced f`, meaning A's topology (the subspace topology from Y) equals the topology induced by the composite map from X — which is precisely the subspace topology A would inherit directly from X. This is exactly the equality asserted in Munkres Exercise 16.1, so the formalization is logically equivalent.",
+  "duration_ms": 78773,
+  "cost_usd": 0.189064
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the closed unit ball under any norm on $\\mathbb{R}^m$ is compact. The Lean statement quantifies over any finite-dimensional real normed space $E$ of dimension $m$ and asserts its closed unit ball is compact. These are logically equivalent via the standard fact that every $m$-dimensional real normed space is linearly isomorphic to $\\mathbb{R}^m$ (and conversely, $\\mathbb{R}^m$ with any norm is such a space). The `Metric.closedBall (0 : E) 1` corresponds exactly to $\\{x : \\|x\\| \\leq 1\\}$, and the dimension hypothesis `Module.finrank ℝ E = m` pins down $E$ to match $\\mathbb{R}^m$'s dimension. This is a standard and faithful Lean encoding of the informal claim.",
+  "duration_ms": 88229,
+  "cost_usd": 0.14517675
+}

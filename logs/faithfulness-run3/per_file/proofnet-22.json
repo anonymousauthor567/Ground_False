@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The informal statement comes from Axler's Linear Algebra Done Right (Exercise 6.2), where the convention is that V is an inner product space over F = ℝ or ℂ. The Lean formalization uses [RCLike F] which exactly captures \"F is ℝ or ℂ\", and [InnerProductSpace F V] captures \"V is an inner product space over F\". The biconditional ⟪u, v⟫_F = 0 ↔ ∀ (a : F), ‖u‖ ≤ ‖u + a • v‖ matches the informal statement \"⟨u,v⟩ = 0 iff ‖u‖ ≤ ‖u + av‖ for all a ∈ F\" exactly, with correct quantifier structure and no added/dropped hypotheses. Although Mathlib's inner product convention differs from Axler's (conjugate in first vs. second argument), the claim ⟨u,v⟩ = 0 is invariant under conjugation, so this does not affect faithfulness. The [NormedAddCommGroup V] typeclass is a prerequisite implied by [InnerProductSpace F V] being well-formed.",
+  "duration_ms": 26476,
+  "cost_usd": 0.06653224999999999
+}

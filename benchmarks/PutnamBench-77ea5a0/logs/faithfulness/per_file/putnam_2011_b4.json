@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b4.lean",
+  "stem": "putnam_2011_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The function `games : Fin 2011 → Fin 2011 → Bool` encodes 2011 games × 2011 players with Boolean win/loss outcomes. T_{p1,p2} counts games where both players had the same result (matching \"both won or both lost\", i.e., tied). W_{p1,p2} correctly computes the signed count: (#{games where p1 won, p2 lost}) − (#{games where p1 lost, p2 won}), exactly matching the informal rule that W_{hk} += 1 if h wins and k loses, while W_{kh} -= 1. The outer `: ℂ` annotation triggers Mathlib's binop elaborator to perform subtraction in ℂ (not truncated ℕ subtraction). The conclusion `∃ n : ℕ, det = n ∧ 2^2010 ∣ n` correctly encodes that the determinant is a non-negative integer divisible by 2^2010 (ℕ carries both non-negativity and integrality, and the ℂ-valued coercion is standard). The h=k diagonal case is correctly included.",
+  "duration_ms": 240759,
+  "cost_usd": 0.560672
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_b5.lean",
+  "stem": "putnam_2021_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The \"very odd\" predicate is characterized by quantifying over all injective functions reind : Fin m → Fin n for m ∈ [1,n]; this is equivalent to quantifying over all nonempty subsets S of {1,...,n} because (a) each nonempty subset of size m corresponds to m! such injective functions, and (b) different orderings yield submatrices related by simultaneous row-column permutation B = PAP^{-1}, which have identical determinants (not merely up to sign). The submatrix A.submatrix reind reind correctly selects the principal submatrix (a_{ij})_{i,j∈S}. The conclusion ∀ A, veryodd A → ∀ k ≥ 1, veryodd (A^k) matches the informal claim. The hypothesis npos : n ≥ 1 is a reasonable implicit premise (n = 0 is trivial since there are no nonempty subsets).",
+  "duration_ms": 194308,
+  "cost_usd": 0.4081305
+}

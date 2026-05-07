@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. \"Composite order n\" is encoded via `¬ (card G).Prime` combined with `card G ≠ 1`; since `[Group G]` guarantees `card G ≥ 1`, this correctly means card G is ≥ 2 and not prime, i.e., composite. The subgroup-existence hypothesis `∀ k : ℕ, k ∣ card G → ∃ H, ...` correctly expresses \"a subgroup of order k for each positive integer k dividing n\" — the positivity is automatic because `0 ∤ card G` when `card G ≥ 2`. The conclusion `¬ IsSimpleGroup G` matches \"G is not simple\" (Mathlib's `IsSimpleGroup` requires Nontrivial and normal subgroups only `⊥` or `⊤`). The explicit `Fintype H` instance in the existential is harmless since Fintype cardinality is unique. No hypotheses are added or dropped beyond what the informal requires.",
+  "duration_ms": 124585,
+  "cost_usd": 0.40692800000000007
+}

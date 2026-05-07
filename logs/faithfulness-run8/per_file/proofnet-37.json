@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `G` is a finite group via `[Group G] [Fintype G]`, the hypothesis `card G > 2` matches \"n = |G| > 2\", and the conclusion quantifies universally over subgroups `H` asserting `card H ≠ card G - 1`, which is the standard encoding of \"G cannot have a subgroup H with |H| = n-1\". The `[Fintype H]` instance is only bookkeeping to allow `card H` to be computed (and is automatically derivable from `[Fintype G]`). Natural number subtraction `card G - 1` is well-behaved here because `card G ≥ 3`. No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal assertion.",
+  "duration_ms": 52805,
+  "cost_usd": 0.15599625000000003
+}

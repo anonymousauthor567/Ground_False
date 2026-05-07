@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a1.lean",
+  "stem": "putnam_1977_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The four distinct points of the curve are encoded as S : Finset ℝ with S.card = 4 together with the set {P : Fin 2 → ℝ | P 0 ∈ S ∧ P 1 = y (P 0)}; since y is a function, distinct x-coordinates yield distinct points, so this set has exactly 4 points. Collinearity uses Mathlib's standard Collinear definition (vectorSpan rank ≤ 1), which matches the usual geometric meaning. The conclusion (∑ x ∈ S, x) / 4 = putnam_1977_a1_solution with solution -7/8 precisely states that the average x-coordinate equals this constant, which captures both \"the average is a constant k\" and \"find k\". No hypotheses are silently added or dropped; the quantifier structure (implicit ∀ over S followed by implication from collinearity) matches the informal \"if...then\" claim.",
+  "duration_ms": 85488,
+  "cost_usd": 0.25717275
+}

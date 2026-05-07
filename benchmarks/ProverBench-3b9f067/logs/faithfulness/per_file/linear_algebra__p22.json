@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p22.lean",
+  "stem": "linear_algebra__p22",
+  "verdict": "faithful",
+  "reasoning": "The informal statement's conclusion (m₁₁ + m₂₂ + m₃₃ − m₄₁ − m₄₂ − m₄₃ = 119) depends only on the explicitly stipulated entries of the matrix of M. The Lean theorem defines matrixM with exactly those specified entries and asserts the same numerical identity (with correct 0-based to 1-based index translation: m₁₁→matrixM 0 0, etc.). Arithmetic verifies: 37+1+(−24)−(−62)−(−3)−(−40) = 119. The hypotheses about L, K, and M=K∘L in the informal statement are irrelevant to the conclusion since the matrix of M is given explicitly; dropping them does not change the mathematical content, as the conclusion is logically equivalent whether stated as a conditional or directly. The unused variable declarations for L and K in Lean are harmless. Thus the formalization is faithful.",
+  "duration_ms": 90536,
+  "cost_usd": 0.24621225
+}

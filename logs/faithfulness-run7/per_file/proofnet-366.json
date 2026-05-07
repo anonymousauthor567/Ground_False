@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if f : ℂ → ℂ is entire and injective, then f(z) = az + b for some a, b ∈ ℂ with a ≠ 0. The Lean hypotheses `Differentiable ℂ f` (for `f : ℂ → ℂ`) correctly encode \"entire\" — holomorphy on all of ℂ — and `Function.Injective f` matches \"injective\". The conclusion `∃ a b : ℂ, f = (λ z => a * z + b) ∧ a ≠ 0` precisely captures \"f takes the form az + b with a ≠ 0\". The types, quantifier structure, hypotheses, and conclusion all align with the informal claim, so the formalization is strictly faithful.",
+  "duration_ms": 22332,
+  "cost_usd": 0.11121575
+}

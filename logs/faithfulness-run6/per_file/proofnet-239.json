@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G of order 2907 is not simple. The Lean theorem takes an arbitrary type G with `[Fintype G] [Group G]` and hypothesis `card G = 2907`, concluding `¬ IsSimpleGroup G`. The Mathlib `IsSimpleGroup` class (in Mathlib/GroupTheory/Subgroup/Simple.lean) is defined as a `Nontrivial` group whose only normal subgroups are ⊥ or ⊤, which matches the standard textbook definition of a simple group. The cardinality condition matches |G| = 2907, and `Fintype G` together with `card G = 2907` correctly captures \"G is finite of order 2907\". This is a strictly faithful formalization.",
+  "duration_ms": 21707,
+  "cost_usd": 0.10946300000000002
+}

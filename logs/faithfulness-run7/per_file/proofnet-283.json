@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over `n : ℕ+` (positive integers), which makes explicit the implicit premise that n is a positive integer — a standard convention in the informal number-theoretic context and actually necessary for truth (the claim would fail at n = 0 since 0! = 1 and 1 mod 0 = 1 ≠ 0). The hypothesis `¬ n.Prime` (defined as `¬(n : ℕ).Prime`) faithfully matches \"n is not a prime\". The conclusion encodes \"(n-1)! ≡ 0 (mod n), except when n = 4\" as the biconditional `(n-1)! ≡ 0 [MOD n] ↔ n ≠ 4`, which is the natural reading — for non-prime n, the congruence fails exactly when n = 4. Whether `n - 1` elaborates as Nat or PNat subtraction is immaterial since both yield factorial value 1 at the boundary case n = 1 (which satisfies the iff trivially). The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 175587,
+  "cost_usd": 0.61644425
+}

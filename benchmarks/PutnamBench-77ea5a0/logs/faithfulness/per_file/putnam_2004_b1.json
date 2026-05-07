@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_b1.lean",
+  "stem": "putnam_2004_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem. The hypothesis `P.degree = n` makes explicit the implicit assumption that $c_n$ is the leading coefficient (natural reading of the notation $P(x) = c_n x^n + \\cdots + c_0$). `Polynomial.aeval r P = 0` correctly encodes $P(r) = 0$. The conclusion iterates over $i \\in \\{0, \\ldots, n-1\\}$ (the $n$ indices), and the inner sum $\\sum_{j=0}^{i} P.\\text{coeff}(n-j) \\cdot r^{i+1-j}$ expands exactly to $c_n r^{i+1} + c_{n-1} r^i + \\cdots + c_{n-i} r$, matching each of the $n$ described sums. The `∃ m : ℤ, m = sum` clause (with the implicit ℤ → ℚ coercion) expresses \"the rational sum equals an integer\", matching \"are integers\". Nat subtractions $n-j$ and $i+1-j$ are safe since $j \\le i \\le n-1$.",
+  "duration_ms": 377449,
+  "cost_usd": 1.16213875
+}

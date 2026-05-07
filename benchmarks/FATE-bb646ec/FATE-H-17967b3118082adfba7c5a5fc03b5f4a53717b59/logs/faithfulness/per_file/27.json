@@ -1,0 +1,8 @@
+{
+  "file": "27.lean",
+  "stem": "27",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"A field F contained in M_n(ℚ)\" with the degree [F:ℚ] implicitly assumes F contains the copy of ℚ as scalar matrices (otherwise [F:ℚ] is undefined), making F a ℚ-subalgebra — precisely what `Subalgebra ℚ (Matrix (Fin n) (Fin n) ℚ)` captures. `IsField F` correctly encodes \"F is a field\" (commutativity, nontriviality, and inverses of nonzero elements in F itself, using the inherited ring structure on the subalgebra). `Module.rank ℚ F ≤ n` is the standard formalization of [F:ℚ] ≤ n, using the Cardinal-valued rank with n coerced from ℕ. The universal quantification over n and F matches the informal \"Let F be a field…\". The n = 0 edge case is vacuously handled correctly since the trivial ring cannot satisfy IsField.",
+  "duration_ms": 901145,
+  "cost_usd": 1.41766925
+}

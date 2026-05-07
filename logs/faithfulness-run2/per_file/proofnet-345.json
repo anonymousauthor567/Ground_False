@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `ha` and `hb` state that the series of absolute values ∑|a_i| and ∑|b_i| converge, which is exactly absolute convergence of a and b. The conclusion states that ∑|c_i| converges, where c_i = ∑_{j=0}^{i} a_j * b_{i-j} is the Cauchy product (the inner sum `∑ j ∈ range (i+1), a j * b (i-j)` correctly indexes j from 0 to i, and natural subtraction i-j is safe since j ≤ i). This is precisely \"the Cauchy product converges absolutely.\" The types (ℝ-valued sequences) and the quantifier structure (given a, b with absolute convergence, the Cauchy product converges absolutely) all match the informal claim.",
+  "duration_ms": 14523,
+  "cost_usd": 0.07699524999999999
+}

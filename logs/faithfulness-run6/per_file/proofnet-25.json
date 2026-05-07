@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The ambient setup (finite-dimensional inner product space V over RCLike F) matches Axler's standard setting for L(V). The hypothesis `T * adjoint T = adjoint T * T` is exactly the algebraic definition of T being normal (T commutes with its adjoint), which is equivalent to the Mathlib `IsStarNormal` condition. The conclusion `range T = range (adjoint T)` precisely matches 'range T = range T*'. The `FiniteDimensional` assumption is appropriate for Axler's L(V) context and is required for `LinearMap.adjoint` to be defined in Mathlib. No hypothesis, conclusion, or quantifier is silently added, dropped, or altered.",
+  "duration_ms": 227334,
+  "cost_usd": 0.7077852500000001
+}

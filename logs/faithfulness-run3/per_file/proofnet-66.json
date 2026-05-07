@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-66.lean",
+  "stem": "proofnet-66",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature represents ℚ[x, y] as `MvPolynomial (Fin 2) ℚ`, and encodes the variables x, y as `MvPolynomial.X 0` and `MvPolynomial.X 1`. With `open Ideal`, `span {X 0, X 1}` resolves to `Ideal.span`, giving the ideal (x, y). Since `Ideal.span` agrees with `Submodule.span ℚ[x,y]` on a ring viewed as a module over itself (via `submodule_span_eq`), asserting `¬ Submodule.IsPrincipal` of this ideal is equivalent to saying the ideal is not principal as an ideal. This is precisely the informal claim, with no added or missing hypotheses.",
+  "duration_ms": 108487,
+  "cost_usd": 0.306399
+}

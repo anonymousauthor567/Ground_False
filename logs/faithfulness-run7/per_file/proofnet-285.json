@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean conclusion `IsPrimitiveRoot (3 : ZMod p) (p - 1)` precisely encodes \"3 is a primitive root mod p\" — Mathlib's definition requires 3^(p-1) = 1 and that p-1 divides any exponent ℓ with 3^ℓ = 1, i.e., 3 has order exactly p-1 in (ZMod p)ˣ. The hypotheses `p.Prime` and `p = 2^n + 1` capture \"p = 2^n + 1 is a Fermat prime\". The only non-obvious addition is `2 ≤ n`, which excludes p = 3 (the Fermat prime F_0); but for p = 3 the literal claim is false since 3 ≡ 0 (mod 3) is not a primitive root. This is precisely the worked-example scenario: the informal statement has an implicit premise (p > 3, equivalently n ≥ 2) needed for truth, and the Lean formalization surfaces it. Excluding n = 0 (p = 2) is consistent with the standard convention that Fermat primes start at F_0 = 3. Therefore the Lean statement faithfully matches the intended mathematical content.",
+  "duration_ms": 197721,
+  "cost_usd": 0.5922605
+}

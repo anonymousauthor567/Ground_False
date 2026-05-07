@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the same claim: for every z on the unit circle (‖z‖=1), the partial sums ∑_{i=0}^{n-1} z^(i+1)/(i+1) (which equal ∑_{k=1}^{n} z^k/k) converge iff z ≠ 1. The informal phrase \"converges at every point of the unit circle except z=1\" conveys both directions: convergence for z≠1 and non-convergence at z=1 (the harmonic series). The iff in Lean correctly captures both directions. The auxiliary binder `(s : ℕ → ℂ)` with `h : s = ...` is just definitional and logically equivalent to writing the sum directly. No extraneous hypotheses (Fintype/decidability/etc.) are added, and no necessary ones are dropped; types are ℂ throughout.",
+  "duration_ms": 72845,
+  "cost_usd": 0.2197965
+}

@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_7.lean",
+  "stem": "hackmath_7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses Mathlib's `Finpartition` (a partition into disjoint nonempty parts whose union is the whole set) of `Finset.univ : Finset (Fin 10)`, correctly representing 10 distinguishable girls. The conditions `f.parts.card = 2` (exactly two groups) and `∀ i ∈ f.parts, i.card ≥ 4` (each group has at least 4 girls) precisely match \"divided into two groups with at least four girls in each group.\" Since `parts` is a `Finset`, the two groups are unordered — matching the standard combinatorial reading of \"divide into two groups.\" The theorem asserts the cardinality of all such partitions equals the solution constant, which is exactly the counting problem posed. No implicit premises are altered or introduced beyond what's standard.",
+  "duration_ms": 104449,
+  "cost_usd": 0.305437
+}

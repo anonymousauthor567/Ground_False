@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `∫ x in (0 : ℝ)..(1 : ℝ), Real.log (Real.sin (Real.pi * x)) = - Real.log 2` uses Mathlib's `intervalIntegral` notation (confirmed in `Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean` line 634), which expands to `intervalIntegral (fun x => Real.log (Real.sin (Real.pi * x))) 0 1 volume`. This precisely encodes $\\int_0^1 \\log(\\sin(\\pi x))\\,dx = -\\log 2$: the bounds, the integrand, and the asserted value all match the informal statement. The integrand is real-valued with real bounds, matching the intent. Mathlib's convention for `Real.log` at the zero values of $\\sin(\\pi x)$ at the endpoints does not affect the integral since endpoints have measure zero. No hypotheses were added or dropped.",
+  "duration_ms": 82473,
+  "cost_usd": 0.25625499999999996
+}

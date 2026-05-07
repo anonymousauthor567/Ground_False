@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement binds `I : TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)`, which is exactly \"an ideal of the ring of 2×2 real matrices\" under Herstein's standard convention that \"ideal\" means two-sided ideal. The conclusion `I = ⊥ ∨ I = ⊤` matches \"I = (0) or I = R\" since in Mathlib's TwoSidedIdeal lattice `coe_bot : (⊥ : TwoSidedIdeal R) = {0}` and `coe_top : (⊤ : TwoSidedIdeal R) = Set.univ`. The implicit universal quantifier over I is captured by the free variable. No hypotheses are added or dropped, and the types correspond exactly to the informal mathematical objects.",
+  "duration_ms": 49618,
+  "cost_usd": 0.201048
+}

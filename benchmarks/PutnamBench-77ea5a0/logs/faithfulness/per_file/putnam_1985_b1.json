@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_b1.lean",
+  "stem": "putnam_1985_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The polynomial `p m = ∏ i, (X - m i)` matches the informal product. `numnzcoeff` counts nonzero coefficients up through natDegree (which covers all nonzero coefficients since coefficients beyond natDegree are zero). The conclusion asserts (1) `Injective putnam_1985_b1_solution`, confirming the solution consists of distinct integers, and (2) for every injective tuple `m`, the solution's polynomial has at most as many nonzero coefficients — exactly characterizing \"achieves the minimum k\". The \"smallest positive integer\" qualifier in the informal statement is automatically satisfied since a monic degree-5 polynomial has at least one nonzero coefficient. The quantifier structure, types (ℤ for integers, Polynomial ℝ for the polynomial), and the minimization condition all match the informal reading precisely.",
+  "duration_ms": 70368,
+  "cost_usd": 0.22399999999999998
+}

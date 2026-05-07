@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes both the hypothesis and the conclusion. The hypothesis `∑ i ∈ range (n+1), (C i)/(i+1) = 0` sums $C_i/(i+1)$ for $i = 0,\\ldots,n$ in ℝ (with `i : ℕ` coerced), matching $C_0 + C_1/2 + \\cdots + C_n/(n+1) = 0$. The conclusion `∃ x ∈ Set.Ioo 0 1, ∑ i ∈ range (n+1), (C i)*(x^i) = 0` matches the claim of a real root strictly between 0 and 1 for the polynomial $\\sum C_i x^i$. Using `C : ℕ → ℝ` for the coefficient sequence is a standard encoding and introduces no scope change since only indices `0..n` are referenced. The universal quantification over `n : ℕ` matches the informal generality.",
+  "duration_ms": 47570,
+  "cost_usd": 0.11836775
+}

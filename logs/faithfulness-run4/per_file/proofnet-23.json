@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes Axler's polarization identity, adapted to Mathlib's inner product convention (which is linear in the SECOND argument, while Axler's is linear in the first). Under this convention swap, ⟪u,v⟫_Mathlib corresponds to ⟨v,u⟩_Axler; applying Axler's formula to ⟨v,u⟩ and using ‖v±iu‖ = ‖u∓iv‖ yields exactly the Lean formula with the flipped signs on the i-terms. This matches Mathlib's built-in `inner_eq_sum_norm_sq_div_four` lemma verbatim. The hypotheses `NormedAddCommGroup V` and `InnerProductSpace ℂ V` precisely capture \"V is a complex inner-product space\"; no extra or missing assumptions. The two statements are mathematically equivalent claims about complex inner-product spaces.",
+  "duration_ms": 254204,
+  "cost_usd": 0.81300325
+}

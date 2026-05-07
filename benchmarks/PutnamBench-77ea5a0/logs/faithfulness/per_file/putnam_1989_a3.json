@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_a3.lean",
+  "stem": "putnam_1989_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly transcribes the informal statement. The variable `z : ℂ` matches \"z is a complex number\". With `open Complex`, the symbol `I` resolves to `Complex.I`, which satisfies `I^2 = -1` (matching the informal note). The hypothesis `11 * z^10 + 10*I*z^9 + 10*I*z - 11 = 0` is the exact polynomial equation given. On ℂ, `‖·‖` is defined in `Mathlib.Analysis.Complex.Norm` as `√(normSq z)` — the standard complex modulus — so `‖z‖ = 1` faithfully encodes `|z| = 1`. No hypotheses are added or dropped, and the conclusion is identical.",
+  "duration_ms": 40054,
+  "cost_usd": 0.163922
+}

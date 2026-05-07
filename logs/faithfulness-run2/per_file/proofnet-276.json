@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary field K with an arbitrary subfield F and an element a:K, assumes a^2 is algebraic over F via `IsAlgebraic F (a^2)`, and concludes a is algebraic over F via `IsAlgebraic F a`. This matches the informal statement exactly: the quantifier structure (implicit universal over K, F, a), the hypothesis (a^2 algebraic over F), and the conclusion (a algebraic over F) are all preserved. `IsAlgebraic` in Mathlib precisely captures \"algebraic over\" (existence of a nonzero polynomial with coefficients in the base ring that vanishes), and Subfield K has the expected coercion and algebra instance over K. No extra assumptions (e.g., characteristic, finiteness) are silently added, and none are dropped.",
+  "duration_ms": 18076,
+  "cost_usd": 0.0839755
+}

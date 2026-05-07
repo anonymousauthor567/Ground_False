@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: `I + J = ⊤` is the Mathlib way to express $I+J=R$ (since `⊤` is the top ideal, which is $R$, and `Ideal.add_eq_sup` makes `I+J` equal `I ⊔ J`), and `I * J = I ⊓ J` is exactly $IJ = I \\cap J$. The only additional content is the `[CommRing R]` hypothesis, which is not literally stated in the informal text but is an implicit premise needed for the claim to be true: in a non-commutative ring, for $r \\in I \\cap J$ and $1 = i+j$, we get $r = ri + rj$ with $ri \\in JI$ and $rj \\in IJ$, so $r$ only lies in $IJ + JI$ in general. Indeed Mathlib's analogous `Ideal.mul_eq_inf_of_coprime` is stated in a `CommSemiring` section. Making this implicit commutativity assumption explicit is a faithful reading of the intended mathematical content, not a narrowing.",
+  "duration_ms": 244251,
+  "cost_usd": 0.7831179999999999
+}

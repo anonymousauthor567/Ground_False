@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if G/Z(G) is cyclic then G is abelian (equivalently, G = Z). The Lean theorem takes `hG : IsCyclic (G ⧸ center G)` and concludes `center G = ⊤`. In Mathlib, `center G = ⊤` (as a Subgroup) is exactly the condition that every element of G commutes with every other, i.e., G is abelian / G = Z (confirmed by `CommGroup.center_eq_top` and `Group.commGroupOfCenterEqTop` in GroupTheory/Subgroup/Center.lean, which show the equivalence). The hypothesis `IsCyclic (G ⧸ center G)` directly matches \"G/Z is cyclic\". No hypotheses are added or dropped, and the universal quantification over groups G is preserved. The two statements are logically equivalent.",
+  "duration_ms": 31818,
+  "cost_usd": 0.15073899999999998
+}

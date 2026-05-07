@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"a group of even order contains an element of order 2\". The Lean statement encodes this as: for any finite group G (with `[Fintype G]`) such that `Even (card G)`, there exists x with `orderOf x = 2`. The Fintype hypothesis is implicit in the informal phrase \"even order\" — speaking of a group's order presupposes finiteness. `Even (card G)` correctly captures \"even order\", and `∃ x : G, orderOf x = 2` correctly captures \"contains an element of order 2\". The quantifier structure (universal over G, existential over x) matches. This is the standard Cauchy-for-p=2 formulation and is logically equivalent to the informal claim.",
+  "duration_ms": 40816,
+  "cost_usd": 0.14488025
+}

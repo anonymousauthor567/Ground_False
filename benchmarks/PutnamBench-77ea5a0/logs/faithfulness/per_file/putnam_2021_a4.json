@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a4.lean",
+  "stem": "putnam_2021_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The integration region uses `Metric.ball 0 R` (open ball) in `EuclideanSpace ℝ (Fin 2)`, while the informal uses the closed disk $x^2+y^2 \\leq R^2$; these differ only by the boundary sphere, which has 2D Lebesgue measure zero, so the integrals are identical. The volume measure on `EuclideanSpace ℝ (Fin 2)` corresponds to the standard 2D Lebesgue measure (via `PiLp.volume_preserving_toLp`). The integrand `(1 + 2*(p 0)^2)/(1 + (p 0)^4 + 6*(p 0)^2*(p 1)^2 + (p 1)^4) - (1 + (p 1)^2)/(2 + (p 0)^4 + (p 1)^4)` matches the informal expression exactly with $x = p\\,0$ and $y = p\\,1$. The conclusion `Tendsto I atTop (𝓝 solution)` is the standard way to express $\\lim_{R \\to \\infty} I(R) = $ solution, and the solution $\\frac{\\sqrt{2}}{2}\\pi \\ln 2$ matches. Stating a specific limit value correctly answers \"find the limit, or show it doesn't exist\" when the limit exists.",
+  "duration_ms": 224925,
+  "cost_usd": 0.53889575
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "informal": "Prove that $-(-v) = v$ for every $v \\in V$.",
+  "lean": "\ntheorem Axler_exercise_1_3 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] {v : V} : -(-v) = v",
+  "verdict": "faithful",
+  "reasoning": "The informal statement comes from Axler's Linear Algebra Done Right, where V is a vector space over a field F. The Lean signature encodes this exactly: F is a Field, V is an AddCommGroup with Module F V structure (the standard Mathlib formalization of a vector space). The conclusion -(-v) = v is stated for an arbitrary v : V (implicit universal quantification via the implicit binder), matching \"for every v ∈ V\". No extra hypotheses (like finite-dimensionality) are imposed, and none required by the informal statement are dropped. This is logically equivalent to the informal claim.",
+  "duration_ms": 7562,
+  "cost_usd": 0.045585749999999994
+}

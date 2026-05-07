@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in ℂ, if {s_n} converges then {|s_n|} converges. The Lean hypothesis `∃ a : ℂ, Tendsto f atTop (𝓝 a)` correctly expresses \"the sequence f converges in ℂ\" (the standard Mathlib idiom for convergence of a sequence). The conclusion `∃ a : ℝ, Tendsto (fun n => ‖f n‖) atTop (𝓝 a)` correctly expresses \"the sequence of absolute values converges in ℝ\", since for `z : ℂ`, `‖z‖` is the complex absolute value (the standard norm on ℂ). Types, quantifier structure, and mathematical meaning all match the informal statement exactly.",
+  "duration_ms": 45769,
+  "cost_usd": 0.16926075000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "This is exactly the worked example given in the system prompt. The informal statement says \"if a prime integer p has the form 2^r + 1, then it has the form 2^(2^k) + 1\". The Lean encoding uses `Nat.Prime p` (which allows p = 2), and the existential `∃ r : ℕ, 1 ≤ r ∧ p = 2^r + 1` matches \"has the form 2^r + 1\" while surfacing the implicit premise `1 ≤ r`. Without `1 ≤ r`, the claim is literally false (p = 2, r = 0 is a counterexample since 2 = 2^0 + 1 is prime but 2 ≠ 2^(2^k) + 1 for any k ∈ ℕ). Per the system prompt's explicit instructions, adding such a premise to make the implicit assumption explicit is NOT a faithfulness error — it is a correct formalization. The conclusion `∃ k : ℕ, p = 2^(2^k) + 1` precisely matches the informal conclusion.",
+  "duration_ms": 57699,
+  "cost_usd": 0.21788000000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the symmetric-difference limit condition does not force continuity, i.e., to exhibit a counterexample. The Lean statement asserts ∃ f : ℝ → ℝ satisfying (∀ x, the limit as y → 0 of f(x+y) − f(x−y) equals 0) and ¬ Continuous f, which is exactly the existence of such a counterexample. The type ℝ → ℝ, the ∀ x quantifier, the Tendsto encoding of the two-sided symmetric limit at 0, and the negation of Continuous f all precisely match the informal claim. No hypotheses are added or dropped, and the conclusion \"f need not be continuous\" is standardly formalized as existence of a non-continuous witness.",
+  "duration_ms": 27497,
+  "cost_usd": 0.09339325
+}

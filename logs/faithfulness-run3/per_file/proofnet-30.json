@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that for an element $x$ of a group $G$, $x^2 = 1$ iff $|x| \\in \\{1, 2\\}$. The Lean statement encodes this directly as `x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)`, where `orderOf x` is Mathlib's notation for the order of a group element (with 0 denoting infinite order). The biconditional, the squaring, the equality to the identity, and the disjunction on the order match the informal claim exactly. The group $G$ is universally quantified in both statements (via the implicit type variable), so this is a strictly faithful formalization.",
+  "duration_ms": 9496,
+  "cost_usd": 0.0434965
+}

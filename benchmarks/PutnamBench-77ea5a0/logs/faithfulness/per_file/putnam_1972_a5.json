@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_a5.lean",
+  "stem": "putnam_1972_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"if n is an integer greater than 1, then n does not divide 2^n - 1\". The Lean uses `n : ℕ` with `hn : n > 1`, which is equivalent to \"integer greater than 1\" since integers > 1 correspond exactly to natural numbers > 1. The conclusion `¬((n : ℤ) ∣ 2^n - 1)` correctly coerces n to an integer and states non-divisibility of 2^n - 1 (which is elaborated in ℤ due to the left side of ∣). The quantifier structure, hypotheses, and conclusion all match the informal claim.",
+  "duration_ms": 15687,
+  "cost_usd": 0.0503595
+}

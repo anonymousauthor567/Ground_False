@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Rudin Exercise 3.1a) concerns sequences of complex numbers, and the Lean formalization uses `f : ℕ → ℂ` accordingly. The hypothesis `∃ a : ℂ, Tendsto f atTop (𝓝 a)` precisely expresses \"$\\{s_n\\}$ converges,\" and the conclusion `∃ a : ℝ, Tendsto (‖f ·‖) atTop (𝓝 a)` precisely expresses \"$\\{|s_n|\\}$ converges,\" since `‖·‖` on ℂ agrees with the usual modulus $|·|$ and the limit of moduli is real. No extra hypotheses (e.g., boundedness, decidability) are imposed, and no conclusion is weakened or strengthened. The quantifier structure and types match the standard reading of the informal claim.",
+  "duration_ms": 22654,
+  "cost_usd": 0.09159749999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement from Dummit & Foote uses $|x|$ to denote the order of a group element. The claim \"$|ab| = |ba|$ for all $a, b \\in G$\" translates directly to `orderOf (a * b) = orderOf (b * a)` for all `a b : G` in an arbitrary group `G`. The Lean signature uses `{G: Type*} [Group G]` with universally quantified `a b : G`, matching the \"for all $a, b$ in a group $G$\" reading. No extra hypotheses (finiteness, commutativity, etc.) are imposed, and no hypotheses are dropped. Therefore it is logically equivalent to the informal claim.",
+  "duration_ms": 7691,
+  "cost_usd": 0.0327605
+}

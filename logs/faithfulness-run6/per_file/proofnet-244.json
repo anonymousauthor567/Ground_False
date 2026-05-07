@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is exactly McCoy's theorem as formalized in Mathlib's `notMem_nonZeroDivisors_iff`. The LHS `∃ q ≠ 0, p * q = 0` correctly encodes \"p is a zero divisor\" (in the standard commutative ring sense of having a nonzero annihilator). The RHS `∃ b ≠ 0, b • p = 0` correctly encodes \"∃ nonzero b ∈ R with bp(x) = 0\", since `b • p = C b * p` via `smul_eq_C_mul`, which is the polynomial with each coefficient multiplied by b. The commutative ring hypothesis matches the textbook's standing assumption. While a strict Dummit-Foote reading might require p ≠ 0 on the LHS, adding that would actually make the statement false when p = 0 in a nontrivial ring (RHS holds with b = 1). The Lean version is the correct universal formulation and matches Mathlib's convention.",
+  "duration_ms": 436190,
+  "cost_usd": 1.3776747500000002
+}

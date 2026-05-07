@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_b5.lean",
+  "stem": "putnam_1991_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal statement. The hypotheses `podd : Odd p` and `pprime : Prime p` jointly express \"p is an odd prime\". The sets `{z : ZMod p | ∃ x, z = x^2}` and `{z : ZMod p | ∃ y, z = y^2 + 1}` faithfully encode the informal $\\{x^2 : x \\in \\mathbb{Z}_p\\}$ and $\\{y^2+1 : y \\in \\mathbb{Z}_p\\}$, and `ZMod p` is the standard Mathlib representation of \"the field of integers modulo p\". The cardinality is computed via `Set.encard`, which for the finite set `ZMod p` gives precisely \"how many elements are in the set\" as asked. The solution is coerced from `ℕ` to `ℕ∞` for the equality. No hypotheses are added or omitted, no types are altered, and the conclusion is exactly the asked-for count.",
+  "duration_ms": 179609,
+  "cost_usd": 0.5198565
+}

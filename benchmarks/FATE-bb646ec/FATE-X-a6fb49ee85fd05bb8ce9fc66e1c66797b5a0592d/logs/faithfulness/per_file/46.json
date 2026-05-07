@@ -1,0 +1,8 @@
+{
+  "file": "46.lean",
+  "stem": "46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly Stacks 058E: M is flat iff every R-linear map f : P → M from a finitely presented R-module P factors through a finite free R-module. Each component matches faithfully: `Module.Flat R M` for \"M is flat\"; `Module.FinitePresentation R P` for \"finitely presented R-module\"; `Module.Finite R F ∧ Module.Free R F` for \"free finite R-module\" (for a free module, finitely generated is equivalent to finite rank); and `f = g.comp h` for \"f = g ∘ h\" with h : P → F, g : F → M. The quantification order (f before the FP hypothesis) is logically equivalent to quantifying over f.p. P's first. The restriction of R, M, P, F to Type 0 is a conventional universe choice and does not change the essential mathematical content. The iff is mathematically correct (standard consequence of Lazard's theorem).",
+  "duration_ms": 376904,
+  "cost_usd": 1.12057825
+}

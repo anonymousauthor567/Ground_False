@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "Under standard mathematical reading of Herstein's exercise, \"proper subgroup\" means \"non-trivial proper subgroup\" (otherwise the statement is vacuously false since any non-trivial G has {e} as a subgroup H ≠ G). The Lean hypothesis `hG : ∀ H : Subgroup G, H = ⊤ ∨ H = ⊥` correctly captures this. The conclusion \"cyclic of prime order p\" implicitly requires G to be non-trivial (since 1 is not prime), and the Lean `h_nontrivial` makes this implicit assumption explicit — matching how mathematicians read the statement. The Lean conclusion correctly encodes \"cyclic of prime order p\" as `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` (the `IsCyclic` conjunct is redundant given prime order, but is not a semantic mismatch).",
+  "duration_ms": 79919,
+  "cost_usd": 0.27118974999999995
+}

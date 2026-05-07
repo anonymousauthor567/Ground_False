@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim from Ireland-Rosen exercise 5.37 exactly: `ha : a < 0` encodes \"a is negative\"; `h0 : p ≡ q [ZMOD 4*a]` uses Mathlib's Int.ModEq which is equivalent to 4a | q - p, matching \"p ≡ q (mod 4a)\"; `h1 : ¬ ((p : ℤ) ∣ a)` matches \"p ∤ a\"; and the conclusion `legendreSym p a = legendreSym q a` matches (a/p) = (a/q), with Mathlib's `legendreSym p a` representing the standard Legendre symbol (a/p). The informal statement does not explicitly require q ∤ a, but this follows from the given hypotheses (if q | a, then since 4a | q - p, we'd get q | p, forcing p = q and contradicting p ∤ a). Although Legendre symbols are traditionally defined only for odd primes, Mathlib's definition works for all primes, and the statement remains trivially true when p = 2 (forcing q = 2 given the congruence). No hypothesis is silently added, dropped, or altered.",
+  "duration_ms": 691141,
+  "cost_usd": 0.7276937500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of two Finsets of cardinality (p-1)/2 in ZMod p excluding 0, one consisting entirely of squares and one of nonsquares. This is logically equivalent to the informal claim that exactly (p-1)/2 elements of {1,...,p-1} are QR and exactly (p-1)/2 are QNR: the existence of such subsets gives |QR| ≥ (p-1)/2 and |QNR| ≥ (p-1)/2, and since QR ∪ QNR partitions the p-1 nonzero elements (for odd p), both counts are forced to equal (p-1)/2. The `hodd` hypothesis surfaces an implicit premise — for p=2 the literal informal statement fails (since 1 is a QR but (2-1)/2 = 0), so Herstein's exercise implicitly assumes p is an odd prime. The encoding `∃ x, x^2 = q` with `0 ∉ S` correctly captures \"nonzero square\" = \"quadratic residue\" since 0 is the only zero square.",
+  "duration_ms": 181242,
+  "cost_usd": 0.5707795
+}

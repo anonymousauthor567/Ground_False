@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p28.lean",
+  "stem": "abstract_algebra__p28",
+  "verdict": "weaker",
+  "reasoning": "Due to Lean's convention that a/0 = 0, the hypothesis `∀ X, originalFraction X = decomposedForm α β γ δ X` is unsatisfiable. At X=2: LHS=30/0=0 while RHS=γ/5+δ/25, forcing 5γ+δ=0. At X=-3: LHS=75/0=0 while RHS=-α/5+β/25, forcing β=5α. But the polynomial identity for X≠2,-3 uniquely determines (α,β,γ,δ)=(4,6,3,0), which violates these boundary constraints (5·3+0=15≠0). Since no real values satisfy the universal hypothesis, the Lean theorem is vacuously true — it would remain provable even if 13 were replaced with any other number. This makes the Lean statement strictly weaker than the informal claim, which asserts a specific arithmetic fact about the unique PFD coefficients. A faithful formalization would quantify only over X where denominators are nonzero, or use polynomial identity directly.",
+  "duration_ms": 665962,
+  "cost_usd": 1.8803789999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "33.lean",
+  "stem": "33",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem says: for any type R with a BooleanRing instance and any ideal I of R with I.IsPrime, I.IsMaximal holds. Mathlib's `BooleanRing` is a (unital) ring with idempotent multiplication (which automatically becomes commutative via a provided instance), matching the standard textbook definition. Mathlib's `Ideal.IsPrime` requires I ≠ ⊤ and the usual mem_or_mem condition; `Ideal.IsMaximal` is defined as `IsCoatom`. The universal quantifiers over the ring and the ideal are correctly rendered as implicit variables, and the hypothesis/conclusion match the informal claim exactly with no added or missing assumptions. This is a strictly faithful formalization.",
+  "duration_ms": 76196,
+  "cost_usd": 0.27169025
+}

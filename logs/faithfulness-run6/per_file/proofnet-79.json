@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement maps directly onto the informal statement: `[CommGroup G]` encodes \"abelian group\", the two existentials `∃ g, orderOf g = m` and `∃ g, orderOf g = n` encode \"has an element of order m/n\", `m.Coprime n` encodes \"m and n are relatively prime\", and the conclusion `∃ g, orderOf g = m * n` encodes \"has an element of order mn\". The quantifier structure, types (ℕ for orders), and logical form all match. Mathlib's convention that `orderOf g = 0` means infinite order does not cause a drift: the only way the coprimality hypothesis `Nat.gcd m n = 1` is satisfied with `m = 0` or `n = 0` is when the other is 1, in which case the conclusion reduces trivially to the hypothesis. No extra hypotheses are added, none are dropped, and the conclusion is exactly what is asked.",
+  "duration_ms": 38406,
+  "cost_usd": 0.13579300000000002
+}

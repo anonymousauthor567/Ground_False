@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal iff: under the hypotheses that p is prime (implicit in \"p\" by standard number-theory convention — without primality, the iff would fail) and p ≡ 1 (mod 4), the claim is \"x^4 ≡ 2 (mod p) has a solution iff p = A^2 + 64B^2\". The `Nat.ModEq` (via `a % n = b % n`) matches the informal `≡ … (mod …)`. Using ℕ for x, A, B (inferred from `p : ℕ`) is equivalent to using ℤ: solutions in ℤ reduce to nonneg residues mod p, and A^2 = (-A)^2 so signs don't matter in the representation form. Making `p.Prime` explicit is surfacing an implicit premise needed for the statement to be true (it is a well-known Ireland–Rosen exercise about fourth-power residues of 2 for primes p ≡ 1 mod 4), not a weakening. All quantifiers, hypotheses, and the conclusion match.",
+  "duration_ms": 114017,
+  "cost_usd": 0.3683215
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. `Nat.Prime p` with `Odd p` precisely encodes \"odd prime\". The sum `∑ i ∈ Finset.range (p-1), (1 / (i + 1) : ℚ)` iterates i from 0 to p-2, producing 1/1 + 1/2 + ... + 1/(p-1) as required. The expression `(a / b : ℚ)` elaborates to `(a : ℚ) / (b : ℚ)` (rational division with both integers coerced), matching the informal a/b. The universal quantification over a, b : ℤ matches the informal \"let a/b = ...\" which asserts p | a for any such representation; this holds because if a/b = S.num/S.den in lowest terms with p | S.num, then every integer representation inherits p | a. The b = 0 case is vacuously handled (since the sum is positive, `(a/0 : ℚ) = 0` makes the hypothesis false), which aligns with the implicit informal assumption b ≠ 0. No hypotheses are dropped or added that alter meaning.",
+  "duration_ms": 168854,
+  "cost_usd": 0.6064062499999999
+}

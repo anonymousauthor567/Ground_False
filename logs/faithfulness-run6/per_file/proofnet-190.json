@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if x is an element of a ring R such that some power of x is zero, then 1+x is a unit. The Lean formalization uses `[Ring R]` (the standard associative ring with unit), `IsNilpotent x` which Mathlib defines as `∃ n : ℕ, x ^ n = 0` (exactly \"some power of x is zero\"), and concludes `IsUnit (1 + x)` (\"1+x is a unit\"). This exactly mirrors the Mathlib lemma `IsNilpotent.isUnit_one_add`. All quantifier structure, hypotheses, and conclusion match the informal statement literally. No extra hypotheses are added or dropped.",
+  "duration_ms": 79015,
+  "cost_usd": 0.257048
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "informal": "Prove that if $|G|=105$ then $G$ has a normal Sylow 5 -subgroup and a normal Sylow 7-subgroup.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_17 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 105) :\n  (∃ (P : Sylow 5 G), P.Normal) ∧ (∃ (P : Sylow 7 G), P.Normal)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes a finite group G with |G| = 105 and concludes the existence of a Sylow 5-subgroup that is normal and a Sylow 7-subgroup that is normal. Since all Sylow p-subgroups of a finite group are conjugate, the existence of one normal Sylow p-subgroup is equivalent to \"G has a normal Sylow p-subgroup\" in the informal sense (and equivalently, the Sylow p-subgroup is unique). The hypothesis `card G = 105` together with `Fintype G` and `Group G` matches \"|G| = 105\". The conjunction matches the two conclusions of the informal statement. No extra hypotheses are imposed and none are dropped.",
+  "duration_ms": 7312,
+  "cost_usd": 0.04798949999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes `[CommRing R] [IsDomain R] [GCDMonoid R]`. The extra `[GCDMonoid R]` is not a substantive additional hypothesis: the informal condition (i) already implies every integral domain satisfying it admits a GCDMonoid structure (define gcd via (i)), and since gcds in a domain are unique up to units, \"the GCDMonoid gcd equals ra+sb\" is equivalent to \"some gcd equals ra+sb\". Hypothesis h1 faithfully encodes condition (i) — `GCDMonoid.gcd a b` is a genuine gcd by the class axioms. Hypothesis h2 faithfully encodes condition (ii): the 0-indexed `ℕ → R` sequence vs. informal 1-indexed sequence and allowing N=0 vs. \"positive integer N\" are inessential encoding differences (if any N works, any larger N also works). The conclusion `IsPrincipalIdealRing R` combined with `IsDomain R` is Mathlib's standard encoding of \"R is a PID\".",
+  "duration_ms": 204696,
+  "cost_usd": 0.665907
+}

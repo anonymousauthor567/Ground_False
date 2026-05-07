@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_b3.lean",
+  "stem": "putnam_1977_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures all components of the informal statement: (1) P encodes \"ordered triple of positive irrationals summing to 1\" (Irrational a/b/c ∧ a,b,c > 0 ∧ a+b+c = 1); (2) balanced encodes \"all three less than 1/2\"; (3) B encodes the balancing act with f(x) = 2x-1 if x > 1/2, else 2x, applied componentwise; (4) the question \"will finitely many iterations always eventually produce a balanced triple\" is faithfully rendered as ∀ t, P t → ∃ n : ℕ, balanced (B^[n] t), using Mathlib's Nat.iterate. The iff with putnam_1977_b3_solution (= False) captures the yes/no answer to the Putnam question. The boundary case x = 1/2 in the ite is irrelevant since irrational values can never equal 1/2. No quantifier structure, type, or hypothesis is altered.",
+  "duration_ms": 302611,
+  "cost_usd": 0.78920925
+}

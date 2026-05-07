@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler Exercise 5.4. The setup `[AddCommGroup V] [Field F] [Module F V]` gives a vector space over a field. The hypothesis `S ∘ T = T ∘ S` (function composition equality for coerced linear maps) is equivalent to $ST = TS$ since linear maps are determined by their underlying functions. `ker (T - c • LinearMap.id)` correctly encodes $\\text{null}(T - \\lambda I)$, and the free variable `c : F` provides the universal quantification over $\\lambda$. The conclusion `Submodule.map S (ker ...) ≤ ker ...` states $S(\\text{null}(T - \\lambda I)) \\subseteq \\text{null}(T - \\lambda I)$, which is exactly $S$-invariance. No finite-dimensionality is needed for this theorem, so omitting it is correct.",
+  "duration_ms": 96315,
+  "cost_usd": 0.278513
+}

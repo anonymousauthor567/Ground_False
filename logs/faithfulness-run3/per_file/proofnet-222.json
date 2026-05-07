@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all components of the informal claim: (1) `[Fintype G]` encodes \"finite group G\"; (2) `H ≠ ⊤` encodes \"H is a proper subgroup of G\"; (3) the existential conclusion asserts there exists M with `M ≠ ⊤` (i.e., M ≠ G), `∀ K, M ≤ K → K = M ∨ K = ⊤` (i.e., the only subgroups containing M are M and G — the second part of the maximal subgroup definition), and `H ≤ M` (M contains H). This matches the stated definition of maximal subgroup and the conclusion of the exercise exactly, with no extra or missing hypotheses, and quantifier structure is preserved. The types (Subgroup G, Group, Fintype) are the natural Mathlib choices.",
+  "duration_ms": 19176,
+  "cost_usd": 0.058137999999999995
+}

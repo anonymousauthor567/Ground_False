@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_b3.lean",
+  "stem": "putnam_1963_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal problem. The conjunction `ContDiff ℝ 1 f ∧ Differentiable ℝ (deriv f)` is logically equivalent to \"f is twice differentiable\": the first conjunct gives f differentiable and f' continuous (C¹), and the second gives f' differentiable (so f'' exists). Conversely, if f is twice differentiable, then f' being differentiable implies f' is continuous, yielding C¹; thus both conjuncts hold. The functional equation `(f x)^2 - (f y)^2 = f (x + y) * f (x - y)` matches the informal equation exactly. The solution set covers the three classical families: A·sinh(ku), Au (linear), and A·sin(ku), which correspond to f''=cf with c>0, c=0, c<0 respectively (using f(0)=0 which follows from the equation). All twice-differentiable solutions are automatically smooth (since f''=cf with f continuous forces f to be C^∞), so no pathological solutions are missed. The formalization is strictly faithful.",
+  "duration_ms": 244809,
+  "cost_usd": 0.77144925
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "informal": "Suppose that $E$ is an uncountable subset of $\\mathbb{R}$. Prove that there exists a point $p \\in \\mathbb{R}$ at which $E$ condenses.",
+  "lean": "\ntheorem Pugh_exercise_2_126 {E : Set ℝ}\n  (hE : ¬ Set.Countable E) : ∃ (p : ℝ), ClusterPt p (𝓟 E)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks for a *condensation point* of E: a point p such that every neighborhood of p contains uncountably many points of E. The Lean signature uses `ClusterPt p (𝓟 E)`, which only says p is a cluster (accumulation) point — every neighborhood of p meets E in a point other than p, i.e. contains at least one (hence infinitely many) points of E. This is strictly weaker than condensing: a cluster point need not have uncountably many points of E in every neighborhood. Since any uncountable subset of ℝ has a condensation point, the informal claim implies the Lean claim, but not conversely. The correct Mathlib notion would be something like requiring `¬ Set.Countable (E ∩ U)` for every neighborhood U of p (or `AccPt`/condensation point predicates), not `ClusterPt`.",
+  "duration_ms": 12316,
+  "cost_usd": 0.05978025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement directly: an arbitrary index type `ι`, a topological family `X i`, the nonempty hypothesis `∀ i, Nonempty (X i)` matching \"each $X_\\alpha$ is nonempty\", the hypothesis `T2Space (Π i, X i)` matching \"$\\prod X_\\alpha$ is Hausdorff\", and the conclusion `∀ i, T2Space (X i)` matching \"so is $X_\\alpha$\". The universal quantification on the conclusion is the natural reading of \"so is $X_\\alpha$\". The nonempty hypothesis is logically necessary (otherwise an empty factor makes the product vacuously Hausdorff regardless of other factors), and the informal text explicitly states it. No hypotheses have been silently added or omitted.",
+  "duration_ms": 40915,
+  "cost_usd": 0.067827
+}

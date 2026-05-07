@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "informal": "Show that if $X$ is a countable product of spaces having countable dense subsets, then $X$ has a countable dense subset.",
+  "lean": "\ntheorem Munkres_exercise_30_10\n  {X : ℕ → Type*} [∀ i, TopologicalSpace (X i)]\n  (h : ∀ i, ∃ (s : Set (X i)), Countable s ∧ Dense s) :\n  ∃ (s : Set (Π i, X i)), Countable s ∧ Dense s",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that a countable product of separable spaces is separable. The Lean signature indexes the family by ℕ, which is the standard interpretation of \"countable product\" in this context (Munkres exercise 30.10 is precisely about countable products indexed by ℕ). Each factor X i is given the structure of a topological space, and the hypothesis provides for each i a countable dense subset, matching \"spaces having countable dense subsets.\" The conclusion asserts the existence of a countable dense subset of the product type Π i, X i, which carries the standard product topology by Mathlib's instance. Quantifier structure and types align with the informal claim, so the formalization is faithful.",
+  "duration_ms": 10616,
+  "cost_usd": 0.04806675
+}

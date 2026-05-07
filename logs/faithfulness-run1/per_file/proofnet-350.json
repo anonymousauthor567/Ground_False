@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "informal": "Show that there exist a set $E \\subset \\mathbb{R}$ and a real continuous function $f$ defined on $E$, such that there does not exist a continuous real function $g$ on $\\mathbb{R}$ such that $g(x)=f(x)$ for all $x \\in E$.",
+  "lean": "\ntheorem Rudin_exercise_4_5b\n  : ∃ (E : Set ℝ) (f : ℝ → ℝ), (ContinuousOn f E) ∧\n  (¬ ∃ (g : ℝ → ℝ), Continuous g ∧ ∀ x ∈ E, f x = g x)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for a set E ⊂ ℝ and a continuous function f on E that does not extend to a continuous function on all of ℝ. The Lean version provides E : Set ℝ, f : ℝ → ℝ with ContinuousOn f E (which captures \"f continuous on E\" — values of f outside E are irrelevant since the extension condition only constrains x ∈ E), and asserts no continuous g : ℝ → ℝ satisfies g(x) = f(x) for all x ∈ E. Encoding f as a total function while only requiring continuity on E is logically equivalent to the informal \"f defined on E\" since any partial continuous function on E can be extended set-theoretically (without continuity) to a total ℝ → ℝ, and conversely. The non-extension condition matches exactly. Hence the formalization is faithful.",
+  "duration_ms": 8290,
+  "cost_usd": 0.04840275
+}

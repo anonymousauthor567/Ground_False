@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines Λ(n) = log p if n is a prime power p^k, and 0 otherwise; the Lean formalization introduces an abstract `l : ℕ → ℝ` characterized by two hypotheses that together uniquely pin it down as exactly the von Mangoldt function: `hl` gives l(p^n) = log p for primes p and n ≥ 1 (matching \"n is a power of p\"), and `hl1` gives l(m) = 0 for non-prime-powers (where Mathlib's `IsPrimePow` excludes 0 and 1, matching the standard convention that Λ(1) = Λ(0) = 0). The conclusion asserts the function equality l = (fun n ↦ ∑ d ∈ Nat.divisors n, μ(n/d) * log d), which is exactly ∑_{d | n} μ(n/d) log d = Λ(n) universally quantified over n. Edge cases at n = 0 (empty divisors, sum = 0 = l(0)) and n = 1 (sum = μ(1)·log 1 = 0 = l(1)) work out correctly. The encoding is a standard and logically equivalent rendering of the informal claim.",
+  "duration_ms": 131159,
+  "cost_usd": 0.48206125
+}

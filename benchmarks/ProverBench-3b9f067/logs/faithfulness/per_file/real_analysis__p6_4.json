@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p6_4.lean",
+  "stem": "real_analysis__p6_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature `¬ Summable general_term` with `general_term n = (n : ℝ≥0) / ((n : ℝ≥0)^2 + 1)` indexed over `ℕ+` faithfully encodes \"∑_{n=1}^∞ n/(n²+1) diverges.\" The indexing from n ≥ 1 matches via `ℕ+`, the summand matches the informal expression exactly, and `¬ Summable` is the standard Mathlib encoding of series divergence. Using `ℝ≥0` instead of `ℝ` is semantically equivalent here because all terms are non-negative, so summability (and hence divergence) is preserved between the two types. The supporting `axiom` declarations are proof scaffolding, not alterations of the theorem statement.",
+  "duration_ms": 140088,
+  "cost_usd": 0.28541925000000007
+}

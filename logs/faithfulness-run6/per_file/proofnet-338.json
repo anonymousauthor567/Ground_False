@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Rudin 2.19(a), and in Rudin (Definition 2.45) two sets A, B are defined as \"separated\" precisely when A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅. The Lean conclusion `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅` is a direct unfolding of this definition. The hypotheses — metric space `[MetricSpace X]`, closed sets (`IsClosed A`, `IsClosed B`), and `Disjoint A B` — exactly match \"disjoint closed sets in some metric space X.\" The formalization correctly uses the topological (closure-based) notion of separation rather than Mathlib's `Metric.AreSeparated` (a stronger quantitative notion), which would have been an incorrect translation. No hypotheses are added or dropped, and quantifier structure is preserved.",
+  "duration_ms": 36086,
+  "cost_usd": 0.20468925
+}

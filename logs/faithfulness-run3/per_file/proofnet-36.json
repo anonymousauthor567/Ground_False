@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for any group G, the map g ↦ g⁻¹ is a homomorphism iff G is abelian. The Lean statement introduces f : G → G via a parameter with hypothesis hf : f = λ g => g⁻¹ (a standard encoding), then asserts the iff: (∀ x y, f x * f y = f (x*y)) ↔ (∀ x y, x*y = y*x). The left side is exactly the homomorphism property (the equation is symmetric, so f x * f y = f (x*y) and f (x*y) = f x * f y are the same), and the right side is the abelian condition. G is universally quantified (Type* with [Group G]), matching \"any group\". No hypotheses are added or dropped, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 21027,
+  "cost_usd": 0.06955399999999999
+}

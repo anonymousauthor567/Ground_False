@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch13_9.lean",
+  "stem": "brualdi_ch13_9",
+  "verdict": "incomparable",
+  "reasoning": "The Walk inductive type requires G.Adj u u (a self-loop) for its nil base case. Combined with IsTournament requiring irreflexivity (¬ G.Adj u u for all u), Walk G u u is uninhabitable for ALL tournaments — no closed walk can exist. The RHS of the iff is therefore always False, reducing the statement to ¬StronglyConnected for all tournaments. This contradicts the known result that strongly connected tournaments have Hamiltonian cycles, making the Lean statement false while the informal theorem is true.",
+  "duration_ms": null,
+  "cost_usd": null
+}

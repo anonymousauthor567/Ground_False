@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures exactly the content of the informal statement. The hypothesis `∀ n, a n ≥ 0` matches \"$a_n \\geq 0$\", and `∃ y, Tendsto (fun n => ∑ i ∈ range n, a i) atTop (𝓝 y)` is the standard Mathlib encoding for convergence of $\\sum a_n$. The conclusion `∃ y, Tendsto (fun n => ∑ i ∈ range n, sqrt (a i) / (i+1)) atTop (𝓝 y)` encodes convergence of $\\sum \\sqrt{a_n}/n$ using the standard 0-indexed trick (`i+1` as denominator to avoid division by zero, matching $n \\geq 1$ in the informal). As a universally-quantified statement over all nonneg sequences, this is logically equivalent to the informal version via reindexing. No extra or missing hypotheses; types are correct (ℕ → ℝ, Real.sqrt with open Real).",
+  "duration_ms": 263844,
+  "cost_usd": 0.88548525
+}

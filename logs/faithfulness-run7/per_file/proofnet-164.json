@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over `x : Set α`, asserting `f '' (closure x) ⊆ closure (f '' x)` under `Continuous f` where `α` and `β` are arbitrary metric spaces. This directly mirrors the informal claim: for a continuous map `f : X → Y` between metric spaces, and for every `E ⊆ X`, `f(closure E) ⊆ closure (f(E))`. The Mathlib primitives `f ''`, `closure`, and `⊆` correspond exactly to set image, topological closure, and subset. No hypotheses are added or dropped, and the quantifier structure and types match. This is logically equivalent to the informal statement.",
+  "duration_ms": 25725,
+  "cost_usd": 0.108587
+}

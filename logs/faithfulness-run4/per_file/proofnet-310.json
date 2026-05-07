@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The type `ℕ →ᵇ I` with `I = Icc 0 1` is canonically $[0,1]^\\omega$: since ℕ has the discrete topology every function is continuous, and since the codomain [0,1] is itself bounded every function is automatically bounded, so `ℕ →ᵇ I` is in bijection (as a set) with functions ℕ → [0,1]. Mathlib endows `α →ᵇ β` with the uniform metric `sInf {C | 0 ≤ C ∧ ∀ x, dist (f x) (g x) ≤ C}`, which on this space is exactly the uniform (sup) metric topology Munkres refers to. `¬ LocallyCompactSpace (ℕ →ᵇ I)` is the standard negation of local compactness. So the Lean statement asserts precisely that $[0,1]^\\omega$ with the uniform topology is not locally compact.",
+  "duration_ms": 109737,
+  "cost_usd": 0.42059350000000006
+}

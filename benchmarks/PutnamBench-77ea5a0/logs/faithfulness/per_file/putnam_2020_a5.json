@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_a5.lean",
+  "stem": "putnam_2020_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal content. `Nat.fib` in Mathlib satisfies fib 0 = 0, fib 1 = 1, fib 2 = 1, fib 3 = 2, fib 4 = 3, matching the informal Fibonacci indexing for k ≥ 1 (which is enforced by `k > 0`). Using `Finset ℕ` is the correct formalization of \"sets of positive integers\" since the sum must be finite (all F_k ≥ 1 for k ≥ 1 forces any S with finite sum to be finite). The expression `∑ k : S, Nat.fib k` sums over the attached subtype of S, equivalent to `∑ k ∈ S, Nat.fib k` by `Finset.sum_attach`. Extending the domain to ℤ is harmless since a_n = 0 for negative n. Finally, `IsGreatest {n | a n = 2020} putnam_2020_a5_solution` precisely asserts the solution is the maximum integer n with a_n = 2020. All components align with the informal statement.",
+  "duration_ms": 310460,
+  "cost_usd": 1.01510575
+}

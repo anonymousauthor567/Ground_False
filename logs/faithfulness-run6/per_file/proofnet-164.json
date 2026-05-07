@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly captures Rudin's claim: it takes two metric spaces α, β, a continuous function f : α → β, and states that for every set x : Set α, f '' (closure x) ⊆ closure (f '' x). This is precisely the informal claim f(E̅) ⊂ f(E)̅ for every E ⊂ X, with X, Y as metric spaces and f continuous. The universal quantifier over Set α matches \"for every set E ⊂ X\", the Mathlib `closure` on a metric space is the topological closure, and `f '' s` is the set-theoretic image. No hypotheses are added or dropped, and the conclusion is not weakened or strengthened — this matches Mathlib's `image_closure_subset_closure_image` theorem.",
+  "duration_ms": 35877,
+  "cost_usd": 0.14101725
+}

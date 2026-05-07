@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show there exists a normal subgroup that is not characteristic. The Lean theorem existentially quantifies over a type G, a group structure hG on G, and a subgroup H : Subgroup G, asserting `Normal H ∧ ¬ Characteristic H`. Mathlib's `Subgroup.Normal` is the standard \"closed under conjugation\" definition and `Subgroup.Characteristic` is the standard \"fixed by every automorphism\" definition, matching the textbook meanings. Implicitly quantifying over the group G is appropriate because \"there exists a normal subgroup\" without specifying a group is naturally read as \"there exists a group and a normal subgroup of it\". Thus the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 65192,
+  "cost_usd": 0.3132645
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_b6.lean",
+  "stem": "putnam_1965_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes all components of the informal statement correctly. Distinctness of the four points A,B,C,D is captured by `S.ncard = 4`. A circle is encoded as `through (r, P) Q := dist P Q = r`, which is precisely the locus of points at distance r from center P in the plane `EuclideanSpace ℝ (Fin 2)`. The hypothesis `hABCD` quantifies over all pairs (r,P) and (s,Q) such that A,B lie on the first \"circle\" and C,D lie on the second, asserting existence of a common point—exactly \"every circle through A,B intersects every circle through C,D\". Degenerate cases (r ≤ 0) are handled vacuously since A ≠ B forces any valid r to be positive. The conclusion correctly splits into collinear (Mathlib's `Collinear ℝ S`) or cocyclic (all four points equidistant from some center P with radius r, which in 2D is precisely lying on a common circle). No extra or missing hypotheses.",
+  "duration_ms": 125349,
+  "cost_usd": 0.43214225000000006
+}

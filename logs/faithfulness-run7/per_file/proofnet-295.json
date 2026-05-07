@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the informal claim. The inner `⋃ (a : ℚ) (b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` is precisely the set of open intervals (a,b) ⊂ ℝ with rational endpoints a < b. Applying `Set.image2 (fun s t => s ×ˢ t)` to two such collections yields exactly the collection {(a,b) × (c,d) : a, b, c, d ∈ ℚ, a < b, c < d}. The ambient space is ℝ × ℝ (inferred), which has the standard product topology, matching ℝ². Mathlib's `IsTopologicalBasis` is the standard Munkres-style notion of a basis (covers the space, inter-condition, generates the topology). The descriptor \"countable\" in the informal statement is just a description of the collection (automatically true here) rather than a separate claim. No hypotheses or conclusions drift.",
+  "duration_ms": 133097,
+  "cost_usd": 0.4564015
+}

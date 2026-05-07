@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p43_1.lean",
+  "stem": "calculus__p43_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that the average velocity over [2, 2.5], namely (y(2.5) - y(2))/(2.5 - 2), equals -32 ft/s. The Lean lemma only asserts that heightFunction 2 = 16, which is merely one intermediate sub-computation needed to derive the full claim. It does not compute y(2.5), nor does it form the difference quotient, nor does it claim the average velocity equals -32. The Lean statement captures only a small piece of what the informal statement claims, so it is strictly weaker than the intended claim.",
+  "duration_ms": 40916,
+  "cost_usd": 0.096434
+}

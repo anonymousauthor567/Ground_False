@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for arbitrary groups A and B, the product A × B is isomorphic to B × A as groups. The Lean statement takes A and B as arbitrary types with `[Group A]` and `[Group B]` instances, which correctly universally quantifies over all pairs of groups. The conclusion `Nonempty (A × B ≃* B × A)` uses `≃*` (MulEquiv), which is exactly the Mathlib notion of group/monoid isomorphism, and wrapping it in `Nonempty` faithfully expresses the existence of an isomorphism (i.e., \"A × B ≅ B × A\"). No extra hypotheses are added, no hypotheses are dropped, and the types match. This is a strictly faithful formalization.",
+  "duration_ms": 20187,
+  "cost_usd": 0.0759465
+}

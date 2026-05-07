@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the improper integral ∫_{-∞}^{∞} cos(x)/(x²+a²) dx = π·e^{-a}/a for a > 0. The Lean formalization uses `Tendsto (λ y => ∫ x in -y..y, ...) atTop (𝓝 (π·e^{-a}/a))`, which is the symmetric (principal value) limit as y → ∞ of ∫_{-y}^{y}. Since the integrand cos(x)/(x²+a²) is absolutely integrable on ℝ (it decays like 1/x² so it's dominated by an integrable function), the symmetric improper integral equals the standard improper integral, and the Lean formulation captures exactly the standard textbook meaning of the improper integral. The hypothesis a > 0 is faithfully included, the formula π·(exp(-a)/a) matches π·e^{-a}/a, and using `intervalIntegral_tendsto_integral` (which Mathlib indeed uses in such contexts) is the natural way to express an improper integral value as a limit. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 211553,
+  "cost_usd": 1.0240795
+}

@@ -1,0 +1,8 @@
+{
+  "file": "94.lean",
+  "stem": "94",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement in all essential respects. The hypotheses `[Field k] [CharZero k] [CommRing A] [IsDomain A] [Algebra k A] [Algebra.FiniteType k A]` encode \"k is a field of char 0, A is a finite-type k-algebra that is a domain\". The set definition `{n | ∀ x : I, (ϕ.comp (f ^ n)) (x : A) = 0}` correctly encodes `{n : ℕ | (φ ∘ f^n)|_I = 0}` (where `f^n` is iterated composition via the `Monoid (A →ₐ[k] A)` instance). The conclusion `(zeroSet f ϕ I).Finite ∨ ∃ (d : ℕ+) (a : ℕ), ∀ n, a + d * n ∈ zeroSet f ϕ I` correctly captures \"either finite or contains an arithmetic progression with positive common difference\" (d : ℕ+ makes d positive). On the subtle point: the informal says \"étale\" while Lean uses `f.FormallyEtale`; however, in Mathlib `Algebra.Etale = FormallyEtale + FinitePresentation`, and in this context A is finite-type over the field k hence Noetherian, and any k-algebra endomorphism f : A → A gives A a finite-type (hence finite presentation, since A is Noetherian) A-algebra structure via f, so formally étale and étale coincide for such f. The two formulations are mathematically equivalent in this setting.",
+  "duration_ms": 1241981,
+  "cost_usd": 2.50104575
+}

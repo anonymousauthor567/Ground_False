@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "informal": "Prove that no group of order 224 is simple.",
+  "lean": "\ntheorem Artin_exercise_6_4_12 {G : Type*} [Group G] [Fintype G]\n  (hG : card G = 224) :\n  IsSimpleGroup G → false",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary finite group G with |G| = 224 and concludes that IsSimpleGroup G implies False (treating the lowercase `false` as the Prop `False`, as is conventional in this ProofNet encoding). This is exactly the contrapositive form of \"no group of order 224 is simple\": for every group of order 224, it is not simple. The hypotheses (Group, Fintype, card = 224) precisely capture \"group of order 224\", and IsSimpleGroup is the standard Mathlib definition matching the informal notion. No extra structure (abelian, solvable, etc.) is assumed or concluded, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 13357,
+  "cost_usd": 0.064785
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_b4.lean",
+  "stem": "putnam_1980_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement component-by-component: (a) the index set `Fin 1066` corresponds to $\\{0,1,\\ldots,1065\\}$ (1066 values); (b) `X : Finset T` with `X.card ≥ 10` captures \"finite set with at least 10 elements\"; (c) `A i ⊆ X ∧ (A i).card > ((1:ℚ)/2) * X.card` faithfully encodes $A_i \\subseteq X$ and $|A_i| > |X|/2$ (strict rational inequality equivalent to $2|A_i|>|X|$); (d) the conclusion `∃ Y, Y ⊆ X ∧ Y.card = 10 ∧ ∀ i, ∃ y ∈ Y, y ∈ A i` captures \"there exist 10 elements in X such that each $A_i$ contains at least one of them\". Requiring `Y.card = 10` (exactly 10 distinct elements) is the standard reading of \"10 elements $x_1,\\ldots,x_{10}$\" in hitting-set problems, and since $|X| \\geq 10$ it is equivalent to \"at most 10\" (pad with extra elements). No hypothesis is dropped or added beyond what the informal statement requires.",
+  "duration_ms": 79227,
+  "cost_usd": 0.25264800000000004
+}

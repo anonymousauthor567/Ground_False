@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures \"all roots of x^m - x are distinct\" via `Polynomial.Separable`, which for polynomials over a field is equivalent to having no repeated roots in any extension (Mathlib has `Separable.squarefree` and `nodup_roots`). The hypotheses `[Field F] [CharP F p]` with `hp : p ≠ 0` match \"F of characteristic p ≠ 0\" (and in a field, CharP with p ≠ 0 forces p prime automatically). The added hypothesis `hn : n > 0` is an implicit premise needed for truth: if n = 0 then m = 1 and X^m - X = 0, which is not Separable in Mathlib (`not_separable_zero`). So the informal claim only makes sense / is true for n ≥ 1, and making this explicit is not a faithfulness error per the worked-example guidance. The polynomial encoding `X ^ m - X : Polynomial F` faithfully represents x^m - x.",
+  "duration_ms": 153484,
+  "cost_usd": 0.47366949999999997
+}

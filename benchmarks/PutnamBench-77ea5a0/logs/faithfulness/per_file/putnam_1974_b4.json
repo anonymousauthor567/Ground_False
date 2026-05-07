@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b4.lean",
+  "stem": "putnam_1974_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The informal claim has an obvious typo (\"f : ℝ → ℝ\") which should be ℝ² → ℝ given the rest of the text refers to f(x,y) on ℝ²; Lean uses ℝ × ℝ → ℝ, matching the intended domain. The \"continuous in each variable separately\" hypothesis is correctly rendered by the two hypotheses hfcontx and hfconty, which say that for each fixed y (resp. x), the partial map is continuous. The conclusion asserts existence of a sequence of continuous functions g n : ℝ × ℝ → ℝ with pointwise convergence g_n(x,y) → f(x,y) for all (x,y), encoded via Tendsto ... atTop (𝓝 ...), which is the standard Mathlib way to express pointwise limits of sequences. No hypotheses are added or dropped, the quantifier structure matches, and the types align with the intended mathematical content.",
+  "duration_ms": 32183,
+  "cost_usd": 0.13495200000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly describes f as a \"real function\" with f(n) = √(n²+n) - n, so interpreting n as a real variable is correct. The Lean theorem uses `λ (n : ℝ) => sqrt (n^2 + n) - n` with `Tendsto ... atTop (𝓝 (1/2))`, which is the standard Mathlib encoding of lim_{n→∞} f(n) = 1/2 over the reals. With `open Real`, `sqrt` resolves to `Real.sqrt`, and `1/2` is elaborated in ℝ (giving 0.5) since the neighborhood filter is at a real point. The formula and limit value match exactly, and the quantifier structure (implicit ∀ over the filter) corresponds to the informal limit statement. No hypotheses are added or dropped improperly.",
+  "duration_ms": 69189,
+  "cost_usd": 0.2521375
+}

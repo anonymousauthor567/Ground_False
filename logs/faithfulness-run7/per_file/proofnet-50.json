@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. The hypothesis `∀ (K : Subgroup G) (fK : Fintype K), card H = @card K fK → H = K` precisely captures \"H is the unique subgroup of its order\" (restricted to finite subgroups, which is the natural domain where Fintype.card makes sense). The conclusion `H.Characteristic` uses Mathlib's standard definition requiring H to be fixed by every automorphism `G ≃* G`, matching \"characteristic in G\". The `[Fintype H]` assumption makes explicit the implicit reading that \"a given order\" refers to a finite order — the standard interpretation in group theory textbooks where \"subgroup of order n\" typically means a finite order n. The universal quantification over Fintype instances `fK` is benign since any two Fintype instances on the same type give the same cardinality.",
+  "duration_ms": 186751,
+  "cost_usd": 0.603852
+}

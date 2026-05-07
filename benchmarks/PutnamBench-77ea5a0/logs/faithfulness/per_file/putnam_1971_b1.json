@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_b1.lean",
+  "stem": "putnam_1971_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. The informal \"Let S be a set with a binary operation\" is encoded as `S : Type*` with `[Mul S]`, which is standard. Law 1 \"x = x·x\" is equivalent to `x * x = x` (symmetry of equality). Law 2 matches `(x * y) * z = (y * z) * x` verbatim. The conclusion correctly conjuncts associativity `(x * y) * z = x * (y * z)` and commutativity `x * y = y * x`. No hypotheses are added or omitted; the quantifier structure and types are preserved.",
+  "duration_ms": 14863,
+  "cost_usd": 0.06533800000000001
+}

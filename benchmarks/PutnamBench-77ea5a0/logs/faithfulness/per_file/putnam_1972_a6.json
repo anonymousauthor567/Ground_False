@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_a6.lean",
+  "stem": "putnam_1972_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: f : ℝ → ℝ is integrable on [0,1], the orthogonality hypothesis `∀ i ∈ Icc 0 (n-1), ∫ x in Icc 0 1, x^i*(f x) = 0` correctly encodes \"for all 0 ≤ i ≤ n-1\" (vacuous when n=0, matching the informal intent), and the normalization `∫ x in Icc 0 1, x^n*(f x) = 1` is the second integral condition. The conclusion `∃ S ⊆ [0,1] measurable with volume S > 0 and ∀ x ∈ S, |f x| ≥ 2^n * (n+1)` is equivalent to \"|f(x)| ≥ 2ⁿ(n+1) on a set of positive measure\" — since f is integrable hence measurable, the super-level set is measurable, making the two formulations equivalent. Using n : ℤ with n ≥ 0 is a standard faithful encoding of \"non-negative integer n\" (and n = 0 makes the conclusion |f| ≥ 1 on a positive-measure set, consistent with ∫f = 1). The hypotheses and conclusion are neither weaker nor stronger than the informal claim.",
+  "duration_ms": 292178,
+  "cost_usd": 0.8746915000000001
+}

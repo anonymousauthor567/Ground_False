@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for all a, b in a group G, |ab| = |ba|, where |·| denotes the order of a group element. The Lean formalization takes an arbitrary group G (via `{G : Type*} [Group G]`) and arbitrary elements `a b : G`, which correctly captures the universal quantification over both the group and its elements. The conclusion `orderOf (a * b) = orderOf (b * a)` matches the informal equation |ab| = |ba| exactly, since Mathlib's `orderOf` is precisely the order of a group element (the minimal n ≥ 1 with x^n = 1, or 0 if infinite order). No extra hypotheses are added and none are dropped, so this is a strictly faithful formalization.",
+  "duration_ms": 22482,
+  "cost_usd": 0.09738025
+}

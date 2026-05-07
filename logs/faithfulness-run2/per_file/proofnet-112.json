@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: given an arbitrary topological space X with U open and A closed, it asserts that U \\ A is open and A \\ U is closed. The set difference `\\` in Lean corresponds precisely to the \"minus\" operation in the informal statement, and the hypotheses `IsOpen U` and `IsClosed A` match the informal hypotheses. No extra assumptions (e.g., finiteness, separation axioms) are introduced, and the conjunction matches both conclusions asked. This is logically equivalent to the informal claim.",
+  "duration_ms": 16224,
+  "cost_usd": 0.0342345
+}

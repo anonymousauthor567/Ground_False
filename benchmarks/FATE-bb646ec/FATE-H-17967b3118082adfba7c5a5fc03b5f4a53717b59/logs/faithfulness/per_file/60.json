@@ -1,0 +1,8 @@
+{
+  "file": "60.lean",
+  "stem": "60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The polynomial `X^6 + C(3*a) * X^4 + C 3 * X^3 + C(3*a) * X^2 + C 1` over `ℚ[X]` exactly matches $x^6 + 3ax^4 + 3x^3 + 3ax^2 + 1$. The hypothesis `a : ℤ` with `a > 0` matches \"positive integer $a$\". Choosing $\\mathbb{Q}$ as the base field matches the standard convention when the informal statement gives a polynomial with integer coefficients without further specification. `Polynomial.Gal` is the Galois group of the splitting field (automorphisms of the splitting field over the base field), and `IsSolvable` is the standard solvable-group definition via the derived series. All components align with the intended mathematical claim.",
+  "duration_ms": 138854,
+  "cost_usd": 0.4376017499999999
+}

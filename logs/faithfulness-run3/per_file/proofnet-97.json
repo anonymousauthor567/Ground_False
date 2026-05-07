@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the subtype `{p : Nat.Primes // p ≡ -1 [ZMOD 6]}` is `Infinite`. `Nat.Primes` is Mathlib's subtype of prime naturals, and `a ≡ b [ZMOD n]` is `Int.ModEq n a b` (integer congruence), with `p : Nat.Primes` coerced through ℕ → ℤ. So the condition `p ≡ -1 [ZMOD 6]` correctly expresses \"p ≡ -1 (mod 6)\" (equivalently p ≡ 5 mod 6). The `Infinite` typeclass on this subtype correctly captures \"there are infinitely many such primes\". The informal claim and the Lean encoding are logically equivalent.",
+  "duration_ms": 103133,
+  "cost_usd": 0.3139529999999999
+}

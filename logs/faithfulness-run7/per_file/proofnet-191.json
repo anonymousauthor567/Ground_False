@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. The hypothesis `I + J = ⊤` correctly encodes \"I + J = R\" (⊤ is the top/unit ideal equal to R). The conclusion `I * J = I ⊓ J` correctly encodes \"IJ = I ∩ J\" using Mathlib's standard ideal product and intersection (infimum) — this is exactly Mathlib's `Ideal.mul_eq_inf_of_coprime`. The `CommRing` assumption is the standard textbook interpretation of \"ring\" in elementary ideal theory (Artin's convention), and it is needed for the general equality IJ = I ∩ J to hold for arbitrary ideals (otherwise two-sided hypotheses are required). This is a correct surfacing of the implicit context, not an added restriction.",
+  "duration_ms": 139624,
+  "cost_usd": 0.4510955
+}

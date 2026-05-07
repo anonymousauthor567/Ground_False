@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "informal": "Show that $\\int_0^1 \\log(\\sin \\pi x) dx = - \\log 2$.",
+  "lean": "\ntheorem Shakarchi_exercise_3_9 : ∫ x in (0 : ℝ)..(1 : ℝ), Real.log (Real.sin (Real.pi * x)) = - Real.log 2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `intervalIntegral` from 0 to 1 of `Real.log (Real.sin (Real.pi * x))`, which directly matches the informal integral $\\int_0^1 \\log(\\sin \\pi x)\\,dx$. The right-hand side `- Real.log 2` matches $-\\log 2$. The types are all real, the bounds are correct, and the integrand is the same composition. This is a faithful encoding.",
+  "duration_ms": 5300,
+  "cost_usd": 0.040513499999999994
+}

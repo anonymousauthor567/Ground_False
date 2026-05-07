@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures \"any two nonabelian groups of order 21 are isomorphic\". The universal quantification is handled by having G, H as arbitrary types with `Group` and `Fintype` instances. `card G = 21` and `card H = 21` correctly express \"order 21\" (finiteness is necessary to even talk about order 21, so `Fintype` is not an added restriction). Nonabelianness is encoded as `∃ a b, a * b ≠ b * a`, which is exactly the negation of `∀ a b, a * b = b * a` (the abelian condition). The conclusion `Nonempty (G ≃* H)` using Mathlib's `MulEquiv` correctly formalizes \"are isomorphic\" as groups. No hypothesis is dropped or added beyond what the informal statement requires.",
+  "duration_ms": 21634,
+  "cost_usd": 0.09774375
+}

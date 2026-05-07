@@ -1,0 +1,8 @@
+{
+  "file": "S_0036.lean",
+  "stem": "S_0036",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly 'there exist categories not concretizable over Set'. The outer `∃ C, Category C` expresses 'a category exists'; the inner `¬ ∃ F : C ⥤ Type v, F.Faithful` expresses 'not concretizable over Set'. In Mathlib, `Functor.Faithful` is defined as injectivity of the morphism map, matching the standard mathematical notion of faithful functor. The target `Type v` is Mathlib's standard representation of Set at the morphism-universe of C, consistent with Mathlib's own `HasForget`/`ConcreteCategory` which define a concrete category as one equipped with a faithful functor `C ⥤ Type w`. The universe polymorphism (free `u`, `v`) is the natural Lean rendering of a universe-agnostic informal claim, and matches the definition literally: category + no faithful functor to Set.",
+  "duration_ms": 345922,
+  "cost_usd": 1.00858825
+}

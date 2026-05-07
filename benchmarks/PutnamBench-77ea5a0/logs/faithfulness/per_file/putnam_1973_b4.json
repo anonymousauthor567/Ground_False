@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_b4.lean",
+  "stem": "putnam_1973_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization changes the domain from [0,1] to ℝ, but this is logically equivalent as a universally quantified statement because (a) any f on ℝ with the property on ℝ can be restricted to [0,1] to get the informal claim, and (b) any f on [0,1] with the property can be extended to ℝ by linear continuation using f'(0) and f'(1), preserving C¹, 0 < f' ≤ 1, and f(0)=0, without changing integrals over [0,1]. The comment in the file explicitly acknowledges this extension reasoning. `ContDiff ℝ 1 f` faithfully encodes \"continuous derivative\" (C¹), the bounds on deriv match the informal 0 < f'(x) ≤ 1, and f(0) = 0 is preserved. The conjunctive conclusion captures both \"prove the inequality\" and \"find an example where equality holds\" — with f(x) = x serving as a valid witness on both domains ((1/2)² = 1/4 = ∫₀¹ x³). No hypotheses are silently added or dropped beyond what the extension argument makes equivalent.",
+  "duration_ms": 231421,
+  "cost_usd": 0.61725325
+}

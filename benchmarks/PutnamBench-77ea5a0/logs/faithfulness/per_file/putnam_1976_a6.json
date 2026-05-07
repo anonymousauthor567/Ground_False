@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_a6.lean",
+  "stem": "putnam_1976_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `ContDiff ℝ 2 f` captures \"twice continuously differentiable\" (C²). The bound `∀ x, |f x| ≤ 1` matches \"|f(x)| ≤ 1 for all real x\". The hypothesis `(f 0)^2 + (deriv f 0)^2 = 4` correctly encodes (f(0))² + (f'(0))² = 4 since `deriv f 0` is f'(0). The conclusion `∃ y, f y + iteratedDeriv 2 f y = 0` matches \"f(y) + f''(y) = 0 for some y\", since `iteratedDeriv 2 f` unfolds to the second derivative via `iteratedDeriv_succ`. All types, hypotheses, quantifiers, and the conclusion align.",
+  "duration_ms": 54083,
+  "cost_usd": 0.20580125
+}

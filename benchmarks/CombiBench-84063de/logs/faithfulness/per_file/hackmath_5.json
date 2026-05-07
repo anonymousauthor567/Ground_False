@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_5.lean",
+  "stem": "hackmath_5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the probability of drawing a red marble from a box with 10 red, 6 green, and 4 blue marbles (20 total). The Lean formalization models this as `Fin 20` (20 marbles) with the uniform measure `uniformOn ⊤` (equivalent to counting measure conditioned on the universal set, giving each element probability 1/20), and asks for the measure of the event `{i | i.1 < 10}` — i.e., 10 out of 20 elements. This computes to 10/20 = 1/2, matching the answer. The specific labeling of which indices represent \"red\" is irrelevant to the probability, and the green/blue counts are captured implicitly as \"the other 10 marbles.\" The quantifier structure and mathematical content faithfully reflect the informal problem.",
+  "duration_ms": 62140,
+  "cost_usd": 0.22308300000000003
+}

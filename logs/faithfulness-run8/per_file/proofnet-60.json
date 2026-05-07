@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies universally over any type `R` with a `Ring` structure, adds the hypothesis `∀ a : R, a^2 = a` (which is exactly the definition of a Boolean ring given in the informal statement), and concludes `∀ a b : R, a*b = b*a` (commutativity). Each component matches the informal claim: the universal \"every Boolean ring\" is captured by the type variable plus the Ring instance, the Boolean condition a²=a is written directly, and commutativity is stated directly. Mathlib's `Ring` has a multiplicative identity, matching Dummit & Foote's convention. No hypothesis is silently added or dropped, and no type mismatch occurs.",
+  "duration_ms": 33743,
+  "cost_usd": 0.139635
+}

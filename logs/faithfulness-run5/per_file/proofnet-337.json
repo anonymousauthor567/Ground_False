@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "With k=1, ℝ^k is identified with ℝ, and the dot product of one-dimensional vectors reduces to ordinary real multiplication. The informal phrasing \"if x ∈ ℝ^k, x ≠ 0\" naturally universally quantifies over x, which the Lean statement makes explicit via ∀ x : ℝ. The conclusion \"there does not exist y ∈ ℝ^k with y ≠ 0 and x·y = 0\" is rendered as ¬∃ y : ℝ, y ≠ 0 ∧ x * y = 0, which matches precisely. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 14279,
+  "cost_usd": 0.05831275
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures \"every open set U ⊆ ℝ is the union of an at most countable collection of disjoint open segments\" correctly. The ℕ-indexed family `f : ℕ → Set ℝ` encodes \"at most countable\" (finite collections are representable by padding with ∅, which is itself expressible as `{x | a < x < b}` with `a ≥ b` in EReal). Each `f n` is required to be of the form `{x : ℝ | a < (x : EReal) ∧ (x : EReal) < b}` with `a b : EReal`, correctly covering (a,b), (-∞,b), (a,∞), (-∞,∞)=ℝ, and ∅. Using EReal endpoints is necessary because Rudin's proof (and the truth of the theorem for U=ℝ) requires allowing unbounded segments; restricting to real endpoints would make the statement false. Pairwise disjointness is expressed as `∀ n m, n ≠ m → f n ∩ f m = ∅`, which is the standard encoding and equivalent (modulo empty padding) to the informal \"disjoint segments\". The conclusion `U = ⋃ n, f n` together with `∀ n, f n ⊆ U` captures the union condition. No hypotheses are added or dropped; the quantifier structure and types match the intended content.",
+  "duration_ms": 174693,
+  "cost_usd": 0.5894375000000001
+}

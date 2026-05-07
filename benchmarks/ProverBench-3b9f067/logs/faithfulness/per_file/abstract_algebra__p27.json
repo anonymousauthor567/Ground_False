@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p27.lean",
+  "stem": "abstract_algebra__p27",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a conjunction of two claims: (1) every field is an integral domain, and (2) not every integral domain is a field. The Lean theorem `field_is_integral_domain` only captures part (1): for a field F and a, b ∈ F, ab = 0 implies a = 0 ∨ b = 0. Part (2) — the existence of an integral domain that is not a field (which would require exhibiting a counterexample such as ℤ) — is entirely missing from the Lean statement. The variable `D : Type` with `[CommRing D] [NoZeroDivisors D]` is declared but never used in the conclusion. Since the Lean theorem proves strictly less than what the informal statement asserts (proving one of two claims), it is logically weaker.",
+  "duration_ms": 63721,
+  "cost_usd": 0.15875175
+}

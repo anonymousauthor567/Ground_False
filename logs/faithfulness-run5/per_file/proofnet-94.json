@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that for every odd n, 8 divides n² - 1. The Lean version formalizes this with n : ℕ and hypothesis `Odd n`, concluding `8 ∣ (n^2 - 1)`. Although ℕ uses truncated subtraction, for any odd natural number n ≥ 1 we have n² ≥ 1, so n² - 1 is the honest value. The informal \"for all odd n\" doesn't specify ℕ vs ℤ, but because (-n)² - 1 = n² - 1, the ℕ statement is logically equivalent to the ℤ version. The `Odd` predicate in Mathlib matches the standard \"n = 2m+1\" definition. No hypothesis is added or omitted, and the conclusion is exactly the divisibility claim.",
+  "duration_ms": 97954,
+  "cost_usd": 0.24782275
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_b1.lean",
+  "stem": "putnam_1963_b1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks \"For what integer a does x²-x+a divide x^13+x+90?\" — a find-the-answer problem. The Lean formalization uses the standard pattern of asserting ∀ a : ℤ, (divisibility) ↔ a = solution, which correctly characterizes the complete set of integer solutions. The polynomial ring is correctly inferred as ℤ[X] because a : ℤ and C a is used. The polynomials X² - X + C a and X^13 + X + C 90 accurately represent the informal polynomials, and Polynomial divisibility ∣ matches the informal \"divides\". The iff structure captures both that a = 2 works and that no other integer does, which is exactly what \"for what integer a\" asks for.",
+  "duration_ms": 56133,
+  "cost_usd": 0.19216625
+}

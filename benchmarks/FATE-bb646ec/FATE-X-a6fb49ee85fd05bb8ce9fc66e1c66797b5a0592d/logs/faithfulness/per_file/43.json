@@ -1,0 +1,8 @@
+{
+  "file": "43.lean",
+  "stem": "43",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses `[CommRing A] [IsNoetherianRing A] [IsLocalRing A] [IsReduced A]` match \"reduced Noetherian local ring\", and `[CharP A p]` matches \"Char A = p\". The `[Fact p.Prime]` hypothesis makes explicit a standard implicit premise: whenever one speaks of \"the Frobenius $a \\mapsto a^p$ in characteristic $p$\", $p$ is understood to be prime (otherwise the map isn't even a ring homomorphism). The `IsRegularLocalRing` class defined in the file encodes exactly $\\dim_k(m/m^2) = \\dim R$ via `Module.finrank (ResidueField R) (CotangentSpace R) = ringKrullDim R`, where `CotangentSpace R` is Mathlib's abbrev for `(maximalIdeal R).Cotangent` (i.e., $m/m^2$). `frobenius A p` is the standard Mathlib Frobenius ring homomorphism (requires `ExpChar`, automatically derived from `[Fact p.Prime] [CharP A p]`), and `.Flat` on a ring hom expresses flatness of the induced module structure. The biconditional direction and all object types match the informal statement.",
+  "duration_ms": 300513,
+  "cost_usd": 0.71476025
+}

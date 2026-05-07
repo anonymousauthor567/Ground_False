@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "informal": "Show that every linear map from a one-dimensional vector space to itself is multiplication by some scalar. More precisely, prove that if $\\operatorname{dim} V=1$ and $T \\in \\mathcal{L}(V, V)$, then there exists $a \\in \\mathbf{F}$ such that $T v=a v$ for all $v \\in V$.",
+  "lean": "\ntheorem Axler_exercise_3_1 {F V : Type*}\n  [AddCommGroup V] [Field F] [Module F V] [FiniteDimensional F V]\n  (T : V →ₗ[F] V) (hT : finrank F V = 1) :\n  ∃ c : F, ∀ v : V, T v = c • v",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary field F and an F-module V, assumes finrank F V = 1, and concludes ∃ c : F, ∀ v, T v = c • v, which exactly matches the informal claim \"if dim V = 1 then T is scalar multiplication\". The [FiniteDimensional F V] hypothesis is redundant given finrank = 1 (a positive finrank already implies finite-dimensionality in Mathlib's convention, and even if it didn't, finite-dimensionality is implicit in the informal statement \"dim V = 1\"), so it does not strengthen or weaken the claim. AddCommGroup + Module F + Field F is the standard Mathlib encoding of an F-vector space. The quantifier structure (∃ scalar, ∀ vector) matches exactly.",
+  "duration_ms": 8907,
+  "cost_usd": 0.0473595
+}

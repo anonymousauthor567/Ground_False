@@ -1,0 +1,8 @@
+{
+  "file": "41.lean",
+  "stem": "41",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `orderOf (a, b) = Nat.lcm (orderOf a) (orderOf b)` faithfully captures the informal claim. The informal statement introduces $m$ and $n$ as names for $\\operatorname{ord}(a)$ and $\\operatorname{ord}(b)$, which the Lean version handles by direct substitution. The product group $G \\times H$ is formalized correctly with Group instances on both factors. Mathlib already contains this exact theorem as `Prod.orderOf_mk` in `OrderOfElement.lean`, confirming it holds generally (even covering infinite-order cases via the convention `orderOf = 0`, since `Nat.lcm 0 n = 0`). The quantifier structure, hypotheses, and conclusion all match precisely.",
+  "duration_ms": 115257,
+  "cost_usd": 0.2461625
+}

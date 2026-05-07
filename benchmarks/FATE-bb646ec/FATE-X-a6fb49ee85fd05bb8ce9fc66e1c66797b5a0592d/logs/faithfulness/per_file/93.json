@@ -1,0 +1,8 @@
+{
+  "file": "93.lean",
+  "stem": "93",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches each piece of the informal statement. `Field k` gives a field; `Ring A` gives a (not necessarily commutative) unital ring in Mathlib's convention, distinct from `CommRing`; `Algebra k A` gives the k-algebra structure. `Algebra.IsIntegral k A` (defined in Mathlib as `∀ x : A, IsIntegral k x`) requires every element of A to be integral over k — and it is the intended notion for possibly non-commutative A (only `[CommRing R] [Ring A]` is required). `Algebra.FiniteType k A` is the class `(⊤ : Subalgebra k A).FG`, meaning A is finitely generated as a k-algebra, matching the informal \"finitely generated over k\". `¬ FiniteDimensional k A` (which unfolds to `¬ Module.Finite k A`) is exactly \"dim_k A is not finite\". Restricting to `Type 0` is innocuous here since concrete counterexamples fit in `Type 0`. There is no drift in hypotheses, conclusion, quantifier structure, or ambient objects.",
+  "duration_ms": 232838,
+  "cost_usd": 0.50237725
+}

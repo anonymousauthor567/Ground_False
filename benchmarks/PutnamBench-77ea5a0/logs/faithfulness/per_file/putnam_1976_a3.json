@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_a3.lean",
+  "stem": "putnam_1976_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal statement precisely. The tuple order (p, r, q, s) matches, the conditions Nat.Prime p ∧ Nat.Prime q ∧ r > 1 ∧ s > 1 translate \"p and q prime, r and s greater than 1\" correctly, and the equation |(p^r : ℤ) - q^s| = 1 correctly lifts the difference to ℤ to handle the absolute value. Although the informal statement says \"integer solutions\" and the Lean uses ℕ, the constraints (primality forces positivity, r,s > 1 forces positivity) make the ℕ and ℤ solution sets identical, so this is not a semantic change. The \"find all\" encoding as set equality is the standard convention for this benchmark.",
+  "duration_ms": 95540,
+  "cost_usd": 0.24774250000000003
+}

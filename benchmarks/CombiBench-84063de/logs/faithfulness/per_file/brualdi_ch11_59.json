@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch11_59.lean",
+  "stem": "brualdi_ch11_59",
+  "verdict": "stronger",
+  "reasoning": "Mathlib's `IsTree G` requires `G.Connected`, which means `G.Preconnected` (every pair of vertices in V is reachable) plus `Nonempty V`. The Lean statement declares `T1 T2 : SimpleGraph V`, so `IsTree T1` forces T1 to be connected on ALL of V. When `|V| ≥ 2` (which is forced by `e ∈ T.edgeSet`), a connected graph on V must have every vertex in its support, so `T1.support = T2.support = V`. Then `Disjoint T1.support T2.support` forces `V = ∅`, contradicting `Nonempty V`. Thus the Lean statement is vacuously unprovable under its own hypotheses. The informal statement describes T\\e as a forest of two trees where each tree lives on its own component's vertex set, but the Lean encoding demands each tree to span all of V — a strictly stronger (and unsatisfiable) requirement. The correct formalization would typically use subgraphs or restrict each tree to its connected component's vertex subset.",
+  "duration_ms": 728983,
+  "cost_usd": 2.0248480000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim: T-invariance is encoded as `Submodule.map T (U i) ≤ U i` (which is exactly $T(U_i) \\subseteq U_i$), and the sum `∑ i : Fin n, U i` of submodules in Mathlib is the standard subspace sum $U_1 + \\cdots + U_n$. The conclusion `Submodule.map T (∑ U i) ≤ ∑ U i` is precisely T-invariance of the sum. Generalizing from Axler's ℝ/ℂ to an arbitrary field F is standard and does not alter the mathematical content — the informal statement doesn't specify a field, and the claim holds verbatim in any field. Allowing n=0 is a trivial edge case (empty sum = {0} is trivially invariant) and is the standard Lean idiom for finite indexed families. No hypothesis is silently added or dropped; quantifier structure and types match.",
+  "duration_ms": 53916,
+  "cost_usd": 0.209905
+}

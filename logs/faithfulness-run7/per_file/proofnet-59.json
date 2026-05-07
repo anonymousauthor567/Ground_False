@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `[CommRing R] [IsDomain R]`, which is the standard Mathlib idiom for \"R is an integral domain\" (the `IsDomain` class docstring in `Mathlib/Algebra/Ring/Defs.lean` explicitly states this combination yields an integral domain). The hypothesis `hx : x^2 = 1` corresponds exactly to \"x² = 1 for some x ∈ R\", and the disjunctive conclusion `x = 1 ∨ x = -1` faithfully encodes \"x = ±1\". Quantifier structure matches: x is given as an implicit variable with the hypothesis, which is the standard way to encode \"for some x such that..., then x=...\". No hypotheses are added or dropped, and no mathematical content is changed.",
+  "duration_ms": 49171,
+  "cost_usd": 0.21080725000000003
+}

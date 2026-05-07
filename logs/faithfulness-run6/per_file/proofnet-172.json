@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `deriv f x > 0` on `(a, b)` is equivalent to \"$f'(x) > 0$ in $(a, b)$\" because Mathlib's `deriv` returns 0 when not differentiable, so a positive value forces both differentiability and positive derivative. The hypothesis `g (f x) = x` on `(a, b)` correctly expresses that $g$ is the (left) inverse of $f$ on that interval, which uniquely determines $g$ on $f((a,b))$. The three conclusions match one-to-one: `StrictMonoOn f (Set.Ioo a b)` = strictly increasing on $(a,b)$; `DifferentiableOn ℝ g (f '' Set.Ioo a b)` = differentiable on the natural domain of the inverse (and since $f((a,b))$ is open because $f$ is continuous strictly monotone, this gives true pointwise differentiability); and the derivative equation `deriv g (f x) = 1 / deriv f x` matches $g'(f(x))=1/f'(x)$. No hypotheses are silently added or dropped beyond what the informal statement implicitly assumes.",
+  "duration_ms": 137079,
+  "cost_usd": 0.46909074999999995
+}

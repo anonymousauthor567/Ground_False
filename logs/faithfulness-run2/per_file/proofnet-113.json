@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: `LinearOrder Y` corresponds to Munkres' \"ordered set\" (simple/total order), `OrderTopology Y` asserts that Y's topology is the order topology, and `min` in a `LinearOrder` is exactly the pointwise minimum of the informal h(x) = min{f(x), g(x)}. The hypotheses (continuity of f and g) and the conclusion (continuity of the min) correspond one-to-one with the informal claim, with universal quantification over X, Y, f, g correctly expressed via type variables and typeclass assumptions.",
+  "duration_ms": 15468,
+  "cost_usd": 0.04767300000000001
+}

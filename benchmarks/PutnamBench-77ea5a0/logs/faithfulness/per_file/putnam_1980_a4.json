@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_a4.lean",
+  "stem": "putnam_1980_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures both parts of Putnam 1980 A4 correctly. The `abcvals` predicate is characterized by `habcvals` as exactly \"not all zero, each absolute value strictly less than 10^6\" — matching the informal phrasing precisely. Part (a) uses ∃ with strict inequality `< 10^(-11)` (via `Real.rpow` since the exponent is real) and part (b) uses ∀ with strict inequality `> 10^(-21)`, matching the informal claims. The integers a, b, c are correctly typed as ℤ, coerced to ℝ inside the absolute value expression `|a + b*Real.sqrt 2 + c*Real.sqrt 3|`. Abstracting the predicate via a hypothesis is logically equivalent to stating it inline since `habcvals` is a biconditional characterization. No hypotheses are added or dropped, and the bounds/quantifier structure exactly match the informal statement.",
+  "duration_ms": 94506,
+  "cost_usd": 0.32535475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "S_0051.lean",
+  "stem": "S_0051",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal theorem under Mathlib's standard definitions. `HasLimitsOfSize.{v, v} C` unfolds to `HasLimits C` (\"all small limits\" relative to the category's hom-set universe v). `∀ (J : Type v), HasLimitsOfShape (Discrete J) C` is exactly the unfolded definition of `HasProducts.{v} C` in Mathlib. `HasLimitsOfShape WalkingCospan C` is exactly the unfolded definition of `HasPullbacks C`. Thus the Lean statement is `HasLimits C ↔ HasProducts.{v} C ∧ HasPullbacks C`, matching \"C admits all small limits iff C admits all small products and pullbacks\" faithfully in both hypotheses, conclusion, and universe conventions.",
+  "duration_ms": 247645,
+  "cost_usd": 1.01210325
+}

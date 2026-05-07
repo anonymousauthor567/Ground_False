@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim: `I J : Ideal R` matches \"ideals I, J\", `x : ↑(I ⊓ J)` gives an arbitrary element of I ∩ J (the `⊓` lattice operation on ideals corresponds to set intersection in Mathlib), and `IsNilpotent ((Ideal.Quotient.mk (I*J)) x)` asserts that the residue of x in R/(IJ) is nilpotent. The only minor specialization is `CommRing` vs \"ring\", but in Artin's chapter on ideals (and throughout the chapter on I*J and I∩J) the ambient ring is understood as commutative — this is a standard implicit premise, not a narrowing of scope. The argument (x² = x·x ∈ IJ since x ∈ I and x ∈ J) relies on this commutative structure and matches the intended meaning.",
+  "duration_ms": 80751,
+  "cost_usd": 0.30268125
+}

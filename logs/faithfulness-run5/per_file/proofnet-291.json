@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. The `is_topology` definition correctly captures a topology (univ open, closed under binary intersection and arbitrary unions via sUnion; empty set follows from sUnion ∅ = ∅ with vacuous hypothesis). The family of topologies is encoded as `T : I → Set (Set X)` with `h : ∀ i, is_topology X (T i)`. The conclusion uses `∃!` to express uniqueness, and the conjunction expresses \"T' is a topology\" ∧ \"T' is contained in every T i\" ∧ \"T' is maximal among topologies contained in every T i\" — precisely \"the unique largest topology contained in all T_α\". Uniqueness is even redundant given maximality (any two maximal elements would contain each other), but including `∃!` matches the informal \"unique largest\" wording exactly. No hypotheses are added or omitted, and quantifier structure matches.",
+  "duration_ms": 60899,
+  "cost_usd": 0.18762299999999998
+}

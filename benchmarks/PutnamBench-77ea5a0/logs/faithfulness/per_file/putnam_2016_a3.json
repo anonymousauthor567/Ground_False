@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_a3.lean",
+  "stem": "putnam_2016_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The function type `f : ℝ → ℝ` matches. The hypothesis `hf : ∀ x : ℝ, x ≠ 0 → f x + f (1 - 1 / x) = arctan x` exactly transcribes the functional equation with the appropriate `x ≠ 0` restriction. Mathlib's `Real.arctan` is defined to produce values in `(-π/2, π/2)` with `tan(arctan x) = x`, matching the informal parenthetical definition. The conclusion `∫ x in (0)..1, f x = putnam_2016_a3_solution` with solution `3π/8` correctly captures the requested integral (and the value 3π/8 is mathematically correct, obtainable via the 3-cycle x → 1-1/x → 1/(1-x) → x and evaluating the resulting integrals). No hypotheses are added or dropped, and no types or quantifiers are changed.",
+  "duration_ms": 117443,
+  "cost_usd": 0.357156
+}

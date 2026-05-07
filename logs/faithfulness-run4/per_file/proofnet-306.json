@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes `G` is a topological group (via `TopologicalSpace G`, `Group G`, `IsTopologicalGroup G`, where `IsTopologicalGroup` combines continuous multiplication and inversion — matching the informal \"topological group\"). The set `C` is defined as `connectedComponent (1 : G)`, which is precisely \"the component of G containing the identity\" in multiplicative notation. The conclusion `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` is the standard Lean idiom for \"C is a normal subgroup\" — it asserts that C admits a (normal) subgroup structure whose underlying set is exactly C. Mathlib itself uses this pattern, defining `Subgroup.connectedComponentOfOne` with this very carrier. Since subgroups are determined by their carriers, this is logically equivalent to the informal assertion that the identity component is a normal subgroup.",
+  "duration_ms": 58053,
+  "cost_usd": 0.26567825000000006
+}

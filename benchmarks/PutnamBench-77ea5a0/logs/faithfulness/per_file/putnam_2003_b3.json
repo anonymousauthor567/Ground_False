@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b3.lean",
+  "stem": "putnam_2003_b3",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly says \"for each positive integer n\", restricting to n ≥ 1. The Lean statement takes `n : ℕ` with no positivity hypothesis, so it also claims the equality for n = 0. The encoding of the RHS is otherwise faithful: `List.range ⌊n/i⌋₊ |>.map succ` produces [1, 2, ..., ⌊n/i⌋], and `foldl Nat.lcm 1` correctly computes the lcm (with 1 as the identity). For n = 0, both sides equal 1 trivially (0! = 1 and the product over the empty Finset.Icc 1 0 is 1), so the n = 0 case is vacuously true — but the Lean statement still explicitly asserts it, making it logically strictly stronger than the informal claim (Lean ⇒ informal, but not conversely without separately verifying P(0)). Per the system prompt, \"claims the result for extra cases\" and \"drops a hypothesis that the informal statement explicitly requires\" qualify as stronger.",
+  "duration_ms": 155560,
+  "cost_usd": 0.408988
+}

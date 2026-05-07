@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "Munkres's definition of \"regular\" includes T1, so `[RegularSpace X] [T1Space X]` together (equivalent to T3) faithfully encodes Munkres's \"regular\"; this is needed for truth (an indiscrete space satisfies Mathlib's `RegularSpace` but not the conclusion). The hypothesis `x ≠ y` is implicit in \"pair of points\" and also needed for the claim to be true. Requiring U, V to be open is equivalent to requiring general neighborhoods, since any neighborhood contains an open one with smaller closure. The conclusion `closure U ∩ closure V = ∅` matches \"closures are disjoint\" exactly. Thus the Lean statement makes necessary implicit premises explicit without changing the mathematical content.",
+  "duration_ms": 114568,
+  "cost_usd": 0.3424345
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-195.lean",
+  "stem": "proofnet-195",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}$, which standardly means irreducible as a polynomial in $\\mathbb{F}_{31}[x]$. The Lean signature uses `Irreducible (X^3 - 9 : Polynomial (ZMod 31))`. Since 31 is prime, `ZMod 31` is the finite field $\\mathbb{F}_{31}$, and `Polynomial (ZMod 31)` is the polynomial ring $\\mathbb{F}_{31}[x]$. `X^3 - 9` correctly encodes the polynomial $x^3 - 9$, and Mathlib's `Irreducible` (non-unit element whose factorizations have a unit factor) matches the standard mathematical definition of polynomial irreducibility over a field. The formalization captures exactly the intended claim.",
+  "duration_ms": 43282,
+  "cost_usd": 0.16141725
+}

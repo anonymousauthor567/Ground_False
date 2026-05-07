@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the claim. `hz : ‖z‖ = 1` places z on the unit circle (in ℂ, the norm equals the complex modulus). The partial sum `s n = ∑ i ∈ range n, z^(i+1)/(i+1)` ranges i from 0 to n-1, so k = i+1 goes from 1 to n, correctly giving partial sums of ∑_{k=1}^∞ z^k/k (starting from k=1 is the natural interpretation to avoid division by zero). The existence of z₀ with `Tendsto s atTop (𝓝 z₀)` is precisely the definition of series convergence. The iff `↔ z ≠ 1` captures both directions of \"converges except at z = 1\": convergence at every z ≠ 1 on the unit circle (Dirichlet's test) AND divergence at z = 1 (harmonic series) — the \"except z = 1\" phrasing in the informal statement naturally implies both directions.",
+  "duration_ms": 106874,
+  "cost_usd": 0.29118675
+}

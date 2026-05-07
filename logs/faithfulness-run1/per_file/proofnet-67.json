@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "informal": "Prove that if $f(x)$ and $g(x)$ are polynomials with rational coefficients whose product $f(x) g(x)$ has integer coefficients, then the product of any coefficient of $g(x)$ with any coefficient of $f(x)$ is an integer.",
+  "lean": "\ntheorem Dummit_Foote_exercise_9_3_2 {f g : Polynomial ℚ} (i j : ℕ)\n  (hfg : ∀ _n : ℕ, ∃ a : ℤ, (f*g).coeff = a) :\n  ∃ a : ℤ, f.coeff i * g.coeff j = a",
+  "verdict": "different",
+  "reasoning": "The hypothesis `hfg : ∀ _n : ℕ, ∃ a : ℤ, (f*g).coeff = a` is malformed relative to the intended meaning. `(f*g).coeff` has type `ℕ → ℚ`, not `ℚ`, so equating it to `a : ℤ` does not express \"the n-th coefficient of f*g is an integer.\" The variable `_n` is unused, and the intended `(f*g).coeff n = a` is missing the argument `n`. Either the statement fails to typecheck, or — if some coercion makes it parse — it forces the entire coefficient function to be a constant integer, which (since polynomial coefficients vanish eventually) is essentially the assumption that f*g = 0, vastly stronger than \"f*g has integer coefficients.\" Thus the Lean signature does not faithfully encode the informal hypothesis.",
+  "duration_ms": 24513,
+  "cost_usd": 0.085009
+}

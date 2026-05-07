@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a faithful formalization of McCoy's theorem (Dummit & Foote exercise 7.2.2). The LHS `∃ q ≠ 0, p * q = 0` encodes \"p is a zero divisor\" (this is exactly Mathlib's convention `P ∉ R[X]⁰`). The RHS uses `b • p` which unfolds to `C b * p` via `Polynomial.smul_eq_C_mul`, matching the informal \"b·p(x) = 0\". In fact, this exact statement appears in Mathlib as `Polynomial.notMem_nonZeroDivisors_iff` in `Algebra/Polynomial/AlgebraMap.lean`. The `CommRing` hypothesis matches the textbook context. The minor technicality that the Lean version doesn't explicitly require `p ≠ 0` does not create a semantic mismatch: when `p = 0` both sides are trivially true in any nontrivial ring, so the iff still holds, and this matches the standard Mathlib/formalization convention.",
+  "duration_ms": 480056,
+  "cost_usd": 1.6091974999999996
+}

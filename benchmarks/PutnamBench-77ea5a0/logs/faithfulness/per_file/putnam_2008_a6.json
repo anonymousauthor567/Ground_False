@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_a6.lean",
+  "stem": "putnam_2008_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: (1) existence of a positive real constant c, (2) universal quantification over all finite groups G with |G| > 1 via `[Group G]` and `(fing : Fintype G)` with `fing.card > 1`, (3) existence of a list s (the \"sequence\") with `s.length ≤ c * Real.log (fing.card)`, and (4) for every g ∈ G, existence of a sublist t of s whose product equals g. Mathlib's `List.Sublist` (`<+`) is exactly the order-preserving, non-contiguous selection relation that matches the informal definition of \"subsequence\" (and matches the given examples). `List.prod` gives the in-order group product, which is what \"product of a subsequence\" means in general (non-abelian) groups. The empty subsequence case is automatically handled (empty list is a sublist and its product is 1). The choice of base for `log` is immaterial since the constant c is quantified existentially. No hypotheses are added or dropped, and quantifier structure matches.",
+  "duration_ms": 160364,
+  "cost_usd": 0.45830425
+}

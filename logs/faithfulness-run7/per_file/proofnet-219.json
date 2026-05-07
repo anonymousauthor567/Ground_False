@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for any two groups A and B, A × B is isomorphic to B × A. The Lean signature takes arbitrary types A, B with `[Group A] [Group B]` instances, and concludes `Nonempty (A × B ≃* B × A)`. In Mathlib, `A × B` with two `Group` instances automatically carries the direct product group structure, `≃*` (MulEquiv) is the bundled group isomorphism, and `Nonempty (_ ≃* _)` is the standard encoding of \"there exists a group isomorphism\". The quantification over all groups is captured via the implicit type variables plus typeclass hypotheses. No extra hypotheses are added and none are dropped, so this is logically equivalent to the informal claim.",
+  "duration_ms": 34177,
+  "cost_usd": 0.14647125
+}

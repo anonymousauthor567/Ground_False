@@ -1,0 +1,8 @@
+{
+  "file": "5.lean",
+  "stem": "5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines \"isomorphism\" parenthetically as \"there exists a two-sided inverse map φ⁻¹: G' → G\". The Lean encoding uses `∃ φ₁ : G' → G, Function.LeftInverse φ₁ φ ∧ Function.RightInverse φ₁ φ`, which precisely captures a two-sided inverse function (φ₁ ∘ φ = id and φ ∘ φ₁ = id). The word \"map\" in the informal text most naturally reads as \"function\", matching the Lean choice of `G' → G` rather than `G' →* G`. Importantly, for group homomorphisms, having a two-sided inverse function is equivalent to having a two-sided inverse homomorphism (the inverse is automatically a homomorphism in the group setting), so both readings are logically equivalent. The right side of the iff (`Injective φ ∧ Surjective φ`) directly matches \"injective and surjective\". The iff structure and group-homomorphism setup are preserved correctly.",
+  "duration_ms": 111997,
+  "cost_usd": 0.34497049999999996
+}

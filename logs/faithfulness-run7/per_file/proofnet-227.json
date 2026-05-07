@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `{p : Nat.Primes}` captures \"prime p\", `[H.Normal]` with `H.index = p` matches \"H is a normal subgroup of G of prime index p\", and `∀ K : Subgroup G` matches \"for all K ≤ G\". The disjunction: `K ≤ H` matches \"K ≤ H\"; `H ⊔ K = ⊤` matches \"G = HK\" (since H normal makes HK a subgroup equal to H ⊔ K); and `(K ⊓ H).relIndex K = p` matches \"|K : K ∩ H| = p\" because Mathlib defines `relIndex H K = (H.subgroupOf K).index`, i.e., the index of H ∩ K in K. All types, hypotheses, and quantifier structure align with the informal statement.",
+  "duration_ms": 106049,
+  "cost_usd": 0.40941675
+}

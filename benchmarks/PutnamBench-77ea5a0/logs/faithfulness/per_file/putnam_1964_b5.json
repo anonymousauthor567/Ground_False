@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b5.lean",
+  "stem": "putnam_1964_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement correctly. `StrictMono a ∧ ∀ n, a n > 0` encodes \"strictly monotonic increasing sequence of positive integers\". The recursive definition `b 0 = a 0` and `b (n+1) = lcm (b n) (a (n+1))` yields $b_n = \\text{lcm}(a_0, \\dots, a_n)$, matching the informal LCM definition. The only superficial difference is that Lean uses 0-indexing while the informal uses 1-indexing, but this is merely a relabeling: under reindexing $a'_n = a_{n+1}$, the Lean sum $\\sum_{n=0}^\\infty 1/b_n$ corresponds precisely to the informal $\\sum_{n=1}^\\infty 1/b_n$, and convergence is preserved. The conclusion `∃ L, Tendsto (partial sums) atTop (𝓝 L)` is the standard formulation of series convergence. No hypothesis is silently added, dropped, or changed in a meaningful way.",
+  "duration_ms": 124403,
+  "cost_usd": 0.40276325
+}

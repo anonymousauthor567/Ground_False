@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `GaussianInt` is defined as `Zsqrtd (-1)` = ℤ[i]; `span ({↑q} : Set GaussianInt)` is the ideal (q); `IsField` captures \"is a field\"; and `∃ finR : Fintype ..., Fintype.card = q^2` correctly encodes \"has q² elements\". The restriction `q : ℕ` (rather than ℤ) surfaces the standard textbook convention of positive primes — this is a needed implicit premise, since e.g. q = -5 is a prime in ℤ with -5 ≡ 3 [ZMOD 4] but ℤ[i]/(-5) = ℤ[i]/(5) is not a field (5 = (2+i)(2-i) since 5 ≡ 1 mod 4). Making this explicit is correct per the faithfulness rules. All hypotheses, conclusions, and types match.",
+  "duration_ms": 197855,
+  "cost_usd": 0.59903575
+}

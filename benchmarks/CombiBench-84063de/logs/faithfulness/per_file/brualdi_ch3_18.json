@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch3_18.lean",
+  "stem": "brualdi_ch3_18",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `EuclideanSpace ℝ (Fin 2)` (defined as `PiLp 2 (fun _ : Fin 2 => ℝ)`) gives the standard Euclidean plane, and `dist` is the standard Euclidean distance. The square of side length 2 is encoded as the concrete axis-aligned square [0,2]×[0,2] via coordinate bounds in `h_points`; since the problem is isometry-invariant, using a specific representative square is a standard and faithful encoding. `points : Fin 5 → ...` encodes exactly 5 (possibly coincident) points. The conclusion `∃ i j, i ≠ j ∧ dist (points i) (points j) ≤ √2` correctly expresses \"two [distinct] points whose distance apart is at most √2\" — the closed interval and non-strict inequality both match \"within\" and \"at most\". No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 83385,
+  "cost_usd": 0.25033225
+}

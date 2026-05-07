@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p9.lean",
+  "stem": "calculus__p9",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is an antiderivative (indefinite integral) relation: d/dx[-cos^7 x/7 + cos^9 x/9 + C] = sin^3 x · cos^6 x. However, the Lean notation `∫ (x : ℝ), f x` (from Mathlib's Bochner.lean, `notation3 \"∫ \"(...)\", \"r:60:(scoped f => integral volume f) => r`) denotes the Bochner integral of f over all of ℝ with Lebesgue measure — a single real number, not an antiderivative function. The integration variable x is bound on the LHS, while the x on the RHS refers to the outer theorem parameter `(x : ℝ)`, and `C` appears as an undeclared (auto-bound) free variable. Since sin^3 x · cos^6 x is not integrable on all of ℝ, the LHS is 0 by `integral_undef`, while the RHS is an x-dependent expression, making the Lean equation essentially false/vacuous. The antiderivative claim (informal) should have been formalized with `HasDerivAt` or `deriv`. The two propositions are about different mathematical objects and neither implies the other.",
+  "duration_ms": 375533,
+  "cost_usd": 0.72105975
+}

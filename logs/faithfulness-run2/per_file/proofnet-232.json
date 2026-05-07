@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim: `CommGroup G` encodes \"abelian group\", `Fintype G` together with `card G = p*q` encodes \"order pq\" (Fintype is needed to even make `card` meaningful), `p q : Nat.Primes` with `hpq : p ≠ q` encodes \"distinct primes p and q\", and `IsCyclic G` matches the conclusion. The universal quantification over G is achieved via the implicit type variable `{G : Type*}`. There are no extra or missing hypotheses and no type mismatches.",
+  "duration_ms": 11228,
+  "cost_usd": 0.04164975
+}

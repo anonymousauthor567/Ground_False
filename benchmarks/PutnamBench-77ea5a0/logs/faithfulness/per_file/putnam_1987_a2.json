@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_a2.lean",
+  "stem": "putnam_1987_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces three helper functions with hypotheses that uniquely determine them: (1) `seqind i` gives the starting position of integer i in the concatenated sequence, anchored at seqind 1 = 1 and incremented by the digit-length of the previous integer; (2) `seqsize k` gives the digit-count of the integer containing position k (constrained at every position k ≥ 1, which is exactly the relevant domain); (3) `f n = seqsize (10^n)`. Verifying the example: seqind 55 = 10 + 2·45 = 100, and seqsize 100 = 2, so f 2 = 2, matching the informal example. The conclusion `f 1987 = putnam_1987_a2_solution` with solution 1984 matches the informal question \"Find f(1987).\" The helper-function hypotheses, taken together, uniquely pin down f 1987 to the same value as the informal definition, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 267543,
+  "cost_usd": 0.708846
+}

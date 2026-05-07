@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The Mathlib definition `IsNilpotent x := ∃ n : ℕ, x^n = 0` (from `Mathlib/Algebra/GroupWithZero/Basic.lean`) exactly matches the informal definition \"some power of x is zero\". The Lean signature uses a generic `[Ring R]` (associative ring with 1), which corresponds to the informal \"ring R\" without adding commutativity. The hypothesis `IsNilpotent x` and conclusion `IsUnit (1 + x)` directly encode the informal claim. The theorem is true for general (possibly non-commutative) rings via the geometric-series-style inverse, so no extra hypothesis has been silently added or dropped. This is a logically equivalent, strictly faithful encoding.",
+  "duration_ms": 67473,
+  "cost_usd": 0.23967775000000002
+}

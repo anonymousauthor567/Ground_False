@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly mirrors the informal statement: the family of topological spaces `X : ι → Type*` corresponds to $\\{X_\\alpha\\}$; the hypothesis `h : ∀ i, Nonempty (X i)` encodes \"each $X_\\alpha$ is nonempty\"; the hypothesis `h2 : T2Space (Π i, X i)` encodes \"$\\prod X_\\alpha$ is Hausdorff\" (T2Space is Mathlib's standard Hausdorff class); and the conclusion `∀ i, T2Space (X i)` encodes \"each $X_\\alpha$ is Hausdorff\". The quantifier structure correctly captures the implicit universal over $\\alpha$ in the conclusion. No hypotheses have been added or dropped, and no notions have been strengthened or weakened.",
+  "duration_ms": 42887,
+  "cost_usd": 0.14516125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes x : ℝ with `Irrational x` and y : ℚ with y ≠ 0, concluding `Irrational (x * y)`. This matches the informal statement: a nonzero rational times an irrational is irrational. The order of the product differs (x*y vs rx) but multiplication in ℝ is commutative, so this is logically equivalent. The coercion of y : ℚ to ℝ via `x * y` is standard and matches \"rational r\" in the informal statement. The hypothesis y ≠ 0 matches r ≠ 0, and `Irrational x` matches \"x is irrational\". No hypotheses are added or dropped.",
+  "duration_ms": 10400,
+  "cost_usd": 0.05361875
+}

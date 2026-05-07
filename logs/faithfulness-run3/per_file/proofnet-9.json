@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the claim: for any commutative ring R, any ideals I and J, and any element x of I ∩ J (encoded via `↑(I ⊓ J)` where `⊓` is the lattice meet = intersection of ideals), the image of x under `Ideal.Quotient.mk (I*J)` (the canonical map to R/IJ) is nilpotent. The `CommRing` assumption matches Artin's convention in Chapter 10 (rings are commutative throughout his textbook). The product ideal `I*J` and intersection `I ⊓ J` are the standard Mathlib encodings. All quantifiers (over R, over I/J, over x) correctly capture the universal structure of the informal statement.",
+  "duration_ms": 34552,
+  "cost_usd": 0.13064725
+}

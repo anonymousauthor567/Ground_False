@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_a3.lean",
+  "stem": "putnam_1997_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. Series 1 via `∏ i : Finset.range n, 2*((i:ℝ)+1)` yields the empty product (1) for n=0 giving the leading term x, and the products 2, 2·4, 2·4·6, ... for n=1,2,3..., matched with `(-1)^n · x^(2n+1)` — exactly the alternating series x − x³/2 + x⁵/(2·4) − x⁷/(2·4·6) + .... Series 2 similarly uses `(2*((i:ℝ)+1))^2` giving denominators 1, 2², 2²·4², 2²·4²·6², ... times x^(2n), matching the informal second series. The improper integral $\\int_0^\\infty$ is encoded via `Tendsto (fun t => ∫ x in Set.Icc 0 t, ...) atTop (𝓝 L)`, which is the standard definition of the improper integral converging to L. The answer √e = `Real.sqrt (Real.exp 1)` is appropriate since series1 = x·e^(−x²/2) and series2 = I₀(x). No extra or missing hypotheses; types and quantifier structure are correct.",
+  "duration_ms": 277760,
+  "cost_usd": 0.8433657499999999
+}

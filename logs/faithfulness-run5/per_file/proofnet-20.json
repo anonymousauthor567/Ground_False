@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∀ v : V, ∃ c : F, v ∈ eigenspace S c` expresses \"for every v there exists a scalar c with S(v) = c·v\" (via `mem_eigenspace_iff`). While Axler defines eigenvectors as nonzero, the case v = 0 is trivially satisfied (0 ∈ eigenspace S c for any c), so the hypothesis is equivalent to \"every nonzero v is an eigenvector of S\" — matching the informal claim. The conclusion `∃ c : F, S = c • LinearMap.id` expresses \"S equals c times the identity operator\", which is exactly \"S is a scalar multiple of the identity\". The ambient types (AddCommGroup V, Field F, Module F V, S : End F V) correctly model a linear operator on a vector space. No hypotheses are added or dropped.",
+  "duration_ms": 138519,
+  "cost_usd": 0.4617164999999999
+}

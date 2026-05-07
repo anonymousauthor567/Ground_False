@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b6.lean",
+  "stem": "putnam_2006_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 2006 B6. The hypothesis `k > 1`, `a 0 > 0`, and the recurrence `a (n+1) = a n + 1/(a n)^((1:ℝ)/k)` correctly encode $k > 1$, $a_0 > 0$, and $a_{n+1} = a_n + 1/\\sqrt[k]{a_n}$ (with `(1:ℝ)/k` coerced so `^` is `Real.rpow`, giving $a_n^{1/k}$). The conclusion `Tendsto (fun n => (a n)^(k+1)/(n^k)) atTop (𝓝 ...)` matches $\\lim a_n^{k+1}/n^k$, with `(a n)^(k+1)` as natural power and `n^k` coerced to ℝ in the division. The solution `((k+1)/k)^k` with expected type ℝ → ℝ elaborates with real division, giving the correct Putnam answer. The informal's \"for n > 0\" is a well-known ambiguity—taken literally it would leave $a_1$ undefined, so the only sensible reading is \"for n ≥ 0\", which the Lean `∀ n : ℕ` correctly captures. This is surfacing an implicit premise needed for the problem to be well-posed, not a weakening/strengthening.",
+  "duration_ms": 204704,
+  "cost_usd": 0.63523825
+}

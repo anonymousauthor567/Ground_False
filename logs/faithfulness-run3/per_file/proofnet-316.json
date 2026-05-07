@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement hypothesizes `LocallyCompactSpace X` and `T2Space X`, faithfully encoding \"locally compact Hausdorff space\". The conclusion `CompletelyRegularSpace X` uses Mathlib's definition which requires only the function-separation property (no T₀/T₁), while Munkres' \"completely regular\" additionally requires T₁. However, since `T2Space X` is already a hypothesis (and T₂ ⇒ T₁), the combination `T2Space X ∧ CompletelyRegularSpace X` is equivalent to Munkres' notion of completely regular (= Mathlib's `T35Space`). Thus under the stated hypotheses, proving the Lean conclusion is equivalent to proving Munkres' informal claim.",
+  "duration_ms": 162598,
+  "cost_usd": 0.31606650000000003
+}

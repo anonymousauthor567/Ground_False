@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes Herstein's exercise. `[Field F] [CharP F p]` with `hp : p ≠ 0` exactly captures \"F has characteristic p ≠ 0\". `hm : m = p ^ n` encodes m = p^n. The conclusion `(X^m - X).Separable` is the standard Mathlib translation of \"all roots are distinct\" for a nonzero polynomial over a field (Separable ↔ coprime with derivative ↔ no repeated roots in an algebraic closure). The extra hypothesis `hn : n > 0` is making an implicit premise explicit: if n = 0, then m = 1 and X^m - X = 0, the zero polynomial, which is not separable in Mathlib (`not_separable_zero`), so the statement would be literally false. Writing \"m = p^n\" in the informal statement conventionally presumes n ≥ 1 (otherwise \"all distinct roots\" of the zero polynomial is ill-defined). This is the \"making implicit premise explicit\" pattern, which counts as faithful.",
+  "duration_ms": 167523,
+  "cost_usd": 0.529276
+}

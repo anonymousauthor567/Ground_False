@@ -1,0 +1,8 @@
+{
+  "file": "egmo_2022_p5.lean",
+  "stem": "egmo_2022_p5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The `Domino` structure properly defines a 2×1 domino as a 2-element Finset with adjacent cells (horizontally or vertically). The `PerfectCover` structure requires n*k dominoes covering every cell — by pigeonhole (2nk cell-incidences equaling 2nk total cells with each cell covered at least once), this forces each cell to be covered exactly once, correctly encoding a perfect tiling. The Fintype instances make `Fintype.card (PerfectCover n k)` equal to f(n, 2k). The set `{n | n > 0 ∧ ∀ k > 0, Odd (...)}` exactly matches \"all positive integers n such that for every positive integer k, f(n, 2k) is odd\". The board dimensions `Fin n × Fin (2 * k)` match n × 2k. No hypotheses are added or dropped beyond what's in the informal statement.",
+  "duration_ms": 184857,
+  "cost_usd": 0.5309442500000001
+}

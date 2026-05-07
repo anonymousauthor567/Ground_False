@@ -1,0 +1,8 @@
+{
+  "file": "probability__p2_1.lean",
+  "stem": "probability__p2_1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that the second component of A³ · X_0 equals 0.18. The Lean lemma `A_squared` instead asserts that A · A equals a specific 3×3 matrix. These are different mathematical claims about different objects: the Lean one is about A² (a full matrix), while the informal one is about a single scalar entry of A³X_0. Neither claim logically implies the other — the informal scalar identity does not pin down the A² matrix, and the A² matrix equality does not state the claim about A³X_0. The Lean file appears to contain only an intermediate helper lemma and never formalizes the actual informal conclusion ((A³·X_0)[1] = 0.18).",
+  "duration_ms": 166977,
+  "cost_usd": 0.15824325
+}

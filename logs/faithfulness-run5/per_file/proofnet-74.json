@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "With `open Set`, `centralizer {a}` resolves to `Set.centralizer {a} = {c | ∀ m ∈ {a}, m*c = c*m} = {c | a*c = c*a}`, which is exactly C(a) in Herstein's notation. Similarly, `centralizer {x⁻¹ * a * x}` is C(x⁻¹ax). The RHS `(fun g : G => x⁻¹ * g * x) '' (centralizer {a})` is the set image `{x⁻¹ * c * x | c ∈ C(a)}`, which is the standard interpretation of x⁻¹C(a)x. Both sides are of type `Set G`. The group G is universally quantified with `[Group G]` and elements a, x are universally quantified, matching the informal statement exactly with no added or dropped hypotheses.",
+  "duration_ms": 122653,
+  "cost_usd": 0.46532625000000005
+}

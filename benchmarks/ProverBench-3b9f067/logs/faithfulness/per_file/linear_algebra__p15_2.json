@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p15_2.lean",
+  "stem": "linear_algebra__p15_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts BOTH existence and uniqueness: \"there exists a unique decomposition v = a + b...\" together with the explicit formula. The Lean file splits this into an `axiom vector_decomposition` (existence + formula, ASSUMED not proven) and a `theorem uniqueness_of_decomposition` (uniqueness). The theorem under evaluation only captures the uniqueness direction: for any a', b' satisfying the given conditions, they must equal the explicit formula. It does not establish that such a', b' actually exist. This makes the theorem logically implied by the informal statement but strictly weaker — it cannot reconstruct the existence claim without the separately asserted axiom. The ℝ³ → general real inner product space generalization and the u ≠ 0 hypothesis (surfacing an implicit premise needed for the formula to make sense) are not faithfulness issues, but the missing existence claim is.",
+  "duration_ms": 312870,
+  "cost_usd": 0.7970375
+}

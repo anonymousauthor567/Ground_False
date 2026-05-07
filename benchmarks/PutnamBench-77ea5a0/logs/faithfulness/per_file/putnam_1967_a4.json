@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a4.lean",
+  "stem": "putnam_1967_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization adds `MeasureTheory.IntegrableOn u (Set.Icc 0 1)` as a hypothesis on u. While the literal informal statement says \"real-valued function u\" without explicit regularity, the integral equation u(x) = 1 + λ∫_x^1 u(y)u(y-x) dy only makes classical mathematical sense when u is at least integrable on [0,1] — this is a standard implicit premise of any integral equation in classical analysis. The original Putnam 1967 A4 problem explicitly assumes u is continuous on [0,1] (which implies integrability), so the informal statement already carries an implicit regularity assumption. The IntegrableOn condition is a natural, minimal regularity requirement that makes the formalization well-typed in Mathlib's integration framework (which otherwise sets integrals of non-integrable functions to 0). This fits the \"implicit premise made explicit\" pattern described in the guidelines, so it should be judged faithful rather than weaker.",
+  "duration_ms": 318020,
+  "cost_usd": 0.9391885000000001
+}

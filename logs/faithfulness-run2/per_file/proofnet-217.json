@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims A × B is abelian iff both A and B are abelian. The Lean signature takes A and B as arbitrary groups and states the iff using the standard definition of \"abelian\" = \"commutative\" (∀ x y, x * y = y * x) for each of A × B, A, and B. The multiplication on A × B is the componentwise product group operation (from the Group instance on A × B provided by Mathlib), so ∀ x y : A × B, x * y = y * x is exactly the assertion that the product group is abelian. Both directions of the iff are present, and no extra hypotheses (like finiteness or commutativity) are silently assumed. This is a faithful encoding.",
+  "duration_ms": 10709,
+  "cost_usd": 0.038801
+}

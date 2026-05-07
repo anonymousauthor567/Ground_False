@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group of order 200 has a normal Sylow 5-subgroup. The Lean signature takes an arbitrary finite group `G` with `card G = 200` (i.e., `Fintype.card G = 200` via `open Fintype`) and concludes `∃ N : Sylow 5 G, N.Normal`. In Mathlib, `Sylow 5 G` (GroupTheory/Sylow.lean) is the type of Sylow 5-subgroups, and `N.Normal` resolves through the `toSubgroup` coercion to `Subgroup.Normal` (Subgroup/Defs.lean), which is exactly \"normal subgroup\". \"Has a normal Sylow 5-subgroup\" is precisely `∃ N : Sylow 5 G, N.Normal`. No hypotheses are added or omitted, no quantifier structure changes, and types match the informal reading.",
+  "duration_ms": 122691,
+  "cost_usd": 0.38875099999999996
+}

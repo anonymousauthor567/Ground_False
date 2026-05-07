@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts that the set `{a : ℤ | X^7 + 15X^2 - 30X + a is irreducible in ℚ[X]}` is infinite, which matches the informal claim one-to-one. The integer `a` is correctly typed as `ℤ` and coerced into `Polynomial ℚ` as a constant polynomial (via `IntCast`), so the ambient polynomial ring is exactly ℚ[x]. Mathlib's `Irreducible` on a polynomial over ℚ (an integral domain) is the standard algebraic notion of irreducibility of a polynomial. The `Infinite` typeclass on the set of witnesses precisely captures \"there is an infinite number of integers a\". No hypotheses are added or dropped, and no quantifier structure or type is changed.",
+  "duration_ms": 68739,
+  "cost_usd": 0.32245175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly that a is algebraic over ℚ of degree ≤ 80: the existence of a nonzero q ∈ ℚ[x] with natDegree ≤ 80 and q(a) = 0 is logically equivalent to the minimal polynomial of a over ℚ having degree ≤ 80 (the minimal polynomial divides any such q, giving one direction; the other is immediate). The hypothesis faithfully encodes p(a) = 0 with the square roots of 2, 5, 7, 11 coerced from ℝ to ℂ, matching the informal polynomial exactly. `Polynomial.aeval a q = 0` is the standard Mathlib way to express that q evaluated at a vanishes using the ℚ-algebra structure on ℂ. No hypotheses are added or dropped, and the quantifier structure (∃ q) matches the informal claim of algebraicity.",
+  "duration_ms": 29302,
+  "cost_usd": 0.09271974999999999
+}

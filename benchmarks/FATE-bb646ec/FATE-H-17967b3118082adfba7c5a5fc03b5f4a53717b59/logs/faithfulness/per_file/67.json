@@ -1,0 +1,8 @@
+{
+  "file": "67.lean",
+  "stem": "67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes each component of the informal statement. `AdjoinRoot (X^3 - 2 : Polynomial (ZMod 7))` is defined in Mathlib as `(ZMod 7)[X] / (X^3 - 2)`, which is exactly $\\mathbb{F}_7[\\alpha]$ with $\\alpha^3 = 2$ (since $X^3-2$ is irreducible over $\\mathbb{F}_7$, as 2 is not a cube mod 7). `TensorProduct (ZMod 7) A A` with its `CommRing` instance is the $\\mathbb{F}_7$-algebra tensor product $A \\otimes_{\\mathbb{F}_7} A$. The theorem universally quantifies over ideals `p` with `[p.IsPrime]` and concludes `p.IsPrincipal`, which is precisely \"every prime ideal is principal.\" `Ideal.IsPrincipal` means `∃ a, p = span {a}`, matching the standard meaning of principal. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 269796,
+  "cost_usd": 0.702231
+}

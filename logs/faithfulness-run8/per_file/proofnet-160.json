@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The definition `g n = Real.sqrt (n+1) - Real.sqrt n` matches $a_i = \\sqrt{i+1} - \\sqrt{i}$. The sum `∑ i ∈ range n, g i` is exactly $\\sum_{i<n} a_i$ since `Finset.range n = {0, 1, ..., n-1}`. In Mathlib, `Tendsto f atTop atTop` for a sequence ℕ → ℝ is the standard encoding of $\\lim_{n\\to\\infty} f(n) = +\\infty$, meaning for every bound M, eventually f(n) ≥ M. All quantifier structure, types, and the conclusion line up precisely with the informal claim, with no extra or missing hypotheses.",
+  "duration_ms": 25803,
+  "cost_usd": 0.11330749999999998
+}

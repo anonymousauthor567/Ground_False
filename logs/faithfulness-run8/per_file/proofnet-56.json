@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if |G| = 132 then G is not simple. The Lean statement formalizes this by taking a group G with `[Fintype G]` and `card G = 132` (i.e., Fintype.card G = 132, since `open Fintype` is used), then asserting `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is defined as a Nontrivial group where every normal subgroup is ⊥ or ⊤ — the standard definition of a simple group. The finiteness assumption is implicit in the informal notation |G| = 132 (a finite cardinality), and making it explicit via `[Fintype G]` is a faithful reading rather than an added restriction. The hypothesis, conclusion, and quantifier structure match exactly.",
+  "duration_ms": 23485,
+  "cost_usd": 0.114354
+}

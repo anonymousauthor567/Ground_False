@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a faithful encoding of the Cantor-Bendixson theorem as stated by Rudin. Mathlib's `Perfect` is defined as a closed set where every point is an accumulation point, with an explicit note that the empty set is allowed — matching the informal \"possibly empty perfect set\". `Set.Countable` denotes at-most-countable (finite or countably infinite), matching \"at most countable\". The equation A = P₁ ∪ P₂ forces both P₁ and P₂ to be subsets of A and together cover A, exactly the decomposition asked for. The separable metric space context and universal quantification over A being closed are correctly expressed via typeclass assumptions and hypothesis hA.",
+  "duration_ms": 63608,
+  "cost_usd": 0.19107625
+}

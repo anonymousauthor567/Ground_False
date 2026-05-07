@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_b5.lean",
+  "stem": "putnam_1965_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. V vertices is encoded via a Fintype `K` with `V = Nat.card K`, which is equivalent to existential quantification over V-vertex graphs (any bijection transports graphs between sets of equal cardinality). E edges is captured by `G.edgeSet.ncard = E`, and the hypothesis `4*E ≤ V^2` matches `4E ≤ V²` exactly. The \"no triangles (cycles of length 3)\" conclusion is expressed as `∀ a : K, ∀ w : G.Walk a a, w.length ≠ 3`. Since `SimpleGraph` adjacency is irreflexive, a closed walk of length 3 `a → v₁ → v₂ → a` must have all three vertices distinct (any coincidence forces a self-loop, contradicting irreflexivity), giving a triangle; conversely, every triangle yields such a walk. Hence this is logically equivalent to triangle-freeness in a simple graph.",
+  "duration_ms": 157138,
+  "cost_usd": 0.5399067500000001
+}

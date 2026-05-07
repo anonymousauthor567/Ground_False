@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_b3.lean",
+  "stem": "putnam_1997_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal problem exactly. The hypothesis `n > 0` encodes \"positive integer n\". The expression `(∑ m ∈ Finset.Icc 1 n, 1/m : ℚ)` correctly computes the harmonic sum in ℚ (with `m : ℕ` coerced to ℚ and `1 : ℚ`, making `1/m` rational division). `Rat.den` in Mathlib returns the denominator in canonical reduced form, with the invariant that `num` and `den` are coprime and `den > 0`, so `.den` is precisely the $q_n$ from the informal statement (positive integer coprime to $p_n$). The iff `n ∈ solution ↔ ¬5 ∣ q.den` directly expresses \"determine all n such that 5 does not divide $q_n$\". The characterization via set membership is the natural formalization of a \"determine all n\" problem.",
+  "duration_ms": 141496,
+  "cost_usd": 0.37301775
+}

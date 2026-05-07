@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. G is a finite group (`[Group G] [Fintype G]`), φ is a group automorphism (`G ≃* G` is MulEquiv, equivalent to an automorphism for groups), and the hypothesis that φ(x) = x⁻¹ for more than three-fourths of elements is captured via a Finset I with `(0.75 : ℚ) * card G < card I` and every x ∈ I satisfying φ(x) = x⁻¹. This encoding is equivalent to the informal claim: the set A = {x | φ(x) = x⁻¹} satisfies |A| ≥ |I| > (3/4)|G|, and conversely given |A| > (3/4)|G| we can take I = A. The strict inequality `<` correctly matches \"more than three-fourths\" (a companion counterexample in the file confirms the `≤` version would be false due to D₈). The conclusion `(∀ x, φ x = x⁻¹) ∧ (∀ x y, x*y = y*x)` faithfully expresses \"φ(y) = y⁻¹ for all y, and G is abelian\".",
+  "duration_ms": 170971,
+  "cost_usd": 0.624656
+}

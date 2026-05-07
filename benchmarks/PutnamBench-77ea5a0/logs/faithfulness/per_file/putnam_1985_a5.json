@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_a5.lean",
+  "stem": "putnam_1985_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The integral `∫ x in (0)..(2 * Real.pi), ∏ k ∈ Finset.Icc 1 m, cos (k * x)` precisely represents $\\int_0^{2\\pi}\\cos(x)\\cos(2x)\\cdots\\cos(mx)\\,dx$, since `Finset.Icc 1 m = {1, 2, ..., m}` gives the correct product of cosines. The range constraint `m ∈ Finset.Icc 1 10` matches `1 ≤ m ≤ 10`. The set comprehension `{m ∈ Finset.Icc 1 10 | I m ≠ 0}` elaborates to a `Set ℕ` that contains exactly those m in [1,10] with $I_m \\neq 0$, and equating this with `putnam_1985_a5_solution = {3, 4, 7, 8}` precisely asks for the characterization \"for which integers m\". The types, quantifier structure, and mathematical content all match.",
+  "duration_ms": 168541,
+  "cost_usd": 0.6256109999999999
+}

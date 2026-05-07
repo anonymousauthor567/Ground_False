@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p57_1.lean",
+  "stem": "calculus__p57_1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that f(x) = (x+1)/√(5x²+35) is concave up on the intervals (-∞, (21-√497)/4) and ((21+√497)/4, ∞). The Lean statement `f_deriv` instead claims a specific closed-form formula for the FIRST derivative of f, with no reference to concavity, convexity, or the specific intervals involving √497. These are fundamentally different mathematical claims: concavity is a second-derivative property, while the Lean lemma is a first-derivative computation. A formula for f' does not imply concavity on specific intervals (that would require further differentiation), and concavity on those intervals does not imply a particular closed-form for f'. Additionally, the Lean formula (35 - 5x²) is itself incorrect — the true derivative has (35 - 5x) in the numerator — but the primary faithfulness issue is that the Lean statement simply does not formalize the concavity claim at all.",
+  "duration_ms": 64631,
+  "cost_usd": 0.183936
+}

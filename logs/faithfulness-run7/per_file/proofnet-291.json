@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. It takes a family of topologies `T : I → Set (Set X)` (each verified to be a topology by hypothesis `h`), and asserts the existence and uniqueness (`∃!`) of a topology `T'` that is (a) a topology, (b) contained in every `T i` as a subset (matching \"contained in all the collections\"), and (c) maximal among such topologies (matching \"largest\"). The subset relation `T' ⊆ T i` correctly encodes \"contained in\" for collections of open sets. The `∃!` combined with the explicit maximality clause is redundant but not incorrect — a largest element in a poset is automatically unique when it exists, so this doesn't weaken or strengthen the claim. The quantifier structure, types, and mathematical content all align with the informal statement.",
+  "duration_ms": 78308,
+  "cost_usd": 0.26995575
+}

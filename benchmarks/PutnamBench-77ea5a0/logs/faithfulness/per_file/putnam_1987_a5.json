@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_a5.lean",
+  "stem": "putnam_1987_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures: (i) C¹ condition via ContDiffOn ℝ 1 F {v | v ≠ ![0,0,0]}; (ii) curl = 0 via the standard definition (verified componentwise: ∂P/∂y−∂N/∂z, ∂M/∂z−∂P/∂x, ∂N/∂x−∂M/∂y); (iii) F(x,y,0) = G(x,y). The one subtlety is that `∀ x y, F ![x,y,0] = G ![x,y]` includes (x,y)=(0,0), where Lean's 0/0=0 convention makes G![0,0] = ![0,0,0], silently adding F(0,0,0) = ![0,0,0]. However, since F's value at the origin does not affect ContDiffOn on {v ≠ 0} or the curl condition at points x ≠ 0, any F satisfying the informal constraints can be modified at the single origin point to match this Lean constraint. Hence the two existence propositions are logically equivalent, and the iff with the Prop-valued solution faithfully captures the problem.",
+  "duration_ms": 354326,
+  "cost_usd": 0.8760582499999999
+}

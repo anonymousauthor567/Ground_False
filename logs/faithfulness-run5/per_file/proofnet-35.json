@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "`ℝˣ` and `ℂˣ` unfold to `Units ℝ` and `Units ℂ`, which for a field are precisely the nonzero elements viewed as a multiplicative group — i.e., ℝ∖{0} and ℂ∖{0} with the multiplicative structure. `≃*` is `MulEquiv`, a group isomorphism of multiplicative groups. `IsEmpty (ℝˣ ≃* ℂˣ)` asserts that the type of such isomorphisms is empty, which is exactly the assertion that these two multiplicative groups are not isomorphic. No hypotheses were added or dropped, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 54366,
+  "cost_usd": 0.15273325
+}

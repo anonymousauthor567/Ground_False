@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The \"infinitely many\" encoding as \"∀ N : ℕ, ∃ n : ℕ, n > N ∧ P n\" is the standard Lean idiom equivalent to an infinite set of witnesses. Using ℕ for n rather than ℤ is harmless: any integer n that is a sum of two integer squares is necessarily non-negative, so the integer and natural formulations describe the same set. Similarly, for m ∈ ℕ, m = a² + b² has a solution in ℤ iff it has one in ℕ (since (-a)² = a²), so using i : Fin 6 → ℕ for the squares is equivalent to using integers. The three conditions n, n+1, n+2 being sums of two squares are each correctly captured. Thus the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 17569,
+  "cost_usd": 0.074296
+}

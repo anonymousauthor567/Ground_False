@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `ContinuousOn f (Set.Ioo a b)` corresponds to \"f continuous on (a,b)\", the hypothesis `h` encodes the midpoint convexity condition exactly for all x, y ∈ (a,b), and `ConvexOn ℝ (Set.Ioo a b) f` is Mathlib's standard definition of convexity of f on the open interval, which matches \"f is convex\" in the usual analytic sense. The extra `hab : a < b` is implicit in the informal notation \"(a,b)\" as a nontrivial open interval and does not meaningfully strengthen or weaken the statement, since the a ≥ b case makes both sides trivially true.",
+  "duration_ms": 45314,
+  "cost_usd": 0.07007999999999999
+}

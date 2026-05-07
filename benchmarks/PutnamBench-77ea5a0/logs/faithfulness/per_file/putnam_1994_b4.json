@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b4.lean",
+  "stem": "putnam_1994_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The matrix A is fully pinned down by `hA` (since Fin 2 has exactly two elements, specifying all four entries determines A). The `matgcd` function is defined via iterated `Int.gcd` of the four entries, which equals gcd{a_00, a_01, a_10, a_11} (Int.gcd is associative/commutative on absolute values, so the nesting order does not matter). The expression `A^n - 1` uses Mathlib's `(1 : Matrix (Fin 2) (Fin 2) ℤ) = diagonal (fun _ => 1)`, which is the identity matrix I. The hypothesis `hd` constrains `d n` only for `n ≥ 1`, matching the informal \"For $n \\geq 1$\"; `d 0` is unconstrained, but `Tendsto d atTop atTop` is a tail property so its value is irrelevant. Finally, `Tendsto d atTop atTop` on ℕ → ℤ is the standard encoding of $\\lim_{n\\to\\infty} d_n = \\infty$.",
+  "duration_ms": 128333,
+  "cost_usd": 0.4215257499999999
+}

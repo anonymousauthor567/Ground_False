@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `IsQuotientMap p` is Mathlib's standard definition (surjective with quotient topology), corresponding to \"quotient map\". `ConnectedSpace Y` and `ConnectedSpace X` encode \"connected space\" (preconnected + nonempty), and `IsConnected (p ⁻¹' {y})` encodes \"each fiber is connected\" (nonempty + preconnected). The nonempty conditions that Mathlib bakes into these notions are automatic: each fiber is nonempty because `p` is surjective (quotient maps are surjective), and `X` is nonempty because `Y` is nonempty (from `ConnectedSpace Y`) and `p` is surjective. The quantifier structure (`∀ y : Y`) and the implication structure match exactly. No extra hypotheses are added beyond what any mathematician would assume, and no hypothesis is dropped.",
+  "duration_ms": 73882,
+  "cost_usd": 0.32184274999999996
+}

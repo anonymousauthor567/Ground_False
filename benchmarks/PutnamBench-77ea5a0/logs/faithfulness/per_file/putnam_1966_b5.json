@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b5.lean",
+  "stem": "putnam_1966_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The ambient type `EuclideanSpace ℝ (Fin 2)` is the Euclidean plane; `S.card ≥ 3` gives n ≥ 3 distinct points (Finset distinctness is automatic); and `∀ s ⊆ S, s.card = 3 → ¬Collinear ℝ s.toSet` is exactly \"no three collinear.\" The existential conclusion encodes the cyclic vertex ordering of a polygon: `L : ZMod S.card → EuclideanSpace` with `∀ p ∈ S, ∃! i, p = L i` forces L to be a bijection onto S (by pigeonhole on equal-size domain/codomain), and `ZMod` arithmetic supplies the cyclic closure (last edge is [L(n-1), L(0)]). The intersection condition states that distinct edges meet only at the four listed endpoints — combined with `hS` (which prevents any vertex from lying on a non-incident edge and prevents adjacent edges from overlapping beyond the shared vertex), this exactly characterizes a simple (non-self-intersecting) closed polygon. No hypotheses are added or removed; the quantifier structure matches.",
+  "duration_ms": 238397,
+  "cost_usd": 0.7315050000000001
+}

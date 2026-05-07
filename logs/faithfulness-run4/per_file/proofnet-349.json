@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin's exercise. Both spaces are typed as `MetricSpace`, matching \"metric space X\" and \"metric space Y\". The hypotheses `Continuous f`, `Continuous g` correspond to \"continuous mappings\". `Dense s` in Mathlib unfolds to `∀ x, x ∈ closure s`, which is exactly \"P is a dense subset of X\". The hypothesis `∀ x ∈ s, f x = g x` matches \"g(p) = f(p) for all p ∈ P\" (equality is symmetric). The conclusion `f = g` is, by function extensionality, equivalent to \"g(p) = f(p) for all p ∈ X\". No extra hypotheses (such as nonemptiness or completeness) have been added, and none have been dropped.",
+  "duration_ms": 48304,
+  "cost_usd": 0.26459875
+}

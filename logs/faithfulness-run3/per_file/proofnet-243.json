@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (from Dummit & Foote, where subrings are not required to contain 1 by default) says: any subring of a field that contains the identity is an integral domain. In Mathlib, `Subring` is defined to extend `Subsemiring` (which extends `Submonoid`), so `1` is automatically in every `Subring`. The hypothesis `hK : (1 : F) ∈ K` is therefore redundant but harmless — it makes the informal \"contains the identity\" condition explicit without restricting or broadening the claim. The conclusion `IsDomain K` is the correct Mathlib notion of integral domain (`IsCancelMulZero` + `Nontrivial`). The quantifiers over the field F and the subring K match the informal \"any subring of a field\". So the Lean statement asserts exactly what the informal claim asserts.",
+  "duration_ms": 86729,
+  "cost_usd": 0.21973824999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_b2.lean",
+  "stem": "putnam_1991_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The non-constant hypothesis `¬∃ c, f = Function.const ℝ c ∨ g = Function.const ℝ c` is logically equivalent (via De Morgan) to \"(∀ c, f ≠ const c) ∧ (∀ c, g ≠ const c)\", i.e., both f and g are non-constant. `Differentiable ℝ f ∧ Differentiable ℝ g` encodes differentiability on all of ℝ. The two functional equations `fadd` and `gadd` match exactly. Placing `deriv f 0 = 0` as the antecedent of an implication in the conclusion is logically equivalent to including it as a hypothesis, so the overall statement \"if f'(0) = 0 then f(x)² + g(x)² = 1 for all x\" is preserved. No extra or missing assumptions.",
+  "duration_ms": 127465,
+  "cost_usd": 0.34764375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_b5.lean",
+  "stem": "putnam_1983_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the Putnam 1983 B5 statement. The `dist_fun x = min (x - ⌊x⌋) (⌈x⌉ - x)` correctly computes the distance from x to the nearest integer (matching ||x||). The limit `(1/n) * ∫ x in (1)..n, dist_fun (n/x)` as n → ∞ matches $\\lim_{n\\to\\infty}\\frac{1}{n}\\int_1^n\\|n/x\\|\\,dx$, with the ℕ-valued n coerced to ℝ for the integration. The solution `log (4 / Real.pi)` is the correct answer. The `fact` hypothesis encodes the \"you may assume\" Wallis product: the ℝ-valued expected type forces `2*n-1` to be real subtraction (not truncated ℕ-subtraction), so the partial product tending to π/2 correctly represents the infinite product. Providing this true fact as a hypothesis is a faithful encoding of \"you may assume\" and doesn't change the logical content. All components — hypotheses, types, quantifier structure, and conclusion — align with the informal statement.",
+  "duration_ms": 300815,
+  "cost_usd": 0.9069167499999999
+}

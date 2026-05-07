@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: V is a complex inner product space (via NormedAddCommGroup + InnerProductSpace ℂ), T is a linear operator (T : End ℂ V ≃ V →ₗ[ℂ] V), the normality hypothesis `T * adjoint T = adjoint T * T` corresponds to T T* = T* T, and T^9 = T^8 matches. The conclusion `IsSelfAdjoint T ∧ T^2 = T` correctly encodes \"T is self-adjoint and T² = T\". The extra `FiniteDimensional ℂ V` hypothesis is surfacing an implicit premise required for the statement to make sense: Mathlib's `LinearMap.adjoint` is only defined under `[FiniteDimensional 𝕜 E]`, and the notion of \"normal operator\" with an adjoint requires this (or a Hilbert-space assumption) to be well-formed. This matches the standard mathematical convention (and Axler's usage) where adjoints are taken in finite-dimensional inner-product spaces. Hence this is a faithful surfacing of an implicit premise, not a narrowing.",
+  "duration_ms": 202594,
+  "cost_usd": 0.7904815
+}

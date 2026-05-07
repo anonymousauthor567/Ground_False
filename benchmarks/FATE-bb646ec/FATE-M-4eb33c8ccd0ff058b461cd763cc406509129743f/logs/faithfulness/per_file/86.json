@@ -1,0 +1,8 @@
+{
+  "file": "86.lean",
+  "stem": "86",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: any group G of order 4 is abelian. The Lean signature takes an arbitrary type G with a Group instance, adds [Fintype G] and h : Fintype.card G = 4 (the standard way to say \"group of order 4\"), and concludes ∀ a b : G, a * b = b * a, which is literally the definition of being abelian/commutative. The Fintype instance is necessary to even state the cardinality condition and is automatic for any finite group, so it is not an extra restrictive assumption. The universal quantification over groups of order 4 is preserved via the implicit {G : Type*} binder. Hypotheses and conclusion match exactly.",
+  "duration_ms": 41838,
+  "cost_usd": 0.10863600000000001
+}

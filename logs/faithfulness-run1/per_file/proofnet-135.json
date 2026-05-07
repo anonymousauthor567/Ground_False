@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "informal": "Let $(p_n)$ be a sequence and $f:\\mathbb{N}\\to\\mathbb{N}$. The sequence $(q_k)_{k\\in\\mathbb{N}}$ with $q_k=p_{f(k)}$ is called a rearrangement of $(p_n)$. Show that if $f$ is an injection, the limit of a sequence is unaffected by rearrangement.",
+  "lean": "\ntheorem Pugh_exercise_2_12a {α : Type*} [TopologicalSpace α]\n  (f : ℕ → ℕ) (p : ℕ → α) (a : α)\n  (hf : Injective f) (hp : Tendsto p atTop (𝓝 a)) :\n  Tendsto (λ n => p (f n)) atTop (𝓝 a)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: given an injection f : ℕ → ℕ and a sequence p that tends to a, the rearranged sequence k ↦ p(f k) also tends to a. The hypothesis of injectivity matches, the conclusion (Tendsto … atTop (𝓝 a)) is precisely \"the limit is unaffected by rearrangement.\" Generalizing the codomain from ℝ (Pugh's context) to an arbitrary topological space is incidental — injectivity of f : ℕ → ℕ implies f(k) → ∞ (preimages of finite sets are finite), so the same proof works, and the statement form is identical. No hypothesis is silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 19113,
+  "cost_usd": 0.07249225000000001
+}

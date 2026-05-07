@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely formalizes Rudin's exercise 5.7. The hypotheses `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` correspond exactly to \"f'(x), g'(x) exist\"; `deriv g x ≠ 0` matches \"g'(x) ≠ 0\"; and `f x = 0`, `g x = 0` match \"f(x) = g(x) = 0\". The conclusion uses `𝓝[≠] x` (punctured neighborhood), which is the standard Rudin convention for limits at a point (0 < |t - x| < δ, so t ≠ x), and `deriv f x / deriv g x` equals f'(x)/g'(x) since f and g are differentiable at x. The types (ℝ → ℝ), quantifier structure, hypotheses, and conclusion all match. This is the specific weaker-than-L'Hôpital form requiring differentiability only at the single point x, derivable directly from the definition of derivative.",
+  "duration_ms": 85751,
+  "cost_usd": 0.40867475
+}

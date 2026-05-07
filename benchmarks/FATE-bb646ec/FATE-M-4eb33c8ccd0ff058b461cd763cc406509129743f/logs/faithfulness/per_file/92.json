@@ -1,0 +1,8 @@
+{
+  "file": "92.lean",
+  "stem": "92",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `[CommRing R]` corresponds to \"commutative ring R\"; `R[X]` is Mathlib's polynomial ring R[x]; the hypothesis `p ∣ f ∧ p ∣ g` (a single conjunction) is logically equivalent to the two separate divisibility hypotheses in the informal statement; and the conclusion `∀ u v : R[X], p ∣ f * u + g * v` mirrors \"for any polynomials u(x), v(x) in R[x], p(x) divides f(x)u(x) + g(x)v(x)\". Whether the universal quantifier on u, v is captured inside the conclusion or outside as binders does not affect the logical content. No hypotheses are added, dropped, or altered, and the types are correct.",
+  "duration_ms": 38360,
+  "cost_usd": 0.103944
+}

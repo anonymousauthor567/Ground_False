@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p1.lean",
+  "stem": "number_theory__p1",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem quantifies over all n : ℕ (via `variable (n : ℕ)`) and states that every prime p dividing n^8 - n^4 + 1 satisfies p = 24k + 1 for some k : ℕ, which matches the informal claim exactly. The definition `polynomial n = n^8 - n^4 + 1` in ℕ is well-behaved because n^8 ≥ n^4 for every n ∈ ℕ, so truncated subtraction agrees with integer subtraction (and for n=0,1 it yields 1, which has no prime divisors, making those cases vacuously true — consistent with the informal statement). The predicate `is24kPlus1 p := ∃ k : ℕ, p = 24 * k + 1` faithfully captures \"of the form 24k+1 where k is a natural number\". No hypotheses are added or dropped, no quantifier is altered, and the conclusion matches the informal statement.",
+  "duration_ms": 126223,
+  "cost_usd": 0.31184375000000003
+}

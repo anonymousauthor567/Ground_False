@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any group G and elements a, b ∈ G, the elements ab and ba are conjugate. In Mathlib, `IsConj x y` unfolds to `∃ c, c*x*c⁻¹ = y`. The Lean statement `∃ g : G, b*a = g*a*b*g⁻¹` parses by left-associativity as `b*a = g*(a*b)*g⁻¹`, which is exactly the assertion that ba is a conjugate of ab. Since conjugacy is symmetric, this is logically equivalent to the informal claim. The group G is kept arbitrary (universally quantified via `{G : Type*} [Group G]`), elements a, b are arbitrary, and no extra hypotheses are added or dropped. This is a faithful formalization.",
+  "duration_ms": 25635,
+  "cost_usd": 0.12223025
+}

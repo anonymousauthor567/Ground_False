@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the multiplicative groups ℝ\\{0} and ℂ\\{0} are not isomorphic. In Lean/Mathlib, `ℝˣ` is the group of units of ℝ (i.e., ℝ\\{0} under multiplication), and `ℂˣ` is the group of units of ℂ (i.e., ℂ\\{0} under multiplication). The type `ℝˣ ≃* ℂˣ` is the type of multiplicative group isomorphisms between them, and `IsEmpty` asserts that this type has no inhabitants — precisely the claim that no such isomorphism exists. This matches the informal claim exactly, with no added or missing hypotheses.",
+  "duration_ms": 9374,
+  "cost_usd": 0.03854375
+}

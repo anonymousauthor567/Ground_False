@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The hypotheses `M.gcd N = 1` (for M : ℤ, N : ℕ using Int.gcd) and `d.gcd N.totient = 1` correctly encode coprimality with N and with φ(N). The conclusion `∃ d' : ℕ, d' * d ≡ 1 [ZMOD N.totient] ∧ M ≡ M'^d' [ZMOD N]` expresses both the existence of a modular inverse d' of d mod φ(N) and that M is recovered by raising M' to that power. Restricting d to ℕ rather than ℤ is faithful since (a) M^d for integer base needs a natural exponent, and (b) any integer coprime to φ(N) can be replaced by an equivalent positive representative modulo φ(N) without changing M^d mod N via Euler's theorem. The existential over d' is equivalent to the \"for the inverse d'\" reading because the conclusion depends only on d' mod φ(N). The quantifier structure and types all match the intended mathematical content.",
+  "duration_ms": 333321,
+  "cost_usd": 0.898696
+}

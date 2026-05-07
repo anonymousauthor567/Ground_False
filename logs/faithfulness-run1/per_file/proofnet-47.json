@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "theorem_name": "Dummit_Foote_exercise_4_2_14_corrected",
+  "informal": "Let $G$ be a finite group of composite order $n$ with the property that $G$ has a subgroup of order $k$ for each positive integer $k$ dividing $n$. Prove that $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_2_14_corrected {G : Type*} [Fintype G] [Group G]\n  (hG : ¬ (card G).Prime) (hG_ne_one : card G ≠ 1)\n  (hG1 : ∀ k : ℕ, k ∣ card G →\n    ∃ (H : Subgroup G) (fH : Fintype H), @card H fH = k) :\n  ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all components of the informal statement. \"Composite order n\" is encoded as `¬ (card G).Prime ∧ card G ≠ 1`; since `card G ≥ 1` for any group with `Fintype`, this correctly characterizes composite numbers (excluding 1 and primes, allowing 4, 6, 8, 9, ...). The hypothesis that G has a subgroup of order k for each positive divisor k of n is faithfully expressed by `∀ k, k ∣ card G → ∃ H : Subgroup G, card H = k` (note k=0 is excluded since 0 ∤ card G for card G ≠ 0). The conclusion `¬ IsSimpleGroup G` matches \"G is not simple\". The finiteness of G is captured by `Fintype G`. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 11222,
+  "cost_usd": 0.13728775000000001
+}

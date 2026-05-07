@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "theorem_name": "Shakarchi_exercise_1_13c_corrected",
+  "informal": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $|f|$ is constant, then $f$ is constant.",
+  "lean": "\ntheorem Shakarchi_exercise_1_13c_corrected {f : ℂ → ℂ} {Ω : Set ℂ} (a b : Ω)\n    (hΩ : IsOpen Ω) (hconn : IsPreconnected Ω)\n    (hf : DifferentiableOn ℂ f Ω) (hc : ∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c) :\n    f a = f b",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Stein-Shakarchi Exercise 1.13(c), which in the book is set in a \"region\" (a connected open set) — connectedness is genuinely required, since on a disconnected open set |f| constant only forces f constant on each component. The Lean version makes this implicit hypothesis explicit via IsPreconnected (the \"_corrected\" suffix signals this fix), and otherwise matches: f : ℂ → ℂ, Ω open, DifferentiableOn ℂ f Ω is the standard Mathlib formulation of holomorphic on Ω, and ∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c precisely encodes \"|f| is constant on Ω.\" The conclusion f a = f b for arbitrary a, b ∈ Ω (universally quantified through the section variables) is logically equivalent to \"f is constant on Ω.\" So the Lean statement asserts the same mathematical content as the informal claim under its intended reading.",
+  "duration_ms": 21798,
+  "cost_usd": 0.07748274999999999
+}

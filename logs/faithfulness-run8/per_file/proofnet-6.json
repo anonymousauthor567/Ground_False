@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies (via implicit arguments) over all finite groups G and natural number primes p, q with |G| = p²q, and asserts ¬IsSimpleGroup G (encoded as IsSimpleGroup G → False). Every element of the informal statement is captured: `Fintype G` + `card G = p^2 * q` states \"G has order p²q\"; `Prime p` and `Prime q` on ℕ coincide with `Nat.Prime` via `Nat.prime_iff`; `IsSimpleGroup` is Mathlib's standard notion of a simple group (nontrivial, with only ⊥ and ⊤ as normal subgroups). The informal statement does not require p ≠ q, and neither does the Lean statement — and the theorem remains true in the p = q case (|G| = p³ is a nontrivial p-group with nontrivial center, hence not simple). No hypotheses are added or dropped, no quantifiers are flipped, no types are changed.",
+  "duration_ms": 102388,
+  "cost_usd": 0.34152825
+}

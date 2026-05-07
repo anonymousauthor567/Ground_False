@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The domain [0,1] is encoded as the subtype `I = Icc 0 1`, and `f : ℕ → I → ℝ` with the hypothesis `∀ x n, f n x = ↑x ^ n` is a standard way to encode the definition $f_n(x) = x^n$ on [0,1]. The conclusion `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)` expresses pointwise convergence: for each x ∈ [0,1], the sequence $(f_n(x))$ converges to some limit y ∈ ℝ. In a Hausdorff space like ℝ, this existential formulation is exactly equivalent to \"the sequence converges\". The quantifier structure (∀ x ∈ [0,1], ∃ limit) matches the informal \"for each x ∈ [0,1]\". No extra hypotheses are added and none are omitted.",
+  "duration_ms": 84966,
+  "cost_usd": 0.29344725
+}

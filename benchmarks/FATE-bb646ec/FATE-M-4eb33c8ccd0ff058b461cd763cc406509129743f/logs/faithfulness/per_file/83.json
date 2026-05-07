@@ -1,0 +1,8 @@
+{
+  "file": "83.lean",
+  "stem": "83",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim faithfully. The informal \"if there is x ∈ G with x^p = a, then the order of x is p²k\" is naturally read as the universal \"for every x with x^p = a, order(x) = p²k\", which is exactly what the Lean signature encodes by fixing x as a parameter with hypothesis hp : x^p = a. All hypotheses match: [Fact p.Prime] corresponds to \"p prime\" (p is auto-bound as ℕ, matching Nat.Prime), h₀ : k ≥ 1 matches \"k ≥ 1\", and orderOf a = p * k matches \"a has order pk\". The conclusion orderOf x = p^2 * k matches \"order of x is p²k\". The trailing \"hence x has larger order than a\" is a trivial corollary of the main conclusion (since p ≥ 2 and k ≥ 1 imply p²k > pk) and does not need separate formalization. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 169949,
+  "cost_usd": 0.50434175
+}

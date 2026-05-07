@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `hl` (l(p^n) = log p for p prime, n > 0) and `hl1` (l m = 0 if m is not a prime power) together uniquely characterize the von Mangoldt function Λ, matching the informal definition exactly. Since 1 and 0 are not prime powers (per Mathlib's `not_isPrimePow_one` and `not_isPrimePow_zero`), hl1 correctly forces l(1) = l(0) = 0. The conclusion `l n = ∑ d ∈ divisors n, μ(n/d) * log d` is precisely the Möbius inversion identity in the informal statement, matching Mathlib's `moebius_mul_log_eq_vonMangoldt`. The universally-quantified `l` with characterizing hypotheses is equivalent to asserting the identity directly for Λ. No hypotheses are silently added or dropped; types (ℕ → ℝ, ℤ cast to ℝ for Möbius) are standard.",
+  "duration_ms": 106644,
+  "cost_usd": 0.35455375000000006
+}

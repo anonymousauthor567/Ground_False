@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p11_2.lean",
+  "stem": "abstract_algebra__p11_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims f(x) = x² + 1 has exactly one zero in ℤ₂, namely x = 1. This is a conjunction: (a) f(1) = 0, and (b) f(x) ≠ 0 for x ≠ 1 (i.e., f(0) ≠ 0). The Lean theorem signature `f_zero_ne_zero : eval (0 : ZMod 2) f ≠ 0` only captures part (b). Part (a) — that 1 is actually a zero — is declared as an axiom (`f_one_eq_zero`), which is assumed without proof rather than asserted as part of the theorem. The theorem is therefore logically implied by the informal statement but does not imply it: knowing f(0) ≠ 0 does not establish that f(1) = 0 or that f has any zero at all. The Lean formalization proves strictly less than the informal claim.",
+  "duration_ms": 91425,
+  "cost_usd": 0.28069825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each piece of the informal claim accurately: `h1` states that the partial sums of $a_n$ converge (matching \"$\\Sigma a_n$ converges\"); `h2` encodes \"monotonic\" as `Monotone b ∨ Antitone b`, which is the standard meaning in Rudin (either non-decreasing or non-increasing); `h3` uses `Bornology.IsBounded (Set.range b)`, which is the standard way to say a real sequence is bounded; and the conclusion asserts convergence of the partial sums of $a_n b_n$. The types (`ℕ → ℝ`) and the quantifier structure (existence of a limit for the partial sums) align with the informal statement. No extraneous hypotheses are added, and none are dropped.",
+  "duration_ms": 12555,
+  "cost_usd": 0.0596275
+}

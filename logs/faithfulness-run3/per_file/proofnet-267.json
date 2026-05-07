@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature's hypotheses — `P : Sylow p G` (p-Sylow subgroup), `hP : P.Normal` (P ⊲ G), and `hp : Nat.Prime p` (making explicit the implicit \"p prime\" behind \"p-Sylow\") — match the informal premises. The conclusion `Subgroup.Characteristic P` unfolds to `∀ ϕ : G ≃* G, P.comap ϕ.toMonoidHom = P`, which for bijective ϕ is equivalent to φ(P) = P for every automorphism φ of G — exactly the requested conclusion. So the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 77932,
+  "cost_usd": 0.2724255
+}

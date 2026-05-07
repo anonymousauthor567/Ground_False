@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary indexing type `I : Type*` (matching \"do not assume the collection is countable\"), assumes `[Nonempty I]` (matching \"nonempty collection\"), takes a family `H : I → Subgroup G` all of whose members are `Normal`, and concludes that the lattice infimum `⨅ i, H i` is `Normal`. In Mathlib, the infimum of a family of subgroups equals the intersection of their underlying sets, so this matches \"intersection of the collection of normal subgroups\". This is exactly Mathlib's `normal_iInf_normal` lemma. All hypotheses, types, and the conclusion correspond one-to-one with the informal statement.",
+  "duration_ms": 42153,
+  "cost_usd": 0.178949
+}

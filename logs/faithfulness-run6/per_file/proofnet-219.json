@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for arbitrary groups A and B, A × B ≅ B × A. The Lean theorem quantifies universally over types A and B equipped with Group instances via implicit parameters, which matches \"let A and B be groups\". The conclusion `Nonempty (A × B ≃* B × A)` asserts the existence of a multiplicative equivalence (group isomorphism) between A × B and B × A, which is precisely the meaning of A × B ≅ B × A for groups. No hypotheses are added or dropped, and the types match. This is a strictly faithful formalization.",
+  "duration_ms": 31220,
+  "cost_usd": 0.086414
+}

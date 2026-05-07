@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly matches the informal claim. `[LocPathConnectedSpace X]` is Mathlib's exact encoding of \"X is locally path connected\" (basis of path-connected neighborhoods at each point). The hypotheses `hU : IsOpen U` and `hcU : IsConnected U` correspond precisely to \"connected open set\", and the conclusion `IsPathConnected U` says U is path connected. Both `IsConnected` and `IsPathConnected` in Mathlib require nonemptiness, which is a symmetric convention consistent with the informal reading in Munkres. The quantifier structure (∀ U) is preserved via the universally quantified `U : Set X`. No extra hypotheses or weakenings are introduced.",
+  "duration_ms": 116560,
+  "cost_usd": 0.40471474999999996
+}

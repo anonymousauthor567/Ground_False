@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly mirrors the informal claim: `∫ x in (0 : ℝ)..(1 : ℝ), Real.log (Real.sin (Real.pi * x))` is exactly $\\int_0^1 \\log(\\sin(\\pi x))\\,dx$, and `- Real.log 2` is $-\\log 2$. The bounds, integrand, and right-hand side all match. `Real.log` is the natural logarithm as expected, and `intervalIntegral` is the standard formalization of this Riemann-style integral over a bounded interval. Although `log(sin(π·0))` and `log(sin(π·1))` are technically log(0), Mathlib's `Real.log 0 = 0` convention combined with the integrable singularity at the endpoints makes the Bochner-based interval integral equal to the classical improper Riemann integral, so this is the standard faithful encoding.",
+  "duration_ms": 29172,
+  "cost_usd": 0.09997025
+}

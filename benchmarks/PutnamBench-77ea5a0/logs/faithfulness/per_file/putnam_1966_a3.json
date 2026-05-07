@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a3.lean",
+  "stem": "putnam_1966_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. The hypothesis `hx1 : 0 < x 1 ∧ x 1 < 1` matches $0 < x_1 < 1$; `hxi : ∀ n ≥ 1, x (n+1) = (x n) * (1 - x n)` matches the recurrence for all $n \\geq 1$; and `Tendsto (fun n : ℕ => n * (x n)) atTop (𝓝 1)` matches $\\lim_{n\\to\\infty} nx_n = 1$ (with automatic coercion of `n : ℕ` to ℝ). Although `x 0` is unconstrained, this is irrelevant because the term at `n = 0` equals `0 * (x 0) = 0` and a single term does not affect the limit at infinity. The quantifier structure, types, and mathematical content are all faithfully preserved.",
+  "duration_ms": 92839,
+  "cost_usd": 0.32187249999999995
+}

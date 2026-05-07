@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Ireland-Rosen Exercise 2.4, whose known mathematical content is: gcd = 2 when a is odd (both terms are even), and gcd = 1 when a is even (both terms are odd). The Lean conclusion `(Odd a → f_a n m = 2) ∧ (Even a → f_a n m = 1)` matches this truth exactly. Although the English phrase \"=1 or 2 depending on whether a is odd or even\" uses a parallel construction that could be naively read as odd→1, even→2, that reading is mathematically false (e.g., a=3 gives gcd=2, not 1), and the problem is explicitly stated to be a true textbook result with an informal proof. The Lean formalization captures the intended mathematical content: the nonzero-integer hypothesis, the n>m condition, and the Int.gcd encoding all correspond faithfully to the informal statement.",
+  "duration_ms": 251583,
+  "cost_usd": 1.0491767500000002
+}

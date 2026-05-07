@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that A × B is abelian iff both A and B are abelian, presupposing that A and B are groups. The Lean formalization makes this presupposition explicit via `[Group A]` and `[Group B]`, which is a faithful surfacing of an implicit premise needed for the statement to make sense. The condition `∀ x y : A × B, x * y = y * x` correctly encodes \"A × B is abelian\" (given it's a group via the product instance), and `∀ x y : A, x * y = y * x` and `∀ x y : B, x * y = y * x` correctly encode that A and B are abelian. Since Mathlib's product group multiplication is componentwise, the iff is exactly the mathematical claim. The quantifier structure and iff direction are preserved correctly.",
+  "duration_ms": 24706,
+  "cost_usd": 0.10367425
+}

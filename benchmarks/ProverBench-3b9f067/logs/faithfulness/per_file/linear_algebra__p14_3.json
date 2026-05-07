@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p14_3.lean",
+  "stem": "linear_algebra__p14_3",
+  "verdict": "faithful",
+  "reasoning": "The Lean file defines `similar A B` as existence of a matrix P with `IsUnit (det P)` (equivalent to P being invertible, per Mathlib's `isUnit_iff_isUnit_det`) such that `B = P⁻¹ * A * P`. This is the standard definition of matrix similarity. The theorem states that similarity implies `det A = det B` over square matrices `Matrix n n K` with `[Field K]`, which matches the informal statement's claim for square matrices. The axioms declared (`det_product_eq`, `det_inverse`) are true facts in Mathlib used for the proof body; they do not alter the theorem's statement. The quantifier structure (∀ A B, similar A B → det A = det B) precisely expresses the informal claim.",
+  "duration_ms": 109206,
+  "cost_usd": 0.22449624999999998
+}

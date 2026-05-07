@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all elements of the informal claim. `[MetricSpace X]` gives the metric space structure; `[ConnectedSpace X]` encodes connectedness; `∃ x y : X, x ≠ y` precisely expresses \"more than one point\" (at least two distinct elements); and `¬ Countable (univ : Set X)` — via the `CoeSort (Set α) (Type u)` coercion — asserts that the subtype `↥univ` is not countable, which by `countable_univ_iff` in `Mathlib/Data/Set/Countable.lean` is equivalent to `Uncountable X`, i.e., X is uncountable. There is no drift in hypotheses, conclusion, quantifier structure, or types. Mathlib's `ConnectedSpace` class already requires nonemptiness, but this is redundant given `hX`, not a spurious strengthening.",
+  "duration_ms": 125559,
+  "cost_usd": 0.4512155
+}

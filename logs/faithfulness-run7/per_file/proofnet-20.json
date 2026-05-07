@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures Axler's exercise precisely. `End F V` over a field and module structure is exactly `L(V)`. The hypothesis `∀ v, ∃ c, v ∈ eigenspace S c` unfolds (via `mem_eigenspace_iff`) to `∀ v, ∃ c, S v = c • v`; while Mathlib's eigenspace formally contains 0, this only trivially extends Axler's \"every (nonzero) vector is an eigenvector\" condition, preserving the intended meaning. The conclusion `∃ c, S = c • LinearMap.id` corresponds exactly to \"S is a scalar multiple of the identity.\" No finite-dimensionality is assumed (correctly — the claim holds in any vector space), no extra hypotheses are imposed, and the existential scalar in the hypothesis may vary with v (matching the informal reading). This is a faithful encoding.",
+  "duration_ms": 128927,
+  "cost_usd": 0.41123950000000004
+}

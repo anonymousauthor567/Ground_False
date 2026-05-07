@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement: `RCLike 𝕜` captures F ∈ {ℝ, ℂ}, `InnerProductSpace 𝕜 V` captures the inner product space, `IsSelfAdjoint T` captures self-adjointness, and `T.Eigenvalues` (defined in Mathlib as `{μ : 𝕜 // T.HasEigenvalue μ}`) correctly represents \"T has an eigenvalue λ'\". The coercion `Eigenvalues → 𝕜` makes `‖l - l'‖` in RCLike match |λ - λ'|. The `FiniteDimensional 𝕜 V` hypothesis surfaces a necessary implicit premise: without it, the statement is false (a multiplication operator on L²([0,1]) is self-adjoint with approximate eigenvalues but no actual eigenvalues). Since Axler's LADR assumes finite-dimensionality throughout and the claim requires it for truth, making it explicit is a correct faithful reading, not a \"weaker\" formulation.",
+  "duration_ms": 87939,
+  "cost_usd": 0.33677550000000006
+}

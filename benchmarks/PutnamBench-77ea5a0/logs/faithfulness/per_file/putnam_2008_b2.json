@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b2.lean",
+  "stem": "putnam_2008_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the Putnam 2008 B2 problem. The base case `F 0 x = Real.log x` matches $F_0(x) = \\ln x$ — although it holds for all real x, Mathlib's `Real.log` extends the usual logarithm in a way that agrees on positives, and the recurrence only uses values on positives (since `x > 0` is assumed), so this doesn't change the conclusion. The recurrence `F (n+1) x = ∫ t in Set.Ioo 0 x, F n t` for `x > 0` matches $F_{n+1}(x) = \\int_0^x F_n(t)\\,dt$ because integrals over `Ioo 0 x` and `[0,x]` agree (measure zero difference). The conclusion `Tendsto (fun n => n! * F n 1 / Real.log n) atTop (𝓝 (-1))` matches $\\lim_{n\\to\\infty} \\frac{n! F_n(1)}{\\ln n} = -1$, which is the classical answer (noting $F_1(1) = \\int_0^1 \\log t\\,dt = -1$). Division by `log 1 = 0` at small $n$ is irrelevant to the limit. No hypotheses are added or dropped relative to the informal intent.",
+  "duration_ms": 225238,
+  "cost_usd": 0.6731412499999999
+}

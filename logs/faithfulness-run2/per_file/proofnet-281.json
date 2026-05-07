@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Ireland-Rosen) asks to show the harmonic-type sum over squarefree positive integers diverges. The Lean statement uses the subtype `{p : ℤ // Squarefree p}`, which includes both positive and negative squarefree integers (0 is excluded since `Squarefree 0` is false in Mathlib). Since `Summable` over ℚ (viewed in ℝ) is equivalent to absolute (unconditional) summability, summability of `1/i` over all squarefree integers is equivalent to summability of `1/|i|`, which equals twice the sum over positive squarefree integers. Thus the Lean `¬ Summable` is logically equivalent to the divergence of the positive squarefree sum: each direction follows from absolute/unconditional convergence reasoning. The formalization is therefore logically equivalent to the informal claim.",
+  "duration_ms": 55094,
+  "cost_usd": 0.18164799999999998
+}

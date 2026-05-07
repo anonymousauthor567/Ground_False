@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: every uncountable E ⊆ ℝ has a condensation point. A condensation point p of E (Pugh's definition) is a point such that every neighborhood of p contains uncountably many points of E, i.e., for every U ∈ 𝓝 p, U ∩ E is uncountable. The Lean statement `∃ p : ℝ, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E)` expresses exactly this. The hypothesis `¬ Set.Countable E` faithfully encodes \"E is uncountable\". Using the Mathlib filter `𝓝 p` is equivalent to quantifying over open neighborhoods for this property (supersets preserve uncountability of the intersection, and open neighborhoods belong to 𝓝 p). No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 71766,
+  "cost_usd": 0.27899274999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-8.lean",
+  "stem": "proofnet-8",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in ℤ[x], the intersection of the principal ideals (2) and (x) equals the principal ideal (2x). In the Lean statement, `span` resolves to `Ideal.span` (since it takes only a Set argument, matching `Ideal.span : Set α → Ideal α`, whereas `Submodule.span` would require an explicit ring argument). Thus `span {2}`, `span {X}`, and `span {2 * X}` are the ideals (2), (X), (2X) in `Polynomial ℤ`. The `⊓` on ideals is the lattice infimum, which equals set-theoretic intersection (as in `Ideal.inf_eq`). The types and structure match exactly, so the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 14532,
+  "cost_usd": 0.06916975
+}

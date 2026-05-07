@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "theorem_name": "Ireland_Rosen_exercise_4_6_corrected",
+  "informal": "If $p=2^{n}+1$ is a Fermat prime, show that 3 is a primitive root modulo $p$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_4_6_corrected {p n : ℕ} (hp : p.Prime) (hpn : p = 2 ^ n + 1)\n    (hpep : (3 : ZMod p) ^ ((p - 1) / 2) = (-1 : ZMod p)) :\n    IsPrimitiveRoot (3 : ZMod p) (p - 1)",
+  "verdict": "weaker",
+  "reasoning": "The Lean signature carries an extra hypothesis `hpep : (3 : ZMod p) ^ ((p - 1) / 2) = -1`, which is not present in the informal statement. For a Fermat prime p = 2^n + 1, this condition is in fact essentially equivalent to \"3 is a primitive root mod p\" (since the multiplicative order of any element divides p−1 = 2^n, so non-primitivity means the order divides 2^(n−1), which forces 3^((p−1)/2) = 1, not −1). Thus the Lean theorem assumes (almost) what should be proved: it states only the conditional implication, while the informal task is to establish this fact unconditionally for every Fermat prime. The informal claim implies the Lean claim, but not vice versa, so the Lean version is logically weaker.",
+  "duration_ms": 14083,
+  "cost_usd": 0.068807
+}

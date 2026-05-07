@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"finite abelian group\" via `[CommGroup G] [Fintype G]`, encodes \"divisor $n$ of its order\" via `n ∣ card G`, and states the existence of a subgroup of order $n$. The word \"positive\" in the informal statement appears to be missing from the Lean hypothesis, but it is automatic: since `G` is a group (containing the identity `1`), `Fintype.card G ≥ 1`, and `n ∣ card G` with `card G ≥ 1` forces `n ≥ 1`. So `n` being a positive divisor is logically equivalent to just `n ∣ card G` here. The `∃ (H : Subgroup G) (H_fin : Fintype H), @card H H_fin = n` formulation is equivalent to asserting that `H` has cardinality `n` under the canonical Fintype instance (all Fintype instances give the same cardinality). No hypotheses are silently strengthened or weakened, and the quantifier structure over `n` matches \"for each\" in the informal claim.",
+  "duration_ms": 82947,
+  "cost_usd": 0.267487
+}

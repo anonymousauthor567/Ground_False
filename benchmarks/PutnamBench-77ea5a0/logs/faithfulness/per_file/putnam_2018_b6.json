@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_b6.lean",
+  "stem": "putnam_2018_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Putnam 2018 B6. Sequences of length 2018 with integer entries are represented as `Fin 2018 → ℤ`. The hypothesis `hS : S = {s | ...}` equates the Finset S (via Finset→Set coercion) with the Set of functions whose values lie in {1,2,3,4,5,6,10} and sum to 3860, which pins down S as exactly the finite collection described (finiteness is guaranteed since each entry is from a 7-element set). The conclusion `S.card ≤ 2 ^ 3860 * ((2018 : ℝ) / 2048) ^ 2018` elaborates in ℝ (due to the ℝ-cast on 2018), coercing S.card to ℝ, which matches the informal inequality |S| ≤ 2^3860 · (2018/2048)^2018 exactly. No hypotheses are silently added or dropped, and the quantifier structure is standard (\"let S = ...\" encoded via a parameter plus definitional hypothesis).",
+  "duration_ms": 301236,
+  "cost_usd": 0.7978235
+}

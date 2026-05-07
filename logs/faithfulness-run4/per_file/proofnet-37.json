@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that a finite group G with |G| > 2 has no subgroup of order |G| - 1. The Lean formalization takes a finite group G with card G > 2, lets H be an arbitrary subgroup (implicitly universally quantified since H is a free parameter of the theorem), and asserts card H ≠ card G - 1. This is logically equivalent to \"¬∃H, |H| = |G| - 1\". The `Fintype G` assumption is implicit in the informal use of |G| (finite cardinality), and the `Fintype H` instance is automatically available for subgroups of a finite group. The types and quantifier structure correctly capture the claim.",
+  "duration_ms": 31469,
+  "cost_usd": 0.1048255
+}

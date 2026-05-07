@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $|G:H| = |G:K| \\cdot |K:H|$ for $H \\le K \\le G$, without the finiteness assumption on $G$. In Mathlib, `Subgroup.index` is `Nat.card (G ⧸ H)` which returns 0 for infinite index, and `H.relIndex K = (H.subgroupOf K).index`. The local `relindex` is defined to be exactly Mathlib's `relIndex`. The Lean claim `H.index = K.index * H.relindex K` matches Mathlib's `relIndex_mul_index` (up to commutativity of `*`) and correctly handles infinite indices via the 0-convention: if either $|G:K|$ or $|K:H|$ is infinite, then $|G:H|$ is infinite, and both sides equal 0. The `H ≤ K` hypothesis matches the informal premise, and no finiteness is assumed. Since $H \\le K$, `(H.subgroupOf K).index` is the genuine index of $H$ in $K$, so the encoding of $|K:H|$ is correct.",
+  "duration_ms": 117327,
+  "cost_usd": 0.32344375
+}

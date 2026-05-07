@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_b4.lean",
+  "stem": "putnam_1997_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal statement. `a m n` is defined as the coefficient of x^n in (1+x+x²)^m via `coeff ((1 + X + X ^ 2) ^ m) n`. The universal quantification \"for all integers k ≥ 0\" is faithfully encoded as `k : ℕ`. The summation `Finset.Iic ⌊2 * (k : ℚ) / 3⌋₊` equals {0, 1, ..., ⌊2k/3⌋}, matching ∑_{i=0}^{⌊2k/3⌋}. The natural-number subtraction `k - i` is safe since ⌊2k/3⌋ ≤ k always, so i ≤ k in the summation range. Finally, `∈ Icc 0 1` on ℤ-valued sums encodes 0 ≤ sum ≤ 1 exactly. No hypotheses are silently added or dropped, and the conclusion is equivalent.",
+  "duration_ms": 126860,
+  "cost_usd": 0.45955975
+}

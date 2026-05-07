@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature states: for any `Ring R` and any `u : R`, if `IsUnit u` then `IsUnit (-u)`. This is a direct transcription of \"if u is a unit in R then so is -u.\" The typeclass `Ring` (ring with 1, not necessarily commutative) matches the standard notion of a ring used in Dummit & Foote. The hypothesis `IsUnit u` and conclusion `IsUnit (-u)` correspond exactly to the informal hypothesis and conclusion. No extraneous assumptions (like commutativity) are added, and none are dropped. The quantifier structure (universal over R and u) is faithfully represented by the implicit arguments.",
+  "duration_ms": 38068,
+  "cost_usd": 0.117889
+}

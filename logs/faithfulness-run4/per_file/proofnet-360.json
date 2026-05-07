@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes Shakarchi Exercise 1.13b. `DifferentiableOn ℂ f Ω` correctly encodes holomorphicity on Ω, the hypothesis `∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c` captures \"Im(f) is constant\", and the conclusion `∀ a b : Ω, f a = f b` expresses that f is constant on Ω. The added `IsPreconnected Ω` hypothesis is not literally present in the informal text (\"open set\"), but it is an implicit premise needed for the statement to be true: without connectedness, a counterexample exists (e.g., Ω = disjoint union of two disks with f taking different real constant values). Mathlib's own `AnalyticOnNhd.eq_const_of_im_eq_const` requires the same connectedness hypothesis. This matches the worked example from the instructions: making an implicit premise explicit is faithful, not weaker.",
+  "duration_ms": 107398,
+  "cost_usd": 0.357721
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for any indexed family `u : ι → Submodule F V`, there exists a submodule U whose carrier equals ⋂ i, (u i).carrier. This is exactly the informal claim that the intersection of any collection of subspaces is a subspace: the existential captures \"is a subspace\" (the intersection set coincides with the underlying set of some submodule). Since F is a field and V is a vector space over F, `Submodule F V` corresponds precisely to subspaces. An indexed family over an arbitrary type ι faithfully encodes \"any collection\" (including the empty collection, where the intersection is V itself, which is indeed a submodule). The witness U is `⨅ i, u i` via Mathlib's `coe_iInf`. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 43108,
+  "cost_usd": 0.17477525
+}

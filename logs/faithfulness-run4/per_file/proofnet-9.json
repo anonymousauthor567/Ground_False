@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes exactly the claim in the informal statement. `I ⊓ J` on `Ideal R` is the set-theoretic intersection, so `x : ↑(I ⊓ J)` corresponds to \"any element of I ∩ J\". `Ideal.Quotient.mk (I*J) x` is the residue of x in R/IJ via the canonical ring homomorphism, and `IsNilpotent` is the standard Mathlib predicate. The use of `[CommRing R]` faithfully reflects Artin's convention (Chapter 10 develops commutative ring theory; \"ring\" means commutative ring), which is the standard reading of this exercise. No hypothesis is silently added or dropped, and the conclusion matches.",
+  "duration_ms": 153820,
+  "cost_usd": 0.49304975
+}

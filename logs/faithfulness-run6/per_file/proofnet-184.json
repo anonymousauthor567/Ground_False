@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $ab$ and $ba$ are conjugate elements in a group, i.e., there exists $g$ such that $ba = g(ab)g^{-1}$ (or equivalently $ab = g(ba)g^{-1}$). The Lean statement asserts `∃ g : G, b*a = g * a * b * g⁻¹`, which is exactly $ba = g(ab)g^{-1}$. This is the standard definition of conjugacy between $ab$ and $ba$, and the witness $g = b$ verifies the claim. The quantifier structure (arbitrary group $G$, arbitrary elements $a, b$), the types, and the conclusion all match the informal statement precisely.",
+  "duration_ms": 7884,
+  "cost_usd": 0.03993175
+}

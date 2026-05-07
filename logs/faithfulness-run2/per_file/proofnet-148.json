@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: it universally quantifies over a real x and a rational y, assumes y ≠ 0 (matching the informal \"r ≠ 0\"), assumes x is irrational, and concludes that x + y (with y coerced to ℝ) is irrational, which is the same as r + x being irrational by commutativity. The types (ℝ for x, ℚ for the rational) and the quantifier structure align with the informal reading. The nonzero hypothesis, though mathematically redundant, appears in both versions, so no hypothesis has been silently added or dropped.",
+  "duration_ms": 17076,
+  "cost_usd": 0.07854724999999999
+}

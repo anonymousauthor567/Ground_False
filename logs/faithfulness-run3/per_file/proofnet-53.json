@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each component of the informal statement exactly: `[Fintype G]` with `card G = p*q*r` encodes |G| = pqr, `hpqr : p < q ∧ q < r` encodes p < q < r, and `hpqr1` asserts all three are prime. The conclusion `(∃ P : Sylow p G, P.Normal) ∨ (∃ P : Sylow q G, P.Normal) ∨ (∃ P : Sylow r G, P.Normal)` faithfully expresses \"G has a normal Sylow subgroup for either p, q, or r\" — in Mathlib, `Sylow p G` is the type of maximal p-subgroups, and for finite groups the existence of a normal Sylow p-subgroup is equivalent to \"the Sylow p-subgroup is normal\". No extra hypotheses are added and no hypotheses are dropped, so the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 88571,
+  "cost_usd": 0.23042724999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. `CommGroup G` with `Fintype G` corresponds to \"abelian group\" of finite order; `hG : card G = p^n*m` encodes \"order p^n m\"; `hp : Nat.Prime p` and `hp1 : ¬ p ∣ m` encode \"p prime, p ∤ m\"; the implicit `{H : Subgroup G}` with `hH : card H = p^n` correctly captures \"if H is a subgroup of order p^n\" (universally quantified). The conclusion `Subgroup.Characteristic H` matches Mathlib's definition (fixed by all automorphisms), which is the standard textbook notion. No hypotheses are added or dropped, the quantifier structure is preserved, and the types match. This is a strictly faithful encoding.",
+  "duration_ms": 33511,
+  "cost_usd": 0.15097475
+}

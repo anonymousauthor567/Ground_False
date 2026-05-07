@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p3.lean",
+  "stem": "abstract_algebra__p3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the existence of a non-commutative group with 6 elements. The Lean statement asserts exactly this: ∃ a type G equipped with Group and Fintype instances, such that Fintype.card G = 6 (exactly 6 elements) and ¬(∀ a b : G, a * b = b * a) (the group is non-commutative). The negation of universal commutativity is precisely the standard meaning of \"non-commutative group\" — a CommGroup in Mathlib is defined by exactly that universal commutativity property. The Fintype instance is the natural way to encode finiteness and cardinality in Lean. No hypotheses are added or dropped, no quantifier structure is changed, and the conclusion matches exactly.",
+  "duration_ms": 34863,
+  "cost_usd": 0.12757275
+}

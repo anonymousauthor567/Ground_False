@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a2.lean",
+  "stem": "putnam_1966_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The non-degeneracy hypothesis `¬Collinear {A, B, C}` ensures we have a genuine triangle. The side lengths a, b, c and semi-perimeter p match the informal definitions. The `hr` hypothesis correctly characterizes r as the inradius: the `∃!` uniqueness on each side-line holds iff the circle of radius r centered at I is tangent to that line (0 intersections if line is outside, 2 if secant, 1 iff tangent), and the condition that the closed ball B(I, r) lies inside the convex hull of {A, B, C} ensures I is inside the triangle (ruling out excircles whose centers lie outside). Together these uniquely identify r as the inradius of triangle ABC. The conclusion matches the informal inequality exactly. Thus the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 212456,
+  "cost_usd": 0.637063
+}

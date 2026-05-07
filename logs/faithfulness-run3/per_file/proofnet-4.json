@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-4.lean",
+  "stem": "proofnet-4",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis side matches exactly: `Set.Countable S ∧ S.Infinite` is precisely \"countably infinite\", and `span K S = ⊤` says S spans V. The conclusion side also matches: Mathlib's `Countable ι` means \"there exists an injective map ι → ℕ\", which includes both finite types and countably infinite types — exactly \"finite or countably infinite\". Encoding linearly independent subsets as injective indexed families `R : ι → V` with `LinearIndependent K R` is standard and equivalent (over a field, linear independence implies injectivity of R, so ι is in bijection with the subset R(ι)). The field hypothesis is the standard meaning of \"vector space\". No spurious hypotheses are added and none are dropped.",
+  "duration_ms": 150904,
+  "cost_usd": 0.38335974999999994
+}

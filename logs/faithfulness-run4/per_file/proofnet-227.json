@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: H is a normal subgroup (via [H.Normal]), the prime-index condition is encoded by `p : Nat.Primes` together with `H.index = p`. The conclusion `∀ K, K ≤ H ∨ (H ⊔ K = ⊤ ∧ (K ⊓ H).relIndex K = p)` matches \"for all K ≤ G, either K ≤ H or (G = HK and |K : K ∩ H| = p)\": since H is normal, Mathlib's `Subgroup.mul_normal` shows `↑(H ⊔ K) = H * K` as sets, so `H ⊔ K = ⊤` is equivalent to `HK = G`. Also, Mathlib defines `relIndex H K` as the index of `H ∩ K` in `K`, so `(K ⊓ H).relIndex K = |K : (K ⊓ H) ∩ K| = |K : K ∩ H|`, matching the informal equality. No extra hypotheses are added and none are dropped, so the formalization is strictly faithful.",
+  "duration_ms": 159732,
+  "cost_usd": 0.548802
+}

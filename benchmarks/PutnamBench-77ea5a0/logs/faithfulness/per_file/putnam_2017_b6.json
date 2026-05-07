@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_b6.lean",
+  "stem": "putnam_2017_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the problem. The domain `Finset.range 64 → Finset.Icc 1 2017` captures 64-tuples with entries in {1,...,2017}. `Injective x` captures the \"distinct\" requirement. The piecewise sum correctly reproduces the coefficient pattern of $x_0 + x_1 + 2x_2 + 3x_3 + \\cdots + 63 x_{63}$: the `if i ≤ ⟨1, _⟩` branch gives coefficient 1 for indices 0 and 1, and the `else` branch gives coefficient `i` for indices 2 through 63 (the Subtype ordering on `Finset.range 64` compares underlying naturals). Divisibility by 2017 is stated correctly via `2017 ∣ ...`. The hypothesis `hs` uniquely characterizes S as the set of tuples satisfying the condition, so `S.card` is the count being asked for.",
+  "duration_ms": 175148,
+  "cost_usd": 0.5579035
+}

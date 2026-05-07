@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly translates the informal statement: α and β are metric spaces (matching X and Y), f : α → β is Continuous, and the conclusion quantifies over all subsets x : Set α and asserts f '' (closure x) ⊆ closure (f '' x), which is precisely $f(\\overline{E}) \\subseteq \\overline{f(E)}$. There are no added or missing hypotheses, and the universal quantifier over all subsets matches \"for every set E ⊂ X\". The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 39849,
+  "cost_usd": 0.076222
+}

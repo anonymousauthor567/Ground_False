@@ -1,0 +1,8 @@
+{
+  "file": "imo_2014_p2.lean",
+  "stem": "imo_2014_p2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement has a typo: the conjuncts `i.val + k - 1 < n ∧ i.val + k - 1 < n` duplicate the constraint on i, with no analogous constraint on j. Since `i + m` and `j + n` are modular additions in `Fin n`, absence of a `j.val + k - 1 < n` constraint allows the \"k×k square\" to wrap around in the column direction — not a standard chessboard k×k square. This changes the mathematical content: the Lean set S_lean ⊋ S_inf in general. Concretely, for n=4 with rooks at (0,0),(1,2),(2,1),(3,3), there is no non-wrapping 2×2 rook-free block (so k=2 ∉ S_inf), yet the wrap-around block at (i,j)=(1,3) is rook-free. A covering argument shows that every peaceful 4×4 config has some wrap-OK 2×2 rook-free block, giving max(S_lean)=2 while max(S_inf)=⌈√4⌉−1=1. Since the Lean asserts IsGreatest of a different set from the informal, the two claims are about different quantities and neither implies the other.",
+  "duration_ms": 1288195,
+  "cost_usd": 3.8961859999999997
+}

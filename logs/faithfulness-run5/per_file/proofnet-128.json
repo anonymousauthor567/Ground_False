@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `∃ s, Countable s ∧ Dense s` correctly formalizes \"X has a countable dense subset\" (via `CoeSort`, `Countable s` means `↥s` is countable, equivalent to `Set.Countable s`; `Dense s` is the standard `∀ x, x ∈ closure s`). `U : Set (Set X)` with `hU` (pairwise disjoint: distinct members have empty intersection) and `hUopen` (every member is open) correctly encodes \"collection of disjoint open sets.\" The conclusion `Countable U` means U itself (as a subtype) is countable. Although Mathlib's corresponding theorem `Pairwise.countable_of_isOpen_disjoint` adds a nonemptiness hypothesis, that's only necessary for indexed families — since U is a `Set` containing each element once, it can include at most one empty set, so the formulations are logically equivalent. All quantifier structure, types, and hypotheses match.",
+  "duration_ms": 155000,
+  "cost_usd": 0.5217767499999999
+}

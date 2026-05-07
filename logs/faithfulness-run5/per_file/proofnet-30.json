@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for an element x of a group G, x^2 = 1 iff |x| ∈ {1, 2}. The Lean signature uses `{G : Type*} [Group G]` and `(x : G)`, matching the ambient setup. Mathlib's `orderOf x` is precisely the order |x| of x (with 0 for infinite order by convention), and `orderOf_eq_one_iff` confirms `orderOf x = 1 ↔ x = 1`. The biconditional `x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)` captures both directions: if x^2 = 1 then x has finite order dividing 2, so orderOf x ∈ {1,2}; conversely if orderOf x = 1 then x = 1, and if orderOf x = 2 then x^2 = 1 by `pow_orderOf_eq_one`. The types, quantifier structure, and hypotheses all match exactly.",
+  "duration_ms": 89006,
+  "cost_usd": 0.30923899999999993
+}

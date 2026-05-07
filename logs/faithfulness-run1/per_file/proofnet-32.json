@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-32.lean",
+  "stem": "proofnet-32",
+  "informal": "If $x$ and $g$ are elements of the group $G$, prove that $|x|=\\left|g^{-1} x g\\right|$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_22a {G : Type*} [Group G] (x g : G) :\n  orderOf x = orderOf (g⁻¹ * x * g)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for any elements x, g in a group G, the order of x equals the order of g⁻¹xg. The Lean signature universally quantifies over a Group G (via `{G : Type*} [Group G]`) and elements x, g, and asserts `orderOf x = orderOf (g⁻¹ * x * g)`. The `orderOf` function in Mathlib gives the order of an element (returning 0 for infinite order), and the equality holds in both finite and infinite cases, matching |x| = |g⁻¹xg|. The types and quantifier structure match exactly.",
+  "duration_ms": 6273,
+  "cost_usd": 0.0421125
+}

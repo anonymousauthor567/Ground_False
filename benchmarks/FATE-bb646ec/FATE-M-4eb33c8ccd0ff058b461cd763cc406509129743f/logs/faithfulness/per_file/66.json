@@ -1,0 +1,8 @@
+{
+  "file": "66.lean",
+  "stem": "66",
+  "verdict": "faithful",
+  "reasoning": "The informal statement quantifies over arbitrary group elements a, b, c and claims ∃! x, a·x·c = b. The Lean statement quantifies over arbitrary a, b, c and claims ∃! x, a·x·b = c. Although the roles of b and c are swapped in the literal equation, both b and c are universally quantified parameters of the theorem, so the two statements are α-equivalent by renaming the bound variables: given any group elements, applying one statement with (a, c, b) in place of (a, b, c) yields the other. Both assert: \"for any three group elements, the equation with x sandwiched between two of them equaling the third has a unique solution.\" The group hypothesis, unique-existence quantifier, and ambient type are identical. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 57886,
+  "cost_usd": 0.1871275
+}

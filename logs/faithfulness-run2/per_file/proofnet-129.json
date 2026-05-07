@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim component-by-component. `[NormalSpace X]` captures \"X is normal\"; `IsClosed A`, `IsClosed B`, `Disjoint A B` captures \"disjoint closed sets\"; the existence of open sets U, V with A ⊆ U and B ⊆ V captures \"neighborhoods\" (Munkres' convention treats neighborhoods as open sets containing the set, and even under the looser convention this is equivalent by passing to interiors); and `closure U ∩ closure V = ∅` captures \"whose closures are disjoint\". No hypotheses are added or dropped, and the quantifier structure (∀ disjoint closed pairs, ∃ neighborhoods) is preserved.",
+  "duration_ms": 23090,
+  "cost_usd": 0.07651499999999999
+}

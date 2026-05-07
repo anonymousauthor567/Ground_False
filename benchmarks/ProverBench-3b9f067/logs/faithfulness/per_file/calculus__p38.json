@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p38.lean",
+  "stem": "calculus__p38",
+  "verdict": "weaker",
+  "reasoning": "Due to operator precedence/right-associativity, the Lean statement parses as `(x²+y²=1) → ((xy ≤ 1/2) ∧ (point ∈ {...})) → (xy = 1/2)`. This takes both `xy ≤ 1/2` AND \"the point is one of (1/√2,1/√2) or (-1/√2,-1/√2)\" as HYPOTHESES, and concludes `xy = 1/2`. This is a trivial arithmetic tautology verifiable by direct computation at the two listed points, requiring no maximization argument. In contrast, the informal statement asserts (a) `xy ≤ 1/2` for all points on the unit circle (a conclusion, not hypothesis), and (b) the maximizers are EXACTLY the two listed points (an iff/characterization). The Lean misses the universal bound, the exact characterization of maximizers, and turns conclusions into hypotheses. The informal clearly implies the Lean tautology, but the Lean says essentially nothing and does not imply the substantive informal claim.",
+  "duration_ms": 154190,
+  "cost_usd": 0.51034675
+}

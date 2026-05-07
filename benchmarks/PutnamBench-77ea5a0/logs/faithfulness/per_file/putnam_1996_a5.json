@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_a5.lean",
+  "stem": "putnam_1996_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `Prime p` on ℕ matches the standard primality notion (equivalent to `Nat.Prime p` in Mathlib), `p > 3` matches \"greater than 3\", and `k = Nat.floor (2*p/(3 : ℚ))` correctly encodes $k = \\lfloor 2p/3 \\rfloor$ since the `(3 : ℚ)` forces the division to happen in ℚ (as true rational division) before taking `Nat.floor`. The sum `∑ i ∈ Finset.Icc 1 k, Nat.choose p i` corresponds exactly to $\\binom{p}{1} + \\binom{p}{2} + \\cdots + \\binom{p}{k}$, and `p^2 ∣ ...` matches \"divisible by $p^2$\". Verification for $p=5$ ($k=3$, sum = 25 = $5^2$) and $p=7$ ($k=4$, sum = 98 = $2 \\cdot 7^2$) confirms the statement. No hypotheses are added or dropped, and the quantifier structure and types are correct.",
+  "duration_ms": 142483,
+  "cost_usd": 0.39169425
+}

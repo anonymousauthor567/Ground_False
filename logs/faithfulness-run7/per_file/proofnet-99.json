@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely matches the informal claim. \"Distinct odd primes p, q\" is captured by `p.Prime ∧ p > 2`, `q.Prime ∧ q > 2`, and `p ≠ q` (an odd prime is exactly a prime > 2). The divisibility hypothesis `p - 1 ∣ q - 1` uses natural subtraction, which is well-behaved here since both p, q ≥ 3. The coprimality condition `(n, pq) = 1` is rendered as `n.gcd (p*q) = 1`, and the conclusion `n^(q-1) ≡ 1 (mod pq)` is rendered via `Nat.ModEq` with the `[MOD p*q]` notation. No hypothesis is added or dropped, and the conclusion is identical.",
+  "duration_ms": 54180,
+  "cost_usd": 0.1429105
+}

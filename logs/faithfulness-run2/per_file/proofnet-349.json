@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces two metric spaces α and β (matching X and Y), two continuous functions f and g, a set s (matching P) with `Dense s` hypothesis, and assumes ∀ x ∈ s, f x = g x (matching \"g(p) = f(p) for all p ∈ P\"). The conclusion `f = g` is equivalent by function extensionality to ∀ x : α, f x = g x, which is precisely \"g(p) = f(p) for all p ∈ X\". The direction of the equality (f x = g x vs g(p) = f(p)) is irrelevant since equality is symmetric. All hypotheses and the conclusion match the informal statement exactly.",
+  "duration_ms": 9187,
+  "cost_usd": 0.051958
+}

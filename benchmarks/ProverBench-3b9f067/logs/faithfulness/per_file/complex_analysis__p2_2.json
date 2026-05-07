@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p2_2.lean",
+  "stem": "complex_analysis__p2_2",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement claims $(1+i)^{10} = 32i$, but the Lean lemma `final_simplification` states `exp (I * (π / 2)) = I`, i.e., Euler's formula $e^{i\\pi/2} = i$. These are entirely different mathematical claims: the informal one is an equality involving the 10th power of $1+i$, while the Lean one is an identity about the complex exponential function. The Lean lemma is at best an auxiliary step in a polar-form proof of $(1+i)^{10} = 32i$, not a formalization of the claim itself. Neither statement logically implies the other in isolation — the Lean assertion does not mention $(1+i)^{10}$ nor $32i$ at all, and the informal claim says nothing about $\\exp$ or $\\pi/2$. Hence the two are incomparable as formal statements.",
+  "duration_ms": 22821,
+  "cost_usd": 0.06599475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-273.lean",
+  "stem": "proofnet-273",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly matches the informal claim. The hypotheses `hp : p = X^3 - 2` and `hq : q = X^3 + 2` in `Polynomial (ZMod 7)` specify the polynomials over $F = \\mathbb{Z}_7$ as stated. The conjunction `Irreducible p ∧ Irreducible q` captures the two irreducibility claims. The final conjunct `Nonempty (Polynomial (ZMod 7) ⧸ span {p} ≃+* Polynomial (ZMod 7) ⧸ span {q})` correctly asserts that the quotient rings are isomorphic as rings: with `open Ideal`, `span {p}` is `Ideal.span {p} = (p)`, and `≃+*` is `RingEquiv` (bijective ring homomorphism). Since $p, q$ are irreducible in the PID $\\mathbb{Z}_7[x]$, the quotients are fields, and a ring isomorphism between fields is precisely a field isomorphism. `Nonempty (A ≃+* B)` is the standard \"there exists an isomorphism\" encoding. No hypotheses are silently added or dropped.",
+  "duration_ms": 139116,
+  "cost_usd": 0.5480379999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes all aspects of the informal statement. \"Composite order n\" is captured by `¬ (card G).Prime` together with `card G ≠ 1` — since any Group with Fintype has card ≥ 1, this correctly expresses \"n ≥ 2 and not prime\", i.e., composite. The subgroup-for-every-divisor condition `∀ k : ℕ, k ∣ card G → ∃ H, card H = k` matches \"for each positive integer k dividing n, G has a subgroup of order k\"; k = 0 is vacuously handled since 0 does not divide the positive number card G. The explicit `(fH : Fintype H)` instance is harmless because Fintype cardinality is unique. The conclusion `¬ IsSimpleGroup G` matches \"G is not simple\" using Mathlib's standard definition. No hypothesis is added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 221011,
+  "cost_usd": 0.43146725
+}

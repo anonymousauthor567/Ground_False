@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `UniformContinuousOn f A` with `f : X → Y` is Mathlib's standard encoding of \"f restricted to A is uniformly continuous\" (only values on A are used in the definition). The extension condition `g ⟨x, subset_closure x.property⟩ = f x` for `x : A` correctly expresses that g agrees with f on A. The `∃!` asserts a unique g that is continuous, uniformly continuous, and extends f; while the informal phrasing emphasizes uniqueness of the continuous extension with uniform continuity as a bonus property, in the metric space setting (Hausdorff) with complete Y, these are logically equivalent — any continuous extension on closure A agreeing with f on the dense subset A is uniquely determined, and is automatically the uniformly continuous extension. The `Continuous g` clause is redundant given `UniformContinuous g` but harmless. The types (closure A → Y with subspace metric) and quantifier structure correctly reflect the theorem.",
+  "duration_ms": 165903,
+  "cost_usd": 0.512803
+}

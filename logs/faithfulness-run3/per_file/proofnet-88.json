@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures both parts of the informal claim: (1) the quotient ring F[x]/(q) is finite with exactly p^n elements, encoded as existence of a `Fintype` instance whose `card` equals `p^n`; and (2) it is a field, encoded as `IsField (Polynomial (ZMod p) ⧸ span {q})`. The hypotheses match: `p` prime, `q : Polynomial (ZMod p)` irreducible, and `q.degree = n` (the `WithBot ℕ` coercion is automatic and, since irreducibility rules out degree 0 or ⊥, is unambiguous). `span {q}` with `Ideal` opened is the principal ideal (q), so the quotient is exactly F[x]/(q(x)). There are no extra or missing hypotheses, and the conclusion form (\"finite with card p^n\" ∧ \"is a field\") matches the informal claim precisely.",
+  "duration_ms": 68423,
+  "cost_usd": 0.12532325
+}

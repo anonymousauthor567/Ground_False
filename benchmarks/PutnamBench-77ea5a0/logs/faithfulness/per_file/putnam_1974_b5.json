@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b5.lean",
+  "stem": "putnam_1974_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. Since `Finset.Icc (0 : ℕ) n` forces `n : ℕ`, quantifying over \"integer n ≥ 0\" correctly corresponds to quantifying over ℕ (and the redundant `n ≥ 0` is always true, matching the informal restriction). The sum `∑ i ∈ Finset.Icc (0 : ℕ) n, (n^i : ℝ)/(Nat.factorial i)` is exactly $\\sum_{i=0}^{n} n^i/i!$ (which equals $1 + n/1! + n^2/2! + \\cdots + n^n/n!$), and `(Real.exp n)/2` is $e^n/2$. The strict inequality `>` matches the informal `>`. All types, bounds, and quantifier structure align with the informal claim.",
+  "duration_ms": 96924,
+  "cost_usd": 0.30797199999999997
+}

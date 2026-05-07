@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b6.lean",
+  "stem": "putnam_2008_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The use of `Equiv.Perm (Fin n)` (permutations of {0,...,n-1}) vs the informal's {1,...,n} is inconsequential for counting k-limited permutations, since the displacement condition |σ(i)-i| ≤ k is preserved under the index shift j ↔ j+1. The `klimited` definition correctly coerces to ℤ for the absolute value. The hypothesis `n > 0 ∧ k > 0` matches \"positive integers\". `Set.ncard` gives the correct cardinality since the ambient type is finite. The modular condition `n ≡ 0 [MOD 2*k+1] ∨ n ≡ 1 [MOD 2*k+1]` using `Nat.ModEq` matches \"n ≡ 0 or 1 (mod 2k+1)\". The biconditional structure is preserved.",
+  "duration_ms": 106487,
+  "cost_usd": 0.3880225
+}

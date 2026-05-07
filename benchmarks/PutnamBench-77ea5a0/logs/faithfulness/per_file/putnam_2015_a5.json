@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a5.lean",
+  "stem": "putnam_2015_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypotheses `qodd : Odd q` and `qpos : q > 0` match \"odd positive integer q\". The set `{a : ℕ | 0 < a ∧ a < (q : ℝ) / 4 ∧ Nat.gcd a q = 1}` correctly encodes \"integers a with 0 < a < q/4 and gcd(a,q) = 1\" — using ℝ for the q/4 comparison handles the non-integer boundary properly, and using ℕ for a is fine because 0 < a forces positive integers. The hypothesis `Nq = {...}.encard` with Nq : ℕ coerces to ℕ∞ and asserts finiteness plus the count (which is automatic here since the set is bounded). The conclusion `∃ p k : ℕ, q = p ^ k ∧ k > 0 ∧ p.Prime ∧ (p % 8 = 5 ∨ p % 8 = 7)` exactly matches \"q is of the form p^k with k a positive integer and p a prime congruent to 5 or 7 mod 8\". Spot-checks (q = 1, 5, 9, 15) confirm the encoding behaves as intended.",
+  "duration_ms": 132650,
+  "cost_usd": 0.41022625000000007
+}

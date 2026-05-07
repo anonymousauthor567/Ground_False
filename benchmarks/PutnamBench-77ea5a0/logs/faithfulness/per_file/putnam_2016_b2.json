@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b2.lean",
+  "stem": "putnam_2016_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The `squarish` predicate captures \"n is a perfect square OR the distance from n to the nearest perfect square is a perfect square\": the ∀ v : ℕ clause pins down w² as a minimizer (ℕ-squares cover all integer squares via w² = |w|²), and IsSquare |n - w²| says this minimum distance is a perfect square. S correctly counts squarish integers in [1,N]. The predicate p correctly states α,β > 0 with S(N)/N^α → β via Tendsto...atTop (𝓝 β) on ℤ, with (N:ℝ)^α using Real.rpow. The final disjunction \"(3/4,4/3) is the unique p-solution, OR no solution exists\" matches \"find α,β or show none exist\" — uniqueness of α in the asymptotic sense is mathematically automatic so no spurious strengthening. Verification against the informal examples (6 and 7 not squarish, 2 squarish) confirms the encoding works correctly.",
+  "duration_ms": 561954,
+  "cost_usd": 1.3457835
+}

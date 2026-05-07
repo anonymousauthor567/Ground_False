@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "theorem_name": "Dummit_Foote_exercise_8_2_4",
+  "informal": "Let $R$ be an integral domain. Prove that if the following two conditions hold then $R$ is a Principal Ideal Domain: (i) any two nonzero elements $a$ and $b$ in $R$ have a greatest common divisor which can be written in the form $r a+s b$ for some $r, s \\in R$, and (ii) if $a_{1}, a_{2}, a_{3}, \\ldots$ are nonzero elements of $R$ such that $a_{i+1} \\mid a_{i}$ for all $i$, then there is a positive integer $N$ such that $a_{n}$ is a unit times $a_{N}$ for all $n \\geq N$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_8_2_4 {R : Type*} [CommRing R] [IsDomain R] [GCDMonoid R]\n  (h1 : ∀ a b : R, a ≠ 0 → b ≠ 0 → ∃ r s : R, gcd a b = r*a + s*b)\n  (h2 : ∀ a : ℕ → R, (∀ i : ℕ, a i ≠ 0 ∧ a (i + 1) ∣ a i) →\n  ∃ N : ℕ, ∀ n ≥ N, ∃ u : R, IsUnit u ∧ a n = u * a N) :\n  IsPrincipalIdealRing R",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all parts of the informal statement. The `[GCDMonoid R]` typeclass plus `h1` together encode condition (i): gcds exist and a gcd of any two nonzero elements is expressible as ra+sb (since gcds are unique up to units, fixing a choice via GCDMonoid is equivalent to the informal \"a gcd can be written as ra+sb\"). `h2` faithfully encodes condition (ii), including the nonzero hypothesis and the \"unit times a_N\" conclusion. The target `IsPrincipalIdealRing R` together with `IsDomain R` gives \"R is a PID.\" Quantifier structure, types, and the divisibility direction all match the informal claim.",
+  "duration_ms": 33338,
+  "cost_usd": 0.10923325
+}

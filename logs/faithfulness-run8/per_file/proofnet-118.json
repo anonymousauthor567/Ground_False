@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes Munkres Exercise 23.2. The sequence $\\{A_n\\}$ becomes `A : ℕ → Set X`; \"connected subspaces\" becomes `∀ n, IsConnected (A n)` (Mathlib's IsConnected = Nonempty ∧ IsPreconnected, which is the standard mathematical meaning); $A_n \\cap A_{n+1} \\neq \\emptyset$ becomes `A n ∩ A (n + 1) ≠ ∅` (equivalent to nonempty for sets); and the conclusion `IsConnected (⋃ n, A n)` matches \"$\\bigcup A_n$ is connected\". The nonemptiness component of IsConnected is automatically satisfied on both sides: each $A_n$ is nonempty because of the intersection hypothesis, so the union is nonempty too. Quantifier structure, types, hypotheses, and conclusion all align.",
+  "duration_ms": 48149,
+  "cost_usd": 0.18309525
+}

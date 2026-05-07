@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses the subtype `I = Icc 0 1`, so `∀ x : I` matches \"for each x ∈ [0,1]\". The hypothesis `∀ x n, f n x = ↑x ^ n` fully determines f as the sequence fₙ(x) = xⁿ (since it specifies f on all of its domain), making the parameterization with `f` equivalent to directly defining fₙ(x) = xⁿ. The conclusion `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)` is the standard Mathlib expression for pointwise convergence of the sequence to some real limit, which matches \"the sequence (fₙ(x)) converges for each x ∈ [0,1]\" exactly. No hypotheses are added or dropped, and the quantifier structure is correct.",
+  "duration_ms": 29763,
+  "cost_usd": 0.10736399999999999
+}

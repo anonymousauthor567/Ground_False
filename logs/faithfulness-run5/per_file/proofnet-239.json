@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"if |G|=2907 then G is not simple.\" The universal quantification over groups G is expressed via the implicit type variable `{G : Type*}` with `[Group G]` and `[Fintype G]` instances. The hypothesis `card G = 2907` correctly expresses |G|=2907. The conclusion `¬ IsSimpleGroup G` uses Mathlib's `IsSimpleGroup` which is defined as `Nontrivial G` plus \"every normal subgroup is `⊥` or `⊤`\" — this matches the standard definition of a simple group. Since 2907 > 1, the nontriviality condition is automatically satisfied, so `¬ IsSimpleGroup G` is equivalent to \"G has a proper nontrivial normal subgroup\", which is precisely the negation of simplicity in the usual mathematical sense.",
+  "duration_ms": 29529,
+  "cost_usd": 0.17539675
+}

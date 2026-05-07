@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim faithfully. Twice-differentiability on (a,∞) is correctly encoded by `DifferentiableOn ℝ f (Set.Ioi a)` and `DifferentiableOn ℝ (deriv f) (Set.Ioi a)` (since (a,∞) is open, `deriv f` coincides with f' there). The M_i are defined as `sSup` of the images of |f|, |f'|, |f''|, matching \"least upper bound\". The `BddAbove` hypotheses are required to make `sSup` actually equal the supremum (otherwise it returns the junk value 0), so they surface the implicit premise that the LUBs are genuine finite real numbers — this is not a weakening but a necessary technicality for the statement to capture the intended meaning. The `hbdd1` hypothesis is redundant (provably implied by the others) but does not weaken the statement. The conclusion `M1^2 ≤ 4*M0*M2` matches exactly.",
+  "duration_ms": 106838,
+  "cost_usd": 0.3436672499999999
+}

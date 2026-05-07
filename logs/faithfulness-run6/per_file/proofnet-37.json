@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims no subgroup H of G can have |H| = n-1 when n = |G| > 2. The Lean signature quantifies over an arbitrary subgroup H (via the hypothesis) and asserts `card H ≠ card G - 1`, which is logically equivalent to \"G has no subgroup of order card G - 1\". The hypothesis `card G > 2` matches `|G| > 2` exactly. The `Fintype H` instance is a standard Lean technicality for forming `card H` (derivable from `Fintype G`) and does not alter the mathematical content. Natural number subtraction is safe here because `card G > 2` ensures no truncation. Thus the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 36973,
+  "cost_usd": 0.091911
+}

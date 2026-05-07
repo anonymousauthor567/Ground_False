@@ -1,0 +1,8 @@
+{
+  "file": "15.lean",
+  "stem": "15",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires \"p, q, r be three distinct prime numbers,\" but the Lean formalization only assumes `hp : p.Prime`, `hq : q.Prime`, `hr : r.Prime` without any distinctness hypotheses (no `p ≠ q`, `p ≠ r`, or `q ≠ r`). Dropping this explicitly-stated hypothesis makes the Lean statement logically stronger: a proof of the Lean version would prove the informal version (by specializing to distinct primes), but the converse is not automatic since the informal proof may well use distinctness of the primes. All other components — finiteness of G, normality of H, |G/H| = r^t, the structure of both composition series, and the conclusion asking for a swapped composition series of H — match the informal statement. This is not a case of surfacing an implicit premise; it is the removal of an explicit premise.",
+  "duration_ms": 735920,
+  "cost_usd": 1.5811677499999999
+}

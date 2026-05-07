@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely encodes the informal statement. `orderOf x = 0` is Mathlib's standard convention for \"x has infinite order\" (per `orderOf_eq_zero_iff : orderOf x = 0 ↔ ¬IsOfFinOrder x` in OrderOfElement.lean). The ambient group is an arbitrary `[Group G]`, matching \"in G\". The integers `n m : ℤ` match \"n ∈ ℤ\". The conclusion `n ≠ m → x ^ n ≠ x ^ m` (using the integer `zpow`) is logically equivalent to the assertion that all elements `x^n, n ∈ ℤ` are distinct — it is the injectivity of the map `n ↦ x^n`. No hypotheses are added or dropped, no quantifier structure is altered, and the types match.",
+  "duration_ms": 58096,
+  "cost_usd": 0.17709325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `Differentiable ℂ f` on all of ℂ is equivalent to f being entire/analytic on ℂ. The hypothesis `∃ n, iteratedDeriv n f z₀ / n! = 0` exactly encodes \"some Taylor coefficient c_n = f^(n)(z₀)/n! at z₀ vanishes\" — Mathlib's `iteratedDeriv` is the n-th derivative, and since n! ≠ 0 in ℂ, the division is well-defined and the condition matches. The conclusion `∃ p : Polynomial ℂ, f = fun z => Polynomial.aeval z p` states f is a polynomial function (aeval coincides with polynomial evaluation on ℂ). The universal quantifier over z₀ and existential over n correctly match the informal \"for each z₀ … at least one coefficient\". No hypotheses are silently added or dropped.",
+  "duration_ms": 138114,
+  "cost_usd": 0.47331449999999997
+}

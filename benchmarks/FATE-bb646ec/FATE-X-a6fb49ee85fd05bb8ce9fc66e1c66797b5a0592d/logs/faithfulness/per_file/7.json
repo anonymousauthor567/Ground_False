@@ -1,0 +1,8 @@
+{
+  "file": "7.lean",
+  "stem": "7",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G with order 1785 is not simple. The Lean statement quantifies over types G with [Group G], assumes Nat.card G = 1785 (the standard Mathlib encoding of group order), and concludes ¬ IsSimpleGroup G. The [Finite G] instance is logically redundant since Nat.card G = 1785 ≠ 0 already forces G to be finite (Nat.card returns 0 for infinite types), so adding it doesn't narrow the claim — it just surfaces an implicit premise. IsSimpleGroup in Mathlib is precisely the standard definition (Nontrivial G plus only trivial normal subgroups are ⊥ or ⊤). The formalization captures exactly the intended universal claim about finite groups of order 1785.",
+  "duration_ms": 107842,
+  "cost_usd": 0.28785875000000005
+}

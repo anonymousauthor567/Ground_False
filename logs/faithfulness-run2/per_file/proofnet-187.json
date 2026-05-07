@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: K is an infinite field, V is a K-vector space (AddCommGroup + Module K V), ι is a Fintype encoding \"finitely many,\" γ indexes a family of submodules, and the hypothesis γ i ≠ ⊤ says each is a proper subspace. The conclusion (⋃ i, (γ i : Set V)) ≠ ⊤ says the set-theoretic union of these subspaces is not all of V, which is exactly \"V is not the union of finitely many proper subspaces.\" Edge cases (ι empty, V = 0) are handled correctly since V is always nonempty (contains 0), matching the usual mathematical reading. No extra or missing hypotheses, and the quantifier structure (∀ finite family of proper subspaces, union ≠ V) matches the informal universal claim.",
+  "duration_ms": 26176,
+  "cost_usd": 0.11176675
+}

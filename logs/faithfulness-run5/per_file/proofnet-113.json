@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly encodes Munkres' exercise 18.8(b). Munkres' \"ordered set\" refers to a linearly/simply ordered set, which matches `[LinearOrder Y]`. The \"order topology\" condition is `[OrderTopology Y]`. The hypotheses `hf : Continuous f` and `hg : Continuous g` match the informal hypotheses, and the conclusion `Continuous (fun x => min (f x) (g x))` matches h(x) = min{f(x), g(x)} being continuous. There is no extra hypothesis nor any missing hypothesis — no assumption of a specific topology on X, decidability, or finiteness is imposed. This is in fact the exact signature of Mathlib's `Continuous.min` in `Mathlib/Topology/Order/OrderClosed.lean`.",
+  "duration_ms": 41347,
+  "cost_usd": 0.17053725
+}

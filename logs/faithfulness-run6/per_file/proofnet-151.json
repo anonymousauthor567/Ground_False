@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts, for any complex number z, the existence of a real r ≥ 0 and a complex w with ‖w‖ = 1 such that z = r * w. In Mathlib, the norm ‖·‖ on ℂ is exactly the complex modulus, so ‖w‖ = 1 matches the informal |w| = 1. The product r * w uses the standard coercion ℝ → ℂ, giving the usual scalar product. The quantifier structure (∃ r ≥ 0, ∃ w with |w|=1), the hypotheses, and the conclusion z = rw are all preserved. Nothing is added or dropped, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 50956,
+  "cost_usd": 0.16610775
+}

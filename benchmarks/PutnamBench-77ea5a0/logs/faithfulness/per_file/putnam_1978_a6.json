@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_a6.lean",
+  "stem": "putnam_1978_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement: `EuclideanSpace ℝ (Fin 2)` is the plane, `Finset` gives distinct points, `n = S.card`, and the set `{pair | ∃ P Q ∈ S, pair = {P, Q} ∧ dist P Q = 1}` captures unordered pairs at distance 1 (since `{P, Q}` as a Set is unordered and `dist P Q = 1` forces P ≠ Q). The bound `2 * (n : ℝ) ^ ((3 : ℝ) / 2)` correctly encodes 2n^(3/2). The hypothesis `npos : n > 0` is not a weakening: for n = 0 the claim would reduce to 0 < 0, which is false, so n ≥ 1 is an implicit premise needed for the statement to be true (standard \"given n distinct points\" convention). Making this explicit is a faithful reading of the intended content.",
+  "duration_ms": 111742,
+  "cost_usd": 0.3355035
+}

@@ -1,0 +1,8 @@
+{
+  "file": "71.lean",
+  "stem": "71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"every subgroup of a cyclic group is cyclic\" is captured exactly: G is an arbitrary group (universally quantified via `{G : Type*} [Group G]`), H is an arbitrary subgroup (universally quantified via `{H : Subgroup G}`), the hypothesis is that G is cyclic (`IsCyclic G`), and the conclusion is that H is cyclic (`IsCyclic H`, which uses the standard subgroup-to-group coercion). This is exactly Mathlib's own `Subgroup.isCyclic` formulation. No extra or missing hypotheses, no drift in types, and quantifier structure is preserved.",
+  "duration_ms": 43487,
+  "cost_usd": 0.123306
+}

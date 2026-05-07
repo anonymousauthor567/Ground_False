@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_a5.lean",
+  "stem": "putnam_2007_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `G : Type*` with `[Group G] [Fintype G]` encodes \"finite group\"; `hp : Nat.Prime p` matches \"p is a prime\"; and `hn : n = {g : G | orderOf g = p}.encard` (via the ℕ → ℕ∞ coercion, finite since G is a Fintype) asserts that n is exactly the number of elements of order p. The conclusion `n = 0 ∨ p ∣ (n + 1)` exactly matches the informal conclusion. The universal quantification over G, p, n matches \"suppose... prove\". No extra hypotheses are imposed and none are dropped.",
+  "duration_ms": 122851,
+  "cost_usd": 0.3939325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if H and K are finite subgroups of G with coprime orders, then H ∩ K = 1. The Lean statement takes H and K as subgroups of a group G, gives `Fintype H` and `Fintype K` instances (encoding finiteness), and with `open Fintype`, `card H` and `card K` refer to `Fintype.card H` and `Fintype.card K`, which equal the orders of these subgroups. `Nat.Coprime (card H) (card K)` correctly expresses that the orders are relatively prime. The conclusion `H ⊓ K = ⊥` in the subgroup lattice means H ∩ K is the trivial subgroup {1}. All quantifier structure, hypotheses, and the conclusion match the informal claim.",
+  "duration_ms": 12314,
+  "cost_usd": 0.04069575
+}

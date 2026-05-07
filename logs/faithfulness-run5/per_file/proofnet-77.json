@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures all elements of the informal claim. `[Group G]` with `[Fintype G]` and `hG : card G = 6` encodes \"finite group of order 6\". The hypothesis `hG' : ∃ a b : G, a * b ≠ b * a` is logically equivalent to G being nonabelian (since a group is nonabelian iff it has two non-commuting elements). The conclusion `Nonempty (G ≃* Equiv.Perm (Fin 3))` asserts the existence of a group isomorphism (MulEquiv, which preserves multiplication, hence a group iso between groups) from G to S_3, which is exactly what `Equiv.Perm (Fin 3)` denotes. No hypotheses are silently added or dropped, and the conclusion matches \"G ≃ S_3\" precisely.",
+  "duration_ms": 74241,
+  "cost_usd": 0.21451725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2022_p1.lean",
+  "stem": "imo_2022_p1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures IMO 2022 P1. `initial n` uses `List.permutations` on `replicate n 0 ++ replicate n 1`, which by `List.mem_permutations` gives exactly all orderings of n 0s and n 1s. `checkList` correctly identifies the longest chain containing the k-th coin (verified by tracing the AABBBABA example: returns (2,4) for the BBB chain). `action` correctly moves this chain to the front (produces [1,1,1]++[0,0]++[0,1,0] = BBBAAABA, matching the informal example). `pown k m` iterates m times, and `checkLeft n` tests whether the first n elements are all equal to L[0]. The existential `∃ m : ℕ` correctly captures \"at some moment during the process\". The `n > 0` hypothesis is a reasonable implicit premise. The `n = n'` clause makes the pair structure redundant but well-defined; `imo_2022_p1_solution : ℕ → Set (ℕ × ℕ)` matches the same shape. No semantic drift from the informal statement.",
+  "duration_ms": 521326,
+  "cost_usd": 1.6247437500000002
+}

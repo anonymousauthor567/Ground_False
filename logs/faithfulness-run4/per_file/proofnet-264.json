@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes all pieces of the informal statement correctly. `φ : G →* G'` together with `hφ : Function.Surjective φ` captures 'homomorphism of G onto G''. `N : Subgroup G` with `[N.Normal]` captures 'N ◁ G'. The conclusion `(Subgroup.map φ N).Normal` precisely states that the image subgroup φ(N) — defined in Mathlib `Subgroup.map` as the subgroup with carrier `φ '' N` — is normal in G'. The groups G, G' are generic (universally quantified), matching the scope of the informal statement. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 58005,
+  "cost_usd": 0.2444335
+}

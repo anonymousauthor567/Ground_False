@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch8_30.lean",
+  "stem": "brualdi_ch8_30",
+  "verdict": "faithful",
+  "reasoning": "`Nat.Partition n` in Mathlib is defined as a multiset of positive integers summing to `n` (the standard notion of an integer partition), and it carries a `Fintype` instance, so `Fintype.card (Nat.Partition n)` equals the partition function p(n). The hypothesis `2 ≤ n` matches the informal \"when 2 ≤ n\", and the conclusion `Fintype.card (Nat.Partition (n-1)) < Fintype.card (Nat.Partition n)` is exactly `p(n-1) < p(n)`, i.e., `p(n) > p(n-1)`. Since `n ≥ 2`, the truncated `ℕ`-subtraction `n - 1` behaves as ordinary subtraction, so there is no hidden issue. The Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 39751,
+  "cost_usd": 0.2145515
+}

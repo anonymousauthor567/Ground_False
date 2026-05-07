@@ -1,0 +1,8 @@
+{
+  "file": "76.lean",
+  "stem": "76",
+  "verdict": "faithful",
+  "reasoning": "The Lean `IsCatenary` definition captures \"all maximal chains of primes from p to q have the same length n\" via the existential-over-n followed by universal quantification over maximal chains (where maximality is correctly encoded by the sublist-containment condition: any chain l' with l.toList as a sublist must equal l, meaning l cannot be refined by inserting more primes). The `LTSeries` (strictly increasing) matches the informal strict chain p_0 ⊂ p_1 ⊂ ... ⊂ p_e, with `head`/`last` matching endpoints. While the informal definition explicitly includes the \"integer bounding all finite chains\" clause that the Lean omits, for the specific ring A in the theorem (Noetherian with ringKrullDim ≤ 3), all chains are automatically bounded by dim+1, so the two definitions coincide for A. The hypotheses `IsNoetherianRing A`, `IsDomain A`, `UniqueFactorizationMonoid A`, and `ringKrullDim A ≤ 3` precisely match \"Noetherian UFD of dimension ≤ 3\". Using `p ≤ q` vs `p ⊂ q` is harmless (the p=q case is trivial). The theorem is logically equivalent to the informal statement in this context.",
+  "duration_ms": 1436366,
+  "cost_usd": 3.6219395000000003
+}

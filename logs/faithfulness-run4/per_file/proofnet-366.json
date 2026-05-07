@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal statement. `Differentiable ℂ f` for `f : ℂ → ℂ` is Mathlib's standard encoding of \"entire function\" (differentiable at every point of ℂ). `Function.Injective f` matches \"injective\". The conclusion `∃ a b : ℂ, f = (λ z => a * z + b) ∧ a ≠ 0` is exactly the claim \"f takes the form az + b with a, b ∈ ℂ and a ≠ 0\", since function equality `f = (λ z => a * z + b)` is equivalent to `∀ z, f z = a * z + b`. The hypotheses, conclusion, types, and quantifier structure all match the informal claim, so the formalization is strictly faithful.",
+  "duration_ms": 60698,
+  "cost_usd": 0.2190655
+}

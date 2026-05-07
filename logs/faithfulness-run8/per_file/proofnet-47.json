@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. \"Composite order\" is captured by `¬ (card G).Prime ∧ card G ≠ 1`: since `[Fintype G] [Group G]` implies `card G ≥ 1`, this precisely characterizes the composite numbers {4, 6, 8, 9, ...}. The \"positive integer k dividing n\" condition is captured by `∀ k : ℕ, k ∣ card G → ...`, which is equivalent to the informal version because in ℕ, `0 ∣ n ↔ n = 0`, and `card G ≠ 0`; thus k = 0 is automatically excluded. The subgroup existence `∃ (H : Subgroup G) (fH : Fintype H), @card H fH = k` correctly expresses \"G has a subgroup of order k\". The conclusion `¬ IsSimpleGroup G` matches \"G is not simple\". Quantifier structure, types, hypotheses, and conclusion all align.",
+  "duration_ms": 151523,
+  "cost_usd": 0.51956725
+}

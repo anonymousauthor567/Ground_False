@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly: `Nat.Primes` with `H.index = p` captures \"prime index p\"; `[H.Normal]` captures normality; the universal quantifier over `K : Subgroup G` captures \"for all K ≤ G\". The first disjunct `K ≤ H` is direct. For `G = HK`, the encoding `H ⊔ K = ⊤` is correct since `normal_mul` in Mathlib gives `(↑(H ⊔ K) : Set G) = H * K` when H is normal, so `H ⊔ K = ⊤ ↔ HK = G`. Finally, `(K ⊓ H).relIndex K = ((K ⊓ H).subgroupOf K).index = Nat.card (K ⧸ (K ⊓ H))` which is exactly `[K : K ∩ H]`. No hypotheses are dropped or added beyond what is needed.",
+  "duration_ms": 130525,
+  "cost_usd": 0.5324665
+}

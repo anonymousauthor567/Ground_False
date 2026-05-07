@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "informal": "Prove that characteristic subgroups are normal.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_4_6a {G : Type*} [Group G] (H : Subgroup G)\n  [Characteristic H] : Normal H",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every characteristic subgroup is normal. The Lean signature takes an arbitrary group G, an arbitrary subgroup H with the `Characteristic H` instance, and concludes `Normal H`. This is exactly the universal claim \"characteristic ⇒ normal\" for subgroups of arbitrary groups. The types and quantifier structure (universal over G and H) match, and no extra hypotheses (e.g., finiteness) are imposed. Hence the formalization is faithful.",
+  "duration_ms": 7530,
+  "cost_usd": 0.042773500000000006
+}

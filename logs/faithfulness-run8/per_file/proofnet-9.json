@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes the informal claim. `x : ↑(I ⊓ J)` is an element of I ∩ J (since `Ideal.mem_inf` gives `x ∈ I ⊓ J ↔ x ∈ I ∧ x ∈ J`), and `Ideal.Quotient.mk (I*J) x` is the residue of x in R/(IJ), using Mathlib's canonical ideal product and quotient map. `IsNilpotent` is the standard \"∃n, x^n = 0\" notion. The CommRing assumption is the standard implicit premise needed for \"R/IJ\" to unambiguously form a ring quotient in the conventional setting of the informal statement (since `Ideal R` in Mathlib denotes left ideals, and the ring product of ideals plus ring quotient structure most naturally lives in the commutative setting); making it explicit is a faithful reading, not a strengthening. The mathematical content matches: x ∈ I ∩ J implies x² = x·x ∈ I·J, so [x]² = 0 in R/IJ, making [x] nilpotent.",
+  "duration_ms": 452743,
+  "cost_usd": 1.4209855
+}

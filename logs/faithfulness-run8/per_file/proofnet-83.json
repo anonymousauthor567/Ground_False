@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. It takes a prime `p`, a finite group `G` of order `p^n`, and a subgroup `K` of order `p^(n-1)`, and concludes `K.Normal`. The `Nat.Prime p` hypothesis is an implicit premise from the notation `$p^n$` (standard convention in group theory, especially Herstein's textbook) — surfacing such implicit premises is faithful, not weaker. The `[Fintype K]` is just an instance declaration derivable from `[Fintype G]`, not an additional hypothesis. The `card` refers to `Fintype.card` (via `open Fintype`), which gives the group order correctly. Even the edge case n=0 works correctly under Nat subtraction (gives trivial subgroup, which is normal). The conclusion `K.Normal` matches Mathlib's `Subgroup.Normal` structure, meaning closed under conjugation — exactly \"normal in G\".",
+  "duration_ms": 106306,
+  "cost_usd": 0.3708835
+}

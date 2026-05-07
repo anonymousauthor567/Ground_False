@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly calls this \"the real function $\\sqrt{n+1}-\\sqrt{n}$\", so using `n : ℝ` in the Lean encoding faithfully reflects the domain. `Tendsto (fun n : ℝ => sqrt (n + 1) - sqrt n) atTop (𝓝 0)` is the standard Mathlib encoding of \"the function tends to 0 as n → ∞\" for a real variable. `Real.sqrt` is defined for all real numbers (returning 0 for negatives), and for n ≥ 0 the expression equals 1/(√(n+1) + √n), which tends to 0. There is no extra hypothesis added, no conclusion strengthened or weakened, and no type mismatch. The Lean signature captures exactly the claim in the informal statement.",
+  "duration_ms": 128393,
+  "cost_usd": 0.42813775000000004
+}

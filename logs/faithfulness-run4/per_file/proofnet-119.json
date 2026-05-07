@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. `CofiniteTopology X` in Mathlib (Topology/Constructions.lean) is defined as the type synonym whose open sets are the empty set plus sets with finite complements — exactly Munkres' finite complement topology. The `[Infinite X]` type class corresponds to \"X is an infinite set\". Asserting `IsConnected (Set.univ : Set (CofiniteTopology X))` is the standard way to express \"the space X (with cofinite topology) is connected\" — it is logically equivalent to `ConnectedSpace (CofiniteTopology X)` (cf. `connectedSpace_iff_univ`), and requires both non-emptiness (automatic from `Infinite X`) and preconnectedness of the whole space. Hypothesis, conclusion, and underlying types all match.",
+  "duration_ms": 62300,
+  "cost_usd": 0.3300605
+}

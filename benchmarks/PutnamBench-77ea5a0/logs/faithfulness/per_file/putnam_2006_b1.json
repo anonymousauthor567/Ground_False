@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b1.lean",
+  "stem": "putnam_2006_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures both parts of the informal claim: (1) uniqueness of the 3-point equilateral subset of the curve via `∃!`, and (2) that this unique triangle has area 3√3/2. The `equilateral` predicate correctly encodes equilateral triangle: S.encard = 3 ensures three distinct points, and the existence of a common distance d for all distinct pairs forces all three sides to be equal (which also rules out collinearity automatically). The curve is correctly defined. The convex hull of the 3 non-collinear vertices is the triangle, and `MeasureTheory.volume` on ℝ × ℝ is the 2D Lebesgue measure (area). The `.toReal` conversion is lossless since the area is finite. The two conjuncts together are equivalent to saying the unique such S has the specified area. The solution 3 * Real.sqrt 3 / 2 matches 3√3/2.",
+  "duration_ms": 97314,
+  "cost_usd": 0.27577075
+}

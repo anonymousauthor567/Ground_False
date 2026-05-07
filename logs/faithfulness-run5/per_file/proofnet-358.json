@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Rudin 5.7. `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` correspond exactly to the informal \"$f'(x), g'(x)$ exist\"; `deriv g x ≠ 0` matches \"$g'(x) \\neq 0$\"; and `f x = 0`, `g x = 0` match \"$f(x) = g(x) = 0$\". The conclusion uses `𝓝[≠] x` (the punctured neighborhood filter), which is the standard formalization of $\\lim_{t \\to x}$ in classical analysis (where $t$ approaches but does not equal $x$), and `deriv f x / deriv g x` matches $f'(x)/g'(x)$. All quantifier structure, hypotheses, and the conclusion align with the informal claim without adding or dropping content.",
+  "duration_ms": 42572,
+  "cost_usd": 0.15817024999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `Nat.Prime p` matches \"p is a prime\". The polynomial `∑ i ∈ Finset.range p, X ^ i` equals `X^0 + X^1 + ⋯ + X^{p-1} = 1 + X + X^2 + ⋯ + X^{p-1}`, exactly the stated `q(x)`. The ring `Polynomial ℚ` matches `ℚ[x]`. Mathlib's `Irreducible` predicate is the standard \"non-unit that only factors into units\" definition, which over a field coincides with the classical notion of irreducibility of a non-constant polynomial. No extra or missing hypotheses; the quantifier structure (universal over primes p) is preserved.",
+  "duration_ms": 60765,
+  "cost_usd": 0.25688700000000003
+}

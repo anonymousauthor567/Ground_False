@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "informal": "Let $V$ be a vector space over an infinite field $F$. Prove that $V$ is not the union of finitely many proper subspaces.",
+  "lean": "\ntheorem Artin_exercise_3_7_2 {K V : Type*} [Field K] [Infinite K] [AddCommGroup V]\n  [Module K V] {ι : Type*} [Fintype ι] (γ : ι → Submodule K V)\n  (h : ∀ i : ι, γ i ≠ ⊤) :\n  (⋃ (i : ι), (γ i : Set V)) ≠ ⊤",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes K is an infinite field, V a K-module (= K-vector space since K is a field), and a finite indexed family γ : ι → Submodule K V with each γ i a proper submodule (γ i ≠ ⊤). It concludes that the set-theoretic union ⋃ i, (γ i : Set V) is not ⊤, i.e. not equal to Set.univ, which is exactly the statement that the union does not cover V. Finiteness is captured via [Fintype ι], properness via γ i ≠ ⊤, and infiniteness of the field via [Infinite K]. The quantifier structure (universal over the family and the field) and the conclusion match the informal claim precisely.",
+  "duration_ms": 9617,
+  "cost_usd": 0.04971249999999999
+}

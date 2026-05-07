@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal claim. `Differentiable ℂ f` is the standard Mathlib notion of \"entire function\", `Function.Injective f` matches \"injective\", and the existential conclusion `∃ (a b : ℂ), f = (λ z => a * z + b) ∧ a ≠ 0` precisely asserts that f has the form az + b with a ≠ 0 (function equality in Lean is extensional, equivalent to ∀ z, f z = a*z + b). The universal quantification over all such f is properly captured by making f an implicit variable with hypotheses. No hypotheses are silently added or dropped, and the types match (ℂ → ℂ).",
+  "duration_ms": 11778,
+  "cost_usd": 0.05054025
+}

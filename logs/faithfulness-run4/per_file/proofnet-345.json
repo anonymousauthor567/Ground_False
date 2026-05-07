@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses state that the partial sums of |a i| and |b i| converge, which is exactly absolute convergence of the two series. The conclusion asserts that the partial sums of |∑_{j=0}^{i} a_j · b_{i-j}| converge as n → ∞, and the inner sum ∑ j ∈ range (i+1), a j * b (i-j) is exactly the i-th Cauchy product term c_i = Σ_{j=0}^{i} a_j b_{i-j} (with natural number subtraction valid since j ≤ i). Thus the statement is: absolute convergence of ∑a_n and ∑b_n implies absolute convergence of the Cauchy product ∑c_n — precisely Rudin Exercise 3.13. The indexing, types (ℝ-valued sequences on ℕ), and quantifier structure all match the informal statement.",
+  "duration_ms": 38937,
+  "cost_usd": 0.12137424999999999
+}

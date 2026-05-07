@@ -1,0 +1,8 @@
+{
+  "file": "7.lean",
+  "stem": "7",
+  "verdict": "faithful",
+  "reasoning": "The Lean biconditional mirrors the informal iff. The LHS `∀ x y : H, x ∈ f.range ∧ y ∈ f.range → x * y = y * x` precisely expresses \"φ(G) is Abelian\" — namely, that any two elements of the image commute. The RHS `∀ x y : G, x * y * x⁻¹ * y⁻¹ ∈ f.ker` captures \"xyx⁻¹y⁻¹ ∈ Ker(φ) for all x, y ∈ G\", since Lean's left-associative multiplication parses the expression as (((x*y)*x⁻¹)*y⁻¹), matching the standard commutator. Types match (G source, H codomain), `MonoidHom.range` and `MonoidHom.ker` are the standard Mathlib encodings of image and kernel, and no extra hypotheses (like finiteness, surjectivity, or commutativity of G) are silently added or dropped. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 99811,
+  "cost_usd": 0.2547965
+}

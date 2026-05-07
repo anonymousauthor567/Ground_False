@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "stronger",
+  "reasoning": "The hypotheses h1 and h2 correctly encode the \"not ∞ - ∞\" proviso from the informal statement. However, the Lean statement quantifies over `a b : ℕ → EReal` (extended-real sequences that may take values ±∞ pointwise), while the informal statement is explicitly about real sequences. This is a strict generalization: the Lean version covers all real sequences (via coercion) plus EReal sequences with pointwise infinities (where EReal addition uses conventions like ∞ + (-∞) = 0). The Lean statement therefore implies the informal one but is not implied by it, making it strictly stronger.",
+  "duration_ms": 66167,
+  "cost_usd": 0.224356
+}

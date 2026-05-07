@@ -1,0 +1,8 @@
+{
+  "file": "3.lean",
+  "stem": "3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the order of G equals 3393, then G is not simple. The Lean signature uses `{G : Type} [Group G]` with hypothesis `Nat.card G = 3393` and conclusion `¬ IsSimpleGroup G`. `Nat.card G` returns the cardinality for finite groups (and 0 for infinite ones), so the hypothesis `Nat.card G = 3393` correctly captures \"G has order 3393\" and implicitly forces finiteness (since 3393 ≠ 0), matching the informal `#G = 3393`. Mathlib's `IsSimpleGroup` is the standard definition (nontrivial + every normal subgroup is ⊥ or ⊤), so `¬ IsSimpleGroup G` faithfully encodes \"G is not simple\". The universal quantification over groups G is correctly preserved via the implicit arguments. This is a strictly faithful formalization.",
+  "duration_ms": 49104,
+  "cost_usd": 0.11226649999999999
+}

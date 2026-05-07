@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. Using `q : ℕ` with `q.Prime` matches the standard textbook convention that \"prime integer\" means positive prime — this is necessary for truth since the statement would fail for negative primes like -5 (where -5 ≡ 3 mod 4 but (-5) = (5) in ℤ[i] with 5 splitting). `hq1 : q ≡ 3 [ZMOD 4]` correctly encodes Int.ModEq for q ≡ 3 (mod 4). `span ({↑q} : Set GaussianInt)` is the ideal (q) in ℤ[i]. `IsField` on the quotient captures \"is a field\", and `∃ finR : Fintype _, @Fintype.card _ finR = q^2` correctly expresses \"has q² elements\" (any two Fintype instances yield the same cardinality). The conjunction matches the two-part conclusion of the informal statement.",
+  "duration_ms": 216488,
+  "cost_usd": 0.7137015
+}

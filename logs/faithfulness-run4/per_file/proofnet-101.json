@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `Odd p` combined with `p.Prime` matches \"odd prime\". Taking `a : (ZMod p)ˣ` correctly captures an element coprime to p. `IsPrimitiveRoot (a : ZMod p) (p - 1)`, per Mathlib's definition (a^(p-1) = 1 and (p-1) divides any l with a^l = 1), is equivalent to a having multiplicative order exactly p-1, which is the standard definition of a primitive root modulo p since |(ZMod p)ˣ| = p-1. The RHS `∀ q : ℕ, q ∣ (p - 1) → q.Prime → ¬ (a^((p-1)/q) = 1)` precisely matches \"for all prime divisors q of p-1, a^((p-1)/q) ≢ 1 (mod p)\". No hypotheses are silently added or dropped, and the quantifier structure and types match.",
+  "duration_ms": 138780,
+  "cost_usd": 0.43457125
+}

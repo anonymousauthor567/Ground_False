@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes \"any subring of a field containing the identity is an integral domain\" using Mathlib's `Subring F`, which by definition already contains 1. The extra hypothesis `hK : (1 : F) ∈ K` is redundant (automatically satisfied by any `Subring`), but it doesn't change the mathematical content. The conclusion `IsDomain K` correctly captures \"integral domain\" (nontrivial commutative ring with no zero divisors). The quantifier structure (implicit universal over F and K) matches the informal \"any subring of a field.\" So the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 18470,
+  "cost_usd": 0.06264175
+}

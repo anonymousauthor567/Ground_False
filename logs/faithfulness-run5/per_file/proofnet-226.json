@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes Fermat's Little Theorem exactly as stated informally: for any prime `p : ℕ` and any integer `a : ℤ`, it claims `a ^ p ≡ a [ZMOD p]`. Checking Mathlib (`Data/Int/ModEq.lean`), the notation `a ≡ b [ZMOD n]` unfolds to `Int.ModEq n a b := a % n = b % n`, which is precisely the standard integer congruence modulo `p`. The coercion `p : ℕ → ℤ` and the natural-number exponent in `a ^ p` are standard. The reference to Lagrange's theorem in the informal text is merely a proof-method suggestion and is not something that would be encoded in a theorem signature. No hypotheses are added or dropped, and the quantifier structure (∀ a) is faithful.",
+  "duration_ms": 57495,
+  "cost_usd": 0.23572925
+}

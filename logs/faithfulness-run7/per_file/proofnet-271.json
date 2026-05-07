@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show L(a) = {x ∈ R | xa = 0} is an ideal of a commutative ring R. In Lean, `Ideal R` is defined as `Submodule R R` and has a `SetLike` instance, so the equality `{x : R | x*a=0} = I` is a set-level equality via coercion. The claim `∃ I : Ideal R, {x | x*a = 0} = I` is logically equivalent to \"{x | xa = 0} is the underlying set of some ideal\", i.e., it is an ideal. The hypothesis `CommRing R` matches \"commutative ring\", and the defining set {x | x*a = 0} matches L(a) exactly. No hypotheses are added or dropped, and the quantifier structure is appropriate.",
+  "duration_ms": 68141,
+  "cost_usd": 0.24803225
+}

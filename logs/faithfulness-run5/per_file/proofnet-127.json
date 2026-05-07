@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures all parts of the informal statement. The Hausdorff hypothesis is encoded as `[T2Space X]`. The \"locally compact at x\" hypothesis `hx` directly matches Munkres' definition: \"there is some compact subspace C of X that contains a neighborhood of x\", encoded as an open set U containing x with U ⊆ K for some compact K. The universal quantification \"for each neighborhood U of x\" is represented by the arguments `(U : Set X) (hU : IsOpen U) (hxU : x ∈ U)`, matching Munkres' convention that neighborhoods are open sets containing the point. The conclusion `∃ V, IsOpen V ∧ x ∈ V ∧ IsCompact (closure V) ∧ closure V ⊆ U` exactly matches \"there is a neighborhood V of x such that V̄ is compact and V̄ ⊂ U\". The quantifier structure and types are aligned throughout.",
+  "duration_ms": 87585,
+  "cost_usd": 0.35599575
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "informal": "Prove that all entire functions that are also injective take the form $f(z) = az + b$, $a, b \\in \\mathbb{C}$ and $a \\neq 0$.",
+  "lean": "\ntheorem Shakarchi_exercise_3_14 {f : ℂ → ℂ} (hf : Differentiable ℂ f)\n   (hf_inj : Function.Injective f) :\n   ∃ (a b : ℂ), f = (λ z => a * z + b) ∧ a ≠ 0",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every entire injective function has the form f(z) = az + b with a ≠ 0. The Lean signature assumes f : ℂ → ℂ is differentiable on all of ℂ (i.e., entire) and injective, and concludes there exist a, b ∈ ℂ with f = (λ z => a*z + b) and a ≠ 0. This matches the informal statement exactly: hypotheses (entire + injective), conclusion (linear form with nonzero leading coefficient), and quantifier structure all align.",
+  "duration_ms": 5508,
+  "cost_usd": 0.04180425
+}

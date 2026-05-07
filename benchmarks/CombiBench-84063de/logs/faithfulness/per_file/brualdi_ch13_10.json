@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch13_10.lean",
+  "stem": "brualdi_ch13_10",
+  "verdict": "stronger",
+  "reasoning": "Two issues make the Lean claim stronger than the informal one. (1) The custom `Digraph.Walk` definition has `nil` requiring `h : G.Adj u u`, so every walk in this inductive type must bottom out at a self-loop. In a tournament (`irrefl : ∀ u, ¬G.Adj u u`), there are no self-loops, so `T.Walk u x` is the empty type for all u, x. Thus `∃ p : T.Walk u x, p.IsPath ∧ p.length ≤ 2` is unsatisfiable, making the Lean statement false in every tournament, whereas the informal \"king\" theorem is a standard true result. (2) The informal says \"for every other vertex x\" (x ≠ u), but the Lean writes `∀ (x : V)`, which includes x = u — a case the informal does not claim, and which would additionally require a self-loop at u under this Walk definition. Since a false statement vacuously implies a true one but not conversely, the Lean formulation is strictly stronger than (and inconsistent with) the informal claim.",
+  "duration_ms": 992043,
+  "cost_usd": 2.7085409999999994
+}

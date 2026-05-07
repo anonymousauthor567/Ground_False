@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℚ (with its standard topology inherited from ℝ) is not locally compact. The Lean statement `¬ LocallyCompactSpace ℚ` uses Mathlib's `LocallyCompactSpace` class, defined as \"every neighborhood of every point contains a compact neighborhood\" — precisely Munkres's definition of locally compact. ℚ has a canonical topology via `Rat.MetricSpace` (induced from ℝ), so the default instance matches the intended topology. The negation `¬ LocallyCompactSpace ℚ` directly encodes the claim. No hypotheses are silently added or omitted, and no change in type or conclusion occurs.",
+  "duration_ms": 38129,
+  "cost_usd": 0.1651635
+}

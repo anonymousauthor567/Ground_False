@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a3.lean",
+  "stem": "putnam_2003_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses Mathlib's `Real.tan x = sin x / cos x` and the convention `1/0 = 0`. While this differs from the standard convention at singular points (where sin or cos is zero), computation shows that at every singular point on ℝ, the Lean function value is 2, which exceeds the intended minimum 2√2 - 1 ≈ 1.828. The true minimum of |u + 2/(u-1)| (where u = sin x + cos x) equals 2√2 - 1 and is attained at u = 1 - √2, which corresponds to a regular x where sin x · cos x ≠ 0 — so Lean's definition matches the standard one there. Thus `IsLeast (Set.range f) (2√2 - 1)` correctly asserts that 2√2 - 1 is both attained (witnessing some x₀) and is a lower bound for all x ∈ ℝ, which is logically equivalent to the informal claim that 2√2 - 1 is the minimum. The encodings cot = 1/tan, sec = 1/cos, csc = 1/sin are mathematically standard. The formalization is faithful.",
+  "duration_ms": 245050,
+  "cost_usd": 0.809503
+}

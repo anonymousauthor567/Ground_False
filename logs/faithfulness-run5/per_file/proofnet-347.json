@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the property \"lim_{h→0}[f(x+h) - f(x-h)] = 0 for all x\" does not force continuity, which amounts to exhibiting a counterexample. The Lean formalization `∃ f : ℝ → ℝ, (∀ x, Tendsto (fun y => f(x+y) - f(x-y)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f` captures exactly this. The `Tendsto (fun y => f(x+y) - f(x-y)) (𝓝 0) (𝓝 0)` expression precisely encodes lim_{h→0}[f(x+h) - f(x-h)] = 0 (with h renamed y). The universal quantification over x, the function domain/codomain ℝ → ℝ, and the negation of continuity all match. The existential encoding is the standard and correct way to formalize \"need not be continuous.\"",
+  "duration_ms": 95137,
+  "cost_usd": 0.24541349999999998
+}

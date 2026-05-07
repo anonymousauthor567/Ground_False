@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p21_1.lean",
+  "stem": "linear_algebra__p21_1",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem asserts: for any matrix A and indices i,j,k with k ≠ 0, if either rows i,j are scalar multiples (A i m = k·A j m for all m, with i ≠ j) or columns i,j are scalar multiples (A m i = k·A m j for all m, with i ≠ j), then det A = 0. This is logically equivalent to the informal existential form by the standard equivalence (∀ x, P(x) → Q) ⟺ ((∃ x, P(x)) → Q). The distinctness i ≠ j appears inside the definitions, matching \"distinct\" in the informal. The disjunction of row/column conditions, the nonzero scalar hypothesis, and the conclusion det A = 0 all faithfully match. The ambient typeclass setting (CommRing R, Fintype n, DecidableEq n) is the standard context for square-matrix determinants and does not narrow or broaden the informal claim.",
+  "duration_ms": 250779,
+  "cost_usd": 0.5422234999999999
+}

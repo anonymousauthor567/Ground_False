@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025ii_p4.lean",
+  "stem": "aime_2025ii_p4",
+  "verdict": "faithful",
+  "reasoning": "The informal problem asks for the sum m + n, where m/n is the product in lowest terms with m, n coprime positive integers. In Lean, `ans : ℚ` is constrained by an equation that (via real coercion) forces `ans` to equal the product; since the product is actually the rational 93/13, `ans = 93/13`. Mathlib's `Rat` always stores rationals in reduced form with positive denominator (`Rat.reduced` and `Rat.num_div_den`), so `ans.num = 93` and `ans.den = 13`, which are the coprime positive m and n. The conclusion `↑ans.den + ans.num = 106` is just `13 + 93 = 106`, matching `n + m = m + n = 106`. The natural subtraction `k^2 - 1`, `k^2 - 4` for k ≥ 4 produces the correct exponents since `k^2 ≥ 16 > 4`. The formalization faithfully captures the AIME problem.",
+  "duration_ms": 306372,
+  "cost_usd": 0.9338284999999998
+}

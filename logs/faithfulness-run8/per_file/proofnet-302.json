@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures Munkres Exercise 23.3. The indexed family `A : α → Set X` with `hAa : ∀ a, IsConnected (A a)` represents the collection of connected subspaces. `A₀ : Set X` with `hA : IsConnected A₀` represents the connected subset A. The intersection hypothesis `∀ a, A₀ ∩ A a ≠ ∅` is equivalent to \"A ∩ A_α ≠ ∅ for all α\" (≠ ∅ coincides with Nonempty for sets). The conclusion `IsConnected (A₀ ∪ (⋃ a, A a))` matches \"A ∪ (⋃ A_α) is connected\". Mathlib's `IsConnected` (nonempty + preconnected) is the standard reading of \"connected\" in Munkres' textbook. Quantifier structure, types, hypotheses, and conclusion all match.",
+  "duration_ms": 106699,
+  "cost_usd": 0.35563025
+}

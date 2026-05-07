@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the hypothesis \"every subspace of dimension dim V − 1 is T-invariant\" as `∀ U, finrank F U = finrank F V - 1 → Submodule.map T U ≤ U`, and the conclusion \"T is a scalar multiple of the identity\" as `∃ c : F, T = c • LinearMap.id`. The finite-dimensional hypothesis is required (to make `dim V - 1` meaningful) and matches the informal. Using an arbitrary field F rather than restricting to ℝ/ℂ is not a faithfulness concern: the informal statement refers only to a vector space V and T ∈ L(V), and the classical proof (extending {v, Tv} to a basis to force Tv ∈ span(v)) works over any field. ℕ-subtraction edge cases (dim V = 0) make both the hypothesis and conclusion trivially hold, so they don't break logical equivalence. The types, quantifier structure, and invariance encoding (`Submodule.map T U ≤ U`) all match standard mathematical reading.",
+  "duration_ms": 91684,
+  "cost_usd": 0.31632875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show every order topology is regular, which the Lean version formalizes as `[LinearOrder α] [TopologicalSpace α] [OrderTopology α] → RegularSpace α`. Mathlib's `RegularSpace` captures the key separation axiom (disjoint neighborhoods of a closed set and an outside point) — this is precisely the mathematical content of the exercise. While Munkres' textbook convention for \"regular\" typically also includes T1, this is automatic from the stated hypotheses: Mathlib provides `OrderTopology.to_orderClosedTopology` and `OrderClosedTopology.to_t2Space`, so `LinearOrder + OrderTopology` gives T2 (hence T1) for free. Thus the Lean conclusion is equivalent in content to \"T3Space\" under these hypotheses, and `RegularSpace` is the standard Mathlib formalization of the R3 separation axiom that the exercise is really about. The hypotheses (LinearOrder + OrderTopology) correctly encode \"order topology,\" and the conclusion captures the intended property.",
+  "duration_ms": 204584,
+  "cost_usd": 0.69888125
+}

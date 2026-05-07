@@ -1,0 +1,8 @@
+{
+  "file": "imo_2024_p5.lean",
+  "stem": "imo_2024_p5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes IMO 2024 Problem 5 exactly matching the official Mathlib archive formalization. With N = 2022: the board has N+2 = 2024 rows and N+1 = 2023 columns; InteriorRow N contains exactly the N = 2022 interior rows (each with one monster); MonsterData is an injection from interior rows to columns, capturing \"at most one monster per column\"; Path enforces starting in row 0, ending in row N+1, and moves between cells with Nat.dist sum = 1 (adjacency by side), permitting revisits; Strategy depends on prior firstMonster outcomes (modeling the \"Turbo remembers\" and adaptive play); WinsIn asserts some attempt returns `none` (no monster encountered, so last row reached); ForcesWinIn is universally quantified over monster placements; and IsLeast gives precisely \"the minimum value of n\". The encoding `(cells.getLast _).1 = N + 1` matches `Fin.last (N+1)` (same element of Fin (N+2)). All hypotheses and the conclusion faithfully match the informal claim with no weakening or strengthening.",
+  "duration_ms": 387983,
+  "cost_usd": 1.0963935
+}

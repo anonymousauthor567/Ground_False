@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b4.lean",
+  "stem": "putnam_2003_b4",
+  "verdict": "weaker",
+  "reasoning": "The informal Putnam 2003 B4 statement factors $f(z) = a(z-r_1)(z-r_2)(z-r_3)(z-r_4)$ as the complete factorization of an integer-coefficient quartic, which by the fundamental theorem of algebra has complex roots in general (real being a special case). The Lean formalization types the roots as `r1 r2 r3 r4 : ℝ`, forcing all four roots to be real. This excludes polynomials with non-real complex roots entirely (e.g., $f(z) = (z^2+1)(z-2)(z-3)$ with $r_1=i, r_2=-i, r_3=2, r_4=3$, where $r_1+r_2=0 \\in \\mathbb{Q}$, $r_1+r_2 \\neq r_3+r_4$, and $r_1r_2=1 \\in \\mathbb{Q}$ — a genuine instance of the informal claim not expressible in the Lean version). This is not merely surfacing an implicit premise for truth: the general complex-root version is provable (same algebraic manipulation with $s=r_1+r_2$, $p=r_1r_2$, Vieta's formulas, and solving a linear system works over $\\mathbb{C}$). Hence the Lean version is logically implied by the informal statement but covers a strict subset of cases, making it weaker.",
+  "duration_ms": 323428,
+  "cost_usd": 1.05371325
+}

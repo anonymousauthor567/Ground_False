@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b3.lean",
+  "stem": "putnam_2006_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding faithfully captures the informal statement. The unordered pair {A,B} is encoded as `Finset (Finset _)` with card=2, which correctly handles both the \"A or B may be empty\" case (since n≥1 forces S≠∅, so {∅,S} has card 2) and the unordered nature. The strict inequalities p 1 > m*p 0 + b and p 1 < m*p 0 + b ensure A and B are on opposite sides AND the line is disjoint from S (no point of S lies on the line). While the Lean encoding only allows non-vertical lines y=mx+b, this is equivalent: for any finite S and any partition separable by any line, there always exists a non-vertical separating line (the set of separating lines is open in 2D, so it must intersect the complement of the 1D vertical-line subspace). The existential over A, B ∈ AB captures either labeling of the two pieces (the separation condition is symmetric). IsGreatest correctly expresses \"maximum attained\" over sets of cardinality n, matching \"find the maximum\" in the informal problem. The solution formula C(n,2)+1 matches the well-known Putnam 2006 B3 answer.",
+  "duration_ms": 541578,
+  "cost_usd": 1.29655525
+}

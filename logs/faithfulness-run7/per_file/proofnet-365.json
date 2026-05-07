@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts an improper integral equality. The integrand x·sin(x)/(x²+a²) is not Lebesgue integrable on ℝ (it behaves like sin(x)/x at infinity), so the informal notation must be interpreted as an improper Riemann integral. The Lean formalization expresses this as the symmetric limit lim_{y→∞} ∫_{-y}^{y} f, i.e., the Cauchy principal value. Because the integrand is even (x·sin(x) even, x²+a² even) and the two-sided improper Riemann integral converges (by Dirichlet's test on each half-line), the symmetric limit agrees with the improper Riemann integral. The hypothesis a > 0 and the target value π·exp(-a) match exactly. Hence the formalization is logically equivalent to the intended informal claim.",
+  "duration_ms": 81994,
+  "cost_usd": 0.27984875
+}

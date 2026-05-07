@@ -1,0 +1,8 @@
+{
+  "file": "32.lean",
+  "stem": "32",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. Hypotheses: `[CommRing R] [IsLocalRing R] [IsNoetherianRing R]` correctly model \"Noetherian local ring A\" (in commutative-algebra convention local rings are commutative). `AdicCompletion (maximalIdeal R) R` is Mathlib's standard m-adic completion Â. The combination `[IsDomain (AdicCompletion …)]` + `[UniqueFactorizationMonoid (AdicCompletion …)]` correctly encodes \"Â is a UFD\" (UFD = domain + unique factorization; Mathlib's `UniqueFactorizationMonoid` extends `IsCancelMulZero` but not `Nontrivial`, so pairing with `IsDomain` is the right way to get a UFD). The conclusion `∃ (h : IsDomain R), UniqueFactorizationMonoid R` asserts both that R is a domain and that unique factorization holds, which is precisely \"A is a UFD\". No extra or missing hypotheses, no quantifier drift.",
+  "duration_ms": 306051,
+  "cost_usd": 0.5786490000000001
+}

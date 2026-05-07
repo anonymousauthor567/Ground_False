@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_b2.lean",
+  "stem": "putnam_1979_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully: the hypothesis `0 < a ∧ a < b` encodes \"0 < a < b\"; the integrand `(b*x + a*(1-x))^t` is the correct expression using `Real.rpow` (valid since the base is strictly positive on [0,1]); the integral `∫ x in Icc 0 1, ...` is the Lebesgue integral over [0,1] which matches the Riemann integral from 0 to 1; the outer `^(1/t)` matches; and `Tendsto ... (𝓝[≠] 0) (𝓝 solution)` encodes \"t → 0\". Using the punctured neighborhood `𝓝[≠] 0` rather than `𝓝 0` is the correct/standard interpretation since the function is undefined at t = 0 (due to 1/t), and is the only meaningful reading of the informal limit. The solution template `e^{-1}·(b^b/a^a)^{1/(b-a)}` also matches a direct computation of the limit.",
+  "duration_ms": 130355,
+  "cost_usd": 0.37023575000000003
+}

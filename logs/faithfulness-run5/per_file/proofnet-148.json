@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `Irrational x` is defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`, i.e., x is not a rational real — exactly the textbook meaning. The Lean signature takes `x : ℝ`, a rational `y : ℚ` with `hy : y ≠ 0`, and concludes `Irrational x → Irrational (x + y)`, where `y` is implicitly coerced to ℝ. This matches the informal claim \"if r is rational (r ≠ 0) and x is irrational, then r + x is irrational\" — addition in ℝ is commutative, so `x + y` and `r + x` state the same thing. All hypotheses (including the r ≠ 0 hypothesis, even though it is not strictly needed) and the conclusion align, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 71415,
+  "cost_usd": 0.253826
+}

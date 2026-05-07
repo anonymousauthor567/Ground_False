@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `RegularSpace` is the pure separation axiom (disjoint neighborhoods of a closed set and a point not in it, no T₁ assumed), exactly matching Munkres's \"regular (separation property only)\". The nonempty hypothesis `∀ i, Nonempty (X i)` mirrors \"Assume each X_α is nonempty\" and is genuinely needed (an empty factor makes the product empty and vacuously regular while other factors may fail to be regular). The universal quantification `∀ i, RegularSpace (X i)` correctly captures \"then so is X_α\", and `{ι : Type*}` is a faithful encoding of an arbitrary index set. Hypotheses, conclusion, types, and quantifier structure all match the informal claim.",
+  "duration_ms": 81723,
+  "cost_usd": 0.31797349999999996
+}

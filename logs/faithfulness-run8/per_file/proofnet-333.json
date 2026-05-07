@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the informal statement directly: `[LinearOrder α]` matches \"total ordered set\" (Mathlib's `LinearOrder` is a total linear order with reflexivity/transitivity/totality), `s : Set α` with `Set.Nonempty s` captures the nonempty subset E, and `x ∈ lowerBounds s` / `y ∈ upperBounds s` are exactly Mathlib's definitions of being a lower/upper bound of s (∀ a ∈ s, x ≤ a and ∀ a ∈ s, a ≤ y). The conclusion `x ≤ y` matches α ≤ β. No hypotheses are added or dropped, and the types match the informal intent.",
+  "duration_ms": 30682,
+  "cost_usd": 0.15167375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p3_4.lean",
+  "stem": "complex_analysis__p3_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem matches the informal statement exactly. `Entire f` is defined as `AnalyticOn ℂ f Set.univ`, which corresponds to the standard definition of an entire function (analytic on all of ℂ, verified via Mathlib's `Analysis/Analytic/Basic.lean`). The hypothesis `∀ z, 1 ≤ abs (f z)` (with `open Complex` making `abs` resolve to `Complex.abs`) is precisely |f(z)| ≥ 1 for all z ∈ ℂ. The conclusion `∃ c : ℂ, ∀ z, f z = c` is the standard Lean encoding of \"f is constant\". No hypotheses are added or dropped, and the types match. The auxiliary axioms (`bounded_reciprocal_function`, `liouville_theorem`, `constant_reciprocal_function`) are only used as proof scaffolding and do not alter the statement of `constant_entire_function`.",
+  "duration_ms": 93578,
+  "cost_usd": 0.23021875000000003
+}

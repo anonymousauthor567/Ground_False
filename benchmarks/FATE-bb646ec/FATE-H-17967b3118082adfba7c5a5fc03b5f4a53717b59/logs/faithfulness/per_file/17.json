@@ -1,0 +1,8 @@
+{
+  "file": "17.lean",
+  "stem": "17",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"(x^p - 1)/(x - 1) is irreducible in ℤ[x]\" uses the letter \"p\", which is the standard convention for a prime — and primality is actually REQUIRED for the statement to be true (e.g., for p = 4, the quotient x³+x²+x+1 = (x+1)(x²+1) is reducible). The Lean hypothesis `[Fact (Nat.Prime p)]` makes this implicit premise explicit, which per the system prompt is a faithful reading rather than a weakening. The encoding `((X : ℤ[X])^p - 1) /ₘ (X - 1)` correctly expresses the quotient: `X - 1` is monic so `divByMonic` gives exactly the geometric-series polynomial 1 + X + ... + X^(p-1) (the p-th cyclotomic polynomial). `Irreducible` is the standard Mathlib definition over ℤ[X], matching \"irreducible in ℤ[x]\". Hence the Lean statement is logically equivalent to the intended informal claim.",
+  "duration_ms": 266064,
+  "cost_usd": 0.57595575
+}

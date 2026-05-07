@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a standard Stein–Shakarchi exercise (Ch. 1, Ex. 13a) whose intended setting is a region (open connected set); without connectedness the claim is literally false (one can pick different constants on different components). The Lean signature adds `IsPreconnected Ω` which captures this \"region\" hypothesis, uses `IsOpen Ω` and `DifferentiableOn ℂ f Ω` for \"holomorphic in an open set\", and encodes \"Re(f) is constant\" as `∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c`. The conclusion \"f is constant\" is encoded via `f a = f b` for universally quantified `a b : Ω`, which is equivalent to ∃c, ∀z∈Ω, f z = c (including trivially when Ω is empty). Under the standard mathematical reading of the exercise (Ω a region), the Lean statement matches exactly.",
+  "duration_ms": 103106,
+  "cost_usd": 0.17985175
+}

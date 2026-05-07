@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for A ⊆ Y ⊆ X, the subspace topology on A from Y agrees with the subspace topology on A from X. In the Lean statement, `A : Set Y` gives A the Y-subspace topology (via Mathlib's standard subtype topology). `IsInducing (fun a : A => (a : X))`, by the Mathlib definition in `Topology/Defs/Induced.lean` (`eq_induced : tX = tY.induced f`), asserts that the topology on A equals the topology induced from X via the composite inclusion A → Y → X — i.e., the X-subspace topology on A. So the Lean statement says precisely: (Y-subspace topology on A) = (X-subspace topology on A), matching the informal claim exactly.",
+  "duration_ms": 122658,
+  "cost_usd": 0.38458824999999996
+}

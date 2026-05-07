@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the hypotheses (holomorphic on open Ω, Im(f) constant) and the conclusion (f is constant, expressed as ∀ a b ∈ Ω, f a = f b). The only addition is `IsPreconnected Ω`, which surfaces an implicit premise: without connectedness, the claim is literally false (e.g., on Ω = D(0,1) ∪ D(10,1), one could take f = 0 on one disk and f = 1 on the other, with constant imaginary part but f not constant globally). In complex analysis, and particularly in Shakarchi's text, \"holomorphic on Ω\" with conclusion \"f is constant\" implicitly assumes Ω is a connected region. Making this explicit is a faithful reading, not a strengthening or weakening.",
+  "duration_ms": 41227,
+  "cost_usd": 0.1151
+}

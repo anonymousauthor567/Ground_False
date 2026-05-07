@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the set L(a) = {x ∈ R | xa = 0} is an ideal of a commutative ring R. The Lean signature takes a commutative ring R and an arbitrary element a : R, and asserts the existence of an ideal I : Ideal R whose underlying set (via SetLike coercion from Submodule R R) equals {x : R | x*a = 0}. This is exactly the standard way to state \"this set forms an ideal\" — a set S is an ideal iff there exists an ideal I with ↑I = S. Since R is commutative, x*a = a*x, so direction of multiplication is irrelevant. The quantifier structure, hypotheses, and mathematical content all match the informal statement.",
+  "duration_ms": 98626,
+  "cost_usd": 0.3913535
+}

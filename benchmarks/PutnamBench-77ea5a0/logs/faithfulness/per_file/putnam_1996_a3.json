@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_a3.lean",
+  "stem": "putnam_1996_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the problem. `choices : Fin 20 → Set (Fin 6)` captures each of 20 students choosing any subset (size 0 to 6) of the 6 courses. The existentials over `Finset (Fin 20)` with card 5 and `Finset (Fin 6)` with card 2 pick 5 distinct students and 2 distinct courses. The disjunction `↑courses ⊆ ⋂ s ∈ students, choices s ∨ ↑courses ⊆ ⋂ s ∈ students, (choices s)ᶜ` unfolds to \"every chosen course is in every chosen student's set\" (all 5 chose both) ∨ \"every chosen course is outside every chosen student's set\" (all 5 chose neither), matching the informal disjunction. The `↔ putnam_1996_a3_solution` (with solution `False`) is the standard Putnam \"prove or disprove\" encoding. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 52296,
+  "cost_usd": 0.1568515
+}

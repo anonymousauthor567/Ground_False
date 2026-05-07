@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. The hypothesis `finrank F V = 1` encodes \"dim V = 1\", `T : V →ₗ[F] V` encodes \"T ∈ L(V,V)\", and `∃ c : F, ∀ v : V, T v = c • v` encodes \"there exists a ∈ F such that Tv = av for all v ∈ V\". The extra `[FiniteDimensional F V]` typeclass is redundant since Mathlib's `finrank_of_infinite_dimensional` forces `finrank F V = 0` whenever `V` is not finite-dimensional, so `finrank F V = 1` already implies `FiniteDimensional F V`. Thus the extra instance neither weakens nor strengthens the claim — it makes explicit what is implicitly required by \"dim V = 1\" in Axler's context. The quantifier structure (∃ c, ∀ v) and the equation Tv = c•v match exactly.",
+  "duration_ms": 76096,
+  "cost_usd": 0.28502700000000003
+}

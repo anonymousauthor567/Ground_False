@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "theorem_name": "Putnam_exercise_2014_a5_corrected",
+  "informal": "Let $P_n(x)=1+2 x+3 x^2+\\cdots+n x^{n-1} .$ Prove that the polynomials $P_j(x)$ and $P_k(x)$ are relatively prime for all positive integers $j$ and $k$ with $j \\neq k$.",
+  "lean": "theorem Putnam_exercise_2014_a5_corrected\n    (P : ℕ → Polynomial ℚ)\n    (hP : ∀ n, P n = ∑ i : Fin n, (↑(i : ℕ) + 1) * Polynomial.X ^ (i : ℕ)) :\n    ∀ {j k : ℕ}, 0 < j → 0 < k → j ≠ k → IsCoprime (P j) (P k)",
+  "verdict": "faithful",
+  "reasoning": "The definition `P n = ∑ i : Fin n, (i+1) * X^i` expands to (1) + 2X + 3X^2 + ... + n X^{n-1}, matching P_n(x). The conclusion `IsCoprime (P j) (P k)` in ℚ[X] is the standard Mathlib encoding of \"relatively prime polynomials\". The hypotheses `0 < j`, `0 < k`, `j ≠ k` correspond exactly to \"positive integers j and k with j ≠ k\". The quantification ∀ {j k} matches the universal claim. Working over ℚ is appropriate (the polynomial has integer coefficients but coprimality in ℚ[X] is the natural statement, and equivalent to coprimality in ℤ[X] via Gauss's lemma since contents are 1). No extra or missing hypotheses.",
+  "duration_ms": 8991,
+  "cost_usd": 0.052953
+}

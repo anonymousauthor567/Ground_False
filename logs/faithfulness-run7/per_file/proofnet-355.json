@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says f : ℝ → ℝ satisfies |f(x) - f(y)| ≤ (x-y)² for all real x, y, and concludes f is constant. The Lean statement uses f : ℝ → ℝ, the identical hypothesis `∀ x y : ℝ, |f x - f y| ≤ (x - y) ^ 2`, and concludes `∃ c, f = λ _x => c`, which by function extensionality is exactly \"there exists c such that f(x) = c for all x\" — the standard formalization of \"f is constant.\" No hypotheses are added, dropped, or weakened, and the types match. This is a faithful formalization.",
+  "duration_ms": 25677,
+  "cost_usd": 0.07708699999999999
+}

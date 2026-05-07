@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all the essential elements of Axler's Exercise 5.13. V is a finite-dimensional vector space over a field F (matching \"V\" in Axler's notation where finite-dimensionality is assumed throughout the chapter), T is a linear endomorphism (End F V = L(V)), and the hypothesis quantifies over all subspaces U with finrank F U = finrank F V - 1, requiring T-invariance encoded as Submodule.map T U ≤ U (i.e., T(U) ⊆ U). The conclusion ∃ c : F, T = c • LinearMap.id states exactly that T is a scalar multiple of the identity operator. Even in edge cases (dim V = 0 or 1), natural number subtraction gives dim V - 1 = 0, making the hypothesis trivially true, but the conclusion also holds trivially (for dim 0, T = 0; for dim 1, every endomorphism is a scalar multiple of identity). The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 205346,
+  "cost_usd": 0.53161975
+}

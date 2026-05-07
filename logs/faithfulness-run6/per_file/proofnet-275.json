@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. F is typed as a Field, with CharP F p and hp : p ≠ 0 capturing \"field of characteristic p ≠ 0\" (in a field this forces p prime, matching the standard reading). The hypothesis hn : n > 0 captures \"any positive integer n\", hm : m = p ^ n captures \"m = p^n\", and the conclusion (a + b) ^ m = a^m + b^m with a b : F captures \"for all a, b ∈ F\". The universal quantification over F, p, n via implicit arguments correctly models \"If F is a field... for any positive integer n\". No hypotheses are dropped, added, or silently changed.",
+  "duration_ms": 42046,
+  "cost_usd": 0.17058500000000001
+}

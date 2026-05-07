@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately encodes the informal claim. The open unit disc D is given as `ball 0 1`; \"holomorphic in D\" is `DifferentiableOn ℂ f D`; \"extends continuously to ∂D\" is `ContinuousOn f (closure D)` (and in ℂ, closure of ball 0 1 = closedBall 0 1 = ball ∪ sphere, so this captures continuity up to and including the boundary); \"∂D\" is `sphere 0 1`; and the boundary condition f(z) = 1/z is stated exactly. The universally-quantified form \"for all f with these hypotheses, ¬(boundary condition)\" is logically equivalent to \"there is no f such that (hypotheses) ∧ (boundary condition)\". No hypothesis is silently added or dropped, and no quantifier or type is altered.",
+  "duration_ms": 88334,
+  "cost_usd": 0.2983125
+}

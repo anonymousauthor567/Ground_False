@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly: (1) `ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f` is Mathlib's notation for C^∞ (infinitely differentiable), which matches the informal premise; (2) the three hypotheses `f 0 = 0`, `f 1 = 1`, `∀ x, f x ≥ 0` correspond directly to the informal hypotheses; (3) the conclusion uses `n : ℕ+` which is exactly \"positive integer n\" from the informal text, with `iteratedDeriv n f x` denoting the n-th iterated derivative (ℕ+ coerces to ℕ for the index). The quantifier structure (∃ n, ∃ x) and the strict inequality `< 0` also match. No hypotheses are added or dropped, and no types or quantifiers are altered.",
+  "duration_ms": 92577,
+  "cost_usd": 0.34749674999999997
+}

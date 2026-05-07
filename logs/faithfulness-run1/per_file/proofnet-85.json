@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "informal": "Let $R$ be a ring in which $x^3 = x$ for every $x \\in R$. Prove that $R$ is commutative.",
+  "lean": "\ntheorem Herstein_exercise_4_2_5 {R : Type*} [Ring R]\n  (h : ∀ x : R, x ^ 3 = x) : Nonempty (CommRing R)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that the given ring R (with its given multiplication) is commutative, i.e., ∀ x y : R, x * y = y * x with respect to the supplied `Ring R` instance. The Lean signature instead concludes `Nonempty (CommRing R)`, which only asserts that some commutative ring structure can be put on the type R — this CommRing instance has its own +, *, 0, 1 fields and is not required to agree with the supplied `Ring R` instance. Thus a proof of the informal claim trivially yields `Nonempty (CommRing R)` (use the original operations), but a proof of `Nonempty (CommRing R)` does not establish that the given multiplication is commutative; one could in principle equip R with an unrelated commutative ring structure. Hence the Lean claim is strictly weaker than the informal one.",
+  "duration_ms": 25279,
+  "cost_usd": 0.08194075
+}

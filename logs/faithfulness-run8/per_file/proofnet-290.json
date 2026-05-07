@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the union of a family of topologies need not be a topology, which is logically an existential claim: there exists a family of topologies whose union fails to be a topology. The Lean theorem states exactly this: ∃ X, I, and T : I → Set (Set X) such that each T i is a topology on X (via `is_topology`) and ⋃ i : I, T i is not a topology on X. The `is_topology` predicate correctly axiomatizes topologies (the empty set being open follows from the arbitrary-union axiom applied to the empty collection, since `sUnion ∅ = ∅`). The encoding `⋃ i : I, T i` as a `Set (Set X)` correctly represents the union of the topologies as sets of open subsets. The existential quantification over both X and I matches the informal \"family of topologies on X\" (for some X). No hypotheses are silently strengthened or weakened.",
+  "duration_ms": 109938,
+  "cost_usd": 0.33396225
+}

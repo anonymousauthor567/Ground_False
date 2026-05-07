@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p22.lean",
+  "stem": "number_theory__p22",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes Niven's theorem as stated informally. The expression `p * π / q` with `p, q : ℤ` parses as `((p : ℝ) * π) / (q : ℝ)`, which equals `(p/q) * π` for q ≠ 0 (and gives cos(0) = 1 ∈ target set when q = 0 under Lean's division-by-zero convention). The hypothesis `∃ r : ℚ, cos (p * π / q) = r` correctly expresses \"cos is rational\" via ℚ → ℝ coercion. The conclusion asserts the rational value belongs to {0, 1, -1, 1/2, -1/2}, which is identical to the informal set {0, ±1/2, ±1}. The universal quantification over p, q matches the \"for some p, q ∈ ℤ\" reading. No hypotheses are added or dropped, types are appropriate, and the quantifier structure matches.",
+  "duration_ms": 197427,
+  "cost_usd": 0.472379
+}

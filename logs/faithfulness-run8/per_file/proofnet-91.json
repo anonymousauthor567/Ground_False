@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-91.lean",
+  "stem": "proofnet-91",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"Vector space over infinite field F\" is captured by `[Infinite F] [Field F] [AddCommGroup V] [Module F V]`. \"Finite number of proper subspaces\" is `[Finite ι]` with `u : ι → Submodule F V` and `hu : ∀ i, u i ≠ ⊤` (the standard meaning of proper: not equal to the full space). The conclusion `(⋃ i : ι, (u i : Set V)) ≠ ⊤` says the set-theoretic union equals `⊤ : Set V = Set.univ`, i.e., is not all of V. This exactly matches Mathlib's own formalization in `Mathlib/GroupTheory/CosetCover.lean` (`Subspace.exists_eq_top_of_iUnion_eq_univ`), whose docstring reads identically. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 96580,
+  "cost_usd": 0.34836075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses `[Group G] [Fintype G]` together with `Even (card G)` correspond exactly to \"G is a finite group of even order\". The conclusion `∃ (a : G), a ≠ 1 ∧ a = a⁻¹` asserts the existence of a non-identity element equal to its own inverse, which is exactly \"there must be an element a ≠ e such that a = a⁻¹\". The quantifier structure, ambient type, and hypothesis/conclusion all match the informal statement.",
+  "duration_ms": 15593,
+  "cost_usd": 0.033522500000000004
+}

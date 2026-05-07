@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. (1) `A : Set ℝ` with `hA : A.Nonempty` matches \"nonempty set of real numbers\"; (2) `BddBelow A` matches \"bounded below\"; (3) `minus_A = {x | -x ∈ A}` defines exactly the same set as the informal $-A = \\{-x : x \\in A\\}$: $x \\in \\{x \\mid -x \\in A\\}$ iff $-x \\in A$ iff $x = -a$ for some $a \\in A$; (4) the conclusion `sInf A = - sSup minus_A` matches $\\inf A = -\\sup(-A)$. `sInf`/`sSup` on ℝ are the standard inf/sup (returning 0 for unbounded/empty cases, but here nonemptiness and bounded-below guarantee the usual values), and the equality asserted is exactly Rudin's claim. No hypotheses are dropped or added beyond what is stated.",
+  "duration_ms": 85329,
+  "cost_usd": 0.39313450000000005
+}

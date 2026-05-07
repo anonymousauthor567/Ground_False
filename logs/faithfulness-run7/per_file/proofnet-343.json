@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The conclusion (limsup(a_n+b_n) ≤ limsup a_n + limsup b_n in EReal after coercing real sequences) exactly matches the informal inequality. The hypotheses h1 (limsup a ≠ ⊥ ∨ limsup b ≠ ⊤) and h2 (limsup a ≠ ⊤ ∨ limsup b ≠ ⊥), by De Morgan, together say \"not (limsup a = ⊥ ∧ limsup b = ⊤) and not (limsup a = ⊤ ∧ limsup b = ⊥)\" — i.e., exactly that the RHS is not of the form ∞-∞. These match Mathlib's `EReal.limsup_add_le` hypotheses precisely. They are also necessary for truth because EReal convention sets ⊥+⊤ = ⊥, so without excluding these cases the inequality can fail (e.g., a_n = -n, b_n = n gives LHS = 0 but RHS = ⊥).",
+  "duration_ms": 124764,
+  "cost_usd": 0.4876035
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2016_p6.lean",
+  "stem": "imo_2016_p6",
+  "verdict": "weaker",
+  "reasoning": "The `FrogSystem N` structure bundles both the geometric configuration (intersection points with betweenness constraints) and the direction/ordering choice (`otherSegment`) into a single object. The informal problem states a configuration is given and Geoff chooses directions. Thus part (a) — \"Geoff can always fulfill his wish if n is odd\" — should read \"∀ configuration, ∃ direction choice, GeoffsWish\". However, the Lean formalization writes part (a) as `∃ F : FrogSystem n, F.GeoffsWish`, which existentially quantifies over both configuration and direction together. This only requires exhibiting one (configuration, direction) pair per odd n, which is strictly weaker than showing that for every valid configuration there exists a direction choice that works. Part (b), `∀ F, ¬F.GeoffsWish`, correctly captures the informal \"∀ configuration, ∀ direction, wish fails.\" Since the conjunction is weaker than the informal statement because of the mismatch in part (a), the overall formalization is weaker.",
+  "duration_ms": 933024,
+  "cost_usd": 2.67751825
+}

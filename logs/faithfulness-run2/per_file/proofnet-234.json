@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely. G is an arbitrary group, H and K are subgroups with H ≤ K given by hHK, K is normal in G via [K.Normal], and H being characteristic in K is correctly encoded as `(H.subgroupOf K).Characteristic` — since H ≤ K, `H.subgroupOf K` is exactly H viewed as a subgroup of K, and its Characteristic instance means invariance under all automorphisms of K. The conclusion `H.Normal` means H is normal in G. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 15311,
+  "cost_usd": 0.06043950000000001
+}

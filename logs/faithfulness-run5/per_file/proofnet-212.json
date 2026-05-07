@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of multiplication in $\\mathbb{Z}/n\\mathbb{Z}$. The Lean statement quantifies over all n : ℕ and asserts (a * b) * c = a * (b * c) for a, b, c : ZMod n, which is exactly the associativity law for multiplication in ZMod n. In Mathlib, ZMod n is the standard formalization of $\\mathbb{Z}/n\\mathbb{Z}$ (with ZMod 0 = ℤ, which is also associative). The universal quantification over n matches the natural reading of the informal statement. The hypotheses, conclusion, types, and quantifier structure all align precisely with the informal claim.",
+  "duration_ms": 23768,
+  "cost_usd": 0.10543475
+}

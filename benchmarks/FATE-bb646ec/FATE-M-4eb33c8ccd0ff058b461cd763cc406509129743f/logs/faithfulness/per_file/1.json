@@ -1,0 +1,8 @@
+{
+  "file": "1.lean",
+  "stem": "1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $G^n$, the n-fold product of a finite group $G$, has order $|G|^n$. The Lean statement encodes the n-fold product as the Pi type `Π _ : Fin n, G` (equivalently `Fin n → G`), which is a standard and mathematically equivalent encoding of the iterated product — their cardinalities agree (this matches Mathlib's `Fintype.card_pi_const`). The \"order\" of a finite group is the cardinality of its underlying set, which `Fintype.card` computes exactly. The hypotheses `[Fintype G]` (finite) and `[Group G]` (group structure) match the informal setup. The universal quantification over `n : ℕ` correctly covers all natural numbers including n = 0. Thus the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 92331,
+  "cost_usd": 0.20446150000000002
+}

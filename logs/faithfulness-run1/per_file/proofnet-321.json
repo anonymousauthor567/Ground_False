@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "informal": "Assume that $A, B$ are compact, disjoint, nonempty subsets of $M$. Prove that there are $a_0 \\in A$ and $b_0 \\in B$ such that for all $a \\in A$ and $b \\in B$ we have $d(a_0, b_0) \\leq d(a, b)$.",
+  "lean": "\ntheorem Pugh_exercise_2_46 {M : Type*} [MetricSpace M]\n  {A B : Set M} (hA : IsCompact A) (hB : IsCompact B)\n  (hAB : Disjoint A B) (hA₀ : A ≠ ∅) (hB₀ : B ≠ ∅) :\n  ∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ (a : M) (b : M),\n  a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement closely: M is a metric space, A and B are subsets with IsCompact, Disjoint, and nonempty (A ≠ ∅, B ≠ ∅) hypotheses, matching \"compact, disjoint, nonempty subsets of M.\" The conclusion asserts the existence of a₀ ∈ A and b₀ ∈ B such that for all a ∈ A and b ∈ B, dist a₀ b₀ ≤ dist a b, which is exactly the informal claim. The quantifier structure (∃ a₀ b₀, ∀ a b) and the inequality direction match. No extra or missing hypotheses materially change the meaning.",
+  "duration_ms": 8060,
+  "cost_usd": 0.049551250000000005
+}

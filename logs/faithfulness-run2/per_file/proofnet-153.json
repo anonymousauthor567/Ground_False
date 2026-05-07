@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: n ≥ 3, x, y in EuclideanSpace ℝ (Fin n), ‖x - y‖ = d, d > 0, r > 0, 2r > d, and the conclusion is that the set {z | ‖z - x‖ = r ∧ ‖z - y‖ = r} is infinite. The unused parameter `_z : EuclideanSpace ℝ (Fin n)` is vestigial — since EuclideanSpace ℝ (Fin n) is always inhabited (has 0), requiring an arbitrary unused witness of this type does not add any nontrivial assumption or change the logical content. All hypotheses, types, and the conclusion correspond exactly to the informal claim.",
+  "duration_ms": 17391,
+  "cost_usd": 0.08730275
+}

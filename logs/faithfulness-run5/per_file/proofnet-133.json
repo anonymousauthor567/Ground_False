@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses Mathlib's `CompletelyRegularSpace` (which is the standard \"points can be separated from closed sets by continuous [0,1]-valued functions\" definition), takes A and B as disjoint closed sets with A compact, and concludes with a continuous f : X → I (the unit interval [0,1]) satisfying `f '' A = {0}` and `f '' B = {1}`. These match the informal hypotheses and conclusion. The only addition is `A.Nonempty` and `B.Nonempty`. Because the formalization uses strict set equality `f '' A = {0}` (rather than pointwise \"f = 0 on A\"), the conclusion would be literally false if A or B were empty (since `f '' ∅ = ∅ ≠ {0}`). Adding nonemptiness therefore surfaces an implicit premise required for the literal reading of \"f(A) = {0}\" and \"f(B) = {1}\" to be achievable — analogous to the worked example in the instructions. This is a faithful formalization.",
+  "duration_ms": 172940,
+  "cost_usd": 0.40423625
+}

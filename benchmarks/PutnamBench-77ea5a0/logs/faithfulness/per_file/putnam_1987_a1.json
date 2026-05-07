@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_a1.lean",
+  "stem": "putnam_1987_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the same four curves with matching polynomial equations, and asserts $A \\cap B = C \\cap D$ as required. The only notable addition is the hypothesis `x^2 + y^2 ≠ 0` in the definitions of $A$ and $B$. This is not a semantic drift but rather makes explicit an implicit premise: in the informal statement the expressions $x/(x^2+y^2)$ and $y/(x^2+y^2)$ are not defined at the origin, so any mathematician would read $A$ and $B$ as implicitly excluding $(0,0)$. Moreover, even under Lean's \"division by zero = 0\" convention the origin is anyway not in $A \\cap B$ (because $0 \\neq 3$ fails in $B$) and not in $C \\cap D$ (because $0 \\neq 1$ fails in $C$), so both interpretations yield the same equality. The equations for $A$, $B$, $C$, $D$ and the conclusion all match exactly.",
+  "duration_ms": 79918,
+  "cost_usd": 0.2719815
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The Lean type `ℕ →ᵇ I` where `I = Icc 0 1` represents bounded continuous functions from ℕ (with discrete topology) to [0,1]. Since ℕ is discrete, every function is continuous, and since I is bounded, every function is bounded automatically, so `ℕ →ᵇ I` is in natural bijection with sequences in [0,1], i.e., $[0,1]^\\omega$. Mathlib's distance on `α →ᵇ β` is `sInf {C | 0 ≤ C ∧ ∀ x, dist (f x) (g x) ≤ C}`, which equals $\\sup_n |x_n - y_n|$ for sequences in [0,1] — exactly the uniform metric (the standard bounded metric and absolute value agree on [0,1] since distances are ≤ 1). The conclusion `¬ LocallyCompactSpace (ℕ →ᵇ I)` directly matches \"not locally compact.\" This is a faithful encoding of Munkres' Exercise 29.4.",
+  "duration_ms": 225230,
+  "cost_usd": 0.8302872499999999
+}

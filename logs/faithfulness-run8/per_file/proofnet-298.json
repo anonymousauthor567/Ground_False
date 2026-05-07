@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-298.lean",
+  "stem": "proofnet-298",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly captures the informal statement. In Mathlib, `ℝ ×ₗ ℝ` is notation for `Lex (ℝ × ℝ)` (the lexicographic/dictionary product), with its linear order inherited from `Prod.Lex.linearOrder`. The hypotheses `[TopologicalSpace (ℝ ×ₗ ℝ)] [OrderTopology (ℝ ×ₗ ℝ)]` together pin down the topology to be the order topology on the lexicographic order — i.e., the \"dictionary order topology\" on ℝ × ℝ exactly as in Munkres. Since `OrderTopology`'s single axiom `t = generateFrom { s | ∃ a, s = Ioi a ∨ s = Iio a }` uniquely determines the topology, this hypothesis pattern is a faithful way to say \"equip ℝ × ℝ with the dictionary order topology.\" The conclusion `MetrizableSpace` is the standard Mathlib predicate asserting existence of a compatible metric, matching \"metrizable\" exactly. No hypotheses are dropped or added beyond what the informal statement means.",
+  "duration_ms": 244931,
+  "cost_usd": 0.8281127500000001
+}

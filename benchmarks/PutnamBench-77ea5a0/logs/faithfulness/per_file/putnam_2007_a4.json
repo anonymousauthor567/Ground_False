@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_a4.lean",
+  "stem": "putnam_2007_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The `repunit` predicate correctly characterizes positive integers with all base-10 digits equal to 1: `x > 0 ∧ x = floor x` forces x to be a positive integer (via Nat.floor, since `open Nat` is in effect), and `∀ d ∈ digits 10 (floor x), d = 1` correctly requires all base-10 digits to be 1. Mathlib's `Nat.digits 10 n` produces the correct list of base-10 digits (e.g., `digits 10 111 = [1,1,1]`, `digits 10 101 = [1,0,1]`), so the predicate matches repunits exactly. The main condition `∀ n : ℝ, repunit n → repunit (f.eval n)` faithfully expresses \"if n is a repunit, then f(n) is a repunit\", with the quantification effectively restricted to repunits via the hypothesis. No hypotheses are added or dropped that would alter the mathematical content.",
+  "duration_ms": 194334,
+  "cost_usd": 0.5786359999999999
+}

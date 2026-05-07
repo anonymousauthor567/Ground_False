@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"G has no proper subgroups\" as \"∀ H, H = ⊤ ∨ H = ⊥\" (every subgroup is trivial or the whole group), which is the standard reading in Herstein's context — a modern strict reading (\"proper\" = \"≠ G\") would make the conclusion false since {e} would be a proper subgroup of any nontrivial group. The added hypothesis `h_nontrivial : ∃ g, g ≠ 1` surfaces an implicit premise needed for truth: without it, the trivial group satisfies the subgroup condition but is not cyclic of prime order. Per the prompt's guidance, making such an implicit premise explicit is faithful. The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` correctly captures \"G is cyclic of order p where p is prime\", with `Nat.card G = p` encoding finite cardinality p.",
+  "duration_ms": 193623,
+  "cost_usd": 0.6309405
+}

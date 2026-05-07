@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The power series `f(x) = ∑_{i=0}^∞ c_i x^i` is encoded via `tsum`, which is well-defined here because each coefficient being 0 or 1 makes the series dominated by the geometric series (convergent at x = 1/2 and x = 2/3). The hypothesis `hc : ∀ n, c n = 0 ∨ c n = 1` exactly matches \"each coefficient is 0 or 1\". The hypothesis `hf1 : f (2/3) = 3/2` matches \"f(2/3) = 3/2\". The conclusion `Irrational (f (1/2))` uses Mathlib's standard definition (not in the range of ℚ → ℝ), corresponding to irrationality. The universal quantification over f and c matches the informal \"suppose\".",
+  "duration_ms": 59870,
+  "cost_usd": 0.20745075
+}

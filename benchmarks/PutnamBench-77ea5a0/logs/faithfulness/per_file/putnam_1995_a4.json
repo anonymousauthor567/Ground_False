@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a4.lean",
+  "stem": "putnam_1995_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the Putnam problem. The `cut : Fin n` represents the cut position, and `cut + i` uses `Fin.add` (modular addition), which correctly implements cyclic shifting. The quantifier `∀ k` has k inferred as ℕ (from `j.1 ≤ k` with `j.1 : ℕ`). The set `{j : Fin n | j.1 ≤ k}` contains k+1 elements (for k < n), so the Lean inequality \"sum of first k+1 beads ≤ k\" corresponds exactly to the informal inequality \"sum of first k' beads ≤ k'-1\" under the substitution k' = k+1 ∈ {1,...,n}. For k ≥ n, the inequality becomes the automatic n-1 ≤ k, contributing no extra constraint. The hypothesis `∑ i, necklace i = n - 1` correctly elaborates to (↑n : ℤ) - 1. All types, hypotheses, and the conclusion match the informal statement.",
+  "duration_ms": 573738,
+  "cost_usd": 1.25790525
+}

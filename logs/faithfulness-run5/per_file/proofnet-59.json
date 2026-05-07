@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. \"Integral domain\" is standardly encoded in Mathlib as `[CommRing R] [IsDomain R]` (a commutative ring with no zero divisors and 1 ≠ 0, which `IsDomain` enforces via `Nontrivial` + `NoZeroDivisors`). The hypothesis `x^2 = 1` directly corresponds to \"x² = 1\", and the conclusion `x = 1 ∨ x = -1` is exactly \"x = ±1\". The implicit universal quantification over x (via `{x : R}`) is preserved. No hypotheses are added or dropped, and the types match.",
+  "duration_ms": 62281,
+  "cost_usd": 0.13214125
+}

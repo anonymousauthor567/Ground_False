@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b4.lean",
+  "stem": "putnam_1987_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal problem. The initial condition (x 1, y 1) = (0.8, 0.6) and the recurrence `∀ n ≥ 1` matching n = 1, 2, 3, ... are both correctly encoded. The solution tuple (existsx, limx, existsy, limy) with the two-implication structure `((∃ c, Tendsto x atTop (𝓝 c)) → existsx) ∧ (existsx → Tendsto x atTop (𝓝 limx))` correctly captures the \"find the limit or prove it doesn't exist\" requirement: if existsx = True the solver must prove Tendsto to the specified value; if existsx = False the solver must prove no limit exists. The expected solution (True, -1, True, 0) is mathematically correct: the recurrence is a rotation keeping (x_n, y_n) on the unit circle with angle θ_{n+1} = θ_n + sin θ_n, which converges to π, giving x_n → -1 and y_n → 0.",
+  "duration_ms": 106716,
+  "cost_usd": 0.282709
+}

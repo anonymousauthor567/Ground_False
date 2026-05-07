@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "informal": "Prove that the multiplication of residue class $\\mathbb{Z}/n\\mathbb{Z}$ is associative.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_4 (n : ℕ) (a b c : ZMod n) :\n  (a * b) * c = a * (b * c)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that multiplication in ℤ/nℤ is associative. The Lean signature universally quantifies over n : ℕ and over a, b, c : ZMod n, then asserts (a * b) * c = a * (b * c), which is precisely the associativity law for multiplication on ZMod n. ZMod n is Mathlib's standard formalization of ℤ/nℤ (with ZMod 0 = ℤ, which is harmless since ℤ multiplication is also associative and is often considered the n=0 case). No extra hypotheses are added and none are dropped. The statement matches the informal claim exactly.",
+  "duration_ms": 6945,
+  "cost_usd": 0.04590400000000001
+}

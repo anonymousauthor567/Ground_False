@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `[MetricSpace X] [SeparableSpace X]` for \"separable metric space\", `IsClosed A` for \"closed set\", and asserts existence of `P₁ P₂` with `A = P₁ ∪ P₂`, `Perfect P₁`, and `Set.Countable P₂`. Mathlib's `Perfect` (Topology/Perfect.lean) is defined as closed with every point an accumulation point, which matches Rudin's definition, and it explicitly does not require nonemptiness — matching \"possibly empty\". Mathlib's `Set.Countable` means finite or countably infinite, i.e., \"at most countable\". All quantifiers, hypotheses, and conclusion match the informal claim (this is the Cantor-Bendixson theorem).",
+  "duration_ms": 39527,
+  "cost_usd": 0.17510275
+}

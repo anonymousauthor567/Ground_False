@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if there exist three consecutive integers i for which (ab)^i = a^i b^i holds for all a, b in G, then G is abelian. The Lean encoding uses `∃ n : ℤ` to existentially introduce the starting integer n, and requires the identity to hold for n, n+1, n+2 (three consecutive integers), with the identity universally quantified over a, b ∈ G as it should be. The conclusion `∀ a b : G, a * b = b * a` is exactly the statement that G is abelian. Using ℤ matches \"integers\" in the informal phrasing (the identity for negative or zero exponents is consistent with the intended reading). No extra hypotheses are introduced and no hypotheses are omitted, so the Lean statement captures exactly the informal claim.",
+  "duration_ms": 10299,
+  "cost_usd": 0.04257825
+}

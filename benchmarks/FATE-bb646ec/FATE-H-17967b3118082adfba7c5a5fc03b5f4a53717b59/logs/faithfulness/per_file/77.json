@@ -1,0 +1,8 @@
+{
+  "file": "77.lean",
+  "stem": "77",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes each component of the informal statement: \"k is a field\" by `[Field k]`; \"A is a local k-algebra\" by `[CommRing A] [Algebra k A] [IsLocalRing A]`; \"R is a k-algebra and A is a localization of R\" by `[CommRing R] [Algebra k R] [Algebra R A] [IsScalarTower k R A]` plus `(S : Submonoid R) [IsLocalization S A]`; \"A/m = k\" by the bijectivity of the composed structure map `k → A → A/m` (namely `(IsLocalRing.residue A).comp (algebraMap k A)`). The conclusion `∃ n : Ideal R, ∃ hn : n.IsMaximal, IsLocalization.AtPrime A n` says exactly that there exists a maximal ideal n of R with A being the localization at n (i.e., R_n = A), using `IsLocalization.AtPrime A n = IsLocalization n.primeCompl A`, and `n.IsPrime` is automatic from `n.IsMaximal`. The `IsScalarTower` hypothesis correctly captures that A's k-algebra structure is induced from R's. No hypothesis is added or dropped, and the quantifier structure matches.",
+  "duration_ms": 883801,
+  "cost_usd": 1.6129085
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-282.lean",
+  "stem": "proofnet-282",
+  "informal": "Show that the equation $3 x^{2}+2=y^{2}$ has no solution in integers.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_3_4 : ¬ ∃ x y : ℤ, 3*x^2 + 2 = y^2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that 3x² + 2 = y² has no integer solutions. The Lean signature states ¬ ∃ x y : ℤ, 3*x^2 + 2 = y^2, which is exactly the negation of the existence of integer x, y satisfying the equation. The types (ℤ) and the equation match precisely, and the quantifier structure (¬∃) faithfully captures \"no solution.\"",
+  "duration_ms": 4860,
+  "cost_usd": 0.040128250000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes a one-dimensional vector space V over field F using `[AddCommGroup V] [Field F] [Module F V]` and the hypothesis `finrank F V = 1`. The linear operator `T : V →ₗ[F] V` matches \"T ∈ L(V, V)\", and the conclusion `∃ c : F, ∀ v : V, T v = c • v` is a direct translation of \"there exists a ∈ F such that Tv = av for all v ∈ V\". The `[FiniteDimensional F V]` instance is redundant since `finrank F V = 1` already implies finite-dimensionality in Mathlib (finrank returns 0 for infinite-dimensional modules), so it does not narrow the statement's scope. The quantifier structure over V, F, and T is preserved via the implicit universe variables. This is a strictly faithful formalization.",
+  "duration_ms": 64820,
+  "cost_usd": 0.18680175
+}

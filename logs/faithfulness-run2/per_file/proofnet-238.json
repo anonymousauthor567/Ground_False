@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if |G| = 6545 then G is not simple. The Lean signature takes a type G with [Fintype G] [Group G] and hypothesis card G = 6545, concluding ¬ IsSimpleGroup G. The finite group of order 6545 is captured by Fintype G and card G = 6545, and \"not simple\" maps directly to ¬ IsSimpleGroup G. Mathlib's IsSimpleGroup requires nontriviality plus no proper nontrivial normal subgroups, matching the standard mathematical definition. Since 6545 ≠ 1, nontriviality is implicit and the claims align. This is a standard, logically equivalent encoding.",
+  "duration_ms": 7882,
+  "cost_usd": 0.03583075000000001
+}

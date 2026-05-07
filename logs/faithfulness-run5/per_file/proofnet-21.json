@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal statement. The hypothesis `card T.Eigenvalues = finrank F V` correctly expresses \"T has dim V distinct eigenvalues\" since `Eigenvalues` in Mathlib is the subtype of scalars μ with `HasEigenvalue T μ`, making `card` count distinct eigenvalues. The hypothesis `∀ v, (∃ c, v ∈ eigenspace S c) ↔ (∃ c, v ∈ eigenspace T c)` correctly encodes \"same eigenvectors (not necessarily with the same eigenvalues)\": for nonzero v, `v ∈ eigenspace f c` means `f v = c v`, so the biconditional says v is an eigenvector of S iff of T, with independent existentials for the eigenvalues. For v = 0 the hypothesis is vacuously true (0 is in every eigenspace), which does not affect the content. The conclusion `S * T = T * S` in `End F V` is composition equality, matching ST = TS. The generalization to an arbitrary field is standard and equivalent in content.",
+  "duration_ms": 129027,
+  "cost_usd": 0.39377075
+}

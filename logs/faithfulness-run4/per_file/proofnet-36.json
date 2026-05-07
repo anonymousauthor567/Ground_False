@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any group G, the map g ↦ g⁻¹ is a (group) homomorphism iff G is abelian. The Lean signature universally quantifies over `{G : Type*} [Group G]`, defines f via `hf : f = λ g => g⁻¹`, and states the iff between the homomorphism condition `∀ x y, f x * f y = f (x*y)` and commutativity `∀ x y, x*y = y*x`. Unfolding f, the left side becomes `x⁻¹ * y⁻¹ = (x*y)⁻¹ = y⁻¹ * x⁻¹`, which (since x⁻¹, y⁻¹ range over all of G) is equivalent to G being abelian — exactly the informal claim. For a group homomorphism, the multiplicative condition alone suffices (f(1)=1 follows), so no extra condition is missed. The encoding via a hypothesis `hf` rather than substituting directly is logically equivalent. This is a strictly faithful formalization.",
+  "duration_ms": 17850,
+  "cost_usd": 0.069411
+}

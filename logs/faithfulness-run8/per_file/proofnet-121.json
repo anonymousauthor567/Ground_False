@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the Borsuk-Ulam theorem for $S^1$. The unit circle $S^1$ is represented as `Metric.sphere (0 : ℂ) 1`, i.e., complex numbers of norm 1, which is the standard model. Mathlib's `InvolutiveNeg (sphere (0 : E) r)` instance (from `Analysis/Normed/Group/BallSphere.lean`) makes `-x` on this subtype equal to the antipodal point via `Subtype.map Neg.neg`, matching the informal \"$-x$\". The continuous map $f: S^1 \\to \\mathbb{R}$ is encoded as `f : ... → ℝ` with `Continuous f`, and the conclusion `∃ x, f x = f (-x)` exactly states the existence of a point where $f(x) = f(-x)$. No hypotheses are added or dropped, and the quantifier structure and types match perfectly.",
+  "duration_ms": 63988,
+  "cost_usd": 0.23282475
+}

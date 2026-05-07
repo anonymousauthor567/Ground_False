@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p24.lean",
+  "stem": "abstract_algebra__p24",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes all parts of the informal claim. `[CommRing R] [IsDomain R]` is Mathlib's canonical encoding for \"integral domain\" (confirmed by the comment in `Mathlib/Algebra/Ring/Defs.lean` which states: \"To obtain an integral domain use `[CommRing α] [IsDomain α]`\"). `CharP R 0` is the standard Mathlib way of expressing \"R has characteristic 0\" (and for commutative rings this coincides with `CharZero R`). `Infinite R` is the standard type-theoretic notion meaning \"R is not finite.\" The quantifier structure matches — R is implicit via `variable`, and the hypothesis and conclusion are exactly as in the informal statement. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 84946,
+  "cost_usd": 0.24964175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_9.lean",
+  "stem": "hackmath_9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the stars-and-bars counting problem from the informal text. Each function `f : Fin 6 → ℕ` represents an assignment of ball-counts to the 6 distinguishable sons (indexed by `Fin 6`), with `f i` being the number of identical balls son i receives. The condition `∀ i, f i > 0` faithfully encodes \"everyone gets at least one\", and `∑ i, f i = 10` encodes that all 10 balls are distributed. The set `sols` is defined by an iff specification to be exactly the set of such distributions, and `sols.card` counts them. The treatment of sons as distinguishable (via indexing) and balls as identical (just numerical counts) matches the informal problem precisely. No hypotheses are added or omitted.",
+  "duration_ms": 54500,
+  "cost_usd": 0.17798750000000002
+}

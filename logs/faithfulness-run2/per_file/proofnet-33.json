@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G in which every element squares to the identity is abelian. The Lean signature takes an arbitrary `Group G`, assumes `∀ x : G, x ^ 2 = 1`, and concludes `∀ a b : G, a*b = b*a`, which is precisely the definition of G being abelian. The quantifier structure (universal over the group and over elements), the hypothesis, and the conclusion all match the informal statement. No extra hypotheses (like Fintype or Nonempty) are added, and no hypotheses are dropped. Hence the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 6280,
+  "cost_usd": 0.032426250000000004
+}

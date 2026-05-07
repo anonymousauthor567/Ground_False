@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_a3.lean",
+  "stem": "putnam_1973_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal problem. The set-builder `{k + (n : ℝ)/(k : ℝ) | k > (0 : ℤ)}` expands (via Mathlib's extBinder set-builder macro) to the image of `k ↦ k + n/k` as `k` ranges over positive integers `ℤ`. For positive `n`, this set attains its minimum (since `k + n/k → ∞` as `k → ∞` and the real-valued minimum at `k = √n` is achieved near the nearest positive integers), so `sInf` equals the \"minimum value\" in the informal statement. The conclusion `floor (b n) = floor (Real.sqrt (4*n+1))` under `n > 0` exactly matches \"b(n) and √(4n+1) have the same integer part\" for positive n. Although `b` is defined on all of `ℤ`, the claim is only asserted for positive `n`, so there is no logical drift.",
+  "duration_ms": 243626,
+  "cost_usd": 0.9371137500000001
+}

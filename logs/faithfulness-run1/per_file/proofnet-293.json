@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-293.lean",
+  "stem": "proofnet-293",
+  "informal": "Show that the collection $\\{(a,b) \\mid a < b, a \\text{ and } b \\text{ rational}\\}$ is a basis that generates the standard topology on $\\mathbb{R}$.",
+  "lean": "\ntheorem Munkres_exercise_13_8a :\n  IsTopologicalBasis {S : Set ℝ | ∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show the collection of rational open intervals (a,b) with a<b rational is a basis generating the standard topology on ℝ. The Lean statement uses `IsTopologicalBasis` applied to the set of `Set ℝ` of the form `Ioo ↑a ↑b` for rationals a<b. In Mathlib, `IsTopologicalBasis` is defined relative to the ambient topology on the type, and ℝ carries the standard topology by default, so this asserts both that the collection is a basis and that it generates the standard topology. The encoding `∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b` correctly captures rational endpoints with a<b. This matches the informal claim.",
+  "duration_ms": 8297,
+  "cost_usd": 0.049112
+}

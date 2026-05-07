@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that a function f : ℝ → ℝ satisfying |f(x) - f(y)| ≤ (x - y)² for all real x, y is constant. The Lean signature precisely encodes this: `f : ℝ → ℝ` matches a real-valued function of a real variable (the natural reading given the use of absolute value and comparison with (x-y)²); the hypothesis `∀ x y : ℝ, |(f x - f y)| ≤ (x - y) ^ 2` is a direct translation of the given inequality; and the conclusion `∃ c, f = λ _x => c` is the standard way to express \"f is constant\" (by functional extensionality, f equals the constant function with value c iff f(x) = c for all x). No hypotheses have been added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 19734,
+  "cost_usd": 0.049267000000000005
+}

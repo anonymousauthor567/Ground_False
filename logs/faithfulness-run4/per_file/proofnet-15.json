@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove -(-v) = v for every v in V, where V is a vector space (the standard Axler chapter 1 context). The Lean statement encodes V as a vector space via `[AddCommGroup V] [Field F] [Module F V]`, which is Mathlib's standard way of expressing \"V is a vector space over the field F\". The variable `v : V` is implicitly universally quantified, matching \"for every v ∈ V\". The conclusion `-(-v) = v` is exactly the stated claim. No hypotheses are added or dropped beyond the vector space setup implied by the textbook context. This is a strictly faithful formalization.",
+  "duration_ms": 8120,
+  "cost_usd": 0.038549
+}

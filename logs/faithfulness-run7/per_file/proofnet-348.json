@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all components of the informal statement: α is a metric space (matching X), f : α → ℝ is continuous (matching \"continuous real function\"), and z is defined via hypothesis `g : z = f⁻¹' {0}` to be the preimage of {0}, which equals {p | f p = 0} — exactly the zero set Z(f). The conclusion `IsClosed z` matches \"Z(f) is closed\". Introducing z as a named variable equal to f⁻¹' {0} is logically equivalent to asserting the result directly about f⁻¹' {0}. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 19018,
+  "cost_usd": 0.0591215
+}

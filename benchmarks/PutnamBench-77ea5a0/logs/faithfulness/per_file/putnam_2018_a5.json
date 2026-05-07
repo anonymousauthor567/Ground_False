@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_a5.lean",
+  "stem": "putnam_2018_a5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement assumes f is \"infinitely differentiable\" (C^∞). In the current Mathlib, `ContDiff` takes `n : WithTop ℕ∞`, and `⊤ : WithTop ℕ∞` is the scoped notation `ω`, which denotes real-analyticity — NOT C^∞ (that would be `∞ = ((⊤ : ℕ∞) : WithTop ℕ∞)`). This is confirmed by `contDiff_omega_iff_analyticOnNhd : ContDiff 𝕜 ω f ↔ AnalyticOnNhd 𝕜 f univ` in `Mathlib/Analysis/Calculus/ContDiff/Defs.lean`. So the Lean hypothesis `ContDiff ℝ ⊤ f` requires f to be real-analytic on ℝ, a strictly stronger property than C^∞ (e.g. the bump function `exp(-1/x²)` is C^∞ but not analytic at 0). The Lean theorem therefore universally quantifies over a narrower class of functions than the informal statement; the informal claim implies the Lean claim (special case), but not conversely. All other components (f(0)=0, f(1)=1, f ≥ 0, ∃ n>0, ∃ x, iteratedDeriv n f x < 0) match faithfully.",
+  "duration_ms": 268943,
+  "cost_usd": 0.62339475
+}

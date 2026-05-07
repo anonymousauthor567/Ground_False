@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim correctly. The universal quantification over odd naturals matches the \"for all odd n\" in the informal statement. Since n is odd, n ≥ 1, so truncated subtraction n^2 - 1 in ℕ coincides with standard subtraction and poses no issue. Even under the interpretation that the informal statement quantifies over all odd integers, the ℕ version is logically equivalent because (-n)^2 = n^2, so divisibility of n^2 - 1 by 8 for positive odd n immediately yields the same conclusion for negative odd n. The conclusion 8 ∣ (n^2 - 1) matches the informal statement exactly.",
+  "duration_ms": 17240,
+  "cost_usd": 0.08441024999999999
+}

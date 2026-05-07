@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b6.lean",
+  "stem": "putnam_2019_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all parts of the informal statement: (1) the neighbors relation matches \"differ by exactly 1 in one coordinate, equal in all others\"; (2) condition 1 \"∀ p ∈ S, ∀ q, neighbors p q → q ∉ S\" matches \"no neighbor of p is in S\"; (3) condition 2 uses `.encard = 1` which correctly encodes \"exactly one neighbor in S\"; (4) the n ≥ 1 restriction is embedded as `1 ≤ n ∧ ...` on the LHS of the iff, which is a standard encoding choice. For n = 0, both sides of the iff are false (automatically excluding n=0 as the informal does); for n ≥ 1, the LHS reduces to \"∃ S with properties\" and the RHS is true since Set.Ici 1 contains all n ≥ 1. The theorem thus asserts exactly that such S exists for all n ≥ 1, matching the informal claim and its answer. No hypotheses, conclusions, types, or quantifier structures are altered.",
+  "duration_ms": 133178,
+  "cost_usd": 0.36759925000000004
+}

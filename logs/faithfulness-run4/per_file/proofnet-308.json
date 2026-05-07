@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `countably_compact` as an ℕ-indexed sequence of open sets with a Finset-indexed finite subcover is equivalent to Munkres' \"every countable open cover has a finite subcover\" (any countable collection can be encoded as a sequence with repetitions/empty padding, which does not change the existence of a finite subcover). `limit_point_compact_strong` uses `∃ x, ClusterPt x (𝓟 (U \\ {x}))` — by Mathlib's `accPt_principal_iff_clusterPt`, this is exactly `AccPt x (𝓟 U)`, which is Munkres' definition of x being a limit point of U. The `hT1 : T1Space X` hypothesis matches \"for a T₁ space X\", and the `↔` matches \"equivalent to\". The quantifier structure, hypotheses, and conclusion all match.",
+  "duration_ms": 456236,
+  "cost_usd": 1.4318757500000001
+}

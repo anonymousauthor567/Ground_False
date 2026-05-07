@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p14.lean",
+  "stem": "abstract_algebra__p14",
+  "verdict": "stronger",
+  "reasoning": "The informal statement treats \"P(i) equals i mod 2 for i = 0, 1, ..., n\" as part of the SETUP/HYPOTHESIS defining the polynomial P, and only the evaluation at n+1 is the claim to be proved. The Lean formalization puts the interpolation condition `∀ i ≤ n, P.eval i = i % 2` into the CONCLUSION (conjoined with the n+1 claim), with only `hn : P.natDegree = n` as a hypothesis (auto-included via Lean 4.8+ dependent-variable auto-inclusion, since `hn`'s type mentions the auto-bound `P` and `n`). This means the Lean theorem asserts that EVERY integer polynomial of degree n satisfies the interpolation P(i) = i%2 for i = 0,...,n — a strictly stronger (and in fact false) claim than the informal one. If the Lean claim were true it would imply the informal claim (by taking the second conjunct for polynomials satisfying the interpolation hypothesis), but the informal claim does not imply the Lean claim. This is the classic case of \"dropping a hypothesis that the informal statement explicitly requires\", which the rubric labels as stronger.",
+  "duration_ms": 1087749,
+  "cost_usd": 3.298192249999999
+}

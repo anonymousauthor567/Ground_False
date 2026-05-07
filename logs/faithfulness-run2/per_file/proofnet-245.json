@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces R and S as arbitrary rings, φ as a ring homomorphism (R →+* S), and hypothesizes Function.Surjective φ — matching the informal setup exactly. The conclusion φ '' (center R) ⊆ center S directly encodes \"image of center of R is contained in center of S\". With `open Set Subgroup`, `center R` resolves to `Set.center R` (since Subgroup.center requires a Group, which a Ring is not), and for associative rings this coincides with the usual multiplicative center {z | ∀ r, r * z = z * r}; likewise for S. There are no extra hypotheses (finiteness, commutativity, characteristic, etc.) and the quantifier structure is preserved, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 34681,
+  "cost_usd": 0.1038945
+}

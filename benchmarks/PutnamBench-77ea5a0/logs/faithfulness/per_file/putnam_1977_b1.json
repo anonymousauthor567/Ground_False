@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_b1.lean",
+  "stem": "putnam_1977_b1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the value of the infinite product $\\prod_{n=2}^{\\infty} \\frac{n^3-1}{n^3+1}$. The Lean formalization encodes this as the limit of the partial products $\\prod_{n=2}^{N} \\frac{n^3-1}{n^3+1}$ as $N \\to \\infty$ (via `Tendsto ... atTop (𝓝 (2/3))`), which is the standard definition of an infinite product of real numbers. Using `Finset.Icc (2 : ℤ) N` indexed over integers yields the same partial product values as indexing over natural numbers from 2 to N. The closed-form answer 2/3 is correct (telescoping gives $\\frac{2(N^2+N+1)}{3N(N+1)} \\to 2/3$). No hypotheses are added, dropped, or altered, and no quantifier structure is changed.",
+  "duration_ms": 44291,
+  "cost_usd": 0.12867325
+}

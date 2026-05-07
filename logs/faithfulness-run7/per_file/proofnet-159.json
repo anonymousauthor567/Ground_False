@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-159.lean",
+  "stem": "proofnet-159",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `f` encodes the sequence with a standard 0-indexing shift: `f 0 = √2` corresponds to `s_1`, and `f (n+1) = √(2 + √(f n))` matches the recurrence `s_{n+1} = √(2 + √(s_n))`. Thus `f n = s_{n+1}`. The conjunction `∃ x, Tendsto f atTop (𝓝 x) ∧ ∀ n, f n < 2` expresses both parts of the informal claim: convergence of the sequence to a real limit, and the upper bound `s_n < 2` for all n ≥ 1 (which in the shifted indexing corresponds to `∀ n : ℕ, f n < 2`). No hypotheses are added or dropped, and the types match (`ℝ`-valued sequence, real limit). This is a faithful formalization.",
+  "duration_ms": 30997,
+  "cost_usd": 0.143571
+}

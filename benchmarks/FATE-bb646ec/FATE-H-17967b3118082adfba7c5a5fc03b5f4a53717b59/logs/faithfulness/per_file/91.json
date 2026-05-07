@@ -1,0 +1,8 @@
+{
+  "file": "91.lean",
+  "stem": "91",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim on all four components. Hypothesis-wise: `R : Subring K` with `[Field K]` captures \"R is a subring of a field K\"; `IsCoatom R` unfolds to `R ≠ ⊤ ∧ ∀ b, R < b → b = ⊤`, which in the subring lattice (where `⊤ = K`) is exactly \"R is a maximal proper subring of K\"; `¬ IsField R` is \"R is not a field\". Conclusion-wise: `∃ V : ValuationSubring K, V.toSubring = R` asserts R is a valuation subring of K (Mathlib's `ValuationSubring K` is defined by the condition `∀ x : K, x ∈ R ∨ x⁻¹ ∈ R`), which coincides with \"R is a valuation ring\" since R's fraction field is K; and `ringKrullDim R = 1` matches \"Krull dimension 1\". The conjunction correctly captures the two asserted conclusions, with no extra or missing hypotheses.",
+  "duration_ms": 175734,
+  "cost_usd": 0.38341725
+}

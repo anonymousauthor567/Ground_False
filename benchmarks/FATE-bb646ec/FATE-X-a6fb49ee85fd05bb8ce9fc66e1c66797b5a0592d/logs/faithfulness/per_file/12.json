@@ -1,0 +1,8 @@
+{
+  "file": "12.lean",
+  "stem": "12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $\\mathbb{Z}[(1+\\sqrt{-19})/2]$ is a PID. The Lean statement uses `Algebra.adjoin ℤ {α}` with `α = (1 + Real.sqrt 19 * Complex.I) / 2 ∈ ℂ`, which correctly represents $\\mathbb{Z}[(1+\\sqrt{-19})/2]$ since `Real.sqrt 19 * Complex.I` is the standard encoding of $\\sqrt{-19}$ in ℂ, and `Algebra.adjoin ℤ` gives the smallest subring of ℂ containing the element. The conjunction `IsPrincipalIdealRing ∧ IsDomain` is exactly Mathlib's recommended encoding of \"PID\" — the Mathlib documentation itself states that a PID should be formalized via `[IsDomain R] [IsPrincipalIdealRing R]` since there is no explicit `PID` definition. Including `IsDomain` is not stronger: it is part of the definition of a principal ideal domain. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 340947,
+  "cost_usd": 0.77036
+}

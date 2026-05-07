@@ -1,0 +1,8 @@
+{
+  "file": "64.lean",
+  "stem": "64",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all parts of the informal statement. `[Field F] [Field K] [Algebra F K] [FiniteDimensional F K]` faithfully models \"K is a finite extension of F\" (the algebraMap F K is automatically injective as F is a field, and FiniteDimensional F K is precisely the definition of a finite extension). The conclusion `∃ g ≠ 0, ∃ h : F[X], f * g = h.map (algebraMap F K)` correctly expresses \"there exists a nonzero g ∈ K[x] with fg ∈ F[x]\": since Polynomial.map (algebraMap F K) is injective, asserting f*g lies in its image is equivalent to saying f*g has all coefficients in F, which is the natural reading of \"f(x)g(x) ∈ F[x]\". The informal statement does not require h to be nonzero (indeed, if f = 0, we can take g = 1 and h = 0), matching the Lean encoding. No hypotheses are added, removed, or altered.",
+  "duration_ms": 190573,
+  "cost_usd": 0.41059375000000004
+}

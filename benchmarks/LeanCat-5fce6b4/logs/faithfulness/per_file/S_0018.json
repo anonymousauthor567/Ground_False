@@ -1,0 +1,8 @@
+{
+  "file": "S_0018.lean",
+  "stem": "S_0018",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all three definitions (initial morphism, embedding, injective object) from the informal statement. `IsInitialHom` uses existentials over lifts through the faithful functor U, which (since U is faithful) exactly captures \"g is a morphism in C\" and \"f ∘ g is a morphism in C\". `IsEmbedding` correctly combines being initial with U(f) being monic. `IsInjectiveObj` correctly encodes the extension property (noting that `m ≫ g = f` in Mathlib's convention matches `g ∘ m = f` in standard notation). The target category `CompHausConcrete` is the concrete category (CompHaus, forget CompHaus), which is faithful. The theorem statement `IsInjectiveObj Y ↔ ∃ ι : Type u, Nonempty (Retract Y (CompHaus.of (∀ i : ι, unitInterval)))` properly expresses \"Y is a retract of some power [0,1]^I\" using Mathlib's `Retract` structure and the natural universe level for the index type. Typo in the informal (\"f: A → C\" instead of \"f: A → I\") is resolved correctly per standard definition.",
+  "duration_ms": 508922,
+  "cost_usd": 1.5001565
+}

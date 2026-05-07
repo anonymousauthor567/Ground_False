@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"p prime, α a positive integer, G a finite group of order p^α\" via `hp : p.Prime`, `ha : α > 0`, `[Fintype G] [Group G]`, and `hG : card G = p^α`, matching the informal hypotheses exactly (finiteness of G is implicit in \"order p^α\"). The conclusion `∀ H : Subgroup G, H.index = p → H.Normal` uses Mathlib's `Subgroup.index`, which for finite G coincides with the standard group-theoretic index, and `H.Normal` captures \"H is normal in G\". The universal quantification over subgroups of index p matches the informal \"every subgroup of index p\". No extra hypotheses are added and none are dropped, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 31309,
+  "cost_usd": 0.1339735
+}

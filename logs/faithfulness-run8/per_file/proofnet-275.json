@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures all components of the informal claim: F is a field (`[Field F]`), of characteristic p ≠ 0 (`hp : p ≠ 0` with `hF : CharP F p`), n is a positive integer (`hn : n > 0`), m = p^n (`hm : m = p ^ n`), and the conclusion `(a + b) ^ m = a^m + b^m` holds for arbitrary a, b : F. Note that in a field, `CharP F p` with `p ≠ 0` automatically implies p is prime (via `CharP.char_is_prime_or_zero`), matching the standard mathematical convention in Herstein that \"characteristic p ≠ 0\" means a prime characteristic. The quantifier structure, hypothesis set, and conclusion match the informal statement without weakening or strengthening.",
+  "duration_ms": 90232,
+  "cost_usd": 0.2918205
+}

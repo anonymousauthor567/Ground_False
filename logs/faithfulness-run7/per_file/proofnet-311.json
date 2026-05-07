@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"countable product of spaces having countable dense subsets ⇒ has countable dense subset\" using `X : ℕ → Type*` (the canonical countably infinite index), with each factor having a countable dense subset via `∃ s, Countable s ∧ Dense s` (where `Countable s` for a set `s` is the subtype instance, equivalent to `s.Countable`), and the conclusion is the analogous existence on the product `Π i, X i`. The types, quantifier structure, and conclusion match the informal claim. Using ℕ for \"countable product\" is the standard/canonical formalization choice in topology (the countably-infinite case is the essential content of the theorem, and matches Munkres's context of separability under countable products). No hypotheses are silently added or dropped beyond what the informal statement asserts.",
+  "duration_ms": 231941,
+  "cost_usd": 0.67693375
+}

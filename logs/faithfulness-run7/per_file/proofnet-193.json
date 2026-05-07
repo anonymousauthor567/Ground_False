@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement translates the informal claim directly. `ofInt` is the Mathlib function `ℤ → ℤ√d` sending `n` to `⟨n, 0⟩`, which is the canonical embedding of integers into the Gaussian integers (as `GaussianInt = Zsqrtd (-1)`). Therefore `(ofInt a : GaussianInt) ∣ ofInt b` captures precisely \"a divides b in the ring of Gauss integers,\" and `a ∣ b` captures \"a divides b in ℤ.\" The quantifiers (universal over integers a, b) and implication direction match. No hypotheses are added or omitted, and no types are changed, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 41458,
+  "cost_usd": 0.22456250000000003
+}

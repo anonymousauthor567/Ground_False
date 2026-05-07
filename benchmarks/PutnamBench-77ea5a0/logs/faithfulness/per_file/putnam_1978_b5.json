@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_b5.lean",
+  "stem": "putnam_1978_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal problem. The set S captures \"polynomials of degree 4 with p([-1,1]) ⊆ [0,1]\" via `p.degree = 4` (which in Mathlib requires a nonzero x^4 coefficient, matching the standard \"degree 4\" meaning) and `∀ x ∈ Icc (-1) 1, p.eval x ∈ Icc 0 1` (matching the image condition). The conclusion asserts both that the candidate `4X^4 - 4X^2 + 1` belongs to S and that its coefficient of x^4 is maximal among all members of S, precisely capturing \"the polynomial with largest possible coefficient of x^4\". The solution polynomial corresponds to (T_4(x) + 1)/2, the known extremal Chebyshev-like answer. No hypotheses are added or dropped, and the conclusion matches the informal request.",
+  "duration_ms": 132455,
+  "cost_usd": 0.43040324999999996
+}

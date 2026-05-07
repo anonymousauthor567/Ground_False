@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The informal statement from Axler is: if $a \\in F$, $v \\in V$, and $av = 0$, then $a = 0$ or $v = 0$, where $F$ is a field and $V$ is a vector space over $F$. The Lean encoding uses `[Field F]`, `[AddCommGroup V]`, and `[Module F V]`, which is Mathlib's standard way to encode a vector space over a field (a module over a field is exactly a vector space). The conclusion `a • v = 0 → a = 0 ∨ v = 0` matches the informal claim exactly, with `a • v` being scalar multiplication. Quantifier structure (universal over `v` and `a`) matches. This is a faithful formalization.",
+  "duration_ms": 20746,
+  "cost_usd": 0.044568750000000004
+}

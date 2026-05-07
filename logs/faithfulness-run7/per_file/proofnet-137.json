@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "In a normed space, `Metric.closedBall (0 : E) 1 = {x : E | ‖x‖ ≤ 1}` (since `dist x 0 = ‖x‖`), which exactly matches the informal set B. The Lean statement quantifies over any real normed space E that is finite-dimensional with `finrank ℝ E = m`; this is logically equivalent to \"ℝ^m equipped with any norm\", since every finite-dimensional real normed space of dimension m is linearly isomorphic to ℝ^m endowed with a suitable norm, and conversely any norm on ℝ^m gives such a space. The `m : ℕ` parameter together with `finrank ℝ E = m` correctly fixes the dimension. No extra hypotheses are smuggled in and nothing is dropped, so this is a faithful formalization.",
+  "duration_ms": 131964,
+  "cost_usd": 0.46478875000000003
+}

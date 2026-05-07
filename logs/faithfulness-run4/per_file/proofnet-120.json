@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures each component of Munkres Exercise 23.9: `A ⊂ Set.univ` encodes \"A is a proper subset of X\" via strict set inclusion (A ≠ univ), matching the standard Munkres reading of \"proper subset\"; similarly for B. `IsConnected (Set.univ : Set X)` is logically equivalent to `ConnectedSpace X` (since `IsConnected` unfolds to `Nonempty ∧ IsPreconnected`), matching \"X is connected\" under the standard convention that connected spaces are nonempty. The conclusion `IsConnected (univ \\ (A ×ˢ B))` is exactly \"(X × Y) − (A × B) is connected\", since `A ×ˢ B` is the Cartesian product of sets in Mathlib and `univ \\ S = Sᶜ`. No hypothesis is added or dropped, and the conclusion is neither strengthened nor weakened.",
+  "duration_ms": 231834,
+  "cost_usd": 0.498153
+}

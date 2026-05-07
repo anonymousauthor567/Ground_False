@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies universally over two finite groups G, H of cardinality 21 and asserts that under the nonabelian hypotheses they are isomorphic. \"Nonabelian\" is correctly rendered as `∃ a b, a * b ≠ b * a`, which is exactly the negation of the standard definition of an abelian group (∀ a b, a*b = b*a). \"Order 21\" is correctly expressed via Fintype with `card = 21`. \"Isomorphic\" is `Nonempty (G ≃* H)`, the standard Mathlib encoding of existence of a group isomorphism. No hypotheses are added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 23342,
+  "cost_usd": 0.05819625
+}

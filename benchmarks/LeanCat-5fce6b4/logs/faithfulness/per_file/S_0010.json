@@ -1,0 +1,8 @@
+{
+  "file": "S_0010.lean",
+  "stem": "S_0010",
+  "verdict": "faithful",
+  "reasoning": "The informal statement describes a covariant functor F : Grp → Set sending G to the set of involutions {g ∈ G | g² = 1}, and asserts F is representable. The Lean definition `functor_involution` correctly encodes this: on objects, it returns {g : G.carrier | g * g = 1}, and on morphisms it applies the group homomorphism pointwise (with the correct proof that f(g)·f(g) = f(g·g) = f(1) = 1). For representability, Mathlib uses `IsRepresentable` for contravariant functors (Cᵒᵖ ⥤ Type) and `IsCorepresentable` for covariant functors (C ⥤ Type), both meaning F ≅ Hom(X, -) for some object X. Since the functor here is covariant, `IsCorepresentable` is the correct and standard Mathlib notion matching the informal word \"representable\" (this is the same convention used, e.g., in `Mathlib/Algebra/Category/Grp/ForgetCorepresentable.lean`). The formalization is therefore strictly faithful.",
+  "duration_ms": 152617,
+  "cost_usd": 0.57591725
+}

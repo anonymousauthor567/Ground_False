@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` captures exactly the informal claim \"U is open iff no point of U is a limit of its complement.\" In Mathlib, `ClusterPt x (𝓟 Uᶜ)` means every neighborhood of x meets Uᶜ. Although Pugh's \"limit of a set\" more naturally corresponds to `AccPt` (accumulation point, with the neighborhood containing a point of Uᶜ distinct from x), the two notions coincide under the quantifier `∀ x ∈ U`: if x ∈ U, then x ∉ Uᶜ, so any point of Uᶜ in a neighborhood of x is automatically different from x. Mathlib's `mem_interior_iff_not_clusterPt_compl` further confirms the semantics match: the right-hand side is equivalent to `U ⊆ interior U`, which characterizes openness. No hypotheses are silently added or dropped, and the topological space is left fully general as in the informal statement.",
+  "duration_ms": 165079,
+  "cost_usd": 0.5308010000000001
+}

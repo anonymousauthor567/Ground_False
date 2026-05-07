@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "informal": "Prove that $x^2+x+1$ is irreducible in the field $\\mathbb{F}_2$.",
+  "lean": "\ntheorem Artin_exercise_11_4_6a {F : Type*} [Field F] [Fintype F] (hF : card F = 2) :\n  Irreducible (X ^ 2 + X + 1 : Polynomial F)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove x^2+x+1 is irreducible over F_2. The Lean statement quantifies over any field F of cardinality 2; since any such field is (uniquely up to isomorphism) F_2, this is logically equivalent to the claim about F_2 itself. The polynomial X^2+X+1 in Polynomial F is the same polynomial, and Irreducible has the standard meaning. No extra or missing hypotheses affect the meaning. This is a faithful encoding.",
+  "duration_ms": 6534,
+  "cost_usd": 0.04409275000000001
+}

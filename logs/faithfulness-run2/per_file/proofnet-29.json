@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"Z/nZ is not a group under multiplication\" for n > 1 is logically equivalent to \"not every element of Z/nZ has a two-sided multiplicative inverse with respect to 1\". This is because associativity and the identity (1 is the unique possible two-sided identity in the multiplicative monoid Z/nZ) are automatically satisfied, so the only group axiom that can fail is the existence of inverses. The Lean statement negates exactly the inverse-existence condition with 1 as the identity, which captures precisely the failure of Z/nZ to be a multiplicative group. The two statements are logically equivalent.",
+  "duration_ms": 39335,
+  "cost_usd": 0.13044025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the existence of a normal subgroup that is not characteristic. The Lean signature `∃ (G : Type*) (hG : Group G) (H : @Subgroup G hG), @Normal G hG H ∧ ¬ @Characteristic G hG H` captures exactly this: it existentially quantifies over a type G, a group structure on it, and a subgroup H, asserting that H is normal and not characteristic. Mathlib's `Subgroup.Normal` (closed under conjugation) and `Subgroup.Characteristic` (fixed by all automorphisms) precisely match the standard Dummit & Foote definitions. The `@` notation with explicit `Group` instance is merely syntactic — semantically equivalent to the natural encoding. This is a faithful formalization.",
+  "duration_ms": 97716,
+  "cost_usd": 0.278981
+}

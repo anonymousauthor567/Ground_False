@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b3.lean",
+  "stem": "putnam_1972_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures each component of the informal statement. The arbitrary group is encoded via `(G : Type*) [Group G]`, the equation `A * B * A = B * A^2 * B` matches $ABA = BA^2B$, and `A^3 = 1` matches directly. The phrase \"for some positive integer n\" is encoded as `∃ n : ℤ, n > 0 ∧ B^(2*n - 1) = 1`; although n is typed as ℤ rather than ℕ, the constraint `n > 0` restricts to positive integers, giving exactly the same set of values {1, 2, 3, ...}, and when n > 0 the integer power `B^(2*n-1)` coincides with ordinary repeated multiplication. The conclusion `B = 1` matches. Bundling the three hypotheses in a single conjunction is logically equivalent to separate hypotheses. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 71077,
+  "cost_usd": 0.22709074999999998
+}

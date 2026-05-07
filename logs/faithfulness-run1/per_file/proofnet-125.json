@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "informal": "Show that X is countably compact if and only if every nested sequence $C_1 \\supset C_2 \\supset \\cdots$ of closed nonempty sets of X has a nonempty intersection.",
+  "lean": "\ntheorem Munkres_exercise_28_5\n  (X : Type*) [TopologicalSpace X] :\n  countably_compact X ↔ ∀ (C : ℕ → Set X), (∀ n, IsClosed (C n)) ∧\n  (∀ n, C n ≠ ∅) ∧ (∀ n, C (n + 1) ⊆ C n) → ∃ x, ∀ n, x ∈ C n",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts countably_compact X ↔ for every sequence C : ℕ → Set X satisfying (each C n is closed) ∧ (each C n is nonempty, encoded as C n ≠ ∅) ∧ (nested: C (n+1) ⊆ C n), there exists x ∈ ⋂ C n (encoded as ∃ x, ∀ n, x ∈ C n). The `→` has lower precedence than `∧`, so the conjunction is correctly the hypothesis. This matches the informal claim: nested decreasing sequence of closed nonempty sets has nonempty intersection. The encoding of \"nonempty intersection\" via ∃ x, ∀ n, x ∈ C n is logically equivalent to (⋂ n, C n).Nonempty. Assuming countably_compact is the standard definition, the formalization is faithful.",
+  "duration_ms": 12219,
+  "cost_usd": 0.05781875
+}

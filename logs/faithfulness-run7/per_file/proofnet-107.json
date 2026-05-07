@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show there is a unique smallest topology on X containing all the topologies T_α. The Lean formalization takes an indexed family `T : I → Set (Set X)` of topologies (via the hypothesis `h : ∀ i, is_topology X (T i)`) and asserts the existence of a unique T' that (a) is a topology, (b) contains every T i, and (c) is contained in every other topology containing all T i. This triple of conditions precisely characterizes \"smallest topology containing all T_α\": condition (b) says T' contains the family, and condition (c) says T' is minimal among such topologies. The `∃!` quantifier encodes the \"unique\" requirement, consistent with the informal \"unique smallest\". Using an indexed family (I → Set (Set X)) instead of an unindexed collection is a standard and logically equivalent encoding of \"a family of topologies\". No hypotheses are silently added or dropped.",
+  "duration_ms": 24776,
+  "cost_usd": 0.0869065
+}

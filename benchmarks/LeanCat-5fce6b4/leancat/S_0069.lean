@@ -1,0 +1,17 @@
+import Mathlib
+
+open CategoryTheory Limits
+
+/-Informal Statement
+
+Theorem: An abelian group is torsion free if and only if it is a directed colimit in $\mathcal{A}\mathrm{b}$ of free abelian groups.
+-/
+
+theorem torsionFree_iff_isFilteredColimit_free
+    (A : ModuleCat ℤ) :
+    NoZeroSMulDivisors ℤ A ↔
+      ∃ (J : Type) (_ : SmallCategory J) (_ : IsFiltered J)
+        (F : J ⥤ ModuleCat ℤ),
+        (∀ j : J, Module.Free ℤ (F.obj j)) ∧
+        Nonempty (A ≅ colimit F) := by
+  sorry

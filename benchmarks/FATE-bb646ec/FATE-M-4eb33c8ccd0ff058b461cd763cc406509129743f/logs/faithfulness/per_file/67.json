@@ -1,0 +1,8 @@
+{
+  "file": "67.lean",
+  "stem": "67",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires φ to be a **group isomorphism** (a bijective homomorphism), while the Lean formalization uses `φ : G →* H`, a `MonoidHom` — merely a group homomorphism. The Lean theorem therefore claims the result for all monoid homomorphisms, which is a strict generalization: every group isomorphism is a homomorphism, but not conversely. The Lean statement implies the informal one (by specializing to the homomorphism underlying an isomorphism), but the informal statement does not imply the Lean version. This is a case of dropping a hypothesis (\"isomorphism\") that the informal statement explicitly requires, which the rubric classifies as \"stronger\". The hypothesis `g = k⁻¹` and conclusion `φ g = (φ k)⁻¹` are each logically equivalent to their informal counterparts (g ∘ k = e_G, and φ(g), φ(k) being inverses) in a group, so those encodings are faithful.",
+  "duration_ms": 94254,
+  "cost_usd": 0.24503275000000002
+}

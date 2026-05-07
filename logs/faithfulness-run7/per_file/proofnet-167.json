@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. The hypothesis `h₁ : IsCompact E` captures \"E is compact\", `h₂` defines G as the graph of f over E using set-builder notation `{(x, f x) | x ∈ E}` which unfolds to `{p | ∃ x ∈ E, p = (x, f x)}` — precisely the graph described in the informal text. The conclusion `ContinuousOn f E ↔ IsCompact G` faithfully encodes \"f is continuous on E if and only if its graph is compact\". Having `f : ℝ → ℝ` defined globally is fine since `ContinuousOn f E` only concerns behavior on E, and G only uses f-values at points of E. No hypotheses are added or dropped, and the biconditional direction is preserved.",
+  "duration_ms": 23797,
+  "cost_usd": 0.11012
+}

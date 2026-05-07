@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: given the polynomial equation in a, a is algebraic over ℚ of degree at most 80. The Lean formulation states that there exists a nonzero polynomial q ∈ ℚ[X] with q.natDegree ≤ 80 such that aeval a q = 0. This is logically equivalent to \"a is algebraic over ℚ of degree ≤ 80\": if such q exists then a's minimal polynomial over ℚ divides q so has degree ≤ 80, and conversely the minimal polynomial itself serves as witness. For nonzero polynomials, natDegree matches the mathematical degree. The hypothesis ha encodes the informal polynomial equation verbatim (with the square roots of 2, 5, 7, 11 coerced via Real.sqrt to ℂ). No hypotheses are added or dropped, and the conclusion is captured exactly.",
+  "duration_ms": 74940,
+  "cost_usd": 0.31156375
+}

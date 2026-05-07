@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely captures \"a closed subspace of a normal space is normal\": it quantifies over an arbitrary topological space X, assumes X is normal (hX : NormalSpace X) and that A ⊆ X is closed (hA : IsClosed A), and concludes that the subtype {x // x ∈ A}—which automatically carries the subspace topology in Mathlib—is a NormalSpace. Mathlib's NormalSpace class encodes the standard definition (disjoint closed sets have disjoint open neighborhoods), matching the standard meaning of \"normal\". Using an explicit hypothesis `hX : NormalSpace X` rather than an instance argument is logically equivalent. No hypotheses have been added, dropped, or altered, and the conclusion matches exactly.",
+  "duration_ms": 28875,
+  "cost_usd": 0.102811
+}

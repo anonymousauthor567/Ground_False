@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The `is_topology` definition captures the standard topology axioms (contains univ, closed under binary intersection, and closed under arbitrary unions — with the empty union giving ∅). The Lean theorem takes a family `T : I → Set (Set X)` with each `T i` a topology, matching \"family of topologies on X\". The conclusion `∃! T'` with three conjuncts — T' is a topology, T' contains each T_i (`T i ⊆ T'`), and T' is contained in any topology T'' that contains all T_i — exactly captures \"there is a unique smallest topology containing all the collections\". The quantifier structure (∃! plus the minimality clause) faithfully encodes \"unique smallest\", without adding or removing hypotheses or changing the ambient types.",
+  "duration_ms": 45817,
+  "cost_usd": 0.14133975000000001
+}

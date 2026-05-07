@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the hypotheses correctly: Ω is bounded and open, f is holomorphic on Ω (DifferentiableOn ℂ), f maps Ω into Ω, and there is a z₀ ∈ Ω with f(z₀) = z₀ and deriv f z₀ = 1. The extra hypothesis `IsPreconnected Ω` is a needed implicit premise: without connectedness the claim is literally false (e.g., Ω = D₁ ⊔ D₂, f = id on D₁, f = constant ∈ D₁ on D₂ satisfies all literal hypotheses but is not linear), since the standard proof applies the identity theorem which requires connectedness. Making this implicit premise explicit is faithful per the stated policy. The conclusion `∃ f_lin : ℂ →L[ℂ] ℂ, ∀ x ∈ Ω, f x = f_lin x` expresses that f agrees with a ℂ-linear map on Ω; given the constraints (f(z₀)=z₀, f'(z₀)=1), the unique such map is the identity, matching both the ℂ-linear and affine-linear readings of \"linear\". Hence the statements are logically equivalent under standard mathematical reading.",
+  "duration_ms": 298550,
+  "cost_usd": 0.83541675
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Rudin's exercise. The hypothesis `∀ n, a n ≥ 0` matches $a_n \\geq 0$, and `∃ y, Tendsto (λ n => ∑ i ∈ range n, a i) atTop (𝓝 y)` is the standard Mathlib encoding of \"$\\sum a_n$ converges\". The conclusion uses `sqrt (a i) / (i + 1)` with `i + 1` as denominator, which correctly handles the division (avoiding division by zero when `i = 0`) and is equivalent to the informal $\\sum_{n \\geq 1} \\frac{\\sqrt{a_n}}{n}$ via the natural reindexing $b_n = a_{n-1}$ between Lean's 0-indexed `ℕ` and the informal 1-indexed series. `Real.sqrt` correctly represents $\\sqrt{a_n}$. No hypotheses are added or dropped, and the quantifier structure matches. This is a standard, logically equivalent formalization.",
+  "duration_ms": 125625,
+  "cost_usd": 0.43107875
+}

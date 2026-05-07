@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p9_2.lean",
+  "stem": "linear_algebra__p9_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a biconditional: \"f is a quadratic form ↔ ∃ symmetric matrix A with f(x) = x^T A x\". The Lean lemma `quadratic_form_verification` takes a symmetric matrix A and the representation hypothesis `∀ x, f x = x^T A x` and concludes `IsQuadraticForm f`. This captures only the ← direction of the iff. The → direction (if f is a quadratic form then there exists such a symmetric matrix) is relegated to a separate `axiom symmetric_matrix_representation` in the file, not to the theorem signature being evaluated. Since the informal iff logically implies each individual direction but one direction does not imply the iff, the Lean signature is strictly weaker than the informal biconditional. (The generalization from ℝ to an arbitrary field K is secondary; the dropped direction is the decisive issue.)",
+  "duration_ms": 1287739,
+  "cost_usd": 2.0418475000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-331.lean",
+  "stem": "proofnet-331",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully mirrors the informal problem. Initial values x(0)=1, x(1)=x(2)=a are stated directly; the recurrence is introduced with the n≥2 guard so that natural subtraction n-1, n-2 is well-defined and evaluates correctly; the hypothesis ∃ n, x n = 0 matches \"x_n = 0 for some n\". For the conclusion, Mathlib's Function.Periodic x c is defined as ∀ n, x(n+c) = x n; since x : ℕ → ℝ, the period c has type ℕ, so requiring c ≠ 0 is equivalent to c ≥ 1, matching the standard mathematical meaning of \"the sequence is periodic\" (admits a positive period). No hypotheses are added or dropped, and no quantifier or type is altered.",
+  "duration_ms": 71836,
+  "cost_usd": 0.2924105
+}

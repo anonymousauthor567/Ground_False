@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-58.lean",
+  "stem": "proofnet-58",
+  "informal": "Prove that a subgroup $H$ of $G$ is normal if and only if $[G, H] \\leq H$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_5_4_2 {G : Type*} [Group G] (H : Subgroup G) :\n  H.Normal ↔ ⁅(⊤ : Subgroup G), H⁆ ≤ H",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says H ⊴ G iff [G, H] ≤ H. In Lean, `H.Normal` is the standard normality predicate, and `⁅(⊤ : Subgroup G), H⁆` is the commutator subgroup `[⊤, H]` where `⊤ : Subgroup G` is the whole group G viewed as a subgroup. Thus `⁅⊤, H⁆` corresponds exactly to `[G, H]`, and the inequality `≤ H` is containment of subgroups. The biconditional and quantifier structure match the informal claim, with no extra or missing hypotheses (G is an arbitrary group, H an arbitrary subgroup). Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 8759,
+  "cost_usd": 0.047481
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the inequality with `a b : Fin n → ℝ` representing the real sequences a_1,...,a_n and b_1,...,b_n. In the expression `(i + 1) * a i ^ 2`, the expected type is ℝ (since `a i ^ 2 : ℝ`), forcing Lean to elaborate `(i + 1)` as `(↑i.val : ℝ) + 1`, not Fin arithmetic (confirmed by the accompanying ground-truth proof which rewrites via `(i.val : ℝ) + 1`). Hence the weight `(i+1)` ranges over 1,...,n, exactly matching the informal index j from 1 to n. The LHS `(∑ i, a i * b i)^2`, the first RHS factor `∑ (i+1) * a i^2`, and the second RHS factor `∑ b i^2/(i+1)` faithfully correspond to the three summands in the informal statement. The universal quantification over n, a, b matches \"for all real numbers\". No hypotheses are added or dropped.",
+  "duration_ms": 278407,
+  "cost_usd": 0.9192577499999998
+}

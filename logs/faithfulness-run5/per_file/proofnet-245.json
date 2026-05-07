@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. `R` and `S` are arbitrary rings via `[Ring R] [Ring S]`, `φ : R →+* S` is a ring homomorphism, and `hf : Function.Surjective φ` captures the surjectivity hypothesis exactly as stated informally. With `open Set` in scope and `''` being `Set.image` expecting a `Set R`, `center R` resolves to `Set.center R`, which for an associative ring (guaranteed by `Ring R`) is precisely the set of elements commuting with every element — the standard ring-theoretic center. The conclusion `φ '' (center R) ⊆ center S` is a direct transcription of \"the image of the center of R is contained in the center of S.\" No hypotheses are added or dropped, no quantifiers are changed, and no substitutions alter the mathematical content.",
+  "duration_ms": 141616,
+  "cost_usd": 0.53274725
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "informal": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $r+x$ is irrational.",
+  "lean": "\ntheorem Rudin_exercise_1_1a\n  (x : ℝ) (y : ℚ) (hy : y ≠ 0) :\n  ( Irrational x ) -> Irrational ( x + y )",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for nonzero rational r and irrational x, r+x is irrational. The Lean signature takes x : ℝ, y : ℚ with y ≠ 0, assumes Irrational x, and concludes Irrational (x + y). The rational y is coerced to ℝ for the addition. Addition is commutative so x + y matches r + x. The hypotheses (y ≠ 0, x irrational) and conclusion match exactly. This is a faithful formalization.",
+  "duration_ms": 8129,
+  "cost_usd": 0.0409985
+}

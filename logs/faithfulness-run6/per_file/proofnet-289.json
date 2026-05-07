@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the collection $\\mathcal{T}_\\infty$: \"X - U is infinite\" becomes `Set.Infinite tᶜ`, \"X - U is empty\" becomes `t = Set.univ`, and \"X - U is all of X\" becomes `t = ∅`. The three negated conditions (univ ∈ T_inf, closure under arbitrary sUnion, closure under pairwise intersection) are exactly the three axioms of a topology in Mathlib's `TopologicalSpace` class; note that `∅ ∈ T_inf` follows from the sUnion condition applied to the empty collection, so these three are equivalent to \"T_inf is a topology\". The \"does not need to be a topology\" phrasing is captured by the existential quantifier `∃ X : Type` asserting that some type X witnesses the failure, which is the standard reading. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 308489,
+  "cost_usd": 0.98266625
+}

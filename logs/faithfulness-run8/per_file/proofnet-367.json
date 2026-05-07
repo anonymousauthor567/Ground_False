@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all hypotheses: `DifferentiableOn ℂ f (ball 0 1)` is equivalent to \"holomorphic on the unit disc\" (via `DifferentiableOn.analyticOnNhd` on open sets in ℂ), `Bornology.IsBounded (f '' (ball 0 1))` correctly expresses \"bounded on the disc,\" and `¬ Set.EqOn f 0 (ball 0 1)` correctly says \"not identically zero on the disc.\" The conclusion sums over the subtype of distinct zeros in the ball, weighted by `(analyticOrderAt f z).toNat`, which is the standard way to convert ∑(1−|zₙ|) \"with multiplicity\" (as meant in Shakarchi) into a sum over a set: since f is analytic and not identically zero on the connected ball, `analyticOrderAt f z ≠ ⊤` at every zero by the identity theorem, so `.toNat` yields the correct finite multiplicity. Summability over the subtype matches the informal convergence claim. No hypotheses are dropped or strengthened.",
+  "duration_ms": 219191,
+  "cost_usd": 0.7380865000000001
+}

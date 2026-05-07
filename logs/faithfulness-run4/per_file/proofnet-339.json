@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-339.lean",
+  "stem": "proofnet-339",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for any metric space K that is compact (CompactSpace K), there exists a set B of subsets of K that is countable and forms a topological basis. In Mathlib, `IsTopologicalBasis B` is equivalent to Rudin's Definition 2.31 of a base: a collection of open sets such that for every point x in an open set G, there is a basis element V with x ∈ V ⊂ G. The typeclass `MetricSpace K` encodes \"metric space\" and `CompactSpace K` encodes \"K is compact\" in the standard way. The quantifier structure (∃ B, countable ∧ basis) exactly matches the informal claim \"K has a countable base.\" No hypotheses are added or dropped, and no type is changed.",
+  "duration_ms": 47862,
+  "cost_usd": 0.18914525
+}

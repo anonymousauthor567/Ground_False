@@ -1,0 +1,8 @@
+{
+  "file": "64.lean",
+  "stem": "64",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `∃! x, g * x = h ∧ ∃! x, x * g = h` parses (by rightward extent of the `∃!` binder) as `∃! x, (g * x = h ∧ (∃! y, y * g = h))`. Although this looks like a nested form rather than the natural conjunction `(∃! x, g*x=h) ∧ (∃! x, x*g=h)`, it is logically equivalent to it: the inner `∃! y, y*g=h` is a closed subformula (the inner `x` shadows the outer one and does not depend on it), so the conjunct `Q := ∃! y, y*g=h` acts as a constant. If Q holds, the outer statement reduces to `∃! x, g*x=h`; if Q is false, both the Lean formula and the intended conjunction are false. Both directions of the equivalence go through, so the Lean signature captures exactly the same mathematical content as the informal statement asserting unique solvability of both `gx=h` and `xg=h`.",
+  "duration_ms": 248006,
+  "cost_usd": 0.6739732500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes R to be an arbitrary Ring, introduces a and x as arbitrary ring elements, assumes a^2 = 0, and concludes a*(a*x + x*a) = (a*x + x*a)*a, which is precisely the definition of \"ax + xa commutes with a\". No extra hypotheses (like commutativity, finiteness, or characteristic) are imposed, and none required by the informal statement are dropped. The quantifier structure (universal over a and x) and the type of R (a general ring, as Herstein intends) match the informal statement exactly.",
+  "duration_ms": 13309,
+  "cost_usd": 0.053747249999999996
+}

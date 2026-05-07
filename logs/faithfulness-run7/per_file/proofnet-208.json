@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that if dim V ≥ 2, the set of normal operators on V is not a subspace of ℒ(V). The Lean statement asserts: for every submodule U of End F V, U.carrier ≠ {T | T * adjoint T = adjoint T * T}. This is logically equivalent: \"the set S is not a subspace\" ↔ \"no submodule has S as its carrier\". The setup matches Axler's convention (RCLike F covers ℝ and ℂ), End F V corresponds to ℒ(V), multiplication in Module.End is composition, and LinearMap.adjoint is well-defined given FiniteDimensional F V. The condition T * adjoint T = adjoint T * T is precisely the normal operator condition TT* = T*T, and finrank F V ≥ 2 faithfully encodes dim V ≥ 2.",
+  "duration_ms": 258984,
+  "cost_usd": 0.953767
+}

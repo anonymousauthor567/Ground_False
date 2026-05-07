@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches Rudin Exercise 4.19 faithfully. The function type `ℝ → ℝ` matches \"real function with domain ℝ\". The IVP hypothesis `hf` requires `a < b` but covers both orderings of `f(a), f(b)` through the disjunction `(f a < c ∧ c < f b) ∨ (f b < c ∧ c < f a)`, making it logically equivalent to the informal statement which says \"if f(a) < c < f(b), then f(x) = c for some x between a and b\" (where \"between\" is orientation-independent). The closed-set hypothesis `∀ r : ℚ, IsClosed {x | f x = r}` correctly captures the rational preimage condition via the natural coercion `ℚ → ℝ`. The conclusion `Continuous f` is the standard Mathlib notion of continuity. No hypotheses are added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 113797,
+  "cost_usd": 0.40712624999999997
+}

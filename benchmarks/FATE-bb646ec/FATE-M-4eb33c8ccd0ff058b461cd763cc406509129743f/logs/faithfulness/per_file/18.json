@@ -1,0 +1,8 @@
+{
+  "file": "18.lean",
+  "stem": "18",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly, modulo a variable renaming ($I_1 \\to I$, $I_2 \\to J$, $I \\to K$). The `CommRing R` typeclass provides \"commutative ring with identity\" as required. The hypotheses `h₁ : I ≤ K` and `h₂ : J ≤ K` express \"$K$ contains $I$ and $J$\", and the conclusion `I + J ≤ K` expresses \"$K$ contains $I + J$\" (since `Ideal.add_eq_sup` confirms `I + J = I ⊔ J` in Mathlib). No hypotheses are added or dropped, and the quantifier structure (universal over rings and ideals via implicit/explicit arguments) matches.",
+  "duration_ms": 49250,
+  "cost_usd": 0.20181074999999998
+}

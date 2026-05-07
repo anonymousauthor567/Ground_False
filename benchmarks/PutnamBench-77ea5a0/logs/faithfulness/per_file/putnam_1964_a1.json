@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_a1.lean",
+  "stem": "putnam_1964_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all elements: (1) A : Finset with A.card = 6 encodes exactly 6 distinct points since Finset elements are distinct by definition; (2) EuclideanSpace ℝ (Fin 2) is the Euclidean plane with the standard distance; (3) dists is defined as the set of pairwise distances between distinct points via the predicate a ≠ b ∧ d = dist a b; (4) since dists is finite, nonempty, and bounded, sSup gives the max (D) and sInf gives the min (d); (5) since the points are distinct, all distances are positive so sInf > 0 and the ratio is well-defined; (6) the universal quantification over such A is captured by the free parameters. The statement `sSup dists / sInf dists ≥ Real.sqrt 3` matches `D/d ≥ √3` exactly.",
+  "duration_ms": 70507,
+  "cost_usd": 0.23728549999999998
+}

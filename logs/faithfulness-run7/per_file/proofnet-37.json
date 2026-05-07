@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. `[Group G] [Fintype G]` with `hG : card G > 2` encodes \"G is a finite group with |G| = n > 2\". The subgroup H appears as a free variable `(H : Subgroup G) [Fintype H]`, which is the standard way to express \"for all subgroups H\" at theorem-statement level; the `Fintype H` instance is automatic for subgroups of a finite group (trivially derivable), so its inclusion doesn't restrict the scope. The conclusion `card H ≠ card G - 1` matches \"|H| ≠ n−1\"; since card G > 2, natural-number subtraction behaves correctly. No hypotheses or quantifiers are silently added or dropped, and no types are changed.",
+  "duration_ms": 36582,
+  "cost_usd": 0.15778574999999997
+}

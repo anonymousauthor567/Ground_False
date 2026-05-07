@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_a2.lean",
+  "stem": "putnam_1970_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts ∃ δ > 0 such that no (x,y) satisfies 0 < x² + y² < δ² together with the equation = 0. The informal statement asserts ∃ δ > 0 such that no (x,y) in the punctured disk 0 < x² + y² < δ satisfies the equation. These are logically equivalent existential claims: any δ witnessing one can be transformed into a witness for the other via δ ↦ √δ or δ ↦ δ². The hypothesis B² - 4AC < 0, the polynomial expression, and the quantifier structure (negated existence ≡ universal ≠ 0) all match. The use of δ² in Lean versus δ in the informal statement is just a different parameterization of the radius and does not change the mathematical content.",
+  "duration_ms": 34000,
+  "cost_usd": 0.09036975
+}

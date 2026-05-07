@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses and conclusion match the informal statement. `DifferentiableOn ℝ f (Ioi 0)` encodes \"differentiable for every x > 0\" (on an open set, this is equivalent to pointwise differentiability at each point of the set). Since `Ioi 0` is open, `deriv f x` coincides with the actual derivative for all x > 0, so `Tendsto (deriv f) atTop (𝓝 0)` correctly encodes $f'(x) \\to 0$ as $x \\to +\\infty$ (the behavior at negative x is irrelevant for the `atTop` limit). The conclusion `Tendsto (fun x => f (x+1) - f x) atTop (𝓝 0)` is exactly $g(x) \\to 0$. The totality of `f : ℝ → ℝ` is a harmless encoding artifact since the conclusion only uses values of f at large positive reals.",
+  "duration_ms": 33960,
+  "cost_usd": 0.13133775000000003
+}

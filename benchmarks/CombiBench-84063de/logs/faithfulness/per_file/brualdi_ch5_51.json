@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch5_51.lean",
+  "stem": "brualdi_ch5_51",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal statement. `R < S` on `Rel X X = X → X → Prop` is exactly \"R ⊆ S pointwise and R ≠ S\" (i.e. proper subset as sets of ordered pairs). `IsPartialOrder X R/S` matches \"R and S are partial orders on X\". The conclusion `∃ p q, S p q ∧ ¬R p q ∧ IsPartialOrder X (R ⊔ fun x y ↦ if x = p ∧ y = q then true else false)` asserts existence of (p,q) ∈ S \\ R such that R ∪ {(p,q)} is a partial order; the inner lambda (via Bool→Prop coercion / elaboration) represents the singleton relation {(p,q)}, and `R ⊔ ...` is pointwise union, so this encodes R ∪ {(p,q)} exactly. The only extra ingredient is `[DecidableEq X]`, which is a purely technical requirement for the if-then-else elaboration and not a genuine mathematical restriction (every type admits decidable equality classically), so this is standard Mathlib practice rather than a weakening.",
+  "duration_ms": 416560,
+  "cost_usd": 1.39124675
+}

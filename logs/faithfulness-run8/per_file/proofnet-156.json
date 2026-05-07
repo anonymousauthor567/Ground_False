@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-156.lean",
+  "stem": "proofnet-156",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal Rudin 2.27(a) statement. `EuclideanSpace ℝ (Fin k)` is the standard Mathlib encoding of ℝ^k. `¬ Set.Countable E` correctly expresses \"E is uncountable\" since `Set.Countable` in Mathlib includes finite sets. The hypothesis `hP : P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}` is exactly Rudin's definition of the set of condensation points of E (every neighborhood of x contains uncountably many points of E). Mathlib's `Perfect P` is defined as `IsClosed P ∧ Preperfect P` (every point of P is an accumulation point of P), which matches the textbook definition of a perfect set. No hypotheses are dropped, added, or narrowed; the quantifier structure and ambient types match the informal statement exactly.",
+  "duration_ms": 62330,
+  "cost_usd": 0.26322375
+}

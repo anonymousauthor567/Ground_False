@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "theorem_name": "Rudin_exercise_2_29_corrected",
+  "informal": "Prove that every open set in $\\mathbb{R}$ is the union of an at most countable collection of disjoint segments.",
+  "lean": "\ntheorem Rudin_exercise_2_29_corrected\n    (U : Set ℝ) (hU : IsOpen U) (hConn : IsConnected U) :\n    ∃ (f : ℕ → Set ℝ),\n      (∀ n, ∃ a b : EReal, f n = {x : ℝ | a < (x : EReal) ∧ (x : EReal) < b}) ∧\n      (∀ n, f n ⊆ U) ∧\n      (∀ n m, n ≠ m → f n ∩ f m = ∅) ∧\n      U = ⋃ n, f n",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds the hypothesis `IsConnected U`, which is not present in the informal statement. The informal claim is about *every* open set in ℝ, while the Lean version restricts attention to connected open sets — which are themselves just single open intervals, making the conclusion almost trivial. This is a strict special case of the informal claim, so the Lean theorem is logically weaker. (The ℕ-indexing with allowed empty repeats is a fine way to encode \"at most countable\", but the spurious connectedness hypothesis is the decisive issue.)",
+  "duration_ms": 8582,
+  "cost_usd": 0.04790125
+}

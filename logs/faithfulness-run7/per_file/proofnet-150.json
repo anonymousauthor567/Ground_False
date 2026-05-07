@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly matches the informal claim. Hypotheses `A.Nonempty` and `BddBelow A` correspond to \"nonempty\" and \"bounded below\" respectively. The set `minus_A = {x | -x ∈ A}` is definitionally equal to {-y | y ∈ A}, which is the informal \"-A\" (substituting x = -y shows -x ∈ A iff y ∈ A). The conclusion `sInf A = - sSup minus_A` directly formalizes inf A = -sup(-A). Since A is nonempty and bounded below, `sInf A` gives the genuine infimum and `sSup minus_A` gives the genuine supremum (minus_A is nonempty and bounded above), so the Mathlib conventions for sInf/sSup on pathological sets don't cause any drift. No hypothesis is added or omitted, and the conclusion is neither weakened nor strengthened.",
+  "duration_ms": 31934,
+  "cost_usd": 0.13110525
+}

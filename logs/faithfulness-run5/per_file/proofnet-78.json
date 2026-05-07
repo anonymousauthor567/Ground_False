@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for a prime p, any finite group G of order p² has a normal subgroup of order p. The Lean statement introduces G as a group with `[Fintype G]`, a prime p with `Nat.Prime p`, and the hypothesis `card G = p^2`. The conclusion `∃ (N : Subgroup G) (Fin : Fintype N), @card N Fin = p ∧ N.Normal` says exactly: there exists a subgroup N of G with cardinality p that is normal. The existential `Fintype N` instance is a harmless technical artifact (any two Fintype instances on the same type give the same cardinality), and `N.Normal` is the standard Mathlib notion of a normal subgroup. The hypotheses and conclusion match the informal claim precisely, with no weakening or strengthening.",
+  "duration_ms": 37075,
+  "cost_usd": 0.1331185
+}

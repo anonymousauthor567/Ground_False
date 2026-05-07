@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal Munkres statement exactly. `hA : A ⊂ Set.univ` and `hB : B ⊂ Set.univ` use Mathlib's `HasSSubset` on `Set` (defined as `<`), which means strict subset, i.e., A ⊊ X and B ⊊ Y — precisely \"proper subset\". `IsConnected (Set.univ : Set X)` is logically equivalent to `ConnectedSpace X` via `isConnected_univ`, correctly encoding \"X is connected\". The conclusion `IsConnected (Set.univ \\ (A ×ˢ B))` expresses that `(X × Y) \\ (A × B)` is connected, where `×ˢ` is the standard Set Cartesian product in Mathlib. Mathlib's `IsConnected` requires nonemptiness, but this is automatically satisfied since A ⊊ univ yields some x ∉ A and Y is nonempty (from its IsConnected hypothesis), making `(x, y) ∉ A ×ˢ B`. No hypotheses are added, dropped, strengthened, or weakened.",
+  "duration_ms": 178836,
+  "cost_usd": 0.6038935
+}

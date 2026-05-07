@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_a2.lean",
+  "stem": "putnam_1978_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement in all substantive ways: the matrix entries correctly encode a (above diagonal), b (below diagonal), and c_i (diagonal) using nested `ite` expressions on i < j and i > j; the polynomial p(x) = ∏_{i=1}^n (c_i - x) is correctly expressed as `∏ i : Fin n, (c i - x)`; and the determinant formula (b·p(a) - a·p(b))/(b-a) is faithfully stated. The hypothesis `a ≠ b` matches \"b ≠ a\". The added `npos : n > 0` hypothesis surfaces a standard convention implicit in describing \"the n × n matrix\" with product notation ∏_{i=1}^n, which conventionally assumes n ≥ 1. This is a reasonable reading of the informal statement rather than a substantive weakening.",
+  "duration_ms": 169295,
+  "cost_usd": 0.5077615
+}

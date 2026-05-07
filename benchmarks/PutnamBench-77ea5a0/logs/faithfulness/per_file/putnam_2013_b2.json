@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_b2.lean",
+  "stem": "putnam_2013_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The sum `∑ n ∈ Finset.Icc 1 N, a[n]! * cos(2πnx)` matches Σ_{n=1}^N a_n cos(2πnx); the non-negativity and the divisibility constraint on coefficients are correctly stated; the list-based encoding (length N+1) is used only through indices 1, ..., N in the sum, so even though the Lean constraint forces a[0]=0 (because 3∣0), this has no effect on which functions f lie in C_N. The union `⋃ N ∈ Ici 1, CN N` matches C = ⋃_{N=1}^∞ C_N. Crucially, `IsGreatest` (defined in Mathlib as `a ∈ s ∧ a ∈ upperBounds s`) captures both \"maximum value\" and \"is attained\", which exactly matches \"determine the maximum and prove it is attained\".",
+  "duration_ms": 281669,
+  "cost_usd": 0.8325429999999999
+}

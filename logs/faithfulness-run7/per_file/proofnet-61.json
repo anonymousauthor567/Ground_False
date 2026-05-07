@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely. `[Group G] [Fintype G]` corresponds to \"finite group G\". `[Ring R]` corresponds to the ring underlying the group ring RG (the informal text does not specify R as commutative, and the statement holds for any ring R since a left-multiplication by gⱼhⱼ permutes G). The sum `∑ g : G, MonoidAlgebra.of R G g` unfolds via `MonoidAlgebra.of R G g = single g 1`, giving exactly g₁ + g₂ + ... + gₙ in the group algebra RG. `center (MonoidAlgebra R G)` (resolving to `Subring.center`, since MonoidAlgebra R G is a ring) captures \"is in the center of the group ring RG\". Quantifier structure and types match.",
+  "duration_ms": 158160,
+  "cost_usd": 0.4465345
+}

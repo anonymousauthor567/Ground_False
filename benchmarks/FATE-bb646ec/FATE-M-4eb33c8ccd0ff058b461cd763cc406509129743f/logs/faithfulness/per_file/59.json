@@ -1,0 +1,8 @@
+{
+  "file": "59.lean",
+  "stem": "59",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `CommGroup G` + `Fintype G` encode \"finite abelian group\", `hp : p.Prime` (with `p : ℕ` auto-bound) encodes \"prime p\", and `Fintype.card G = p ^ n` encodes \"order is a power of p\". The conclusion `∀ g, ∃ k ≤ n, orderOf g = p^k` says every element's order is a power of p, exactly as in the informal statement. The extra constraint `k ≤ n` is not a logical strengthening: since `orderOf g ∣ Fintype.card G = p^n` by Lagrange's theorem and p is prime, any power-of-p order `p^k` must satisfy `k ≤ n` automatically. Thus the two formulations are logically equivalent under the hypotheses.",
+  "duration_ms": 69035,
+  "cost_usd": 0.175934
+}

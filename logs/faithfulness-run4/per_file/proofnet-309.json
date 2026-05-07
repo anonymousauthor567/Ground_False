@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses (MetricSpace X, CompactSpace X, Isometry f, f : X → X) exactly match the informal setup. The conclusion `Continuous f ∧ Bijective f ∧ IsOpenMap f` is precisely Mathlib's characterization of a homeomorphism (see `IsHomeomorph` in `Mathlib/Topology/Homeomorph/Defs.lean`, whose docstring explicitly states this triple is the correct characterization, not merely Continuous ∧ Bijective). Since being a homeomorphism implies bijectivity, this triple is logically equivalent to the informal conjunction \"f is bijective and f is a homeomorphism\". So the Lean statement faithfully captures the informal claim.",
+  "duration_ms": 121117,
+  "cost_usd": 0.4127495
+}

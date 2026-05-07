@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `Sylow p G` encodes \"maximal p-subgroup\", matching the informal notion of a p-Sylow subgroup. The Lean signature takes a prime p (`hp : Nat.Prime p`), a Sylow p-subgroup P with P.Normal (encoding P ◁ G), and concludes ∀ Q : Sylow p G, P = Q, which is exactly \"P is the unique Sylow p-subgroup\". Although the Lean statement omits an explicit finiteness hypothesis that Herstein's context implicitly assumes, the statement \"a normal maximal p-subgroup is the unique Sylow p-subgroup\" is in fact true for arbitrary groups (via PQ/P ≅ Q/(P∩Q) plus maximality of P), so the omission doesn't strengthen the claim beyond what the informal statement asserts. Hypotheses, conclusion, and quantifier structure all match.",
+  "duration_ms": 226593,
+  "cost_usd": 0.7743127499999999
+}

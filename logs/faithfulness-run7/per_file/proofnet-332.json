@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary real x and an arbitrary rational y with y ≠ 0, and concludes that if x is irrational then x * y is irrational. Mathlib's `Irrational` is defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`, exactly capturing \"not rational.\" The rational y is implicitly coerced to ℝ in `x * y`. Since multiplication in ℝ is commutative, `x * y` equals `y * x = r * x`, so the conclusion matches \"rx is irrational.\" The hypothesis `y ≠ 0` matches the \"r ≠ 0\" premise. The universal quantification over x and y matches the informal reading. This is a logically equivalent formalization.",
+  "duration_ms": 64598,
+  "cost_usd": 0.28060300000000005
+}

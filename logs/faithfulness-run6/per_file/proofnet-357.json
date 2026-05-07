@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. `DifferentiableOn ℝ f (Ioi 0)` matches \"f differentiable for every x > 0\". Since `Ioi 0` is open, for each x > 0 it is a neighborhood of x, so this hypothesis implies `DifferentiableAt ℝ f x` for x > 0, and hence `deriv f x` equals the usual derivative f'(x) on (0, ∞). The hypothesis `Tendsto (deriv f) atTop (𝓝 0)` concerns only x → +∞ where `deriv f` coincides with f', so it faithfully encodes \"f'(x) → 0 as x → +∞\". The conclusion is a direct translation of g(x) → 0 as x → +∞. Using `f : ℝ → ℝ` as a total function rather than restricting its domain is a standard, faithful encoding since differentiability/behavior outside (0, ∞) is irrelevant to the claim.",
+  "duration_ms": 144139,
+  "cost_usd": 0.51341075
+}

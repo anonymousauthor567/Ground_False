@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures \"a group of order 5 must be abelian\" precisely: `[Group G] [Fintype G]` with `Fintype.card G = 5` expresses \"group of order 5\", and the conclusion `∀ a b : G, a*b = b*a` is exactly the definition of commutativity/abelianness. The type variable `G : Type*` provides the universal quantification \"any group of order 5\". No hypotheses are silently added or dropped, and the conclusion is neither weaker nor stronger than \"abelian\".",
+  "duration_ms": 26299,
+  "cost_usd": 0.040343000000000004
+}

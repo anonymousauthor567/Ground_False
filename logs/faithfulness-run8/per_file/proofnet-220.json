@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-220.lean",
+  "stem": "proofnet-220",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal problem. `{G : Type*} [Group G] [Finite G]` captures \"finite group G\"; `σ : MulAut G` (i.e., `G ≃* G`) captures \"automorphism σ\"; `hs : ∀ g, σ g = g ↔ g = 1` is exactly \"σ(g)=g iff g=1\"; `hs2 : ∀ g, σ (σ g) = g` is equivalent to σ² being the identity, since multiplication in `MulAut G` is composition (`(σ*σ) g = σ(σ g)`); and the conclusion `∀ x y, x * y = y * x` is the standard statement that G is abelian. No hypotheses are added or dropped, types match, and the quantifier structure aligns.",
+  "duration_ms": 44527,
+  "cost_usd": 0.15008150000000003
+}

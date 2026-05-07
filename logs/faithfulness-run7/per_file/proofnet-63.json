@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all the hypotheses (N > 0, gcd(M,N)=1, gcd(d,φ(N))=1, M' ≡ M^d mod N) and the required conclusion. Although the informal statement phrases d' as \"the inverse\" while Lean uses an existential ∃ d', these are equivalent: gcd(d, φ(N))=1 ensures such d' exists, and since M' is coprime to N (inherited from M' ≡ M^d and gcd(M,N)=1), M'^{d'} mod N depends only on d' mod φ(N) by Euler's theorem, so all inverses give the same result. The choice of d : ℕ (vs. integer in informal) and d' : ℕ is WLOG since the conclusion depends only on residues mod φ(N). Commutativity handles d'·d vs d·d'. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 235078,
+  "cost_usd": 0.7471985
+}

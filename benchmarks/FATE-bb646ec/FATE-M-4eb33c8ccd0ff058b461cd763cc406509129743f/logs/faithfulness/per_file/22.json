@@ -1,0 +1,8 @@
+{
+  "file": "22.lean",
+  "stem": "22",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says: for any type F which is a field and is algebraically closed, F is infinite. This is a direct and strictly faithful translation of \"an algebraically closed field must be an infinite field.\" The `Field F` instance captures \"field\", `IsAlgClosed F` (which in Mathlib means every polynomial in F[X] splits, equivalently every nonconstant polynomial has a root) captures \"algebraically closed\", and `Infinite F` captures \"infinite\". The implicit universal quantification over F via `{F : Type*}` is the standard Lean idiom for the informal \"an algebraically closed field\". No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 63391,
+  "cost_usd": 0.14624374999999998
+}

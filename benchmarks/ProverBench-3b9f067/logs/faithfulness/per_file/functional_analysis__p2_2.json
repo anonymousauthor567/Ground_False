@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p2_2.lean",
+  "stem": "functional_analysis__p2_2",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly hypothesizes that {b_n} is a sequence of POSITIVE real numbers converging to 1/2. The Lean theorem `series_sum_exists` only requires `sequence_converges b (1/2)` (i.e., `Tendsto b atTop (nhds (1/2))`) and drops the positivity hypothesis `∀ n, b n > 0` entirely (note that the separate `series_convergence'` axiom does include it via `h_pos`, but the theorem under consideration does not). The Lean conclusion — existence of a real S such that the partial sums of |b_i^i · cos(iπ)/i| tend to S — is equivalent, for non-negative terms, to absolute convergence of the series, so the conclusion matches. However, by dropping the explicitly-stated positivity hypothesis, the Lean statement asks us to prove the claim for arbitrary real-valued sequences converging to 1/2, which strictly implies the informal claim. Per the faithfulness criterion, \"drops a hypothesis that the informal statement explicitly requires\" is the paradigmatic \"stronger\" case. Positivity is not an implicit premise needed for truth (it is stated directly in the problem text) and its explicit statement is part of the mathematical content being formalized.",
+  "duration_ms": 307269,
+  "cost_usd": 0.7535662500000001
+}

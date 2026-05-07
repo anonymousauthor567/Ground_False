@@ -1,0 +1,8 @@
+{
+  "file": "69.lean",
+  "stem": "69",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal statement. `[Fintype G] [Group G]` expresses that G is a finite group. `H : Subgroup G` with `h1 : H < ⊤` correctly encodes \"H is a proper subgroup of G\" (strictly less than the top, which is all of G). `Nonempty (G ≃* H) → False` is logically equivalent to \"there is no multiplicative isomorphism between G and H,\" where H inherits a Group structure automatically via Mathlib's `Subgroup.toGroup` instance. The universal quantification over G and H is properly achieved through the type/hypothesis binders. The restriction to `Type` (Type 0) is a standard minor convention and does not meaningfully restrict the mathematical content. The Lean statement asserts exactly: for every finite group G and every proper subgroup H, G is not isomorphic to H.",
+  "duration_ms": 138497,
+  "cost_usd": 0.37951574999999993
+}

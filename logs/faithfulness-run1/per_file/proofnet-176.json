@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "theorem_name": "Shakarchi_exercise_1_13a_corrected",
+  "informal": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $\\text{Re}(f)$ is constant, then $f$ is constant.",
+  "lean": "\ntheorem Shakarchi_exercise_1_13a_corrected {f : ℂ → ℂ} (Ω : Set ℂ) (a b : Ω) (hΩ : IsOpen Ω)\n    (hconn : IsPreconnected Ω) (hf : DifferentiableOn ℂ f Ω)\n    (hc : ∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c) : f a = f b",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"f is constant\" via universally-quantified arbitrary points a, b : Ω with conclusion f a = f b, which is equivalent to f being constant on Ω. The hypotheses are: Ω open, Ω preconnected, f differentiable on Ω (the Mathlib analogue of holomorphic on Ω for ℂ → ℂ), and Re(f) constant on Ω. The informal statement (Shakarchi 1.13a) talks about an open set Ω, but the conclusion \"f is constant\" is only true on a connected component — adding IsPreconnected is the standard \"regions in Shakarchi\" reading, which the theorem name \"_corrected\" reflects. Under that conventional reading, the Lean version matches the informal claim exactly. The DifferentiableOn ℂ formulation correctly captures complex holomorphy.",
+  "duration_ms": 21220,
+  "cost_usd": 0.07458825
+}

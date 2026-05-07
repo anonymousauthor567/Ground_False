@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_a5.lean",
+  "stem": "putnam_1982_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: positive integers a, b, c, d with a + c ≤ 1982 and a/b + c/d < 1, prove 1 - a/b - c/d > 1/1983^3. The Lean statement uses a, b, c, d : ℤ with explicit positivity (a > 0 ∧ b > 0 ∧ c > 0 ∧ d > 0), which is equivalent to positive integers. The hypothesis a + c ≤ 1982 matches, and the hypothesis (a:ℝ)/b + (c:ℝ)/d < 1 with real-number division matches the informal fractions (since b, d > 0 the coerced division is well-defined and corresponds to the usual rational a/b). The conclusion 1 - (a:ℝ)/b - (c:ℝ)/d > 1/1983^3 matches exactly. Types, hypotheses, quantifier structure, and conclusion all correspond precisely.",
+  "duration_ms": 19143,
+  "cost_usd": 0.05492374999999999
+}

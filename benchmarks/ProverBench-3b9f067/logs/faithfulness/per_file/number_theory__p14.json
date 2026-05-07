@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p14.lean",
+  "stem": "number_theory__p14",
+  "verdict": "stronger",
+  "reasoning": "The informal statement concerns \"prime numbers\" which by standard convention means positive primes. The Lean formalization uses `Prime p` for `p : ℤ`, which by `Int.prime_iff_natAbs_prime` includes negative primes (e.g., `Prime (-5 : ℤ)` holds since `Nat.Prime 5`). Moreover, `%` on ℤ in Lean 4 is `Int.emod`, which is always non-negative for positive divisor, so `(-5 : ℤ) % 6 = 1` and similarly for `-11, -17, ...`. However, `a² - ab + b² = ((2a-b)² + 3b²)/4 ≥ 0` for all integer `a, b`, so no negative integer can be expressed in this form — making the Lean statement literally false at `p = -5`, even though the intended informal theorem is true. Since Lean ⟹ Informal (positive primes are Int primes and emod agrees with standard mod for positive p) but Informal ⇏ Lean (p = -5 is a counterexample Lean forces but informal does not), the Lean statement claims the result for strictly more cases by effectively dropping the implicit positivity hypothesis.",
+  "duration_ms": 437987,
+  "cost_usd": 1.0403022499999999
+}

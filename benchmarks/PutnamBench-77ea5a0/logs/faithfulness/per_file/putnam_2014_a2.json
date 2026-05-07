@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a2.lean",
+  "stem": "putnam_2014_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem: the matrix A over Fin n × Fin n has entries 1/min(i+1, j+1) (computed in ℚ and coerced to ℝ), which matches the informal 1/min(i,j) for 1 ≤ i,j ≤ n indexing (since i.1 ranges in {0,...,n-1}, so i.1+1 ranges in {1,...,n}). The solution `(-1)^(n-1) / ((n-1)! · n!)` is the correct Putnam 2014 A2 answer (verified at small cases n=1,2,3). The `npos : n > 0` hypothesis surfaces the standard implicit convention that \"n × n matrix\" means n ≥ 1, which is the natural reading of the informal statement. The conclusion `A.det = putnam_2014_a2_solution n` directly asks for the determinant computation as specified.",
+  "duration_ms": 611317,
+  "cost_usd": 0.5585605
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "informal": "Suppose $T \\in \\mathcal{L}(V)$ is such that every vector in $V$ is an eigenvector of $T$. Prove that $T$ is a scalar multiple of the identity operator.",
+  "lean": "\ntheorem Axler_exercise_5_12 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] {S : End F V}\n  (hS : ∀ v : V, ∃ c : F, v ∈ eigenspace S c) :\n  ∃ c : F, S = c • LinearMap.id",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ v, ∃ c, v ∈ eigenspace S c` unfolds to `∀ v, ∃ c, S v = c • v`, which captures \"every vector is an eigenvector\" (the v = 0 case is trivially satisfied, matching the standard convention that the informal claim is non-vacuous only on nonzero vectors). The conclusion `∃ c, S = c • LinearMap.id` exactly states that S is a scalar multiple of the identity operator. The ambient setup (V a module over a field F, S a linear endomorphism) matches `T ∈ L(V)`. No extra hypotheses (like finite-dimensionality) are imposed, and none are needed for this result. The Lean encoding is logically equivalent to the informal statement.",
+  "duration_ms": 11937,
+  "cost_usd": 0.05793500000000001
+}

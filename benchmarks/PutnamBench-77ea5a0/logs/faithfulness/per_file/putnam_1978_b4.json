@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_b4.lean",
+  "stem": "putnam_1978_b4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says integers $a,b,c,d$ satisfying the equation exist with the smallest of them arbitrarily large. \"Smallest arbitrarily large\" means: for any bound $N$, we can find integers with $\\min(a,b,c,d) > N$, which is equivalent to requiring all four integers to exceed $N$. The Lean statement quantifies over all $N : \\mathbb{R}$ and asserts existence of integers $a,b,c,d$ each greater than $N$ satisfying the same equation $a^2+b^2+c^2+d^2 = abc+abd+acd+bcd$. Using $\\mathbb{R}$ for the bound $N$ rather than $\\mathbb{Z}$ or $\\mathbb{N}$ does not change the meaning since \"arbitrarily large\" is equivalent under either quantification. The equation and types match exactly, so this is a faithful formalization.",
+  "duration_ms": 22897,
+  "cost_usd": 0.05109775
+}

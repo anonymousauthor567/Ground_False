@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_a6.lean",
+  "stem": "putnam_2020_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The formula `(N + 1/2 - n)/((N + 1)*(2*n + 1)) * Real.sin ((2*n + 1)*x)` elaborates in ℝ (since Real.sin forces the context to ℝ), so `1/2` is correctly 0.5, not integer division. `Finset.Icc 0 N` for N : ℤ with N > 0 gives {0, 1, ..., N}, matching the sum bounds n=0 to N. The quantifier `∃ᵉ (N > 0) (x : ℝ)` restricts N to positive integers (matching \"positive integer N\") and x to all reals, and `sSup` of the range gives precisely the \"smallest constant M such that f_N(x) ≤ M for all N and all real x\" since the set is nonempty and bounded above (answer is π/4). The types match, the quantifier structure matches, and the supremum encoding faithfully captures \"smallest upper bound\".",
+  "duration_ms": 276069,
+  "cost_usd": 0.7074317499999999
+}

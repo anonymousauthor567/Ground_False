@@ -1,0 +1,8 @@
+{
+  "file": "112.lean",
+  "stem": "112",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. Mathlib's `Ring` class extends `AddGroupWithOne`, providing the ring with 1 structure that the informal statement requires. The hypothesis `h₁ : b * a = 1` asserts that b is a left inverse of a, and `h₂ : ∀ c : R, c * a = 1 → c = b` asserts that any left inverse of a must equal b — together these express exactly that b is the unique left inverse of a. The conclusion `a * b = 1` matches \"ab = 1\", which is the claim that b is also a right inverse. Neither hypotheses nor conclusion are strengthened or weakened, and the types and quantifier structure align with the informal claim.",
+  "duration_ms": 57083,
+  "cost_usd": 0.168812
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly: `n > 1` on ℕ is equivalent to `k ≥ 2`; `EuclideanSpace ℝ (Fin n)` is the standard Mathlib encoding of ℝ^n (as confirmed in Mathlib/Analysis/InnerProductSpace/PiL2.lean); `y ≠ 0` matches `y ≠ 0`; and the real inner product `⟪x, y⟫_ℝ` on EuclideanSpace ℝ is precisely the dot product `x · y`. The quantifier structure (universal over x, existential in y) is preserved. No hypotheses are added or dropped.",
+  "duration_ms": 42599,
+  "cost_usd": 0.167144
+}

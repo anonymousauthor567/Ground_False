@@ -1,0 +1,8 @@
+{
+  "file": "81.lean",
+  "stem": "81",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement's parsing is critical. In Lean 4, `∃ x, body` is a binder that extends the body to the right as far as possible (same as `∀` and `fun`). So `∃ (rs : List R), (IsRegular R rs) ∧ Ideal.ofList rs = I ↔ Module.Free ... ∧ (∃ n, HasProjectiveDimensionLE ...)` parses as `∃ rs, ((IsRegular R rs ∧ ofList rs = I) ↔ (Free ∧ ∃ n, HasPDLE))`, NOT as the intended `(∃ rs, IsRegular R rs ∧ ofList rs = I) ↔ (Free ∧ ∃ n, HasPDLE)`. The two forms are not logically equivalent: writing P(rs) = \"rs is regular and generates I\" and Q = RHS, the Lean states `∃rs, (P(rs) ↔ Q)`, while the informal states `(∃rs, P(rs)) ↔ Q`. One can show informal ⟹ Lean (pick any witness — `[]` works — when both sides are false) but not the converse: if Q is false and ∃rs with P(rs), the informal biconditional fails but the Lean version can still be satisfied by any rs with ¬P(rs). So the Lean statement is strictly weaker than the informal biconditional.",
+  "duration_ms": 865569,
+  "cost_usd": 2.0925337500000003
+}

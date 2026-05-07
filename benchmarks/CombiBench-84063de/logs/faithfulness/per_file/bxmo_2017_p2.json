@@ -1,0 +1,8 @@
+{
+  "file": "bxmo_2017_p2.lean",
+  "stem": "bxmo_2017_p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the game precisely: n = m + 2 covers all n ≥ 2; the two factory islands are fixed as F1 = 0 and F2 = 1 (WLOG by symmetry); the initial state is the empty graph; `isValidMove` requires distinct non-adjacent endpoints with at least one being reachable from F1 or F2 (and `Reachable` being reflexive covers \"or has a factory itself\"); `is_losing_state` correctly uses `Reachable F1 F2` to capture the F1–F2 path. The turn structure in `aliceWins` correctly has Alice moving first and alternating, with a player losing immediately if they produce an invalid move (equivalent to the convention that a player with no valid moves loses) or if their move connects F1 to F2. The solution is encoded as `ℕ → Fin 2` (0 = Alice, 1 = Bob) and the conjunction correctly asserts that the solution function identifies the winner for each n. The quantifier structure (`∃ strategyA, ∀ strategyB` and `∃ strategyB, ∀ strategyA, ¬ aliceWins`) faithfully renders \"has a winning strategy\" for each player.",
+  "duration_ms": 557543,
+  "cost_usd": 1.3014187499999998
+}

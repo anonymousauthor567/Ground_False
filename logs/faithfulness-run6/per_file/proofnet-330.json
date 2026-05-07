@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement accurately. `ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f` corresponds to C^∞ (infinitely differentiable) — the inner ⊤ of ℕ∞ is the C^∞ level, not the C^ω (analytic) top of WithTop ℕ∞. The hypotheses `hf0 : f 0 = 0`, `hf1 : f 1 = 1`, and `hf2 : ∀ x, f x ≥ 0` mirror the informal assumptions exactly. The conclusion uses `n : ℕ+` (positive integer) with the standard coercion to ℕ for `iteratedDeriv`, and `iteratedDeriv n f x < 0` expresses \"f^(n)(x) < 0\" for some real x. No extra or missing hypotheses; quantifier structure and types match.",
+  "duration_ms": 70281,
+  "cost_usd": 0.2803255
+}

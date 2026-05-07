@@ -1,0 +1,8 @@
+{
+  "file": "128.lean",
+  "stem": "128",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `DihedralGroup n` in Mathlib is the dihedral group of order `2n`, which is exactly $D_{2n}$. The conclusion `Subgroup.center (DihedralGroup n) = ⊥` is the standard encoding of \"center is trivial\", matching $Z(D_{2n}) = 1$. On hypotheses: the informal has `n ≥ 3` while Lean has `n ≥ 2`, but under the `Odd n` hypothesis these are equivalent (an odd number ≥ 2 must be ≥ 3, since 2 is even). The `NeZero n` instance is automatically implied by `n ≥ 2`, so it's redundant but not a semantic change. The use of `ℕ` vs `ℤ` makes no difference since both statements restrict to positive integers via the lower bound. The quantifier structure (implication \"if odd, then center is trivial\") matches as well.",
+  "duration_ms": 121592,
+  "cost_usd": 0.33165575
+}

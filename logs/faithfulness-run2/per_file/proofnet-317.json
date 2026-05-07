@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all the informal hypotheses: X is a topological space with `CompactSpace` and `T2Space` (compact Hausdorff), X1 and X2 are closed subsets via `IsClosed`, their union is `univ` (i.e., all of X), and each is metrizable via `MetrizableSpace` (which, for `Set X`, uses the subspace topology—matching \"closed subspace\"). The conclusion `MetrizableSpace X` matches \"X is metrizable.\" Quantifier structure is a universal over all such X (via `Type*`), matching the informal \"Let X be...\". No extra assumptions like second-countability or finiteness are added, and no needed hypothesis is dropped. Thus the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 8882,
+  "cost_usd": 0.039850000000000003
+}

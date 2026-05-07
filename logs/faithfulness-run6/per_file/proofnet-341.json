@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the standard theorem: every open U ⊆ ℝ is a disjoint union of at most countably many open intervals (segments). Using ℕ-indexing with potentially empty members faithfully encodes \"at most countable collection\", and the set-builder {x : ℝ | a < x < b} with a, b : EReal correctly captures the notion of a segment, including unbounded ones like (-∞, ∞), (a, ∞), (-∞, b). Allowing unbounded endpoints is essential for the theorem to be true (e.g., U = ℝ cannot be written as a disjoint union of bounded open intervals), so the EReal encoding surfaces a necessary implicit premise of Rudin's exercise. The disjointness condition and the equality U = ⋃ n, f n together with f n ⊆ U correctly capture that U is exactly the disjoint union of these segments. No hypotheses are silently added or dropped relative to the intended mathematical content.",
+  "duration_ms": 112914,
+  "cost_usd": 0.3203355
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-8.lean",
+  "stem": "proofnet-8",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is that in ℤ[x], the ideal (2) intersected with the ideal (x) equals the ideal (2x). The Lean statement, with `Ideal` opened, uses `span` applied to a `Set (Polynomial ℤ)`, which resolves to `Ideal.span` (since `Submodule.span` would require an explicit ring argument). So `span {2}`, `span {X}`, and `span {2 * X}` are the ideals (2), (X), (2X) in ℤ[X]. The `⊓` of ideals is their intersection (the lattice infimum on `Ideal R` coincides with set intersection). Thus the Lean claim `(2) ⊓ (X) = (2X)` matches the informal claim `(2) ∩ (x) = (2x)` exactly, with no added or dropped hypotheses.",
+  "duration_ms": 152501,
+  "cost_usd": 0.1695845
+}

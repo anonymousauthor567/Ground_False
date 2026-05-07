@@ -1,0 +1,8 @@
+{
+  "file": "33.lean",
+  "stem": "33",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one across all essential elements: f.degree = n, n > 4, f.Gal ≃* Equiv.Perm (Fin n) (Galois group isomorphic to S_n), a and b are distinct roots of f in the splitting field, and the conclusion counts exactly (n-1)! Galois elements sending a to b. The only apparent addition is `Irreducible f`, but this is actually a redundant hypothesis: if f ∈ ℚ[x] has degree n and |Gal(Split(f)/ℚ)| = n! (implied by the isomorphism with S_n, since in char 0 we have [Split(f):ℚ] = |Gal|), then f must be irreducible. For if f = gh with 1 ≤ deg g, deg h < n, then [Split(f):ℚ] ≤ (deg g)! · (deg h)! < n!, a contradiction. Since the extra hypothesis is logically implied by the remaining ones, the Lean statement is logically equivalent to the informal statement.",
+  "duration_ms": 984508,
+  "cost_usd": 1.9683335000000004
+}

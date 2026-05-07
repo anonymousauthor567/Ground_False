@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "informal": "For all odd $n$ show that $8 \\mid n^{2}-1$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_1_27 {n : ℕ} (hn : Odd n) : 8 ∣ (n^2 - 1)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for every odd n, 8 divides n²−1. The Lean version quantifies over n : ℕ with hypothesis Odd n and concludes 8 ∣ (n^2 - 1). Since any odd natural number satisfies n ≥ 1, we have n² ≥ 1, so the natural-number subtraction n^2 - 1 coincides with the usual integer subtraction and there is no truncation issue. The informal statement is most naturally read over the integers (or naturals), and the Lean ℕ formulation is logically equivalent to it. Hypothesis, conclusion, and quantifier structure all match.",
+  "duration_ms": 8459,
+  "cost_usd": 0.0474785
+}

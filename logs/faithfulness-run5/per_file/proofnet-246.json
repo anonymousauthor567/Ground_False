@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly mirrors the informal claim. `[CommRing R]` corresponds to \"commutative ring R\", `(hR : (0 : R) ≠ 1)` corresponds to \"1 ≠ 0\" (just with the order of 0 and 1 flipped, which is logically identical), `IsNilpotent a` corresponds to \"a is nilpotent\", the parameter `(b : R)` provides the universal quantification over b, and `IsUnit (1 - a*b)` matches \"1 - ab is a unit\". No hypotheses are added, dropped, or altered, and the conclusion is exactly what the informal statement asks for.",
+  "duration_ms": 37936,
+  "cost_usd": 0.1067295
+}

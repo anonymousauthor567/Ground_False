@@ -1,0 +1,8 @@
+{
+  "file": "68.lean",
+  "stem": "68",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes each component of the informal statement correctly. `[CommRing R] [IsLocalRing R] [IsNoetherianRing R]` captures \"Noetherian local ring\". `hf : f ∈ IsLocalRing.maximalIdeal R` captures \"f ∈ 𝔪\". `¬ IsNilpotent f` captures \"f is not nilpotent\". `Localization.Away f` is defined in Mathlib as `Localization (Submonoid.powers f)`, which is exactly the localization $A_f$. `IsJacobsonRing` is Mathlib's standard Jacobson-ring predicate (every radical ideal equals its Jacobson radical). No hypotheses are added or removed beyond what the informal statement specifies. Thus, the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 133353,
+  "cost_usd": 0.34009425
+}

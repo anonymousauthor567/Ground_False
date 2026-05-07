@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for any finite-dimensional real normed space E of dimension m, the closed unit ball `Metric.closedBall (0 : E) 1 = {x : ‖x‖ ≤ 1}` is compact. The informal statement asserts that for any norm on ℝ^m, the closed unit ball is compact. These are logically equivalent: any finite-dimensional real normed space of dimension m is linearly isomorphic to ℝ^m (via any basis), and this isomorphism transfers the norm and preserves compactness of the closed unit ball. Conversely, specializing E := ℝ^m recovers the informal claim for any norm on ℝ^m. The parameter m with `hdim : finrank ℝ E = m` just names the dimension without adding restrictions beyond `FiniteDimensional ℝ E`. The conclusion `Metric.closedBall (0 : E) 1` matches {x : ‖x‖ ≤ 1} since in a normed space `dist x 0 = ‖x‖`. This is a standard and faithful formalization.",
+  "duration_ms": 207655,
+  "cost_usd": 0.68888425
+}

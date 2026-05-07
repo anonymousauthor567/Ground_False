@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "informal": "Suppose $X$ is a nonempty complete metric space, and $\\left\\{G_{n}\\right\\}$ is a sequence of dense open sets of $X$. Prove Baire's theorem, namely, that $\\bigcap_{1}^{\\infty} G_{n}$ is not empty.",
+  "lean": "\ntheorem Rudin_exercise_3_22 (X : Type*) [MetricSpace X] [CompleteSpace X] [Nonempty X]\n  (G : ℕ → Set X) (hG : ∀ n, IsOpen (G n) ∧ Dense (G n)) :\n  ∃ x, ∀ n, x ∈ G n",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes X is a nonempty complete metric space (via the typeclasses MetricSpace, CompleteSpace, Nonempty), and that each G n is open and dense, matching the informal hypotheses exactly. The conclusion `∃ x, ∀ n, x ∈ G n` is logically equivalent to `⋂ n, G n ≠ ∅`, which is precisely what the informal statement asks to prove. The quantifier structure and ambient objects match.",
+  "duration_ms": 6385,
+  "cost_usd": 0.04385924999999999
+}

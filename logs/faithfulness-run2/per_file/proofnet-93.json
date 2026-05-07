@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the polynomial $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$. The Lean statement asserts `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)`, which directly encodes the same polynomial in $\\mathbb{Q}[X]$ and uses Mathlib's `Irreducible` predicate. The polynomial expression, the ring, and the conclusion all match exactly, so this is a strictly faithful formalization.",
+  "duration_ms": 7917,
+  "cost_usd": 0.03143425
+}

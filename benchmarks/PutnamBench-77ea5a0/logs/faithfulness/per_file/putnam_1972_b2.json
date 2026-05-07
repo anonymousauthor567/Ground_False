@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b2.lean",
+  "stem": "putnam_1972_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the same mathematical claim as the informal statement. AntitoneOn matches \"nonstrictly decreasing\" (non-strict version: a ≤ b → f b ≤ f a). The local conditions on [0, t] (DifferentiableOn, AntitoneOn on Icc 0 t) are essentially equivalent to global conditions, since any function satisfying these on [0, t] can be extended to ℝ preserving the global antitone second derivative (extend with constant x''(0) for τ < 0 and constant x''(t) for τ > t). The combined DifferentiableOn hypotheses on x and deriv x force continuity, making deriv x 0 = 0 and deriv x t = v correctly encode x'(0) = 0 and x'(t) = v. The solution 2s/v is achievable (by the quadratic x(τ) = (v²/(4s))τ²) and upper-bounds the set by concavity of x'. Both the informal and Lean sets have 2s/v as their greatest element, so IsGreatest captures \"max is 2s/v\" faithfully.",
+  "duration_ms": 795536,
+  "cost_usd": 2.2057350000000002
+}

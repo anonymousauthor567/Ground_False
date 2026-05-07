@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "informal": "Prove that any subring of a field which contains the identity is an integral domain.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_1_12 {F : Type*} [Field F] {K : Subring F}\n  (hK : (1 : F) ∈ K) : IsDomain K",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `Subring F` already requires the multiplicative identity to lie in the subring, so the hypothesis `hK : (1 : F) ∈ K` is automatically satisfied and redundant rather than restricting or expanding the claim. The conclusion `IsDomain K` is exactly the assertion that the subring is an integral domain. The ambient `F` is an arbitrary `Field`, matching the informal \"a field\". Thus the Lean statement asserts: every subring (which by definition contains 1) of any field is an integral domain — logically equivalent to the informal claim.",
+  "duration_ms": 10671,
+  "cost_usd": 0.0591095
+}

@@ -1,0 +1,8 @@
+{
+  "file": "78.lean",
+  "stem": "78",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. \"Proper subgroup\" corresponds to `H < ⊤` (equivalent to `H ≠ ⊤` since `H ≤ ⊤` always holds for subgroups). The hypotheses `[Group G]`, `[Fintype G]`, `Nat.Prime p`, and `Fintype.card G = p^2` faithfully encode \"G is a group of order p² with p prime\" (finiteness is implicit in having order p²). The conclusion `∀ H : Subgroup G, H < ⊤ → IsCyclic H` captures \"every proper subgroup is cyclic\" via the standard coercion of a `Subgroup G` to its subtype with inherited group structure. No hypotheses are added or dropped beyond what is naturally implicit, and the quantifier structure is preserved.",
+  "duration_ms": 81460,
+  "cost_usd": 0.2705925
+}

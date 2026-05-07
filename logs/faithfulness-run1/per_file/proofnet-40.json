@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "informal": "Let $A$ be an abelian group and let $B$ be a subgroup of $A$. Prove that $A / B$ is abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_1_3a {A : Type*} [CommGroup A] (B : Subgroup A) :\n  ∀ a b : A ⧸ B, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes A as a CommGroup (abelian group) and B as an arbitrary subgroup, matching the informal hypotheses. In a commutative group every subgroup is normal, so the quotient A ⧸ B is well-defined as a group, and the conclusion ∀ a b : A ⧸ B, a*b = b*a is exactly the assertion that A/B is abelian. No extra hypotheses are added and none are dropped, and the conclusion is logically equivalent to \"A/B is abelian.\"",
+  "duration_ms": 8463,
+  "cost_usd": 0.04541075
+}

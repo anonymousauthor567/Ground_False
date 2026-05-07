@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a chain of biconditionals \"A iff B iff C\" (with A: xy=yx, B: y⁻¹xy=x, C: x⁻¹y⁻¹xy=1). The Lean formalization states (A ↔ B) ∧ (B ↔ C), which is logically equivalent to a three-way equivalence by transitivity of iff. The expressions parse correctly: `y⁻¹ * x * y` is y⁻¹xy, and `x⁻¹ * y⁻¹ * x * y` is the standard commutator x⁻¹y⁻¹xy. The universal quantification over an arbitrary group G and elements x, y matches the informal statement. No hidden hypotheses are introduced or dropped.",
+  "duration_ms": 28108,
+  "cost_usd": 0.0747325
+}

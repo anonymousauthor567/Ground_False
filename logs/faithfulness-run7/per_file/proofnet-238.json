@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that if |G|=6545 then G is not simple. The Lean theorem takes a finite group G via `[Fintype G] [Group G]` (which are required for `card G` to make sense), assumes `card G = 6545` matching |G|=6545, and concludes `¬ IsSimpleGroup G` matching \"G is not simple\". Mathlib's `IsSimpleGroup` is defined as a `Nontrivial` group whose only normal subgroups are ⊥ and ⊤, which is the standard mathematical definition of a simple group. Since 6545 > 1, the nontriviality condition bundled with `IsSimpleGroup` is automatically satisfied, so nothing is lost or added. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 71235,
+  "cost_usd": 0.20688500000000004
+}

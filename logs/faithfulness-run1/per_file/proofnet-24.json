@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "theorem_name": "Axler_exercise_6_16_corrected",
+  "informal": "Suppose $U$ is a subspace of $V$. Prove that $U^{\\perp}=\\{0\\}$ if and only if $U=V$",
+  "lean": "theorem Axler_exercise_6_16_corrected {K V : Type*} [RCLike K] [NormedAddCommGroup V]\n  [InnerProductSpace K V] [CompleteSpace V] {U : Submodule K V}\n  (hU : IsClosed (U : Set V)) :\n  U.orthogonal = ⊥ ↔ U = ⊤",
+  "verdict": "stronger",
+  "reasoning": "Axler's exercise 6.16 sits in a finite-dimensional inner product space context, where every subspace is automatically closed and V is automatically complete. The Lean signature drops finite-dimensionality and instead carries the explicit hypotheses `CompleteSpace V` and `IsClosed (U : Set V)`, which are exactly what is needed to make the equivalence true in the broader Hilbert-space setting (without closedness the forward direction fails for dense proper subspaces). The conclusion `U.orthogonal = ⊥ ↔ U = ⊤` matches `U⊥ = {0} ↔ U = V` precisely, and `RCLike K` correctly captures Axler's ℝ or ℂ scalars. Specializing the Lean theorem to finite dimensions recovers the informal claim (since the added hypotheses become automatic), but the informal finite-dim statement does not by itself yield the more general Hilbert-space version; hence the Lean statement is logically stronger, as the `_corrected` suffix also hints.",
+  "duration_ms": 40077,
+  "cost_usd": 0.123762
+}

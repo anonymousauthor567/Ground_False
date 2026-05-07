@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The local `is_topology` definition captures the three standard topology axioms (contains univ, closed under binary intersection, closed under arbitrary unions — the latter implying ∅ ∈ T by taking the empty collection). The family is encoded as `T : I → Set (Set X)` with the hypothesis `∀ i, is_topology X (T i)`, directly corresponding to \"a family of topologies on X,\" and the conclusion `is_topology X (⋂ i : I, T i)` is exactly \"the intersection is a topology on X.\" The types `X I : Type*` provide the universal quantification. No hypotheses are added or dropped, and the quantifier structure matches. Even the empty-index edge case works correctly (the intersection becomes `univ : Set (Set X)` which vacuously satisfies the axioms).",
+  "duration_ms": 49328,
+  "cost_usd": 0.16107200000000002
+}

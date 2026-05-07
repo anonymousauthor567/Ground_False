@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"the intersection of any collection of subspaces of V is a subspace of V.\" The indexed family `u : ι → Submodule F V` is equivalent to \"any collection of subspaces\" (any set-indexed collection can be viewed as an indexed family and vice versa). The conclusion `∃ U : Submodule F V, (⋂ i, (u i).carrier) = ↑U` precisely expresses that the set-theoretic intersection of the carriers equals the carrier of some submodule — i.e., the intersection is itself a subspace. The typeclass setup `[Field F] [AddCommGroup V] [Module F V]` correctly models \"V is a vector space over F\". No hypotheses are added or dropped. Mathlib's `CompleteLattice (Submodule R M)` instance confirms this holds unconditionally, including the edge case where ι is empty (intersection = univ = ↑⊤).",
+  "duration_ms": 49887,
+  "cost_usd": 0.21514550000000002
+}

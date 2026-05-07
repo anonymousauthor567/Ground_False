@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that for $\\Omega = \\{1, 2, 3, \\ldots\\}$ (a countably infinite set), the symmetric group $S_\\Omega$ is an infinite group. The Lean statement `Infinite (Equiv.Perm ℕ)` asserts that the permutation group on ℕ is infinite. Although $\\Omega$ starts at 1 and ℕ starts at 0, both are countably infinite sets, so their permutation groups are isomorphic — the exact underlying set doesn't change the claim. `Equiv.Perm ℕ` automatically has a group instance in Mathlib, so the \"is a group\" part is implicit in the type, and `Infinite` captures the cardinality assertion. This is a standard and faithful encoding.",
+  "duration_ms": 39215,
+  "cost_usd": 0.11115149999999999
+}

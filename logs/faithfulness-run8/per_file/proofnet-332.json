@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the exact mathematical content of the informal claim. The rational `r` is represented as `y : ℚ` with `h : y ≠ 0`, and `x` is the irrational real. The conclusion `Irrational (x * y)` uses Mathlib's `Irrational` predicate on `ℝ` (the coercion `ℚ → ℝ` is applied implicitly when forming `x * y`). The informal `rx` and the Lean `x * y` differ only by commutativity of real multiplication, so they are logically equivalent. This exactly matches the Mathlib lemma `Irrational.mul_ratCast: Irrational x → q ≠ 0 → Irrational (x * q)`. No hypotheses are added or dropped, and the conclusion is identical up to commutativity.",
+  "duration_ms": 51200,
+  "cost_usd": 0.2344385
+}

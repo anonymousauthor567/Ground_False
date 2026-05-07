@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a1.lean",
+  "stem": "putnam_2010_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. `Finset.Icc 1 n` gives {1,...,n}; `boxes : Finset.Icc 1 n → Fin k` encodes a partition into k labeled boxes; the filtered sum `∑ x ∈ Finset.univ.filter (boxes · = i), (x : ℕ)` gives the sum of the values in box i; and `∀ i j, sum i = sum j` says all boxes have equal sums. Although the Lean encoding allows empty boxes syntactically, since all elements of {1,...,n} are positive, any empty box would have sum 0 and force all boxes (including non-empty ones) to have sum 0, which is impossible — so the equal-sum constraint automatically forces every box to be non-empty, matching the informal interpretation. `IsGreatest kboxes (⌈n/2⌉)` correctly asserts that ⌈n/2⌉ is both achievable and an upper bound, capturing \"largest k\". The hypothesis `n > 0` matches \"positive integer n\". The answer ⌈n/2⌉ matches the known Putnam 2010 A1 solution.",
+  "duration_ms": 424610,
+  "cost_usd": 1.05889925
+}

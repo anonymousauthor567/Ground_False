@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-250.lean",
+  "stem": "proofnet-250",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. `MvPolynomial ℕ ℤ` is ℤ[x_0, x_1, ...] (the 0- vs 1-indexing is purely cosmetic), `f i = X(2i) * X(2i+1)` enumerates exactly the pair-products x_0 x_1, x_2 x_3, ... which are the same products (up to index shift) as x_1 x_2, x_3 x_4, ... in the informal statement, and `span (range f)` (with `Ideal` open) is the ideal they generate. The quotient `MvPolynomial ℕ ℤ ⧸ span (range f)` matches the informal ring, and `Infinite (minimalPrimes (...))` expresses that the set of minimal prime ideals is infinite. The `{f} (hf : f = ...)` binder is a cosmetic way to name the function and does not change the content. No hypotheses are added or dropped.",
+  "duration_ms": 355093,
+  "cost_usd": 0.5257847499999999
+}

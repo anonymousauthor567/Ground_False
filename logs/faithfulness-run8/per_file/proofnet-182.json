@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly transcribes the informal integral equation: it uses `intervalIntegral` from 0 to 1 of `Real.log (Real.sin (Real.pi * x))` and asserts equality with `- Real.log 2`. All types are real, bounds match 0 to 1, the integrand is log(sin(πx)), and the right-hand side is -log 2. Mathlib's convention `Real.log 0 = 0` handles the endpoint singularities on a measure-zero set, so the Bochner interval integral value coincides with the classical improper integral (which equals -log 2, via the substitution u=πx reducing to Mathlib's `integral_log_sin_zero_pi`). No hypotheses are added or dropped, and no quantifier or type is changed.",
+  "duration_ms": 68651,
+  "cost_usd": 0.24755324999999995
+}

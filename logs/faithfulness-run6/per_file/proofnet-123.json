@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: X is compact Hausdorff; A is a nonempty family of closed connected subsets; A is totally ordered by inclusion; the conclusion is that ⋂₀ A is connected (nonempty + preconnected, per Mathlib's IsConnected at Topology/Connected/Basic.lean:55). Munkres's \"simply ordered by proper inclusion\" is the standard term for totally ordered; expressing this as `a ⊆ b ∨ b ⊆ a` is equivalent to the chain condition via ⊊, since for distinct elements in a chain ⊆ reduces to ⊊. Each element being a \"connected subset\" in Munkres's usage implies nonempty, matching IsConnected's definition. The added `A.Nonempty` hypothesis merely surfaces an implicit premise needed for truth — without it, ⋂₀ ∅ = univ = X, which need not be connected — and Munkres clearly intends a nonempty collection by writing Y = ⋂_{A∈𝒜} A. This makes the formalization faithful, not weaker.",
+  "duration_ms": 82231,
+  "cost_usd": 0.28364500000000004
+}

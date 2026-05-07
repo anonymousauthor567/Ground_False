@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Zsqrtd 2`, which Mathlib defines as ℤ[√d] = {a + b√d : a, b ∈ ℤ} for d : ℤ, matching ℤ[√2] exactly. `Zsqrtd.sqrtd` is defined as ⟨0, 1⟩, i.e., the element √2 in this ring. `Polynomial (Zsqrtd 2)` is the polynomial ring (ℤ[√2])[X], and `X^2 - C Zsqrtd.sqrtd` is the polynomial x² - √2. `Irreducible` is the standard Mathlib predicate (not a unit and any factorization has a unit factor), which is the standard meaning of \"irreducible\" in a commutative ring. The UFD remark in the informal statement is a proof hint, not part of the claim. The formalization precisely matches the informal statement.",
+  "duration_ms": 65311,
+  "cost_usd": 0.24118200000000004
+}

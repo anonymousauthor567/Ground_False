@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_b2.lean",
+  "stem": "putnam_1970_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. The hypotheses `T > 0` and `H.degree ≤ 3` match \"T positive\" and \"polynomial of degree at most 3\" (with `Polynomial ℝ` giving a real polynomial evaluated on ℝ; `degree ≤ 3` on `WithBot ℕ` correctly also covers the zero polynomial). The RHS uses Mathlib's set-average notation `⨍ t in Set.Icc (-T) T, H.eval t`, which by definition is the Bochner integral over [-T, T] divided by the volume of [-T, T] — i.e., the average value of H on [-T, T]. The LHS `(H.eval (-T/√3) + H.eval (T/√3))/2` is the arithmetic mean of H at ±T/√3, matching the informal \"average of H(-T/√3) and H(T/√3)\". No hypotheses are added or dropped and the quantifier structure is preserved.",
+  "duration_ms": 37605,
+  "cost_usd": 0.15184350000000002
+}

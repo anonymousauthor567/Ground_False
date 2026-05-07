@@ -1,0 +1,8 @@
+{
+  "file": "S_0078.lean",
+  "stem": "S_0078",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal theorem: small categories (`[SmallCategory C]`, `[SmallCategory D]`), full and faithful functor (`[Full I] [Faithful I]`), presheaf `φ : Cᵒᵖ ⥤ Type u`, and the iff between `IsSindObject φ` and `IsSindObject (lanPresheaf I φ)`. The definition `lanPresheaf I φ := weightedColimit φ (I ⋙ yoneda)` matches `Lan_{I^op}(φ) = φ ⋆ yI`. `IsSindObject A` asserts existence of a small sifted indexing category I, a functor F : I ⥤ C, and a colimit cocone from F ⋙ yoneda to the constant functor on A — the standard characterization of objects in the free cocompletion under sifted colimits (small sifted colimits of representables). The `[HasWeightedColimit φ (lanDiagram I)]` hypothesis is a technical Lean prerequisite for `lanPresheaf I φ` to be defined (it holds automatically in the cocomplete presheaf category `Dᵒᵖ ⥤ Type u`), so it makes explicit a latent premise needed for the statement to be well-formed rather than narrowing the scope.",
+  "duration_ms": 577390,
+  "cost_usd": 1.6341212500000002
+}

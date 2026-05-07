@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The partial sum `s n = ∑ i ∈ range n, i * z^i` gives $\\sum_{i=0}^{n-1} i z^i$ (with the i=0 term being zero, matching $\\sum n z^n$ starting from n=1). The hypothesis `‖z‖ = 1` correctly identifies z as a point on the unit circle, since for complex numbers `‖·‖` is the modulus. The conclusion `¬ ∃ y, Tendsto s atTop (𝓝 y)` states that the partial sums do not converge to any limit, which is exactly \"does not converge\" in the standard sense. The universal quantification over points on the unit circle is captured by the bound variable `z` with the hypothesis `hz`. No hypotheses are silently added or omitted, and no types are changed.",
+  "duration_ms": 81035,
+  "cost_usd": 0.2785875
+}

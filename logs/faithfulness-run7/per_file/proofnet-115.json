@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for each x ∈ [0,1], the sequence f_n(x) = x^n converges. The Lean statement encodes [0,1] as `I = Icc 0 1` (a subtype of ℝ), takes `f : ℕ → I → ℝ` with the hypothesis `f n x = ↑x ^ n` (pinning f down exactly to x^n via coercion of x : I into ℝ), and concludes `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)`, i.e. for each x ∈ [0,1] the sequence converges to some real y. The introduction of `f` as an abstract hypothesis-constrained function is a standard equivalent idiom for \"Define f_n(x) = x^n\". Quantifier structure, ambient types (ℕ, [0,1] ⊂ ℝ, ℝ), and the convergence conclusion all match the informal statement exactly.",
+  "duration_ms": 14944,
+  "cost_usd": 0.05564325
+}

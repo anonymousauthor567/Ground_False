@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b6.lean",
+  "stem": "putnam_1969_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the problem. A and B have the right shapes (3×2 and 2×3 over ℝ). The hypothesis `A * B = Matrix.of p` with `p` specified at all 9 entries (exhaustive since Fin 3 has 3 elements) exactly encodes the given AB matrix. The conclusion `B * A = 9 * (1 : Matrix (Fin 2) (Fin 2) ℝ)` is equivalent to B*A = [[9,0],[0,9]] because in the matrix semiring, the natural-number literal 9 coerces to the diagonal matrix `!![9,0;0,9]` (by `Matrix.natCast_fin_two`), and multiplying by the identity is the identity. All types, hypotheses, and conclusions match the informal statement, so the formalization is strictly faithful.",
+  "duration_ms": 159666,
+  "cost_usd": 0.6154497499999999
+}

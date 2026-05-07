@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly mirrors the informal claim: `y : ℚ` with `hy : y ≠ 0` captures \"r is rational, r ≠ 0\"; `Irrational x` with `x : ℝ` captures \"x is irrational\"; and `Irrational (x + y)` captures \"r + x is irrational\" (the order x+y vs r+x is immaterial since ℝ-addition is commutative). Mathlib's `Irrational` is defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`, which is the standard notion. No hypotheses are added or omitted, and the types match the informal setup.",
+  "duration_ms": 127014,
+  "cost_usd": 0.3272135
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b3.lean",
+  "stem": "putnam_2009_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely mirrors the informal statement. The `mediocre` predicate encodes \"S ⊆ {1,...,n}\" via `S ⊆ Icc 1 n` and \"whenever a,b ∈ S have integer average, that average is in S\" via `2 ∣ a+b → (a+b)/2 ∈ S`. Integer division matches mathematical division here since a,b ≥ 1 implies a+b > 0, and we only use the division when 2 ∣ a+b. The empty set and singletons correctly qualify as mediocre in both versions. A(n) is defined as the ncard of the set of mediocre subsets cast to ℤ, which is correct since S is constrained to be a subset of a finite set Icc 1 n. The final question \"find all positive integers n such that A(n+2) - 2A(n+1) + A(n) = 1\" is captured by `{n : ℤ | n > 0 ∧ A(n+2) - 2*A(n+1) + A(n) = 1}`. All quantifiers, types, and conditions match the informal statement.",
+  "duration_ms": 111837,
+  "cost_usd": 0.30728225
+}

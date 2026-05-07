@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_a2.lean",
+  "stem": "putnam_1976_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures each piece of the informal statement: P, Q, F_n, G_n match the given formulas (P = x²y+xy², Q = x²+xy+y², F_n = (x+y)ⁿ-xⁿ-yⁿ, G_n = (x+y)ⁿ+xⁿ+yⁿ). The hypothesis `0 < n` matches \"positive integers n\". The conclusion uses `∃ A : MvPolynomial (Fin 2) ℤ`, which is precisely \"a polynomial in two variables with integer coefficients\", and `aeval ![P, Q] A` correctly substitutes X 0 ↦ P and X 1 ↦ Q. The form `∃ A, (F_n = aeval ![P,Q] A) ∨ (G_n = aeval ![P,Q] A)` is logically equivalent to `(∃ A, F_n = A(P,Q)) ∨ (∃ B, G_n = B(P,Q))` since ∃ distributes over ∨, so the \"either F_n or G_n\" choice is faithfully encoded. No hypotheses are added or dropped.",
+  "duration_ms": 99104,
+  "cost_usd": 0.29533524999999994
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2000_p4.lean",
+  "stem": "imo_2000_p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures IMO 2000 P4: (1) `Cards := Finset.Icc 1 100` coerces to the subtype of ℕ with values 1-100; (2) `Boxes := Fin 3` gives three boxes; (3) `Function.Surjective f` encodes \"each box contains at least one card\"; (4) `∃ t : ℕ → Boxes, trick_works f t` captures that the sum determines the unused box, since any such function t exists iff the unused box is uniquely determined by the sum. The three cases in `trick_works` (0,1→2), (0,2→1), (1,2→0) suffice because `∀ c₁ c₂` plus commutativity of addition covers the symmetric orderings. The `good_allocations` Finset is uniquely determined (up to equality) by the hypothesis `h`, so `good_allocations.card` is a well-defined count equal to the intended answer. The placeholder `imo_2000_p4_solution := sorry` is standard encoding for the numeric answer. Distinct-card concerns are vacuously resolved since two cards in different boxes cannot be equal. No semantic mismatch detected.",
+  "duration_ms": 240663,
+  "cost_usd": 0.7523777500000001
+}

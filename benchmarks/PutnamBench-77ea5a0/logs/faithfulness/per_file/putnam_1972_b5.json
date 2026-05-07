@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b5.lean",
+  "stem": "putnam_1972_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"Skew (non-planar) quadrilateral\" is captured by `¬Coplanar ℝ {A, B, C, D}`, where Mathlib's `Coplanar` requires `Module.rank ≤ 2` of the vectorSpan. The angle notation `∠ A B C` from `EuclideanGeometry.angle` matches ∠ABC as the undirected angle at vertex B, and the angle hypotheses `∠ A B C = ∠ C D A ∧ ∠ B C D = ∠ D A B` match ∠ABC=∠CDA and ∠BCD=∠DAB exactly. The conclusion `dist A B = dist C D ∧ dist B C = dist D A` matches AB=CD and AD=BC (using symmetry of `dist`). The ambient `EuclideanSpace ℝ (Fin 3)` is not a restriction because 4 non-coplanar points always span a 3-dimensional affine subspace, and both angles and distances are isometry-invariant, so the statement is equivalent to one in any higher-dimensional Euclidean space.",
+  "duration_ms": 83416,
+  "cost_usd": 0.348385
+}

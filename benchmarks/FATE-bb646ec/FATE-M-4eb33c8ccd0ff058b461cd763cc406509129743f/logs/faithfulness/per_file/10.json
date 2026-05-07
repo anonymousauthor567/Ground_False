@@ -1,0 +1,8 @@
+{
+  "file": "10.lean",
+  "stem": "10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The informal hypothesis \"range of f has n elements\" is encoded via `Nat.card f.range = n`, which is the standard Mathlib idiom for cardinality. The conclusion `∀ g : G, g^n ∈ f.ker` matches \"x^n ∈ Ker f for every x ∈ G\" exactly. The types (Group G, Group H, MonoidHom G →* H, MonoidHom.range, MonoidHom.ker) correspond precisely to the informal mathematical objects. The only subtle edge case is when `f.range` is infinite: `Nat.card` returns 0, so the hypothesis forces n = 0, and the conclusion `g^0 = 1 ∈ f.ker` is trivially true — this does not introduce any genuine logical strengthening since that case has no mathematical content. The formalization reflects the idiomatic Mathlib reading of the informal statement.",
+  "duration_ms": 290127,
+  "cost_usd": 0.72433225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each element of the informal claim: an arbitrary group G, an arbitrary index type I (no countability/finiteness constraint), the nonempty collection hypothesis via `[Nonempty I]`, each member of the family being normal via `hH`, and the conclusion that the intersection `⨅ (i : I), H i` (the infimum in `Subgroup G`, which equals the set-theoretic intersection) is normal. The quantifier structure and hypotheses line up exactly with the informal statement. No hidden assumptions (like finiteness, countability, or commutativity of G) are introduced, and nothing is weakened.",
+  "duration_ms": 22243,
+  "cost_usd": 0.0392795
+}

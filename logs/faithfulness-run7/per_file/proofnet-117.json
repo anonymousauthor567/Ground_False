@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures Munkres's definition of a retraction and its conclusion. `A : Set X` coerces to the subtype `{x : X // x ∈ A}` carrying the subspace topology (via Mathlib's `instTopologicalSpaceSubtype`), so `r : X → A` with `Continuous r` matches \"continuous map r : X → A\". The hypothesis `∀ x : A, r x = x` expresses \"r(a) = a for each a ∈ A\" (with the obvious coercion of `x : A` into `X` on the input side). The conclusion `IsQuotientMap r` is Mathlib's standard notion (surjective + codomain topology equals the coinduced topology), which is the usual mathematical definition of quotient map. No hypotheses are added or dropped, and no quantifiers or types are changed.",
+  "duration_ms": 117707,
+  "cost_usd": 0.4112452499999999
+}

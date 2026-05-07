@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_a2.lean",
+  "stem": "putnam_1975_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all real (b, c) and asserts that the condition \"every complex root z of z² + bz + c satisfies |z| < 1\" is equivalent to the solution set. Since the polynomial has degree 2 over ℂ, by FTA it has exactly 2 roots (with multiplicity), so \"all roots lie strictly inside the unit disk\" coincides with \"both roots lie strictly inside the unit disk.\" The polynomial expression `X^2 + C(b)*X + C(c)` correctly encodes z² + bz + c, `‖z‖ < 1` correctly encodes strictly inside the open unit disk, and the iff structure correctly encodes the \"for which ordered pairs\" characterization. No hypothesis is added or dropped, and the mathematical content is preserved.",
+  "duration_ms": 45546,
+  "cost_usd": 0.16059375
+}

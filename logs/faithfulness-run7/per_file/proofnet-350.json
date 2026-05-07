@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly mirrors the informal claim: it asserts existence of a set E ⊆ ℝ and a function f with `ContinuousOn f E` (standard Mathlib definition matching \"f continuous on E\"), and the non-existence of a total continuous g : ℝ → ℝ agreeing with f on E. Encoding f as a total function ℝ → ℝ (rather than a partial function on E) is a semantically equivalent convention: the continuity condition is restricted to E via `ContinuousOn`, and the agreement clause only constrains f's values on E. The quantifier structure (∃E ∃f, continuity ∧ ¬∃g, continuity ∧ equality on E) matches the informal statement exactly.",
+  "duration_ms": 33272,
+  "cost_usd": 0.15092699999999998
+}

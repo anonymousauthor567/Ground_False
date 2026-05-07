@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the set of integers a for which X^7 + 15X^2 - 30X + a is irreducible in ℚ[X] is infinite. This matches the informal claim \"there is an infinite number of integers a such that f(x) = x^7 + 15x^2 - 30x + a is irreducible in Q[x]\". The coercion `(a : Polynomial ℚ)` produces the constant polynomial C(a : ℚ) via the IntCast instance on Polynomial ℚ, so the polynomial expression is faithful. `Irreducible` is Mathlib's standard commutative-ring notion, which gives the correct meaning for polynomials over ℚ. `Infinite` applied to the set (or its subtype) correctly encodes \"infinitely many a\". No hypotheses are added or dropped.",
+  "duration_ms": 61318,
+  "cost_usd": 0.16279049999999998
+}

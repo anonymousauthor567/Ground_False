@@ -1,0 +1,8 @@
+{
+  "file": "46.lean",
+  "stem": "46",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if polynomials a(x) and b(x) have degree < n and a(c) = b(c) for n values of c, then a(x) = b(x). The Lean formalization encodes 'a(c) = b(c) for n values of c' as Multiset.card (roots (a - b)) = n, which counts roots of a-b with multiplicity. In a CommRing + IsDomain, the theorem card_roots states that a nonzero polynomial has at most deg many roots (with multiplicity). Since deg(a-b) ≤ max(deg a, deg b) < n, having n roots (counted with multiplicity) forces a - b = 0. The multiplicity-based encoding is logically equivalent to the distinct-points hypothesis in this context. The formalization faithfully captures the polynomial identity theorem.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

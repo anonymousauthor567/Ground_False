@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"a group of order 9 must be abelian.\" The Lean signature universally quantifies over groups `G` (via `(G : Type*) [Group G] [Fintype G]`), imposes `card G = 9` (matching \"order 9\"), and concludes `∀ a b : G, a * b = b * a`, which is exactly the definition of an abelian group (CommGroup is defined in Mathlib via `mul_comm`). The `Fintype` instance is needed to even state the cardinality condition and is implicit in \"order 9\". The quantifier structure, hypotheses, and conclusion all match the informal claim with no strengthening or weakening.",
+  "duration_ms": 35768,
+  "cost_usd": 0.12023750000000001
+}

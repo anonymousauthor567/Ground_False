@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the polynomial $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$. The Lean statement uses Mathlib's general `Irreducible` predicate applied to `(X^3 - 3*X - 1 : Polynomial ℚ)`. Over a field such as ℚ, Mathlib's `Irreducible` for a polynomial matches the standard mathematical notion: the polynomial is not a unit (i.e., not a nonzero constant) and cannot be written as a product of two non-units (non-constant polynomials). The polynomial expression and the coefficient ring ℚ are correctly rendered. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 48087,
+  "cost_usd": 0.09959124999999999
+}

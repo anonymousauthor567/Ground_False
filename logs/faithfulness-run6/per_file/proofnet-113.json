@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes every component of the informal claim. \"Y an ordered set in the order topology\" is faithfully rendered by `[LinearOrder Y] [OrderTopology Y]` (Munkres's \"simply ordered set\" = linear order). The source X being \"a space\" corresponds to `[TopologicalSpace X]`. The functions f, g, their continuity hypotheses, and the definition h(x) = min{f(x), g(x)} all match directly, and the conclusion is the continuity of that pointwise min. No hypotheses are added or dropped beyond what the informal statement prescribes, and Mathlib's `Continuous.min` (in `Topology/Order/OrderClosed.lean`) confirms this is the standard formulation for exactly this claim.",
+  "duration_ms": 70643,
+  "cost_usd": 0.266197
+}

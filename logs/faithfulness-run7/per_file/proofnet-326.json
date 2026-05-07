@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any integers a, b, c, there exists a positive integer n such that √(n³+an²+bn+c) is not an integer. The Lean version uses Mathlib's Real.sqrt (which returns 0 for negative inputs) and asserts ∃ n > 0 such that no integer m satisfies Real.sqrt(P(n)) = ↑m. Under Mathlib's sqrt convention, ¬∃ m : ℤ, Real.sqrt(P(n)) = m is equivalent to \"P(n) > 0 and P(n) is not a perfect square\", which matches the standard mathematical reading of \"√P(n) is not an integer\" in the Putnam context. The quantifier structure (∀ a b c, ∃ n > 0, ...) matches exactly, n > 0 with n : ℤ correctly encodes \"positive integer\", and the polynomial expression n³+an²+bn+c is correctly coerced. The two statements are logically equivalent at the ∀∃ level.",
+  "duration_ms": 297249,
+  "cost_usd": 0.9062204999999999
+}

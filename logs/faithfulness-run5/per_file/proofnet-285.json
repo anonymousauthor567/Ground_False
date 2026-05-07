@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"if p = 2^n + 1 is a Fermat prime, show 3 is a primitive root mod p\" is literally false for n = 1 (giving p = 3), since 3 ≡ 0 (mod 3) is not a unit and hence cannot be a primitive root. The Lean hypothesis `2 ≤ n` surfaces this implicit premise needed for the statement to be true, matching the worked example pattern (excluding the degenerate case F_0 = 3 to get the genuine Fermat primes F_k with k ≥ 1). The Lean `IsPrimitiveRoot (3 : ZMod p) (p - 1)` correctly encodes \"3 has order p - 1 in (ZMod p)*\", which is exactly the notion of primitive root modulo p. The typing (p, n : ℕ, conclusion in ZMod p) and the primality hypothesis are faithful to the informal statement. This is a correct surfacing of an implicit premise, not a weakening.",
+  "duration_ms": 218939,
+  "cost_usd": 0.69074375
+}

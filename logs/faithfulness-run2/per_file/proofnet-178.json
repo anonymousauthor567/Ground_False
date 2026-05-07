@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all complex z with ‖z‖ = 1 (the unit circle) and asserts existence of a limit for the partial sums ∑_{i=0}^{n-1} z^(i+1)/(i+1)², which is exactly the sequence of partial sums of ∑_{k=1}^∞ zᵏ/k² (the natural reading of ∑ zⁿ/n², since n=0 would be ill-defined). `∃ y, Tendsto s atTop (𝓝 y)` is the standard formalization of \"the series converges.\" The auxiliary `s` defined via the hypothesis `h` is merely a naming convenience and does not change the meaning. No hypotheses are added or removed, and no quantifier structure is altered.",
+  "duration_ms": 23777,
+  "cost_usd": 0.07392825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $x^2+x+1$ is irreducible in $\\mathbb{F}_2[x]$. The Lean statement quantifies over an arbitrary field $F$ with `Fintype F` and `card F = 2`. Since the field of order 2 is unique up to (unique) isomorphism, this is mathematically equivalent to the specific claim about $\\mathbb{F}_2$: any such $F$ is isomorphic to $\\mathbb{F}_2$, and irreducibility of $X^2+X+1$ is preserved under ring isomorphism. This is a standard and faithful Mathlib encoding of \"$\\mathbb{F}_2$\". The conclusion `Irreducible (X^2 + X + 1 : Polynomial F)` directly matches the informal conclusion.",
+  "duration_ms": 29973,
+  "cost_usd": 0.06076025
+}

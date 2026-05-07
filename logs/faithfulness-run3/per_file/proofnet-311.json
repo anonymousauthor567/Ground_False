@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Munkres Exercise 30.10. The index type ℕ is the standard Lean encoding of a \"countable product\" (countably infinite index); the finite case is trivial and is the conventional implicit reading in this context. Each `X i` carries a `TopologicalSpace` instance, and the hypothesis `∀ i, ∃ s, Countable s ∧ Dense s` exactly says each factor has a countable dense subset (Mathlib's `Countable` on sets = at-most-countable via subtype; `Dense` = closure is everything). The conclusion asserts the same property of `Π i, X i`, matching the informal claim. Quantifier structure, hypotheses, and ambient types all align.",
+  "duration_ms": 63083,
+  "cost_usd": 0.14959299999999998
+}

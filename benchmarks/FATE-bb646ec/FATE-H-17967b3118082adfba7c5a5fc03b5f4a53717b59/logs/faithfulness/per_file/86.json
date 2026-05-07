@@ -1,0 +1,8 @@
+{
+  "file": "86.lean",
+  "stem": "86",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the theorem: `Module.Finite R M` captures \"M is finitely generated\", and the canonical map `LinearMap.pi (fun i => LinearMap.lTensor M (LinearMap.proj i))` evaluated on `m ⊗ (q_a)_a` gives `(m ⊗ q_i)_i`, which is exactly the map `M ⊗_R (∏ Q_α) → ∏ (M ⊗_R Q_α)` from the informal statement. The universal quantifier over families `(Q_α)` with AddCommGroup/Module instances matches \"for every family of R-modules\". The `CommRing R` hypothesis is a natural formalization choice since Mathlib's `TensorProduct R M N` requires commutativity for R-module structure — this surfaces an implicit premise standard in commutative algebra. The universe restriction to Type 0 is a minor Mathlib convention that does not change the mathematical content of this universally valid theorem. The canonical map, quantifier structure, and surjectivity conclusion all faithfully match the informal iff.",
+  "duration_ms": 1144883,
+  "cost_usd": 2.25194075
+}

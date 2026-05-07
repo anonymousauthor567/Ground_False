@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully encodes the informal claim. The hypothesis `card G = 105` (with `open Fintype`) is `Fintype.card G = 105`, which matches |G|=105. The conclusion `(∃ P : Sylow 5 G, P.Normal) ∧ (∃ P : Sylow 7 G, P.Normal)` exactly says \"G has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup\", since `P.Normal` for `P : Sylow p G` means the underlying subgroup is normal in G. The `[Fintype G]` instance is a reasonable encoding of \"finite group\" implied by |G|=105. No extra hypotheses or conclusions are introduced, and the quantifier structure matches the informal statement.",
+  "duration_ms": 62709,
+  "cost_usd": 0.20824875
+}

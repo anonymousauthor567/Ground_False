@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the hypothesis $\\sum_{i=0}^{n} C_i/(i+1) = 0$ as `∑ i ∈ range (n + 1), (C i) / (i + 1) = 0`, which correctly ranges i over 0, 1, ..., n giving denominators 1, 2, ..., n+1 — matching the informal sum $C_0 + C_1/2 + \\cdots + C_n/(n+1)$. The conclusion `∃ x ∈ Set.Ioo 0 1, ∑ i ∈ range (n + 1), (C i) * (x^i) = 0` correctly captures \"at least one real root strictly between 0 and 1\" via the open interval. Typing `C : ℕ → ℝ` is a harmless encoding (only values at 0..n are used) and matches \"real constants\". The coercions of `i + 1` to ℝ under division are standard and semantically correct. No hypotheses are dropped or added, and no notions are strengthened or weakened.",
+  "duration_ms": 22493,
+  "cost_usd": 0.08979275
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully encodes Axler's Exercise 6.13. The orthonormal list (e_1,...,e_m) is represented by `e : Fin n → V` with `Orthonormal F e`; the ambient space is a general inner product space over `RCLike F` (ℝ or ℂ, matching Axler's convention) without a finite-dimensionality assumption; the sum `∑ i : Fin n, ‖⟪v, e i⟫_F‖^2` correctly encodes |⟨v,e_i⟩|² (since `‖·‖` on F = RCLike is the absolute value/modulus, and `‖⟪v, e i⟫‖ = ‖⟪e i, v⟫‖` regardless of the inner-product conjugation convention); and `Submodule.span F (e '' Set.univ)` is the F-span of the image set {e 0, …, e (n-1)}, matching span(e_1,...,e_m). The `↔` exactly corresponds to \"if and only if\". No hypotheses are missing or extraneous.",
+  "duration_ms": 282960,
+  "cost_usd": 0.5907605
+}

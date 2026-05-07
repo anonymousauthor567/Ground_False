@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-92.lean",
+  "stem": "proofnet-92",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that cos 1° is algebraic over ℚ. In Lean, 1° equals π/180 radians, and `Real.cos` takes a radian argument, so `cos (Real.pi / 180)` is precisely cos 1°. Mathlib's `IsAlgebraic ℚ x` is defined as the existence of a nonzero polynomial `p : ℚ[X]` with `aeval x p = 0`, which is exactly the standard definition of \"algebraic over ℚ\". Hypotheses, conclusion, and the ambient field all match the informal claim exactly, with no added or removed conditions. Therefore the Lean formalization is strictly faithful.",
+  "duration_ms": 34369,
+  "cost_usd": 0.201708
+}

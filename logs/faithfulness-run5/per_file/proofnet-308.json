@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The `countably_compact X` definition correctly encodes \"every countable open cover has a finite subcover\" using a ℕ-indexed family. The `limit_point_compact_strong X` definition captures \"every infinite subset has a limit point\": `ClusterPt x (𝓟 (U \\ {x}))` unfolds to `𝓝 x ⊓ 𝓟 (U \\ {x}) ≠ ⊥`, which is precisely Munkres' condition that every neighborhood of x intersects U \\ {x}. `Infinite U` for `U : Set X` uses the subtype coercion and is equivalent to `U.Infinite`. The biconditional under the `T1Space X` hypothesis matches exactly the informal claim \"for a T₁ space X, countable compactness is equivalent to limit point compactness.\" No hidden extra hypotheses or weakenings.",
+  "duration_ms": 193941,
+  "cost_usd": 0.619531
+}

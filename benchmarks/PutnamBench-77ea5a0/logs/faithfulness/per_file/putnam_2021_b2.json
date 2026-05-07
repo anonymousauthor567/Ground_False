@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_b2.lean",
+  "stem": "putnam_2021_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: (1) sequences indexed from 1 via `a : ℕ+ → ℝ`; (2) nonnegativity via `∀ k, 0 ≤ a k`; (3) the constraint `∑' k, a k = 1` over ℕ+, which equals $\\sum_{k=1}^\\infty a_k = 1$; (4) the sum $S = \\sum_{n=1}^\\infty \\frac{n}{2^n}(a_1\\cdots a_n)^{1/n}$ via `∑' n : ℕ+, n / 2^(n : ℕ) * (∏ k ∈ Finset.Icc 1 n, a k)^(1/n : ℝ)`, where `Finset.Icc 1 n` for `n : ℕ+` gives {1,...,n}, so the product is $a_1 a_2 \\cdots a_n$, and `^(1/n : ℝ)` is `Real.rpow` giving the n-th root for nonnegatives. (5) \"Maximum value\" is `IsGreatest`, which asserts the value is both attained and an upper bound — correct for a maximum. No hypotheses are silently added or dropped, and all types match standard conventions.",
+  "duration_ms": 187216,
+  "cost_usd": 0.53740175
+}

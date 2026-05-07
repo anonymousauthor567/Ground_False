@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. The hypothesis `[Fintype G] [Group G]` together with `card G = 105` (using `Fintype.card` via `open Fintype`) exactly encodes |G| = 105. The conclusion `(∃ P : Sylow 5 G, P.Normal) ∧ (∃ P : Sylow 7 G, P.Normal)` captures \"G has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup\": `Sylow p G` is Mathlib's type of Sylow p-subgroups, and `P.Normal` asserts the underlying subgroup is normal. Since all Sylow p-subgroups are conjugate, the existential form is the standard and correct rendering of the informal claim. No hypotheses are added or dropped, and the conclusion is neither weakened nor strengthened.",
+  "duration_ms": 49309,
+  "cost_usd": 0.16108074999999997
+}

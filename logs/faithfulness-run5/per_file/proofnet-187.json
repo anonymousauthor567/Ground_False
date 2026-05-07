@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly formalizes \"V is not the union of finitely many proper subspaces over an infinite field.\" K is a Field with Infinite K (matches \"infinite field F\"), V is a K-module (which over a field means vector space), ι is a Fintype (matches \"finitely many\"), γ : ι → Submodule K V provides the family of subspaces, and γ i ≠ ⊤ captures \"proper\" (since submodules are always ≤ ⊤). The conclusion ⋃ i, (γ i : Set V) ≠ ⊤ correctly asserts the union is not all of V, because ⊤ : Set V unfolds to Set.univ (verified in Mathlib's OrderTop instance on Set) and ⊤ : Submodule K V also coerces to Set.univ (top_coe lemma). The universal quantification over all finite families of proper subspaces is the correct unfolding of the informal claim. No hypotheses have been silently added or dropped.",
+  "duration_ms": 139570,
+  "cost_usd": 0.36553074999999996
+}

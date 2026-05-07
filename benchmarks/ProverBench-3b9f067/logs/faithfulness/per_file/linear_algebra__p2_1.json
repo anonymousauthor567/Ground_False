@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p2_1.lean",
+  "stem": "linear_algebra__p2_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that A is invertible and its inverse is the given matrix. The Lean formalization captures this by asserting the two-sided identity A * A_inv = 1 ∧ A_inv * A = 1, which is the defining property of a matrix inverse and is logically equivalent to \"A is invertible with A⁻¹ = A_inv\" (this equivalence is exactly what Mathlib's Matrix.inv_eq_right_inv / invertibleOfRightInverse establishes for square matrices over a commutative ring). The matrix entries match exactly: A = ![![0,1],![5,3]] and A_inv has entries -3/5, 1/5, 1, 0. Direct computation confirms both products equal the identity. No extra hypotheses are added or omitted; the encoding faithfully represents both the invertibility claim and the identification of the inverse.",
+  "duration_ms": 74682,
+  "cost_usd": 0.20011275
+}

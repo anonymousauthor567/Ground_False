@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. The hypothesis `2 ≤ n` surfaces an implicit premise needed for truth: when n = 1, p = 3, and 3 ≡ 0 (mod 3) is not even a unit, so \"3 is a primitive root modulo 3\" is literally false. Any mathematician reading Ireland-Rosen Exercise 4.6 would understand this degenerate case is excluded. With `p.Prime` and `p = 2^n + 1` plus n ≥ 2, n is forced to be a power of 2 ≥ 2, so p ranges exactly over Fermat primes other than 3 — which is what the exercise is about. The conclusion `IsPrimitiveRoot (3 : ZMod p) (p - 1)` correctly states that 3 has order p-1 in (ℤ/pℤ)*, i.e., is a primitive root mod p. This is a standard \"implicit premise made explicit\" case and should be judged faithful.",
+  "duration_ms": 90353,
+  "cost_usd": 0.32659175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b6.lean",
+  "stem": "putnam_1966_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The function y : ℝ → ℝ with hypotheses `Differentiable ℝ y ∧ Differentiable ℝ (deriv y)` correctly encodes \"y is twice-differentiable on ℝ\", which is implicit in the ODE y'' + e^x·y = 0. The equation `deriv (deriv y) + Real.exp * y = 0` uses Pi-type pointwise addition and multiplication, so evaluating at any x gives y''(x) + e^x · y(x) = 0, matching the ODE. The conclusion `∃ r s N, ∀ x > N, r ≤ y x ∧ y x ≤ s` says y is bounded both above and below on some neighborhood (N, ∞) of +∞, which is precisely the mathematical meaning of \"y remains bounded as x → +∞\". The universal quantification over \"any solution\" is handled correctly by having y as a free parameter constrained by the hypotheses.",
+  "duration_ms": 64630,
+  "cost_usd": 0.23166150000000002
+}

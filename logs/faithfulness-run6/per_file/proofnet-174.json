@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully mirrors the four hypotheses: (a) continuity on [0,∞) as `ContinuousOn f (Set.Ici 0)`, (b) differentiability on (0,∞) as `DifferentiableOn ℝ f (Set.Ioi 0)` (which is equivalent to pointwise differentiability since (0,∞) is open), (c) `f 0 = 0`, and (d) `MonotoneOn (deriv f) (Set.Ioi 0)`, where Rudin's \"monotonically increasing\" is the non-strict sense matching Mathlib's `MonotoneOn`. Since f is differentiable on (0,∞), `deriv f` gives the correct derivative values there. The conclusion `MonotoneOn (λ x => f x / x) (Set.Ioi 0)` directly encodes \"g(x) = f(x)/x is monotonically increasing for x > 0\". No hypotheses are added or dropped, no types changed, and no quantifier structure altered.",
+  "duration_ms": 40478,
+  "cost_usd": 0.12932975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "146.lean",
+  "stem": "146",
+  "verdict": "faithful",
+  "reasoning": "This is McCoy's theorem for polynomial rings. The Lean statement captures the informal claim: the hypothesis `∃ g : R[X], g ≠ 0 ∧ g * f = 0` precisely says that `f` is a zero divisor (in a commutative ring, left and right zero divisor coincide). The conclusion `∃ a : R, a ≠ 0 ∧ C a * f = 0` correctly encodes \"$\\exists a \\in R^*, af = 0$\" since $R^*$ here must mean $R \\setminus \\{0\\}$ (it cannot mean units—a unit annihilating $f$ would force $f=0$). The extra hypothesis `f ≠ 0` is surfacing the conventional implicit premise that a \"zero divisor\" is a nonzero element (standard in many algebra textbooks like Dummit-Foote); the $f = 0$ case is a trivial edge case. `C a * f` is the standard Mathlib encoding of scalar multiplication matching the informal \"$af(x)$\". Mathlib's own McCoy's theorem (`notMem_nonZeroDivisors_iff`) has the same structural content.",
+  "duration_ms": 279891,
+  "cost_usd": 0.7691147500000001
+}

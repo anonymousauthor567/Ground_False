@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that ℚ is not locally compact. The Lean formalization `¬ LocallyCompactSpace ℚ` negates Mathlib's standard `LocallyCompactSpace` typeclass applied to ℚ. In Mathlib, ℚ is equipped with its standard topology via `MetricSpace.induced (↑) Rat.cast_injective Real.metricSpace` (in `Mathlib/Topology/Instances/Rat.lean`), which coincides with the subspace topology from ℝ — the conventional topology meant in the informal statement. `LocallyCompactSpace` (in `Mathlib/Topology/Defs/Filter.lean`) captures the standard definition: every neighborhood of every point contains a compact neighborhood. So the Lean statement asserts exactly the same mathematical content as the informal one.",
+  "duration_ms": 37258,
+  "cost_usd": 0.18873349999999997
+}

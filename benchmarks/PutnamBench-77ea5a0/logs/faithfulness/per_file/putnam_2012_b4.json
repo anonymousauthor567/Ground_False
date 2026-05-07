@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_b4.lean",
+  "stem": "putnam_2012_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal statement. The initial condition `a 0 = 1` matches $a_0 = 1$, and `a (n + 1) = a n + exp (-a n)` matches the recurrence $a_{n+1} = a_n + e^{-a_n}$. The question \"Does $a_n - \\log n$ have a finite limit as $n \\to \\infty$?\" is correctly encoded as `∃ L : ℝ, Tendsto (fun n ↦ a n - Real.log n) atTop (𝓝 L)`, where the existential over a real number L captures \"finite limit\". The biconditional with `putnam_2012_b4_solution` (set to `True`) correctly expresses that the answer is yes. The Mathlib convention `Real.log 0 = 0` for the n=0 term doesn't affect limit behavior at infinity. The formalization is strictly faithful.",
+  "duration_ms": 40887,
+  "cost_usd": 0.14248100000000002
+}

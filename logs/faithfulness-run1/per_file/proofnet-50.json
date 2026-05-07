@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "informal": "If $H$ is the unique subgroup of a given order in a group $G$ prove $H$ is characteristic in $G$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_4_7 {G : Type*} [Group G] {H : Subgroup G} [Fintype H]\n  (hH : ∀ (K : Subgroup G) (fK : Fintype K), card H = @card K fK → H = K) :\n  H.Characteristic",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if H is the unique subgroup of G of its (given) order, then H is characteristic. The Lean signature assumes [Fintype H] (so H has a finite order, matching the implicit reading of \"order\"), and the hypothesis hH states that any subgroup K with the same cardinality as H equals H — exactly the uniqueness condition. The conclusion H.Characteristic matches \"H is characteristic in G\". Restricting K to those with a Fintype instance is not a real restriction, because any K with the same cardinality as the finite H must itself be finite (and Fintype is a subsingleton). Hence the encoding is logically equivalent to the informal claim.",
+  "duration_ms": 17384,
+  "cost_usd": 0.06525375
+}

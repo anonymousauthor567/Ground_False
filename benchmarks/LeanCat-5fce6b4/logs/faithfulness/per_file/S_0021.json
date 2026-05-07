@@ -1,0 +1,8 @@
+{
+  "file": "S_0021.lean",
+  "stem": "S_0021",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely matches the informal claim. `F ⊣ G` encodes \"F admits right adjoint G\". `G.IsEquivalence` is the Mathlib formalization of \"G is an equivalence of categories\". `F.Full ∧ F.Faithful` is exactly \"F is fully faithful\" (equivalent to `F.FullyFaithful`). Crucially, `G.ReflectsIsomorphisms` is the standard Mathlib formalization of \"G is conservative\" — a conservative functor is by definition one that reflects isomorphisms (Mathlib has no separate `Conservative` class in category theory; this IS it, as shown in `CategoryTheory/Functor/ReflectsIso/Basic.lean`). The iff-structure, hypotheses, and conclusion all match the informal statement.",
+  "duration_ms": 131767,
+  "cost_usd": 0.58566425
+}

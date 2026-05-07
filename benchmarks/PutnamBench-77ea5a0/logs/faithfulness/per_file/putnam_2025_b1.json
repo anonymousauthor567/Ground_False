@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b1.lean",
+  "stem": "putnam_2025_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `EuclideanSpace ℝ (Fin 2)` is the Euclidean plane, and `color : _ → Bool` encodes a two-color coloring. `Simplex ℝ (EuclideanSpace ℝ (Fin 2)) 2` is exactly three affinely independent points in the plane, which is equivalent to three noncollinear points. The hypothesis `∀ i j : Fin 3, color (s.points i) = color (s.points j)` correctly states that all three points have the same color, and `color s.circumcenter = color (s.points 0)` correctly says the circumcenter has that same color (since by hypothesis all three points share that color). The `s.circumcenter` in Mathlib is the center of the circumsphere through the simplex points, which in 2D is precisely the center of the circle through the three points. The conclusion `∃ c : Bool, ∀ P, color P = c` accurately formalizes \"all points of the plane are the same color\".",
+  "duration_ms": 78942,
+  "cost_usd": 0.20124775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem exactly matches the informal claim. The informal statement says: for any group G with normal subgroups H and K, the intersection H ∩ K is normal. The Lean signature introduces `(G : Type*) [Group G]`, two subgroups `H K : Subgroup G`, adds `[Normal H] [Normal K]` as instance hypotheses, and concludes `Normal (H ⊓ K)`. In Mathlib, `H ⊓ K` is precisely the intersection of subgroups (per `Subgroup.coe_inf`, which shows `((p ⊓ p' : Subgroup G) : Set G) = (p : Set G) ∩ p'`), and the `Subgroup.Normal` class is the standard definition of a normal subgroup. No hypotheses are added or dropped, the quantifier structure is preserved, and the conclusion matches. This is a strictly faithful formalization.",
+  "duration_ms": 42427,
+  "cost_usd": 0.179678
+}

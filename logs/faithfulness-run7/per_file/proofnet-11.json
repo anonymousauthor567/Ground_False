@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Irreducible (12 + 6 * X + X ^ 3 : Polynomial ℚ)` expresses exactly the informal claim \"x^3 + 6x + 12 is irreducible in ℚ\". The polynomial `12 + 6 * X + X ^ 3` equals `X^3 + 6*X + 12` (just written with terms in the opposite order), the coefficient ring `ℚ` matches \"in ℚ\" (i.e., ℚ[x]), and Mathlib's `Irreducible` on a commutative ring/integral domain captures the standard notion of irreducible element (not a unit, and not a product of two non-units), which for a polynomial over a field coincides with the usual notion of an irreducible polynomial. Nothing is added or dropped, so this is a faithful formalization.",
+  "duration_ms": 24633,
+  "cost_usd": 0.076218
+}

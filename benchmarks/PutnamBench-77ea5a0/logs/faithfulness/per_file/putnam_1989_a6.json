@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_a6.lean",
+  "stem": "putnam_1989_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes the coefficient condition via `bin := [1] ++ digits 2 n ++ [1]` (where `digits 2 n` is little-endian). The prepended 1 serves as a boundary below the LSB so that trailing zeros of n count as a block; the appended 1 is a boundary above the MSB but always gives 0 zeros (vacuous) since `digits 2 n` ends with 1 for n > 0, correctly modeling that there are no leading zeros. The quantified condition \"for every pair i < j with bin.get i = bin.get j = 1 and all positions strictly between equal to 0, (j - i - 1) is even\" is exactly \"every block of zeros between consecutive 1s has even length\", matching the informal definition. Verified on both examples: a₃₆ = 1 (gaps 2, 2, 0) and a₂₀ = 0 (gap 1 is odd). For n = 0, bin = [1,1] gives a₀ = 1, matching the \"1 +\" in α's definition. Quantifying over any 2-element field F is equivalent to using 𝔽₂ since all 2-element fields are canonically isomorphic to ZMod 2. The equation α^3 + X·α + 1 = 0 matches the informal conclusion.",
+  "duration_ms": 381528,
+  "cost_usd": 1.0392395
+}

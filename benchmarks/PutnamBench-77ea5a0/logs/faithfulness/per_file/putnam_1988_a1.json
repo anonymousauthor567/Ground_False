@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a1.lean",
+  "stem": "putnam_1988_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the planar region as a subset of Fin 2 → ℝ with p 0 being x and p 1 being y. The two conditions |p 0| - |p 1| ≤ 1 and |p 1| ≤ 1 match the informal conditions |x|-|y| ≤ 1 and |y| ≤ 1 exactly. The `volume` on `Fin 2 → ℝ` is the standard 2D Lebesgue measure (via MeasureTheory.MeasureSpace.pi instance), which measures area, and `.toReal` converts ENNReal to ℝ (which is fine since R has finite area). The area equals ∫₋₁¹ 2(|y|+1) dy = 6, matching the stated solution. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 180616,
+  "cost_usd": 0.28296249999999995
+}

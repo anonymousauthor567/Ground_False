@@ -1,0 +1,8 @@
+{
+  "file": "97.lean",
+  "stem": "97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a logically equivalent rendering of the informal claim. `[Finite τ] [Nonempty τ]` encodes \"n ∈ ℕ, n ≠ 0\" (any positive finite cardinality). `CharZero k` plus `Field k` matches \"field of characteristic zero\". The hypothesis `(f i).natDegree ≥ 2` is equivalent to \"degree at least two\" — since natDegree = 0 for the zero polynomial, natDegree ≥ 2 forces f_i ≠ 0 and makes its true degree ≥ 2. The endomorphism `MvPolynomial.aeval (fun i ↦ (f i).toMvPolynomial i)` sends X_i ↦ f_i(X_i) via Polynomial.toMvPolynomial (verified in Mathlib/Algebra/MvPolynomial/Equiv.lean), exactly encoding φ. The `^m` on `A →ₐ[R] A` uses the `AlgHom.End` monoid instance (Mathlib/Algebra/Algebra/Hom.lean:344), i.e., m-fold composition. By `comp_aeval_apply`, `aeval a (φ p) = aeval (fun i ↦ f_i(a_i)) p = p(F(a))`, so `aeval a (φ^m p)` equals `p(F^m(a))`, matching the informal conclusion. No hypotheses are added or dropped.",
+  "duration_ms": 416811,
+  "cost_usd": 0.8787992500000001
+}

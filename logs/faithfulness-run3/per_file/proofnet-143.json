@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal claim. \"Infinitely many naturals n\" is correctly encoded as ∀ N, ∃ n > N. Although the informal text says \"integers\", any integer that is a sum of two squares is non-negative, so restricting n to ℕ loses nothing. Similarly, since (-a)² = a², a non-negative integer is a sum of two squares of integers iff it is a sum of two squares of naturals, so using ℕ for the witnesses i 0,...,i 5 is also faithful. The three conditions on n, n+1, n+2 are correctly expressed with independent pairs of witnesses via Fin 6 → ℕ.",
+  "duration_ms": 38143,
+  "cost_usd": 0.11426475
+}

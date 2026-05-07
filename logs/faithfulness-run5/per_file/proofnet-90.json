@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement forms the set of integers a for which X^7 + 15·X^2 − 30·X + a is irreducible in ℚ[X], and asserts that this set is infinite. The type `Polynomial ℚ` corresponds to Q[x], the coercion `(a : Polynomial ℚ)` from ℤ gives the constant polynomial a in ℚ[X], and `Irreducible` from Mathlib is the standard notion of irreducibility. Applying the `Infinite` typeclass to the subtype of a Set is equivalent (via `Set.infinite_coe_iff`) to the set having infinitely many elements. Thus the Lean statement matches the informal claim \"there is an infinite number of integers a such that f(x) = x^7 + 15x^2 − 30x + a is irreducible in Q[x]\" exactly — with no extra hypotheses, no missing hypotheses, and no drift in quantifier structure or types.",
+  "duration_ms": 142515,
+  "cost_usd": 0.37989825
+}

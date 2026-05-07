@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b2.lean",
+  "stem": "putnam_2009_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding models the jumping sequence as an infinite strictly monotone sequence s : ℕ → ℝ with s(0) = 0, requiring that some index n satisfies s(n) = 1, and defines the cost as Σᵢ₌₀^{n-1} (s(i+1)³ - s(i)·s(i+1)²). The cost formula matches b³ - ab² exactly (with a = s(i), b = s(i+1)). Requiring StrictMono on the whole ℕ-indexed sequence doesn't restrict the achievable costs, since any finite strictly increasing sequence 0 = s₀ < ... < sₙ = 1 can be extended to an infinite strictly monotone sequence (e.g., adding 2, 3, ...). The n = 0 case is excluded automatically since s(0) = 0 ≠ 1. Thus the set of achievable c is exactly {c | ∃ finite strictly increasing sequence 0 = s₀ < s₁ < ... < sₙ = 1 with total cost c}, matching the informal question.",
+  "duration_ms": 154596,
+  "cost_usd": 0.38212225
+}

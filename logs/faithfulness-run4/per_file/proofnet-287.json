@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Ireland-Rosen exercise 5.28 faithfully. The primality of $p$ is an implicit premise in the number-theory context (chapter 5 of Ireland-Rosen deals with power residues modulo primes), and making it explicit via `hp : p.Prime` is correctly surfacing this. The hypothesis `p ≡ 1 [MOD 4]` matches $p \\equiv 1 \\pmod 4$. The biconditional matches the informal \"iff\". Having $A, B : ℕ$ (default) rather than ℤ is equivalent here: since the representation uses $A^2$ and $B^2$, any integer representation can be replaced by a natural-number one (replace $A$ by $|A|$ and $B$ by $|B|$), and vice versa. The existential `∃ x, x^4 ≡ 2 [MOD p]` with $x : ℕ$ correctly captures \"has a solution\" since any integer solution reduces to a natural one mod $p$. The form `A^2 + 64 * B^2` matches exactly.",
+  "duration_ms": 129221,
+  "cost_usd": 0.4060437499999999
+}

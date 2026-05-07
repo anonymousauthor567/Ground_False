@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `End F V` is L(V), and in this ring `*` is composition so `T * adjoint T = adjoint T * T` is exactly the defining condition of a normal operator (T T* = T* T). The informal phrase \"the set of normal operators is not a subspace of L(V)\" is correctly formalized as \"for every submodule U, U.carrier ≠ {set of normal operators}\", because a subset of an F-module is a subspace iff it is the carrier of some submodule (F is a field since RCLike). The hypothesis `finrank F V ≥ 2` matches `dim V ≥ 2`, and the claim holds over both ℝ and ℂ (Axler's Ch. 7 setting), which aligns with the RCLike parameterization. No hypotheses are silently added or dropped, and the quantifier structure is correct.",
+  "duration_ms": 181202,
+  "cost_usd": 0.403273
+}

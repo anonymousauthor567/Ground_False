@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p29.lean",
+  "stem": "number_theory__p29",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The constraint t = y/(x-1) is not needed explicitly in the existential because it is derivable from the parametrization equations — when x^2 - dy^2 = 1 and x ≠ 1, one can verify dt^2 - 1 ≠ 0 for t = y/(x-1), making the division well-defined. Division by zero in Lean (yielding 0) does not cause issues because any t with dt^2 - 1 = 0 would give x = 0, y = 0, which cannot satisfy x^2 - dy^2 = 1, so such t never serves as a valid witness. The integer d is correctly coerced to Q, and the biconditional is mathematically equivalent to the informal claim.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

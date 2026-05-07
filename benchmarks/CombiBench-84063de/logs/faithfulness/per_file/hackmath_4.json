@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_4.lean",
+  "stem": "hackmath_4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the minimum number of people needed to guarantee that at least two share a birth month (classic pigeonhole with 12 months, answer 13). The Lean formalization uses `IsLeast` on the set of n such that every function `f : Fin n → Fin 12` has two distinct inputs mapping to the same output. This precisely captures: (1) \"people\" as elements of `Fin n` and \"months\" as elements of `Fin 12`, (2) \"at least two share a month\" as `∃ a b, a ≠ b ∧ f a = f b`, (3) \"how many must be\" as the least n such that the collision is forced for all assignments. `IsLeast` unfolds to membership plus being a lower bound, which correctly encodes the minimum. The formalization is logically equivalent to the informal question.",
+  "duration_ms": 34837,
+  "cost_usd": 0.11219349999999999
+}

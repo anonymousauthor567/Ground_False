@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures every element of the informal statement: completeness of the metric space (CompleteSpace X), the sequence of sets (E : ℕ → Set X), closedness (IsClosed), nonemptiness (.Nonempty), boundedness (Bornology.IsBounded — the correct Mathlib predicate), the decreasing chain condition (E n ⊇ E (n+1)), and the diameter limit (Tendsto (Metric.diam ∘ E) atTop (𝓝 0)). The conclusion \"∃ a, Set.iInter E = {a}\" precisely encodes \"the intersection consists of exactly one point\" since equality to a singleton {a} means exactly one element. The indexing from 0 vs 1 is immaterial because E 0 ⊇ E 1 makes both intersections equal.",
+  "duration_ms": 75422,
+  "cost_usd": 0.26496949999999997
+}

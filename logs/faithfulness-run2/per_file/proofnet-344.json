@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if $a_n \\geq 0$ and $\\sum a_n$ converges, then $\\sum \\sqrt{a_n}/n$ converges. The Lean version encodes this with `a : ℕ → ℝ` (0-indexed), non-negativity `∀ n, a n ≥ 0`, convergence of the partial sums `∑ i ∈ range n, a i`, and concludes convergence of `∑ i ∈ range n, sqrt (a i) / (i + 1)`. The use of `i + 1` in the denominator is the standard way to avoid division by zero when switching from Rudin's 1-indexed convention to Lean's 0-indexed ℕ — this amounts to a harmless reindexing since both interpretations give the same theorem (convergence of a non-negative series implies convergence of the termwise product with a square-summable sequence like $1/n$ or $1/(n+1)$). No hypotheses are dropped or added, the types match standard Mathlib conventions, and the quantifier structure is preserved. The Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 33161,
+  "cost_usd": 0.13140875
+}

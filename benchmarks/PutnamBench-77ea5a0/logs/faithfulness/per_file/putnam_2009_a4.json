@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_a4.lean",
+  "stem": "putnam_2009_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes all three conditions: (a) `0 ∈ S`, (b) `∀ x ∈ S, x + 1 ∈ S ∧ x - 1 ∈ S`, and (c) `∀ x ∈ S, x ∉ {0,1} → 1/(x*(x-1)) ∈ S`. The conclusion `∀ r : ℚ, r ∈ S` correctly formalizes \"S contains all rational numbers\". The outer iff with `putnam_2009_a4_solution` (= False) properly encodes the yes/no question \"Must S contain all rationals?\" — answering False means no, there exists such an S that does not contain all rationals. The types (ℚ, Set ℚ) match, and the quantifier structure aligns with the informal statement.",
+  "duration_ms": 59232,
+  "cost_usd": 0.11850574999999999
+}

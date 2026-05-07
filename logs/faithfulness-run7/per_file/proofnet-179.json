@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is about primitives of a continuous function on a region Ω. In complex analysis, a \"region\" is standardly an open, connected, nonempty subset of ℂ — the Lean statement makes these implicit premises explicit (`IsOpen`, `IsConnected`, `Nonempty`), which is appropriate (Mathlib's `IsConnected` already bundles nonemptiness, making the `Nonempty Ω` redundant but harmless). Primitives are correctly encoded as holomorphic (`DifferentiableOn ℂ`) functions whose derivative equals f on Ω; since Ω is open, `deriv F x = f x` is equivalent to `derivWithin F Ω x = f x`. The conclusion \"differ by a constant\" is faithfully expressed as `∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c`. The continuity hypothesis on f from the informal statement is preserved. The Lean statement is logically equivalent to the intended mathematical claim.",
+  "duration_ms": 95932,
+  "cost_usd": 0.33951
+}

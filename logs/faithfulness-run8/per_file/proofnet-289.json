@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly translates the informal definition of $\\mathcal{T}_\\infty$: \"$X - U$ is infinite\" becomes `Set.Infinite tᶜ`, \"$X - U$ is empty\" becomes `t = Set.univ` (since $U^c = \\emptyset$ iff $U = X$), and \"$X - U$ is all of $X$\" becomes `t = ∅` (since $U^c = X$ iff $U = \\emptyset$). The three conditions in the conjunction being negated correspond exactly to Mathlib's `TopologicalSpace` axioms: `isOpen_univ`, `isOpen_sUnion`, and `isOpen_inter` (I verified this in `Mathlib/Topology/Defs/Basic.lean`). The phrase \"does not need to be a topology\" is correctly interpreted as \"there exists a type $X$ such that $T_\\infty$ fails to be a topology\", matching `∃ X : Type`. The subset formulation `∀ s ⊆ T_inf, ⋃₀ s ∈ T_inf` is equivalent to Mathlib's `∀ s, (∀ t ∈ s, IsOpen t) → IsOpen (⋃₀ s)`. Empty set membership and finite intersections follow from the stated axioms, so the axiomatization is logically equivalent to Munkres's standard definition. The formalization is faithful.",
+  "duration_ms": 167638,
+  "cost_usd": 0.5752304999999999
+}

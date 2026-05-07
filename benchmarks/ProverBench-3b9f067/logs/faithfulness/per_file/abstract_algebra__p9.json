@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p9.lean",
+  "stem": "abstract_algebra__p9",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem, after Lean 4's auto-inclusion of propositional `variable` declarations, effectively has the signature: `∀ (x y z : ℝ), 0 < x → 0 < y → 0 < z → x + y + z = x*y*z → 1/(1+x*y) + 1/(1+y*z) + 1/(1+z*x) ≤ 3/4`. Since `hx, hy, hz` depend on `x, y, z` which are used in the theorem statement, they are auto-included as hypotheses (this is confirmed by the analogous Mathlib pattern in `Mathlib/NumberTheory/Multiplicity.lean` where `geom_sum₂_eq_one hp hp1 hxy hx` is called with all four propositional variables as arguments). The quantifier structure, types (ℝ), positivity hypotheses, constraint `x + y + z = xyz`, and the inequality `1/(1+xy) + 1/(1+yz) + 1/(1+zx) ≤ 3/4` all match the informal statement exactly.",
+  "duration_ms": 918675,
+  "cost_usd": 1.8519515000000002
+}

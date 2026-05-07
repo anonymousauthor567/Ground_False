@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "informal": "Prove that a group of order 56 has a normal Sylow $p$-subgroup for some prime $p$ dividing its order.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_13 {G : Type*} [Group G] [Fintype G]\n  (hG : card G = 56) :\n  ∃ (p : ℕ) (P : Sylow p G), p.Prime ∧ (p ∣ card G) ∧ P.Normal",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for a finite group G of order 56, there exists a prime p dividing |G| and a Sylow p-subgroup P of G such that P is normal. This matches the informal claim exactly: existence of a prime p dividing the order with a normal Sylow p-subgroup. The Fintype assumption is needed in Lean to make sense of `card G = 56`, which corresponds to the informal \"group of order 56\". No extra hypotheses or weaker conclusions are introduced.",
+  "duration_ms": 5214,
+  "cost_usd": 0.041400250000000006
+}

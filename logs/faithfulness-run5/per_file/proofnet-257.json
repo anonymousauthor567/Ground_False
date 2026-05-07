@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The hypothesis `∃ n : ℤ, ...` correctly captures \"three consecutive integers\" by picking a starting integer n and requiring the power identity for n, n+1, n+2. For each of these integers, `∀ a b : G, (a * b) ^ i = a ^ i * b ^ i` captures the condition that the identity holds in the group. The use of `ℤ` matches \"integers\" (not just naturals) in the informal statement. The conclusion `∀ a b : G, a * b = b * a` is the standard encoding of \"G is abelian\". The quantifier structure (exists three consecutive integers, for all a, b) matches the natural reading of the informal statement, and `a ^ n` for `n : ℤ` uses Mathlib's `zpow` which is the standard group integer power operation.",
+  "duration_ms": 27181,
+  "cost_usd": 0.10959174999999999
+}

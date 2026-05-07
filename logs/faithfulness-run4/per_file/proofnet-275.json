@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `[Field F]` + `CharP F p` + `p ≠ 0` encodes \"field of characteristic p ≠ 0\" (for a field, this automatically makes p prime, matching the mathematical convention that Herstein uses when writing p for the characteristic). `hn : n > 0` matches \"any positive integer n\", `hm : m = p^n` matches \"where m = p^n\", and the conclusion `(a + b)^m = a^m + b^m` matches exactly. The universal quantification over a, b ∈ F is captured by the explicit binders. Mathlib's `add_pow_char_pow` confirms this is the standard encoding. No hypothesis is silently added or dropped.",
+  "duration_ms": 48726,
+  "cost_usd": 0.20859124999999998
+}

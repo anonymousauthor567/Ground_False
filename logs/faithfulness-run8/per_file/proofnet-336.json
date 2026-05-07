@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram identity for x, y ∈ ℝ^k. The Lean formalization uses `EuclideanSpace ℝ (Fin n)`, which is Mathlib's standard encoding of ℝ^n with the Euclidean (L²) norm (defined via `PiLp 2`), so `‖·‖` corresponds to the informal |·|. The variables `n`, `x`, `y` are free at the theorem level and thus implicitly universally quantified, matching the informal \"for x, y in R^k\" with implicit universal over k. The conclusion ‖x+y‖² + ‖x-y‖² = 2‖x‖² + 2‖y‖² is exactly the informal equation. No extra hypotheses are added and none are omitted, so this is a strictly faithful formalization.",
+  "duration_ms": 22538,
+  "cost_usd": 0.11928725
+}

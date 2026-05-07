@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "informal": "Let $x$ be an element of $G$. Prove that if $|x|=n$ for some positive integer $n$ then $x^{-1}=x^{n-1}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_17 {G : Type*} [Group G] {x : G} {n : ℕ+}\n  (hxn: orderOf x = n) :\n  x⁻¹ = x ^ (n - 1 : ℕ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes x has finite order n (a positive integer) and concludes x⁻¹ = x^{n−1}. The Lean signature uses `n : ℕ+` (positive natural), `orderOf x = n` (which captures |x| = n), and concludes `x⁻¹ = x ^ (n - 1 : ℕ)`. Since n ≥ 1, the natural-number subtraction n - 1 equals the intended n−1, and the exponent is interpreted in the group via `^`. The hypotheses, conclusion, and quantifier structure (universal over G a group and x ∈ G) match the informal claim, so this is a faithful formalization.",
+  "duration_ms": 7677,
+  "cost_usd": 0.04760325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that X^2 + X + 1 is irreducible over F_2. The Lean version quantifies over any field F with Fintype structure and card F = 2. Since any finite field of cardinality 2 is uniquely isomorphic to F_2 = Z/2Z, and irreducibility of a polynomial is preserved under ring isomorphism, this encoding is logically equivalent to the statement about the canonical F_2. The polynomial X^2 + X + 1 and the Irreducible predicate correspond directly to the informal assertion. No extraneous hypotheses are added or needed beyond those that abstractly characterize F_2.",
+  "duration_ms": 35242,
+  "cost_usd": 0.157707
+}

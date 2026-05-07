@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b6.lean",
+  "stem": "putnam_2010_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The matrix A : Matrix (Fin n) (Fin n) ℝ with n ≥ 1 matches the setup. The entrywise k-th power A^{[k]} is encoded via an abstract function Apow together with the specification hApow that forces Apow k = (fun i j => (A i j)^k) for all k > 0; since the theorem is universally quantified over any such Apow, this is logically equivalent to directly using the entrywise power. The hypothesis ∀ k ∈ Set.Icc 1 (n+1), A^k = Apow k corresponds to A^k = A^{[k]} for k = 1, ..., n+1, and the conclusion ∀ k ≥ 1, A^k = Apow k corresponds to A^k = A^{[k]} for all k ≥ 1. The value of Apow 0 is irrelevant since both hypothesis and conclusion exclude k = 0. Matrix power A^k in Mathlib is standard matrix multiplication iterated, matching the informal A^k.",
+  "duration_ms": 82106,
+  "cost_usd": 0.29115525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2019_p5.lean",
+  "stem": "imo_2019_p5",
+  "verdict": "incomparable",
+  "reasoning": "The `updateMultipleTimes` definition has an off-by-one issue relative to the informal `L(C)`. Tracing for c = THT: `updateMultipleTimes THT N` yields some state for N=0,1,2,3 and only returns `none` at N=4, so `Nat.find` = 4, whereas informally L(THT) = 3. More generally, Nat.find = L(c) + 1 for L(c) > 0, and Nat.find = 0 only for the all-T configuration (L=0). Consequently, the Lean sum ∑ Nat.find(c)/2^n equals avg L + (2^n−1)/2^n, not avg L. Concrete check: for n=1, Lean gives (0+2)/2 = 1, but the true average of L is 1/2 (= n(n+1)/4). Thus the theorem is asserting `solution n` equals a different quantity than the informal \"average of L(C)\"; the two equalities neither imply each other.",
+  "duration_ms": 370497,
+  "cost_usd": 1.0951110000000004
+}

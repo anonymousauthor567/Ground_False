@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses [CommGroup G] and [IsSimpleGroup G] correctly encode \"abelian simple group\". The conclusion \"G ≅ Z_p for some prime p\" is logically equivalent to \"G is finite with prime cardinality\" (since any group of prime order is cyclic and hence ≅ Z_p). The Lean conclusion `IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (card G)` asserts exactly this: it forces G to be finite of prime order via the Fintype existence with prime cardinality, and adds the (redundant but consistent) cyclicity. The `IsCyclic G` conjunct is redundant given prime cardinality, but redundancy does not make the statement stronger or weaker — it remains logically equivalent to the informal claim in both directions.",
+  "duration_ms": 24544,
+  "cost_usd": 0.10002950000000001
+}

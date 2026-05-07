@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim precisely: `ha : a < 0` formalizes \"$a$ is negative\"; `h0 : p ≡ q [ZMOD 4*a]` uses `Int.ModEq` which correctly expresses $p \\equiv q \\pmod{4a}$ (handling the negative modulus since `Int.ModEq` is defined via divisibility); `h1 : ¬ ((p : ℤ) ∣ a)` expresses $p \\nmid a$; and `legendreSym p a = legendreSym q a` expresses $(a/p) = (a/q)$ (Mathlib's `legendreSym p a := quadraticChar (ZMod p) a`, matching the standard $(a/p)$ convention per the docstring). The informal statement asserts $p \\nmid a$ but not $q \\nmid a$; this asymmetry is harmless because $p \\equiv q \\pmod{4a}$ together with $q \\mid a$ would force $q = p$, contradicting $p \\nmid a$. The Ireland-Rosen implicit convention of odd primes is not violated: if either prime is 2, the congruence forces both to equal 2, making the equality trivially true. The quantifier structure and types (primes as ℕ, $a$ as ℤ) match standard conventions.",
+  "duration_ms": 189764,
+  "cost_usd": 0.6401587499999999
+}

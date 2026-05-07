@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over finite groups G with `card G = p*q` for primes p, q, and concludes `IsSimpleGroup G → false` (the Boolean `false` coerces to `False` via Bool→Prop, making this logically equivalent to `¬ IsSimpleGroup G`). This matches the informal claim \"no group of order pq is simple\" exactly: same hypotheses (G is a group of order pq where p, q are prime), same conclusion (G is not simple), same quantifier structure. The Lean version does not require p ≠ q, but neither does the informal statement, and the claim is still true when p = q (groups of order p² are abelian and have subgroups of order p, which are proper normal — the accompanying proof handles this case explicitly). No extra or missing hypotheses; no change of type or conclusion.",
+  "duration_ms": 292141,
+  "cost_usd": 0.6202945
+}

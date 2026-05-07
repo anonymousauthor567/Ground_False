@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: for a finite group G = {g₁,…,gₙ}, the sum N = g₁ + … + gₙ lies in the center of the group ring RG. The Lean signature takes `[Ring R] [Group G] [Fintype G]`, forms the sum `∑ g : G, MonoidAlgebra.of R G g`, where `MonoidAlgebra.of R G g = single g 1` is the canonical embedding of each group element into the group ring, and asserts membership in `center (MonoidAlgebra R G)` (which resolves to `Subring.center` — the set of elements commuting with everything). `MonoidAlgebra R G` is exactly the group ring RG when G is a group, the Fintype hypothesis supplies the finiteness, and `∑ g : G` ranges over all n group elements, giving precisely N. The hypotheses and conclusion correspond exactly to the informal statement with no extra or missing assumptions.",
+  "duration_ms": 220869,
+  "cost_usd": 0.7558954999999998
+}

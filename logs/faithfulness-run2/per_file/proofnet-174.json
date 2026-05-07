@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "verdict": "faithful",
+  "reasoning": "Each informal hypothesis maps precisely to the Lean version: continuity on [0,∞) via ContinuousOn on Set.Ici 0; differentiability on (0,∞) via DifferentiableOn on Set.Ioi 0; f(0)=0 directly; and f' monotone increasing via MonotoneOn (deriv f) on Set.Ioi 0. Since f is differentiable on Set.Ioi 0, `deriv f` agrees with the actual derivative there, so using `deriv f` is safe. Rudin defines \"monotonically increasing\" as non-decreasing (Def. 4.28), matching Mathlib's MonotoneOn. The conclusion restricts g = f x / x to Set.Ioi 0, matching the informal \"g is monotonically increasing for x > 0\". No hidden hypotheses are added or dropped.",
+  "duration_ms": 26245,
+  "cost_usd": 0.0932985
+}

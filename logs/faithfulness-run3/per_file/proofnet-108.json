@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-108.lean",
+  "stem": "proofnet-108",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly hypothesizes that $\\mathcal{A}$ is a basis for a topology on $X$, but the Lean statement takes an arbitrary `A : Set (Set X)` with no basis hypothesis. Mathlib's `generateFrom` is defined as the smallest topology containing any given collection (confirmed in `Mathlib/Topology/Order.lean`), so the Lean equality holds for every collection, not only bases. Thus the Lean claim specializes to the informal one (Lean ⇒ informal), but the informal claim, restricted to bases, does not imply the Lean statement for general collections. The basis hypothesis in Munkres is an explicit premise, not an implicit one needed for truth (the equality holds for any $A$), so dropping it makes the Lean statement strictly stronger than what was asked.",
+  "duration_ms": 166546,
+  "cost_usd": 0.385833
+}

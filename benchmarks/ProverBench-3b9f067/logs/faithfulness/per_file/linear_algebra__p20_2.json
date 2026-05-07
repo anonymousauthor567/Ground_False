@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p20_2.lean",
+  "stem": "linear_algebra__p20_2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean formalization swaps rows and columns in both parts relative to the informal statement. Mathlib's linearIndependent_rows_iff_isUnit confirms that LinearIndependent R (fun i => A i) refers to rows of A, and linearIndependent_cols_iff_isUnit confirms that LinearIndependent R (fun i => Aᵀ i) refers to columns of A. The informal statement claims columns of A and rows of B are dependent, but the Lean code asserts rows of A (via fun i => A i) and columns of B (via fun i => Bᵀ i) are dependent. Furthermore, the hypotheses are swapped: the axiom assumes A≠0 but proving row-dependence of A from AB=0 requires B≠0. These combined errors make the formalization neither stronger nor weaker than the informal statement.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

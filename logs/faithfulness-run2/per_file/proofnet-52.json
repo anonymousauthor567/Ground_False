@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the claim in the informal statement: given a finite group G of order 312, there exists a prime p dividing |G| and a Sylow p-subgroup P of G that is normal. The hypothesis `card G = 312` matches \"group of order 312\". The existential ∃ p, ∃ P : Sylow p G together with `p.Prime ∧ p ∣ card G ∧ P.Normal` correctly captures \"there is a prime p dividing the order such that some Sylow p-subgroup is normal\". The `Sylow p G` type in Mathlib gives maximal p-subgroups, which is the correct notion once `p.Prime` is asserted. No extra hypothesis is added and none is dropped, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 16974,
+  "cost_usd": 0.06467099999999999
+}

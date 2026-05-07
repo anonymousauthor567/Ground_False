@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_b5.lean",
+  "stem": "putnam_1980_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the Putnam 1980 B5 question correctly. T = [0,1], IsConvex, P_t, nonnegativity, and continuity all match the informal statement. The one point of concern is that the informal says \"increasing\" while Lean uses `StrictMonoOn` rather than `MonotoneOn`. However, this distinction does not affect the iff claim: for every t ≥ 0, S^strict_t is closed under multiplication iff t ≤ 1 iff S^mono_t is closed under multiplication. The closure direction follows because strictly-increasing nonneg × strictly-increasing nonneg is strictly increasing. For the non-closure direction at t > 1, the concrete counterexample f(x)=g(x)=x is strictly increasing and (f*g)(x)=x² fails P_t precisely when t > 1. The encoding f : ℝ → ℝ with properties restricted to T is a standard harmless reformulation. Hence the Lean iff claim is logically equivalent to the informal claim.",
+  "duration_ms": 1016255,
+  "cost_usd": 2.48227075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b2.lean",
+  "stem": "putnam_1988_b2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove or disprove: for real x, y with y ≥ 0 and y(y+1) ≤ (x+1)², we have y(y-1) ≤ x². The Lean formalization encodes this as an iff between the claim `∀ x y : ℝ, (y ≥ 0 ∧ y * (y + 1) ≤ (x + 1) ^ 2) → (y * (y - 1) ≤ x ^ 2)` and a solution proposition (which is `True`, indicating the answer is \"prove\"). Each component matches exactly: the quantifier `∀ x y : ℝ` matches \"real numbers x and y\", the hypothesis conjunction matches \"y ≥ 0 and y(y+1) ≤ (x+1)²\", and the conclusion `y * (y - 1) ≤ x ^ 2` matches \"y(y-1) ≤ x²\". This is the standard \"prove or disprove\" encoding used in PutnamBench, and the formalization is strictly faithful.",
+  "duration_ms": 13773,
+  "cost_usd": 0.052020500000000004
+}

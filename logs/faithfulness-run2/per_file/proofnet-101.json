@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `Odd p` together with `p.Prime` encodes \"odd prime\". Taking `a : (ZMod p)ˣ` is equivalent to a being coprime to p, which is the natural domain for the primitive root notion. `IsPrimitiveRoot (a : ZMod p) (p - 1)` is Mathlib's standard encoding of \"a has order p-1 in (ZMod p)ˣ\", i.e., a is a primitive root mod p. The RHS `∀ q, q ∣ (p-1) → q.Prime → ¬ a^((p-1)/q) = 1` is exactly \"for every prime divisor q of p-1, a^((p-1)/q) ≠ 1 in ZMod p\". The iff, quantifier structure, and types all match the informal statement.",
+  "duration_ms": 37016,
+  "cost_usd": 0.13972299999999999
+}

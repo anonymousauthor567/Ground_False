@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "informal": "Show that a closed subspace of a normal space is normal.",
+  "lean": "\ntheorem Munkres_exercise_32_1 {X : Type*} [TopologicalSpace X]\n  (hX : NormalSpace X) (A : Set X) (hA : IsClosed A) :\n  NormalSpace {x // x ∈ A}",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary topological space X with a NormalSpace hypothesis, a subset A, and the hypothesis that A is closed, then concludes that the subtype {x // x ∈ A} (which carries the subspace topology) is normal. This matches exactly the informal claim \"a closed subspace of a normal space is normal.\" The quantifier structure, hypothesis (closedness), and conclusion (normality of the subspace) all align with the informal statement.",
+  "duration_ms": 9915,
+  "cost_usd": 0.061843999999999996
+}

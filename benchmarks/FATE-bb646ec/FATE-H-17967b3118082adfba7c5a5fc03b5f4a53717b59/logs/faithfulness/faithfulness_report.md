@@ -1,0 +1,823 @@
+# Faithfulness audit of `proofnet_verified/`
+
+For each Lean file we asked Claude to read the full file content (informal statement + Lean theorem signature) and decide whether the Lean encoding is a *strictly faithful* formalization (neither stronger nor weaker).
+
+## Summary
+
+| verdict | count |
+|---|---|
+| faithful | 95 |
+| weaker | 3 |
+| stronger | 1 |
+| incomparable | 1 |
+| unclear | 0 |
+| error | 0 |
+| **total** | **100** |
+
+## faithful (95)
+
+### 1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+In Mathlib, `Subgroup.index` returns `Nat.card (G ⧸ H)`, which is 0 when the quotient is infinite. The informal phrase "subgroup of index n" mathematically presumes n is a specific finite positive integer; adding `hn : n ≠ 0` alongside `H.index = n` correctly encodes "H has finite index n" under Mathlib's convention. Similarly, the informal "[G:K] ≤ n!" implicitly assumes K has finite index (since the inequality is only meaningful for a finite index); the conjunct `K.index ≠ 0` in the conclusion makes this explicit — it is necessary because `K ≤ H` with `H.index ≠ 0` does not automatically imply `K.index ≠ 0` (e.g., take G = ℤ, H = G, K = {0}). So both the `n ≠ 0` hypothesis and the `K.index ≠ 0` conclusion simply match Mathlib's "0 means infinite" convention to the informal's implicit finiteness, without changing the mathematical content. The ambient group is arbitrary (no extra finiteness or commutativity), quantifier structure matches, and K is asserted to be normal, ≤ H, and of index ≤ n! — exactly what the informal states.
+
+### 10
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement "the last two digits of 3^(3^100) is 03" is mathematically equivalent to 3^(3^100) ≡ 3 (mod 100). The Lean expression `3 ^ (3 ^ 100) % 100 = 3` parses (since `^` binds tighter than `%`) as `(3 ^ (3 ^ 100)) % 100 = 3`, which at the default type ℕ is exactly this modular claim. Since 3^(3^100) ≫ 100, asserting `... % 100 = 3` indeed says the decimal expansion ends in "03". No hypotheses are added or omitted, and the types are correct, so the formalization is strictly faithful.
+
+### 100
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts the existence of a type R with a CommRing structure such that the prime spectrum (PrimeSpectrum R, which is the type of all prime ideals by its Mathlib definition) is Finite and R is not a Noetherian ring (IsNoetherianRing R is defined as IsNoetherian R R, equivalent to every ideal being finitely generated). This matches the informal claim exactly: a commutative ring with finite prime spectrum that is not Noetherian. The minor restriction to R : Type (universe 0) rather than Type* is not a faithfulness issue since the standard counterexamples (e.g., k[x₁,x₂,…]/(xᵢxⱼ)) live in Type 0, making the existence claim mathematically equivalent.
+
+### 11
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement precisely mirrors the informal claim. `Nat.card G = 3825` captures "G has order 3825" and implicitly forces G to be finite (since `Nat.card` returns 0 for infinite types). `[H.Normal]` encodes that H is normal, `Nat.card H = 17` gives H order 17, and `Subgroup.center G` is Mathlib's definition of Z(G). The conclusion `H ≤ Subgroup.center G` is exactly `H ≤ Z(G)`. No hypothesis has been added or dropped, and no conclusion has been strengthened or weakened.
+
+### 12
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asserts that the quotient group PSL(2, F_3) = SL_2(F_3)/Z(SL_2(F_3)) is (isomorphic to) a subgroup of A_4. The Lean statement expresses this by asserting the existence of an injective monoid homomorphism from `SL(2, ZMod 3) ⧸ Subgroup.center SL(2, ZMod 3)` to `alternatingGroup (Fin 4)`. All components match standard Mathlib conventions: `SL(2, ZMod 3)` (in MatrixGroups scope) is SL_2(F_3), `Subgroup.center` is the center, `⧸` is the quotient, and `alternatingGroup (Fin 4)` is A_4. Since the two groups are not literally in a subgroup relation (they are defined differently), the natural reading of "G ≤ H" is "G embeds as a subgroup of H", which is exactly an injective homomorphism. This is a faithful formalization.
+
+### 13
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asserts the number of Sylow p-subgroups of GL_2(F_p) equals p+1. The Lean signature encodes this as `Nat.card (Sylow p (GL (Fin 2) (ZMod p))) = p + 1` with `[Fact p.Prime]`. Each component matches: `GL (Fin 2) (ZMod p)` is Mathlib's notation for GL_2 over ZMod p, which is the field F_p when p is prime; `Sylow p G` is the type of Sylow p-subgroups; and `Nat.card` gives their count. The `[Fact p.Prime]` hypothesis surfaces the implicit premise that p is prime (required for F_p notation and the "Sylow p-subgroup" concept to be meaningful as intended). The mathematical claim is correct: |GL_2(F_p)| = p(p-1)²(p+1), the Sylow p-subgroup (unipotent upper-triangular) has order p, normalizer is the Borel of order p(p-1)², yielding n_p = p+1. The formalization is logically equivalent to the informal statement.
+
+### 14
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal statement point-for-point. `[Ring S]` captures "any ring S"; `2 < n` captures "n > 2"; `Matrix (Fin n) (Fin n) S` captures M_n(S); and the hypothesis `∀ i j, i ≥ j → A i j = 0` precisely encodes the informal definition "entries on and below the main diagonal are all zero" (entries with row index ≥ column index are zero, covering both the diagonal case i = j and the below-diagonal case i > j). This matches Mathlib's convention where `A i j` is the entry at row i, column j, and strictly upper triangular means zeros at and below the diagonal. The conclusion `A ^ n = 0` matches A^n = 0.
+
+### 15
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean `Zsqrtd (-5)` matches ℤ[√(-5)] (Mathlib's `Zsqrtd d` consists of elements `a + b√d` with `a, b : ℤ`). `IsPrincipalIdealRing` in Mathlib asserts that every ideal is principal. Although a PID traditionally includes the domain axiom, Mathlib automatically provides `IsDomain (Zsqrtd d)` for every `d` (see `Zsqrtd/Basic.lean` line 882), so for this specific ring, "is a PID" and "is a principal ideal ring" are equivalent. Therefore `¬IsPrincipalIdealRing (Zsqrtd (-5))` is logically equivalent to "ℤ[√(-5)] is not a principal ideal domain". The formalization is a faithful rendering.
+
+### 16
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement using standard Mathlib encodings: `CommRing R` + `IsDomain R` corresponds to "integral domain"; `MvPolynomial (Fin 2) R` with `X 0` and `X 1` corresponds to `R[x,y]`; `span {X 0 ^ i - X 1 ^ j}` is the ideal `(x^i - y^j)`; `Nat.Coprime i j` (i.e., `gcd i j = 1`) is "relatively prime"; and `.IsPrime` is "prime ideal". The use of ℕ instead of ℤ for exponents is the standard (and necessary) choice for polynomial exponents. The additional hypotheses `i > 0` and `j > 0` make explicit the standard reading of "x^i - y^j" as a non-degenerate polynomial expression — the informal notation and phrasing implicitly assume positive exponents (the degenerate cases i=0 or j=0 are not what the problem addresses). This is surfacing an implicit premise from the notation/context, not narrowing beyond the intended scope.
+
+### 17
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement "(x^p - 1)/(x - 1) is irreducible in ℤ[x]" uses the letter "p", which is the standard convention for a prime — and primality is actually REQUIRED for the statement to be true (e.g., for p = 4, the quotient x³+x²+x+1 = (x+1)(x²+1) is reducible). The Lean hypothesis `[Fact (Nat.Prime p)]` makes this implicit premise explicit, which per the system prompt is a faithful reading rather than a weakening. The encoding `((X : ℤ[X])^p - 1) /ₘ (X - 1)` correctly expresses the quotient: `X - 1` is monic so `divByMonic` gives exactly the geometric-series polynomial 1 + X + ... + X^(p-1) (the p-th cyclotomic polynomial). `Irreducible` is the standard Mathlib definition over ℤ[X], matching "irreducible in ℤ[x]". Hence the Lean statement is logically equivalent to the intended informal claim.
+
+### 18
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement claims `Irreducible ((X 0)^2 + (X 1)^2 - 1 : MvPolynomial (Fin 2) ℚ)`. The ring `MvPolynomial (Fin 2) ℚ` is ℚ[X₀, X₁], which is canonically the same ring as ℚ[x, y]; `X 0` and `X 1` are the two indeterminates. The element `(X 0)^2 + (X 1)^2 - 1` corresponds exactly to `x^2 + y^2 - 1`. Mathlib's `Irreducible` predicate (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) requires `p` to be a non-unit that only factors as a unit times something, which matches the standard mathematical definition of irreducibility used informally. No hypotheses are added or omitted and no types are changed. This is a strictly faithful formalization.
+
+### 19
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement says: for every finite group G (in Type), there exist n : ℕ and a subgroup H of alternatingGroup (Fin n) such that G is multiplicatively isomorphic to H. In Mathlib, `alternatingGroup (Fin n)` is defined as `sign.ker : Subgroup (Perm (Fin n))`, which is exactly $A_n$, and `Subgroup (alternatingGroup (Fin n))` is a subgroup of $A_n$. `Nonempty (G ≃* H)` expresses the existence of a group isomorphism between G and H. Thus the formalization asserts exactly "every finite group is isomorphic to a subgroup of $A_n$ for some n." The only minor technicality is `G : Type` rather than `Type*`, but any finite group is isomorphic to a group in Type 0, so this imposes no real restriction. The formalization is faithful.
+
+### 2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes "if $\#G = 56$ then $G$ is not simple." The hypothesis `Nat.card G = 56` faithfully captures the cardinality condition — since `Nat.card` returns 0 for infinite types, this forces G to be finite of order 56. `IsSimpleGroup` in Mathlib is defined as a `Nontrivial` group where every normal subgroup is `⊥` or `⊤`, which matches the standard definition of a simple group. `¬ IsSimpleGroup G` thus correctly states "G is not simple." The use of `Type` instead of `Type*` is a minor stylistic choice that doesn't affect the mathematical content, since any group of order 56 is finite and simplicity is isomorphism-invariant. No hypotheses have been added or dropped beyond what the informal statement specifies.
+
+### 20
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes the hypotheses exactly: `Group G` together with `p ^ 3 = Nat.card G` and `Fact p.Prime` capture "G is a group of order p³, p prime" (note that since p ≥ 2, this forces G to be finite of order p³ via `Nat.card`). The existence `∃ x y, x*y ≠ y*x` correctly encodes "nonabelian". The conclusion `Subgroup.center G = commutator G` matches the informal claim: in Mathlib `commutator G := ⁅⊤, ⊤⁆`, and by `commutator_eq_closure` this equals `Subgroup.closure (commutatorSet G)`, i.e., the subgroup generated by elements of the form `g₁ * g₂ * g₁⁻¹ * g₂⁻¹` (exactly `aba⁻¹b⁻¹`). Hypotheses and conclusion align without strengthening or weakening.
+
+### 21
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the order of Aut(Z_3 × Z_9), the automorphism group of the abelian group Z_3 × Z_9. In Mathlib, `AddAut M := M ≃+ M` is exactly the group of additive automorphisms, which for an abelian group (written additively) coincides with its group automorphism group. `ZMod 3 × ZMod 9` is the standard encoding of Z_3 × Z_9. `Nat.card` gives the cardinality, which matches "order" for a finite group. The value 108 is mathematically correct: counting endomorphism "matrices" (a, b ∈ Z_3; c ∈ 3Z_9; d ∈ Z_9) with invertibility on G/3G gives 2·3·3·6 = 108. The Lean statement captures the informal claim exactly.
+
+### 22
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal claim is $\text{Aut}(D_8) \cong D_8$ where $D_8$ has 8 elements. In Mathlib, `DihedralGroup n` has cardinality $2n$ (see `Mathlib/GroupTheory/SpecificGroups/Dihedral.lean` line 159: `Fintype.card (DihedralGroup n) = 2 * n`), so `DihedralGroup 4` is precisely the dihedral group with 8 elements, matching the informal convention stated in the problem. `MulAut G` is Mathlib's automorphism group of `G`, and `Nonempty (A ≃* B)` is the standard encoding for "$A$ is isomorphic to $B$" as groups via a `MulEquiv`. Thus `Nonempty (MulAut (DihedralGroup 4) ≃* DihedralGroup 4)` asserts exactly that $\text{Aut}(D_8) \cong D_8$. No hypotheses are added or dropped, and the quantifier structure (pure existence of an isomorphism) matches. The formalization is faithful.
+
+### 23
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asserts: "if |G| = 1053 then G is not simple." The Lean formalization uses `[Group G]`, `[Finite G]`, `Nat.card G = 1053`, and concludes `¬ IsSimpleGroup G`. In Mathlib, `IsSimpleGroup` is defined as Nontrivial plus "every normal subgroup is ⊥ or ⊤", the standard definition. `Nat.card G = 1053` with 1053 ≠ 0 already implies G is finite (since `Nat.card` returns 0 for infinite types, via `Nat.finite_of_card_ne_zero`), so the `[Finite G]` hypothesis is technically redundant but does not narrow the scope. The cardinality 1053 = 3⁴ × 13 is exactly what the informal statement requires. The Lean statement is logically equivalent to the informal claim.
+
+### 24
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes ℚ/ℤ as `ℚ ⧸ (Int.castAddHom ℚ).range`, where `Int.castAddHom ℚ : ℤ →+ ℚ` is the canonical inclusion and its `.range` is exactly the image of ℤ as an AddSubgroup of ℚ. `AddSubgroup.FiniteIndex` is Mathlib's standard notion of finite index. The conclusion `H = ⊤` (the whole group) is logically equivalent to "H is not proper": a subgroup is proper iff H ≠ ⊤, so "no proper subgroup has finite index" ⟺ "every finite-index subgroup equals ⊤". The quantification over arbitrary H with the FiniteIndex hypothesis matches the informal universal claim about all finite-index subgroups. No hypotheses are added or dropped, and the ambient objects match the informal statement.
+
+### 25
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal R = ℤ + xℚ[X] is correctly encoded as `Algebra.adjoin ℤ ({f | ∃ h : ℚ[X], f = X * h})`. The set `{f | ∃ h : ℚ[X], f = X * h}` is exactly xℚ[X] (polynomials divisible by X). The ℤ-subalgebra of ℚ[X] generated by xℚ[X] equals ℤ + xℚ[X]: one direction because ℤ + xℚ[X] is itself a ℤ-subalgebra containing xℚ[X] (closed under multiplication since (a+xp)(b+xq) = ab + x(aq+bp+xpq)); the other because the adjoin contains ℤ (base ring image), xℚ[X], and is closed under addition. Mathlib's `UniqueFactorizationMonoid` on a commutative ring is exactly the UFD property, and subalgebras of ℚ[X] inherit the CommRing structure. The negation matches "is not a U.F.D." directly, with no added or dropped hypotheses.
+
+### 26
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures exactly the informal claim. `IsCoatom H` for `H : Subgroup G` is precisely the definition of a maximal subgroup: H ≠ ⊤ (proper) and every subgroup strictly above H equals ⊤ (= G itself). `Subgroup.center G` is Z(G), and `commutator G` is Mathlib's [G,G] (defined as ⁅⊤, ⊤⁆). Subgroup `≤` is inclusion, and `∨` matches "either...or". No hypotheses are added or dropped, and no quantifiers or types are changed. The only minor convention is `G : Type` instead of `Type*`, but this is a universe-level encoding detail, not a mathematical difference.
+
+### 27
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. "A field F contained in M_n(ℚ)" with the degree [F:ℚ] implicitly assumes F contains the copy of ℚ as scalar matrices (otherwise [F:ℚ] is undefined), making F a ℚ-subalgebra — precisely what `Subalgebra ℚ (Matrix (Fin n) (Fin n) ℚ)` captures. `IsField F` correctly encodes "F is a field" (commutativity, nontriviality, and inverses of nonzero elements in F itself, using the inherited ring structure on the subalgebra). `Module.rank ℚ F ≤ n` is the standard formalization of [F:ℚ] ≤ n, using the Cardinal-valued rank with n coerced from ℕ. The universal quantification over n and F matches the informal "Let F be a field…". The n = 0 edge case is vacuously handled correctly since the trivial ring cannot satisfy IsField.
+
+### 28
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal claim. (1) `[Field k] [PerfectField k]` matches "perfect field k"; (2) `{p : ℕ} [Fact p.Prime] [CharP k p]` parameterizes over a prime p with `CharP k p`, which is equivalent to saying k has characteristic p > 0 (for a field, the characteristic is 0 or prime, so "p > 0" = "p prime"). (3) `RatFunc k` is Mathlib's field of rational functions in one variable over k, matching F = k(t). (4) `[Field E] [Algebra (RatFunc k) E] [FiniteDimensional (RatFunc k) E]` exactly says E is a finite extension of F. (5) The conclusion `∃ α : E, (RatFunc k)⟮α⟯ = ⊤` uses the `IntermediateField.adjoin` notation `F⟮α⟯` and `⊤` denotes the whole field E as an intermediate field, so this says E = F(α), i.e., E is generated by one element α over F. All hypotheses and conclusion match the informal statement without adding or omitting anything essential.
+
+### 3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says: if the order of G equals 3393, then G is not simple. The Lean signature uses `{G : Type} [Group G]` with hypothesis `Nat.card G = 3393` and conclusion `¬ IsSimpleGroup G`. `Nat.card G` returns the cardinality for finite groups (and 0 for infinite ones), so the hypothesis `Nat.card G = 3393` correctly captures "G has order 3393" and implicitly forces finiteness (since 3393 ≠ 0), matching the informal `#G = 3393`. Mathlib's `IsSimpleGroup` is the standard definition (nontrivial + every normal subgroup is ⊥ or ⊤), so `¬ IsSimpleGroup G` faithfully encodes "G is not simple". The universal quantification over groups G is correctly preserved via the implicit arguments. This is a strictly faithful formalization.
+
+### 30
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures all elements of the informal statement: E is modeled as the 7th cyclotomic extension of ℚ (via `IsCyclotomicExtension {7} ℚ E`), which is the splitting field of (x^7-1)/(x-1); ζ is a primitive 7th root of 1; and β = ζ + ζ^2 + ζ^4. The conclusion "ℚ(β) is ℚ(√(-7))" is rendered as a ring equivalence `ℚ⟮β⟯ ≃+* AdjoinRoot (X^2+7)`, where AdjoinRoot(X^2+7) = ℚ[X]/(X^2+7) is the abstract ℚ(√(-7)). Although `≃+*` is just a ring equivalence (not `≃ₐ[ℚ]`), for fields of characteristic 0 containing ℚ this automatically preserves ℚ, so ring and ℚ-algebra equivalences coincide. In this cyclotomic setting, the two readings ("abstract isomorphism" and "subfield equality within E") are logically equivalent, since ℚ(β) is a 2-dimensional ℚ-subspace of E that contains a root of X^2+7 iff it is isomorphic to ℚ[X]/(X^2+7).
+
+### 31
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures exactly the informal claim. `CyclotomicField n ℚ` (with `n : ℕ+` coerced to ℕ) is Mathlib's cyclotomic field; `primitiveRoots n (CyclotomicField n ℚ)` is the Finset of primitive n-th roots in that field, which coerces to the subtype of primitive roots. The basis `Basis (primitiveRoots n ...) ℚ (CyclotomicField n ℚ)` with the extra condition `(b : _ → _) = (↑)` enforces that the basis function equals the subtype coercion, i.e., the basis vectors are literally the primitive roots themselves — this is essential, since without it existence of a basis indexed by a set of cardinality φ(n) would be trivial. `Squarefree n` for `n : ℕ+` is well-defined via the `CommMonoid ℕ+` instance and agrees with squarefreeness as a natural number. Thus the iff faithfully encodes "the primitive n-th roots form a ℚ-basis of the n-th cyclotomic field iff n is squarefree."
+
+### 32
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement exactly captures the informal claim. `Polynomial.Gal p` is defined in Mathlib as `p.SplittingField ≃ₐ[F] p.SplittingField`, so `Gal (X^4 - 2*X^2 - 2 : ℚ[X])` is the Galois group of the splitting field of x^4 - 2x^2 - 2 over ℚ. `DihedralGroup 4` has cardinality 2·4 = 8 (confirmed by `DihedralGroup.card`), which matches "the dihedral group with eight elements" (D₄). `Nonempty (_ ≃* _)` is the standard way in Mathlib to assert that two groups are isomorphic. The polynomial, ambient field, Galois group, and target dihedral group all match; no hypotheses are added or dropped.
+
+### 33
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal one across all essential elements: f.degree = n, n > 4, f.Gal ≃* Equiv.Perm (Fin n) (Galois group isomorphic to S_n), a and b are distinct roots of f in the splitting field, and the conclusion counts exactly (n-1)! Galois elements sending a to b. The only apparent addition is `Irreducible f`, but this is actually a redundant hypothesis: if f ∈ ℚ[x] has degree n and |Gal(Split(f)/ℚ)| = n! (implied by the isomorphism with S_n, since in char 0 we have [Split(f):ℚ] = |Gal|), then f must be irreducible. For if f = gh with 1 ≤ deg g, deg h < n, then [Split(f):ℚ] ≤ (deg g)! · (deg h)! < n!, a contradiction. Since the extra hypothesis is logically implied by the remaining ones, the Lean statement is logically equivalent to the informal statement.
+
+### 34
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes each piece of the informal statement: [CharZero E] matches "characteristic zero", [Fact q.Prime] matches "prime q", hb : b ≠ 0 matches b ∈ E^×, not_pow : ∀ c, c^q ≠ b matches "b is not a q-th power", ha : a^q = algebraMap E E' b correctly uses the embedding E ↪ E' to express a^q = b, and haE : ⊤ = IntermediateField.adjoin E {a} correctly encodes E' = E(a) (⊤ in the IntermediateField lattice is the full field E'). The conclusion ¬ Irreducible (X^q - C b) ↔ Module.finrank E E' < q matches "X^q - b is reducible over E ⟺ [E':E] < q" — for non-unit polynomials (X^q - b has degree q ≥ 2), ¬Irreducible is exactly reducibility, and Module.finrank agrees with [E':E] since E' = E(a) is finite over E. No hypotheses are dropped or added beyond what the informal states.
+
+### 35
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says Q(sqrt(a*sqrt(D))) cannot be a cyclic extension of degree 4 over Q, where D is squarefree and a is nonzero rational. Let theta = sqrt(a*sqrt(D)); then theta^2 = a*sqrt(D), so theta^4 = a^2*D, giving minimal polynomial X^4 - a^2*D. The Lean polynomial (a^{-1} * X^2)^2 - C(d) = a^{-2}*X^4 - d has roots satisfying X^4 = a^2*d, which is the same splitting field. The IsEmpty of an isomorphism between the Galois group automorphisms and Multiplicative (ZMod 4) correctly encodes that the Galois group cannot be cyclic of order 4. The formalization is logically equivalent to the informal claim.
+
+### 36
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement directly and precisely formalizes the informal claim. The polynomial `(X ^ 4 - X ^ 2 - 1 : ℚ[X])` matches $f(X) = X^4 - X^2 - 1 \in \mathbb{Q}[X]$. The `.SplittingField` construction is Mathlib's standard splitting field of a polynomial over the base field. `Nat.card (IntermediateField ℚ _)` counts the number of intermediate fields between $\mathbb{Q}$ and the splitting field (with Mathlib's `IntermediateField` structure, which includes both $\mathbb{Q}$ and the full field as the trivial cases). The equality to 10 matches the informal conclusion. There are no missing hypotheses, no extra hypotheses, no quantifier changes, and no type drift. Mathematically this matches the Galois correspondence with $D_4$ (which has 10 subgroups).
+
+### 37
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement: [IsGalois K L] encodes "Galois extension L/K"; σ : L ≃ₐ[K] L with orderOf σ = n together with Subgroup.zpowers σ = ⊤ encodes "Gal(L/K) is cyclic of order n, generated by σ"; hn' : n = a * b and hab : Nat.Coprime a b encode "n = ab with gcd(a,b) = 1"; IntermediateField.fixedField (Subgroup.zpowers (σ^a)) is the fixed field of σ^a (as a subgroup), and hα/hβ encode F₁ = K(α), F₂ = K(β) via the intermediate field adjoin notation K⟮·⟯; the conclusion K⟮α + β⟯ = ⊤ means L = K(α+β). The hypothesis hn : n > 0 surfaces the implicit premise that "cyclic of order n" conventionally means n ≥ 1 (otherwise orderOf σ = 0 would mean σ has infinite order in Lean), which is a correct faithful reading rather than a strengthening. The quantifier structure and all types match.
+
+### 38
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal claim. (1) `[Fact p.Prime]` captures "p is prime". (2) `(primitiveRoots p F).Nonempty` correctly formalizes "F contains p-th roots of unity" — for prime p, the existence of a primitive p-th root is equivalent to F containing all (nontrivial) p-th roots, which is the standard Kummer-theory reading; this also implicitly excludes char F = p, needed for the claim to be true. (3) `[IsGalois F K]` plus `(K ≃ₐ[F] K) ≃* Multiplicative (ZMod p × ZMod p)` correctly encodes "K/F Galois with Galois group ℤ_p × ℤ_p": the `Multiplicative` wrapper is the standard Mathlib idiom (seen e.g. in `KummerExtension.lean`) since the Galois group is written multiplicatively. (4) The conclusion `∃ α β, α ≠ 0 ∧ β ≠ 0` matches α, β ∈ K^×; `α^p ∈ (algebraMap F K).range` matches α^p ∈ F; and `IntermediateField.adjoin F {α, β} = ⊤` matches K = F(α, β). No hypothesis is added or dropped beyond what is mathematically required.
+
+### 39
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asserts that a splitting field of X^15 - 2 over F_7 is generated by a primitive 45th root of unity. The Lean formalization uses (ZMod 7)[X] for the polynomial ring over F_7, the built-in Polynomial.SplittingField for the splitting field, IsPrimitiveRoot ζ 45 (Mathlib's standard definition requiring ζ^45 = 1 and k ∣ l whenever ζ^l = 1), and IntermediateField.adjoin (ZMod 7) {ζ} = ⊤ to express that ζ generates the entire splitting field over F_7. The existential quantifier faithfully captures "is generated by a primitive 45th root of unity" (the existence of such a generator is exactly what this phrase means, and is indeed true since the splitting field equals F_{7^12} = F_7(ζ_45)). The necessary Fact (Nat.Prime 7) instance is an implicit prerequisite to treat ZMod 7 as a field, not an extra hypothesis that narrows scope.
+
+### 4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all elements of the informal statement: `[Fact p.Prime]` encodes that p is prime, `Nat.card P = p ^ 3` gives |P| = p³, `∃ a b, a * b ≠ b * a` expresses non-abelianness, `Nat.card (Subgroup.center P) = p` gives |Z(P)| = p, and `Nonempty ((P ⧸ Subgroup.center P) ≃* Multiplicative ((ZMod p) × (ZMod p)))` expresses the isomorphism P/Z(P) ≅ ℤ/pℤ × ℤ/pℤ. The `Multiplicative` wrapper is essential and correct: since `ZMod p × ZMod p` as a ring has a component-wise multiplication that is NOT the intended group structure, wrapping with `Multiplicative` converts the additive group structure of (ZMod p)² into a multiplicative group, allowing the `≃*` isomorphism with the inherently multiplicative quotient group `P ⧸ Subgroup.center P`. This is the standard Mathlib idiom for expressing a group isomorphism between a multiplicative group and an additive group. The use of `Type` instead of `Type*` is a minor universe-level restriction but harmless for a statement about groups of fixed finite order p³.
+
+### 40
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding faithfully captures the informal claim. Irreducibility (`hf1`) and the quintic condition (`hf2 : natDegree = 5`) are explicit. `[IsSplittingField ℚ K f]` correctly encodes K as the splitting field. The three distinct roots α₁, α₂, α₃ from the informal set {α₁,...,α₅} are encoded as `a₁ a₂ a₃ ∈ rootSet f K` with pairwise distinctness (`ha2`). The hypothesis ℚ(α₁,α₂,α₃) ≠ K is precisely `IntermediateField.adjoin ℚ {a₁, a₂, a₃} ≠ ⊤`. The conclusion `Nonempty (f.Gal ≃* Equiv.Perm (Fin 5))` correctly expresses Gal(K/ℚ) ≅ S₅ (since K is ℚ-isomorphic to f.SplittingField, so f.Gal ≅ Aut(K/ℚ) as groups). Although the Lean version universally quantifies over the three roots while the informal is existentially parsed, these are logically equivalent since the conclusion does not depend on the specific choice.
+
+### 41
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says "the degree of every finite extension of F is divisible by p", but taken literally this includes the trivial extension F/F which has degree 1. Since p is prime, p ∤ 1, so a literal reading makes the hypothesis vacuously unsatisfiable. The standard mathematical reading (and the intended content of this classical field-theory exercise) is that every *nontrivial* finite extension has degree divisible by p. The Lean formalization makes this implicit premise explicit by adding `Module.finrank F E ≠ 1` (i.e., E is not isomorphic to F as an F-algebra, equivalently the extension is nontrivial). Per the worked example in the instructions, surfacing such an implicit premise needed for truth is faithful, not weaker. The conclusion `∃ k, Module.finrank F E = p ^ k` correctly encodes "the degree is a power of p" (with p^0 = 1 covering the trivial extension case). Types, quantifier structure, and typeclass assumptions (Field, Algebra, FiniteDimensional) all match standard Mathlib conventions for field extensions.
+
+### 43
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes each component of the informal statement: `F : IntermediateField ℚ ℂ` represents a field between ℚ and ℂ; `[FiniteDimensional ℚ F]` and `[IsGalois ℚ F]` capture "finite Galois"; and `∀ f g : F ≃ₐ[ℚ] F, f * g = g * f` expresses that the Galois group is abelian. The minimal monic polynomial is correctly encoded via `minpoly ℚ α`, which in Mathlib is always the monic minimal polynomial when α is integral (guaranteed by finiteness of F/ℚ). The norm `‖·‖` on `α : F` agrees with the complex absolute value, since IntermediateField inherits the normed structure from ℂ via `SubalgebraClass.normedRing`. The conclusion quantifies universally over `β : ℂ` with `β ∈ f.rootSet ℂ`, matching "for every complex root β of f(x), |β| = 1". No hypotheses are silently added or omitted.
+
+### 44
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all components of the informal statement. The setup `{F : Type} [Field F] [Fintype F]` with `Fintype.card F = q` faithfully encodes "finite field of size q" (no extra hypothesis is added — `q ≥ 2` follows automatically from `Field` being `Nontrivial`). The set `{P : F[X] | P.Monic ∧ Irreducible P ∧ P.natDegree = 19}` precisely counts monic irreducible polynomials of degree 19 (for monic polynomials `natDegree = degree`, so no ambiguity). The RHS `(q^19 - q) / 19` uses ℕ division, which is exact here since 19 is prime and Fermat's little theorem gives $19 \mid q^{19} - q$ for all $q$, so it matches the rational $\frac{q^{19}-q}{19}$. `Nat.card` correctly returns the finite cardinality since polynomials of bounded degree over a finite field form a finite set.
+
+### 45
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim. `RatFunc F` is Mathlib's F(x), and `F⟮(f : RatFunc F) / g⟯` is `IntermediateField.adjoin F {f/g}`, i.e., F(f/g). The coercion `(f : RatFunc F)` is the algebraMap from F[X], and g is auto-coerced in the division, giving the rational function f/g. Under the hypotheses f ≠ 0, g ≠ 0, `f.natDegree = 0` is equivalent to "f is a nonzero constant", so `¬(f.natDegree = 0 ∧ g.natDegree = 0)` correctly encodes "not both constant". Since `Module.finrank = 0` for infinite-dimensional modules and `max f.natDegree g.natDegree > 0` under the hypotheses, the equality simultaneously asserts finiteness and the exact value, matching "has finite degree max(deg f, deg g)". Hypotheses and conclusion align precisely; no extra assumptions are added beyond the informal text.
+
+### 47
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes "α (any cube root of 3) is not a cube in ℚ(ζ) where ζ is a primitive 9th root of unity in ℂ". Specifically: `ℚ⟮ζ⟯` is the intermediate field ℚ(ζ) ⊆ ℂ (scoped macro from `Mathlib.FieldTheory.IntermediateField.Adjoin.Defs`), the hypothesis `IsPrimitiveRoot ζ 9` matches "ζ is a primitive 9-th root of unity", `α ^ 3 = 3` matches "α³ = 3", and `¬ ∃ β : ℚ⟮ζ⟯, α = β ^ 3` (using the natural coercion from the subfield into ℂ) is exactly "α is not a cube in ℚ(ζ)". The informal mention that "ω = ζ^3 is a primitive 3rd root of unity" is only a redundant observation — it is automatically true once ζ is a primitive 9th root of unity — so omitting it as an explicit hypothesis does not change the claim. No extra hypotheses are added and none are dropped; the quantifier structure matches.
+
+### 48
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement claims that the group of field automorphisms of ℂ is infinite. The Lean statement asserts that `ℂ ≃ₐ[ℚ] ℂ` (the ℚ-algebra automorphism group of ℂ) is infinite. These are logically equivalent: any ring/field automorphism of ℂ must fix the prime subfield ℚ pointwise (it sends 1 to 1, hence ℤ to ℤ, hence ℚ to ℚ), so it automatically is a ℚ-algebra automorphism. Mathlib makes this precise via `RingHom.equivRatAlgHom` which gives a canonical bijection between ring homs and ℚ-algebra homs for ℚ-algebras. Thus `(ℂ ≃+* ℂ)` (field automorphisms of ℂ) is in bijection with `(ℂ ≃ₐ[ℚ] ℂ)`, so the `Infinite` claims are equivalent. The formalization is faithful.
+
+### 49
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal claim. `(⊤ : IntermediateField ℚ F).FG` is exactly Mathlib's notion of F being a finitely generated field extension of ℚ (confirmed by the Mathlib definition: `∃ t : Finset E, adjoin F ↑t = ⊤`). The conclusion `∃ f : F →ₐ[ℚ] ℂ, Function.Injective f` asserts an injective ℚ-algebra homomorphism into ℂ, which matches "can be embedded into ℂ". Note that over the prime field ℚ, a ring hom is automatically a ℚ-algebra hom, and a ring hom from a field is automatically injective, so `Function.Injective f` is redundant but harmless — the statement still expresses the same content. The `Type` (vs `Type*`) level is not a real restriction since finitely generated extensions of ℚ are countable, and this is a common Lean convention that doesn't alter the mathematical meaning.
+
+### 5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The informal hypothesis "R is a ring with 1 ≠ 0" is encoded as `[Ring R] [Nontrivial R]`. In Mathlib, `Nontrivial α` asserts `∃ x y : α, x ≠ y`, and in any ring this is equivalent to `1 ≠ 0` (if `1 = 0` then every `x = x·1 = x·0 = 0`, making R trivial; conversely `1 ≠ 0` gives a pair of distinct elements). The Mathlib docstring for `Nontrivial` even confirms "In rings, this is equivalent to `0 ≠ 1`." The elements `a, b : R`, hypothesis `IsUnit (1 - a * b)`, and conclusion `IsUnit (1 - b * a)` are all a direct match to the informal statement. No hypotheses have been added or dropped, no types changed, and the logical structure is preserved.
+
+### 50
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts exactly what the informal claim does. `MvPolynomial (Fin n) ℤ` is the standard $\mathbb{Z}[x_1,\dots,x_n]$, `Ideal.IsMaximal` is the usual maximal ideal notion, and the quotient type `MvPolynomial (Fin n) ℤ ⧸ m` yields the quotient ring $F$. Since a maximal ideal's quotient is a field (an `AddGroupWithOne`), Mathlib's `CharZero` is equivalent to the usual notion of characteristic zero via `charP_zero_iff_charZero`. The universal quantification over `n : ℕ` matches the informal "let $n$..."; including $n=0$ doesn't affect truth (quotients of $\mathbb{Z}$ by maximal ideals are $\mathbb{F}_p$). No hypotheses are added or dropped, and the conclusion `¬ CharZero` correctly matches "cannot have characteristic 0".
+
+### 51
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says: for K = F(theta) a simple algebraic extension and L an intermediate field, if g(x) = x^r + alpha_1*x^{r-1} + ... + alpha_r is the minimal polynomial of theta over L, then F(alpha_1, ..., alpha_r) = L. The Lean formalization uses IntermediateField.adjoin F over the image of the coefficient set of (minpoly L theta) and asserts equality with L, given that F(theta) = top (i.e., K = F(theta)). This directly encodes the informal claim using Mathlib's minpoly and coeffs API.
+
+### 52
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the claim. `RatFunc (GaloisField p m)` is $\mathbb{F}_q(X)$, and `(GaloisField p m)⟮X^n⟯` is the intermediate subfield $\mathbb{F}_q(X^n)$. Setting $t := X^n$, we have $X$ is an $n$-th root of $t$, so $\mathbb{F}_q(X)/\mathbb{F}_q(X^n)$ is precisely $\mathbb{F}_q(t^{1/n})/\mathbb{F}_q(t)$ — a standard realization. `IsGalois F E` means E/F is Galois, with arguments in the correct order (intermediate field as base, full rational function field as extension). The RHS `p^m ≡ 1 [MOD n]` correctly expresses $q \equiv 1 \pmod n$ with $q = p^m$. The biconditional holds mathematically: if $\gcd(n,p)=1$ then Galois iff $n | q-1$; if $p | n$ then neither separability nor the congruence holds. The hypotheses `1 ≤ n` and `1 ≤ m` merely surface implicit premises (that $t^{1/n}$ is defined and $q$ is a genuine prime power), not narrowing the intended scope.
+
+### 53
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean type `ℝ ≃ₐ[ℚ] ℝ` unpacks (per Mathlib's `AlgEquiv` definition in `Algebra/Algebra/Equiv.lean`) to a ring equivalence of ℝ with itself that commutes with the algebra map from ℚ — i.e., a ring automorphism of ℝ fixing every rational. Since a ring automorphism of a field is a field automorphism, this exactly encodes "field automorphism of ℝ that fixes ℚ". The value `1 : ℝ ≃ₐ[ℚ] ℝ` is defined as `AlgEquiv.refl` (the identity), so `f = 1` says f is the trivial automorphism. The quantifier structure (universal over automorphisms) and conclusion match the informal statement. No extra or missing hypotheses.
+
+### 54
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes each piece: `GaloisField 2 2` is defined as the splitting field of X^(2^2) − X over ℤ/2, which is 𝔽₄; `RatFunc (GaloisField 2 2)` is the field of rational functions over 𝔽₄, corresponding to K = 𝔽₄(t) with the indeterminate `RatFunc.X` playing the role of t; and `(GaloisField 2 2)⟮X^4 + X⟯` is the IntermediateField generated over 𝔽₄ by t^4+t inside 𝔽₄(t), which equals F = 𝔽₄(t^4+t). The Mathlib convention `IsGalois F E` takes F as the base and E as the extension, so `IsGalois F⟮X^4+X⟯ (RatFunc F)` asserts exactly that K/F is Galois, matching the informal statement.
+
+### 55
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. (1) `¬ CharP K 2` correctly expresses char(K) ≠ 2 for a field. (2) `[IsGalois K L]` matches "L/K is Galois". (3) `IsKleinFour (L ≃ₐ[K] L)` is exactly "Gal(L/K) ≅ (ℤ/2ℤ)²" (Mathlib defines IsKleinFour as order 4, exponent 2). (4) The existential `∃ a b : Kˣ, ∃ x y : L, x² = a ∧ y² = b ∧ K⟮x,y⟯ = ⊤` is the standard Lean encoding of "L = K(√a, √b) for some a, b ∈ K^×" — the square roots must be introduced as elements of L since √a is not a priori defined. (5) For nonzero a in a field, `IsSquare (a : Kˣ)` is equivalent to a being a square in K, so the three nonsquare conditions match. The biconditional is preserved in both directions. No hypotheses are silently added or dropped.
+
+### 56
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypotheses `Odd n` and `1 < n` exactly match "n odd, n > 1" from the informal text (and n > 1 is necessary: for n=1, Φ₂(X) = X+1 while Φ₁(-X) = -X-1, so the equality fails). The cyclotomic polynomial is indexed by ℕ over ℚ, matching the informal statement. The conclusion `cyclotomic (2*n) ℚ = (cyclotomic n ℚ).comp (-X)` is exactly the polynomial identity Φ_{2n}(X) = Φ_n(-X), since `p.comp (-X)` in Mathlib denotes polynomial composition p(-X). Polynomial equality in ℚ[X] is equivalent to the functional identity Φ_{2n}(x) = Φ_n(-x). No drift in hypotheses, types, or conclusion.
+
+### 57
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the informal claim. `¬ PerfectField F` matches "F is not perfect" (Mathlib's PerfectField class says every irreducible polynomial is separable, the standard definition). The existential `∃ E : IntermediateField F (AlgebraicClosure F), IsPurelyInseparable F E ∧ ⊥ < E` encodes "nontrivial purely inseparable extension": `⊥` is the image of F in the algebraic closure (Set.range of algebraMap), so `⊥ < E` means E strictly contains F (nontrivial), and `IsPurelyInseparable F E` matches "purely inseparable". Using the algebraic closure as the ambient space is not a restriction because every purely inseparable extension is algebraic (by the integrality condition in IsPurelyInseparable) and therefore embeds into the algebraic closure — so this is logically equivalent to the informal "some nontrivial purely inseparable extension exists". No hypotheses are silently added or removed.
+
+### 58
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes "at most one extension" as a Subsingleton on the subtype of intermediate fields of the algebraic closure. The choice of AlgebraicClosure F as the ambient field is natural because α^4 ∈ F forces α to be algebraic over F. The predicate "α^4 ∈ F" is encoded via membership in ⊥ : IntermediateField, which by Mathlib's `mem_bot` equals the range of algebraMap F (AlgebraicClosure F), faithfully capturing "belongs to F under the embedding" (and similarly for α^2 ∉ F). The conjunction M = F⟮α⟯ together with F⟮α⟯ = F⟮α^2⟯ correctly asserts that the extension equals both F(α) and F(α²). The quantifier structure — ∃ α such that M equals F(α) with the three conditions — matches "at most one intermediate field that can be written as F(α) for some α satisfying the conditions", which is the standard reading of the informal statement.
+
+### 59
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts that `Polynomial.rootSet` of `X^7 - 11 ∈ ℚ[X]` in the splitting field of `X^7 - 12` over ℚ equals `⊥`. For `Set S`, `⊥ = ∅` (`Set.bot_eq_empty`), and `rootSet` is the set of distinct roots of the polynomial in the given algebra. By `mem_rootSet'`, membership in `rootSet` is equivalent to the polynomial being nonzero after mapping (which holds since `X^7 - 11 ≠ 0` in ℚ[X] and ℚ → SplittingField is injective) together with `aeval a p = 0`. Therefore `rootSet = ⊥` iff no element of the splitting field is a root of `X^7 - 11`, which exactly matches "x^7 - 11 has no root in the splitting field of x^7 - 12 over ℚ". The base field ℚ, the polynomial, and the splitting field construction all align with the informal statement.
+
+### 6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The prime $p$ is typed as `ℕ` with `hp : p.Prime`, and `a, b` are existentially quantified over `ℤ`, matching "$a, b \in \mathbb{Z}$". The equation `a^2 + a*b + b^2 = p` is a direct transcription of $p = a^2+ab+b^2$ (equality is symmetric). The conclusion `p = 3 ∨ p % 3 = 1` correctly expresses "$p = 3$ or $p \equiv 1 \pmod{3}$": for natural numbers, `p % 3 = 1` is literally the mod-3 residue being 1, and the `p = 3` disjunct correctly captures the special case where $p \equiv 0 \pmod{3}$ (which for primes means $p = 3$). No extra hypotheses are added or dropped, and the iff direction matches.
+
+### 60
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The polynomial `X^6 + C(3*a) * X^4 + C 3 * X^3 + C(3*a) * X^2 + C 1` over `ℚ[X]` exactly matches $x^6 + 3ax^4 + 3x^3 + 3ax^2 + 1$. The hypothesis `a : ℤ` with `a > 0` matches "positive integer $a$". Choosing $\mathbb{Q}$ as the base field matches the standard convention when the informal statement gives a polynomial with integer coefficients without further specification. `Polynomial.Gal` is the Galois group of the splitting field (automorphisms of the splitting field over the base field), and `IsSolvable` is the standard solvable-group definition via the derived series. All components align with the intended mathematical claim.
+
+### 61
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asserts that X^4+1 is not irreducible over any field of positive characteristic. The Lean formalization universally quantifies over a field F and a prime p with [Fact p.Prime] and [CharP F p], and concludes ¬ Irreducible (X^4 + C 1 : F[X]). Since the characteristic of a field is always 0 or prime, "field of positive characteristic" is exactly equivalent to "field F for which there exists a prime p with CharP F p". The universal quantification in the Lean signature (over both F and p) captures the informal "any field". The polynomial X^4 + C 1 is literally X^4 + 1 in F[X] since C 1 = 1. `Irreducible` is the standard Mathlib irreducibility notion. No hypotheses are added or omitted beyond what the informal statement implicitly requires.
+
+### 62
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes each component of the informal claim: F is a field, E is an F-algebra that is the splitting field of irreducible f, a ∈ E is a root of f, n ≥ 1, g is irreducible with g(a^n) = 0, and the conclusion asserts E contains a primitive nth root of unity. The degree condition deg(f)/deg(g) = n is correctly encoded as f.degree = g.degree * n (valid since irreducibility of g ensures g ≠ 0 and deg(g) ≥ 1). The characteristic hypothesis "char(F) does not divide n" is correctly encoded as (n : F) ≠ 0, which captures the standard convention both in characteristic 0 and p > 0. The conclusion primitiveRoots n E ≠ ∅ expresses existence of a primitive nth root of unity in E, matching the informal. No hypotheses are added, dropped, or modified.
+
+### 63
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement is logically equivalent to the informal claim. "ξ is a root of unity in ℂ" means ∃ n ≥ 1 with ξ^n = 1, equivalently ∃ n ≥ 1 with ξ ∈ rootsOfUnity n ℂ (viewed as a unit, which is automatic since ξ^n = 1 implies ξ ≠ 0). The Lean formulation universally quantifies over such (n, ξ) pairs with n ≥ 1, which yields the same claim as quantifying over all roots of unity. The right-hand side `(2:ℂ)^((1:ℂ)/4)` uses Complex.cpow, giving exp(log(2)·1/4) = 2^(1/4) (the positive real fourth root of 2), matching the informal 2^(1/4). The use of `eval₂ (algebraMap ℚ ℂ)` with coercion ξ : ℂˣ → ℂ correctly represents f(ξ). No hypothesis is added or omitted beyond what is required by the definition of "root of unity" itself.
+
+### 64
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all parts of the informal statement. `[Field F] [Field K] [Algebra F K] [FiniteDimensional F K]` faithfully models "K is a finite extension of F" (the algebraMap F K is automatically injective as F is a field, and FiniteDimensional F K is precisely the definition of a finite extension). The conclusion `∃ g ≠ 0, ∃ h : F[X], f * g = h.map (algebraMap F K)` correctly expresses "there exists a nonzero g ∈ K[x] with fg ∈ F[x]": since Polynomial.map (algebraMap F K) is injective, asserting f*g lies in its image is equivalent to saying f*g has all coefficients in F, which is the natural reading of "f(x)g(x) ∈ F[x]". The informal statement does not require h to be nonzero (indeed, if f = 0, we can take g = 1 and h = 0), matching the Lean encoding. No hypotheses are added, removed, or altered.
+
+### 65
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. `GaloisField p n` (with `[Fact p.Prime]`) is Mathlib's standard realization of $\mathbb{F}_{p^n}$, defined as the splitting field of $X^{p^n}-X$ over $\mathbb{Z}/p\mathbb{Z}$. The polynomial `X^3 + C a * X + C b` is exactly $x^3+ax+b$ in $\mathbb{F}_{p^n}[X]$, and `Irreducible` captures the standard notion of irreducibility in that polynomial ring. The conclusion `IsSquare (-4 * a^3 - 27 * b^2)` unfolds to $\exists r, -4a^3-27b^2 = r \cdot r$, which is "is a square in $\mathbb{F}_{p^n}$". The universal quantification over $a,b$ is handled by free variables in the theorem signature. No hypotheses have been added or dropped that change the mathematical content.
+
+### 66
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement precisely captures the informal claim. The polynomial $X^{2^n} + X + C\,1$ in $(\mathbb{Z}/2\mathbb{Z})[X]$ correctly encodes $x^{2^n}+x+1$ over $\mathbb{F}_2$ (with `^` being right-associative so `X ^ 2 ^ n` parses as `X^(2^n)`). The hypothesis `n ≥ 3` matches. For this polynomial, which has degree $2^n \geq 8$, it is neither zero nor a unit in $\mathbb{F}_2[X]$, so Mathlib's `¬ Irreducible` is equivalent to the standard mathematical notion of "reducible" (a nontrivial factorization into non-units exists). No hypotheses are silently added or dropped; the quantifier structure matches, and the mathematical content (which is true since roots live in $\mathbb{F}_{2^{2n}}$, and $2^n \nmid 2n$ for $n\geq 3$) matches exactly.
+
+### 67
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes each component of the informal statement. `AdjoinRoot (X^3 - 2 : Polynomial (ZMod 7))` is defined in Mathlib as `(ZMod 7)[X] / (X^3 - 2)`, which is exactly $\mathbb{F}_7[\alpha]$ with $\alpha^3 = 2$ (since $X^3-2$ is irreducible over $\mathbb{F}_7$, as 2 is not a cube mod 7). `TensorProduct (ZMod 7) A A` with its `CommRing` instance is the $\mathbb{F}_7$-algebra tensor product $A \otimes_{\mathbb{F}_7} A$. The theorem universally quantifies over ideals `p` with `[p.IsPrime]` and concludes `p.IsPrincipal`, which is precisely "every prime ideal is principal." `Ideal.IsPrincipal` means `∃ a, p = span {a}`, matching the standard meaning of principal. No hypotheses are silently added or dropped, and the quantifier structure matches.
+
+### 68
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. `CommRing A` + `IsNoetherianRing A` captures "Noetherian ring" (associated primes require commutativity in Mathlib, so this is the natural reading). `hx : x ∈ nonZeroDivisors A` precisely expresses "x is not a zero-divisor", and `hx' : ¬ IsUnit x` expresses "x is not a unit". With `open Ideal` in scope, `span {x}` is `Ideal.span {x}` = xA, so the quotients are the correct A/xA and A/x^n A. `associatedPrimes A M` is exactly Mathlib's Ass_A(M). The hypothesis `n ≥ 1` matches the informal "n = 1, 2, ..." explicitly. The minor use of `Type` rather than `Type*` is a stylistic universe restriction that does not meaningfully change the claim.
+
+### 69
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes each part of the informal claim. `[Field K] [NumberField K]` matches "field of finite degree over ℚ" since Mathlib defines `NumberField` as a field that is CharZero and FiniteDimensional over ℚ (equivalent to the informal condition). `{n : ℕ} (x : Fin n → K)` with `Set.range x` captures "finitely many elements x₁,...,xₙ of K". `Algebra.adjoin ℤ (Set.range x)` equals the subring generated by those elements over ℤ (confirmed by `Algebra.adjoin_int` in Mathlib, which shows the ℤ-subalgebra is the ring-theoretic `Subring.closure`). The condition `≠ ⊤` says this subring is not all of K. Quantifier structure matches: universal over K, n, and the elements. The formalization is logically equivalent to the informal statement.
+
+### 7
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. (1) `H K : Subgroup G` with `[H.Normal]` captures "H ⊲ G" and `h1 : K ≤ H` captures "K ⊆ H". (2) `[(K.subgroupOf H).Normal]` encodes "K ⊲ H" since `K.subgroupOf H := K.comap H.subtype` is K viewed as a subgroup of H, and its Normal instance corresponds to K being normal in H (given K ≤ H). (3) `Subgroup.centralizer (K.subgroupOf H) = (⊥ : Subgroup H)` correctly encodes C_H(K) = 1, since the centralizer is computed in group H (the input being a Subgroup H coerced to Set H) and the bottom subgroup of H is trivial. (4) The conclusion `H ≤ centralizer (centralizer (K : Set G) : Set G)` is exactly "every h ∈ H commutes with every element of C_G(K)", which is the standard meaning of "H centralizes C_G(K)". No hypotheses are added or removed, and the types/quantifiers match.
+
+### 70
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+`AdjoinRoot (X^2 + C 4 : ℤ[X])` unfolds to `ℤ[X] ⧸ (span {X^2 + 4})`, which is precisely $\mathbb{Z}[X]/(x^2+4)$. Mathlib's `IsIntegrallyClosed R` is the standard notion (R is the integral closure of itself in `FractionRing R`), matching the informal meaning of 'integrally closed'. The negation directly encodes 'is not integrally closed', and the polynomial `X^2 + C 4` is the correct encoding of $x^2+4$ in ℤ[X]. No hypotheses are added or dropped, no types are altered, and since $X^2+4$ is irreducible over ℤ the quotient is a domain, so the fraction-field formulation matches the informal reading unambiguously.
+
+### 71
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement claims that k[x,y] is not a Dedekind ring. `MvPolynomial (Fin 2) k` with `[Field k]` is precisely the polynomial ring in two variables over a field, i.e., k[x,y]. Mathlib's `IsDedekindRing` class (defined in `RingTheory/DedekindDomain/Basic.lean` line 103) captures exactly the standard notion of Dedekind ring: Noetherian, DimensionLEOne, integrally closed in its fraction ring. The Lean statement `¬ IsDedekindRing (MvPolynomial (Fin 2) k)` with `k` an arbitrary field matches the informal claim exactly — same ring, same conclusion, no added or dropped hypotheses.
+
+### 72
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures the informal claim. `Localization.AtPrime m` in Mathlib is defined as `Localization m.primeCompl`, which is exactly A_m (localization of A at the complement of m). The hypothesis `h_local` states A_m is Noetherian for every maximal ideal m (using instance-style argument `[m.IsMaximal]`, which is standard Mathlib convention and logically equivalent to `m.IsMaximal →`). The hypothesis `h_finite` correctly formalizes "for each nonzero x, the set of maximal ideals containing x is finite". The conclusion `IsNoetherianRing A` matches. The use of `CommRing` instead of `Ring` reflects the standard implicit convention in commutative algebra texts (like Atiyah-Macdonald) where "ring" means "commutative ring" — this is required for `Localization.AtPrime` to even make sense, so it is a correctly surfaced implicit premise rather than an added hypothesis.
+
+### 73
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal claim. The hypotheses `[CommRing R] [IsDomain R]` are not extra assumptions; they are required instance parameters of the `ValuationRing` class in Mathlib (which is defined on commutative integral domains, matching the standard convention). `NoZeroSMulDivisors R A` states that `c • x = 0 → c = 0 ∨ x = 0`, which over a domain is equivalent to A being a torsion-free R-module (and indeed Mathlib provides an instance `[IsDomain R] [NoZeroSMulDivisors R M] : Module.IsTorsionFree R M`). The conclusion `Module.Flat R A` is the standard flatness notion. The implicit universal quantification over R and A via type-class parameters matches the informal universal claim. No hypotheses are silently dropped or added beyond standard Mathlib conventions, and no strengthening/weakening occurs.
+
+### 74
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. "R is a valuation ring" is correctly expressed via `[CommRing R] [IsDomain R] [ValuationRing R]` — which is exactly Mathlib's definition of a valuation ring (commutative integral domain where for any a,b one divides the other). The module setup `[AddCommGroup A] [Module R A]` and the flatness hypothesis `[Module.Flat R A]` are standard. The conclusion `NoZeroSMulDivisors R A` (i.e., c•x=0 → c=0 ∨ x=0) is the standard encoding of "torsion-free R-module" when R is a domain (which holds here). The implication direction ("torsion-free if flat" = "flat → torsion-free") is preserved. No hidden strengthening or weakening.
+
+### 75
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim using Mathlib's standard k-algebra formalism. "A and B contain the field k" is encoded as `[Algebra k A]` and `[Algebra k B]`, which is the conventional way to express this (and is equivalent to containing k as a subring since k is a field, except in the trivial-ring case, which is excluded here because Q being maximal forces B ≠ 0 and hence A ≠ 0). "B is finitely generated over k as a ring" is precisely `Algebra.FiniteType k B` (verified in Mathlib/RingTheory/FiniteType.lean). "φ is a ring homomorphism with φ|_k = Id" is exactly what `A →ₐ[k] B` means: a ring homomorphism commuting with the algebra maps from k. The conclusion `(Ideal.comap φ Q).IsMaximal` is literally "φ^{-1}(Q) is maximal." No hypothesis is added or dropped, and the quantifier structure matches (universal over A, B, k, φ, Q).
+
+### 76
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes "a finite torsion-free module over a Dedekind domain is projective." `IsDedekindDomain R` (with `CommRing R`) gives that R is a Dedekind domain (this class extends `IsDomain`). `Module.Finite R M` is the standard formalization of "finitely generated module," which is the conventional meaning of "finite module" in commutative algebra. `NoZeroSMulDivisors R M` encodes "torsion-free": since R is a domain, this is equivalent to the standard torsion-free notion (Mathlib provides `NoZeroSMulDivisors → Module.IsTorsionFree` under `IsDomain R`, and the converse holds because `r • x = 0` with `r ≠ 0` forces `x = 0` by torsion-freeness). The conclusion `Module.Projective R M` matches "projective." No hypotheses are dropped, added, or altered.
+
+### 77
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes each component of the informal statement: "k is a field" by `[Field k]`; "A is a local k-algebra" by `[CommRing A] [Algebra k A] [IsLocalRing A]`; "R is a k-algebra and A is a localization of R" by `[CommRing R] [Algebra k R] [Algebra R A] [IsScalarTower k R A]` plus `(S : Submonoid R) [IsLocalization S A]`; "A/m = k" by the bijectivity of the composed structure map `k → A → A/m` (namely `(IsLocalRing.residue A).comp (algebraMap k A)`). The conclusion `∃ n : Ideal R, ∃ hn : n.IsMaximal, IsLocalization.AtPrime A n` says exactly that there exists a maximal ideal n of R with A being the localization at n (i.e., R_n = A), using `IsLocalization.AtPrime A n = IsLocalization n.primeCompl A`, and `n.IsPrime` is automatic from `n.IsMaximal`. The `IsScalarTower` hypothesis correctly captures that A's k-algebra structure is induced from R's. No hypothesis is added or dropped, and the quantifier structure matches.
+
+### 78
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says: for an integral extension R'/R of commutative rings, rad(R) = rad(R') ∩ R where rad denotes the nilradical. The Lean formalization states nilradical R = Ideal.comap (algebraMap R R') (nilradical R'), which is exactly the statement that the nilradical of R equals the contraction (preimage under the structure map) of the nilradical of R'. The hypothesis Algebra.IsIntegral R R' encodes the integral extension condition. This is logically equivalent to the informal claim.
+
+### 8
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal claim: `Sylow 2 G` matches "Sylow 2-subgroup of G", `P.toSubgroup ≠ ⊥` matches "nontrivial", `[IsCyclic P]` matches "cyclic" (mirrors Mathlib's own usage in ZGroup.lean), and `∃ H : Subgroup G, H.index = 2` precisely encodes "G has a subgroup H with [G:H] = 2" since `Subgroup.index = Nat.card (G ⧸ H)`. The `[Finite G]` assumption makes explicit an implicit premise — this is a classical finite group theory result (proved via the Cayley/regular-representation embedding argument) that fundamentally requires finiteness; it is also the universal textbook convention when discussing Sylow subgroups in this style of exercise. Making this implicit premise explicit is not a faithfulness error per the worked-example rule.
+
+### 80
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim precisely. The two integral domains R ⊂ R' are encoded as R, S with [CommRing, IsDomain] plus [Algebra R S] and [NoZeroSMulDivisors R S]; the latter makes the algebra map R → S injective (since for domains, algebraMap r = 0 forces r = 0 via r • 1 = 0), which is exactly the "R ⊂ R'" subring interpretation — a faithful surfacing of an implicit premise. The hypothesis `f * g ∈ lifts (algebraMap R S)` means f·g is in the image of R[X] → S[X], i.e., its coefficients lie in R, matching "f·g ∈ R[t]". The conclusion `f, g ∈ lifts (integralClosure R S).subtype` means their coefficients lie in integralClosure R S, which is exactly \overline{R}[t]. The monic hypotheses and polynomial types all match. No hypothesis or conclusion is altered in scope or strength.
+
+### 81
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts that for n = 3 or 4, assuming R(n) := ℂ[x_1,...,x_n]/(∑x_i²) is an integral domain, it is not a UniqueFactorizationMonoid. The informal statement says R is not a UFD for n = 3 or 4. In Mathlib, `UniqueFactorizationMonoid` extends `IsCancelMulZero`, so the Mathlib notion already implies domain-like structure — and in mathematics, "UFD" by definition means "integral domain with unique factorization." For n = 3, 4, the polynomial x_1²+...+x_n² is irreducible over ℂ, so R(n) is indeed always a domain. The `[IsDomain (R n)]` assumption therefore makes explicit the implicit premise that R(n) is a domain — a premise necessary for the UFD question to be non-vacuous and that mathematicians would naturally assume. Since IsDomain(R n) is always satisfied for n ∈ {3,4}, the Lean statement is logically equivalent to the informal one. This is a correct surfacing of an implicit premise, not a weakening.
+
+### 82
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes the informal statement. UFD is standardly represented as `[CommRing D] [IsDomain D] [UniqueFactorizationMonoid D]` in Mathlib. The hypothesis `∀ P : Ideal D, [P.IsPrime] → P ≠ ⊥ → P.IsMaximal` (where `[P.IsPrime]` is instance-implicit, logically equivalent to `P.IsPrime →`) correctly expresses "every nonzero prime ideal is maximal" since `P ≠ ⊥` means P is nonzero. The conclusion `IsPrincipalIdealRing D` together with the ambient `IsDomain D` hypothesis gives exactly "D is a PID". The types, hypotheses, and conclusion all match the informal statement without strengthening or weakening.
+
+### 83
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal claim. `IsDedekindDomain R` (which extends `IsDomain`) captures "Dedekind domain"; `Module.Finite R M` captures "finitely-generated module"; `Module.Flat R M` is "flat"; and `NoZeroSMulDivisors R M` (stating `r • m = 0 → r = 0 ∨ m = 0`) is logically equivalent to "torsion-free" whenever R is an integral domain — which is always the case for a Dedekind domain. Mathlib itself documents `NoZeroSMulDivisors` as "a version of saying that M is torsion free" and provides `Submodule.noZeroSMulDivisors_iff_torsion_bot` as well as an instance `[IsDomain R] [NoZeroSMulDivisors R M] → Module.IsTorsionFree R M`, confirming the notions coincide over domains. The hypotheses and conclusion match the informal statement with no extra strengthening or weakening.
+
+### 84
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature precisely matches the informal statement. `[CommRing A] [IsDedekindDomain A]` faithfully encodes "A is a Dedekind domain" — in Mathlib, `IsDedekindDomain` extends `IsDomain` and `IsDedekindRing` (Noetherian, integrally closed, Krull dimension ≤ 1), the standard definition. The hypothesis `(a : Ideal A) (ha : a ≠ ⊥)` correctly encodes "$\mathfrak{a} \neq 0$ an ideal in A", since `⊥` is the zero ideal. The conclusion `IsPrincipalIdealRing (A ⧸ a)` matches "every ideal in $A/\mathfrak{a}$ is principal" exactly — Mathlib defines this class as `∀ S : Ideal R, S.IsPrincipal`. No hypotheses are added or dropped, and the quantification/type structure matches.
+
+### 85
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim: A is a Noetherian commutative ring (CommRing + IsNoetherianRing), 𝒜 and ℬ are ideals of A, M is a finitely generated A-module (Module.Finite A M corresponds exactly to "finitely generated"), and the conclusion is an A-linear equivalence between the 𝔟-adic completion of the 𝔞-adic completion and the (𝔞+𝔟)-adic completion, wrapped in Nonempty to assert existence. The Mathlib `AdicCompletion` is the standard inverse-limit construction, and `≃ₗ[A]` is the natural interpretation of "≅" (as A-modules). The quantifier structure and hypotheses all match the informal statement.
+
+### 86
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly formalizes the theorem: `Module.Finite R M` captures "M is finitely generated", and the canonical map `LinearMap.pi (fun i => LinearMap.lTensor M (LinearMap.proj i))` evaluated on `m ⊗ (q_a)_a` gives `(m ⊗ q_i)_i`, which is exactly the map `M ⊗_R (∏ Q_α) → ∏ (M ⊗_R Q_α)` from the informal statement. The universal quantifier over families `(Q_α)` with AddCommGroup/Module instances matches "for every family of R-modules". The `CommRing R` hypothesis is a natural formalization choice since Mathlib's `TensorProduct R M N` requires commutativity for R-module structure — this surfaces an implicit premise standard in commutative algebra. The universe restriction to Type 0 is a minor Mathlib convention that does not change the mathematical content of this universally valid theorem. The canonical map, quantifier structure, and surjectivity conclusion all faithfully match the informal iff.
+
+### 87
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures the informal claim. `Subalgebra R K` precisely represents subrings of K containing (the image of) R, which matches "rings intermediate between R and K"; `⊥` is the range of `algebraMap R K` (≈ R) and `⊤` is all of K, so `S = ⊥ ∨ S = ⊤` is equivalent to "no strictly intermediate ring exists". The hypotheses `CommRing R`, `IsDomain R`, `Field K`, `Algebra R K`, `IsFractionRing R K`, `ValuationRing R` together encode "R is a valuation ring with field of fractions K" (IsDomain is required by Mathlib's `ValuationRing` class and does not add extra constraints beyond the informal reading). `ringKrullDim R = 1` correctly encodes "Krull dimension 1". The conclusion's quantifier structure (∀ S) matches "there do not exist any". No hypothesis is dropped, added, or altered beyond what is implicit in the informal statement.
+
+### 88
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. [CommRing R] [IsNoetherianRing R] [IsLocalRing R] captures "Noetherian local ring"; hx, hy capture "x, y ∈ m"; `Sequence.IsRegular R [x, y]` (with R as module over itself) captures "[x, y] is a regular sequence of length 2" — Mathlib's definition requires x to be a non-zero-divisor in R, y to be a non-zero-divisor in R/(x), and (x,y) ≠ R, which is the classical notion. The list of length 2 [x, y] encodes "length 2". The hypothesis n ≥ 2 is captured. The conclusion `¬ ∃ a b, x^(n-1)*y^(n-1) = a*x^n + b*y^n` matches exactly. Including hx and hy explicitly (even though they are stated in the informal text) correctly captures the intended mathematical content.
+
+### 89
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. `[Field K] [Field L] [Algebra K L]` is the standard encoding of "L is an extension field of K" (with automatic injectivity of `algebraMap K L` since K is a field). The condition "p = P ∩ K[X_1,...,X_n]" is correctly expressed as `P.comap (MvPolynomial.map (algebraMap K L)) = p`, since MvPolynomial.map induces the embedding K[X_1,...,X_n] ↪ L[X_1,...,X_n] and comap under this embedding is the intersection. `Ideal.primeHeight` in Mathlib (Height.lean) is defined as the supremum of lengths of strictly decreasing chains of prime ideals below it, matching ht. The inequality direction `p.primeHeight ≤ P.primeHeight` matches ht(P) ≥ ht(𝔭). The extra `[p.IsPrime]` instance assumption is redundant (automatic from `P.IsPrime` and h via `Ideal.IsPrime.comap`) but adds no logical restriction.
+
+### 9
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+Mathlib's `DihedralGroup n` has order 2n (symmetry group of the regular n-gon), matching the informal D_{2n}. The conclusion `Subgroup.centralizer ⊤ = ⊥` is equivalent to saying the center is trivial (via `Subgroup.centralizer_univ`), which is exactly "the identity is the only element commuting with all elements". Both hypotheses `Odd n` and `n ≥ 3` are faithfully preserved; these are the exact conditions of the informal statement (and they are needed, since the claim fails for n = 1 and for even n). The statement is neither weaker nor stronger than the informal claim.
+
+### 90
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement exactly captures the informal claim. The hypotheses `[CommRing R] [IsLocalRing R] [IsNoetherianRing R]` match "R Noetherian local ring". `IsLocalRing.CotangentSpace R` is defined in Mathlib as `(maximalIdeal R).Cotangent`, i.e., m/m², and `Module.finrank (ResidueField R) (CotangentSpace R)` computes dim_κ m/m² (a natural number, since Noetherianness gives FiniteDimensional). The key equivalence `n ≤ projectiveDimension X ↔ ¬ HasProjectiveDimensionLT X n` is precisely the Mathlib lemma `projectiveDimension_ge_iff` in Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean. Thus `¬ HasProjectiveDimensionLT (ModuleCat.of R κ) (finrank κ m/m²)` is logically equivalent to "projective dimension of κ ≥ dim_κ m/m²", matching the informal statement exactly.
+
+### 91
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal claim on all four components. Hypothesis-wise: `R : Subring K` with `[Field K]` captures "R is a subring of a field K"; `IsCoatom R` unfolds to `R ≠ ⊤ ∧ ∀ b, R < b → b = ⊤`, which in the subring lattice (where `⊤ = K`) is exactly "R is a maximal proper subring of K"; `¬ IsField R` is "R is not a field". Conclusion-wise: `∃ V : ValuationSubring K, V.toSubring = R` asserts R is a valuation subring of K (Mathlib's `ValuationSubring K` is defined by the condition `∀ x : K, x ∈ R ∨ x⁻¹ ∈ R`), which coincides with "R is a valuation ring" since R's fraction field is K; and `ringKrullDim R = 1` matches "Krull dimension 1". The conjunction correctly captures the two asserted conclusions, with no extra or missing hypotheses.
+
+### 92
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures all elements of the informal statement. The Dedekind domain assumption matches `IsDedekindDomain R`. The primes P_i are encoded as `p : Fin n → PrimeSpectrum R` (primality baked into PrimeSpectrum), with `h_nonzero` asserting non-zeroness and `h_inj` (Function.Injective on the extensional PrimeSpectrum type) asserting pairwise distinctness. The exponents `e : Fin n → ℕ` match non-negative integers. The conclusion (a) = P_1^{e_1} ⋯ P_n^{e_n} · J is encoded as `Ideal.span {a} = J * ∏ (p i).1 ^ (e i)` (ideal multiplication is commutative). Finally, "J's factorization contains no P_i" is encoded as `∀ i, ¬ ∃ K, J = K * (p i).1`, which is precisely `P_i ∤ J` (since ∃ K, J = K * P_i is the definition of divisibility in the ideal monoid); in a Dedekind domain, P_i ∤ J is equivalent to P_i not appearing in the factorization of the (necessarily non-zero, since a ≠ 0) ideal J. No extra hypotheses are added or dropped.
+
+### 93
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures the classical theorem. `[CommRing O] [IsDomain O]` matches "integral domain". `eif` formalizes existence of a prime factorization for every nonzero ideal (as a multiset of prime ideals whose product equals the ideal), and `uif` formalizes uniqueness of such factorization. The restriction `f.prod ≠ ⊥` in `uif` is not a weakening: since Mathlib's `Ideal.IsPrime` allows `⊥` as a prime ideal in a domain, uniqueness over arbitrary multisets of prime ideals would fail trivially (e.g., `{⊥}` vs `{⊥, ⊥}` both have product `⊥`); the restriction to nonzero products precisely captures "unique factorization of nonzero ideals". Together, `eif` and `uif` are logically equivalent to "every nonzero ideal has a unique factorization into prime ideals" (the ⊥-free restriction is automatic because any prime factorization of a nonzero ideal cannot include `⊥` in an integral domain). The conclusion `IsDedekindDomain O` matches Mathlib's standard definition (Noetherian, dimension ≤ 1, integrally closed domain).
+
+### 94
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal claim. `Algebra.IsIntegral R S` with `Algebra R S` correctly expresses "S is integral over the image of R → S" (since `Algebra R S` provides the ring map and IsIntegral asserts every element of S is integral over R). The conclusion uses `ringKrullDim (R ⧸ Module.annihilator R M)` as the Krull dimension of M as an R-module, which is the standard textbook definition (e.g., Matsumura §5: dim M := dim(R/ann M)). The `IsScalarTower R S M` hypothesis correctly links the R- and S-module structures on M. No finiteness assumption on M is needed because the equality R/ann_R(M) ↪ S/ann_S(M) is an injective integral extension, and integral extensions preserve Krull dimension; so the claim is provable as stated. Types and quantifier structure match the informal statement exactly.
+
+### 96
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes $K[x_1,\ldots,x_n]$ as `MvPolynomial (Fin n) K` and $K[x_1,\ldots,x_n,y]$ as `(MvPolynomial (Fin n) K)[X]` via the standard Mathlib inclusion `C` (constant polynomial). The ideal `Ideal.span {X} • (I1.map C) ⊔ Ideal.span {1 - X} • (I2.map C)` is precisely the ideal generated by $\{yf : f\in I_1\} \cup \{(1-y)g : g\in I_2\}$, which is exactly the informal $J$ (since `•` on ideals is product `*`, `map C` is the extension of ideals, and `⊔` is the ideal generated by union). Taking `.comap C` gives $\{f \in K[x] : C(f) \in J\}$, i.e., $K[x] \cap J$. The LHS `I1 ⊓ I2` is $I_1 \cap I_2$. So the Lean statement asserts exactly the same equality as the informal one, with matching hypotheses (field $K$, $n$ variables, arbitrary ideals).
+
+### 97
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to show sin 1° is algebraic over ℚ. Since 1° = π/180 radians, and with `open Real` in scope `sin` refers to `Real.sin` and `π` to `Real.pi`, `sin (π / 180)` is literally sin 1°. The Mathlib definition `IsAlgebraic ℚ x` means there exists a nonzero rational polynomial with x as a root, which is exactly the standard meaning of "algebraic over ℚ". The Lean statement neither adds nor drops hypotheses and the conclusion matches the informal claim exactly.
+
+### 98
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim precisely. `[CommRing A] [IsNoetherianRing A]` encodes "Noetherian ring"; `[P.IsPrime]` with `(r : ℕ) (hr : 0 < r) (h : r = P.primeHeight)` encodes "height r > 0 prime ideal" (forcing the height to be finite and equal to r via coercion from ℕ to ℕ∞); `(a : Fin r → A) (hP : P = Ideal.span (Set.range a))` encodes "generated by r elements". The parenthetical "may not be a regular sequence" is a clarification, not a hypothesis — the Lean correctly does not assume regularity of a. The conclusion `∃ b, RingTheory.Sequence.IsRegular A b ∧ P = Ideal.ofList b` matches "P can be generated by an A-sequence", since `Sequence.IsRegular A b` with the module equal to the ring itself is exactly the definition of an A-sequence (the `M/rsM ≠ 0` condition is automatic since P is a proper ideal). The regular sequence's length is forced to be r automatically in a Noetherian ring, so no information is lost by not constraining it explicitly.
+
+### 99
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. R is a CommRing, n : ℕ, and `IsUnit (2 : R)` corresponds precisely to "2 is invertible in R". The type `A : Matrix.specialOrthogonalGroup (Fin (2 * n + 1)) R` uses Mathlib's Submonoid SetLike coercion so A is an element of SO(2n+1, R), with `A.1` the underlying matrix; in Mathlib, `specialOrthogonalGroup` is defined exactly as orthogonal matrices with det = 1 (with the noted convention that the definition only fully matches SO when 2 is invertible — which is supplied here as a hypothesis). The conclusion `(1 - A.1).det = 0` is `det(I - A) = 0` since `1` in a Matrix type is the identity matrix. The index size `Fin (2 * n + 1)` correctly encodes dimension 2n+1. No hypotheses are dropped, added, weakened, or strengthened.
+
+## weaker (3)
+
+### 29
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement asserts that any degree-p Galois extension E/F (where F has characteristic p) is isomorphic to F adjoined with a root of x^p - x - a for some a in F. This means E is isomorphic to F[X]/(X^p - X - a) as an F-algebra, i.e., via an F-algebra isomorphism that respects the embedding of F. However, the Lean formalization uses ≃+* (a ring isomorphism) rather than ≃ₐ[F] (an F-algebra isomorphism). A ring isomorphism between two F-algebras need not commute with the algebra maps from F, so it does not capture that E is the specific extension obtained by adjoining a root of the Artin-Schreier polynomial over F. For a general field F of characteristic p (not just the prime field), a mere ring isomorphism is strictly weaker than an F-algebra isomorphism.
+
+### 46
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement asks about L = normal closure of ℚ(α), where α is a complex number satisfying α + α⁻¹ ∈ a quadratic number field. The Lean statement instead uses `IsNormalClosure ℚ ℚ⟮a⟯ L` where `a : K` is the element in the quadratic field K corresponding to α + α⁻¹ via `algebraMap K ℂ`. The Mathlib notation `ℚ⟮a⟯` (from `FieldTheory/IntermediateField/Adjoin/Defs.lean`) expands to `adjoin ℚ {a}` as an IntermediateField of K/ℚ — so the Lean is formalizing the normal closure of ℚ(α + α⁻¹), not ℚ(α). Since ℚ⟮a⟯ ⊆ K and K has finrank 2 over ℚ, ℚ⟮a⟯ has degree at most 2 over ℚ and is automatically normal, making any normal closure L satisfy [L:ℚ] ≤ 2, which trivially divides 8. The Lean's conclusion is therefore vacuously true given its hypotheses, while the informal claim about the normal closure of ℚ(α) (which can have degree 4) is non-trivial. The informal statement implies the Lean statement (trivially, since the Lean is always true), but not vice versa.
+
+### 79
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal conclusion "R is a PID" (Principal Ideal Domain) asserts that R is both an integral domain AND every ideal is principal. Mathlib confirms this: the PrincipalIdealDomain.lean file explicitly states "for principal ideal domains, one should use [IsDomain R] [IsPrincipalIdealRing R]". The Lean statement concludes only `IsPrincipalIdealRing R`, which asserts merely that every ideal is principal, dropping the integral-domain requirement. Non-domain examples like ZMod 6 satisfy IsPrincipalIdealRing but are not PIDs, confirming these are genuinely distinct notions. Although the hypothesis `h` mathematically does force R to be a domain (since for a zero-divisor a, the ideal (a) would be a non-free submodule of R), the Lean theorem's conclusion as written does not express this — proving the Lean signature gives only PIR, not PID. This is a strict weakening of the conclusion, not merely surfacing an implicit premise needed for truth.
+
+## stronger (1)
+
+### 95
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement says "regular sequence in R", which in standard commutative-algebra terminology (e.g. R-sequence in Matsumura/Bourbaki) denotes a regular sequence on R itself viewed as a module over R (i.e. M = R). The Lean theorem, however, introduces an arbitrary R-module M with [AddCommGroup M] [Module R M] and asserts the result for Sequence.IsRegular M rs for *any* such M. Since Mathlib's Sequence.IsRegular is indexed by the module M, the faithful encoding of "regular sequence in R" would specialize M to R (i.e. Sequence.IsRegular R rs). The Lean statement implies the informal statement (by taking M = R) but not conversely — from the fact that rs is R-regular on R one cannot deduce it is regular on every R-module M. Thus the Lean signature proves strictly more than what was asked, making it logically stronger.
+
+## incomparable (1)
+
+### 42
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The formalization has a fundamental type error in the mathematical encoding. The polynomial X^2 - C c.1 is over L (since c.1 : L), so AdjoinRoot (X^2 - C c.1) is L[X]/(X^2 - c), a degree-2 extension of L and degree 8 over K. The informal statement's E = K(sqrt(c)) is a degree-2 extension of K, an entirely different mathematical object. Additionally, hcs : not IsSquare c.1 says c is nonsquare in L, but the informal context (with Gal(L/K) isomorphic to (Z/2Z)^2 and E being an intermediate field) requires c to be nonsquare in K while living in L. The Lean statement thus asserts a mathematically different claim compared to the informal.

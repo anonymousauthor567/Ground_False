@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly: E is a subset of ℝ (R^1), f is a real-valued function on ℝ, `UniformContinuousOn f E` captures \"uniformly continuous on E\", `Bornology.IsBounded E` is \"bounded set E\", and the conclusion `Bornology.IsBounded (Set.image f E)` says the image f(E) is bounded, which is the standard reading of \"f is bounded on E\". No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 7350,
+  "cost_usd": 0.033735
+}

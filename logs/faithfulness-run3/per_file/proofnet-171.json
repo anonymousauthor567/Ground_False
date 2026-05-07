@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one closely: `ContinuousOn f (Set.Ioo a b)` corresponds to \"continuous on (a, b)\"; the hypothesis `h` encodes midpoint convexity for all x, y ∈ (a, b); and `ConvexOn ℝ (Set.Ioo a b) f` is the standard Mathlib encoding of \"f is convex on the interval (a, b)\". The added hypothesis `hab : a < b` simply surfaces the implicit assumption that the interval is non-empty (without it, the case a ≥ b gives an empty set and is vacuously true anyway, so this does not change the mathematical content). No hypotheses are dropped, no quantifier structure is altered, and the types match. This is a faithful formalization.",
+  "duration_ms": 14643,
+  "cost_usd": 0.06229874999999999
+}

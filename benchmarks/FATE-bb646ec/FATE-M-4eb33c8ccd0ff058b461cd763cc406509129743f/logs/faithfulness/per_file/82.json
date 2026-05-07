@@ -1,0 +1,8 @@
+{
+  "file": "82.lean",
+  "stem": "82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal request. `Equiv.Perm (Fin 5)` is the standard Mathlib formalization of S_5, with `1` being the identity permutation and `*` being composition (giving a `Group` instance via `permGroup` in Mathlib). The existential `∃ α β γ` correctly models \"give an example\". The three conjuncts `α ≠ 1 ∧ β ≠ 1 ∧ γ ≠ 1` capture \"none of which is the identity\", and `α*β = β*α ∧ α*γ = γ*α ∧ β*γ ≠ γ*β` capture the three commutation/non-commutation conditions. Commutation is symmetric in the multiplication convention, so there is no ambiguity. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 48098,
+  "cost_usd": 0.13475125
+}

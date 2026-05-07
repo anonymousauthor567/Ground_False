@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "With `open Set`, `centralizer` resolves to `Set.centralizer : Set G → Set G`, where `c ∈ centralizer S ↔ ∀ m ∈ S, m * c = c * m`. So the LHS `centralizer {x⁻¹ * a * x}` is `{c | (x⁻¹ax)c = c(x⁻¹ax)}`, exactly $C(x^{-1}ax)$. The RHS `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is `{x⁻¹hx | ha = ah}`, which is the standard meaning of $x^{-1}C(a)x$ (conjugation of the centralizer by x). The universal quantification over arbitrary groups G and elements a, x matches the informal \"If G is a group and a, x ∈ G\". No hypotheses are added or dropped, and both sides are Sets of G, so the types match. The encoding is a direct, logically equivalent translation.",
+  "duration_ms": 121120,
+  "cost_usd": 0.5596690000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a5.lean",
+  "stem": "putnam_2010_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Putnam 2010 A5 problem. \"G is a subset of ℝ³\" is represented via an embedding `i : G ↪ (Fin 3 → ℝ)`, which is the standard and logically equivalent way to formalize a subset of ℝ³ that carries an abstract group structure unrelated to vector addition. The cross product `⨯₃` in Mathlib's `LinearAlgebra/CrossProduct.lean` is the standard cross product on `Fin 3 → R`. The disjunction `(i a) ⨯₃ (i b) = i (a * b) ∨ (i a) ⨯₃ (i b) = 0` correctly captures the informal \"either a × b = a * b or a × b = 0 (or both)\". The conclusion `(i a) ⨯₃ (i b) = 0` with a, b as free variables in the theorem signature is logically equivalent to the universal statement. Quantifier structure, types, and hypotheses all match.",
+  "duration_ms": 128423,
+  "cost_usd": 0.35575124999999996
+}

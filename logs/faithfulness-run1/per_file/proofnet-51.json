@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "informal": "Prove that if $P \\in \\operatorname{Syl}_{p}(G)$ and $H$ is a subgroup of $G$ containing $P$ then $P \\in \\operatorname{Syl}_{p}(H)$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_1a {p : ℕ} {G : Type*} [Group G]\n  {P : Sylow p G} (H : Subgroup G) (hH : P ≤ H) :\n  IsPGroup p (P.subgroupOf H) ∧\n  ∀ (Q : Subgroup H), IsPGroup p Q → (P.subgroupOf H) ≤ Q → Q = (P.subgroupOf H)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"P is a Sylow p-subgroup of H.\" In Mathlib, `Sylow p G` is defined as a maximal p-subgroup. The Lean conclusion unfolds exactly this definition for `P.subgroupOf H`: it asserts (1) `P.subgroupOf H` is a p-group, and (2) any p-subgroup Q of H containing it equals it (maximality). The hypothesis `P ≤ H` correctly captures \"H contains P\" via the coercion of a Sylow subgroup to a subgroup. The quantifiers and types (arbitrary group G, p : ℕ) match the informal statement. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 12420,
+  "cost_usd": 0.059078
+}

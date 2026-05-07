@@ -1,0 +1,8 @@
+{
+  "file": "122.lean",
+  "stem": "122",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `[Group G] [Finite G]` captures \"finite group G\"; `A B : Set G` captures \"subsets of G\"; `[Nonempty A] [Nonempty B]` on subtypes is equivalent to `A.Nonempty` and `B.Nonempty` (\"non-empty subsets\"); `A.ncard + B.ncard > (⊤ : Set G).ncard` encodes \"|A| + |B| > |G|\" because `(⊤ : Set G).ncard = Nat.card G`; and `(⊤ : Set G) = {g | ∃ a ∈ A, ∃ b ∈ B, g = a * b}` is the standard encoding of \"G = AB\" (saying every g ∈ G can be written a·b). No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal one.",
+  "duration_ms": 150581,
+  "cost_usd": 0.4057855
+}

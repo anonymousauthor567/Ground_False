@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the classical characterization of convergence in the product topology: a sequence in ∏ X_α converges to x iff each projection converges. The Lean statement takes an arbitrary index type ι, a family f : ι → Type* with topological space instances on each factor, a sequence x : ℕ → Π a, f a, and a point y in the product. Mathlib's default topology on Π a, f a is the product topology via `Pi.topologicalSpace`, so `Tendsto x atTop (𝓝 y)` means convergence in the product topology. The right side `∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))` expresses exactly coordinatewise convergence of the projections π_i(x_j) to π_i(y). Quantifier structure, hypotheses, and conclusion match faithfully.",
+  "duration_ms": 21227,
+  "cost_usd": 0.059068249999999996
+}

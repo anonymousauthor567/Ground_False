@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean formulation encodes \"f twice-differentiable on (a,∞)\" as DifferentiableOn on f and on deriv f over Set.Ioi a, which is standard (since Ioi a is open, deriv coincides with derivWithin there). The BddAbove hypotheses hbdd0/hbdd1/hbdd2 together with hM0/hM1/hM2 = sSup ... correctly realize the informal notion \"M₀, M₁, M₂ are the least upper bounds of |f|, |f'|, |f''|\": the informal sentence asserts these suprema exist as real numbers (otherwise the word \"least upper bound\" does not pin down a real value), and Lean's sSup returns 0 for unbounded sets, so stating BddAbove is exactly the implicit premise needed to make Mᵢ literally be LUBs. The conclusion M1^2 ≤ 4 * M0 * M2 matches the informal inequality. No extra hypotheses narrow the problem, and no required hypothesis is dropped.",
+  "duration_ms": 153042,
+  "cost_usd": 0.49908375
+}

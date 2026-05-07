@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `p.Prime ∧ p > 2` together with `q.Prime ∧ q > 2` exactly captures \"odd primes\" (since a prime is odd iff it is greater than 2). `hpq0 : p ≠ q` gives distinctness. `hpq1 : p - 1 ∣ q - 1` captures the divisibility condition (natural subtraction is fine since p, q ≥ 3). `hn : n.gcd (p*q) = 1` is exactly the Mathlib definition of coprimality, matching $(n, pq) = 1$. The conclusion `n^(q-1) ≡ 1 [MOD p*q]` via `Nat.ModEq` matches the informal congruence. Using ℕ rather than ℤ for n is not a weakening here because every integer coprime to pq is congruent mod pq to a natural number, so the ℕ and ℤ versions are logically equivalent.",
+  "duration_ms": 74165,
+  "cost_usd": 0.1846765
+}

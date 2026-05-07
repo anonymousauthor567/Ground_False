@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully encodes \"T ∈ L(V) normal ⟹ range T = range T*\". `T : End F V` is `V →ₗ[F] V`, matching a linear operator on V. `T * adjoint T = adjoint T * T` is exactly the definition of normal in the `Module.End` monoid (where `*` is composition). `range T = range (adjoint T)` (via `LinearMap.range` since `LinearMap` is opened) matches the conclusion. `RCLike F` is the standard scalar field for Axler (ℝ or ℂ). `[FiniteDimensional F V]` surfaces Axler's standing assumption and is required for `LinearMap.adjoint` to be defined in Mathlib — this is making an implicit premise explicit, not narrowing the scope.",
+  "duration_ms": 145415,
+  "cost_usd": 0.45096875
+}

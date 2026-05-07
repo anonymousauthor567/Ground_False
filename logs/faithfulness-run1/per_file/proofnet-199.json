@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "informal": "Prove that if $a \\in \\mathbf{F}$, $v \\in V$, and $av = 0$, then $a = 0$ or $v = 0$.",
+  "lean": "\ntheorem Axler_exercise_1_4 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] (v : V) (a : F): a • v = 0 → a = 0 ∨ v = 0",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a scalar a in field F and vector v in V, if a·v = 0 then a = 0 or v = 0. The Lean signature quantifies over a field F, an additive commutative group V with an F-module structure, takes v : V and a : F, and concludes a • v = 0 → a = 0 ∨ v = 0. This matches the standard reading of the Axler exercise (V is a vector space over F, encoded as Module F V over a Field F and AddCommGroup V). The quantifier structure (∀ a, ∀ v) and the conclusion (disjunction) match exactly. No extra hypotheses like Nontrivial or finite-dimensionality are imposed, and none are needed. The encoding is faithful.",
+  "duration_ms": 7039,
+  "cost_usd": 0.043696750000000006
+}

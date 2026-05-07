@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the uniqueness of continuous extensions to a Hausdorff space. The hypotheses match: `ContinuousOn f A` corresponds to \"f : A → Y continuous\", `[T2Space Y]` is Hausdorffness, and `g` with `ContinuousOn g (closure A)` plus `gExt` encodes \"g is a continuous extension of f to $\\bar{A}$\". The conclusion states that any other such extension g' must equal g on closure A, which is exactly what \"g is uniquely determined by f\" means (since g is only defined on $\\bar{A}$ in the informal statement, uniqueness outside $\\bar{A}$ is not claimed in either version). Encoding `f, g : X → Y` with `ContinuousOn` restrictions is the standard Mathlib way to represent partial functions, and the values outside the relevant set are immaterial. The quantifier structure (for any other extension g', they agree on $\\bar{A}$) is logically equivalent to the uniqueness assertion.",
+  "duration_ms": 80840,
+  "cost_usd": 0.27346250000000005
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "informal": "Suppose that $T \\in \\mathcal{L}(V)$ has $\\operatorname{dim} V$ distinct eigenvalues and that $S \\in \\mathcal{L}(V)$ has the same eigenvectors as $T$ (not necessarily with the same eigenvalues). Prove that $S T=T S$.",
+  "lean": "\ntheorem Axler_exercise_5_20 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] [FiniteDimensional F V] {S T : End F V}\n  (h1 : card (T.Eigenvalues) = finrank F V)\n  (h2 : ∀ v : V, (∃ c : F, v ∈ eigenspace S c) ↔ (∃ c : F, v ∈ eigenspace T c)) :\n  S * T = T * S",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `card (T.Eigenvalues) = finrank F V` correctly expresses \"T has dim V distinct eigenvalues\" (since `Eigenvalues` is the subtype of scalars that are actual eigenvalues). Hypothesis h2 says v ∈ eigenspace S c for some c iff v ∈ eigenspace T c for some c; the zero vector trivially lies in every eigenspace on both sides, so this condition is equivalent (for nonzero v) to \"v is an eigenvector of S iff v is an eigenvector of T\", which is precisely \"S has the same eigenvectors as T (not necessarily with the same eigenvalues)\". The conclusion `S * T = T * S` is the commutation in `End F V`. Background assumptions (finite-dimensional F-module) match L(V) for V finite-dimensional, which is required for \"dim V distinct eigenvalues\" to make sense.",
+  "duration_ms": 25354,
+  "cost_usd": 0.09184624999999999
+}

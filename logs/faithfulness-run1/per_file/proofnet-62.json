@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-62.lean",
+  "stem": "proofnet-62",
+  "informal": "An ideal $N$ is called nilpotent if $N^{n}$ is the zero ideal for some $n \\geq 1$. Prove that the ideal $p \\mathbb{Z} / p^{m} \\mathbb{Z}$ is a nilpotent ideal in the ring $\\mathbb{Z} / p^{m} \\mathbb{Z}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_3_37 {p m : ℕ} (_hp : p.Prime) :\n  IsNilpotent (span ({↑p} : Set $ ZMod $ p^m) : Ideal $ ZMod $ p^m)",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem states `IsNilpotent` of the ideal `span {p}` in `ZMod (p^m)`, which is exactly the image of `pℤ` in `ℤ/p^mℤ`, i.e. the ideal `pℤ/p^mℤ`. `IsNilpotent` on an ideal unfolds to \"some power is the zero ideal,\" matching the informal definition. The hypothesis `p.Prime` matches the informal statement's standing assumption that `p` is prime (implicit from the notation `p^m`). The quantification over `p` and `m` as natural numbers also matches. No extra or missing hypotheses, and the conclusion is the same claim.",
+  "duration_ms": 15184,
+  "cost_usd": 0.05816225
+}

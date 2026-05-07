@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"every homomorphism of fields is injective.\" The Lean statement universally quantifies over two fields `F` and `G` (via `[Field F]` and `[Field G]`) and an arbitrary ring homomorphism `φ : F →+* G`, concluding `Function.Injective φ`. In Mathlib, `→+*` is precisely the standard notion of a (unital) ring homomorphism, which is what \"homomorphism of fields\" means in standard mathematical usage. Fields in Mathlib are nontrivial (0 ≠ 1) by definition, so no degenerate cases are silently included or excluded. The quantifier structure, hypotheses, and conclusion all match the informal statement exactly, so this is a faithful formalization.",
+  "duration_ms": 34058,
+  "cost_usd": 0.10287449999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The encoding `p : ℕ` with `Prime p` is the standard Mathlib way to express \"prime integer\" (a positive prime like 2, 3, 5, ...). The `n > 0` hypothesis surfaces an implicit premise required for the statement to be true: when `n = 0`, the polynomial `X^0 - p = 1 - p` is a nonzero constant (since `p ≥ 2`), hence a unit in `ℚ[X]`, and units are not `Irreducible` in Mathlib's definition. Any mathematician reading the informal problem would understand `n` to be a positive integer (often stated implicitly as `n ∈ ℕ⁺` in the context of such exercises). The conclusion `Irreducible (X^n - (p : Polynomial ℚ))` exactly matches \"x^n - p is irreducible in ℚ[x]\". So the Lean version neither strengthens nor weakens the intended claim.",
+  "duration_ms": 127110,
+  "cost_usd": 0.402988
+}

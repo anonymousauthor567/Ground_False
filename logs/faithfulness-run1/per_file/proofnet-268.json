@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "informal": "If $\\sigma, \\tau$ are two permutations that disturb no common element and $\\sigma \\tau = e$, prove that $\\sigma = \\tau = e$.",
+  "lean": "\ntheorem Herstein_exercise_3_2_21 {α : Type*} [Fintype α] {σ τ: Equiv.Perm α}\n  (h1 : ∀ a : α, σ a = a ↔ τ a ≠ a) (h2 : τ ∘ σ = id) :\n  σ = 1 ∧ τ = 1",
+  "verdict": "weaker",
+  "reasoning": "The informal hypothesis \"σ and τ disturb no common element\" means ∀a, ¬(σ a ≠ a ∧ τ a ≠ a) — i.e., no element is moved by both. The Lean hypothesis `σ a = a ↔ τ a ≠ a` is strictly stronger: it requires that every element is moved by exactly one of σ, τ (so they cannot both fix a common element). This rules out, for example, the situation where σ and τ jointly fix some element, which the informal statement explicitly allows. Because the Lean theorem assumes a stronger premise to reach the same conclusion, it covers fewer cases than the informal claim and is therefore logically weaker. (The conclusion σ = 1 ∧ τ = 1 and the relation στ = e are encoded faithfully.)",
+  "duration_ms": 15997,
+  "cost_usd": 0.06541875
+}

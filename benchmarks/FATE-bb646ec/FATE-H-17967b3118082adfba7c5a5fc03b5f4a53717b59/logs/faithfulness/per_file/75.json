@@ -1,0 +1,8 @@
+{
+  "file": "75.lean",
+  "stem": "75",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim using Mathlib's standard k-algebra formalism. \"A and B contain the field k\" is encoded as `[Algebra k A]` and `[Algebra k B]`, which is the conventional way to express this (and is equivalent to containing k as a subring since k is a field, except in the trivial-ring case, which is excluded here because Q being maximal forces B ≠ 0 and hence A ≠ 0). \"B is finitely generated over k as a ring\" is precisely `Algebra.FiniteType k B` (verified in Mathlib/RingTheory/FiniteType.lean). \"φ is a ring homomorphism with φ|_k = Id\" is exactly what `A →ₐ[k] B` means: a ring homomorphism commuting with the algebra maps from k. The conclusion `(Ideal.comap φ Q).IsMaximal` is literally \"φ^{-1}(Q) is maximal.\" No hypothesis is added or dropped, and the quantifier structure matches (universal over A, B, k, φ, Q).",
+  "duration_ms": 173443,
+  "cost_usd": 0.3370275
+}

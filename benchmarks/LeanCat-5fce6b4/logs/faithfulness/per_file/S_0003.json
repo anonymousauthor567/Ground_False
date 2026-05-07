@@ -1,0 +1,8 @@
+{
+  "file": "S_0003.lean",
+  "stem": "S_0003",
+  "verdict": "faithful",
+  "reasoning": "The Lean file encodes all four claims from the informal statement as four separate theorems, each a conjunction `Faithful ∧ ¬ Full`. (1) `forget TopCat` is the forgetful functor Top → Type, the standard encoding of Top → Set in Mathlib. (2) `forget Grp` is Grp → Type, matching Grp → Set. (3) `forget₂ RingCat Ab` matches Ring → Ab, since in Mathlib `Ab := AddCommGrp` and `HasForget₂ RingCat AddCommGrp` is defined as the expected forgetful functor. (4) `Under.forget (terminal TopCat)` is the standard categorical encoding of the forgetful functor Top_* → Top: pointed topological spaces are equivalent to `Under *` where * is the terminal object, and `Under.forget` drops the structure map. Each theorem's conclusion `Faithful ∧ ¬ Full` directly mirrors \"faithful but not full\". No hypotheses are added or dropped, and the mathematical content is logically equivalent.",
+  "duration_ms": 223414,
+  "cost_usd": 0.8069397500000001
+}

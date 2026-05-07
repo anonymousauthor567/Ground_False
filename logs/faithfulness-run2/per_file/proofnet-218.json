@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that when Ω = {1, 2, 3, ...}, the symmetric group S_Ω is infinite (and a group). In Lean, `Equiv.Perm ℕ` is the type of permutations on ℕ, which already carries a canonical group instance in Mathlib — so \"being a group\" is automatically encoded. Since {1, 2, 3, ...} is in bijection with ℕ (regardless of whether ℕ is taken to include 0), their symmetric groups are isomorphic, and infiniteness is preserved under isomorphism. Thus `Infinite (Equiv.Perm ℕ)` captures exactly the non-trivial content of the informal claim.",
+  "duration_ms": 17901,
+  "cost_usd": 0.045306000000000006
+}

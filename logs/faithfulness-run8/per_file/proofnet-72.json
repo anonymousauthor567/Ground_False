@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. G is encoded as a finite group via `[Group G] [Fintype G]`, matching \"finite group\". The existential `∃ (m : ℕ), m > 0 ∧ ...` asserts the existence of a positive integer — using ℕ with the constraint m > 0 is equivalent to asserting a positive integer in ℤ, since positive naturals biject with positive integers and natural-power agrees with integer-power on positive exponents. The conclusion `∀ (a : G), a ^ m = 1` precisely states \"a^m = e for all a ∈ G\", as `1` is the group identity. No hypotheses are added or dropped, no quantifier structure is changed, and the types are appropriate.",
+  "duration_ms": 49600,
+  "cost_usd": 0.18614100000000003
+}

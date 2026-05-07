@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypotheses `hn0 : n > 3` and `hn1 : Squarefree n` correspond exactly to \"n is a squarefree integer greater than 3\". The ring `Zsqrtd (-n)` is Mathlib's ℤ[√(-n)] (the structure `Zsqrtd d` has elements `⟨re, im⟩` representing `re + im·√d`). The three elements match: `(2 : Zsqrtd (-n))` is the integer 2; `⟨0, 1⟩` is exactly the `sqrtd` element √(-n) (confirmed by `re_sqrtd = 0`, `im_sqrtd = 1`); and `1 + ⟨0, 1⟩` is 1 + √(-n). The conclusion is the conjunction of three `Irreducible` assertions, matching \"are irreducibles in R\". No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 184439,
+  "cost_usd": 0.5540775
+}

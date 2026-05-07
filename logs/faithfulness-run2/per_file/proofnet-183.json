@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `DifferentiableOn ℂ f D` with `D = ball 0 1` correctly encodes \"holomorphic on the open unit disc\"; `ContinuousOn f (closure D)` correctly encodes the continuous extension to the closed disc (and hence to the boundary ∂D); and `∀ z ∈ sphere 0 1, f z = 1/z` correctly encodes the boundary identity. The universal quantification over f : ℂ → ℂ combined with the negated conclusion expresses \"no such f exists\". Having f defined on all of ℂ rather than only on the closed disc is immaterial because the hypotheses and conclusion only reference values on closure D and on the unit sphere, so the statements are logically equivalent.",
+  "duration_ms": 28231,
+  "cost_usd": 0.09828149999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show there is a bijection between the collection of open subsets and the collection of closed subsets of a metric space M. In Lean, `O : Set (Set M)` coerces to the subtype `{s : Set M // s ∈ O}` when used as the domain of a function, so `f : O → C` is a function between the subtype of open sets and the subtype of closed sets. `Bijective f` is the standard `Injective ∧ Surjective`. Thus `∃ f : O → C, Bijective f` asserts exactly the existence of a bijection between these two collections, matching the informal claim (the standard witness being s ↦ M \\ s). The MetricSpace hypothesis, the types, and the conclusion's quantifier structure all align. No hypotheses are added or dropped and nothing is strengthened or weakened.",
+  "duration_ms": 54130,
+  "cost_usd": 0.2081115
+}

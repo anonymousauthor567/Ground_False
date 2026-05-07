@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem's setup (`f : ℕ → I → ℝ` with `I = Icc 0 1` and `f n x = ↑x ^ n`) exactly matches the informal definition $f_n(x) = x^n$ on $[0,1]$. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` encodes \"the sequence does not converge uniformly\" in the standard way: it denies the existence of any limit function to which $f_n$ converges uniformly. This is logically equivalent to the informal claim (for real-valued functions, uniform convergence to some limit is the standard meaning of \"converging uniformly\"). No hypotheses are added or dropped, and types match correctly.",
+  "duration_ms": 30764,
+  "cost_usd": 0.09340899999999999
+}

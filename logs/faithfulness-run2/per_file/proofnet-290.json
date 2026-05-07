@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show by counterexample that the union of a family of topologies need not be a topology. This is naturally formalized as an existence claim: there exists some space X, some index type I, and some family of topologies T i on X whose union fails to be a topology. The Lean signature captures exactly this: it existentially quantifies over X, I, and T, asserts each T i is a topology via is_topology, and asserts the union is not via ¬ is_topology. The is_topology predicate encodes the standard axioms (universe, binary intersections, arbitrary unions). Quantifier structure, hypotheses, and conclusion all match the informal claim.",
+  "duration_ms": 35300,
+  "cost_usd": 0.08955374999999999
+}

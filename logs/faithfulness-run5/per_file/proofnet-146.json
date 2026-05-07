@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately encodes the informal claim. The sum `∑ i : Fin n, (n-i) * z^(i : ℕ)` ranges over `i ∈ {0, 1, ..., n-1}`, producing coefficients `n-i` for `z^i`, which matches $n + (n-1)z + (n-2)z^2 + \\cdots + z^{n-1}$ exactly. The hypothesis `hn : n > 0` matches \"positive integer\". Since `z^(i:ℕ) : ℂ`, the `(n-i)` term gets elaborated in `ℂ` (or in `ℕ` with `i.val < n` avoiding truncation), giving the correct coefficients either way. The conclusion `¬ (∃ z : ℂ, ‖z‖ ≤ 1 ∧ f n z = 0)` precisely expresses \"no roots in the closed unit disk\". The `hf` hypothesis defining `f` at all naturals is logically equivalent to directly defining `f n` since only `f n` is used.",
+  "duration_ms": 61208,
+  "cost_usd": 0.21460900000000002
+}

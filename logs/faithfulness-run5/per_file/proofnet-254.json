@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim. `n : ℕ+` corresponds to \"n ∈ ℤ⁺\", and the universal quantification is captured by the implicit argument at theorem level. `Fin n → ℝ` is the standard Mathlib encoding of ℝⁿ with its canonical ℚ-module structure, and `≃ₗ[ℚ]` is precisely \"ℚ-linear equivalence\". Wrapping in `Nonempty` is the standard way to express \"there exists an isomorphism\", which matches the informal \"≅\". No hypotheses are added or dropped, no types are changed, and the quantifier structure is preserved.",
+  "duration_ms": 110282,
+  "cost_usd": 0.32493875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes a topological space X with the two hypotheses corresponding exactly to \"locally compact\" (`LocallyCompactSpace X`) and \"Hausdorff\" (`T2Space X`), and concludes `CompletelyRegularSpace X`, which in Mathlib means every point can be separated from any closed set not containing it by a continuous function into the unit interval — matching Munkres' definition. While Munkres traditionally bundles T1 into \"completely regular\" and Mathlib's `CompletelyRegularSpace` does not (that's `T35Space`), the T2 hypothesis already forces T1/T0, making `CompletelyRegularSpace X` equivalent to `T35Space X` in this context. The 0/1 value swap in the Mathlib definition vs. Munkres' is a trivial symmetry. No hypotheses are added or dropped, and the quantification over X is captured by the universe-polymorphic `{X : Type*}`.",
+  "duration_ms": 150162,
+  "cost_usd": 0.4963575
+}

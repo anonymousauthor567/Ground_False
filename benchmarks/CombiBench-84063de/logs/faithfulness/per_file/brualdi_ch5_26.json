@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch5_26.lean",
+  "stem": "brualdi_ch5_26",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem mirrors the informal statement component-by-component: the outer \"Let n, k be integers with 1 ≤ k ≤ n\" matches `(n k : ℕ) (h1 : 1 ≤ k) (h2 : k ≤ n)` (with the outer k unused in the conclusion, shadowed by the bound summation index, as in the informal); the summation range k=1..n becomes `Finset.Icc 1 n`; the summand C(n,k)·C(n,k-1) matches `Nat.choose n k * Nat.choose n (k - 1)`; and the RHS (1/2)·C(2n+1, n+1) - C(2n, n) is rendered as `(1/2 : ℚ) * Nat.choose (2*n+1) (n+1) - Nat.choose (2*n) n`, with the rational cast consistent with the 1/2 factor. Note: the informal identity as literally written is actually false for n ≥ 1 (correct identity would be C(2n+1,n+1) - C(2n,n), or equivalently (1/2)·C(2n+2,n+1) - C(2n,n)) — but the Lean preserves the same literal form, including the apparent 1/2 typo. Since faithfulness judges whether the Lean captures the informal claim as stated, the formalization is faithful.",
+  "duration_ms": 332284,
+  "cost_usd": 0.9956912499999999
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "informal": "Prove that there are infinitely many primes congruent to $-1$ (modulo $4$).",
+  "lean": "\ntheorem Artin_exercise_11_13_3 (N : ℕ):\n  ∃ p ≥ N, Nat.Prime p ∧ p + 1 ≡ 0 [MOD 4]",
+  "verdict": "faithful",
+  "reasoning": "The informal claim asks for infinitely many primes p with p ≡ -1 (mod 4). The Lean statement says: for every natural number N, there exists p ≥ N such that p is prime and p+1 ≡ 0 (mod 4). The condition p+1 ≡ 0 (mod 4) is exactly p ≡ -1 (mod 4) (equivalently p ≡ 3 (mod 4)). The \"for all N, exists p ≥ N\" formulation is the standard Lean/Mathlib way of stating that there are infinitely many such primes, and it is logically equivalent to the informal claim. No extra hypotheses are imposed and nothing is dropped.",
+  "duration_ms": 9381,
+  "cost_usd": 0.05488925
+}

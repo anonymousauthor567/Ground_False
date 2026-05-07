@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes the informal claim. `Nat.Prime p` matches \"p is prime\". `∑ i ∈ Finset.range p, X ^ i` expands to X^0 + X^1 + ... + X^(p-1) = 1 + x + x^2 + ... + x^(p-1), matching q(x). `Polynomial ℚ` matches ℚ[x], and `Irreducible` is the standard notion of irreducibility in a commutative ring, which coincides with the usual notion for polynomials over ℚ. No hypotheses are added or dropped, and the conclusion is exactly the requested irreducibility.",
+  "duration_ms": 120762,
+  "cost_usd": 0.0922215
+}

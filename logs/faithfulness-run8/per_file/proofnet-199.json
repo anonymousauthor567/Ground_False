@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if a scalar a in field F times a vector v in V equals zero, then a=0 or v=0. The Lean signature uses `Field F`, `AddCommGroup V`, `Module F V`, which is exactly Mathlib's formalization of a vector space V over a field F. The quantification is properly universal (F, V as type variables; a, v as free variables bound in the theorem). The hypothesis `a • v = 0` and conclusion `a = 0 ∨ v = 0` match the informal claim verbatim. No hypotheses are added or dropped, and the types correspond exactly to the mathematical objects in Axler's exercise.",
+  "duration_ms": 46672,
+  "cost_usd": 0.159279
+}

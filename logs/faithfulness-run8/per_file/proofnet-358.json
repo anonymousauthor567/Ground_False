@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim. The hypotheses `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` correspond to \"$f'(x), g'(x)$ exist\", `deriv g x ≠ 0` corresponds to \"$g'(x) \\neq 0$\", and `f x = 0`, `g x = 0` correspond to \"$f(x) = g(x) = 0$\". The conclusion uses `𝓝[≠] x` (the punctured neighborhood filter), which matches Rudin's Definition 4.1 convention that $\\lim_{t \\to x}$ is a deleted limit (requires $0 < |t - x| < \\delta$). The target `𝓝 (deriv f x / deriv g x)` correctly encodes the equality to $f'(x)/g'(x)$. All quantifiers, types, and the ambient real analysis setting agree.",
+  "duration_ms": 115624,
+  "cost_usd": 0.38391174999999994
+}

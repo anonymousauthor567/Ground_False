@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"$f(E)$ is dense in $f(X)$\" means every point of $f(X)$ lies in the closure of $f(E)$, i.e., $f(X) \\subseteq \\overline{f(E)}$. The Lean conclusion `f '' Set.univ ⊆ closure (f '' s)` states exactly this. The hypotheses align: `Continuous f` matches \"f continuous\", and `Dense s` (defined in Mathlib as `∀ x, x ∈ closure s`) matches \"$E$ dense in $X$\". The informal statement mentions $g$ only as part of the general setup (likely for a later part); the actual claim is purely about $f$, so omitting $g$ is appropriate. The subspace-topology reading of \"dense in $f(X)$\" is equivalent to $f(X) \\subseteq \\overline{f(E)}$ since $f(E) \\subseteq f(X)$. Thus the Lean formalization is logically equivalent to the informal statement.",
+  "duration_ms": 64114,
+  "cost_usd": 0.183583
+}

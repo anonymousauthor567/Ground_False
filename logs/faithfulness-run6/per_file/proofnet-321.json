@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. The ambient space M is a MetricSpace, A and B are sets in M, both are IsCompact, Disjoint, and nonempty (encoded as `A ≠ ∅` / `B ≠ ∅`, which is equivalent to `Set.Nonempty` via `Set.nonempty_iff_ne_empty`). The conclusion asserts the existence of a₀ ∈ A and b₀ ∈ B such that for all a ∈ A and b ∈ B, dist a₀ b₀ ≤ dist a b. The form `∀ (a b : M), a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b` is logically equivalent to `∀ a ∈ A, ∀ b ∈ B, dist a₀ b₀ ≤ dist a b`. No hypothesis is dropped or added, and no quantifier structure is altered.",
+  "duration_ms": 34046,
+  "cost_usd": 0.12362899999999999
+}

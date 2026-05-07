@@ -1,0 +1,8 @@
+{
+  "file": "S_0002.lean",
+  "stem": "S_0002",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in a category C, if f∘g is monic then g is monic. In Lean's categorical composition notation `g ≫ f` equals `f ∘ g` in standard notation (apply g first, then f). The Lean signature takes `g : X ⟶ Y`, `f : Y ⟶ Z`, hypothesizes `Mono (g ≫ f)`, and concludes `Mono g`, which matches the informal claim exactly. The quantification over an arbitrary category C is captured via the `variable {C : Type*} [Category C]` declaration, and quantification over objects and morphisms is universal. This is precisely Mathlib's `mono_of_mono` (in `CategoryTheory/Category/Basic.lean`) with variables renamed. No hypotheses are added or omitted.",
+  "duration_ms": 45506,
+  "cost_usd": 0.17750700000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "10.lean",
+  "stem": "10",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that $A = \\mathbb{R}[X,Y]/(X^2+Y^2+1)$ is a principal ideal **domain** (PID), which in Mathlib's convention requires BOTH `[IsDomain A]` AND `[IsPrincipalIdealRing A]` (as explicitly stated in `Mathlib/RingTheory/PrincipalIdealDomain.lean`: \"there is no explicit definition of a PID; one should use `[IsDomain R] [IsPrincipalIdealRing R]`\"). The Lean signature only asserts `IsPrincipalIdealRing`, which just means every ideal is principal — a strictly weaker property than being a PID (e.g., $\\mathbb{Z}/6\\mathbb{Z}$ satisfies `IsPrincipalIdealRing` but is not a domain). The `IsDomain` condition is not automatically inferred from the typeclass system for the quotient, so the Lean statement literally only requires proving one of the two parts of the PID claim. Notably, Problem 12 in the same dataset formalizes \"is a PID\" as `IsPrincipalIdealRing ... ∧ IsDomain ...`, confirming that the author recognizes both conjuncts are needed. The Lean statement is implied by the informal claim but does not imply it.",
+  "duration_ms": 503306,
+  "cost_usd": 0.8832749999999999
+}

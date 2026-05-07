@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says that for any ring R and any finite group G, the sum over all g : G of MonoidAlgebra.of R G g lies in the center of MonoidAlgebra R G. Since MonoidAlgebra.of R G g = single g 1 (i.e., the group element g viewed in the group ring with coefficient 1), the sum is exactly $N = \\sum_{g \\in G} g$, and center refers to Subring.center of the group ring. This matches the informal claim that $N = g_1 + \\cdots + g_n$ lies in the center of RG. Ring R, Group G, and Fintype G correctly reflect \"ring\" and \"finite group.\" No hypotheses are added or dropped improperly, and the quantifier structure (universal over R and G) matches the informal claim.",
+  "duration_ms": 265355,
+  "cost_usd": 0.6887760000000002
+}

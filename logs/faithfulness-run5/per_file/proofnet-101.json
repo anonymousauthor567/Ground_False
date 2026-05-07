@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. `IsPrimitiveRoot (a : ZMod p) (p-1)` in Mathlib (requiring `a^(p-1) = 1` and `(p-1) ∣ l` whenever `a^l = 1`) is equivalent to \"a has multiplicative order p-1 mod p\", i.e., a primitive root modulo p. The hypotheses `Odd p` and `p.Prime` match \"odd prime\". The RHS `∀ q, q ∣ (p-1) → q.Prime → ¬(a^((p-1)/q) = 1)` precisely encodes \"for all prime divisors q of p-1, a^((p-1)/q) ≢ 1 (mod p)\". Using `a : (ZMod p)ˣ` (a unit) surfaces the implicit premise that a is coprime to p — without it the iff would literally fail (for a ≡ 0 mod p, the LHS is false but the RHS holds vacuously), so this is exactly the \"implicit premise needed for truth\" case and counts as faithful.",
+  "duration_ms": 147264,
+  "cost_usd": 0.46921324999999997
+}

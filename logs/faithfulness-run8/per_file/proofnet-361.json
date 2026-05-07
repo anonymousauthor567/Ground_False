@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `‖z‖ = 1` matches \"any point of the unit circle.\" The sequence `s n = ∑ i ∈ range n, i * z^i` is exactly the standard sequence of partial sums of the series $\\sum n z^n$ (the i=0 term vanishes, so this agrees with $\\sum_{i=1}^{n-1} i z^i$). The standard definition of convergence of a series is convergence of its partial sums, and `¬ ∃ y, Tendsto s atTop (𝓝 y)` states precisely that these partial sums do not converge to any limit. The universal quantification \"on any point of the unit circle\" is correctly encoded by taking `z` as a free variable with hypothesis `hz`. No hypotheses are added or dropped, and no extra conclusions are included.",
+  "duration_ms": 71970,
+  "cost_usd": 0.288125
+}

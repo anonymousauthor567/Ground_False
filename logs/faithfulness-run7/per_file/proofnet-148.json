@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `Irrational x` (defined in Mathlib as `x ∉ Set.range ((↑) : ℚ → ℝ)`) correctly represents \"x is irrational\". The rational `r` with `r ≠ 0` is captured by `(y : ℚ) (hy : y ≠ 0)` with the implicit coercion to ℝ. The conclusion `Irrational (x + y)` matches \"r + x is irrational\" since addition in ℝ is commutative. The implication direction `Irrational x → Irrational (x + y)` mirrors the informal \"if x is irrational, then r + x is irrational\". No hypotheses are dropped or silently added, and the types match exactly.",
+  "duration_ms": 55527,
+  "cost_usd": 0.23166750000000003
+}

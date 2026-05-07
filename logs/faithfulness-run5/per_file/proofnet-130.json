@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for any topological space X with NormalSpace structure and any closed subset A ⊆ X, the subtype {x // x ∈ A} (which carries the induced subspace topology automatically in Mathlib) is also a NormalSpace. This matches the informal claim \"a closed subspace of a normal space is normal\" exactly. NormalSpace in Mathlib is defined as \"disjoint closed sets have disjoint open neighborhoods,\" which is the standard definition (essentially in the style of Munkres for closed sets). The hypothesis `hX : NormalSpace X` is given explicitly rather than as a typeclass instance, but this is logically equivalent to `[NormalSpace X]`. No hypotheses are added or dropped, no quantifiers are changed, and the conclusion is exactly what is asked.",
+  "duration_ms": 258344,
+  "cost_usd": 0.81190975
+}

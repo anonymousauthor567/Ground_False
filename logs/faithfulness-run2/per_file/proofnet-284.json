@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `p = 4 * t + 1` with `t : ℕ` correctly captures \"prime of the form 4t+1\". For `a : ZMod p` with `p` prime, `IsPrimitiveRoot a (p-1)` unfolds to \"a^(p-1) = 1 and (p-1) divides any l with a^l = 1\", which is exactly the definition of a primitive root modulo p (order of a equals p-1). The universal quantification over `a : ZMod p` matches the informal \"a is a primitive root iff -a is\", including the trivial case a=0 where both sides are false. No extra or missing hypotheses are introduced.",
+  "duration_ms": 28006,
+  "cost_usd": 0.11805525
+}

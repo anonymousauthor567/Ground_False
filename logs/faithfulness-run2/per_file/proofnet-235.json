@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. The hypothesis `card G = 56` with `[Group G] [Fintype G]` matches \"a group of order 56\". The conclusion asserts existence of a prime p dividing |G| and a Sylow p-subgroup P that is normal, which precisely matches \"has a normal Sylow p-subgroup for some prime p dividing its order\". The `Sylow p G` type in Mathlib corresponds to maximal p-subgroups, which coincides with the standard mathematical definition when p is prime and divides |G|. The quantifier structure (∃ p, ∃ P, conditions) aligns with the informal \"for some prime\".",
+  "duration_ms": 18481,
+  "cost_usd": 0.07139424999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the closed unit ball under any norm on ℝ^m is compact. The Lean statement quantifies over finite-dimensional real normed spaces E with Module.finrank ℝ E = m, and claims Metric.closedBall (0 : E) 1 is compact. Since Metric.closedBall 0 1 in a normed space equals {x | ‖x‖ ≤ 1}, and since every m-dimensional real normed space is essentially ℝ^m with some norm (and vice versa), the two quantifications are equivalent. The hdim hypothesis relates m to the dimension of E without narrowing the claim (it would be equally true for any finite-dimensional E). This is a standard, logically equivalent Mathlib encoding of the informal statement.",
+  "duration_ms": 89465,
+  "cost_usd": 0.31801
+}

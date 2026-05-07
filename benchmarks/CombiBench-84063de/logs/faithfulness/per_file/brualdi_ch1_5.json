@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch1_5.lean",
+  "stem": "brualdi_ch1_5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures \"the number of perfect covers of a 3-by-4 chessboard by dominoes.\" `PerfectCover 3 2` uses board `Fin 3 × Fin 4` (3-by-4). A `Domino` is defined as a 2-cell Finset where the two cells are horizontally or vertically adjacent — the standard domino shape. A `PerfectCover` requires exactly `n*k = 6` distinct dominoes whose union covers all 12 cells. Although disjointness isn't stated explicitly, it is forced by counting: 6 dominoes × 2 cells = 12 cell-slots for 12 board cells, so every cell being covered forces each to be covered exactly once (disjoint tiling). The statement `Fintype.card (PerfectCover 3 2) = brualdi_ch1_5_solution` correctly asks for the count of such tilings.",
+  "duration_ms": 131887,
+  "cost_usd": 0.3654545
+}

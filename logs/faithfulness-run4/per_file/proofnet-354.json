@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors Rudin's Exercise 4.21(a) exactly: X is a MetricSpace, K and F are subsets, with hypotheses IsCompact K, IsClosed F, and Disjoint K F — matching \"K compact, F closed, K and F disjoint\". The conclusion ∃ δ > 0, ∀ p ∈ K, ∀ q ∈ F, dist p q > δ precisely captures \"there exists δ > 0 such that d(p, q) > δ if p ∈ K, q ∈ F\", including the strict inequality. No hypotheses are dropped or added, no types are silently changed (Set X, not Finset; MetricSpace, not pseudo-metric), and the quantifier structure matches. This is a strictly faithful formalization.",
+  "duration_ms": 21424,
+  "cost_usd": 0.09150925000000001
+}

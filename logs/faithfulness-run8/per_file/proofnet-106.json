@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim. The local `is_topology` definition is logically equivalent to the standard topology axioms: `univ ∈ T` gives the whole space, binary intersection combined with `univ ∈ T` gives finite intersections, and closure under `sUnion` gives arbitrary unions (and yields `∅ ∈ T` via the empty union). The family of topologies is encoded as `T : I → Set (Set X)` with the hypothesis that each `T i` is a topology, which matches the informal \"family of topologies $\\mathcal{T}_\\alpha$\". The conclusion `is_topology X (⋂ i : I, T i)` uses indexed intersection, where `U ∈ ⋂ i : I, T i` iff `U ∈ T i` for every `i`, so this is precisely the intersection of the topologies as collections of open sets. No hypothesis is added or dropped, and no type or quantifier is changed.",
+  "duration_ms": 125544,
+  "cost_usd": 0.44051475000000007
+}

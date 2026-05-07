@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-273.lean",
+  "stem": "proofnet-273",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes all three parts of the informal claim: (1) `Irreducible p` for p = X^3 - 2 over ZMod 7, (2) `Irreducible q` for q = X^3 + 2 over ZMod 7, and (3) `Nonempty (Polynomial (ZMod 7) ⧸ span {p} ≃+* Polynomial (ZMod 7) ⧸ span {q})` which asserts the existence of a ring isomorphism between the quotient rings. Since ZMod 7 is the field F = ℤ/7ℤ, `Polynomial (ZMod 7)` is F[x], and `span {p}` (with `open Ideal`) is the principal ideal (p), so the quotient matches F[x]/(p(x)). Because p and q are irreducible, the quotient rings are indeed fields, and a `RingEquiv` between them is precisely a field isomorphism, matching \"the fields are isomorphic\". The parametrization of p and q via hypotheses `hp`/`hq` is equivalent to defining them directly. No hypothesis is added or dropped.",
+  "duration_ms": 107966,
+  "cost_usd": 0.32466724999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "48.lean",
+  "stem": "48",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a direct, literal translation of the informal statement. `{G : Type*} [Group G]` captures \"G is a group\" with the appropriate universal quantification, `(a b : G)` captures \"a, b ∈ G\", `a⁻¹` is Mathlib's standard notation for the group inverse (matching the informal \"a'\" notation described as \"the inverse for a\"), the hypothesis `a * b = b * a⁻¹` matches \"a*b = b*a'\", and the conclusion `b * a = a⁻¹ * b` matches \"b*a = a'*b\". No hypotheses are added or dropped, and no types are changed. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 40866,
+  "cost_usd": 0.09692
+}

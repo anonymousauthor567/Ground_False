@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "informal": "Suppose that $V$ is finite dimensional and that $T \\in \\mathcal{L}(V, W)$. Prove that there exists a subspace $U$ of $V$ such that $U \\cap \\operatorname{null} T=\\{0\\}$ and range $T=\\{T u: u \\in U\\}$.",
+  "lean": "\ntheorem Axler_exercise_3_8 {F V W : Type*} [AddCommGroup V]\n  [AddCommGroup W] [Field F] [Module F V] [FiniteDimensional F V] [Module F W]\n  (L : V →ₗ[F] W) :\n  ∃ U : Submodule F V, U ⊓ (ker L) = ⊥ ∧\n  (range L = range (domRestrict L U))",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes V is a finite-dimensional module over a field F and L is a linear map V →ₗ[F] W, matching the informal hypothesis that V is finite-dimensional and T ∈ L(V,W). The conclusion asserts existence of a submodule U with U ⊓ ker L = ⊥, which is exactly U ∩ null T = {0}, and range L = range (domRestrict L U), where range (domRestrict L U) = {L u : u ∈ U}, exactly matching range T = {Tu : u ∈ U}. The quantifier structure and types align with the standard Axler reading. No extra or missing hypotheses; this is a faithful formalization.",
+  "duration_ms": 8537,
+  "cost_usd": 0.0499035
+}

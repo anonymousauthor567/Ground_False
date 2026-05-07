@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p21_2.lean",
+  "stem": "linear_algebra__p21_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean lemma states: for all A, i, j, k, if k ≠ 0 and (rows i,j are distinct with A i m = k * A j m for all m) or (columns i,j are distinct with A m i = k * A m j for all m), then det A = 0. This is logically equivalent to the informal \"if there exist distinct i, j and nonzero k such that row i = k·row j (or col i = k·col j), then det A = 0\", since `(∃ x, P x) → Q` ↔ `∀ x, P x → Q`. The definitions `linearly_dependent_rows` and `linearly_dependent_columns` correctly encode the distinctness condition (i ≠ j) and the scalar-multiple condition. The ambient setting `CommRing R` with `Fintype n` and `DecidableEq n` is the standard setup for `Matrix.det` and does not restrict the claim beyond what is mathematically required. The quantifier, hypothesis, and conclusion structures all match.",
+  "duration_ms": 93230,
+  "cost_usd": 0.26161575
+}

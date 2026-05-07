@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim precisely. Both groups G and H are arbitrary finite groups of order p*q, both are asserted nonabelian via `∃ x y, x*y ≠ y*x` (the standard encoding of non-commutativity), the prime conditions p > q and q ∣ p-1 are stated directly, and the conclusion `Nonempty (G ≃* H)` correctly captures \"are isomorphic\" as groups. Since p > q ≥ 2, natural subtraction `p - 1` coincides with integer subtraction, so `q ∣ p - 1` is correctly expressed. The universal \"any two nonabelian groups\" is faithfully rendered by quantifying over two arbitrary such G and H.",
+  "duration_ms": 17961,
+  "cost_usd": 0.07129225
+}

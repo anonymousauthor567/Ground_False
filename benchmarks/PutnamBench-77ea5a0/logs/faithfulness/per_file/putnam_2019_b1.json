@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b1.lean",
+  "stem": "putnam_2019_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures Putnam 2019 B1. (1) Pn is defined as (0,0) together with integer points satisfying x²+y²=2^k for k ≤ n; using k : ℕ rather than k : ℤ loses no points since x²+y² ≥ 0 is an integer and 2^k is non-integer for k<0. (2) The square predicate requires a cyclic ordering p4 with 4 equal \"side\" distances and equal \"diagonal\" distances (|p0-p2|=|p1-p3|). Analysis via perpendicular bisectors shows this condition is equivalent to the 4 points being the vertices of a square: 4 equal cyclic sides force a rhombus (convex, since the degenerate case is excluded), and equal diagonals in a rhombus force a square. (3) Distances computed via EuclideanSpace ℝ (Fin 2) via the canonical ℤ→ℝ embedding correctly capture Euclidean distance. (4) The `.encard` counts four-point subsets of Pn that are square vertex sets. (5) The proposed answer 5n+1 matches the standard Putnam solution. All hypotheses and quantifier structures align with the informal statement.",
+  "duration_ms": 639694,
+  "cost_usd": 1.34135225
+}

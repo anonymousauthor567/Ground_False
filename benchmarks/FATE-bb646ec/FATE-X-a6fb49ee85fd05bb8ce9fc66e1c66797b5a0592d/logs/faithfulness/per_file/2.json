@@ -1,0 +1,8 @@
+{
+  "file": "2.lean",
+  "stem": "2",
+  "verdict": "weaker",
+  "reasoning": "The Lean formalization uses `IsMin` on the subtype `{H : Subgroup G // H.Normal}`, but this is semantically wrong for \"minimal normal subgroup\". `IsMin H` is defined as `∀ b, b ≤ H → H ≤ b`, i.e., H is a minimum (bottom) element. Since the trivial subgroup ⊥ is always normal (`Subgroup.normal_bot`), ⟨⊥, _⟩ is always in the subtype, and ⊥ ≤ H for every H. Thus `IsMin H` forces H = ⊥, making `{H | IsMin H}` always a singleton and its ncard always 1 ≤ 2 — a trivial tautology. The correct encoding for \"minimal normal subgroup\" (atom in the normal subgroup lattice, i.e., a non-trivial normal subgroup with no proper non-trivial normal subgroup inside it) would use `IsAtom`, not `IsMin`. Since the Lean statement is a tautology, it is implied by the informal statement but does not imply it, making the Lean statement strictly weaker.",
+  "duration_ms": 669664,
+  "cost_usd": 1.28808875
+}

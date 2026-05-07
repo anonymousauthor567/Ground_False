@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over p : ℝ with p ≤ 1, defines f(k) = 1/(k · (log k)^p), and concludes ¬ Summable f, which is exactly \"the series diverges\". The formula uses Real.rpow for the exponent (since p : ℝ), and the finitely-many degenerate terms at k = 0 and k = 1 (where log k is 0 or k is 0, producing 0 under Mathlib's division/rpow conventions) don't affect summability. For k ≥ 2 and every p ≤ 1, the series ∑ 1/(k(log k)^p) genuinely diverges (by integral test for 0 < p ≤ 1, harmonic for p = 0, and comparison with 1/k for p < 0). No extra hypotheses are introduced and nothing is weakened, so the formalization strictly matches the informal claim.",
+  "duration_ms": 129535,
+  "cost_usd": 0.44245625
+}

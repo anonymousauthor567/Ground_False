@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypotheses match: `[Fintype G]` with `card G = p*q*r` encodes |G| = pqr (finiteness is implicit in the informal statement since a specific finite cardinality is given); `hpqr : p < q ∧ q < r` encodes p < q < r; `hpqr1` encodes that p, q, r are prime. The conclusion `(∃ P : Sylow p G, P.Normal) ∨ (∃ P : Sylow q G, P.Normal) ∨ (∃ P : Sylow r G, P.Normal)` precisely states that there is a normal Sylow subgroup for at least one of p, q, or r, using Mathlib's standard `Sylow p G` type (confirmed in Mathlib/GroupTheory/Sylow.lean) and the `Subgroup.Normal` property accessed via Sylow's subgroup coercion. The disjunction structure matches the informal \"for either p, q or r\". No hypotheses are silently added or dropped.",
+  "duration_ms": 132975,
+  "cost_usd": 0.43149250000000006
+}

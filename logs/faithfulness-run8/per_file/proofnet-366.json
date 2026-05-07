@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts exactly the informal claim. For a function `f : ℂ → ℂ`, `Differentiable ℂ f` (which unfolds to \"differentiable at every point\") is the standard Mathlib formalization of \"entire\", and `Function.Injective f` is the standard \"injective\". The conclusion `∃ a b : ℂ, f = (λ z => a * z + b) ∧ a ≠ 0` directly encodes \"f has the form az + b with a, b ∈ ℂ and a ≠ 0\". No hypotheses are added or omitted, the quantifier structure matches, and the types of a, b are ℂ as required. This is a strictly faithful formalization.",
+  "duration_ms": 28693,
+  "cost_usd": 0.13144275
+}

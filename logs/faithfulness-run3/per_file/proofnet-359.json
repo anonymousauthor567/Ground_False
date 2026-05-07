@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Rudin's Exercise 5.17. Three-times differentiability on [-1,1] is expressed via the standard Mathlib triple of hypotheses: `DifferentiableOn ℝ f (Icc (-1) 1)` together with `DifferentiableOn` of `deriv f` and `deriv (deriv f)` on the same interval. The boundary values f(-1)=0, f(0)=0, f(1)=1 are stated verbatim, and `deriv f 0 = 0` matches f'(0)=0 since 0 is an interior point where `deriv f` agrees with the standard derivative. The conclusion `∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3` is an exact match for \"f⁽³⁾(x) ≥ 3 for some x ∈ (-1,1)\". Any subtle behavior of `deriv` at the endpoints ±1 does not affect the statement since the conclusion quantifies over the open interval.",
+  "duration_ms": 130637,
+  "cost_usd": 0.42032775
+}

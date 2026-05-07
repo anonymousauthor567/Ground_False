@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-65.lean",
+  "stem": "proofnet-65",
+  "theorem_name": "Dummit_Foote_exercise_8_3_6a_corrected",
+  "informal": "Prove that the quotient ring $\\mathbb{Z}[i] /(1+i)$ is a field of order 2.",
+  "lean": "theorem Dummit_Foote_exercise_8_3_6a_corrected :\n    IsField (GaussianInt ⧸ span ({⟨1, 1⟩} : Set GaussianInt)) ∧\n    ∃ finR : Fintype (GaussianInt ⧸ span ({⟨1, 1⟩} : Set GaussianInt)),\n      @Fintype.card _ finR = 2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quotients `GaussianInt` (which is ℤ[i]) by `span {⟨1,1⟩}`, where ⟨1,1⟩ represents 1+i, so the ideal is exactly (1+i). The conjunction `IsField ... ∧ ∃ finR : Fintype ..., Fintype.card = 2` captures both parts of the informal claim: the quotient is a field, and it has order 2. The existence of a Fintype instance together with cardinality 2 is the standard way to express \"finite of order 2\" in Lean. No extra hypotheses are imposed and no part of the conclusion is weakened or strengthened.",
+  "duration_ms": 11171,
+  "cost_usd": 0.05279175
+}

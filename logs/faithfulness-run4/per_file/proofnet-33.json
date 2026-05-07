@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for a group G, if every element satisfies x² = 1, then G is abelian. The Lean signature takes an arbitrary group G, assumes `∀ x : G, x ^ 2 = 1`, and concludes `∀ a b : G, a*b = b*a`, which is exactly the definition of G being abelian (commutativity of multiplication). The hypothesis (every element has order dividing 2) and conclusion (commutativity) match precisely with no added or dropped assumptions. The universal quantification over G is preserved implicitly via the `{G : Type*} [Group G]` binder. This is a logically equivalent encoding.",
+  "duration_ms": 6585,
+  "cost_usd": 0.035470749999999995
+}

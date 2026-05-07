@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-92.lean",
+  "stem": "proofnet-92",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that cos 1° is algebraic over ℚ. One degree equals π/180 radians, so cos 1° = cos(π/180), which the Lean file writes as `cos (Real.pi / 180)`. With the `Real` namespace open, `cos` is `Real.cos`, producing a real number. Mathlib's `IsAlgebraic ℚ x` is defined as `∃ p : ℚ[X], p ≠ 0 ∧ aeval x p = 0`, which is exactly the standard definition of \"algebraic over ℚ\". The hypothesis-free assertion `IsAlgebraic ℚ (cos (Real.pi / 180))` therefore expresses precisely the informal claim, with no added or missing hypotheses.",
+  "duration_ms": 40068,
+  "cost_usd": 0.18731825
+}

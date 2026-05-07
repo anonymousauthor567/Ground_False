@@ -1,0 +1,8 @@
+{
+  "file": "S_0091.lean",
+  "stem": "S_0091",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for any monad T on a category C, the forgetful functor U : C^T → C from the Eilenberg-Moore category admits a left adjoint. In Mathlib, `T.forget : Monad.Algebra T ⥤ C` is defined as the forgetful functor from the Eilenberg-Moore category of T. The class `Functor.IsRightAdjoint right` unfolds to `∃ (left : C ⥤ D), Nonempty (left ⊣ right)`, i.e. \"there exists a left adjoint to `right`\". Thus `T.forget.IsRightAdjoint` asserts precisely that the forgetful functor admits a left adjoint. The universal quantification over C and T is captured by the `variable` declaration and `(T : Monad C)` parameter. This is a faithful encoding.",
+  "duration_ms": 48295,
+  "cost_usd": 0.27413325
+}

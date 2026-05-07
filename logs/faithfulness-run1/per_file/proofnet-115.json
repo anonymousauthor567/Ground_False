@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "informal": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}(x)\\right)$ converges for each $x \\in[0,1]$.",
+  "lean": "\ntheorem Munkres_exercise_21_6a\n  (f : ℕ → I → ℝ)\n  (h : ∀ x n, f n x = ↑x ^ n) :\n  ∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `I` (the unit interval [0,1]) as the domain, defines `f n x = x^n` via the hypothesis `h`, and concludes that for every `x ∈ [0,1]` there exists `y` with `f n x → y` as `n → ∞`. This is exactly the informal claim that the sequence (f_n(x)) converges for each x ∈ [0,1] (convergence of a real sequence means existence of a limit). The quantifier structure (∀ x, ∃ y) matches pointwise convergence, no extra hypotheses are added, and no specific limit value is required, so the statement is neither weaker nor stronger.",
+  "duration_ms": 8245,
+  "cost_usd": 0.045615
+}

@@ -1,0 +1,8 @@
+{
+  "file": "S_0093.lean",
+  "stem": "S_0093",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal theorem exactly. `HasColimitsOfSize.{w, w'} C/D` is the standard Lean encoding of \"cocomplete\" (parameterized over universe levels as is conventional in Mathlib — compare `hasColimits_of_reflective` which uses the same pattern). `HasCoequalizers D` is defined as `HasColimitsOfShape WalkingParallelPair D`, the standard notion of \"has coequalizers\". `MonadicRightAdjoint G` is Mathlib's definition of a monadic right adjoint (the Monad.comparison is an equivalence). The biconditional structure `HasColimitsOfSize.{w, w'} D ↔ HasCoequalizers D` under the hypothesis that C has colimits of the same size exactly formalizes \"D is cocomplete iff D has coequalizers\" given \"C is cocomplete\" and \"G is monadic\". The universe polymorphism is a natural Lean formalism and doesn't alter the mathematical content.",
+  "duration_ms": 187213,
+  "cost_usd": 0.64478175
+}

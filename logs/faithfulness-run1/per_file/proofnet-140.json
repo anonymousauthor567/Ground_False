@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "informal": "Prove that $\\sqrt{n+1}-\\sqrt{n} \\rightarrow 0$ as $n \\rightarrow \\infty$.",
+  "lean": "\ntheorem Pugh_exercise_3_4 (n : ℕ) :\n  Tendsto (λ n => (sqrt (n + 1) - sqrt n)) atTop (𝓝 0)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts Tendsto (fun n => sqrt(n+1) - sqrt n) atTop (𝓝 0), which is exactly the claim that √(n+1) − √n → 0 as n → ∞. The outer parameter `n : ℕ` is unused (shadowed by the lambda), so universally quantifying over it does not change the logical content: ∀ n, P is equivalent to P when n does not occur in P. Assuming `sqrt` refers to `Real.sqrt` (with the natural-number argument coerced to ℝ), the limit statement matches the informal claim exactly. No hypotheses are added or dropped, and the conclusion is the same limit.",
+  "duration_ms": 11165,
+  "cost_usd": 0.053407249999999996
+}

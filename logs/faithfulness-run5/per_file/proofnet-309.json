@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that under the hypotheses (f an isometry on a compact metric space), f is bijective and a homeomorphism. The Lean signature uses `MetricSpace X`, `CompactSpace X`, and `Isometry f` as hypotheses — matching the informal premises — and concludes `Continuous f ∧ Bijective f ∧ IsOpenMap f`. In Mathlib (see `Topology/Homeomorph/Defs.lean`), these three properties are precisely the definition of `IsHomeomorph f`. So the conjunction expresses exactly \"f is bijective and a homeomorphism,\" which matches the informal conclusion. The three-part conjunction is the standard unbundled way to assert homeomorphism-hood in Mathlib, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 108496,
+  "cost_usd": 0.31487499999999996
+}

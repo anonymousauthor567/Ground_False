@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: any finite group of even order has a non-identity element equal to its own inverse. The Lean signature uses `[Group G]` for \"group G\", `[Fintype G]` for finiteness, and `hG2 : Even (card G)` for \"even order\" (with `open Fintype`, `card` is `Fintype.card G`, the cardinality of the underlying type, i.e. the group's order). The conclusion `∃ (a : G), a ≠ 1 ∧ a = a⁻¹` is exactly \"there exists a ≠ e with a = a⁻¹\". There are no additional hypotheses, no weakening of the conclusion, and no type mismatches. The Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 34932,
+  "cost_usd": 0.11782700000000002
+}

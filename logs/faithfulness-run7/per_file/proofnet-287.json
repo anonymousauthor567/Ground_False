@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal Ireland-Rosen Ex. 5.28 faithfully. The primality hypothesis `hp : p.Prime` surfaces the implicit premise standard in Ireland-Rosen Chapter 5 where `p` always denotes a prime; without primality the claim fails (e.g., p=9). The assumption `p ≡ 1 [MOD 4]` mirrors the informal \"for p ≡ 1 (4)\". The biconditional `(∃ x, x ^ 4 ≡ 2 [MOD p]) ↔ ∃ A B, p = A ^ 2 + 64 * B ^ 2` captures the \"iff\" of the informal statement. Using ℕ (implicit for x, A, B) rather than ℤ (as the informal proof mentions) is logically equivalent: existence of a 4th-root of 2 mod p over ℤ is equivalent to existence over ℕ (reduce mod p), and existence of (A,B) in ℤ with p=A²+64B² is equivalent to existence in ℕ (take absolute values, since squares are sign-invariant). Nat.ModEq in Mathlib is the standard congruence `a % n = b % n`. No hypotheses have been added or dropped beyond this, and the quantifier structure matches.",
+  "duration_ms": 185519,
+  "cost_usd": 0.9285840000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "6.lean",
+  "stem": "6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `Nat.card G = 396` encodes |G| = 396, and `¬ IsSimpleGroup G` captures \"G is not simple\" using Mathlib's standard definition (a group is simple iff it is nontrivial and every normal subgroup is ⊥ or ⊤). The `[Finite G]` instance is redundant but not restrictive, because `Nat.card G = 396` already forces G to be finite (Nat.card returns 0 for infinite types, per Mathlib's `card_eq_zero` lemma). Thus the set of models satisfying the Lean hypotheses is exactly the set of finite groups of order 396, matching the informal statement. Nontriviality of the conclusion's definition is not an issue since |G| = 396 > 1. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 101510,
+  "cost_usd": 0.21771625
+}

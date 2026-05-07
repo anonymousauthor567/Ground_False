@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b6.lean",
+  "stem": "putnam_1986_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement on every substantive point: A, B, C, D are n × n matrices over an arbitrary field F (`Matrix (Fin n) (Fin n) F` with `[Field F]`), the hypothesis that AB^T and CD^T are symmetric is encoded correctly using Mathlib's `IsSymm` (which unfolds to `Mᵀ = M`), the identity hypothesis `A * Dᵀ - B * Cᵀ = 1` uses Mathlib's standard matrix `One` instance for the identity matrix, and the conclusion `Aᵀ * D - Cᵀ * B = 1` is exactly the statement requested. The only added hypothesis is `npos : n > 0`, which makes explicit the standard mathematical convention that \"n × n matrices\" refers to nonzero dimensions; this is a reasonable surfacing of an implicit premise. Since the n = 0 case is vacuously true anyway (all 0×0 matrices are equal), adding npos does not meaningfully restrict the mathematical content of the claim.",
+  "duration_ms": 304714,
+  "cost_usd": 0.7231662500000001
+}

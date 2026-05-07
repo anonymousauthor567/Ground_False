@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "With `open Set`, `centralizer` resolves to `Set.centralizer`, defined as `{c | ∀ m ∈ S, m * c = c * m}`. Thus `centralizer {a}` is `{c : a*c = c*a}` = C(a), and `centralizer {x⁻¹ * a * x}` = C(x⁻¹ax). The RHS `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is the set `{x⁻¹ * y * x : y ∈ C(a)}`, which is exactly x⁻¹C(a)x. Both sides are `Set G`, the conjugation direction matches the informal statement, and no extra hypotheses (finiteness, commutativity, etc.) are introduced. This is a direct, logically equivalent rendering of Herstein's claim.",
+  "duration_ms": 94809,
+  "cost_usd": 0.39017825
+}

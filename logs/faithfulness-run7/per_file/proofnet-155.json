@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∀ A : Set X, A.Infinite → ∃ p : X, AccPt p (𝓟 A)` faithfully encodes \"every infinite subset has a limit point\": `AccPt p (𝓟 A)` is defined as `NeBot (𝓝[≠] p ⊓ 𝓟 A)`, which by `accPt_iff_nhds` is equivalent to \"every neighborhood of p contains a point y ∈ A with y ≠ p\" — exactly Rudin's definition of a limit point of A (the limit point need not itself lie in A). `MetricSpace X` matches \"metric space\", and `SeparableSpace X` (existence of a countable dense subset) matches the standard definition of separability. The quantifier structure and typing (`Set X`) match the informal statement. No hypothesis is added, dropped, or weakened.",
+  "duration_ms": 56362,
+  "cost_usd": 0.229428
+}

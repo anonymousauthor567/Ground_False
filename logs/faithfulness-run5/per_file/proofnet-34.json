@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `orderOf x = 0` is Mathlib's standard encoding of \"x has infinite order\" (confirmed by `orderOf_eq_zero_iff : orderOf x = 0 ↔ ¬IsOfFinOrder x` in Mathlib's OrderOfElement.lean). The conclusion `∀ n m : ℤ, n ≠ m → x ^ n ≠ x ^ m` precisely captures \"the elements x^n for n ∈ ℤ are all distinct\" (pairwise distinctness over integer exponents is equivalent to injectivity of n ↦ x^n). The ambient `Group G` matches \"in G\", and `n, m : ℤ` matches \"n ∈ ℤ\". No hypotheses are added or omitted beyond what the informal statement requires.",
+  "duration_ms": 40469,
+  "cost_usd": 0.16105350000000002
+}

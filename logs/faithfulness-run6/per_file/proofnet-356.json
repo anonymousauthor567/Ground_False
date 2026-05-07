@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. The hypothesis `Differentiable ℝ g` surfaces an implicit premise of \"g has bounded derivative\" (differentiability is required to meaningfully assert |g'| ≤ M pointwise; Lean's `deriv` returns 0 at non-differentiable points, so without this premise the \"bounded derivative\" hypothesis would be vacuously satisfied by non-differentiable g). The bounded-derivative condition `∃ M, ∀ x, |deriv g x| ≤ M` matches the informal $|g'| \\leq M$. The conclusion `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (x ↦ x + ε*g x)` is the standard formalization of \"for small enough ε > 0, f is one-to-one\", correctly preserving positivity of ε and the \"small enough\" threshold. No hypotheses are dropped, added, or altered in meaning.",
+  "duration_ms": 71660,
+  "cost_usd": 0.28242599999999995
+}

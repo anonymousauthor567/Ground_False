@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures Rudin Exercise 5.2. The hypothesis `deriv f x > 0` on `Ioo a b` implicitly requires $f$ to be differentiable at each point (since `deriv` returns 0 at non-differentiable points), matching the informal assumption $f'(x) > 0$. The hypothesis `g (f x) = x` on `Ioo a b` correctly encodes \"$g$ is the inverse of $f$\", since $f$'s strict monotonicity (provable from the first hypothesis) makes left-inverse on $(a,b)$ equivalent to being the inverse on $f((a,b))$. The three conclusions match: `StrictMonoOn f (Ioo a b)` matches strict monotonicity, `DifferentiableOn ℝ g (f '' Ioo a b)` matches differentiability of $g$ on its natural domain (the open image under the continuous strictly monotone $f$), and `deriv g (f x) = 1 / deriv f x` matches $g'(f(x)) = 1/f'(x)$. The `deriv` notation works correctly here because `DifferentiableOn` on the open image $f((a,b))$ is equivalent to pointwise `DifferentiableAt`, making the derivative equation meaningful.",
+  "duration_ms": 202129,
+  "cost_usd": 0.6473215
+}

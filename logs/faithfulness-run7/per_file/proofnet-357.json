@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal one exactly. `DifferentiableOn ℝ f (Ioi 0)` with the open set `Ioi 0` is logically equivalent to \"f is differentiable for every x > 0\" (via `DifferentiableOn.differentiableAt` since `Ioi 0 ∈ 𝓝 x` when `x > 0`). Using `deriv f` rather than `derivWithin f (Ioi 0)` is fine because these agree on the open set `Ioi 0`, and the `atTop` filter only cares about behavior for large x, which is always in `Ioi 0`. The conclusion `Tendsto (λ x => f (x + 1) - f x) atTop (𝓝 0)` is precisely the claim that g(x) = f(x+1) − f(x) → 0 as x → +∞. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 86876,
+  "cost_usd": 0.30012625
+}

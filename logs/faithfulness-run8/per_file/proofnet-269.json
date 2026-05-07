@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims GL_2(Z_2) ≅ S_3 as groups. In the Lean statement, `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)` unfolds to `(Matrix (Fin 2) (Fin 2) (ZMod 2))ˣ`, which is exactly the group of invertible 2×2 matrices over the field ZMod 2; since ZMod 2 is a field, invertibility coincides with \"det ≠ 0\". `Equiv.Perm (Fin 3)` is the symmetric group S_3 on 3 elements, and `≃*` is a multiplicative group isomorphism. Wrapping in `Nonempty` correctly expresses \"there exists an isomorphism\" as a Prop. This is a standard faithful encoding of the informal claim.",
+  "duration_ms": 23044,
+  "cost_usd": 0.12757875
+}

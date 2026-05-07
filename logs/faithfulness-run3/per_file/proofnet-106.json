@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the intersection of a family of topologies on X is itself a topology on X. The Lean statement takes an arbitrary index type I, a family T : I → Set (Set X) where each T i satisfies `is_topology X (T i)`, and concludes that `⋂ i : I, T i` is a topology on X. The `is_topology` definition correctly captures the standard axioms (contains univ, closed under binary intersections, closed under arbitrary unions — empty set follows from sUnion ∅ = ∅). The indexed intersection `⋂ i : I, T i` corresponds directly to the informal $\\bigcap \\mathcal{T}_\\alpha$. No hypotheses are added or dropped; the quantifier structure and mathematical content match exactly.",
+  "duration_ms": 20285,
+  "cost_usd": 0.0500415
+}

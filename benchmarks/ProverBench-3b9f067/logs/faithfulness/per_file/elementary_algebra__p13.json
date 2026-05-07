@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p13.lean",
+  "stem": "elementary_algebra__p13",
+  "verdict": "stronger",
+  "reasoning": "In Lean 4, `variable` declarations are only auto-included in a theorem's signature if the theorem's statement or proof references them (directly or transitively). The theorem body `a * y + b * z + c * x < S ^ 2` mentions only `a, b, c, x, y, z, S`, so the positivity hypotheses `ha, hb, hc, hx, hy, hz` and the crucial sum-equality hypothesis `hS : a + x = S ∧ b + y = S ∧ c + z = S` are NOT part of the signature. The Lean theorem therefore effectively asserts `∀ a b c x y z S : ℝ, a*y + b*z + c*x < S^2` — an unconditional universal claim (which is in fact false, e.g. a=b=c=x=y=z=1, S=0 gives 3 < 0). This drops every hypothesis the informal statement explicitly requires, so the Lean statement logically implies the informal one (if it held, the restricted case would follow) but claims much more than was asked; this matches the \"drops a hypothesis that the informal statement explicitly requires\" criterion for \"stronger\".",
+  "duration_ms": 599593,
+  "cost_usd": 1.5942200000000004
+}

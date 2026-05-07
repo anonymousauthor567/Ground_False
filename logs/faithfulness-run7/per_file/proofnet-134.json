@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `[CompletelyRegularSpace X]` matches Mathlib's definition of completely regular (separation property via continuous maps to [0,1]), which—crucially—does NOT include T₀/T₁, exactly matching the informal parenthetical \"separation property only\" (the T₀ version is `T35Space` in Mathlib). `StoneCech X` is the Stone-Čech compactification as defined in `Mathlib/Topology/Compactification/StoneCech.lean`, available for any topological space. The conclusion `IsConnected (univ : Set X) ↔ IsConnected (univ : Set (StoneCech X))` is, by `connectedSpace_iff_univ`, equivalent to `ConnectedSpace X ↔ ConnectedSpace (StoneCech X)`, which is the exact biconditional asserted informally. No hypotheses are added or dropped, and no quantifier/type drift occurs.",
+  "duration_ms": 259059,
+  "cost_usd": 0.8733637499999999
+}

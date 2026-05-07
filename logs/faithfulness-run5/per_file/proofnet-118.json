@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement: a sequence `A : ℕ → Set X` of subsets of a topological space, each `IsConnected` (Mathlib's definition = preconnected + nonempty, matching standard usage that \"connected subspace\" is nonempty), with the hypothesis `A n ∩ A (n+1) ≠ ∅` for all n, and conclusion that the union `⋃ n, A n` is connected. The indexing by ℕ matches the informal sequence indexing, consecutive-intersection-nonempty is exactly what is assumed, and the conclusion is precisely what is asked. The ground truth file has an identical theorem signature and a complete proof using `IsConnected.iUnion_of_reflTransGen`. No hypotheses are added or dropped, no quantifier structure changes.",
+  "duration_ms": 126406,
+  "cost_usd": 0.40808774999999997
+}

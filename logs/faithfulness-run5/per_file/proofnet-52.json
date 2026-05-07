@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: there exist a prime p dividing |G| and a Sylow p-subgroup P of G such that P is normal. This matches the informal \"a group of order 312 has a normal Sylow p-subgroup for some prime p dividing its order\" precisely. The hypothesis `card G = 312` with `Fintype G` encodes \"group of order 312\"; `p.Prime ∧ p ∣ card G` encodes \"some prime p dividing its order\"; `P : Sylow p G` with `P.Normal` encodes \"a normal Sylow p-subgroup\". The `p ∣ card G` constraint is necessary (Mathlib's `Sylow p G` is defined for any natural p but is trivial when p ∤ |G|, in which case it would be vacuously normal) and faithfully captures the informal condition. The quantifier structure (∃p, ∃P) matches the informal \"for some prime p\".",
+  "duration_ms": 86661,
+  "cost_usd": 0.27073274999999997
+}

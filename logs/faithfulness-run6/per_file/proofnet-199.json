@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a field F, vector space V over F, scalar a ∈ F, vector v ∈ V, if a·v = 0 then a = 0 or v = 0. The Lean signature uses the standard Mathlib encoding of a vector space — `[Field F] [AddCommGroup V] [Module F V]` — with a universally quantified `v : V` and `a : F`, the hypothesis `a • v = 0`, and the conclusion `a = 0 ∨ v = 0`. Every component matches: the ambient types, the scalar multiplication, and the disjunctive conclusion. The quantifier structure (implicit universal over F, V, v, a) is exactly what the informal statement asks. No extra hypotheses have been added and no hypotheses dropped; this is a standard, faithful formalization.",
+  "duration_ms": 60345,
+  "cost_usd": 0.16511499999999998
+}

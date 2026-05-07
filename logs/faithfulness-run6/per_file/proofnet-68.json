@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-68.lean",
+  "stem": "proofnet-68",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `Irreducible` of the polynomial `X^6 + 30*X^5 - 15*X^3 + 6*X - 120` in `Polynomial ℤ`, which exactly matches the informal claim: the coefficients ($1, 30, 0, -15, 0, 6, -120$) line up term by term, and `Polynomial ℤ` is $\\mathbb{Z}[x]$. Mathlib's `Irreducible` (in `Mathlib/Algebra/Group/Irreducible/Defs.lean`) is defined as \"not a unit, and every factorization has a unit factor,\" which is the standard notion of irreducibility in $\\mathbb{Z}[x]$. There is no extra hypothesis, no weakening, no change in type, and no shift in the conclusion. Hence the formalization is strictly faithful.",
+  "duration_ms": 37748,
+  "cost_usd": 0.14997525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a3.lean",
+  "stem": "putnam_1968_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. `α : Type*` with `[Finite α]` represents the finite set $S$, and `Set α` represents its subsets. Using `∃ n, s : Fin (2^n) → Set α` together with the uniqueness condition `∀ t, ∃! i, s i = t` forces `2^n = 2^|α|` (so `n = |α|`), making this a bijection from a linearly-ordered index set of size `2^|α|` to the subsets — logically equivalent to a list of all subsets with no repeats. `s 0 = ∅` captures condition (1). The successive condition `i.1 + 1 < 2^n → (s i ∆ s (i+1)).ncard = 1` uses the guard to avoid Fin wrap-around, and symmetric difference of cardinality 1 precisely means \"add or remove exactly one element,\" matching condition (3). No hypotheses are dropped or added beyond what the informal claim requires.",
+  "duration_ms": 80298,
+  "cost_usd": 0.24584975000000003
+}

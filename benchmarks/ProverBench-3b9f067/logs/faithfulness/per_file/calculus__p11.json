@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p11.lean",
+  "stem": "calculus__p11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `deriv (fun x : ℝ => x^3) 4 = 48` asserts exactly that the derivative of the real function x ↦ x³ at the point 4 equals 48, which is precisely what the informal statement claims. Mathlib's `deriv` is the standard derivative of a function 𝕜 → F at a point, matching the informal notion. Indeed 3x² evaluated at 4 gives 48, so the value matches. The unused `variable (f : ℝ → ℝ) (x : ℝ)` declarations do not enter the statement. No hypotheses are added or dropped, types are ℝ → ℝ as expected, and the conclusion is an equality identical to the informal one.",
+  "duration_ms": 71555,
+  "cost_usd": 0.09671325
+}

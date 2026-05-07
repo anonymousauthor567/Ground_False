@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"the polynomial $x^n - p$ is irreducible in $\\mathbb{Q}[x]$\" for a prime integer $p$. The `hn : n > 0` hypothesis is a necessary implicit premise: without it, for $n = 0$ the polynomial $x^0 - p = 1 - p$ is a non-zero constant and thus a unit in $\\mathbb{Q}[x]$ (not irreducible), so the informal claim would be false as literally stated. Surfacing this implicit premise is exactly the kind of context-restoring move described as faithful. Using `p : ℕ` with `Prime p` captures the standard reading of \"prime integer\" as a positive prime, and `Irreducible (X^n - (p : ℚ[X]))` directly translates the conclusion. For $n = 1$, the polynomial is linear and irreducible; for $n \\geq 2$, Eisenstein's criterion applies at $p$. No hypotheses are dropped or silently strengthened.",
+  "duration_ms": 192552,
+  "cost_usd": 0.6197900000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G where every element squares to the identity must be abelian. The Lean statement takes an arbitrary `{G : Type*} [Group G]`, assumes the hypothesis `∀ x : G, x ^ 2 = 1`, and concludes `∀ a b : G, a*b = b*a`, which is precisely the definition of G being abelian (commutative). The universal quantification over groups, the hypothesis, and the conclusion all match the informal claim exactly, with no added or missing assumptions.",
+  "duration_ms": 14442,
+  "cost_usd": 0.041129
+}

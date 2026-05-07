@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the classical consequence of the permutation action on left cosets: if H has finite index n, there exists a normal K ≤ H with [G:K] ≤ n!. In Mathlib, `Subgroup.index` returns 0 when the index is infinite. So `hH : H.index = n` together with `hn : n > 0` correctly encodes \"H has finite index n\" (n > 0 is already implicit in informal usage since the index is at least 1 whenever it is finite). The conclusion `∃ K ≤ H, K.Normal ∧ 0 < K.index ∧ K.index ≤ n.factorial` asks for a normal K ≤ H with finite index bounded by n!. The `0 < K.index` clause is necessary to correctly encode that K has finite index (otherwise K.index = 0 would trivially satisfy `≤ n.factorial` but represent infinite index — not matching the informal meaning |G:K| ≤ n!). This is exactly the implicit premise surfacing described in the guidelines, so the formalization is faithful.",
+  "duration_ms": 128994,
+  "cost_usd": 0.43517075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a Finset S of size (p-1)/2 of nonzero QR elements and a Finset S' of size (p-1)/2 of nonzero non-QR elements in ZMod p. Since the nonzero elements of ZMod p partition into QR and non-QR, and there are p-1 such elements, the existence of disjoint subsets of sizes (p-1)/2 each forces #(QR) = #(non-QR) = (p-1)/2 exactly — recovering the informal count. Conversely, the informal count gives these Finsets directly. The condition `0 ∉ S` correctly captures \"among 1, ..., p-1\", and \"∃ x, x² = q\" with q ≠ 0 is the standard QR definition. The `hodd` hypothesis is the standard implicit premise (p is an odd prime) needed to make (p-1)/2 a clean integer count; this is a standard surfaced implicit premise, not a weakening. The formulations are logically equivalent.",
+  "duration_ms": 165385,
+  "cost_usd": 0.44258774999999995
+}

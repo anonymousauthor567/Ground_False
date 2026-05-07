@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes Munkres's exercise 31.2. NormalSpace in Mathlib is the standard notion (disjoint closed sets have disjoint open neighborhoods). The hypotheses (A, B closed and disjoint) match \"pair of disjoint closed sets.\" The conclusion — existence of open sets U ⊇ A, V ⊇ B with `closure U ∩ closure V = ∅` — faithfully encodes \"neighborhoods whose closures are disjoint\" under Munkres's convention that a neighborhood of a set is an open set containing it. The equality `closure U ∩ closure V = ∅` is equivalent to `Disjoint (closure U) (closure V)` for subsets. No hypotheses are added or dropped.",
+  "duration_ms": 53548,
+  "cost_usd": 0.21952025000000003
+}

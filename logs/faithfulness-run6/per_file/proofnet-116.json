@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-116.lean",
+  "stem": "proofnet-116",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely mirrors the informal statement. `X` is a topological space and `Y` a metric space (matching the informal setup). `f : ℕ → X → Y` with `hf : ∀ n, Continuous (f n)` captures \"a sequence of continuous functions.\" `x : ℕ → X` with `hx : Tendsto x atTop (𝓝 x₀)` captures \"x_n converging to x.\" `TendstoUniformly f f₀ atTop` is Mathlib's standard definition of uniform convergence, which on a metric space coincides with the usual ε-uniform convergence notion. The conclusion `Tendsto (λ n => f n (x n)) atTop (𝓝 (f₀ x₀))` directly states that f_n(x_n) converges to f(x). No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 38859,
+  "cost_usd": 0.17132625
+}

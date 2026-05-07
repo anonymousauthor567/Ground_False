@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one closely: it quantifies over an arbitrary group `G`, a nonempty index type `I` (mirroring \"nonempty collection\"), a family `H : I → Subgroup G` of subgroups, and the hypothesis that each `H i` is `Normal`. The conclusion `Normal (⨅ (i : I), H i)` is exactly \"the intersection is normal\", since `⨅` in the `Subgroup G` lattice is by definition the pointwise intersection (verified via `Subgroup.mem_iInf` in Mathlib). The `[Nonempty I]` hypothesis directly corresponds to the informal \"nonempty collection\" requirement. The statement is logically equivalent to the informal claim — neither weaker nor stronger — and matches the Mathlib idiom `normal_iInf_normal`.",
+  "duration_ms": 70905,
+  "cost_usd": 0.22136675
+}

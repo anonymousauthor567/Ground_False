@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "informal": "Suppose $T \\in \\mathcal{L}(V)$ is self-adjoint, $\\lambda \\in \\mathbf{F}$, and $\\epsilon>0$. Prove that if there exists $v \\in V$ such that $\\|v\\|=1$ and $\\|T v-\\lambda v\\|<\\epsilon,$ then $T$ has an eigenvalue $\\lambda^{\\prime}$ such that $\\left|\\lambda-\\lambda^{\\prime}\\right|<\\epsilon$.",
+  "lean": "\ntheorem Axler_exercise_7_14 {𝕜 V : Type*} [RCLike 𝕜] [NormedAddCommGroup V]\n  [InnerProductSpace 𝕜 V] [FiniteDimensional 𝕜 V]\n  {T : Module.End 𝕜 V} (hT : IsSelfAdjoint T)\n  {l : 𝕜} {ε : ℝ} (he : ε > 0) : (∃ v : V, ‖v‖= 1 ∧ ‖T v - l • v‖ < ε) →\n  (∃ l' : T.Eigenvalues, ‖l - l'‖ < ε)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim accurately: T is a self-adjoint endomorphism of a finite-dimensional inner product space over RCLike 𝕜 (which corresponds to F = ℝ or ℂ in Axler), λ ∈ 𝕜, ε > 0. The hypothesis ∃ v, ‖v‖ = 1 ∧ ‖T v - l • v‖ < ε matches the informal hypothesis exactly. The conclusion ∃ l' : T.Eigenvalues, ‖l - l'‖ < ε uses Mathlib's subtype of eigenvalues of T (those scalars μ with HasEigenvalue), and ‖l - l'‖ in RCLike is the absolute value |λ - λ'|, so this matches \"T has an eigenvalue λ' with |λ - λ'| < ε\". Finite-dimensionality is implicit in Axler's setup (T ∈ L(V) presupposes finite-dim V in his book), so adding [FiniteDimensional 𝕜 V] is faithful rather than a strengthening or weakening.",
+  "duration_ms": 16333,
+  "cost_usd": 0.0741435
+}

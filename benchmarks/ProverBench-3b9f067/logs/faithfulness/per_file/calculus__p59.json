@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p59.lean",
+  "stem": "calculus__p59",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the double integral ∬_R (11 - 2x - 3y²) dxdy over R = [1,3] × [-2,5] equals -168. The Lean formalization encodes this as an iterated Bochner integral ∫ x in Icc 1 3, ∫ y in Icc (-2) 5, (11 - 2x - 3y²) = -168 with the standard (Lebesgue) volume measure. Since the integrand is continuous and the rectangle is compact, f is bounded and integrable, so by Fubini's theorem the iterated integral equals the double integral over R. The function, the bounds [1,3] and [-2,5], and the target value -168 all match exactly. The unused `variable (f : ℝ → ℝ → ℝ) (R : Set (ℝ × ℝ))` declarations are shadowed by the `let` bindings inside the theorem and are not auto-bound as hypotheses because the body uses the let-bound versions. This is a standard and faithful Mathlib encoding of the informal claim.",
+  "duration_ms": 174753,
+  "cost_usd": 0.43022800000000005
+}

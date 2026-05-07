@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "informal": "If $\\mathcal{T}_\\alpha$ is a family of topologies on $X$, show that $\\bigcap \\mathcal{T}_\\alpha$ is a topology on $X$.",
+  "lean": "\ntheorem Munkres_exercise_13_4a1 (X I : Type*) (T : I → Set (Set X)) (h : ∀ i, is_topology X (T i)) :\n  is_topology X (⋂ i : I, T i)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary index type I and an arbitrary family T : I → Set (Set X) of collections that are each topologies on X (via the hypothesis `∀ i, is_topology X (T i)`), and concludes that the indexed intersection `⋂ i : I, T i` is also a topology on X. This is exactly the informal claim that the intersection of a family of topologies on X is a topology on X. The index type I is allowed to be empty or arbitrary, matching the informal \"family ${\\mathcal T}_\\alpha$\". Assuming `is_topology` is the standard predicate, the encoding is logically equivalent to the informal statement.",
+  "duration_ms": 13762,
+  "cost_usd": 0.04582000000000001
+}

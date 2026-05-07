@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a1.lean",
+  "stem": "putnam_2015_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the mathematical content of the informal statement. The hyperbola is restricted to the positive branch (p 0 > 0), which is a natural WLOG choice since the two branches of xy=1 are symmetric under (x,y) → (-x,-y); this symmetry is obvious mathematical context, and on this branch y=1/x is convex so the chord lies above the curve, making the integrand (PPline - 1/x) correctly represent the enclosed area (positive). The \"P between A and B\" is encoded as A_x < P_x < B_x; triangle area is encoded as MeasureTheory.volume of convexHull of the three points, which in ℝ² equals the triangle area. The maximization is correctly universally quantified over P' on the hyperbola between A and B. The conclusion equates the two integrals, each of which computes the area between a chord and the hyperbola. The PPline function is externally supplied but correctly constrained by hPPline for distinct x-coordinates, which applies to our A, P, B.",
+  "duration_ms": 558643,
+  "cost_usd": 1.3541780000000003
+}

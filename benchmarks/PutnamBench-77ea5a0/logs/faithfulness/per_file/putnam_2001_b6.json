@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_b6.lean",
+  "stem": "putnam_2001_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes the sequence as ℤ → ℝ but restricts the hypotheses (positivity and strict increase) to indices n ≥ 1, and the conclusion only references indices n-i and n+i with n > 0 and 1 ≤ i ≤ n-1 (so all referenced indices are ≥ 1). The values at n ≤ 0 are thus unconstrained but irrelevant, making this equivalent to a sequence indexed by positive integers. \"Increasing\" is interpreted as strictly increasing (a n < a(n+1)), which matches standard Putnam reading. The limit condition `Tendsto (fun n : ℤ => a(n+1)/(n+1)) atTop (𝓝 0)` on ℤ is equivalent to lim_{m→∞} a_m/m = 0 via index shift. The conclusion `Set.Icc 1 (n-1)` captures i = 1,...,n-1, matching the informal quantification (vacuously true when n=1). The iff with `putnam_2001_b6_solution` lets the True/False answer encode the yes/no question faithfully.",
+  "duration_ms": 262108,
+  "cost_usd": 0.6253492500000001
+}

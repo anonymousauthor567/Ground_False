@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `hG` captures Herstein's standard convention that \"no proper subgroups\" means every subgroup is either the whole group (⊤) or the trivial subgroup (⊥). The `h_nontrivial` hypothesis makes explicit an implicit premise needed for truth: without it, the trivial group $G = \\{e\\}$ would vacuously satisfy the hypothesis but fail the conclusion (order 1 is not prime). Per the rubric, surfacing such implicit premises is a faithful reading, not a weakening. The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` correctly encodes \"cyclic of prime order\", since `Nat.card G = p` with `p` prime forces G to be finite of that prime order. No hypotheses are silently added or dropped beyond what's implicit in the mathematical content.",
+  "duration_ms": 70183,
+  "cost_usd": 0.18080849999999998
+}

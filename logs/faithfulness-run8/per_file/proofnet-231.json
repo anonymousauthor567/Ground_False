@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures each piece of the informal statement: `hp : p.Prime` encodes \"p is prime\"; `[Fintype G] [Group G]` together with `hG : card G = p ^ α` encodes \"G is a (finite) group of order p^α\"; `α : ℕ` with `ha : α > 0` precisely matches \"α ∈ ℤ⁺\"; and `∀ H : Subgroup G, H.index = p → H.Normal` matches \"every subgroup of index p is normal.\" The Mathlib `Subgroup.index` is defined as `Nat.card (G ⧸ H)`, which agrees with the standard notion of index. The types and quantifier structure line up, and no hypothesis is dropped or added beyond what the informal statement requires.",
+  "duration_ms": 37810,
+  "cost_usd": 0.16108825000000002
+}

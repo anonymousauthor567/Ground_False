@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_b1.lean",
+  "stem": "putnam_2018_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal Putnam 2018 B1 problem. P is defined as the Finset of vectors (a,b) with 0 ≤ a ≤ 2 and 0 ≤ b ≤ 100. Pvdiff = P \\ {v}. The partition conditions Q ∪ R = Pvdiff and Q ∩ R = ∅ correctly encode a disjoint partition. Q.card = R.card captures \"equal size\", and the two sum equalities on components 0 and 1 correctly capture \"equal sum\" of vectors (vector sum is componentwise). The biconditional with the solution set is faithful: when v ∉ P, the LHS is false via the v ∈ P conjunct, and the solution set {v | ∃ b, 0 ≤ b ≤ 100, Even b, v = ![1,b]} is automatically contained in P, so the iff behaves correctly in all cases. No hypotheses are dropped or added relative to the informal statement.",
+  "duration_ms": 417997,
+  "cost_usd": 1.1996815
+}

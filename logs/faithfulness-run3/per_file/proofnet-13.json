@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the mathematical content of \"x^n - p is irreducible in ℚ[x] for p prime.\" Encoding p as `p : ℕ` with `Prime p` matches the standard reading of \"prime integer\" in Artin (positive primes); in any case, irreducibility of x^n - p in ℚ[x] for a negative prime p = -q is equivalent to irreducibility of x^n + q, so the positive-prime restriction here does not change the substantive claim. The hypothesis `n > 0` is an implicit premise: for n = 0 the polynomial becomes 1 - p, which is a nonzero constant unit in ℚ[x] and hence not irreducible, so the informal statement is literally false without n ≥ 1. Making this explicit is a faithful surfacing of an implicit premise. The coercion `(p : Polynomial ℚ)` is the standard encoding, and `Irreducible` in Mathlib matches the usual notion.",
+  "duration_ms": 211206,
+  "cost_usd": 0.1271565
+}

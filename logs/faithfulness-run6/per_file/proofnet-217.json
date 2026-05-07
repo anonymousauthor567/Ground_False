@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that A × B is abelian iff both A and B are abelian, under the implicit assumption that A and B are groups (needed for A × B to even be a group). The Lean statement captures this with `[Group A] [Group B]` instance arguments and expresses \"abelian\" directly via the commutativity property `∀ x y, x * y = y * x`, which is the defining property of an abelian group. The product's multiplication in Mathlib is defined componentwise, so `∀ x y : A × B, x * y = y * x` is exactly the claim that the product group is abelian. Both directions of the iff are stated, and the quantifier structure and conclusion match the informal statement precisely.",
+  "duration_ms": 17484,
+  "cost_usd": 0.04188875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-110.lean",
+  "stem": "proofnet-110",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Munkres Exercise 13.8(b). The collection T is correctly encoded as open intervals Ioo a b with rational endpoints a < b. The three conjuncts are: (1) the covering condition ∀ x, ∃ S ∈ T, x ∈ S (equivalent to ⋃₀ T = univ), (2) the basis intersection property (exactly matching Mathlib's IsTopologicalBasis.exists_subset_inter), and (3) generateFrom T ≠ lower_limit_topology ℝ. Together, conjuncts (1) and (2) assert \"T is a basis\" in the classical Munkres sense (§13), while (3) asserts that the generated topology differs from the lower limit topology. The hypothesis `hT` merely names T and is not a restriction. The types (ℝ, ℚ with coercions) match the informal statement, and no extra assumptions or omissions are present.",
+  "duration_ms": 83671,
+  "cost_usd": 0.27644199999999997
+}

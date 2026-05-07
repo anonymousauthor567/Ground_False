@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b3.lean",
+  "stem": "putnam_1988_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `hr` defines r n for n ≥ 1 as the minimum of |c - d√3| over nonnegative integers c, d with c + d = n: the existential clause asserts the minimum is attained, and the universal clause asserts r n is a lower bound—together characterizing the minimum exactly as the informal statement requires. The conclusion uses `IsLeast` on the set of positive reals g satisfying r n ≤ g for all n ≥ 1, which means the solution is both an element of this set (it is positive and bounds all r_n) and a lower bound for the set (every valid g is ≥ it). This precisely captures \"the smallest positive real number g with r_n ≤ g for all n ∈ N.\" The types (integers for c, d, n; reals for r_n and g), the nonnegativity constraints, and the restriction to n ≥ 1 all correspond directly to the informal statement.",
+  "duration_ms": 193353,
+  "cost_usd": 0.52883225
+}

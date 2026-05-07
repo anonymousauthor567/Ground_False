@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a1.lean",
+  "stem": "putnam_1979_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem: \"find positive integers n, a_1,...,a_n summing to 1979 that maximize the product\". The multiset encoding handles symmetry (since sum and product don't depend on order). The predicate P encodes each required condition: `Multiset.card a > 0` gives positive n, `∀ i ∈ a, i > 0` gives positive a_i, and `a.sum = 1979` gives the sum constraint. The conclusion `P solution ∧ ∀ a, P a → solution.prod ≥ a.prod` correctly asserts that the provided witness (659 threes and a 2, summing to 1979) is valid and achieves the maximum product over all valid configurations — which is exactly what \"attains the greatest value\" means. This matches the standard PutnamBench pattern for \"find the maximizer\" problems.",
+  "duration_ms": 163963,
+  "cost_usd": 0.44769149999999996
+}

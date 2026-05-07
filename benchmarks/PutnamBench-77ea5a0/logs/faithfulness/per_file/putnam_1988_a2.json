@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a2.lean",
+  "stem": "putnam_1988_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. It correctly encodes $f(x) = e^{x^2}$, the existence of an open interval $(a,b)$ (via `a < b` and `Ioo a b`), and the wrong product rule equation $(fg)' = f'g'$ on $(a,b)$. The phrase \"nonzero function $g$\" is naturally encoded as `∃ x ∈ Ioo a b, g x ≠ 0` (not identically zero), which is the standard reading. The explicit `DifferentiableOn ℝ g (Ioo a b)` hypothesis makes explicit an implicit premise of the informal problem — the \"wrong product rule\" equation $(fg)' = f'g'$ presupposes that $g$ has a derivative, so this is surfacing an implicit premise rather than adding an unwarranted restriction. Since $f$ is globally differentiable, all derivatives on the open interval are well-defined. The biconditional with `putnam_1988_a2_solution` correctly frames the yes/no existence question.",
+  "duration_ms": 131672,
+  "cost_usd": 0.41311624999999996
+}

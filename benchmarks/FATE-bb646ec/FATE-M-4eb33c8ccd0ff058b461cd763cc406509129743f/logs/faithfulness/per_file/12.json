@@ -1,0 +1,8 @@
+{
+  "file": "12.lean",
+  "stem": "12",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says: for any ring R with unit, there is a unique ring homomorphism ℤ → R sending 1 to 1_R. In Mathlib, `Ring R` is exactly a ring with unit, and `ℤ →+* R` (i.e., `RingHom`) is by definition a unital ring homomorphism: it automatically preserves 1 (it extends `MonoidHom` and `MonoidWithZeroHom`). Therefore the \"1 ↦ 1_R\" condition in the informal statement is already encoded in the type `ℤ →+* R`, and no extra predicate is needed — `True` correctly imposes no further restriction. The Lean statement `∃! f : ℤ →+* R, True` thus asserts exactly \"there is a unique unital ring homomorphism ℤ → R\", matching the informal content. This is consistent with `Int.subsingleton_ringHom` and the existence of `Int.castRingHom` in Mathlib.",
+  "duration_ms": 156662,
+  "cost_usd": 0.39098949999999993
+}

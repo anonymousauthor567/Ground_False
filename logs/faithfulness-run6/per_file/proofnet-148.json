@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "Mathlib defines `Irrational x` as `x ∉ Set.range ((↑) : ℚ → ℝ)`, which matches the informal notion of \"not rational\" for a real number. The Lean signature introduces `x : ℝ`, a rational `y : ℚ` with `hy : y ≠ 0` (matching the informal `r ≠ 0`), hypothesizes `Irrational x`, and concludes `Irrational (x + y)` where `y` is auto-coerced to ℝ. Since addition is commutative in ℝ, `x + y` matches `r + x` from the informal statement. The quantifier structure, hypotheses, and conclusion all correspond exactly to the informal claim. This is a strictly faithful formalization.",
+  "duration_ms": 41794,
+  "cost_usd": 0.1949695
+}

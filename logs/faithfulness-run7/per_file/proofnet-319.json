@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` faithfully expresses \"U is open iff none of its points are limits of its complement.\" In Mathlib, `ClusterPt x (𝓟 Uᶜ)` unfolds (via `clusterPt_principal_iff`) to \"every neighborhood of x meets Uᶜ,\" i.e., x is an adherent/limit point of Uᶜ — the standard topological reading of \"p is a limit of the set Uᶜ.\" The iff direction, the universal quantifier \"∀ x ∈ U\", and the negation \"¬ ClusterPt\" correctly encode \"none of its points are limits of its complement.\" The generalization from the metric-space setting to `TopologicalSpace M` is the natural abstract setting for this characterization (U open ⇔ Uᶜ closed ⇔ Uᶜ = closure Uᶜ ⇔ no point of U lies in closure Uᶜ), and it captures exactly the same mathematical content.",
+  "duration_ms": 177045,
+  "cost_usd": 0.5621269999999999
+}

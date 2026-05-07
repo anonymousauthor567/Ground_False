@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any group of order 9 must be abelian. The Lean statement takes an arbitrary type G with a Group instance, a Fintype instance, and a hypothesis that card G = 9, and concludes ∀ a b : G, a * b = b * a. The condition ∀ a b, a * b = b * a is exactly the definition of being abelian (commutative). The universal quantification over groups is correctly captured by taking G as a Type* parameter. The hypothesis card G = 9 (with Fintype) correctly encodes \"group of order 9\". This is a strictly faithful formalization.",
+  "duration_ms": 16884,
+  "cost_usd": 0.036021750000000005
+}

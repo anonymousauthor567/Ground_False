@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `orderOf x = 0`, which by Mathlib's `orderOf_eq_zero_iff` is equivalent to `¬IsOfFinOrder x`, i.e., x has infinite order — matching the informal hypothesis. The conclusion \"∀ n m : ℤ, n ≠ m → x^n ≠ x^m\" (with `zpow` implicit) is exactly the statement that the family of elements {x^n : n ∈ ℤ} is injectively indexed, i.e., \"all x^n are distinct.\" Types and quantifiers match the informal statement, and no extra or missing hypotheses are introduced.",
+  "duration_ms": 24262,
+  "cost_usd": 0.13590275
+}

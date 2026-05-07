@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b1.lean",
+  "stem": "putnam_1974_b1",
+  "verdict": "incomparable",
+  "reasoning": "The Lean solution predicate `∃ B > 0, ∃ o : Equiv.Perm (Fin 5), ∀ i, dist (p (o i)) (p (o (i + 1))) = B` does not correctly characterize \"regular pentagon configurations on the unit circle\". Counterexample: take p = (A, B, C, A, B) where A, B, C are vertices of an equilateral triangle inscribed in the unit circle. All 5 cyclic distances equal √3 under the identity permutation, so p satisfies the Lean predicate. But p is not a regular pentagon, and its pairwise distance sum (8√3 ≈ 13.86) is strictly less than the regular pentagon's sum (≈ 15.39). Thus the Lean iff asserts \"maximizers = {equal-cyclic-distance configs}\" while the informal asserts \"maximizers = {regular pentagons}\"; since regular pentagons ⊊ equal-cyclic-distance configs, these are genuinely different biconditional claims. Neither implies the other (informal is consistent with the triangle config not being optimal, but the Lean iff fails on that config), so the two statements are logically incomparable.",
+  "duration_ms": 1139947,
+  "cost_usd": 3.02158
+}

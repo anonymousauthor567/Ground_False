@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_b3.lean",
+  "stem": "putnam_1984_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: it universally quantifies over finite types F (via `Fintype F`) with cardinality ≥ 2, asserts the existence of a binary operation `mul : F → F → F`, and requires for all x, y, z that both right-cancellation (`mul x z = mul y z → x = y`) and non-associativity (`mul x (mul y z) ≠ mul (mul x y) z`) hold. The quantifier structure `∃ mul, ∀ x y z, P ∧ Q` correctly matches \"there exists * such that for all x, y, z, (i) and (ii)\". The \"prove or disprove\" framing is handled by the iff with `putnam_1984_b3_solution` (which is set to `True`). No hypotheses are added or dropped, no types changed, and the conclusion is intact.",
+  "duration_ms": 41366,
+  "cost_usd": 0.14019725
+}

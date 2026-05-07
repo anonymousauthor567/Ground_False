@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any group of order 5 is abelian. The Lean signature takes an arbitrary type G with a Group structure and Fintype instance, assumes `card G = 5` (i.e., the group has order 5), and concludes `∀ a b : G, a*b = b*a`, which is the standard definition of abelian/commutative. The universal quantification over G is handled by introducing G as a type variable. The conclusion is logically equivalent to saying G is abelian. No extra hypotheses are added and none are dropped, so the formalization is faithful.",
+  "duration_ms": 6834,
+  "cost_usd": 0.0341485
+}

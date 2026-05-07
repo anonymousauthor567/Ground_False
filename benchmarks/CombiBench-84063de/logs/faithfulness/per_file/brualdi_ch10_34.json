@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch10_34.lean",
+  "stem": "brualdi_ch10_34",
+  "verdict": "weaker",
+  "reasoning": "The Lean conclusion `∃ I, Nonempty (SteinerTripleSystem 2 3 (v^t) I)` is trivially satisfiable by choosing I = 0 and blocks = ∅. With I = 0, the `block_inner` condition requires only `∃ f : Fin 0 ↪ blocks, ∀ i, s ⊆ f i`, which is vacuously true (the empty function is trivially an embedding, and the universal over Fin 0 is vacuous). The hypothesis `Nonempty (SteinerTripleSystemOfIndOne 2 3 v)` forces v ≥ 1 (for carrier : Fin v), so v^t ≥ 1 and the carrier Fin (v^t) is inhabited. Thus the Lean theorem is trivially provable, whereas the informal statement asserts a substantive construction of an actual Steiner-type design on v^t varieties (a product construction from Brualdi Ch. 10). Any proof of the informal claim yields the Lean claim, but not vice versa, so the Lean formalization is strictly weaker.",
+  "duration_ms": 587100,
+  "cost_usd": 1.1959417499999998
+}

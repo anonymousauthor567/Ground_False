@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_a3.lean",
+  "stem": "putnam_2005_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement's content: p is a polynomial of degree n with all zeros on the unit circle, g(z) = p(z)/z^(n/2) is encoded via `cpow` (the standard complex power), and the conclusion says any z where g is differentiable with g'(z) = 0 (and z ≠ 0) has |z|=1. The `0 < n` hypothesis is necessary to exclude the trivial n=0 case (where p is a constant and g' ≡ 0 trivially), which would make the informal claim literally false — this is surfacing an implicit premise. The `z ≠ 0` hypothesis is redundant (since g has a pole at 0 and isn't differentiable there) but not harmful. Using `DifferentiableAt ∧ deriv g z = 0` is the standard encoding of \"g'(z) = 0\" since Mathlib's `deriv` returns 0 at non-differentiable points by convention. The branch-cut subtlety for odd n (where cpow uses the principal branch) doesn't affect faithfulness, as any \"missed\" zeros on the cut would still satisfy |z|=1.",
+  "duration_ms": 852052,
+  "cost_usd": 2.2778090000000004
+}

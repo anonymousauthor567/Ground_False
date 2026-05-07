@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p4_1.lean",
+  "stem": "complex_analysis__p4_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that for the imaginary unit $i$ (with $i^2 = -1$), $i^{73} = i$. The Lean file opens the `Complex` namespace so `I` refers to `Complex.I`, which is Mathlib's imaginary unit satisfying `I^2 = -1` (confirmed via `Complex.I_sq` in `Mathlib/Data/Complex/Basic.lean`). The theorem `I ^ 73 = I` directly asserts the same equality as the informal statement, over `ℂ`, with no added or dropped hypotheses. This is a strictly faithful formalization.",
+  "duration_ms": 24025,
+  "cost_usd": 0.07097075
+}

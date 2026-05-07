@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement \"∀ N, ∃ n > N, ...\" is the standard equivalent encoding of \"there exist infinitely many n\" over the naturals. Using ℕ instead of ℤ for n is harmless: an integer that is a sum of two integer squares is necessarily non-negative, so the informal \"infinitely many integers\" and the Lean \"infinitely many naturals\" pick out the same set. Similarly, representing the squares via `i : Fin 6 → ℕ` (six naturals giving three pairs) is equivalent to \"sum of squares of two integers\" because any integer square equals a natural square (|a|² = a²) and the target values n, n+1, n+2 are non-negative. The three conjoined equations match the three conditions (n, n+1, n+2 each being a sum of two squares) exactly. No hypotheses are added or dropped; the claim is logically equivalent to the informal statement.",
+  "duration_ms": 54026,
+  "cost_usd": 0.18788999999999997
+}

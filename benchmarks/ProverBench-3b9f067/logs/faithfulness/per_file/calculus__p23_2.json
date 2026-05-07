@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p23_2.lean",
+  "stem": "calculus__p23_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims that $\\lim_{n\\to\\infty} \\frac{3^n+2^n}{3^{n+1}-2^{n+1}} = \\frac{1}{3}$. However, the file does NOT contain a theorem statement that asserts this limit equals 1/3. Instead, the only actual `lemma` (the non-axiom statement being evaluated) is `geometric_limit`, which merely asserts that $(2/3)^n \\to 0$. This is a strictly weaker auxiliary fact — it is needed as one step in proving the informal statement, but it does not imply the informal claim on its own (we would also need the algebraic rewriting, which is stated as an unproved `axiom`, not proved). The lemma `geometric_limit` does not mention `a_n`, does not mention the limit 1/3, and is logically implied by (a lemma needed for) the informal statement but does not imply it. Therefore, the Lean formalization is weaker than the informal statement.",
+  "duration_ms": 186964,
+  "cost_usd": 0.5373954999999999
+}

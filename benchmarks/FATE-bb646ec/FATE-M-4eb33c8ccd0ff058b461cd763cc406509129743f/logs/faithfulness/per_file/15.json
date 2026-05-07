@@ -1,0 +1,8 @@
+{
+  "file": "15.lean",
+  "stem": "15",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `[Ring R]` in Mathlib denotes a unital ring (it extends `Semiring` which provides `1`), matching \"ring with identity 1\". The informal \"there exists y with xy=1 and there exists z with zx=1 implies y=z\" is standardly encoded via universal quantification over y, z with hypotheses `hy : x * y = 1` and `hz : z * x = 1`, which is logically equivalent. The hypothesis `hx : x ≠ 0` matches \"$x$ not equal to zero\" (even though mathematically unnecessary for the proof, it appears in the informal problem, so including it preserves faithfulness). The conclusion `y = z` matches exactly.",
+  "duration_ms": 73758,
+  "cost_usd": 0.20544725
+}

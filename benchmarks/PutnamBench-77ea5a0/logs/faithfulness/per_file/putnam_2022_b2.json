@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b2.lean",
+  "stem": "putnam_2022_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal question. A `Finset (Fin 3 → ℝ)` with `S.card = n` correctly models \"a set with exactly n elements in ℝ³\" (finite by construction). The `0 < n` hypothesis matches \"positive integer n\" in the informal problem. The equation `S = {u | ∃ v w : S, u = crossProduct v w}` uses the standard Finset→Set coercion (from Mathlib's SetLike instance) with the subtype CoeSort `v w : S` ranging over elements of S, so this exactly expresses \"S = {v × w : v, w ∈ S}\" using Mathlib's standard `crossProduct` from `LinearAlgebra/CrossProduct.lean`. The iff characterizes the solution set as exactly the positive integers n for which such S exists, matching the informal question's scope. No hypotheses are added or dropped, and the conclusion is preserved.",
+  "duration_ms": 371514,
+  "cost_usd": 0.9083287500000001
+}

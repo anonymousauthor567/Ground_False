@@ -1,0 +1,8 @@
+{
+  "file": "142.lean",
+  "stem": "142",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a direct, equivalent translation of the informal claim. `[CommRing R] [CommRing S]` encodes \"R and S commutative\"; `f : R →+* S` encodes the ring homomorphism; `P : Ideal S` with `Ideal.IsPrime P` encodes \"P is a prime ideal of S\"; and `Ideal.comap f P` is defined in Mathlib (Mathlib/RingTheory/Ideal/Maps.lean) exactly as the set-theoretic preimage `f ⁻¹' I` equipped with its ideal structure, matching \"f^{-1}(P)\". The conclusion `Ideal.IsPrime (Ideal.comap f P)` captures \"is a prime ideal of R\". No hypotheses are silently added or dropped; the quantifier structure and all types match the informal statement.",
+  "duration_ms": 46580,
+  "cost_usd": 0.1791085
+}

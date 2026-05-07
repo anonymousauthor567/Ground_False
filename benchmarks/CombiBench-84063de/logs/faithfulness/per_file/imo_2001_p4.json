@@ -1,0 +1,8 @@
+{
+  "file": "imo_2001_p4.lean",
+  "stem": "imo_2001_p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal IMO 2001 P4 statement. The index set `Finset.Icc 1 m` (subtype of ℕ) corresponds to $\\{1, \\ldots, m\\}$, `Equiv.Perm (Finset.Icc 1 m)` is the group of permutations on these integers, and `n : Finset.Icc 1 m → ℤ` gives the integer sequence $n_1, \\ldots, n_m$. The definition `f n x = ∑ i, x i * n i` computes $\\sum_{i=1}^m x(i) \\cdot n_i$ (with `x i` coerced from the subtype to ℤ), matching the informal $f(x) = x_1 n_1 + \\cdots + x_m n_m$ where $x_i$ denotes the $i$-th component of the permutation. Both hypotheses `h_m_pos : m > 1` and `h_m_odd : Odd m` appear explicitly, and the conclusion `∃ a b, a ≠ b ∧ ↑(m!) ∣ (f n a - f n b)` precisely captures \"for some distinct permutations $a, b$, $f(a) - f(b)$ is a multiple of $m!$\". No hypotheses are added or dropped, and no types or quantifiers are changed.",
+  "duration_ms": 234151,
+  "cost_usd": 0.8098777500000001
+}

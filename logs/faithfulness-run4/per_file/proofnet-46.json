@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `[IsSolvable G]` encodes solvability of $G$; `H ≠ ⊥` together with `[H.Normal]` encodes \"$H$ is a nontrivial normal subgroup of $G$\". The conclusion `∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a` asserts the existence of a nontrivial subgroup $A$ of $H$ that is normal in $G$ (Mathlib's `Subgroup.Normal` is with respect to the ambient group $G$, since `A : Subgroup G`) and abelian (commutativity of its elements). No hypothesis is added or dropped, and no conclusion is weakened or strengthened.",
+  "duration_ms": 84151,
+  "cost_usd": 0.33182999999999996
+}

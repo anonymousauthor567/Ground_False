@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly corresponds to the informal statement. \"Finite subgroups H and K\" is encoded as `(H K : Subgroup G)` with `[Fintype H] [Fintype K]`. \"Orders are relatively prime\" becomes `Nat.Coprime (card H) (card K)` where `card` resolves to `Fintype.card` due to `open Fintype`, which for a subgroup is its order. \"H ∩ K = 1\" is encoded as `H ⊓ K = ⊥`, which is the standard Mathlib way of saying the intersection is the trivial subgroup. The group G is left arbitrary as a universally quantified type, matching the informal \"G\". The Mathlib lemma `Subgroup.inf_eq_bot_of_coprime` in `GroupTheory/Index.lean` uses exactly this formalization pattern.",
+  "duration_ms": 35319,
+  "cost_usd": 0.12192075
+}

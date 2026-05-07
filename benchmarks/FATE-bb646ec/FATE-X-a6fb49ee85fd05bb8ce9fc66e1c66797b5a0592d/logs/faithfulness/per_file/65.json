@@ -1,0 +1,8 @@
+{
+  "file": "65.lean",
+  "stem": "65",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `IsGorensteinLocalRing` extends `IsLocalRing` and `IsNoetherianRing` and asserts ∃n, ∀i≥n, Ext^i(k, R) vanishes — which is equivalent to \"inj.dim_R R < ∞\" by Bass's classical theorem for Noetherian local rings (inj.dim_R R = sup{i : Ext^i(k,R) ≠ 0}). (2) `IsGorensteinRing` extends `IsNoetherianRing` and requires every localization at a maximal ideal to be `IsGorensteinLocalRing`, matching the informal definition exactly. (3) The theorem `[IsGorensteinRing R] → IsGorensteinRing R[X]` correctly encodes \"if A is Noetherian Gorenstein, then A[X] is Noetherian Gorenstein\" (Noetherian-ness is absorbed into `IsGorensteinRing`). The Mathlib convention `Ext X Y n = Ext^n(X, Y)` is applied correctly. The Type-0 universe restriction is an implementation choice common in Mathlib formalizations using specific ModuleCat universes, not a semantic weakening.",
+  "duration_ms": 652891,
+  "cost_usd": 1.36180275
+}

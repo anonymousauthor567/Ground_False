@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the two defining conditions of the `Sylow p H` structure applied to `P.subgroupOf H` (i.e., P viewed as a subgroup of H): being a p-group and being maximal among p-subgroups of H. Since `P.subgroupOf H = P.comap H.subtype` is the canonical way to view P as a subgroup of H when `P ≤ H`, this precisely formalizes \"P ∈ Syl_p(H)\". The hypothesis `hH : P ≤ H` correctly captures \"H contains P\", and `P : Sylow p G` captures \"P ∈ Syl_p(G)\". The conjunction of `isPGroup'` and `is_maximal'` is exactly the Sylow condition in Mathlib, so no hypotheses are added or dropped, no quantifier structure is altered, and the conclusion matches the informal claim exactly.",
+  "duration_ms": 58055,
+  "cost_usd": 0.22777325
+}

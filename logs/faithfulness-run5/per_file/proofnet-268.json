@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "weaker",
+  "reasoning": "The Lean formalization correctly captures the \"no common disturbance\" hypothesis (h1) and the product-is-identity condition (h2: τ ∘ σ = id is equivalent to στ = 1 in the group Perm α, since left/right inverses coincide). The conclusion σ = 1 ∧ τ = 1 matches \"σ = τ = e\". However, the Lean statement adds a `[Fintype α]` hypothesis that the informal statement does not require. The claim holds for arbitrary permutations of any set (finite or infinite): from στ = 1 we get τ = σ⁻¹, and if σ(x) ≠ x then τ(x) = σ⁻¹(x) ≠ x, contradicting h1 — this argument does not use finiteness. Since Fintype is not a premise needed for truth (it's a true but unnecessary restriction), and the instructions explicitly flag \"assuming Fintype that the informal statement does not require\" as a form of drift, this narrows scope and makes the Lean statement logically weaker.",
+  "duration_ms": 222164,
+  "cost_usd": 0.67285925
+}

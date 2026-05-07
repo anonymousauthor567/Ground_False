@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The informal statement uses |x| for the order of an element x in a group G, which corresponds exactly to `orderOf x` in Mathlib. The Lean biconditional `x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)` is logically equivalent to the informal claim: if x² = 1 then orderOf x divides 2 (and is nonzero since x has finite order in this case), giving orderOf x ∈ {1, 2}; conversely, if orderOf x = 1 then x = 1 so x² = 1, and if orderOf x = 2 then x² = x^(orderOf x) = 1. The group G is arbitrary (matching the informal \"G\"), and the element x is a free variable playing the role of a universally quantified element. No hypotheses are added or dropped, and the types and quantifier structure all match.",
+  "duration_ms": 31330,
+  "cost_usd": 0.1357845
+}

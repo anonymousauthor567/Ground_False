@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes $\\int_{-\\infty}^\\infty$ as a symmetric limit $\\lim_{y\\to\\infty}\\int_{-y}^{y}$ via `Tendsto ... atTop`. Since the integrand $\\cos x/(x^2+a^2)$ is absolutely integrable on $\\mathbb{R}$ (bounded by the integrable $1/(x^2+a^2)$), this symmetric limit coincides with the Lebesgue/improper integral, so the two formulations are equivalent. The hypothesis $a > 0$ matches, and the claimed value $\\pi e^{-a}/a$ matches the informal right-hand side. The variable $a$ is universally quantified in both, with the same type $\\mathbb{R}$. No hypotheses are added or dropped.",
+  "duration_ms": 20699,
+  "cost_usd": 0.093451
+}

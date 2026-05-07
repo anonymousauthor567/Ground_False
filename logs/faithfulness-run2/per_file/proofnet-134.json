@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "stronger",
+  "reasoning": "In Munkres (the source of this exercise), \"completely regular\" includes the T1 axiom (one-point sets are closed), i.e. it means Tychonoff / T₃.₅. Mathlib's `CompletelyRegularSpace`, however, is defined as only the separation property (continuous f to [0,1] separating a point from a closed set) and does NOT require T0/T1 — T₃.₅ is captured by `T35Space`, which combines `CompletelyRegularSpace` with `T0Space`. The Lean signature therefore drops the T1 hypothesis that Munkres builds into \"completely regular,\" so it claims the biconditional for a strictly larger class of spaces than Munkres asserts. The conclusion `IsConnected (univ : Set X) ↔ IsConnected (univ : Set (StoneCech X))` otherwise faithfully renders \"X is connected iff βX is connected,\" but because the hypothesis is weaker, the Lean statement logically implies (a superset of) the informal claim while the informal claim does not imply the Lean one — so Lean is strictly stronger.",
+  "duration_ms": 295178,
+  "cost_usd": 0.8150232
+}

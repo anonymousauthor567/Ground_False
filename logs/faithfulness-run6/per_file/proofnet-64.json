@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if an integer n is the sum of two rational squares, then n is the sum of two integer squares. The Lean signature takes n : ℤ, r s : ℚ with hypothesis r^2 + s^2 = n (with automatic coercion of n to ℚ) and concludes there exist a b : ℤ with a^2 + b^2 = n. The pattern \"∀ r s, P(r,s) → Q\" is logically equivalent to \"(∃ r s, P(r,s)) → Q\", which is the standard way to render the informal \"if ..., then ...\". Types are correct (ℤ for n and the output, ℚ for the hypothesis witnesses), and no extra hypotheses have been added or dropped. This is a faithful formalization.",
+  "duration_ms": 21315,
+  "cost_usd": 0.095469
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The domain `I = Icc 0 1` matches $[0,1]$, the hypothesis `h` binds `f n x = x^n`, and the conclusion `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)` is the standard formalization of \"the sequence $(f_n(x))$ converges for each $x \\in [0,1]$\". The quantifier over `x : I` correctly ranges over $[0,1]$, and the existence of a limit `y` is exactly what convergence means. No hypotheses are added or dropped, and the types match.",
+  "duration_ms": 13009,
+  "cost_usd": 0.06663925
+}

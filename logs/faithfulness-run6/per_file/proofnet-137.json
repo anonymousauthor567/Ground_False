@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any norm on ℝ^m, the unit closed ball is compact. The Lean statement asserts that for any finite-dimensional real normed space E of dimension m, the closed ball `Metric.closedBall (0 : E) 1` is compact. Since `Metric.closedBall 0 1` in a normed space is exactly `{x | ‖x‖ ≤ 1}`, and any finite-dimensional real normed space of dimension m is linearly (hence topologically, as a normed-space isomorphism can be constructed) equivalent to ℝ^m equipped with some norm, the two formulations are logically equivalent: each direction can prove the other by transfer along such an isomorphism. The Lean version merely uses the abstract \"finite-dimensional real normed space of dim m\" encoding, which is the standard Mathlib idiom for \"ℝ^m with some norm.\" No hypothesis is dropped or added beyond what is required, and the conclusion (compactness of the unit closed ball) is exactly the informal claim.",
+  "duration_ms": 75316,
+  "cost_usd": 0.27063525
+}

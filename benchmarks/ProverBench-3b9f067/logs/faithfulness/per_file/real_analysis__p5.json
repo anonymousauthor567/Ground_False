@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p5.lean",
+  "stem": "real_analysis__p5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for all real a, b, c, d, if a²+b²+c²+d² = a(b+c+d), then a = b = c = d = 0. The Lean file declares `a b c d : ℝ` and `h : a^2 + b^2 + c^2 + d^2 = a * (b + c + d)` via `variable`. Because `h` is propositional and all its free variables (`a`, `b`, `c`, `d`) appear in the theorem's conclusion, Lean 4's auto-inclusion rule automatically adds `h` as a hypothesis of the theorem. Thus the effective signature is `∀ (a b c d : ℝ), a² + b² + c² + d² = a(b+c+d) → a = 0 ∧ b = 0 ∧ c = 0 ∧ d = 0`, which precisely matches the informal statement. The conjunction `a = 0 ∧ b = 0 ∧ c = 0 ∧ d = 0` is exactly the informal conclusion \"a = b = c = d = 0\".",
+  "duration_ms": 705498,
+  "cost_usd": 1.9141484999999994
+}

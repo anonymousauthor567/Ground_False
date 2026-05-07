@@ -1,0 +1,8 @@
+{
+  "file": "53.lean",
+  "stem": "53",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `Equiv.Perm (Fin n)` is the standard Mathlib representation of the symmetric group $S_n$, and `DihedralGroup n` in Mathlib has order $2n$ (per the `card` lemma: `Fintype.card (DihedralGroup n) = 2*n`), matching the standard convention for $D_n$ as the symmetry group of a regular $n$-gon. The existential `∃ (D : Subgroup (Equiv.Perm (Fin n))), Nonempty (DihedralGroup n ≃* D)` exactly captures \"$S_n$ has a subgroup isomorphic with $D_n$\". The `n ≥ 3` hypothesis matches the informal condition, and using `ℕ` in place of `ℤ` is immaterial given the lower bound.",
+  "duration_ms": 137995,
+  "cost_usd": 0.35022374999999994
+}

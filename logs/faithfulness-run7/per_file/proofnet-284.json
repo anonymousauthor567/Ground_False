@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `IsPrimitiveRoot a (p-1)` for `a : ZMod p` with p prime is equivalent to \"a is a primitive root modulo p\" (a has multiplicative order p-1, generating (ZMod p)ˣ). The hypotheses `hp0 : p.Prime` and `hp1 : p = 4*t + 1` correctly encode \"p is a prime of the form 4t+1\"; if t=0, then p=1 contradicts primality, so the theorem is vacuous there. The iff conclusion matches \"a is a primitive root iff -a is a primitive root\". Edge cases are fine: for a=0, both sides are false (since -0=0), so the iff trivially holds. No hypotheses are silently added or dropped, and the quantifier structure (universal over a : ZMod p) matches the informal \"a is a primitive root\".",
+  "duration_ms": 129462,
+  "cost_usd": 0.57292725
+}

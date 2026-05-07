@@ -1,0 +1,8 @@
+{
+  "file": "31.lean",
+  "stem": "31",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `R n := MvPolynomial (Fin n) ℂ ⧸ Ideal.span {∑ i, X i ^ 2}` correctly represents ℂ[x_1,...,x_n]/(x_1²+...+x_n²). The conclusion `∃ (h : IsDomain (R n)), UniqueFactorizationMonoid (R n)` is logically equivalent to `IsDomain (R n) ∧ UniqueFactorizationMonoid (R n)` since the body doesn't depend on h. This correctly captures \"UFD\" because in Mathlib, `UniqueFactorizationMonoid` extends `IsCancelMulZero` but not `Nontrivial`, so `IsDomain` is required separately to assert the full \"integral domain + unique factorization\" meaning of UFD. The hypothesis `n ≥ 5` matches the informal statement exactly. The universal quantification over n is correctly represented.",
+  "duration_ms": 378579,
+  "cost_usd": 0.6432375
+}

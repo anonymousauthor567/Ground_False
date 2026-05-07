@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all components of the informal definition: μ's positivity on (0,∞) via `∀ x > 0, μ x > 0` matching the codomain (0,∞); `ContinuousOn μ (Ioi 0)` for continuity; `StrictMonoOn μ (Ioi 0)` for strict monotonicity; `Tendsto μ (𝓝[>] 0) (𝓝 0)` for the limit at 0⁺; and the Lipschitz-like bound `|f s - f t| ≤ μ(|s - t|)`. Using `μ : ℝ → ℝ` rather than a function on `Ioi 0` is a harmless encoding, since all required properties are restricted to (0,∞) and the s=t case only forces μ(0) ≥ 0, which is always achievable. The `hab : a ≤ b` hypothesis is a standard implicit premise for [a,b] to be a well-formed interval. No hypotheses or conclusions are altered.",
+  "duration_ms": 62271,
+  "cost_usd": 0.23215275000000002
+}

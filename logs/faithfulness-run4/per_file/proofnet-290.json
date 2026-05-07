@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a counterexample exercise: \"the union does not need to be a topology\" is logically equivalent to \"there exists a family of topologies whose union is not a topology.\" The Lean signature captures this exactly as ∃ (X I : Type*) (T : I → Set (Set X)), (∀ i, is_topology X (T i)) ∧ ¬ is_topology X (⋃ i : I, T i). The indexed union ⋃ i : I, T i matches $\\bigcup \\mathcal{T}_\\alpha$, the `is_topology` predicate is the one defined at the top of the file, and the existential quantifier correctly encodes the \"does not need to be\" phrasing. The quantifier structure, hypotheses, and conclusion all align with the informal claim.",
+  "duration_ms": 42150,
+  "cost_usd": 0.14047274999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The sum `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` correctly encodes $1^k + 2^k + \\cdots + (p-1)^k$ because `n` ranges over `{0, ..., p-2}` and the `(n + 1 : ℕ)` ascription coerces `n` to ℕ via `.val` before adding 1, giving values `1, ..., p-1`. The hypothesis `hp : p.Prime` makes explicit the prime assumption implicit in the informal statement. The first conclusion uses `Nat.ModEq` (`a % p = b % p`), correctly expressing `s ≡ 0 (mod p)`. The second uses `Int.ModEq` (necessary because -1 is not a natural number), correctly expressing `s ≡ -1 (mod p)`. The conjunction structure matches the two-case informal statement exactly, and edge cases (p=2, k=0) check out.",
+  "duration_ms": 190484,
+  "cost_usd": 0.6328057500000002
+}

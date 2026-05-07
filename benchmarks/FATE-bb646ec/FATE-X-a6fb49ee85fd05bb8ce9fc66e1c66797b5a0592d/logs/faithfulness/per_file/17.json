@@ -1,0 +1,8 @@
+{
+  "file": "17.lean",
+  "stem": "17",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all components of the informal statement. (1) `K : Subfield ℂ` with `h_nmem : (Real.sqrt 2 : ℂ) ∉ K` matches \"K is a subfield of ℂ with √2 ∉ K\". (2) The maximality hypothesis `∀ L, K ≤ L → √2 ∉ L → K = L` is the standard encoding of \"K is maximal with the property √2 ∉ K\" (no proper superfield excludes √2). (3) The conclusion `Module.rank K ℂ = Cardinal.aleph0` precisely expresses \"countable and not finite\" — equality to ℵ₀ means countably infinite, which is exactly \"countable and not finite\" in standard Mathlib convention where `Cardinal.aleph0` = #ℕ. No hypotheses have been added or dropped, types match, and the quantifier structure is preserved.",
+  "duration_ms": 248368,
+  "cost_usd": 0.37206350000000005
+}

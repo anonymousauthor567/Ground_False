@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures Herstein 2.11.6. `P.Normal` for `P : Sylow p G` is defined as `Subgroup.Normal P.toSubgroup` (equivalent to normalizer = ⊤), matching \"P ⊲ G\". The conclusion `∀ Q : Sylow p G, P = Q` is exactly \"P is the only p-Sylow subgroup\" (via `Sylow.ext`). The prime hypothesis `hp : Nat.Prime p` is given explicitly. Although Herstein's context implicitly assumes G is finite and Mathlib's `unique_of_normal` requires `[Finite (Sylow p G)]`, the claim is mathematically true without finiteness (if P ⊲ G is a maximal p-subgroup and Q is any p-subgroup, PQ is a p-subgroup by the extension-of-p-groups argument, so PQ = P by maximality, giving Q ⊆ P, then Q = P by Q's maximality). The formalization captures the intended mathematical content without silently changing hypotheses, conclusion, or types.",
+  "duration_ms": 492962,
+  "cost_usd": 1.180411
+}

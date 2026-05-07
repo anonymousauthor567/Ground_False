@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p67.lean",
+  "stem": "calculus__p67",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is an antiderivative (indefinite integral) claim with an arbitrary constant of integration C. The Lean statement instead writes a DEFINITE integral `∫ x in Set.Icc 0 x, ...` over [0, x] (with variable shadowing: the integration bound `x` captures the theorem parameter while the integrand's `x` is a bound variable). Worse, `C` on the RHS is not declared anywhere, so it becomes an auto-bound universally quantified variable, making the Lean claim \"∀ x, ∀ C, ∫₀ˣ f(t) dt = g(x) + C\" — which is false for any non-trivial x. Even with a specific C, a faithful formalization of the antiderivative identity would require C = 9/20 (to account for the antiderivative evaluated at 0), not an arbitrary constant. The Lean statement changes the mathematical object (antiderivative → definite integral), has malformed variable binding, and makes a claim that is neither logically equivalent to, nor a pure weakening/strengthening of, the informal statement.",
+  "duration_ms": 118445,
+  "cost_usd": 0.2903405
+}

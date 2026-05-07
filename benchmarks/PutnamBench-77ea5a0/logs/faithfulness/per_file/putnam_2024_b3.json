@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_b3.lean",
+  "stem": "putnam_2024_b3",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `r_def` captures \"$r_n$ is the $n$th smallest positive solution to $\\tan x = x$\" correctly: `StrictMono r` gives ordering, `∀ x ∈ Ioo 0 (r 1), tan x ≠ x` ensures $r_1$ is the smallest positive solution, and for each n: `0 < r n`, `tan (r n) = r n`, and no solution in `(r n, r (n+1))` together enumerate all positive solutions in order. The conclusion `r (n+1) - r n - π ∈ Set.Ioo 0 (1/((n²+n)π))` unfolds exactly to $0 < r_{n+1} - r_n - \\pi < \\frac{1}{(n^2+n)\\pi}$. Using `n : ℕ+` matches \"$n \\geq 1$\". All components match the informal statement precisely.",
+  "duration_ms": 136934,
+  "cost_usd": 0.2678505
+}

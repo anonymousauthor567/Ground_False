@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts ∃ p : ℕ, ∃ P : Sylow p G, p.Prime ∧ p ∣ card G ∧ P.Normal, which exactly matches the informal claim that some prime p dividing |G| = 56 has a normal Sylow p-subgroup. Mathlib's `Sylow p G` is defined as a maximal p-subgroup; the separately asserted `p.Prime` and `p ∣ card G` hypotheses correctly restrict to genuine prime divisors of |G|, which matters because the trivial subgroup is a (normal) Sylow p-subgroup for primes not dividing |G|. The quantifier structure and all hypotheses/conclusions match the informal statement, with the hypothesis `hG : card G = 56` matching \"group of order 56\".",
+  "duration_ms": 67845,
+  "cost_usd": 0.20051574999999996
+}

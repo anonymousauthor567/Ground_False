@@ -1,0 +1,7 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "unclear",
+  "reasoning": "claude error: claude timeout after 1200s",
+  "error": true
+}

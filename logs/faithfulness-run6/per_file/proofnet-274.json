@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that f(x) = x³ + 3x + 2 is irreducible in ℚ[x]. The Lean statement asserts `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)`. Mathlib's `Irreducible` for an element of a monoid is defined as \"not a unit, and every factorization p = a*b has a or b a unit\", which in a polynomial ring over a field is exactly the standard notion of irreducibility. The polynomial `X^3 + 3*X + 2` in `Polynomial ℚ` matches x³ + 3x + 2 in ℚ[x] exactly. No hypotheses are added or removed, the ambient ring is correct, and the conclusion corresponds precisely to the informal claim.",
+  "duration_ms": 35917,
+  "cost_usd": 0.13677200000000003
+}

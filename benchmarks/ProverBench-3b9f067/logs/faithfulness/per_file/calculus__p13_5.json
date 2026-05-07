@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p13_5.lean",
+  "stem": "calculus__p13_5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the tangent line to f(x) = sec²x at (π/3, f(π/3)) is y = 8√3 x + 4 - 8√3 π/3, which equals 8√3(x - π/3) + 4. The Lean theorem conjoins two conditions: (1) `HasDerivAt f (8√3) (π/3)`, giving f'(π/3) = 8√3 (the slope), and (2) `f (π/3) = 8√3·(π/3 - π/3) + 4`, which simplifies to f(π/3) = 4 (asserting the point (π/3, f(π/3)) lies on the line). Together these two conditions are logically equivalent to the claim that y = 8√3 x + 4 - 8√3 π/3 is the tangent line of f at (π/3, f(π/3)): the derivative determines the slope and the function value ensures the line passes through the required point. This is the standard characterization of a tangent line, so the formalization is faithful.",
+  "duration_ms": 141231,
+  "cost_usd": 0.3685525
+}

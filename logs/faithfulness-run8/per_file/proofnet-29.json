@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for n > 1, (ℤ/nℤ, ·) is not a group. Since ZMod n is already a commutative monoid with identity 1 (it's a CommRing in Mathlib), and the identity of a monoid is unique, the question of whether the multiplicative structure is a group reduces exactly to whether every element has a two-sided multiplicative inverse relative to 1. The Lean statement `¬ (∀ x : ZMod n, ∃ y : ZMod n, x * y = 1 ∧ y * x = 1)` negates precisely this condition. The hypothesis `1 < n` matches \"n > 1\" in the informal statement, and the outer `n : ℕ` with hypothesis acts as the universal quantifier. This is a direct and logically equivalent encoding of \"ZMod n is not a group under multiplication\".",
+  "duration_ms": 133991,
+  "cost_usd": 0.43642775
+}

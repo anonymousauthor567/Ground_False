@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly what Rudin 4.8a asks: E is a bounded subset of ℝ (Bornology.IsBounded E), f is uniformly continuous on E (UniformContinuousOn f E, which is the standard Mathlib definition from Topology/UniformSpace/Defs.lean), and the conclusion is that the image f(E) is bounded (Bornology.IsBounded (Set.image f E))—equivalent to \"f is bounded on E\". Using f : ℝ → ℝ together with UniformContinuousOn f E is logically equivalent to f : E → ℝ being uniformly continuous, since both the hypothesis and the conclusion depend only on f's behavior on E. The placement of ∀ f after the colon is stylistic and does not change the meaning. No hypotheses are added or dropped.",
+  "duration_ms": 61626,
+  "cost_usd": 0.28699474999999997
+}

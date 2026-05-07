@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_a4.lean",
+  "stem": "putnam_1982_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean predicate `hdiffeq` encodes exactly the ODE system: y(0) = 1, z(0) = 0, and y'(x) = -z(x)³, z'(x) = y(x)³. The `ContDiff ℝ 1` requirement is slightly stronger than mere differentiability, but for this polynomial system every differentiable solution is automatically C¹ (since z differentiable ⟹ -z³ continuous), so the two readings agree. The uniqueness hypothesis `hfgonly` correctly encodes \"no other pair solves the system\". The conclusion uses `Function.Periodic`, which in Mathlib unfolds to `∀ x, f(x + L) = f x` — matching the informal \"f(x+L) = f(x), g(x+L) = g(x)\" (the \"f(x) + L\" in the informal is clearly a typo), and both f and g share the same positive period L as required. The structure — take unique solution as hypothesis, conclude existence of common positive period — matches the informal statement.",
+  "duration_ms": 92731,
+  "cost_usd": 0.29455
+}

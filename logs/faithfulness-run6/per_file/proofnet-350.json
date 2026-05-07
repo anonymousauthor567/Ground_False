@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of E : Set ℝ and f : ℝ → ℝ with `ContinuousOn f E` such that no continuous g : ℝ → ℝ agrees with f on E. Mathlib's `ContinuousOn f E` unfolds to `∀ x ∈ E, ContinuousWithinAt f E x`, which is the standard \"f is continuous on E\". Using f : ℝ → ℝ rather than f : E → ℝ is an equivalent encoding here: any continuous function E → ℝ extends to some f : ℝ → ℝ with ContinuousOn f E (e.g., extending by anything), and conversely any such f restricts to a continuous function on E. Since the \"no continuous extension\" condition only examines values on E, the two existential statements are equivalent. The quantifier structure, types, and negated extension condition all faithfully capture Rudin's exercise.",
+  "duration_ms": 58146,
+  "cost_usd": 0.22123924999999997
+}

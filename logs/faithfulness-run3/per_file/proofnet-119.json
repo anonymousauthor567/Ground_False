@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts IsConnected (Set.univ : Set (CofiniteTopology X)) under the typeclass [Infinite X]. In Mathlib, CofiniteTopology X is precisely the type synonym carrying the finite complement topology (open sets are ∅ or those with finite complement; see Topology/Constructions.lean). [Infinite X] corresponds exactly to \"X is an infinite set\". IsConnected (univ) is equivalent to the whole space being connected (Mathlib provides connectedSpace_iff_univ). Thus the Lean statement captures exactly the informal claim: for an infinite X, the whole space in the cofinite topology is connected. No hypotheses or conclusions are changed.",
+  "duration_ms": 115707,
+  "cost_usd": 0.37462825
+}

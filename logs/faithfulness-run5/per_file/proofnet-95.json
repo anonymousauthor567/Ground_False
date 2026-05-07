@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `(⟨1,1⟩ : GaussianInt)^2 ∣ 2`. In Mathlib, `GaussianInt` is an abbreviation for `Zsqrtd (-1)`, i.e., ℤ[i], and `⟨1,1⟩` is the element `1 + i` (real part 1, imaginary part 1). The numeral `2` on the right is elaborated as `(2 : GaussianInt) = ⟨2, 0⟩`, and `∣` is divisibility in ℤ[i]. Thus the statement is exactly \"$(1+i)^2$ divides $2$ in ℤ[i]\", which is precisely the informal claim. No hypotheses are added or dropped, and no quantifier or type is changed.",
+  "duration_ms": 48105,
+  "cost_usd": 0.13753775
+}

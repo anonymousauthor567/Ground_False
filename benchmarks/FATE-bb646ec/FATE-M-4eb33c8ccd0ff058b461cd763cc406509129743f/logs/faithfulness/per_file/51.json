@@ -1,0 +1,8 @@
+{
+  "file": "51.lean",
+  "stem": "51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any group G and any two elements a, b ∈ G, if (ab)² = a²b² then ab = ba. The Lean signature encodes this precisely: G is an arbitrary type with a `[Group G]` instance (matching \"a group G\"), a and b are universally quantified elements of G, the hypothesis `h : (a * b) ^ 2 = a ^ 2 * b ^ 2` is exactly the informal premise, and the conclusion `a * b = b * a` is exactly the informal claim. No hypotheses are added or dropped (e.g., no commutativity, finiteness, or abelian assumption), the types match (elements of a general group, not a specific one), and the quantifier structure (universal over G, a, b) is preserved. This is a direct, strictly faithful formalization.",
+  "duration_ms": 20321,
+  "cost_usd": 0.04363575
+}

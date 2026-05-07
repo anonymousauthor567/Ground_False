@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_b6.lean",
+  "stem": "putnam_1999_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `S : Finset ℤ` with `hSgt : ∀ s ∈ S, s > 1` captures \"finite set of integers, each greater than 1\". `hSgcd : ∀ n, ∃ s ∈ S, Int.gcd s n = 1 ∨ Int.gcd s n = s` directly encodes \"for each integer n, there exists s ∈ S with gcd(s,n)=1 or gcd(s,n)=s\" — the equation `Int.gcd s n = s` correctly elaborates via ℕ→ℤ coercion, which is equivalent to the informal meaning since s > 1 > 0. The conclusion `∃ᵉ (s ∈ S) (t ∈ S), Prime (Int.gcd s t)` (using batteries' extended binder, equivalent to `∃ s ∈ S, ∃ t ∈ S, ...`) correctly captures \"there exist s, t ∈ S such that gcd(s,t) is prime\". No hidden hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 173166,
+  "cost_usd": 0.58132725
+}

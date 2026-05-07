@@ -1,0 +1,8 @@
+{
+  "file": "imosl_2019_c2.lean",
+  "stem": "imosl_2019_c2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The n blocks are represented as `blocks : Fin n → ℝ`, each weighing at least 1 (`h1`), with total weight 2n (`h2`, with natural coercion to ℝ). The conclusion quantifies over all real r in [0, 2n-2] and asserts the existence of a subset (as `Finset (Fin n)`) whose total weight lies in [r, r+2]. The inequalities `≥ r` and `≤ r + 2` correctly encode \"at least r but at most r+2\". The encoding of \"subset of blocks\" as `Finset (Fin n)` is standard, and both the empty subset and full subset are allowed, matching the informal reading. No hypotheses are added or dropped, quantifier structure matches, and types are appropriate.",
+  "duration_ms": 84861,
+  "cost_usd": 0.28920475
+}

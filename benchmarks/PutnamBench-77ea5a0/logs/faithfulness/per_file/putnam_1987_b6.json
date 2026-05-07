@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b6.lean",
+  "stem": "putnam_1987_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal Putnam 1987 B6 statement exactly. `hp : Odd p ∧ Nat.Prime p` captures \"odd prime\". `Fcard : Fintype.card F = p ^ 2` captures \"field of p² elements\". `Snz` and `Scard` capture \"set of (p²-1)/2 nonzero elements\" (the ℕ-to-ℤ coercion on the cardinality equation resolves correctly since (p²-1)/2 is a positive integer for odd primes). `hS` uses Mathlib's `Xor'` (defined as `(a ∧ ¬b) ∨ (b ∧ ¬a)` in `Mathlib/Logic/Basic.lean`), which is exactly \"exactly one of a and -a is in S\". The conclusion `Even ((S ∩ {x | ∃ a ∈ S, x = 2 * a}).ncard)` is precisely \"N = |S ∩ {2a : a ∈ S}| is even\". All quantifiers, types, and conditions are faithful.",
+  "duration_ms": 165574,
+  "cost_usd": 0.49457075
+}

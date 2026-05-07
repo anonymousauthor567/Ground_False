@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `[Fintype G]` together with `hG : card G = p*m` captures \"|G| = pm\" (the finiteness is implicit in the informal use of order notation). `hp : Nat.Prime p` captures \"p is prime\", `hp1 : ¬ p ∣ m` captures \"p ∤ m\", `[H.Normal]` captures \"H is a normal subgroup\", and `hH : card H = p` captures \"of order p\". The conclusion `Subgroup.Characteristic H` uses Mathlib's structure that asserts `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`, which is exactly the standard definition \"fixed by all automorphisms\" of a characteristic subgroup. No hypothesis is added or omitted beyond what's needed for the finiteness of G, and the conclusion is the exact mathematical claim asked.",
+  "duration_ms": 58172,
+  "cost_usd": 0.22808
+}

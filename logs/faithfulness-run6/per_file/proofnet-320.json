@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-320.lean",
+  "stem": "proofnet-320",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"every subset of ℕ is clopen\" is directly translated to `∀ A : Set ℕ, IsClopen A`. In Mathlib, `IsClopen` is defined as `IsClosed ∧ IsOpen`, and ℕ automatically carries the discrete topology via `instance : DiscreteTopology ℕ := ⟨rfl⟩` in `Mathlib/Topology/Order.lean`. This matches the standard topological convention implicit in Pugh's exercise (the discrete topology on ℕ, since ℕ is not given any other topology structure in the exercise's context). The quantifier structure (`∀ A : Set ℕ`) and the conclusion (`IsClopen A`) correspond exactly to the informal claim with no added or dropped hypotheses.",
+  "duration_ms": 35089,
+  "cost_usd": 0.16851275
+}

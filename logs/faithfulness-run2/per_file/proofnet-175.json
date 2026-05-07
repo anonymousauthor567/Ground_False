@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. Twice-differentiability on (a,∞) is encoded via DifferentiableOn for both f and deriv f. The least upper bounds M0, M1, M2 are defined via sSup, with explicit boundedness hypotheses (hbdd0/1/2) ensuring sSup equals the actual least upper bound (needed because Mathlib's sSup returns 0 for unbounded sets); this matches the informal claim that these suprema exist as real numbers. The conclusion M1² ≤ 4·M0·M2 matches exactly. Since (a,∞) is open, `deriv f` agrees with f' on (a,∞), so the encoding is logically equivalent.",
+  "duration_ms": 37401,
+  "cost_usd": 0.15083524999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes R is an integral domain and x² = 1, concluding x = ±1. The Lean signature uses `CommRing R` + `IsDomain R`, which in Mathlib corresponds precisely to Dummit & Foote's definition of an integral domain (commutative ring with 1 ≠ 0 and no zero divisors — IsDomain requires Nontrivial and NoZeroDivisors). The hypothesis `x^2 = 1` matches, and the conclusion `x = 1 ∨ x = -1` is the standard encoding of \"x = ±1\". The quantifier structure (implicit universal over R and x) matches. No hypotheses are added or dropped, and the types align. This is a faithful formalization.",
+  "duration_ms": 8542,
+  "cost_usd": 0.04036375
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "theorem_name": "Dummit_Foote_exercise_8_3_6b_corrected",
+  "informal": "Let $q \\in \\mathbb{Z}$ be a prime with $q \\equiv 3 \\bmod 4$. Prove that the quotient ring $\\mathbb{Z}[i] /(q)$ is a field with $q^{2}$ elements.",
+  "lean": "theorem Dummit_Foote_exercise_8_3_6b_corrected {q : ℕ} (hq0 : q.Prime) (hq1 : q ≡ 3 [ZMOD 4]) :\n    IsField (GaussianInt ⧸ span ({↑q} : Set GaussianInt)) ∧\n    ∃ finR : Fintype (GaussianInt ⧸ span ({↑q} : Set GaussianInt)),\n      @Fintype.card _ finR = q ^ 2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes q as a Nat prime with q ≡ 3 [ZMOD 4], which captures the positive integer primes congruent to 3 mod 4 (the only mathematically distinct case since the ideal (q) equals (-q) in ℤ[i]). The quotient `GaussianInt ⧸ span ({↑q} : Set GaussianInt)` is exactly ℤ[i]/(q). The conjunction `IsField ... ∧ ∃ finR : Fintype ..., Fintype.card = q^2` matches the informal claim that the quotient is a field with q² elements. The use of an existential Fintype instance is the standard way to assert finiteness with given cardinality. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 15862,
+  "cost_usd": 0.066222
+}

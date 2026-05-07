@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_b1.lean",
+  "stem": "putnam_2015_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `ContDiff ℝ 2 f ∧ Differentiable ℝ (iteratedDeriv 2 f)` is equivalent to \"f is three times differentiable on ℝ\": if f''' exists everywhere then f'' is differentiable (hence continuous), f' differentiable (hence continuous), f differentiable (hence continuous), so f is C² with differentiable f''; conversely C² + f'' differentiable gives f''' everywhere. The predicate `nzeros f n` is defined as `{x | f x = 0}.encard ≥ n`, which correctly captures \"at least n distinct real zeros\" since set cardinality only counts distinct elements. The expression `f + 6 * deriv f + 12 * iteratedDeriv 2 f + 8 * iteratedDeriv 3 f` is pointwise addition/multiplication on ℝ → ℝ, with `iteratedDeriv 2 f = f''` and `iteratedDeriv 3 f = f'''` via `iteratedDeriv_succ`, faithfully representing f + 6f' + 12f'' + 8f'''. The conclusion `nzeros (…) 2` matches \"at least two distinct real zeros\". All quantifier structure and ambient types match the informal statement.",
+  "duration_ms": 179632,
+  "cost_usd": 0.58502675
+}

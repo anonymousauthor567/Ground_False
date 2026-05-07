@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all types `R` with a `Ring` structure, assumes the Boolean ring defining property `∀ a : R, a^2 = a` (as `hR`), and concludes `∀ a b : R, a*b = b*a` (i.e., multiplicative commutativity). This matches the informal claim \"every Boolean ring is commutative\" exactly: the hypothesis `hR` is precisely the Boolean ring definition given in the informal statement, and the conclusion is exactly commutativity of multiplication. Mathlib's `Ring` class corresponds to the standard unital ring used in textbook definitions of Boolean rings. No extra hypotheses (finiteness, nontriviality, characteristic, etc.) are imposed, and no required hypothesis is dropped. The universal quantification over rings is faithfully encoded via the type-class and hypothesis structure.",
+  "duration_ms": 45197,
+  "cost_usd": 0.129949
+}

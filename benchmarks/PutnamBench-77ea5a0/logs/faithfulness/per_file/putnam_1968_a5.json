@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a5.lean",
+  "stem": "putnam_1968_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. \"Quadratic polynomials with real coefficients\" matches `P : ℝ[X]` with `P.degree = 2` (Mathlib's `Polynomial.degree` in `WithBot ℕ` equals 2 iff the polynomial has leading coefficient nonzero at $x^2$, i.e., degree exactly 2). The constraint $|P(x)| \\le 1$ on $[0,1]$ is rendered as `∀ x ∈ Set.Icc 0 1, |P.eval x| ≤ 1`. The conclusion `sSup {|(derivative P).eval 0| | P ∈ V} = 8` matches \"the supremum of $|P'(0)|$\", since `Polynomial.derivative` evaluated at 0 gives the linear coefficient, which equals $P'(0)$. The extremal $P(x) = 8x^2 - 8x + 1$ (a shifted Chebyshev polynomial) has degree 2, satisfies the bound, and achieves $|P'(0)| = 8$, confirming the answer. No hypotheses are silently added or dropped.",
+  "duration_ms": 215314,
+  "cost_usd": 0.6807560000000001
+}

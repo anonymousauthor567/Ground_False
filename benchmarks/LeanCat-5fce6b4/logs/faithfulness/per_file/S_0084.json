@@ -1,0 +1,8 @@
+{
+  "file": "S_0084.lean",
+  "stem": "S_0084",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims Grp is not an additive category. The Lean file defines `IsAdditiveCategory C` as the existence of a Preadditive structure on C together with a zero object and finite biproducts, which matches the standard definition of an additive category (confirmed in Mathlib's documentation where \"additive category (i.e. is preadditive and has finite biproducts)\" is used; the extra `HasZeroObject` is redundant but not incorrect since it is implied by Preadditive + HasFiniteBiproducts). `IsEmpty (IsAdditiveCategory Grp.{u})` for a proposition expands to `¬ IsAdditiveCategory Grp.{u}`, so it literally states \"there is no way to make Grp an additive category.\" The existential `∃ (_ : Preadditive C), ...` correctly encodes \"there exists preadditive structure such that...\" — the right form when asserting non-existence of the structure. Universes, types (Grp.{u} is Mathlib's bundled category of groups), and quantifier structure all match. This is a faithful formalization.",
+  "duration_ms": 410973,
+  "cost_usd": 1.4293015000000002
+}

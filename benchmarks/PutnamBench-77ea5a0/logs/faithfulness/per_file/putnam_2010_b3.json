@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b3.lean",
+  "stem": "putnam_2010_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the problem. The 2010 boxes are represented by `Fin 2010`, and the 1-indexed informal label `i` for box `B_i` (where moving `i` balls is required) is cleanly represented by `i.1 + 1`, yielding values 1..2010 as required. The `trans` predicate exactly encodes the move rule: destination distinct from source (`i ≠ j`), source has at least `i.1+1` balls, source decreases by exactly `i.1+1`, destination increases by exactly `i.1+1`, and all other boxes remain unchanged. The main statement `∀ B, ∑ i, B i = 2010*n → ∃ P T, P 0 = B ∧ trans P T ∧ ∀ i, P T i = n` correctly captures \"for every initial distribution of 2010n balls, there exists a finite sequence of moves reaching n balls in each box.\" The hypothesis `hn : n > 0` matches \"for some positive integer n\", and `↔ n ∈ solution` matches \"for which values of n\". The `∃ᵉ` notation desugars to standard nested existentials. No hypothesis is dropped or added, and quantifier structure matches.",
+  "duration_ms": 293643,
+  "cost_usd": 0.82116425
+}

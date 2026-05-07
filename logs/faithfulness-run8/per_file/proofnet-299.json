@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses the interval `I := Icc 0 1 : Set ℝ` (which Lean treats as the subtype via `I → ℝ`) as the domain, and sets `f n x = (↑x : ℝ) ^ n`, matching the informal definition of $f_n(x) = x^n$ on $[0,1]$. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` asserts that no function `f₀ : I → ℝ` exists to which `(f_n)` converges uniformly. By Mathlib's definition `TendstoUniformly F f p := ∀ u ∈ 𝓤 β, ∀ᶠ n in p, ∀ x, (f x, F n x) ∈ u`, this is exactly \"does not converge uniformly\" on the whole domain `[0,1]`. The quantifier structure, domain, codomain, and filter (`atTop`) all match the standard mathematical reading, making this a faithful formalization.",
+  "duration_ms": 97036,
+  "cost_usd": 0.34190275
+}

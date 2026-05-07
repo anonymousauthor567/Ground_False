@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025ii_p2.lean",
+  "stem": "aime_2025ii_p2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the sum of positive integers n satisfying (n+2) | 3(n+3)(n²+9). The Lean formalization uses ℕ (which includes 0) rather than positive integers. However, checking n=0: 3·3·9 = 81, and 2 ∤ 81, so n=0 does not satisfy the divisibility condition and would be excluded from S anyway. The divisibility condition simplifies to (n+2) | 39 (since 3(n+3)(n²+9) ≡ 39 mod (n+2)), yielding n ∈ {1, 11, 37} in both ℕ and positive integers. The Finset S is uniquely determined by the iff condition h₀, and sum = 1+11+37 = 49. The two formulations are logically equivalent.",
+  "duration_ms": 95855,
+  "cost_usd": 0.27863625
+}

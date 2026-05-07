@@ -1,0 +1,8 @@
+{
+  "file": "S_0006.lean",
+  "stem": "S_0006",
+  "verdict": "faithful",
+  "reasoning": "The LHS `∃ G : D ⥤ C, Nonempty (𝟭 C ≅ F ⋙ G) ∧ Nonempty (G ⋙ F ≅ 𝟭 D)` is the standard formulation of \"F has a quasi-inverse\": a functor G with natural isomorphisms to the identities on both sides. The RHS `F.IsEquivalence` is defined in Mathlib (Mathlib/CategoryTheory/Equivalence.lean line 515) as the class bundling `F.Faithful`, `F.Full`, and `F.EssSurj`, which is exactly \"fully faithful and essentially surjective\" from the informal statement. The composition directions match Mathlib's `Equivalence.mk'` pattern (`η : 𝟭 C ≅ F ⋙ G` and `ε : G ⋙ F ≅ 𝟭 D`), and using `Nonempty` for the isos correctly encodes the existence claim. The universe polymorphism `{C D : Type*} [Category C] [Category D]` faithfully expresses \"let C and D be two categories\". The two sides of the iff match the informal theorem exactly.",
+  "duration_ms": 117414,
+  "cost_usd": 0.43305324999999995
+}

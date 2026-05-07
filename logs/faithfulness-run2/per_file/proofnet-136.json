@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement sets O to the set of open subsets and C to the set of closed subsets of the metric space M, then asserts the existence of a bijective function f : O → C. Using Set-as-subtype coercion, O → C is a function from the subtype of open sets to the subtype of closed sets, and Bijective f asserts injectivity and surjectivity. This matches the informal claim of a bijection between the collection of open subsets and the collection of closed subsets. No extraneous hypotheses are added and no hypotheses of the informal statement are dropped.",
+  "duration_ms": 14640,
+  "cost_usd": 0.06461
+}

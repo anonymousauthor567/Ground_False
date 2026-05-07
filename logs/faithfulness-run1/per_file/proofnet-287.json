@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "theorem_name": "Ireland_Rosen_exercise_5_28",
+  "informal": "Show that $x^{4} \\equiv 2(p)$ has a solution for $p \\equiv 1(4)$ iff $p$ is of the form $A^{2}+64 B^{2}$.",
+  "lean": "\n\ntheorem Ireland_Rosen_exercise_5_28 {p : ℕ} (hp : p.Prime) (hp1 : p ≡ 1 [MOD 4]) :\n    (∃ x, x ^ 4 ≡ 2 [MOD p]) ↔ ∃ A B, p = A ^ 2 + 64 * B ^ 2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for a prime p ≡ 1 (mod 4), x^4 ≡ 2 (mod p) is solvable iff p = A² + 64B². The Lean signature encodes exactly this biconditional, with hypotheses p prime and p ≡ 1 (mod 4). The existential ∃ x with x : ℕ is equivalent to solvability over ℤ/p (any residue class has a natural representative). The form A² + 64B² with A, B : ℕ is equivalent to the integer version since squares only depend on absolute values, so allowing A, B ∈ ℤ gives the same set of representable p. Quantifier structure and conclusion match the informal claim.",
+  "duration_ms": 9871,
+  "cost_usd": 0.05117025
+}

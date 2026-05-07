@@ -1,0 +1,8 @@
+{
+  "file": "96.lean",
+  "stem": "96",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Nat.ModEq` (i.e., `a % p = b % p`), so `x + 1 ≡ 0 [MOD p]` correctly encodes `p ∣ (x+1)`, equivalent to `x ≡ -1 (mod p)`. For `x - 1 ≡ 0 [MOD p]` with natural subtraction: when `x ≥ 1`, this is `p ∣ (x-1)`, equivalent to `x ≡ 1 (mod p)`. When `x = 0`, the Lean conclusion is trivially true (since `0 - 1 = 0` in ℕ), but the hypothesis `0^2 ≡ 1 [MOD p]` is false for any prime `p ≥ 2` (guaranteed by `Fact p.Prime`), making the implication vacuously true — which matches the informal statement's vacuous truth at x = 0. Quantifying over ℕ vs ℤ is equivalent for this statement since every residue class contains a natural number. The implication direction correctly captures \"the only solutions are ±1\". Thus, the Lean and informal statements are logically equivalent.",
+  "duration_ms": 259030,
+  "cost_usd": 0.593122
+}

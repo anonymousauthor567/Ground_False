@@ -1,0 +1,8 @@
+{
+  "file": "8.lean",
+  "stem": "8",
+  "verdict": "stronger",
+  "reasoning": "The Lean statement is a conjunction of two claims. The first conjunct (the disjunction of `Nonempty (ℍ[ℝ, A, B] ≃ₐ[ℝ] ℍ[ℝ, -1, -1]) ∨ Nonempty (ℍ[ℝ, A, B] ≃ₐ[ℝ] Matrix (Fin 2) (Fin 2) ℝ)`) correctly captures the informal claim — `ℍ[ℝ, A, B]` in Mathlib is `QuaternionAlgebra ℝ A 0 B` with the exact multiplication i² = A, j² = B, ij = k, ji = -k, and `ℍ[ℝ, -1, -1]` is definitionally the Hamilton quaternions. However, the Lean statement additionally requires `IsEmpty (Matrix (Fin 2) (Fin 2) ℝ ≃ₐ[ℝ] ℍ[ℝ, -1, -1])`, i.e., that the 2×2 real matrix algebra and the Hamilton quaternions are not isomorphic as ℝ-algebras. The informal statement does not ask for this; it merely lists two possible isomorphism types. Although this extra fact is true, it is an additional mathematical claim beyond what the informal statement asks, making the Lean statement strictly stronger.",
+  "duration_ms": 461451,
+  "cost_usd": 0.7735239999999999
+}

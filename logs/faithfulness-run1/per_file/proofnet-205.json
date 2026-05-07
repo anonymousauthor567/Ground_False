@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "informal": "Suppose $V$ is a real vector space and $T \\in \\mathcal{L}(V)$ has no eigenvalues. Prove that every subspace of $V$ invariant under $T$ has even dimension.",
+  "lean": "\ntheorem Axler_exercise_5_24 {V : Type*} [AddCommGroup V]\n  [Module ℝ V] [FiniteDimensional ℝ V] {T : End ℝ V}\n  (hT : ∀ c : ℝ, eigenspace T c = ⊥) {U : Submodule ℝ V}\n  (hU : Submodule.map T U = U) : Even (finrank ℝ U)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is from Axler, where V is implicitly finite-dimensional (the book's standing assumption when speaking of L(V) and eigenvalues), so the `FiniteDimensional ℝ V` hypothesis matches. \"T has no eigenvalues\" over ℝ is correctly encoded as `∀ c : ℝ, eigenspace T c = ⊥`. The conclusion `Even (finrank ℝ U)` is the right rendering of \"even dimension.\" The only subtle point is that T-invariance is encoded as `Submodule.map T U = U` (equality) rather than ⊆; however, since T has no eigenvalue 0 it is injective, and on a finite-dimensional invariant subspace an injective endomorphism is surjective, so T(U) ⊆ U is equivalent to T(U) = U under these hypotheses. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 27690,
+  "cost_usd": 0.09515724999999998
+}

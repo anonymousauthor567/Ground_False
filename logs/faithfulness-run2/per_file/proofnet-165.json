@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `f '' Set.univ ⊆ closure (f '' s)` asserts $f(X) \\subseteq \\overline{f(E)}$, which is exactly the definition of \"$f(E)$ is dense in $f(X)$\" (since $f(E) \\subseteq f(X)$, density in the subspace topology on $f(X)$ is equivalent to every point of $f(X)$ lying in the closure of $f(E)$ in $Y$). The hypotheses match: both spaces are metric spaces, $f$ is continuous, and $s$ is dense in $\\alpha$. The extraneous mention of \"$g$\" in the informal statement is an artifact of the original Rudin exercise (part (a) only concerns $f$), so its omission is correct.",
+  "duration_ms": 17558,
+  "cost_usd": 0.07857025
+}

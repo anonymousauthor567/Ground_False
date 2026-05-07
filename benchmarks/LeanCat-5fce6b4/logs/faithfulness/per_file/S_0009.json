@@ -1,0 +1,8 @@
+{
+  "file": "S_0009.lean",
+  "stem": "S_0009",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims there exists a morphism in the category of rings that is epic but not surjective. The Lean theorem uses `RingCat` (Mathlib's category of rings, defined in `Mathlib/Algebra/Category/Ring/Basic.lean`), `Epi f` (the standard categorical notion of epimorphism), and `Function.Surjective f` which, via the `ConcreteCategory`/`HasForget.instFunLike` coercion on `RingCat`, means the underlying function `A → B` is surjective. The existential `∃ (A B : RingCat) (f : A ⟶ B), Epi f ∧ ¬ Function.Surjective f` precisely expresses the existence of such a morphism. There are no missing or added hypotheses, and the logical structure (existence of A, B, f with the conjunction of being epic and not being surjective) matches the informal claim exactly.",
+  "duration_ms": 139309,
+  "cost_usd": 0.5338745
+}

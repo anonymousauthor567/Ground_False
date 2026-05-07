@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that ab and ba are conjugate in a group G. Two elements x, y in a group are conjugate iff there exists g such that y = g·x·g⁻¹. The Lean statement asserts exactly ∃ g : G, b*a = g * a * b * g⁻¹, which is the definition of \"ba is conjugate to ab\" (and conjugacy is symmetric, so this is equivalent to \"ab and ba are conjugate\"). The universal quantification over a, b : G in an arbitrary group G matches the informal phrasing. No hypotheses are added or dropped, and the types match. This is a faithful formalization.",
+  "duration_ms": 26704,
+  "cost_usd": 0.052471500000000004
+}

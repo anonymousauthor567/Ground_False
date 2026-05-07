@@ -1,0 +1,8 @@
+{
+  "file": "52.lean",
+  "stem": "52",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all the components of the informal statement: `m ≤ Ring.jacobson R` encodes \"m is an ideal in the Jacobson radical\", `G₁.Monic` matches \"G₁ is monic\", `G₁.map (Ideal.Quotient.mk m)` is precisely the reduction of G₁ modulo m (giving an element of (R/m)[x]), and both \"generate the unit ideal\" conditions are correctly expressed as `Ideal.span {...} = ⊤`. The one point of potential concern is the use of `CommRing R` vs. just \"ring\" — but this is a classical commutative algebra theorem (a Nakayama-style argument relying on R[x]/(G₁) being a finitely generated R-module), and the informal language (using 𝔪, \"unit ideal,\" and the Jacobson-radical framing) unambiguously refers to the commutative setting. The commutativity is an implicit premise standard in this context, not a strengthening of scope. All quantifier structure, types, and logical relationships match.",
+  "duration_ms": 175107,
+  "cost_usd": 0.43651975
+}

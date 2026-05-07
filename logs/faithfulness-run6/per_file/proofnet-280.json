@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the intended mathematical content: for nonzero integer a and n > m, the gcd of a^(2^n)+1 and a^(2^m)+1 is 2 when a is odd and 1 when a is even. While the informal phrasing \"1 or 2 depending on whether a is odd or even\" is slightly ambiguous about which value corresponds to which parity, only one pairing (odd→2, even→1) is mathematically correct, and since the informal claim must be provably true, this is the intended reading — which the Lean encodes correctly. The auto-bound `f_a` is defined by hypothesis `hf` to be exactly the gcd function, so the conclusion reduces to the expected gcd equations. Hypotheses (a ≠ 0, n > m) and types (ℤ for a, ℕ for exponents, ℕ values 1 and 2 matching Int.gcd's return) all align.",
+  "duration_ms": 49558,
+  "cost_usd": 0.17558375
+}

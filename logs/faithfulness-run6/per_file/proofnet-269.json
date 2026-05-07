@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Nonempty (Equiv.Perm (Fin 3) ≃* Matrix.GeneralLinearGroup (Fin 2) (ZMod 2))` exactly captures the informal claim. `Equiv.Perm (Fin 3)` is the symmetric group S₃. `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)` is defined in Mathlib as `(Matrix (Fin 2) (Fin 2) (ZMod 2))ˣ`, i.e., invertible 2×2 matrices over ZMod 2; since ZMod 2 is a field, a matrix is a unit iff its determinant is nonzero, matching T exactly. `Nonempty (A ≃* B)` asserts the existence of a group isomorphism, precisely \"A is isomorphic to B\". Direction of MulEquiv is symmetric and thus irrelevant. No hypotheses are added or dropped.",
+  "duration_ms": 41379,
+  "cost_usd": 0.24137124999999998
+}

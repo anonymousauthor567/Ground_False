@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims $x^3+3x+2$ is irreducible in $\\mathbb{Q}[x]$. The Lean signature states `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)`, where `Polynomial ℚ` is exactly $\\mathbb{Q}[x]$. Mathlib's `Irreducible` for elements of a commutative ring (non-unit with every factorization containing a unit factor) specializes, over a field, to the classical notion of an irreducible polynomial (non-constant and not a product of two non-constants). The polynomial expression matches the informal one exactly, and no additional hypothesis is introduced. This is a direct, logically equivalent formalization.",
+  "duration_ms": 34664,
+  "cost_usd": 0.105292
+}

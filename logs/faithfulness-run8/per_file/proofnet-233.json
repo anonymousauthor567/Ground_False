@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove the existence of a normal subgroup that is not characteristic. The Lean signature states `∃ (G : Type*) (hG : Group G) (H : Subgroup G), Normal H ∧ ¬ Characteristic H`, which is a direct existential over a group `G` and a subgroup `H` with `H` normal but not characteristic. In Mathlib, `Subgroup.Characteristic H` is defined as \"H is fixed by every automorphism of G\" (the standard definition), and `Subgroup.Normal` is the standard notion of normal subgroup. The quantifier structure (existence of both the ambient group and the subgroup) faithfully captures the informal claim, since the informal statement does not fix a particular group. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 28910,
+  "cost_usd": 0.1313155
+}

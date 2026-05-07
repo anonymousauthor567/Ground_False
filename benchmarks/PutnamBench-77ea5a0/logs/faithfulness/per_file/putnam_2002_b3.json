@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_b3.lean",
+  "stem": "putnam_2002_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the same mathematical claim as the informal one. The function `f : ℤ → ℝ` with body `1/e - (1 - 1/n)^n` forces the inner `1/n` to elaborate in ℝ via the coercion `(↑n : ℝ)` (since the output type must be ℝ and `e : ℝ`), so `1 - 1/n` is the real number `1 - 1/n`. The exponent `^n` with `n : ℤ` uses `zpow`, which for `n > 1` agrees with the ordinary natural-number power `(1 - 1/n)^n`. The hypothesis `n > 1` on ℤ matches the informal \"integers n > 1\", and the bounds `1/(2*n*e)` and `1/(n*e)` are the real-valued expressions `1/(2ne)` and `1/(ne)`. The conjunction of the two strict inequalities faithfully represents the informal chained inequality.",
+  "duration_ms": 231748,
+  "cost_usd": 0.78685575
+}

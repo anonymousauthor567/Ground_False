@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all parts of the informal claim: (1) the hypothesis `∃ s : Set X, Countable s ∧ Dense s` correctly encodes \"X has a countable dense subset\" (here `Countable s` with `s : Set X` means `Countable ↥s`, which is definitionally equal to `Set.Countable s` via `countable_coe_iff`); (2) `U : Set (Set X)` together with `hUopen` captures \"a collection of open sets in X\"; (3) the pairwise disjointness condition `∀ x y, x ∈ U → y ∈ U → x ≠ y → x ∩ y = ∅` is the standard encoding of \"disjoint collection\" (equivalent to `Disjoint x y` for sets, with `x ≠ y` correctly handling the reflexive case); (4) the conclusion `Countable U` correctly states that U is countable. The universal quantification over U is implicit in making U a theorem parameter. No hypotheses are added or dropped, and no types or quantifier structures are changed.",
+  "duration_ms": 121494,
+  "cost_usd": 0.37472475
+}

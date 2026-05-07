@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that an infinite set X is connected under the finite complement topology. The Lean statement takes `X : Type*` with `[Infinite X]` (matching \"infinite set\") and uses `CofiniteTopology X` which is exactly Mathlib's finite complement topology. The conclusion `IsConnected (Set.univ : Set (CofiniteTopology X))` asserts that the whole space is connected. Since `IsConnected` requires nonemptiness and preconnectedness, and `Infinite X` gives nonemptiness automatically, `IsConnected univ` is equivalent to `ConnectedSpace (CofiniteTopology X)`, which is the standard reading of \"X is connected in this topology.\" No hypotheses have been added or dropped, and the conclusion matches.",
+  "duration_ms": 23491,
+  "cost_usd": 0.05568075
+}

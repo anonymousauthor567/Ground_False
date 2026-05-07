@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p16_3.lean",
+  "stem": "elementary_algebra__p16_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that r = 7 is the unique solution to 2 = -12 + 2r. With `variable (r : ℝ)` auto-bound, the theorem `r = 7 ↔ given_equation r` becomes ∀ r : ℝ, r = 7 ↔ (2 = -12 + 2r). The ← direction expresses uniqueness (any r satisfying the equation must equal 7) and the → direction expresses existence (7 actually is a solution). Together, this is exactly the claim \"7 is the unique solution.\" The order of sides in the iff does not matter since ↔ is symmetric. The types (ℝ) and the equation are encoded correctly, and no hypotheses are added or dropped. The surrounding axioms are separate declarations and do not affect the content of `solve_equation` itself.",
+  "duration_ms": 50250,
+  "cost_usd": 0.12589875
+}

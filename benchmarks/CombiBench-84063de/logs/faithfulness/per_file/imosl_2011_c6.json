@@ -1,0 +1,8 @@
+{
+  "file": "imosl_2011_c6.lean",
+  "stem": "imosl_2011_c6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures IMO SL 2011 C6. (1) \"Positive integer n\" → ℕ+. (2) Periodic word over {a,b} → W : ℤ → Fin 2. (3) \"Minimal period N > 2^n\" → hN : 2^n.1 < N combined with hW : Function.Periodic W N and hW' : no smaller positive integer is a period — correctly captures minimality. (4) \"appears\": the def ∃ k, ∀ i : Fin U.1, U.2 i = W (k+i) encodes U = x_k...x_{k+|U|−1}. (5) \"ubiquitous\": Fin.snoc with 0/1 produces Ua, Ub; Fin.cons with 0/1 produces aU, bU; all required to appear. (6) \"At least n ubiquitous finite nonempty words\": encoded as an embedding Fin n ↪ (Σ k, Fin k → Fin 2) (giving n distinct elements) with constraints (x i).1 ≠ 0 (nonempty) and ubiquitous W (x i). The embedding form is logically equivalent to \"there exist n distinct...\", so no drift in strength.",
+  "duration_ms": 278739,
+  "cost_usd": 0.8598237500000001
+}

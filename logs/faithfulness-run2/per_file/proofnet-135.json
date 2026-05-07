@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: given an injective f : ℕ → ℕ and a sequence p converging to a, the rearranged sequence p ∘ f also converges to a. The quantifier structure is correct — the informal statement asks for the one-direction implication (which is the only sensible reading when f is merely injective, not bijective, making q essentially a subsequence). The hypothesis `Injective f` matches \"f is an injection\", and `Tendsto (fun n => p (f n)) atTop (𝓝 a)` correctly encodes \"q_k = p_{f(k)} converges to the same limit\". The generalization from Pugh's real-analysis context to an arbitrary topological space is a natural abstraction that doesn't change the mathematical content of the claim — the statement and its proof go through verbatim.",
+  "duration_ms": 41734,
+  "cost_usd": 0.13353575
+}

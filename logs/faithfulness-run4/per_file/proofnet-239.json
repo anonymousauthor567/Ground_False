@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a type G with `[Fintype G] [Group G]` and assumes `card G = 2907`, which precisely captures the informal hypothesis \"|G|=2907\". The conclusion `¬ IsSimpleGroup G` uses Mathlib's standard `IsSimpleGroup` class (defined in `Mathlib/GroupTheory/Subgroup/Simple.lean` as a `Nontrivial` group whose only normal subgroups are ⊥ and ⊤), which matches the usual mathematical definition of \"simple group\" in Dummit & Foote. No extra hypotheses are added and none are dropped: finiteness is implied by the cardinality hypothesis, and nontriviality is automatic since 2907 ≠ 1. The Lean signature therefore asserts exactly the same claim as the informal statement.",
+  "duration_ms": 64515,
+  "cost_usd": 0.21901025000000002
+}

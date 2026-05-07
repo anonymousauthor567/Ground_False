@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p29.lean",
+  "stem": "abstract_algebra__p29",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that all functions f:ℕ→ℕ satisfying (a) and (b) are injective (a universal claim about injectivity of solutions). The Lean statement instead concludes `∃! f : ℕ → ℕ, Function.Bijective f ∧ ...` — the existence of a unique BIJECTIVE function satisfying the conditions. This differs in two crucial ways: (1) injective is replaced by bijective (a strictly stronger property on ℕ), and (2) a universal statement about all solutions becomes a unique-existence statement. The declared `hf_inj` variable is not referenced in the theorem body so is not auto-included. Moreover, the conditions force f to map into even numbers (e.g., f(4)=6, f(6)=8, f(8)=10), so no bijective solution exists at all — making the Lean conclusion false while the informal claim (all solutions are injective) is true. The two statements are neither logically equivalent nor does one imply the other.",
+  "duration_ms": 259214,
+  "cost_usd": 0.6336685
+}

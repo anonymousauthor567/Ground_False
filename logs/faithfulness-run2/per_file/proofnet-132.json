@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes a topological space `X` with `LocallyCompactSpace X` and `T2Space X` hypotheses and concludes `RegularSpace X`, matching the informal claim \"every locally compact Hausdorff space is regular\". Mathlib's `RegularSpace` captures the point-closed-set separation condition; combined with the given `T2Space` hypothesis, it yields Munkres's notion of regular (which includes T1, automatically provided by T2). Mathlib's `LocallyCompactSpace` (every neighborhood contains a compact neighborhood) coincides with the usual \"compact neighborhood\" definition under the Hausdorff hypothesis. The quantifier structure (universal over topological spaces X) is correctly encoded via the implicit `{X : Type*}` and typeclass hypotheses. No extra or missing hypotheses, and no drift in conclusion.",
+  "duration_ms": 25981,
+  "cost_usd": 0.08136949999999998
+}

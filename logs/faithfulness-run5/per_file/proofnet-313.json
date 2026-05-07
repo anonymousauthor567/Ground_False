@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"every order topology is regular\" is faithfully rendered as: for any type α with LinearOrder, TopologicalSpace, and OrderTopology instances, RegularSpace α holds. While Mathlib's RegularSpace (separation of points from closed sets via disjoint neighborhoods) does not include T1 by itself—unlike Munkres's definition which requires singletons to be closed—the OrderTopology instance automatically gives T2 via OrderTopology.to_orderClosedTopology → OrderClosedTopology.to_t2Space. Thus under these hypotheses RegularSpace α ↔ T3Space α, making the Lean statement logically equivalent to Munkres's claim. The universal quantification over α (not a fixed specific space), the types, and the conclusion all match the informal statement.",
+  "duration_ms": 242535,
+  "cost_usd": 0.86209
+}

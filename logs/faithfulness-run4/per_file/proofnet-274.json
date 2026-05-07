@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the polynomial f(x) = x^3 + 3x + 2 is irreducible in ℚ[x]. The Lean statement `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)` directly encodes this: `Polynomial ℚ` is ℚ[x], `X^3 + 3*X + 2` is the polynomial x^3 + 3x + 2, and Mathlib's `Irreducible` predicate (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) is the standard notion — not a unit and any factorization has one factor a unit — which matches the usual mathematical definition of irreducibility over a field's polynomial ring. There are no added or dropped hypotheses, and no change in quantifier structure or ambient type. This is a direct, strictly faithful formalization.",
+  "duration_ms": 36220,
+  "cost_usd": 0.12980450000000002
+}

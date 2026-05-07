@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p13_1.lean",
+  "stem": "calculus__p13_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove that the equation of the tangent line to f(x) = sec²x at the point (π/3, f(π/3)) is y = 8√3·x + 4 − 8√3·π/3. The Lean lemma only proves f(π/3) = 4, which is a tiny supporting fact (one input-value computation) and does not address the derivative f'(π/3) = 8√3 or the tangent line equation itself. While f(π/3) = 4 is logically implied by the informal tangent-line claim (substituting x = π/3 into the tangent line yields y = 4, and the tangent passes through (π/3, f(π/3))), the Lean statement does not imply the informal conclusion. Hence it is strictly logically weaker.",
+  "duration_ms": 21411,
+  "cost_usd": 0.056180749999999995
+}

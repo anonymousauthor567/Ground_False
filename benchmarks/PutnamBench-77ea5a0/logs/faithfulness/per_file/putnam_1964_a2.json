@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_a2.lean",
+  "stem": "putnam_1964_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `ℝ → ℝ` rather than `Icc 0 1 → (0,∞)` but compensates with explicit hypotheses: `∀ x ∈ Icc 0 1, f x > 0` for the positive codomain, and `ContinuousOn f (Icc 0 1)` for continuity on $[0,1]$. The three interval integrals `∫ x in (0)..1, ...` correctly encode $\\int_0^1 f$, $\\int_0^1 x f$, and $\\int_0^1 x^2 f$, matching $1$, $\\alpha$, $\\alpha^2$ respectively. Since the integrals only depend on values on $[0,1]$ and all constraints are restricted to $[0,1]$, the set characterization is in bijective correspondence (modulo extensions outside $[0,1]$) with the informal solution set; in particular the truth of \"solution set is empty\" transfers cleanly between the two encodings. The α-parametrization and conclusion structure match the informal problem exactly.",
+  "duration_ms": 121382,
+  "cost_usd": 0.32658424999999996
+}

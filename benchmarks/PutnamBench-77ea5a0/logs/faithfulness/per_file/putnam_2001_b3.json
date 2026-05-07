@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_b3.lean",
+  "stem": "putnam_2001_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement. `Set.Ici 1` with the numeric literal `1` defaults to ℕ (no other constraint forces otherwise), so the sum ranges over positive integers n ≥ 1, matching $\\sum_{n=1}^\\infty$. Mathlib's `round : ℝ → ℤ` rounds to the nearest integer (breaking ties toward +∞), which faithfully encodes $\\langle n \\rangle$ = closest integer to $\\sqrt n$: for positive integer n, $\\sqrt n$ can never be a half-integer (since $k + 0.5$ squared is not an integer), so ties never occur and `round` gives the unique closest integer. The numerator `(2:ℝ)^(round (Real.sqrt n)) + (2:ℝ)^(-round (Real.sqrt n))` uses ℤ-power (zpow), correctly giving $2^{\\langle n\\rangle} + 2^{-\\langle n\\rangle}$. The denominator `2 ^ (n : ℝ)` uses `Real.rpow`, which agrees with $2^n$ for positive integer n. The equality to `putnam_2001_b3_solution` (= 3) matches \"Evaluate ...\". No extra or missing hypotheses.",
+  "duration_ms": 438963,
+  "cost_usd": 1.6842082499999997
+}

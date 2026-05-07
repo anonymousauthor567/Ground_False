@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p4_2.lean",
+  "stem": "linear_algebra__p4_2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean theorem signature to be proven is `pivotColumnImpliesUniqueOrInconsistent`, which differs from the informal statement in two orthogonal ways. First, it universally quantifies over ANY column `j : Fin 4` (including j = 0, 1, 2), while the informal statement specifically concerns only the last column (j = 3). Second, its conclusion is a disjunction \"inconsistent OR has a unique solution\" rather than just \"inconsistent\". Informal does not imply Lean because informal gives no information about non-last pivot columns. Lean does not imply informal because even instantiated at j=3, the disjunctive conclusion is insufficient to conclude inconsistency. Note: the file does contain an `axiom` declaration that matches the informal statement, but the actual theorem signature (with `sorry`) is the more general \"Corollary\", which is neither logically stronger nor weaker than the informal claim.",
+  "duration_ms": 294407,
+  "cost_usd": 0.6435085
+}

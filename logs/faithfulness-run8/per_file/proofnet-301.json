@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has hypotheses \"p : X → Y is an open map\" and \"A ⊆ X is open\", and conclusion \"the restriction q : A → p(A) is an open map\". The Lean file encodes these exactly: `hp : IsOpenMap p` and `hA : IsOpen A` are the hypotheses, and `Set.MapsTo.restrict p A (p '' A) (Set.mapsTo_image p A)` is the canonical restriction q : ↑A → ↑(p '' A), where both subtypes automatically carry the subspace topology via `instTopologicalSpaceSubtype`. Mathlib's `IsOpenMap` unfolds to `∀ U, IsOpen U → IsOpen (f '' U)`, so the conclusion says: subsets open in A (subspace topology) have their image open in p(A) (subspace topology) — precisely the informal claim. The topological spaces X and Y are arbitrary (no extra hypotheses like T2, Hausdorff, or second countable), matching the generality of the informal statement.",
+  "duration_ms": 58549,
+  "cost_usd": 0.28542449999999997
+}

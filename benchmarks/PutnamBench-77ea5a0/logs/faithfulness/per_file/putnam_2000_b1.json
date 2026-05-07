@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_b1.lean",
+  "stem": "putnam_2000_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal Putnam 2000 B1 statement. The types match (integer-valued functions on Fin N), the hypothesis `hodd` correctly expresses \"at least one of a_j, b_j, c_j is odd\" for each j, and the conclusion `∃ r s t : ℤ, {j | Odd (r*a j + s*b j + t*c j)}.ncard ≥ (4 * N : ℝ) / 7` correctly expresses \"at least 4N/7 values of j\" via a real-valued comparison (ncard coerced to ℝ ≥ 4N/7), which is the standard meaning of \"at least 4N/7\" when 4N/7 need not be an integer. The added hypothesis `N ≥ 1` surfaces the implicit convention in the informal phrasing \"for $1 \\le j \\le N$\" that N is a positive integer; the excluded N=0 case is vacuously trivial and not mathematically meaningful to the problem. This is a standard surfacing of an implicit premise rather than a substantive narrowing of scope.",
+  "duration_ms": 189991,
+  "cost_usd": 0.5263835000000001
+}

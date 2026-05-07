@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_b5.lean",
+  "stem": "putnam_1970_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The `ramp` function, defined for `n : ℤ` via nested if-then-else, exactly reproduces the piecewise definition: returns `-n` when `x ≤ -n`, returns `x` when `-n < x ∧ x ≤ n`, and otherwise (when `x > n`) returns `n`. The function `F : ℝ → ℝ` matches \"a function on the reals\". The biconditional `Continuous F ↔ (∀ n : ℕ, Continuous ((ramp n) ∘ F))` matches \"F is continuous iff u_n ∘ F is continuous for all natural numbers n\" — the `n : ℕ` is coerced to `ℤ` when passed to ramp, and for `n = 0` the ramp is constantly 0 (continuous), so including 0 in ℕ is harmless. The types, quantifier structure, and biconditional direction all correspond precisely to the informal claim.",
+  "duration_ms": 112625,
+  "cost_usd": 0.302507
+}

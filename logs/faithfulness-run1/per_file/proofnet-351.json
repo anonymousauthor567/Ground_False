@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "informal": "Let $f$ be a real uniformly continuous function on the bounded set $E$ in $R^{1}$. Prove that $f$ is bounded on $E$.",
+  "lean": "\ntheorem Rudin_exercise_4_8a\n  (E : Set ℝ) (f : ℝ → ℝ) (hf : UniformContinuousOn f E)\n  (hE : Bornology.IsBounded E) : Bornology.IsBounded (Set.image f E)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes E ⊆ ℝ is bounded (Bornology.IsBounded E), that f : ℝ → ℝ is uniformly continuous on E (UniformContinuousOn f E), and concludes that f '' E is bounded (Bornology.IsBounded (Set.image f E)). This is exactly the content of Rudin's exercise: \"f bounded on E\" is precisely \"f(E) is a bounded subset of ℝ\". The hypothesis and quantifier structure match the informal claim, no extra assumptions (e.g., compactness, closedness) are introduced, and no required hypotheses are dropped.",
+  "duration_ms": 7684,
+  "cost_usd": 0.045864749999999996
+}

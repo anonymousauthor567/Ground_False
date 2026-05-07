@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-116.lean",
+  "stem": "proofnet-116",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal statement: X is a topological space, Y is a metric space, `f : ℕ → X → Y` with `∀ n, Continuous (f n)` encodes the sequence of continuous functions, `Tendsto x atTop (𝓝 x₀)` encodes x_n → x, `TendstoUniformly f f₀ atTop` encodes uniform convergence of f_n to f, and `Tendsto (fun n => f n (x n)) atTop (𝓝 (f₀ x₀))` encodes the conclusion f_n(x_n) → f(x). No extra hypotheses are added (e.g., no completeness or Nonempty assumption on Y), and none are dropped. The quantifier structure and types match exactly.",
+  "duration_ms": 16008,
+  "cost_usd": 0.07314074999999999
+}

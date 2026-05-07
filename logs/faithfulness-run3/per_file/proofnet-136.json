@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to exhibit a bijection between the collection of open subsets 𝒯 and the collection of closed subsets 𝒦 of a metric space M. The Lean statement passes O, C : Set (Set M) with the hypotheses O = {s | IsOpen s} and C = {s | IsClosed s}, and asks for ∃ f : O → C, Bijective f. Here O and C coerce to subtypes {s : Set M // IsOpen s} and {s : Set M // IsClosed s}, and Bijective f is the standard (Injective ∧ Surjective) notion, which is exactly what a bijection between the two collections means. The natural witness (complement) gives such a bijection, matching the intended content. No hypotheses are added or dropped, and the quantifier/conclusion structure lines up.",
+  "duration_ms": 42333,
+  "cost_usd": 0.06612249999999999
+}

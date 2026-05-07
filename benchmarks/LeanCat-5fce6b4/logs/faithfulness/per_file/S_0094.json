@@ -1,0 +1,8 @@
+{
+  "file": "S_0094.lean",
+  "stem": "S_0094",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for a full reflective subcategory (fully faithful right adjoint inclusion U : C → B), the associated monad on B is idempotent. In Lean 4, the theorem's auto-bound arguments are only those referenced in the type (transitively), plus instance-implicit arguments on already-bound variables. Since the theorem type references `U` and `monadOfRightAdjoint U` (which needs `[IsRightAdjoint U]`), the auto-bound arguments are `C`, `B`, their `Category` instances, `U`, and the instance-implicit `[Full U]`, `[Faithful U]`, `[IsRightAdjoint U]`. The non-instance-implicit variables `{h_inj : Function.Injective U.obj}` and `{h_iso_closed : IsIsoClosed U}` are NOT auto-bound since they aren't referenced anywhere in the theorem type or proof (no `include` is used). The conclusion `IsIso T.μ` where `T = (Adjunction.ofIsRightAdjoint U).toMonad` correctly encodes \"idempotent monad\" (μ is an iso, which is the standard definition). This matches Mathlib's `counit_isIso_of_R_fully_faithful` — which implies μ of the associated monad is an iso. Hence the theorem signature is logically equivalent to the informal statement.",
+  "duration_ms": 754101,
+  "cost_usd": 3.8642667499999988
+}

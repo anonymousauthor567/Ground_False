@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The informal claim states: if ∑|a_n| and ∑|b_n| converge, then the Cauchy product ∑c_n (with c_n = ∑_{j=0}^{n} a_j b_{n-j}) converges absolutely. The Lean hypotheses (∃ y, partial sums of |a i| tend to y; same for b) exactly encode absolute convergence of the two series. The conclusion (∃ y, partial sums of |∑ j ∈ range (i+1), a j * b (i-j)| tend to y) exactly encodes absolute convergence of the Cauchy product. Notably, the absolute value correctly wraps the scalar inner sum (not a function), which matches the intended mathematical content — this is the corrected form matching `Rudin_exercise_3_13_corrected` in the ground-truth file, and it is provable (the file provides a proof). Types, quantifier structure, and index ranges all match the standard definition of the Cauchy product. Hence strictly faithful.",
+  "duration_ms": 101472,
+  "cost_usd": 0.33336374999999996
+}

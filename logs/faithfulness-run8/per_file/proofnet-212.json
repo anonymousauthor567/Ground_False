@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that multiplication in ℤ/nℤ is associative. The Lean theorem asserts `(a * b) * c = a * (b * c)` for arbitrary `n : ℕ` and arbitrary `a b c : ZMod n`. In Mathlib, `ZMod n` is the standard encoding of the residue class ring ℤ/nℤ (with `ZMod 0 = ℤ`), and `*` is the standard multiplication on this ring. The statement exactly expresses associativity of multiplication in ℤ/nℤ for all n, matching the informal claim with no added or omitted hypotheses and no change in quantifier structure or types.",
+  "duration_ms": 40434,
+  "cost_usd": 0.13283425
+}

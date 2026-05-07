@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that no group of order pq (with p, q prime) is simple. The Lean signature declares an arbitrary group G with [Group G] [Fintype G], naturals p, q with Nat.Prime p, Nat.Prime q, and card G = p*q (where card is Fintype.card via the open). The conclusion `IsSimpleGroup G → false` uses the lowercase Bool `false`, which under Lean's standard Bool→Prop coercion is interpreted as the Prop `false = true`, logically equivalent to `False`. Thus the conclusion is equivalent to `¬ IsSimpleGroup G`. This matches the informal claim exactly: for every finite group of order p*q with p, q prime, the group is not simple. The Fintype instance is a natural encoding needed to talk about finite cardinality, not an extra restriction beyond what \"order pq\" already implies. No hypotheses are silently added or dropped (p ≠ q is not required — the statement is also true for p = q), and IsSimpleGroup is Mathlib's standard definition (nontrivial group whose only normal subgroups are ⊥ and ⊤). The verified ground-truth proof confirms the intended reading.",
+  "duration_ms": 529371,
+  "cost_usd": 1.968187
+}

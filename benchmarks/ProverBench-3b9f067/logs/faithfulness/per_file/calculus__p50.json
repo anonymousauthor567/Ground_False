@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p50.lean",
+  "stem": "calculus__p50",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts `∫ x in Icc 0 (π / 2), x * sin x = 1`, which is the Lebesgue integral of x·sin(x) over the closed interval [0, π/2] with respect to the volume measure. Since x·sin(x) is continuous on the compact interval [0, π/2], this equals the Riemann integral ∫₀^(π/2) x sin x dx. By integration by parts, this evaluates to 1, matching the informal claim exactly. The integrand, domain of integration, and claimed value all correspond directly to the informal statement. The unused `variable {f : ℝ → ℝ}` does not affect the theorem statement. There are no extra or missing hypotheses.",
+  "duration_ms": 56884,
+  "cost_usd": 0.14319725
+}

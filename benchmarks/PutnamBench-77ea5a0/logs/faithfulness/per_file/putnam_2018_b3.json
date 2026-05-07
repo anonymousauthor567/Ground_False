@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_b3.lean",
+  "stem": "putnam_2018_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 2018 B3. The positivity hypothesis `0 < n` matches \"positive integers\", and `n < 10^100` matches the bound. The three divisibility conditions are cast to ℤ (via `(n - 1 : ℤ)` which elaborates as `(↑n - 1 : ℤ)` due to the type ascription, avoiding ℕ's truncated subtraction); this correctly encodes \"n-1 divides 2^n-1\" and \"n-2 divides 2^n-2\" as integer divisibility, including making n=1 and n=2 fail (since 0 ∣ 1 and 0 ∣ 2 are false in both Lean and the informal reading). The \"find all\" requirement is correctly encoded as a biconditional with membership in the solution set, and the commented solution `{2^2, 2^4, 2^16, 2^256}` matches the known answer. No hypotheses are added or dropped.",
+  "duration_ms": 300612,
+  "cost_usd": 0.40708949999999994
+}

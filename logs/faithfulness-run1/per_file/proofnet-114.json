@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "informal": "Let $\\mathbf{x}_1, \\mathbf{x}_2, \\ldots$ be a sequence of the points of the product space $\\prod X_\\alpha$.  Show that this sequence converges to the point $\\mathbf{x}$ if and only if the sequence $\\pi_\\alpha(\\mathbf{x}_i)$ converges to $\\pi_\\alpha(\\mathbf{x})$ for each $\\alpha$.",
+  "lean": "\ntheorem Munkres_exercise_19_6a\n  {ι : Type*}\n  {f : ι → Type*} {x : ℕ → Πa, f a}\n  (y : Πi, f i)\n  [Πa, TopologicalSpace (f a)] :\n  Tendsto x atTop (𝓝 y) ↔ ∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in the product space ∏ X_α, a sequence x_n converges to x iff each projection π_α(x_n) converges to π_α(x). The Lean signature has a sequence x : ℕ → Π a, f a, a target y, and each f a carries a TopologicalSpace, which gives the product (Pi) topology automatically on Π a, f a. `Tendsto x atTop (𝓝 y)` is exactly sequence convergence, and the right-hand side says each coordinate-projection sequence j ↦ (x j) i tends to y i. The quantification over all coordinates i matches \"for each α\". No extra hypotheses (e.g., finiteness, Hausdorff, decidability) are added, and none are missing. This is the standard, faithful formalization.",
+  "duration_ms": 9764,
+  "cost_usd": 0.04911875
+}

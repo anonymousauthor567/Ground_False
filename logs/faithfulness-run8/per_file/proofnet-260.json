@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal claim exactly: G is an arbitrary group; `hG : ∀ (H : Subgroup G), H.Normal` formalizes \"all subgroups of G are normal\" using Mathlib's standard `Subgroup.Normal` structure (verified in Mathlib/Algebra/Group/Subgroup/Defs.lean); a and b are arbitrary elements of G; and the conclusion `∃ (j : ℤ), b*a = a^j * b` matches \"ba = a^j b for some j\". Using `j : ℤ` is the natural reading, since in a general group the conjugate b·a·b⁻¹ lies in the cyclic subgroup ⟨a⟩ = {a^n : n ∈ ℤ}, which in general requires negative exponents (e.g., Hamiltonian groups like Q8). The hypothesis and conclusion structures, quantifier order, and types all align with the informal statement; nothing is silently added or dropped.",
+  "duration_ms": 125362,
+  "cost_usd": 0.433631
+}

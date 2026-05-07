@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Munkres 30.10) says a countable product of separable spaces (spaces with a countable dense subset) is separable. The Lean statement indexes the family by ℕ, which is the canonical countably infinite index set; the product `Π i, X i` automatically carries the product topology via Mathlib's `Pi.topologicalSpace`. The hypothesis `∃ s : Set (X i), Countable s ∧ Dense s` correctly expresses \"X i has a countable dense subset\" (with `Countable` on a set coercing to the subtype, which matches the usual set-level notion), and the conclusion is the same notion on the product. The nontrivial content of the theorem is exactly the countably-infinite-product case (finite products are handled trivially by induction from pairs), so using ℕ faithfully captures the mathematical claim. No hypotheses are added (e.g., no Hausdorff, no metrizability) or dropped.",
+  "duration_ms": 41560,
+  "cost_usd": 0.1157805
+}

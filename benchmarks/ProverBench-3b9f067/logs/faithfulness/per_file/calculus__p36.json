@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p36.lean",
+  "stem": "calculus__p36",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement (with \"+C\") expresses the indefinite-integral / antiderivative formula ∫ x^p dx = x^(p+1)/(p+1) + C — a general claim about an antiderivative of x^p valid for any real p ≠ -1 (on an appropriate domain where x^p is defined). The Lean formalization instead asserts a specific definite integral over [0,1]: ∫ x in Set.Icc 0 1, x^p = (1^(p+1) - 0^(p+1))/(p+1). These are different kinds of statements. Moreover, Mathlib's `integral_rpow` requires `-1 < r ∨ (r ≠ -1 ∧ 0 ∉ [[a,b]])`, and with only `p ≠ -1` the Lean version is actually false when p < -1: for example at p = -2, x^(-2) is non-integrable on [0,1] so by Mathlib's `integral_undef` convention the LHS = 0, while the RHS = (1 - 0)/(-1) = -1. Thus the informal antiderivative formula does not imply the Lean definite-integral claim (fails for p < -1), and conversely a single definite-integral value on [0,1] does not imply the general antiderivative identity; the two claims are incomparable.",
+  "duration_ms": 411757,
+  "cost_usd": 1.08669275
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `¬ complexHasStrictOrderedRing`, which unfolds to \"there is no `LinearOrder ℂ` making `IsStrictOrderedRing ℂ` hold.\" Since `ℂ` already carries a `Field` instance in Mathlib, requiring a compatible `LinearOrder` together with `IsStrictOrderedRing` is exactly the classical notion of \"ordered field\": a total order with 0 < 1, preserved by addition, and closed under multiplication of positives. The informal statement's \"no order can be defined that turns ℂ into an ordered field\" is therefore the exact negation of this existence statement — both the quantifier structure (non-existence of an order) and the compatibility conditions match. No hypotheses are added or dropped, and the type (ℂ) and the notion of \"ordered field\" correspond correctly.",
+  "duration_ms": 65551,
+  "cost_usd": 0.2288565
+}

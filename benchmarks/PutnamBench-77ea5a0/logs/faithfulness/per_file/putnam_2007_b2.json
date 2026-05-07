@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_b2.lean",
+  "stem": "putnam_2007_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes each piece of the informal Putnam 2007 B2 problem: `ContDiffOn ℝ 1 f (Icc 0 1)` captures \"f has a continuous derivative on [0,1]\", `hfint` captures ∫₀¹ f = 0, the pair `heqmax`/`hmaxub` encodes \"max is the maximum of |deriv f x| over [0,1], attained at some x₀\", and the conclusion matches |∫₀^α f| ≤ (1/8)·max for α ∈ (0,1). The only subtlety is that `deriv f` at boundary points may differ from the informal one-sided derivative, but for interior x ∈ (0,1), `deriv f x = f'(x)`, so by hmaxub and continuity of |f'| on [0,1], Lean's max is always ≥ the informal max; and since each |deriv f x| ≤ max_informal, Lean's max is ≤ max_informal. So whenever both heqmax and hmaxub hold, Lean max = max_informal; in the rare case where max is only attained at a non-differentiable boundary point, the Lean hypothesis is unsatisfiable and the theorem is vacuously true. Either way, the two statements are logically equivalent.",
+  "duration_ms": 771758,
+  "cost_usd": 2.22827975
+}

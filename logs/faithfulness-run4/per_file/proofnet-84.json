@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "verdict": "faithful",
+  "reasoning": "In Herstein's \"Topics in Algebra\", exercise 4.1.19 concerns the real quaternions ℍ, which Mathlib represents as `Quaternion ℝ` (defined as `QuaternionAlgebra ℝ (-1) 0 (-1)`). The Lean statement `Infinite {x : Quaternion ℝ | x^2 = -1}` uses `Set` coerced to a subtype, asserting that the collection of quaternions satisfying x² = -1 is infinite. This is logically equivalent to the informal claim \"there is an infinite number of solutions to x² = -1 in the quaternions\" — the conclusion matches, the ambient type (real quaternions) matches, and the equation encoding is exact. No hypothesis is added or omitted beyond what the informal statement implies.",
+  "duration_ms": 93969,
+  "cost_usd": 0.27086625000000003
+}

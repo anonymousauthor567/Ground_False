@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts there are infinitely many primes congruent to −1 modulo 6. The Lean statement says the subtype `{p : Nat.Primes // p ≡ -1 [ZMOD 6]}` is infinite. `Nat.Primes` is precisely the subtype `{p : ℕ // p.Prime}` (confirmed in `Mathlib/Data/Nat/Prime/Defs.lean`), and `p ≡ -1 [ZMOD 6]` unfolds to `Int.ModEq 6 (↑p) (-1)` (confirmed in `Mathlib/Data/ZMod/Basic.lean`), where `p` is coerced from `Nat.Primes` to `ℕ` to `ℤ`. This is exactly the notion of \"prime congruent to −1 mod 6\". `Infinite` on the subtype is the standard Mathlib encoding of \"infinitely many\". No hypotheses added or omitted; the meaning matches precisely.",
+  "duration_ms": 106330,
+  "cost_usd": 0.3596262499999999
+}

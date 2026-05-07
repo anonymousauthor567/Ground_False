@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `∀ x ∈ Set.Ioo a b, deriv f x > 0` matches \"f'(x) > 0 in (a, b)\" (with `deriv` implicitly requiring differentiability since it returns 0 otherwise). The hypothesis `∀ x ∈ Set.Ioo a b, g (f x) = x` correctly encodes \"g is the inverse function\" — since f becomes strictly monotone (and hence injective) on (a, b), this left-inverse property uniquely determines g on f((a,b)), which is exactly the natural domain of the inverse. The three conclusions (`StrictMonoOn f`, `DifferentiableOn ℝ g (f '' Set.Ioo a b)`, `deriv g (f x) = 1 / deriv f x`) precisely mirror the three claims in the informal statement. The domain `f '' Set.Ioo a b` for differentiability is the correct natural domain of the inverse function g (not `Set.Ioo a b`, which would be wrong). This matches the `Rudin_exercise_5_2_corrected` version in the ground truth.",
+  "duration_ms": 167981,
+  "cost_usd": 0.5396979999999999
+}

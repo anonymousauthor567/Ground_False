@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one precisely. The power series f(x) = ∑ c_i x^i is encoded via `tsum` (∑'), which equals the standard infinite sum whenever the series is summable — and for coefficients in {0,1} and |x| < 1 (both 2/3 and 1/2), the series is bounded by a convergent geometric series, so tsum coincides with the classical sum. The constraint `∀ n, c n = 0 ∨ c n = 1` faithfully captures \"each coefficient is 0 or 1\", the hypothesis `f(2/3) = 3/2` is preserved verbatim, and the conclusion `Irrational (f (1/2))` matches the irrationality claim. No hypotheses are added or dropped, and the ambient type ℝ is appropriate.",
+  "duration_ms": 28962,
+  "cost_usd": 0.11811
+}

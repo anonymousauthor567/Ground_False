@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement defines T_inf matching the informal definition: `Set.Infinite tᶜ` corresponds to \"X - U is infinite\", `t = ∅` corresponds to \"X - U is all of X\", and `t = Set.univ` corresponds to \"X - U is empty\" (disjuncts reordered, but ∨ is commutative). The three negated conditions (`univ ∈ T_inf`, closure under arbitrary unions, closure under binary intersections) exactly match Mathlib's TopologicalSpace axioms; `∅ ∈ T_inf` is automatic from the T_inf definition and also follows from the sUnion axiom on the empty family, so it is not needed separately. The existential `∃ X : Type, ¬(...)` correctly encodes \"does not need to be a topology on X\" (i.e., there exists an X for which the topology axioms fail). The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 75563,
+  "cost_usd": 0.2705165
+}

@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch10_31.lean",
+  "stem": "brualdi_ch10_31",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `isDifferenceSet` correctly captures the standard combinatorial notion of a difference set. The expression `List.count x [i - j]` is an indicator function (returns 1 if `x = i - j`, else 0), so the double sum counts the number of ordered pairs $(i, j)$ with $i, j \\in B$, $i \\neq j$, and $i - j = x$. The definition asserts the existence of a constant $k$ (the parameter $\\lambda$) such that every non-zero element of $\\mathbb{Z}_n$ has exactly $k$ such representations — which is exactly the classical definition of a $(v, k, \\lambda)$-difference set. The restriction $j \\in B \\setminus \\{i\\}$ (i.e., $i \\neq j$) matches the standard convention. For the specific claim, $|B| = 5$ gives $20$ ordered differences, matching the $20$ non-zero elements of $\\mathbb{Z}_{21}$ with $\\lambda = 1$. The Lean theorem is a logically equivalent formalization.",
+  "duration_ms": 224904,
+  "cost_usd": 0.6520585
+}

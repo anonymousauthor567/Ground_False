@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b3.lean",
+  "stem": "putnam_2011_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures Putnam 2011 B3. The informal \"open interval containing 0\" is logically equivalent to ℝ → ℝ for this claim, since differentiability at 0 is a local property. The hypothesis \"g nonzero and continuous at 0\" is faithfully encoded as `g 0 ≠ 0` together with `ContinuousAt g 0` — by continuity, g(0) ≠ 0 implies g is nonzero in a neighborhood of 0, so f/g is well-defined near 0. The product fg and quotient f/g are encoded pointwise, matching the informal meaning. The conclusion \"must f be differentiable at 0\" is correctly framed as an iff with a Prop solution (True, matching the known Putnam answer). No extra hypotheses are imposed on f, and the universal quantification over f, g matches the \"let f and g be...\" framing of the informal statement.",
+  "duration_ms": 112948,
+  "cost_usd": 0.32635074999999997
+}

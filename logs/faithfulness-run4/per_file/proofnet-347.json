@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the symmetric-limit condition does not force continuity — equivalently, to exhibit some f : ℝ → ℝ satisfying the condition but not continuous. The Lean statement uses ∃ f to provide such an example, with the symmetric-limit condition encoded as `Tendsto (λ y => f(x+y) - f(x-y)) (𝓝 0) (𝓝 0)` for every x, which exactly matches lim_{h→0}[f(x+h)-f(x-h)] = 0 (the renaming of h to y is cosmetic). Using the unpunctured neighborhood filter `𝓝 0` is equivalent to the punctured version here because at y = 0 the function value is f(x) - f(x) = 0, matching the target limit. The negation ¬ Continuous f faithfully encodes \"f is not continuous\". No extra hypotheses are added and no quantifier structure is altered.",
+  "duration_ms": 25380,
+  "cost_usd": 0.10627625
+}

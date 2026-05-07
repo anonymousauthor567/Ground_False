@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p60.lean",
+  "stem": "calculus__p60",
+  "verdict": "stronger",
+  "reasoning": "The Lean formalization uses `Tendsto f (𝓝 0) (𝓝 (3/5))` with the full neighborhood filter `𝓝 0`, which includes the point x = 0 itself. In Mathlib this is the definition of `ContinuousAt f 0` with value 3/5 at 0, forcing f(0) = 3/5. The informal \"lim_{x→0} f(x) = 3/5\" is the standard punctured limit (x ≠ 0), which in Mathlib corresponds to `𝓝[≠] 0`. Since `𝓝[≠] 0 ≤ 𝓝 0`, the Lean statement strictly implies the informal one, but the informal claim does not imply the Lean claim because f(0) = sin(0)/0 = 0/0 = 0 in Lean's convention (not 3/5). Thus the Lean statement adds an extra requirement (the value at 0 equals the limit) beyond what was asked, making it logically stronger than — and in fact unprovable from — the informal statement.",
+  "duration_ms": 602332,
+  "cost_usd": 1.2854735
+}

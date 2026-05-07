@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly encodes the informal statement. `MetricSpace α` / `MetricSpace β` provide the two metric spaces, `Continuous f` / `Continuous g` give the continuity hypotheses, and `Dense s` (defined in Mathlib as `∀ x, x ∈ closure s`) is exactly the standard meaning of a dense subset. The hypothesis `∀ x ∈ s, f x = g x` matches \"g(p) = f(p) for all p ∈ P\" (equality is symmetric). The conclusion `f = g` is equivalent by function extensionality to \"f(x) = g(x) for all x ∈ X\", which is what the informal statement asks. No hypothesis is added or dropped and no quantifier is changed.",
+  "duration_ms": 20405,
+  "cost_usd": 0.11504175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "134.lean",
+  "stem": "134",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim: H is a normal subgroup (via [H.Normal]), H is a p-group (via IsPGroup p H with p.Prime), and the universal quantification \"every Sylow p-subgroup\" is encoded by taking P : Sylow p G as a parameter and proving H ≤ P. The Mathlib definition of Sylow p G (a maximal p-subgroup via `is_maximal'`) matches the standard mathematical meaning. The [Finite G] hypothesis surfaces the standard textbook convention under which Sylow theorems are developed — classical Sylow theory (as in Dummit & Foote, Artin, etc.) is always stated for finite groups, and \"every Sylow p-subgroup of G\" is textbook language that implicitly assumes finiteness. The hp : p.Prime hypothesis is likewise appropriate since \"p-group\" conventionally requires p prime. The quantifier structure, hypotheses, and conclusion all align with the informal statement under its natural textbook reading.",
+  "duration_ms": 579855,
+  "cost_usd": 1.67205675
+}

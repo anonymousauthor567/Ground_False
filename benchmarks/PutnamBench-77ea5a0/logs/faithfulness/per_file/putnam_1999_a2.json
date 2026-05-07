@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a2.lean",
+  "stem": "putnam_1999_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes: for a polynomial p : Polynomial ℝ with p(x) ≥ 0 for all real x, there exist k : ℕ (inferred from Fin k) with k > 0 and f : Fin k → Polynomial ℝ such that p(x) = Σ (f j)(x)². The ∃ᵉ notation from Batteries is plain syntactic sugar for nested existentials. The hypothesis `∀ x, p.eval x ≥ 0` faithfully captures \"nonnegative for all real x\", and the conclusion captures the sum-of-squares decomposition. The constraint k > 0 does not make the statement weaker or stronger than the informal: the informal's `∑_{j=1}^k` already suggests k ≥ 1 by convention, and even if k = 0 were admitted (empty sum, only possible when p = 0), one can always pad with a zero polynomial to achieve k ≥ 1, so the existential claims are logically equivalent. Types and quantifier structure match.",
+  "duration_ms": 87720,
+  "cost_usd": 0.39361225
+}

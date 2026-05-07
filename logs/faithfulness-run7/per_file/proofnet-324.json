@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-324.lean",
+  "stem": "proofnet-324",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"$\\sum 1/k(\\log(k))^p$ converges when $p > 1$\" is the standard Bertrand series, which is only well-defined starting from $k = 2$ (since $\\log 1 = 0$ and $k = 0$ gives division by zero). The Lean formalization encodes this by summing `fun (k : ℕ) => 1 / ((k + 2) * (Real.log (k + 2)) ^ p)` over all `k : ℕ`, which is exactly the re-indexing $k \\mapsto k+2$ of $\\sum_{n=2}^{\\infty} 1/(n (\\log n)^p)$ — the only mathematically sensible reading. The hypothesis `p > 1` matches the informal statement, and `Summable` correctly captures convergence. The shift by 2 makes explicit the implicit premise about the starting index that any mathematician would supply, so this is a faithful formalization rather than a strengthening or weakening.",
+  "duration_ms": 112813,
+  "cost_usd": 0.35319249999999996
+}

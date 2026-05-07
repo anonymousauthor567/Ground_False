@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a5.lean",
+  "stem": "putnam_1966_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all three parts of the informal statement: (1) C is the set of continuous real functions; (2) linearity is encoded via constant-function multiplication `(fun x => a) * f`, which equals pointwise `a * f x`; (3) locality on closed bounded intervals `Set.Icc r s` with `r ≤ s` faithfully captures \"identical on some interval I\" (for continuous functions, agreement on closed intervals is equivalent to agreement on open intervals with the same endpoints). The conclusion `T g = f * g` correctly expresses `T(g)(x) = f(x)g(x)` via pointwise function multiplication. The standard Lean convention of `r ≤ s` (including singletons as degenerate intervals) aligns with the mathematical convention where intervals are connected subsets of ℝ. The imageTC hypothesis properly models T as a map from C to C.",
+  "duration_ms": 551701,
+  "cost_usd": 1.545556
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Infinite {a : ℤ | Irreducible (X^7 + 15*X^2 - 30*X + (a : Polynomial ℚ) : Polynomial ℚ)}` directly captures the informal claim. `Infinite {a : ℤ | ...}` means the set of integers a satisfying the property is infinite, matching \"infinite number of integers a\". The polynomial `X^7 + 15*X^2 - 30*X + (a : Polynomial ℚ)` in `Polynomial ℚ` matches $f(x) = x^7 + 15x^2 - 30x + a$ in $\\mathbb{Q}[x]$, with the integer `a` naturally coerced as a constant polynomial. Mathlib's `Irreducible` for a polynomial in `Polynomial ℚ` is exactly the standard notion of irreducibility in $\\mathbb{Q}[x]$. No hypotheses are added or dropped, and the types and quantifiers align with the informal statement.",
+  "duration_ms": 128114,
+  "cost_usd": 0.40450299999999995
+}

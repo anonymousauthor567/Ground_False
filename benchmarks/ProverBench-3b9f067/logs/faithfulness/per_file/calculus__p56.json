@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p56.lean",
+  "stem": "calculus__p56",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that the maximum value of the integral over continuous functions IS 1/16, which presupposes both (a) existence of a maximizer attaining this value, and (b) that the attained value is 1/16. The Lean statement, however, is a mere conditional: for any function f, IF f is a maximizer of the functional on continuous functions (IsMaxOn ... f), THEN the integral at f equals 1/16. This captures only claim (b), not (a). If no maximizer existed, the Lean statement would be vacuously true, yet the informal claim would be false. The Lean statement is thus logically implied by the informal one (any maximizer of the functional in the true statement must achieve 1/16) but doesn't imply it — existence of a maximizer attaining 1/16 is not asserted. A faithful formalization would assert e.g. `IsGreatest {F g | Continuous g} (1/16)` or use an existential.",
+  "duration_ms": 608510,
+  "cost_usd": 1.3630039999999999
+}

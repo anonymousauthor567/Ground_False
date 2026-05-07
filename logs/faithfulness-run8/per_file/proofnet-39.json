@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The rotation subgroup is correctly encoded as `Subgroup.closure {DihedralGroup.r 1}`: since `r 1` has order `n` in `DihedralGroup n` (with `n ≠ 0`), its generated subgroup is precisely `{r k | k : ZMod n}`, the subgroup of all rotations. Maximality is correctly expressed as `R ≠ ⊤ ∧ ∀ K, R ≤ K → K = R ∨ K = ⊤`, which is logically equivalent to `IsCoatom R`, the standard definition of a maximal proper subgroup. The hypothesis `n ≠ 0` is a natural reading of \"dihedral group\" — in standard mathematical convention (and in Mathlib, where `DihedralGroup 0` is the infinite dihedral group), \"dihedral group\" without qualification usually refers to finite dihedral groups, so surfacing this is faithful, not weakening. The use of `{R} (hR : R = ...)` to name the subgroup is a logically equivalent presentation.",
+  "duration_ms": 415594,
+  "cost_usd": 1.4394502500000002
+}

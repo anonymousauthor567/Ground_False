@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_b6.lean",
+  "stem": "putnam_1962_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement after surfacing the implicit premise \"f is not constant\". The literal informal statement is false without this premise: for n ≥ 1 and f ≡ 1, we have |f| ≤ 1 everywhere and can choose any 2n distinct points satisfying |f(xᵢ)| = 1, yet f = cos(nx+a) fails (constant ≠ non-constant cosine). The classical proof argument (at each max point f'(xᵢ) = 0, and f' has degree ≤ n so ≤ 2n zeros) naturally requires excluding the constant f' ≡ 0 case. The Lean's `(¬∃ c, f = fun _ => c) → ∃ a, f = cos(nx+a)` is logically equivalent to adding \"f non-constant\" as a hypothesis. All other elements match: the sum ranges `Finset.Icc 0 n`, the closed interval for boundedness, the half-open interval for the 2n points, using `ncard = 2n` to encode 2n distinct points, and the coercions on k*x and n*x.",
+  "duration_ms": 631527,
+  "cost_usd": 1.7138329999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: a field F, a 1-dimensional F-module V, a linear endomorphism T, and the conclusion that there exists a scalar c such that T v = c • v for all v. The `FiniteDimensional F V` hypothesis is technically redundant since `finrank F V = 1` already implies finite-dimensionality in Mathlib (finrank returns 0 for infinite-dimensional spaces), but this redundancy does not change the logical content. The quantifier structure (∃ c, ∀ v) matches the informal \"there exists a ∈ F such that Tv = av for all v.\" No hypothesis is dropped or added in a way that alters the claim.",
+  "duration_ms": 12635,
+  "cost_usd": 0.05440525
+}

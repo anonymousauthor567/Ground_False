@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. V is a vector space over F (via `Field F` and `Module F V`), S and T are linear operators in L(V), and `S ∘ T = T ∘ S` (function composition via FunLike coercion) is equivalent to ST = TS as linear maps. The conclusion `Submodule.map S (ker (T - c • LinearMap.id)) ≤ ker (T - c • LinearMap.id)` precisely says S(null(T - cI)) ⊆ null(T - cI), i.e., the null space is invariant under S. The free variable c : F corresponds to the universal quantification \"for every λ ∈ F\". Working over an arbitrary field rather than specifically ℝ/ℂ is a natural reading since the informal statement does not restrict F and the result holds generally.",
+  "duration_ms": 100596,
+  "cost_usd": 0.32671975000000003
+}

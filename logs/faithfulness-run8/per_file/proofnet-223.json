@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-223.lean",
+  "stem": "proofnet-223",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The cyclic group hypothesis $G = \\langle x \\rangle$ of order $n \\geq 1$ is encoded via `closure ({x} : Set G) = ⊤` (generator condition), `orderOf x = n` (order), and `n : ℕ+` (n ≥ 1). The \"H is maximal\" predicate is unpacked as `H ≠ ⊤ ∧ ∀ K, H ≤ K → K = H ∨ K = ⊤`, which is logically equivalent to Mathlib's `IsCoatom H` (the standard definition of maximal subgroup). The condition \"H = ⟨x^p⟩ for some prime p dividing n\" becomes `∃ p : ℕ, Prime p ∧ p ∣ n ∧ H = Subgroup.closure {x ^ p}`, where `Prime p` for p : ℕ is equivalent to `Nat.Prime p`, divisibility `p ∣ n` uses the natural coercion ℕ+ → ℕ, and `Subgroup.closure {x^p}` matches ⟨x^p⟩. The biconditional direction is simply reversed (which is symmetric). No hypotheses are added or dropped that would change the logical content.",
+  "duration_ms": 325091,
+  "cost_usd": 1.328709
+}

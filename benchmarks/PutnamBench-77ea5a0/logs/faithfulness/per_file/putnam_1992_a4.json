@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_a4.lean",
+  "stem": "putnam_1992_a4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement assumes $f$ is \"infinitely differentiable\" ($C^\\infty$). In the Lean formalization, `ContDiff ℝ ⊤ f` with Mathlib v4.27.0 uses the new signature `ContDiff (n : WithTop ℕ∞)`. Here `⊤ : WithTop ℕ∞` is the analytic top (scoped notation `ω`), not the $C^\\infty$ top (which would be `∞ = ((⊤ : ℕ∞) : WithTop ℕ∞)`). This is confirmed by `contDiff_omega_iff_analyticOnNhd : ContDiff 𝕜 ω f ↔ AnalyticOnNhd 𝕜 f univ` in `Mathlib/Analysis/Calculus/ContDiff/Defs.lean`. Thus the Lean hypothesis requires $f$ to be real-analytic on $\\mathbb{R}$, which is strictly stronger than $C^\\infty$ (e.g., $e^{-1/x^2}$ is $C^\\infty$ but not analytic at 0). The informal claim ranges over all $C^\\infty$ functions satisfying the interpolation condition, while the Lean version only covers the narrower class of real-analytic ones, so the Lean formalization is logically implied by — but does not imply — the informal statement.",
+  "duration_ms": 715993,
+  "cost_usd": 3.6395625
+}

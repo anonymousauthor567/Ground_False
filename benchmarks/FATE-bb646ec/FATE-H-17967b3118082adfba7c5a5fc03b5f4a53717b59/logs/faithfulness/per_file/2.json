@@ -1,0 +1,8 @@
+{
+  "file": "2.lean",
+  "stem": "2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"if $\\#G = 56$ then $G$ is not simple.\" The hypothesis `Nat.card G = 56` faithfully captures the cardinality condition — since `Nat.card` returns 0 for infinite types, this forces G to be finite of order 56. `IsSimpleGroup` in Mathlib is defined as a `Nontrivial` group where every normal subgroup is `⊥` or `⊤`, which matches the standard definition of a simple group. `¬ IsSimpleGroup G` thus correctly states \"G is not simple.\" The use of `Type` instead of `Type*` is a minor stylistic choice that doesn't affect the mathematical content, since any group of order 56 is finite and simplicity is isomorphism-invariant. No hypotheses have been added or dropped beyond what the informal statement specifies.",
+  "duration_ms": 114283,
+  "cost_usd": 0.26217975
+}

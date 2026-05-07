@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that x² + y² − 1 is irreducible in ℚ[x,y]. In Lean/Mathlib, the polynomial ring ℚ[x,y] is standardly encoded as `MvPolynomial (Fin 2) ℚ`, with the two variables given by `MvPolynomial.X 0` and `MvPolynomial.X 1`. The expression `(MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1` therefore faithfully represents x² + y² − 1. Mathlib's `Irreducible` predicate on an element of a monoid says that the element is not a unit and any factorization p = a·b has a or b a unit, which is the standard algebraic notion of irreducibility. Hence the Lean signature is logically equivalent to the informal statement, with no added or missing hypotheses.",
+  "duration_ms": 38972,
+  "cost_usd": 0.14341925
+}

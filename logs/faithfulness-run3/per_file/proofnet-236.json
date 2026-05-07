@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-236.lean",
+  "stem": "proofnet-236",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. It asserts the existence of a prime p dividing |G| = 351 together with a Sylow p-subgroup P that is normal. In Mathlib, `Sylow p G` is defined as a maximal p-subgroup, matching the standard mathematical definition. The hypothesis `hG : card G = 351` sets the order. The conjunction `p.Prime ∧ (p ∣ card G) ∧ P.Normal` correctly encodes \"for some prime p dividing its order, there is a normal Sylow p-subgroup\". The explicit `p ∣ card G` constraint prevents trivial solutions (for primes not dividing |G|, the trivial subgroup would be a Sylow p-subgroup that is trivially normal, which wouldn't match the spirit of the informal claim). The quantifier structure (∃p, ∃P, with conditions) matches the informal \"for some prime p ... has a normal Sylow p-subgroup\".",
+  "duration_ms": 67558,
+  "cost_usd": 0.220926
+}

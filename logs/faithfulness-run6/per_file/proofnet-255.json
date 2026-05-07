@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each piece of the informal claim exactly: `[Group G] [Fintype G]` encodes \"finite group\", `Even (card G)` with `card := Fintype.card` (via `open Fintype`) encodes \"even order\", and `∃ (a : G), a ≠ 1 ∧ a = a⁻¹` encodes \"there exists an element a ≠ e with a = a⁻¹\" (identity `e` is `1` in multiplicative notation). No hypotheses are added or omitted, the quantifier structure matches, and the types are correct. This is logically equivalent to the informal statement.",
+  "duration_ms": 22071,
+  "cost_usd": 0.10236375
+}

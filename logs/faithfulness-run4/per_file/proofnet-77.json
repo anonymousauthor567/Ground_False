@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the mathematical content of the informal claim: `[Group G]` with `Fintype G` and `card G = 6` encodes \"group of order 6\"; `∃ a b : G, a * b ≠ b * a` is precisely the negation of commutativity, i.e., nonabelian; and `Nonempty (G ≃* Equiv.Perm (Fin 3))` asserts that G is isomorphic as a group to the symmetric group on 3 letters (since `Equiv.Perm (Fin 3)` is S_3 and `≃*` is the group isomorphism type). No hypotheses are added or dropped, and the conclusion matches \"$G \\simeq S_3$\".",
+  "duration_ms": 34994,
+  "cost_usd": 0.09067075
+}

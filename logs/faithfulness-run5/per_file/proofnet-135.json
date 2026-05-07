@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for an injection f : ℕ → ℕ, if a sequence p has limit a, then the rearrangement q_k = p_{f(k)} has limit a. The Lean signature captures exactly this: given `Injective f` and `Tendsto p atTop (𝓝 a)`, it concludes `Tendsto (λ n => p (f n)) atTop (𝓝 a)`. The one-direction conclusion matches the intended reading, since for a mere injection (not a bijection) the converse can fail. Using a general topological space α rather than ℝ is a natural and minimal setting for discussing limits — the informal text does not specify the codomain of the sequence, so this is a faithful rendering rather than an extraneous generalization. The Mathlib fact `Function.Injective.nat_tendsto_atTop` confirms this is the standard formalization of this rearrangement result.",
+  "duration_ms": 107982,
+  "cost_usd": 0.31551324999999997
+}

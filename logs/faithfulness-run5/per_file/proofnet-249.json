@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The quotient `GaussianInt ⧸ Ideal.span {↑q}` corresponds exactly to ℤ[i]/(q). The conjunction `IsField (...) ∧ ∃ finR : Fintype (...), Fintype.card _ finR = q^2` properly encodes \"is a field with q² elements\" — the first conjunct captures the field property, and the second conjunct (existence of a Fintype instance with card = q²) is the standard Mathlib idiom for \"finite with cardinality q²\" when no Fintype instance is available automatically. Using `q : ℕ` rather than `q : ℤ` is mathematically equivalent here, since the ideal (q) in ℤ[i] equals (-q), the cardinality q² equals (-q)², and the relevant primes satisfying q ≡ 3 mod 4 correspond bijectively between ℕ and ℤ (up to units). The hypotheses `q.Prime` and `q ≡ 3 [ZMOD 4]` directly match \"q prime\" and \"q ≡ 3 mod 4\".",
+  "duration_ms": 287806,
+  "cost_usd": 1.0560085
+}

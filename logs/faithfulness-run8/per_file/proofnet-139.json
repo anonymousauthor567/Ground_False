@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: if E ⊆ ℝ is uncountable, then E has a condensation point — i.e., a point p such that every neighborhood of p contains uncountably many points of E. The Lean statement has hypothesis `¬ Set.Countable E` (E is uncountable) and conclusion `∃ p, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E)`, which literally says \"there exists p such that every neighborhood U of p meets E in an uncountable set.\" This is precisely the definition of a condensation point. Quantifying over the full neighborhood filter `𝓝 p` is equivalent to quantifying over open neighborhoods (any filter-neighborhood contains an open one and vice versa), so no drift occurs. Types and quantifier structure match exactly.",
+  "duration_ms": 61966,
+  "cost_usd": 0.25089775
+}

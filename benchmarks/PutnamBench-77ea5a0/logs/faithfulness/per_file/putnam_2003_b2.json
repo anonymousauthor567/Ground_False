@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b2.lean",
+  "stem": "putnam_2003_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the averaging process correctly: `seq 0 j = 1/j` for j ∈ [1,n] matches level 0; `seq k j = (seq (k-1) j + seq (k-1) (j+1))/2` for k ∈ [1,n-1], j ∈ [1,n-k] matches the averaging of consecutive pairs producing n-k entries at level k; and `seq (n-1) 1` at level n-1, position 1 corresponds to the final single entry x_n. Though `seq : ℕ → ℕ → ℚ` is more permissive than `Fin n → Icc 1 n → ℚ`, the hypotheses uniquely determine `seq (n-1) 1` by tracing through the averaging back to level 0 (all required positions at each level are covered and reference only valid positions), so the universally quantified claim is equivalent to x_n < 2/n. Boundary cases n=1 (vacuous havg, seq 0 1 = 1 < 2) and n=2 (seq 1 1 = 3/4 < 1) check out. The `2/n` on the right is correctly interpreted as rational division since the LHS is ℚ.",
+  "duration_ms": 222701,
+  "cost_usd": 0.53921025
+}

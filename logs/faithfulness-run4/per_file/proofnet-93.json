@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$. The Lean signature `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)` uses Mathlib's standard `Irreducible` predicate (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`), applied to the polynomial `X^3 - 3*X - 1` in `Polynomial ℚ = ℚ[X]`. Since `ℚ` is a field, `Irreducible` on `ℚ[X]` coincides with the classical definition of irreducibility over `ℚ` (non-unit, and not a product of two non-units, where units are exactly the nonzero constants). The polynomial expression correctly encodes $x^3 - 3x - 1$. There is no drift in hypotheses, conclusion, or types.",
+  "duration_ms": 82952,
+  "cost_usd": 0.17777125000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately captures the informal statement. `A : Set X` gives the subspace/subtype topology on ↥A automatically, so `r : X → A` with `Continuous r` corresponds exactly to a continuous map from X to A with subspace topology. The hypothesis `∀ x : A, r x = x` encodes the retraction condition r(a) = a for a ∈ A (both sides live in A, with the coercion on the left). The conclusion `IsQuotientMap r` is Mathlib's standard definition (surjective + codomain topology coinduced from domain), which matches Munkres's definition of a quotient map. No hypotheses are dropped or added beyond those in the informal statement.",
+  "duration_ms": 68955,
+  "cost_usd": 0.23885175
+}

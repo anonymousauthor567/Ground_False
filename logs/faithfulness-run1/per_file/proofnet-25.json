@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "informal": "Prove that if $T \\in \\mathcal{L}(V)$ is normal, then $\\operatorname{range} T=\\operatorname{range} T^{*}.$",
+  "lean": "\ntheorem Axler_exercise_7_6 {V : Type*} [NormedAddCommGroup V] [RCLike F] [InnerProductSpace F V]\n  [FiniteDimensional F V] (T : End F V)\n  (hT : T * adjoint T = adjoint T * T) :\n  range T = range (adjoint T)",
+  "verdict": "faithful",
+  "reasoning": "Axler's exercise 7.6 is set in the standard Axler context where V is a finite-dimensional inner product space over ℝ or ℂ, and T ∈ L(V) is normal, meaning T T* = T* T. The Lean signature uses [RCLike F] [InnerProductSpace F V] [FiniteDimensional F V], matching Axler's ambient setting, and encodes normality as T * adjoint T = adjoint T * T (using End F V multiplication, which is composition). The conclusion range T = range (adjoint T) matches the informal claim. No extra hypotheses are introduced beyond what Axler implicitly assumes, and none are dropped. This is a faithful formalization.",
+  "duration_ms": 11840,
+  "cost_usd": 0.056443
+}

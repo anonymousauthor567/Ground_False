@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-282.lean",
+  "stem": "proofnet-282",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims the equation 3x² + 2 = y² has no integer solutions. The Lean statement `¬ ∃ x y : ℤ, 3*x^2 + 2 = y^2` directly asserts that there do not exist integers x and y satisfying 3x² + 2 = y². The types are ℤ (integers) matching the informal \"integers\", the equation is transcribed exactly, and the quantifier structure (negated existential over both variables) precisely captures \"no solution\". This is a strictly faithful formalization.",
+  "duration_ms": 7286,
+  "cost_usd": 0.0309045
+}

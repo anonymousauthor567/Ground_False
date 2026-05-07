@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler 5.20. The hypothesis `card (T.Eigenvalues) = finrank F V` correctly expresses \"T has dim V distinct eigenvalues\" since T.Eigenvalues is a subtype (automatically distinct). The hypothesis `h2` says a vector lies in some eigenspace of S iff it lies in some eigenspace of T; since 0 is in every eigenspace on both sides trivially, the effective content is that the sets of (nonzero) eigenvectors of S and T coincide — exactly \"same eigenvectors, not necessarily with the same eigenvalues.\" The ambient setup (finite-dimensional vector space over a field, End F V) matches ℒ(V), and the conclusion S * T = T * S matches ST = TS.",
+  "duration_ms": 32532,
+  "cost_usd": 0.12479975000000001
+}

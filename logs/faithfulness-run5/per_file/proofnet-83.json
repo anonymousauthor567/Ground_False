@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the claim: in a finite group G of order p^n (for p prime), any subgroup K of order p^(n-1) is normal. Each informal hypothesis maps directly to a Lean hypothesis — `hp : Nat.Prime p`, `hG : card G = p ^ n`, `hK : card K = p ^ (n-1)` — and the conclusion `K.Normal` uses Mathlib's standard `Subgroup.Normal` (closed under conjugation), matching \"normal in G\". The `[Fintype K]` instance is automatically derivable from `[Fintype G]` and is a routine typeclass artifact, not an added semantic hypothesis. The edge case `n = 0` (where ℕ subtraction gives `n - 1 = 0`) makes both G and K trivial, for which normality holds trivially, so it doesn't introduce a discrepancy.",
+  "duration_ms": 45896,
+  "cost_usd": 0.2058355
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for each positive divisor n of the order of a finite abelian group G, there exists a subgroup of order n. The Lean signature takes `[CommGroup G] [Fintype G]` (finite abelian), requires `n ∣ card G`, and concludes with the existence of a subgroup H with `card H = n`. The \"positive\" qualifier on n is implicit: since G contains the identity, `card G ≥ 1`, and `0 ∣ card G` would require `card G = 0`, which is impossible — so `hn : n ∣ card G` forces `n ≥ 1`. The explicit `Fintype H` existential is harmless since any subgroup of a Fintype inherits a Fintype instance; the mathematical content is unchanged. The \"Use Cauchy's Theorem and induction\" clause is a proof hint, not part of the claim.",
+  "duration_ms": 12986,
+  "cost_usd": 0.0458775
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "theorem_name": "Rudin_exercise_5_15_corrected",
+  "informal": "Suppose $a \\in R^{1}, f$ is a twice-differentiable real function on $(a, \\infty)$, and $M_{0}, M_{1}, M_{2}$ are the least upper bounds of $|f(x)|,\\left|f^{\\prime}(x)\\right|,\\left|f^{\\prime \\prime}(x)\\right|$, respectively, on $(a, \\infty)$. Prove that $M_{1}^{2} \\leq 4 M_{0} M_{2} .$",
+  "lean": "\ntheorem Rudin_exercise_5_15_corrected\n    {f : ℝ → ℝ} {a M0 M1 M2 : ℝ}\n    (hf' : DifferentiableOn ℝ f (Set.Ioi a))\n    (hf'' : DifferentiableOn ℝ (deriv f) (Set.Ioi a))\n    (hbdd0 : BddAbove {(|f x|) | x ∈ (Set.Ioi a)})\n    (hbdd1 : BddAbove {(|deriv f x|) | x ∈ (Set.Ioi a)})\n    (hbdd2 : BddAbove {(|deriv (deriv f) x|) | x ∈ (Set.Ioi a)})\n    (hM0 : M0 = sSup {(|f x|) | x ∈ (Set.Ioi a)})\n    (hM1 : M1 = sSup {(|deriv f x|) | x ∈ (Set.Ioi a)})\n    (hM2 : M2 = sSup {(|deriv (deriv f) x|) | x ∈ (Set.Ioi a)}) :\n    (M1 ^ 2) ≤ 4 * M0 * M2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the relevant content of the informal statement: f is differentiable on (a, ∞) and its derivative is also differentiable there (encoding \"twice-differentiable on (a, ∞)\"); the sets {|f x| : x ∈ (a,∞)}, {|f' x| : x ∈ (a,∞)}, {|f'' x| : x ∈ (a,∞)} are assumed bounded above (so the sup is the actual least upper bound), and M0, M1, M2 are defined as those suprema. The conclusion M1^2 ≤ 4·M0·M2 matches exactly. The use of `deriv f` and `deriv (deriv f)` corresponds to f' and f'' under the given differentiability hypotheses. No extra hypotheses (continuity beyond what twice-differentiability already provides, finiteness, etc.) are silently added, and none are dropped.",
+  "duration_ms": 9610,
+  "cost_usd": 0.055331000000000005
+}

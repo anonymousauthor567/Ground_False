@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures Baire's theorem exactly as stated informally. The hypotheses `[MetricSpace X] [CompleteSpace X] [Nonempty X]` correspond precisely to \"nonempty complete metric space X\". The function `G : ℕ → Set X` with `hG : ∀ n, IsOpen (G n) ∧ Dense (G n)` corresponds to \"sequence {G_n} of dense open sets\". The conclusion `∃ x, ∀ n, x ∈ G n` is definitionally equivalent to `(⋂ n, G n).Nonempty`, which is exactly \"⋂_{1}^{∞} G_n is not empty\". The 1-indexing vs ℕ-indexing is immaterial since both describe the same countable intersection. No hypotheses are silently added or omitted, and the types match standard mathematical reading.",
+  "duration_ms": 48711,
+  "cost_usd": 0.10635625
+}

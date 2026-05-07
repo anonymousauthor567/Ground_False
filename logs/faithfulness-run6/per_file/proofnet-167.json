@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement closely matches the informal text. `f : ℝ → ℝ` and `E : Set ℝ` encode \"f real-valued on a set of reals\" (with the graph as a subset of the plane). The hypothesis `IsCompact E` mirrors \"E is compact\". The set `G = {(x, f x) | x ∈ E}` is exactly the informal definition of the graph of f on E. The conclusion `ContinuousOn f E ↔ IsCompact G` matches \"f is continuous on E iff its graph is compact\". Although f is defined on all of ℝ in Lean rather than only on E, both `ContinuousOn f E` and the graph G only inspect f at points of E, so this encoding is logically equivalent to the informal claim.",
+  "duration_ms": 31968,
+  "cost_usd": 0.15034399999999998
+}

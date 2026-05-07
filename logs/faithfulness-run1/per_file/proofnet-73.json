@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-73.lean",
+  "stem": "proofnet-73",
+  "informal": "Let $G$ be a group in which $(a b)^{3}=a^{3} b^{3}$ and $(a b)^{5}=a^{5} b^{5}$ for all $a, b \\in G$. Show that $G$ is abelian.",
+  "lean": "\ntheorem Herstein_exercise_2_2_5 {G : Type*} [Group G]\n  (h : ∀ (a b : G), (a * b) ^ 3 = a ^ 3 * b ^ 3 ∧ (a * b) ^ 5 = a ^ 5 * b ^ 5) :\n  ∀ a b : G, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes G is a group and that for all a, b ∈ G, both (ab)^3 = a^3 b^3 and (ab)^5 = a^5 b^5 hold (combined as a conjunction under the same universal quantifier, which is logically equivalent to two separate universal statements). The conclusion ∀ a b, a*b = b*a is exactly the statement that G is abelian. Hypotheses, types, and conclusion all match the informal claim.",
+  "duration_ms": 7262,
+  "cost_usd": 0.04158075
+}

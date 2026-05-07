@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"infinitely many integers n such that n, n+1, n+2 are each the sum of two integer squares\". The Lean encoding `∀ N, ∃ n : ℕ, n > N ∧ ...` is the standard formalization of \"infinitely many naturals\". Since integer squares are non-negative, any integer n satisfying the property must be a natural number, so using ℕ for n does not narrow the claim. Similarly, since for any a, b ∈ ℤ we have a² + b² = |a|² + |b|² with |a|, |b| ∈ ℕ, the set of sums of two integer squares equals the set of sums of two natural squares, so packaging six naturals via `i : Fin 6 → ℕ` for the six summands is equivalent to using integers. The three conjuncts correctly express that n, n+1, n+2 are each a sum of two squares. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 52299,
+  "cost_usd": 0.16405825000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement exactly: it assumes R is a commutative ring, includes the 1 ≠ 0 hypothesis (as (0 : R) ≠ 1), assumes a is nilpotent via IsNilpotent a, universally quantifies b as an argument, and concludes IsUnit (1 - a*b). The types, hypotheses, quantifier structure, and conclusion all match the informal claim. No extra or missing hypothesis.",
+  "duration_ms": 14131,
+  "cost_usd": 0.0556305
+}

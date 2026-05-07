@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-92.lean",
+  "stem": "proofnet-92",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that cos(1°) is algebraic over ℚ. In Lean, `Real.pi / 180` is exactly 1° expressed in radians, and `cos (Real.pi / 180)` (with `Real` opened, resolving to `Real.cos`) gives cos(1°) as a real number. Mathlib's `IsAlgebraic ℚ x` is defined as `∃ p : ℚ[X], p ≠ 0 ∧ aeval x p = 0`, which is precisely the standard notion of algebraicity over ℚ. Since ℝ is a ℚ-algebra, the statement typechecks and asserts exactly the informal claim, with no added or dropped hypotheses.",
+  "duration_ms": 44854,
+  "cost_usd": 0.14527075
+}

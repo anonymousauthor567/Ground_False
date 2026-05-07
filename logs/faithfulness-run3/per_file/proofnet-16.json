@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary index type ι and an arbitrary family u : ι → Submodule F V, faithfully capturing \"any collection of subspaces.\" The conclusion \"the intersection is a subspace\" is expressed as \"there exists a submodule U whose carrier equals the intersection of the carriers,\" which is the standard and logically equivalent way to express that a set forms a subspace. The ambient setup (Field F, AddCommGroup V, Module F V) correctly encodes \"vector space V over F.\" Even the edge case of an empty collection is handled correctly, since the empty intersection equals Set.univ = ↑⊤. No hypotheses are silently added or removed, and the quantifier structure matches the informal claim.",
+  "duration_ms": 74621,
+  "cost_usd": 0.081013
+}

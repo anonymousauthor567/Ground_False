@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "informal": "Prove that a group of order 9 must be abelian.",
+  "lean": "\ntheorem Herstein_exercise_2_5_43 (G : Type*) [Group G] [Fintype G]\n  (hG : card G = 9) :\n  Nonempty (CommGroup G)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: any group G of order 9 is abelian. The Lean signature takes an arbitrary type G with a `Group` instance and `Fintype G`, assumes `card G = 9`, and concludes `Nonempty (CommGroup G)`, i.e. G admits a commutative group structure. Since a `CommGroup` instance on G is equivalent to the group operation already on G being commutative (the multiplication is fixed by the `Group G` instance), this is the standard Mathlib idiom for \"G is abelian\". The hypotheses (finite group of order 9) match exactly, and the conclusion correctly captures commutativity. No extra or missing assumptions.",
+  "duration_ms": 8896,
+  "cost_usd": 0.04604125
+}

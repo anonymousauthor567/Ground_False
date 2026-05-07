@@ -1,0 +1,8 @@
+{
+  "file": "S_0065.lean",
+  "stem": "S_0065",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. \"Complete\" is `HasLimits C`, \"wellpowered\" is `WellPowered C`, \"cowellpowered\" is `WellPowered Cᵒᵖ` (the standard Mathlib encoding used, e.g., in `hasLimits_of_hasColimits_of_hasSeparator`), and \"has a separator S\" is `(S : C) (hS : IsSeparator S)`. The conclusion is a biconditional between `HasColimits C` (cocomplete) and the existence of all $I$-indexed copowers of $S$, expressed as `∀ I : Type v, HasColimit (Discrete.functor (fun _ : I => S))`, which is by definition `HasCoproduct` of the constant family $S$, i.e., the $I$-th copower. The universe `Type v` for `I` is the canonical choice matching `HasColimits` = `HasColimitsOfSize.{v,v}`. No hypotheses are added or dropped, and the quantifier structure and conclusion match precisely.",
+  "duration_ms": 340048,
+  "cost_usd": 1.0412165000000002
+}

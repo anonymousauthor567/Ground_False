@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over an arbitrary group G and element x, matching the informal \"Let x be an element of G\". The positivity of n is faithfully encoded via `n : ℕ+`, matching \"positive integer n\". The hypothesis `orderOf x = n` (with coercion ℕ+ → ℕ) correctly states |x| = n. The conclusion `x⁻¹ = x ^ (n - 1 : ℕ)` matches x⁻¹ = x^(n-1); natural subtraction is well-defined because n ≥ 1. The edge case n = 1 (x = 1, both sides equal 1) works correctly. No hypothesis is added or dropped, and the claim is logically equivalent to the informal statement.",
+  "duration_ms": 88859,
+  "cost_usd": 0.16710450000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a group of order 200 has a normal Sylow 5-subgroup. The Lean statement assumes `[Fintype G] [Group G]` with `card G = 200` (which faithfully encodes \"group of order 200\") and concludes `∃ N : Sylow 5 G, N.Normal`. In Mathlib, `Sylow 5 G` is the type of Sylow 5-subgroups, and `N.Normal` is the standard normal subgroup property on the underlying subgroup. The existential \"there exists a normal Sylow 5-subgroup\" is the natural reading of \"has a normal Sylow 5-subgroup.\" Since in a finite group Sylow p-subgroups are all conjugate, having one normal is equivalent to uniqueness/all being normal, so there is no semantic gap. The formalization is strictly faithful.",
+  "duration_ms": 62349,
+  "cost_usd": 0.203665
+}

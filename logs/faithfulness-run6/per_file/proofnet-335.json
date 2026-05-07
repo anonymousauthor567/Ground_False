@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the triangle inequality for a finite sum of complex numbers: |z_1 + ... + z_n| ≤ |z_1| + ... + |z_n|. The Lean formalization quantifies over n : ℕ and f : ℕ → ℂ, encoding the sequence z_i as f i for i ∈ range n. In Mathlib, ‖z‖ for z : ℂ is exactly Complex.abs z = |z|, so the norm matches the informal absolute value. The quantification over f : ℕ → ℂ is the standard Lean idiom for \"arbitrary finite sequence of length n\"; since only values f 0, ..., f (n-1) are used, this is logically equivalent to quantifying over a finite sequence of length n. The n = 0 case (empty sum, 0 ≤ 0) is trivially true and does not make the statement stronger or weaker than the informal intent. The formalization is faithful.",
+  "duration_ms": 17243,
+  "cost_usd": 0.053321249999999994
+}

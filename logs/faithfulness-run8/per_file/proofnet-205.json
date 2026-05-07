@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each part of the informal statement correctly: `[AddCommGroup V] [Module ℝ V]` encodes \"V is a real vector space\"; `T : End ℝ V` encodes $T \\in \\mathcal{L}(V)$; `hT : ∀ c : ℝ, eigenspace T c = ⊥` is exactly \"T has no eigenvalues\" (since in Mathlib `HasEigenvalue T μ ↔ eigenspace T μ ≠ ⊥`); `hU : Submodule.map T U ≤ U` is precisely the definition of U being T-invariant (matching `mem_invtSubmodule_iff_map_le`); and `Even (finrank ℝ U)` is \"U has even dimension\". The only addition is the `FiniteDimensional ℝ V` hypothesis, which surfaces an implicit premise: the informal statement's phrase \"every subspace has even dimension\" presupposes that the dimension of each invariant subspace is a well-defined finite number (\"even\" applies naturally only to finite cardinalities), and the standard proof (via minimal polynomial / odd-degree real polynomials having real roots) lives in the finite-dimensional setting. Per the worked-example guidance, making such an implicit premise explicit is a faithful formalization, not a weakening.",
+  "duration_ms": 301945,
+  "cost_usd": 0.9846254999999999
+}

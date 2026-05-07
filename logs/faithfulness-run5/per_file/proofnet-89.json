@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `Nat.Prime p` corresponds to \"p is a prime\" (including p ≥ 2). The sum `∑ i ∈ Finset.range p, X ^ i` equals `X^0 + X^1 + ... + X^(p-1) = 1 + x + x^2 + ... + x^(p-1)`, which is exactly q(x). `Polynomial ℚ` is `ℚ[x]`. Mathlib's `Irreducible` on `Polynomial ℚ` coincides with the standard mathematical notion of irreducibility for polynomials over a field (non-unit, factorizations only into units). No hypotheses are added or dropped and no types are changed.",
+  "duration_ms": 71636,
+  "cost_usd": 0.222828
+}

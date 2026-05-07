@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The `Differentiable ℝ g` hypothesis makes explicit what is implicit in the informal phrase \"bounded derivative\" (since speaking of $g'$ presumes $g$ is differentiable); this is needed because Mathlib's `deriv` returns 0 at non-differentiable points, which would otherwise allow vacuous satisfaction of the bound with wildly non-injective behavior of $f$. The bounded-derivative hypothesis `∃ M, ∀ x, |deriv g x| ≤ M` corresponds exactly to $|g'| \\leq M$. The conclusion `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (fun x => x + ε * g x)` matches the standard reading of \"f is one-to-one if ε is small enough\" — existence of a positive threshold below which injectivity holds. The function $f(x) = x + \\varepsilon g(x)$ is encoded correctly as `λ x => x + ε * g x`, and \"one-to-one\" is `Function.Injective`. No drift in hypotheses, conclusion, quantifier structure, or types.",
+  "duration_ms": 66646,
+  "cost_usd": 0.21086875
+}

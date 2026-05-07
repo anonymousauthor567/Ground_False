@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "informal": "Let $\\mathcal{T}_\\alpha$ be a family of topologies on $X$. Show that there is a unique largest topology on $X$ contained in all the collections $\\mathcal{T}_\\alpha$.",
+  "lean": "\ntheorem Munkres_exercise_13_4b2 (X I : Type*) (T : I → Set (Set X)) (h : ∀ i, is_topology X (T i)) :\n  ∃! T', is_topology X T' ∧ (∀ i, T' ⊆ T i) ∧\n  ∀ T'', is_topology X T'' → (∀ i, T'' ⊆ T i) → T'' ⊆ T'",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts the existence of a unique T' that (a) is a topology on X, (b) is contained in every T i, and (c) contains every other topology T'' that is contained in all T i. This is precisely the statement that there is a unique largest topology on X contained in all the T_α. The family is indexed by an arbitrary type I (matching \"family\"), each T i is required to be a topology via the hypothesis h, and \"largest\" is correctly encoded by the maximality clause. Uniqueness via ∃! together with the maximality condition matches the informal \"unique largest\". No extra or missing hypotheses are introduced.",
+  "duration_ms": 17898,
+  "cost_usd": 0.045452000000000006
+}

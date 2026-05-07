@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all finite groups G (via `{G : Type*} [Group G] [Fintype G]`), primes p, q (via `Nat.Prime p`, `Nat.Prime q`), with `card G = p*q`, and concludes `IsSimpleGroup G → false`. In Lean 4, there is a `CoeSort Bool Prop` instance that interprets `false : Bool` as the proposition `false = true`, which is logically equivalent to `False`. Therefore `IsSimpleGroup G → false` is equivalent to `¬ IsSimpleGroup G`, matching \"G is not simple.\" Crucially, the statement covers both p = q (order p²) and p ≠ q, matching the informal claim. The ground-truth proof in proofnet-188.lean confirms this reading by discharging the goal via `False.elim`. The formalization faithfully captures \"no group of order pq (p, q prime) is simple.\"",
+  "duration_ms": 214874,
+  "cost_usd": 0.73120125
+}

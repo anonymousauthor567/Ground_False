@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures \"K is a finite field\" via `[Field K] [Fintype Kˣ]`: for a field, `Kˣ = K \\ {0}`, so `Fintype Kˣ` is equivalent to `Fintype K`. The product `∏ x : Kˣ, x` ranges over nonzero elements of K (the units), matching \"product of nonzero elements\". Mathlib's `Mathlib/Algebra/Ring/Units.lean` defines `Neg αˣ` for monoids with `HasDistribNeg`, and `Units.coe_neg_one` gives `((-1 : αˣ) : α) = -1`. So the equation `(∏ x : Kˣ, x) = -1` in `Kˣ` is logically equivalent (via `Units.ext`) to the informal claim that the product of nonzero elements of K equals −1 in K. Nothing is added or dropped relative to the informal statement.",
+  "duration_ms": 90434,
+  "cost_usd": 0.3093989999999999
+}

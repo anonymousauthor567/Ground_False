@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p4.lean",
+  "stem": "elementary_algebra__p4",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks only for the value of x (claiming x = 26) given the system 2x+3y=8 and 5x+9y=-2. The Lean formalization, however, concludes the conjunction x = 26 ∧ y = -44/3, adding an extra conclusion about y that the informal statement does not request. Proving the conjunction `x = 26 ∧ y = -44/3` logically implies `x = 26` (via ∧-elimination), but the informal claim about x alone does not imply the value of y. Therefore the Lean statement is strictly stronger than the informal one — it proves more than was asked. A faithful formalization would conclude just `x = 26`.",
+  "duration_ms": 46410,
+  "cost_usd": 0.12745700000000001
+}

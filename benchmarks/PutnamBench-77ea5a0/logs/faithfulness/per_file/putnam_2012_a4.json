@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a4.lean",
+  "stem": "putnam_2012_a4",
+  "verdict": "weaker",
+  "reasoning": "The informal conclusion \"S is the intersection of A with some arithmetic progression\" standardly means ∃ (infinite) AP P, S = A ∩ P. The Lean conclusion `IsFiniteAP S` only asserts S is itself a finite AP (∃ n a d, 0 < d, S = {a + i·d : i ∈ Fin n}). The informal claim implies the Lean one (A bounded ∩ infinite AP is always a finite AP), but not conversely: e.g., S = {5,10,15} ⊂ A = [0,100] is a finite AP, yet no infinite AP P has A ∩ P = {5,10,15} (any infinite AP with common difference dividing 5 contains 0 and 20, which lie in A). The structural content of the Putnam result — that S is determined by a single congruence class mod some d, so that the \"gaps\" before and after S leave A — is lost in the Lean formulation, making it strictly weaker.",
+  "duration_ms": 899826,
+  "cost_usd": 1.9863639999999998
+}

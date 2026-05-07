@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p12.lean",
+  "stem": "calculus__p12",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is about an antiderivative: (1/6)ln|(x-3)/(x+3)| + C is an antiderivative of 1/(x²-9). The Lean formalization fails to express this. In Lean, `∫ (dx : ℝ), 1 / (x^2 - 9)` means `integral volume (fun dx => 1/(x^2-9))`, i.e., the Lebesgue integral over all of ℝ of a function that does NOT depend on the bound variable `dx` — it is a constant (in dx) integrated over all of ℝ, yielding 0 or ∞ depending on the sign of x²-9 (by Mathlib's convention, non-integrable ⇒ 0). Meanwhile the RHS depends on x, which on the LHS appears only as a free variable outside the integral. Additionally, `C` appears as an unbound free variable with no universal quantifier. The Lean statement therefore has a completely different meaning: it relates a degenerate integral (of a constant function over ℝ) to a specific expression in x and an unbound C, rather than asserting that an antiderivative relationship holds. This is neither weaker nor stronger than the informal claim — it is simply a different (and ill-formed) mathematical assertion.",
+  "duration_ms": 366541,
+  "cost_usd": 0.9719585000000001
+}

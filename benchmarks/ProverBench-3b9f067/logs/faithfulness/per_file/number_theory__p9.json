@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p9.lean",
+  "stem": "number_theory__p9",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: if m = 2 + 2√(28n²+1) is an integer, then m is a perfect square. The Lean version has m:ℤ, the equation h, and an extra hypothesis h_int stating that √(28n²+1) is itself an integer. However, h_int is logically redundant given the other hypotheses: from h we get √(28n²+1) = (m-2)/2, which is rational; and for any positive integer N, √N rational ⟹ √N ∈ ℤ. So h_int holds automatically whenever m∈ℤ and h hold. Adding a redundant hypothesis does not narrow the scope — the theorem applies to the same (n,m) as the informal statement. The conclusion ∃ k:ℤ, m=k² correctly expresses \"m is a perfect square\". Types (n:ℕ, m:ℤ, Real.sqrt) are appropriate. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 409668,
+  "cost_usd": 0.77131525
+}

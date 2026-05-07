@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p5.lean",
+  "stem": "calculus__p5",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is about the indefinite integral / antiderivative: arctan(x)+C is an antiderivative of 1/(x²+1). The Lean `∫ x, f x` notation (from Mathlib's Bochner.lean) is a definite Lebesgue integral over all of ℝ with x as a bound variable, so the LHS is a constant equal to π. With `(x C : ℝ)` as free parameters, the signature asserts `∀ x C : ℝ, π = arctan x + C`, which is false (e.g. at x=0, C=0). A faithful formalization of an indefinite integral statement should use `HasDerivAt`/`deriv` or an `intervalIntegral` over a range, not a Bochner integral over ℝ. The Lean claim captures a fundamentally different (and false) mathematical statement than the informal (true) antiderivative claim, so the two are not logically equivalent.",
+  "duration_ms": 206870,
+  "cost_usd": 0.39629825
+}

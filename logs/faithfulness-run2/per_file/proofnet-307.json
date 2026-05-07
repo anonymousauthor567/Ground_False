@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes p is surjective (`_h`), continuous (`_hc`), a closed map (`IsClosedMap p`), each fiber is compact (`∀ y, IsCompact (p ⁻¹' {y})`), and Y is a compact space, concluding that X is a compact space. These match the informal hypotheses and conclusion precisely. The underscore prefixes on `_h` and `_hc` are only a Lean naming convention signaling \"may be unused\"; the hypotheses are still part of the statement. The duplicate binder name `hp` causes name shadowing for reference purposes, but both the closed-map hypothesis and the compact-fiber hypothesis remain assumed in the context. No extra assumptions (e.g., Hausdorff, Fintype) are added and nothing is dropped.",
+  "duration_ms": 19991,
+  "cost_usd": 0.07769949999999999
+}

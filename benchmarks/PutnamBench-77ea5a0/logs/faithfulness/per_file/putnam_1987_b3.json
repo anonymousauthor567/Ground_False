@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b3.lean",
+  "stem": "putnam_1987_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal claim. The field F with hypothesis `(1 : F) + 1 ≠ 0` exactly matches \"a field in which 1+1 ≠ 0\". The LHS `{(x, y) : F × F | x^2 + y^2 = 1}` captures \"the set of solutions to x^2+y^2=1 with x,y in F\". The RHS is the union of the singleton `{(1,0)}` and the parametrized set `{((r^2-1)/(r^2+1), 2r/(r^2+1)) | r ∈ {r' : F | r'^2 ≠ -1}}`, which by Mathlib's extBinders set-builder macro unfolds to `{z | ∃ r, r^2 ≠ -1 ∧ ((r^2-1)/(r^2+1), 2r/(r^2+1)) = z}` — exactly \"r runs through the elements of F such that r^2 ≠ -1\". All formulas, the condition r^2 ≠ -1, and the explicit (1,0) addition match. No hypotheses are added or dropped.",
+  "duration_ms": 139931,
+  "cost_usd": 0.5312717499999999
+}

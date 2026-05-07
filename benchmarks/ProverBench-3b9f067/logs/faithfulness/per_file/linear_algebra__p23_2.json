@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p23_2.lean",
+  "stem": "linear_algebra__p23_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem states `Matrix.rank A = Matrix.rank (transpose A)` for a matrix A over a field F with finite row/column index types m, n — exactly matching the informal claim rank(A) = rank(A^T) for A ∈ F^{m×n}. Mathlib's `Matrix.rank` is defined as `finrank R <| LinearMap.range A.mulVecLin` (the column rank via the associated linear map), so `Matrix.rank (transpose A)` gives the column rank of A^T = row rank of A, making the equation precisely 'row rank = column rank' as the informal says. `[Fintype m] [Fintype n]` encodes the m×n finite dimensions, and `[Field F]` matches 'over a field F'. The auxiliary `row_space`, `column_space` definitions and the `axiom transpose_space_equivalence` are scaffolding — they do not appear in the theorem statement, so they do not affect the faithfulness of `rank_equivalence` itself.",
+  "duration_ms": 123112,
+  "cost_usd": 0.33214025
+}

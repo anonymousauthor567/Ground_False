@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b5.lean",
+  "stem": "putnam_1986_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the Putnam 1986 B5 problem. The polynomial f = X0² + X1² + X2² + X0·X1·X2 matches the informal f(x,y,z) = x²+y²+z²+xyz. The polynomial identity f(p,q,r) = f(x,y,z) is equivalently expressed via evaluation at all real triples (valid since ℝ is infinite). The four sets in `perms` correctly enumerate permutations with 0 or 2 minus signs: {X0,X1,X2} (0 minuses), and {X0,-X1,-X2}, {-X0,X1,-X2}, {-X0,-X1,X2} (the three 2-minus patterns). Since each set has 3 distinct elements, the condition `{pqr 0, pqr 1, pqr 2} ∈ perms` correctly captures \"(p,q,r) is some permutation of (±x, ±y, ±z) with 0 or 2 minus signs\". The \"prove or disprove\" is encoded as `putnam_1986_b5_solution ↔ (...)` with the solution `False`, indicating the assertion is disprovable — matching the known Putnam answer.",
+  "duration_ms": 141187,
+  "cost_usd": 0.451612
+}

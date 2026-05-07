@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-116.lean",
+  "stem": "proofnet-116",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the Munkres problem exactly. X is a TopologicalSpace, Y is a MetricSpace (providing the uniformity needed for TendstoUniformly). The sequence of continuous functions (hf : ∀ n, Continuous (f n)), the convergent sequence of points (hx : Tendsto x atTop (𝓝 x₀)), and uniform convergence (TendstoUniformly f f₀ atTop, which unfolds to ∀ u ∈ 𝓤 Y, ∀ᶠ n, ∀ x, (f₀ x, f n x) ∈ u — the standard definition) are all present. The conclusion Tendsto (λ n => f n (x n)) atTop (𝓝 (f₀ x₀)) is exactly \"f_n(x_n) → f(x)\". No hypotheses are added or dropped.",
+  "duration_ms": 36051,
+  "cost_usd": 0.14620825
+}

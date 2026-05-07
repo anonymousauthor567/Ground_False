@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "informal": "Prove that if $H$ is a nontrivial normal subgroup of the solvable group $G$ then there is a nontrivial subgroup $A$ of $H$ with $A \\unlhd G$ and $A$ abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_4_11 {G : Type*} [Group G] [IsSolvable G]\n  {H : Subgroup G} (hH : H ≠ ⊥) [H.Normal] :\n  ∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all parts of the informal claim: G is a solvable group ([IsSolvable G]), H is a normal subgroup that is nontrivial (hH : H ≠ ⊥, [H.Normal]). The conclusion ∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a gives a subgroup A of G contained in H, nontrivial, normal in G (A.Normal in Mathlib means normal in the ambient group G), and abelian (commutativity of all pairs in A is equivalent to A being abelian as a subgroup). The quantifier structure and types match the informal statement exactly.",
+  "duration_ms": 7219,
+  "cost_usd": 0.04781175
+}

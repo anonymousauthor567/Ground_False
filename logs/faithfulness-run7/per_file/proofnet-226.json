@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `a ^ p ≡ a [ZMOD p]` with hypotheses `(p : ℕ) (hp : Nat.Prime p) (a : ℤ)` precisely encodes the informal claim: \"if p is prime, then a^p ≡ a (mod p) for all a ∈ ℤ.\" The `[ZMOD p]` notation is Mathlib's `Int.ModEq p` (integer congruence mod p), which matches the informal `(mod p)`. The hint \"Use Lagrange's Theorem in (ℤ/pℤ)×\" is a proof strategy suggestion, not part of the claim itself. All quantifier structure, hypotheses, and conclusion match exactly.",
+  "duration_ms": 23666,
+  "cost_usd": 0.10401475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that (1+i)² divides 2 in the Gaussian integers ℤ[i]. In Mathlib, `GaussianInt` is defined as `Zsqrtd (-1)`, and `⟨1, 1⟩ : GaussianInt` corresponds to `1 + √(-1) = 1 + i`. The Lean statement `(⟨1, 1⟩ : GaussianInt) ^ 2 ∣ 2` asserts that (1+i)² divides 2 in ℤ[i], with the right-hand side automatically interpreted as a GaussianInt via the CommRing structure. No hypotheses are added or dropped, the ambient ring is correct, and the divisibility relation matches the informal \"is divisible by\". This is a direct and logically equivalent formalization.",
+  "duration_ms": 25715,
+  "cost_usd": 0.14598875
+}

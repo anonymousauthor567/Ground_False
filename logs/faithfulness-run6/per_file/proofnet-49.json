@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"characteristic subgroups are normal.\" The Lean signature universally quantifies over an arbitrary group G and an arbitrary subgroup H of G, assumes `Characteristic H`, and concludes `Normal H`. In Mathlib, `Subgroup.Characteristic H` is defined as H being fixed by every automorphism of G (the standard textbook definition), and `Subgroup.Normal H` is the standard closure-under-conjugation definition. Both the hypothesis and the conclusion match the informal statement precisely, with no added or dropped hypotheses and no change in quantifier structure. This is a strictly faithful formalization.",
+  "duration_ms": 35727,
+  "cost_usd": 0.24430500000000002
+}

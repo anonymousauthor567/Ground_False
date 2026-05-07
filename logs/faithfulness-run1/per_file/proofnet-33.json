@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "informal": "Prove that if $x^{2}=1$ for all $x \\in G$ then $G$ is abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_25 {G : Type*} [Group G]\n  (h : ∀ x : G, x ^ 2 = 1) : ∀ a b : G, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if every element of G squares to the identity, then G is abelian. The Lean signature takes an arbitrary group G, hypothesizes ∀ x : G, x^2 = 1, and concludes ∀ a b : G, a*b = b*a, which is exactly the definition of being abelian. The hypothesis and conclusion match precisely with no extra or missing assumptions.",
+  "duration_ms": 5110,
+  "cost_usd": 0.040050249999999996
+}

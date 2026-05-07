@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "theorem_name": "Shakarchi_exercise_3_4",
+  "informal": "Show that $ \\int_{-\\infty}^{\\infty} \\frac{x \\sin x}{x^2 + a^2} dx = \\pi e^{-a}$ for $a > 0$.",
+  "lean": "\ntheorem Shakarchi_exercise_3_4 (a : ℝ) (ha : 0 < a) :\n    Tendsto (λ y => ∫ x in -y..y, x * Real.sin x / (x ^ 2 + a ^ 2))\n    atTop (𝓝 (Real.pi * (Real.exp (-a))))",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the improper integral ∫_{-∞}^{∞} x sin x/(x²+a²) dx = π e^{-a}. Since |x sin x|/(x²+a²) ~ |sin x|/|x| is not Lebesgue integrable, the integral is conditionally convergent and is naturally interpreted as the symmetric limit lim_{y→∞} ∫_{-y}^{y}. The Lean signature encodes precisely this: Tendsto of ∫_{-y}^{y} as y → ∞ to π·e^{-a}, with the same hypothesis a > 0. The integrand and target value match exactly. This is the standard formalization of an improper symmetric integral, so the Lean version is logically equivalent to the informal claim.",
+  "duration_ms": 12375,
+  "cost_usd": 0.052082750000000004
+}

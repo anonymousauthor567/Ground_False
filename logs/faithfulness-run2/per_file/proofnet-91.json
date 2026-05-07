@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-91.lean",
+  "stem": "proofnet-91",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. `[Infinite F] [Field F]` encodes \"infinite field\", `[AddCommGroup V] [Module F V]` encodes \"vector space over F\", `[Finite ι]` with an indexed family `u : ι → Submodule F V` encodes \"a finite number of subspaces\", and `hu : ∀ i, u i ≠ ⊤` correctly states that each subspace is proper (since ⊤ is the whole space). The conclusion `(⋃ i, (u i : Set V)) ≠ ⊤` expresses that the set-theoretic union of these subspaces is not all of V (⊤ in Set V is univ). Edge cases such as empty ι or trivial V are handled consistently with the informal reading. No hypotheses are silently added or dropped.",
+  "duration_ms": 24667,
+  "cost_usd": 0.10455375
+}

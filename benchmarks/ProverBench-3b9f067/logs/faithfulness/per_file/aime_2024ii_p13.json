@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024ii_p13.lean",
+  "stem": "aime_2024ii_p13",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement uses `%` on `ℂ`, which comes from `Field.toEuclideanDomain` in `Mathlib/Algebra/EuclideanDomain/Instances.lean`, where `remainder := fun a b => a - a * b / b`. For any nonzero `b : ℂ`, `a * b / b = a`, so `a % b = 0` identically. Thus the Lean statement literally reduces to `(0 : ℂ) = 321`, which is false, while the informal statement asks for the integer remainder mod 1000 (which equals 321, a true claim). The Lean formalization does not cast the product to ℤ or use integer modular arithmetic; it uses complex field mod, which is a completely different (and trivial) operation. The two statements therefore assert different mathematical claims and are not logically equivalent.",
+  "duration_ms": 343856,
+  "cost_usd": 0.7660845000000001
+}

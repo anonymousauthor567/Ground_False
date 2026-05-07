@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes all components of the informal statement precisely: X and Y are metric spaces (via [MetricSpace X] and [MetricSpace Y]), f : X → Y with UniformContinuous f matches \"uniformly continuous mapping of X into Y\", x : ℕ → X with CauchySeq x matches \"Cauchy sequence {x_n} in X\", and the conclusion CauchySeq (λ n => f (x n)) matches \"{f(x_n)} is a Cauchy sequence in Y\". The universal quantifier \"for every Cauchy sequence\" is correctly captured by taking the sequence and its Cauchy property as theorem hypotheses. No hypotheses are added or dropped, and no types or notions are altered. This is a strictly faithful formalization.",
+  "duration_ms": 30808,
+  "cost_usd": 0.09341625
+}

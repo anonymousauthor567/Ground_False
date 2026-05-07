@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "theorem_name": "Axler_exercise_5_4_corrected",
+  "informal": "Suppose that $S, T \\in \\mathcal{L}(V)$ are such that $S T=T S$. Prove that $\\operatorname{null} (T-\\lambda I)$ is invariant under $S$ for every $\\lambda \\in \\mathbf{F}$.",
+  "lean": "\ntheorem Axler_exercise_5_4_corrected {F V : Type*} [AddCommGroup V] [Field F]\n    [Module F V] (S T : V →ₗ[F] V) (hST : S ∘ T = T ∘ S) (c : F) :\n    Submodule.map S (ker (T - c • LinearMap.id)) ≤ ker (T - c • LinearMap.id)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes S,T are linear operators on V with ST=TS and concludes that null(T-λI) is invariant under S for every λ in F. The Lean version takes S T : V →ₗ[F] V over an arbitrary field F and module V, hypothesizes S ∘ T = T ∘ S (function composition equality, which for linear maps is equivalent to LinearMap composition equality), and for every c : F concludes Submodule.map S (ker (T - c • id)) ≤ ker (T - c • id), i.e. the kernel of T-cI is mapped into itself by S — exactly the invariance claim. The quantifier over c, the operator T - c • id corresponding to T - λI, and the use of ker as the null space all match. No extra or missing hypotheses are introduced.",
+  "duration_ms": 13006,
+  "cost_usd": 0.05477125000000001
+}

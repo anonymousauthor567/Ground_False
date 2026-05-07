@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely: G is an arbitrary finite group (via [Fintype G] [Group G]), its order is 1365 (via card G = 1365), and the conclusion ¬ IsSimpleGroup G matches \"G is not simple\". Mathlib's IsSimpleGroup corresponds to the standard notion (non-trivial with no proper non-trivial normal subgroups), and non-triviality is automatic since 1365 > 1. The universal quantification over groups of order 1365 is correctly encoded by the implicit type variable G together with the cardinality hypothesis. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 17230,
+  "cost_usd": 0.051568249999999996
+}

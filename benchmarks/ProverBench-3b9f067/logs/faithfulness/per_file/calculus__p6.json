@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p6.lean",
+  "stem": "calculus__p6",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims d/dx[cos(x³)] = -sin(x³)·3x². The Lean signature asserts `deriv (fun x => Real.cos (x^3)) x = -Real.sin (x^3) * (3 * x^2)` with `x : ℝ` as a universally quantified free variable (via `variable (x : ℝ)`). The function, the derivative operator, the point, and the right-hand side all match exactly: -sin(x³) · 3x² equals -Real.sin(x^3) * (3 * x^2). Since cos(x³) is differentiable everywhere on ℝ, Mathlib's `deriv` returns the true derivative and there are no hidden conventions that could make the statement diverge. The quantifier structure (implicit ∀x) is faithfully captured by the free variable.",
+  "duration_ms": 53098,
+  "cost_usd": 0.112014
+}

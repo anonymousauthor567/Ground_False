@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if a group has exactly one element of order 2, that element is in the center. The Lean signature encodes \"exactly one element of order 2\" via the combination of `hx : orderOf x = 2` (existence — x is such an element) and `hx1 : ∀ y, orderOf y = 2 → y = x` (uniqueness — any element of order 2 equals x). Together these are equivalent to \"x is the unique element of order 2\". The conclusion `x ∈ center G` matches \"that element is in the center of the group\". The group G is an arbitrary group (universally quantified as `{G : Type*} [Group G]`), matching the informal universal reading. No hypotheses are silently added or dropped.",
+  "duration_ms": 8798,
+  "cost_usd": 0.03501775
+}

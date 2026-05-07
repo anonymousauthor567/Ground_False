@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-4.lean",
+  "stem": "proofnet-4",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding accurately captures the informal claim. \"Spanned by a countably infinite set\" is expressed via `Set.Countable S ∧ S.Infinite ∧ span K S = ⊤` (Mathlib's `Set.Countable` allows finiteness, so adding `S.Infinite` gives exactly countably infinite). The informal \"linearly independent subset\" is encoded as a linearly independent family `R : ι → V`; since K is a field (nontrivial), `LinearIndependent K R` forces R to be injective, making ι bijective with a linearly independent subset (range R). The conclusion `Countable ι` matches \"finite or countably infinite\" (Mathlib defines `Countable` as existence of an injection to ℕ, which includes finite). The universal quantification over K, V, S, ι, R matches the universal reading of the informal statement. The specification of the base field K is a standard mathematical implicit premise for \"vector space\", not a strengthening.",
+  "duration_ms": 152250,
+  "cost_usd": 0.45080825
+}

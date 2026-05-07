@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over finite groups G via `{G : Type*} [Group G] [Fintype G]`, asserts `card G = p^2 * q` with `Prime p` and `Prime q` (which for naturals coincides with `Nat.Prime`), and concludes `IsSimpleGroup G → False`, i.e., G is not simple. This matches the informal claim that no group of order p²q (p, q prime) is simple. The Lean does not impose p ≠ q, but this isn't an error: when p = q the order is p³ and p-groups of order p³ have nontrivial center, so they are never simple either — the statement remains true, consistent with the literal informal wording. The conversion to `→ False` is logically equivalent to \"is not simple\". No extra hypotheses are added or dropped beyond what's needed, and all types match Mathlib conventions.",
+  "duration_ms": 132168,
+  "cost_usd": 0.37645824999999994
+}

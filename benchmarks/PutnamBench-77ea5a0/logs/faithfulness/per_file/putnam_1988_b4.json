@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b4.lean",
+  "stem": "putnam_1988_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding abstracts the concept \"convergent series of positive reals\" via `IsPosConv`, whose definition captures exactly (i) all terms with index ≥ 1 are positive and (ii) the partial sums ∑_{n=1}^N a_n converge. The partial sum is encoded as a sum over the subtype `Set.Icc 1 N`, which yields a_1 + ... + a_N for N ≥ 1, matching ∑_{n=1}^∞. The exponent (n : ℝ)/(n+1) is real division matching n/(n+1). The conclusion claims IsPosConv of the transformed sequence (fun n => (a n)^(n/(n+1))), which encodes exactly \"∑_{n=1}^∞ (a_n)^{n/(n+1)} is a convergent series of positive reals\". No hypotheses are silently added or removed, no types are changed, and quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 220774,
+  "cost_usd": 0.5982485
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of addition on ℤ/nℤ. The Lean statement quantifies over all n : ℕ and all x, y, z : ZMod n and states (x + y) + z = x + (y + z), which is exactly associativity of addition on ZMod n. In Mathlib, ZMod n is the standard formalization of ℤ/nℤ (with ZMod 0 identified with ℤ, which is also associative, so including n = 0 does not create any unfaithfulness). The quantifier structure, hypotheses, types, and conclusion all match the informal statement. No hypotheses are silently added or dropped, and the conclusion is precisely associativity.",
+  "duration_ms": 48394,
+  "cost_usd": 0.14407775
+}

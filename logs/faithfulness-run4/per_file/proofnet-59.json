@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `[CommRing R] [IsDomain R]`, which in Mathlib corresponds exactly to the classical notion of an integral domain (commutative, nontrivial, and having the cancellation / no-zero-divisor property, per `Mathlib/Algebra/Ring/Defs.lean`). The hypothesis `hx : x^2 = 1` is the direct translation of \"x² = 1\", and the conclusion `x = 1 ∨ x = -1` matches \"x = ±1\". No extra hypotheses are added, no hypotheses are dropped, and the quantifier structure (a universally quantified x, with the hypothesis x² = 1) matches the informal statement. This is a faithful formalization.",
+  "duration_ms": 58207,
+  "cost_usd": 0.19807875
+}

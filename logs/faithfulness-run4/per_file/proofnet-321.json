@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. It sets M to be a metric space (implicit in Pugh where M denotes a metric space), takes A, B as subsets with IsCompact hypotheses, Disjoint A B, and nonempty expressed as A ≠ ∅ / B ≠ ∅ (equivalent to Set.Nonempty in Mathlib). The conclusion `∃ a₀ b₀, a₀ ∈ A ∧ b₀ ∈ B ∧ ∀ a b, a ∈ A → b ∈ B → dist a₀ b₀ ≤ dist a b` mirrors \"there exist a₀ ∈ A, b₀ ∈ B such that for all a ∈ A, b ∈ B, d(a₀,b₀) ≤ d(a,b).\" The types of a₀ and b₀ are correctly inferred as M from the membership conditions. No hypotheses are added or dropped and quantifier structure matches.",
+  "duration_ms": 18308,
+  "cost_usd": 0.06777925
+}

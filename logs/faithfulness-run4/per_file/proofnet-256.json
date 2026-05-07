@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. `{G : Type*} [Group G] [Fintype G]` captures \"G is a finite group\", `(a : G)` captures \"given a ∈ G\", `∃ (n : ℕ), n > 0` captures \"there is a positive integer n\", and `a ^ n = 1` captures \"a^n = e\" (where 1 is the multiplicative identity in Mathlib's group notation). The quantifier structure (∃ n, ...) correctly reflects that n depends on a. No hypotheses are added or dropped, and the types match standard Mathlib conventions.",
+  "duration_ms": 17819,
+  "cost_usd": 0.03934025000000001
+}

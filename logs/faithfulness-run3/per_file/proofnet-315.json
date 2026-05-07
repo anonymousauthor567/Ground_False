@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors the informal claim: hypothesis `NormalSpace (Π i, X i)` corresponds to \"∏ X_α is normal\", the explicit nonemptiness assumption `h : ∀ i, Nonempty (X i)` matches \"Assume that each X_α is nonempty\", and the conclusion `∀ i, NormalSpace (X i)` matches \"so is X_α\" for each α. The quantifier structure, the type of the product (dependent function type), and the implication direction all match the informal statement. Mathlib's `NormalSpace` (disjoint closed sets have disjoint open neighborhoods) is used consistently on both sides of the implication, which is the standard translation convention for \"normal\" in this dataset (see e.g. proofnet-130, proofnet-129). The nonempty hypothesis is the implicit premise needed for correctness (empty factors would make the product empty and break the implication for the remaining nonempty factor), and it is surfaced correctly.",
+  "duration_ms": 302469,
+  "cost_usd": 0.81941575
+}

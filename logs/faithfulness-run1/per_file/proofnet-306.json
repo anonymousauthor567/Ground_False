@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "informal": "Let $G$ be a topological group; let $C$ be the component of $G$ containing the identity element $e$. Show that $C$ is a normal subgroup of $G$.",
+  "lean": "\ntheorem Munkres_exercise_25_9 {G : Type*} [TopologicalSpace G] [Group G]\n  [IsTopologicalGroup G] (C : Set G) (hC : C = connectedComponent (1 : G)) :\n  ∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the connected component of the identity in a topological group is a normal subgroup. The Lean signature takes a topological group G, defines C to be the connected component of 1 (the identity in multiplicative notation), and asserts the existence of a subgroup H of G whose underlying set is exactly C and which is normal. This is the standard way to encode \"the set C is a normal subgroup\": exhibiting a Subgroup structure on the set together with a Normal instance. The hypotheses (TopologicalSpace, Group, IsTopologicalGroup) match \"topological group\", and 1 corresponds to the identity element e. No extra assumptions (e.g., Hausdorff, T2, etc.) are imposed, and nothing is missing. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 8633,
+  "cost_usd": 0.047331750000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `card (T.Eigenvalues) = finrank F V` correctly encodes \"T has dim V distinct eigenvalues\" since `T.Eigenvalues` is the subtype of scalars that are eigenvalues of T and `finrank F V = dim V`. The hypothesis `∀ v, (∃ c, v ∈ eigenspace S c) ↔ (∃ c, v ∈ eigenspace T c)` correctly captures \"S has the same eigenvectors as T\": for v = 0 both sides are vacuously true (0 is in every submodule), and for nonzero v the exists-clause is equivalent to v being an eigenvector (Mathlib's `mem_eigenspace_iff`: v ∈ eigenspace T c ↔ T v = c • v). Different c's on each side correctly captures \"not necessarily with the same eigenvalues\". The conclusion `S * T = T * S` matches ST = TS in End F V (where multiplication is composition). The generality of working over an arbitrary field F with a finite-dimensional F-module V is appropriate for Axler's setting.",
+  "duration_ms": 188740,
+  "cost_usd": 0.63596675
+}

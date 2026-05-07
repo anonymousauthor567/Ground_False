@@ -1,0 +1,8 @@
+{
+  "file": "S_0088.lean",
+  "stem": "S_0088",
+  "verdict": "faithful",
+  "reasoning": "The Lean file contains three theorems that together capture the three parts of Schur's lemma from the informal statement. (1) `simple_objects_nonzero_morphisms_iso` directly corresponds to the claim that nonzero morphisms between simples are isomorphisms, matching Mathlib's `isIso_of_hom_simple`. (2) `simple_object_end_is_division_ring` uses `Nonempty (DivisionRing (End x))`—since `End x := x ⟶ x` is exactly Hom(x,x) and `DivisionRing` is a data-carrying typeclass, wrapping in `Nonempty` is the standard way to assert as a Prop that such a structure exists, matching Mathlib's canonical `DivisionRing (End X)` instance for simple X. (3) `simple_objects_hom_zero_of_ne` uses `IsEmpty (x ≅ y)` to formalize \"x ≠ y\"; in the abstract abelian category setting this is the correct reading (literal object inequality would make the claim false for isomorphic-but-unequal objects), so this appropriately surfaces the implicit premise. The `Abelian 𝒜` hypothesis provides the required `Preadditive` and `HasKernels` structure.",
+  "duration_ms": 522202,
+  "cost_usd": 1.4069079999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show the existence of a normal subgroup that is not characteristic. The Lean signature asserts exactly `∃ G (hG : Group G) (H : Subgroup G), H.Normal ∧ ¬ H.Characteristic`, which is the natural encoding of \"there exists a group G with a subgroup H that is normal but not characteristic.\" I verified in `Mathlib/Algebra/Group/Subgroup/Basic.lean` that `Subgroup.Characteristic` is defined as fixed by all automorphisms and `Subgroup.Normal` as closed under conjugation — these are the standard textbook definitions. No hypotheses have been added or dropped, and the quantifier structure matches. This is a strictly faithful formalization.",
+  "duration_ms": 34968,
+  "cost_usd": 0.16245025
+}

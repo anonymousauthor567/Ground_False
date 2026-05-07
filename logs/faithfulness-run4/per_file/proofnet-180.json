@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. Hypotheses `Bornology.IsBounded Ω`, `IsOpen Ω`, `DifferentiableOn ℂ f Ω`, and `Set.MapsTo f Ω Ω` correctly encode \"bounded open subset\" and \"holomorphic φ: Ω → Ω\"; the conditions `f z₀ = z₀` and `deriv f z₀ = 1` match the fixed point and derivative hypotheses. The added `IsPreconnected Ω` is not a weakening — it surfaces the implicit premise that Ω is a domain, which is the standard convention in Shakarchi/complex analysis. Without connectedness the claim is literally false (disjoint-disk counterexample with identity on one component and a constant on another). The conclusion `∃ f_lin : ℂ →L[ℂ] ℂ, ∀ x ∈ Ω, f x = f_lin x` correctly captures \"φ is linear\"; given the fixed point and unit-derivative conditions, this is equivalent to φ being the identity z ↦ z, which is indeed what the informal \"linear\" means here.",
+  "duration_ms": 198698,
+  "cost_usd": 0.6708887500000001
+}

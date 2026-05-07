@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch2_36.lean",
+  "stem": "brualdi_ch2_36",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the total number of sub-multisets (combinations of any size) of a multiset with k types having repetition numbers n_1,...,n_k. A sub-multiset corresponds to choosing a_i objects of type i with 0 ≤ a_i ≤ n_i. The Lean formalization encodes this precisely: `sols : Finset (Fin k → ℕ)` is characterized by the biconditional `f ∈ sols ↔ (∀ i, f i ≤ n i)`, and since `f i : ℕ` automatically ensures `0 ≤ f i`, this exactly captures the set of sub-multiset choices including the empty combination and the full multiset (i.e., \"any size\"). The conclusion `sols.card = brualdi_ch2_36_solution n` asks for the cardinality, which matches \"determine the total number\". The indexing by `Fin k` correctly reflects the k distinct types. This is a faithful formalization.",
+  "duration_ms": 100332,
+  "cost_usd": 0.315283
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b1.lean",
+  "stem": "putnam_2023_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The 0-indexed encoding using ℕ → ℕ → Bool correctly represents the m-by-n grid: `initcoins` has coins at positions (i,j) with i ≤ m-2 ∧ j ≤ n-2 (corresponding to 1-indexed (1,1) to (m-1,n-1)). The legal move condition (i < m-1 ∧ j < n-1) and the empty-square requirements for the three target squares match the informal slide rule. `IsLegalSeq` properly requires the sequence to start at `initcoins` with legal consecutive moves, and the reachable set is defined as last elements of such sequences—which includes `initcoins` itself via length-1 sequences. The `mnpos : 1 < m ∧ 1 < n` hypothesis is an implicit premise required for the Nat-subtraction encoding to correctly represent the grid (without it, m-2 truncates to 0 for m=1, misplacing coins); this is a surfaced implicit premise, not a genuine weakening, since the informal problem's coin-placement description implicitly assumes m,n ≥ 2 for non-trivial content. The solution C(m+n-2, m-1) matches the known Putnam 2023 B1 answer.",
+  "duration_ms": 540155,
+  "cost_usd": 1.4247807499999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imosl_2021_c5.lean",
+  "stem": "imosl_2021_c5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes IMOSL 2021 C5. The bounds $n > k \\geq 1$ are exactly captured by `n k : ℕ+` together with `h : k < n`. The circle of $2n+1$ students is `Fin (2*n+1)` with `finRotate` providing cyclic adjacency. Girls are encoded as 1 and boys as 0 in `ZMod 2`, with hypotheses fixing $n$ boys and $n+1$ girls. The `leftNeighbors`/`rightNeighbors` definitions produce `Fin k → ZMod 2` whose values are the genders at positions $i \\pm 1, i \\pm 2, \\ldots, i \\pm k$, which are the $2k$ closest neighbors (distinct since $2k < 2n+1$). The conclusion states ∃ i with `people i = 1` (a girl) such that the sum of 1s over both neighbor lists ≥ $k$, exactly matching \"at least $k$ girls among her neighbors\". The left/right labeling convention doesn't matter since both counts are summed.",
+  "duration_ms": 156699,
+  "cost_usd": 0.5110995
+}

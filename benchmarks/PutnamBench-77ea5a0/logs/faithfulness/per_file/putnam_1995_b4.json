@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_b4.lean",
+  "stem": "putnam_1995_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem. The continued fraction 2207 - 1/(2207 - 1/(2207-...)) satisfies the fixed-point equation x = 2207 - 1/x, encoded as `hcontfrac`. This equation has two real roots (approximately 2206.9995 and 0.000453), so the hypothesis `1 < contfrac` is needed to uniquely identify the intended continued fraction value (the large root that the nested expression actually converges to). This is a legitimate implicit premise needed for the statement to make sense — any mathematician reading the continued fraction problem understands which value is meant. The 8th root is correctly formalized as `contfrac ^ ((1:ℝ)/8)` using Real.rpow (well-defined and positive for positive base), and the answer form `(a + b·√c)/d` matches the requested form. The solution (3,1,5,2) gives (3+√5)/2 = φ², and φ¹⁶ = 2207 checks out.",
+  "duration_ms": 117928,
+  "cost_usd": 0.35568974999999997
+}

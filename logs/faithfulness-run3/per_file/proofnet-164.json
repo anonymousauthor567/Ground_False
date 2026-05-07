@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely: α and β are metric spaces (matching X and Y), f is declared continuous via `Continuous f`, and the conclusion `∀ (x : Set α), f '' (closure x) ⊆ closure (f '' x)` states exactly that f(closure E) ⊆ closure(f(E)) for every subset E ⊂ X. Rudin's ⊂ corresponds to Mathlib's ⊆, image is correctly encoded as `f ''`, and `closure` is the topological closure. No hypotheses are added or dropped, and the quantifier structure and types all align.",
+  "duration_ms": 66836,
+  "cost_usd": 0.050912250000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-66.lean",
+  "stem": "proofnet-66",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `MvPolynomial (Fin 2) ℚ` is ℚ[x, y] with variables `MvPolynomial.X 0` and `MvPolynomial.X 1` playing the role of x and y. With `open Ideal`, `span` resolves to `Ideal.span`, which is definitionally `Submodule.span α s` (per `Mathlib/RingTheory/Ideal/Span.lean`), so `span {X 0, X 1}` is exactly the ideal (x, y). `Submodule.IsPrincipal S` is defined as `∃ a, S = span R {a}` (per `Mathlib/LinearAlgebra/Span/Defs.lean`), which for an ideal is exactly the standard \"principal ideal\" notion. The outer negation correctly expresses \"is not a principal ideal.\" No hypotheses are added or dropped, and the types match the intended mathematical objects.",
+  "duration_ms": 98401,
+  "cost_usd": 0.36968724999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b6.lean",
+  "stem": "putnam_2016_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement re-indexes the outer sum from k ≥ 1 to k ≥ 0 by substituting k+1 everywhere: the sign `(-1)^((k+1:ℤ)-1)` simplifies to `(-1)^k` matching the informal `(-1)^(k'-1)` with k'=k+1; the factor `1/(k+1)` matches `1/k'`; and the denominator `(k+1)*(2^n)+1` matches `k'·2^n+1`. The inner `∑' n : ℕ` correctly starts at n=0 as in the informal statement. The double series is absolutely convergent (bounded by 2·Σ 1/k'² = π²/3), so `tsum` faithfully represents the iterated infinite sum. The `putnam_2016_b6_solution := 1` matches the asserted evaluation. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 63809,
+  "cost_usd": 0.18570575
+}

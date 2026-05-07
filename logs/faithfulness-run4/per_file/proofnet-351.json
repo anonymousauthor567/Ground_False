@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly: E : Set ℝ with `Bornology.IsBounded E` captures \"bounded set E in ℝ¹\"; `UniformContinuousOn f E` for `f : ℝ → ℝ` captures \"real uniformly continuous function on E\"; and `Bornology.IsBounded (f '' E)` captures \"f is bounded on E\" (i.e., the image f(E) is bounded). For the metric space ℝ, `Bornology.IsBounded` is equivalent to the standard real-analysis notion of boundedness. No hypotheses are dropped or added, quantifier structure is preserved, and types (ℝ, Set ℝ) match the \"R¹\" setting of Rudin.",
+  "duration_ms": 43632,
+  "cost_usd": 0.13142
+}

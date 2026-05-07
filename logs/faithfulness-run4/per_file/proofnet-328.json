@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a unique pair p : ℕ × ℕ with both components positive satisfying p.1^(p.2+1) - (p.1+1)^p.2 = 2001. This matches the informal claim of unique positive integers (a,n) with a^(n+1) - (a+1)^n = 2001. Although ℕ subtraction is truncated, this causes no drift: when a^(n+1) < (a+1)^n the ℕ subtraction is 0 ≠ 2001, so no spurious solutions are introduced; when a^(n+1) ≥ (a+1)^n the natural subtraction agrees with integer subtraction. Positivity `p.1 > 0 ∧ p.2 > 0` correctly encodes \"positive integer\", and `∃!` correctly encodes \"unique\". The variable correspondence and formula match exactly.",
+  "duration_ms": 24156,
+  "cost_usd": 0.09168075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is \"subgroups of a solvable group are solvable.\" The Lean signature quantifies over any group G with `[IsSolvable G]`, takes an arbitrary `H : Subgroup G`, and concludes `IsSolvable H`. This is a direct, logically equivalent formalization (matching Mathlib's own `subgroup_solvable_of_solvable` in `Mathlib/GroupTheory/Solvable.lean`, line 142). No hypotheses are added or dropped, no types are changed, and the `Subgroup G` type in Mathlib correctly captures the notion of a subgroup. Hence the Lean statement is strictly faithful.",
+  "duration_ms": 26682,
+  "cost_usd": 0.12456475
+}

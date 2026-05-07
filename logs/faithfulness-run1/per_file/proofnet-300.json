@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "informal": "Let $p: X \\rightarrow Y$ be a continuous map. Show that if there is a continuous map $f: Y \\rightarrow X$ such that $p \\circ f$ equals the identity map of $Y$, then $p$ is a quotient map.",
+  "lean": "\ntheorem Munkres_exercise_22_2a {X Y : Type*} [TopologicalSpace X]\n  [TopologicalSpace Y] (p : X → Y) (h : Continuous p) :\n  (∃ (f : Y → X), Continuous f ∧ p ∘ f = id) → IsQuotientMap p",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely: p : X → Y is assumed continuous, the hypothesis is the existence of a continuous f : Y → X with p ∘ f = id (i.e., p ∘ f equals the identity on Y), and the conclusion is that p is a quotient map (IsQuotientMap p in Mathlib). The topological space instances on X and Y are the natural ambient assumptions, and `id` is interpreted at type Y → Y making `p ∘ f = id` equivalent to \"p ∘ f equals the identity map of Y\". No extra hypotheses (like surjectivity, finiteness, or Hausdorffness) are silently added, and none are dropped. Hence the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 7752,
+  "cost_usd": 0.04646175
+}

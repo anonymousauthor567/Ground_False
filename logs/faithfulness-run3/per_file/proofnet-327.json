@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-327.lean",
+  "stem": "proofnet-327",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement in all components. `ContDiff ℝ 3 f` correctly encodes \"continuous third derivative\" (since a continuous third derivative implies continuity of all lower-order derivatives). The hypothesis `∀ n ≤ 3, ∀ x, iteratedDeriv n f x > 0` captures that f(x), f'(x), f''(x), f'''(x) are all positive (using that iteratedDeriv 0 f = f). The hypothesis `iteratedDeriv 3 f x ≤ f x` matches f'''(x) ≤ f(x). The conclusion `deriv f x < 2 * f x` matches f'(x) < 2 f(x). The quantifier structure (universal over x) is preserved throughout.",
+  "duration_ms": 27662,
+  "cost_usd": 0.14027675
+}

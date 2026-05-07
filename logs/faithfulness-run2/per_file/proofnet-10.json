@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim: R is an arbitrary ring, M an arbitrary ideal, the hypothesis `hM` precisely captures \"every element not in M is a unit,\" and the conjunction captures both \"M is maximal\" and \"M is the unique maximal ideal\" (via ∀ N, IsMaximal N → N = M). The additional hypothesis `hProper` (M is a proper ideal) makes explicit an implicit assumption of the informal statement — without it, the literal informal claim is false (take M = R, where the hypothesis holds vacuously but the conclusion \"M is maximal\" fails by definition of maximal ideal). Since any competent mathematical reading of \"prove M is a maximal ideal\" presupposes M is proper, this explicit encoding captures the intended mathematical meaning exactly.",
+  "duration_ms": 47358,
+  "cost_usd": 0.16927624999999996
+}

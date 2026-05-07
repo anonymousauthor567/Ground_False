@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_a1.lean",
+  "stem": "putnam_1978_a1",
+  "verdict": "faithful",
+  "reasoning": "The set S is correctly encoded: with j ranging over integers with 0 ≤ j ≤ 33, the values 3j+1 produce exactly {1, 4, 7, ..., 100} (34 elements), matching the informal set. The hypothesis T ⊆ S ∧ T.ncard = 20 correctly captures \"T is a subset of 20 elements of S\" — since T ⊆ S and S is finite, T.ncard = 20 means T has exactly 20 elements. The conclusion `∃ m ∈ T, ∃ n ∈ T, m ≠ n ∧ m + n = 104` precisely expresses \"two distinct elements of T with sum 104\". The choice of ℤ for the ambient type is appropriate. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 62403,
+  "cost_usd": 0.15817150000000002
+}

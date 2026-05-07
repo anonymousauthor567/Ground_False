@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the hypotheses and conclusion of the informal statement: `Function.Surjective p` (surjective), `Continuous p` (continuous), `IsClosedMap p` (closed map, using Mathlib's standard definition `∀ U, IsClosed U → IsClosed (f '' U)`), `∀ y, IsCompact (p ⁻¹' {y})` (compact fibers), and `CompactSpace Y → CompactSpace X`. The only oddity is that the hypothesis name `hp` is accidentally reused, shadowing the first one by name — but both binders remain in the term and so the logical statement is unchanged. Types and quantifier structure match the informal claim exactly.",
+  "duration_ms": 62134,
+  "cost_usd": 0.21713175
+}

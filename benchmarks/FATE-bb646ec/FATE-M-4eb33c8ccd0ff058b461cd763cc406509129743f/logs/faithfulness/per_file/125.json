@@ -1,0 +1,8 @@
+{
+  "file": "125.lean",
+  "stem": "125",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if $g \\cdot a = b$, then the stabilizers satisfy $G_a = g^{-1} G_b g$. The Lean statement asserts exactly this. Using Mathlib's API: `MulAut.conj g h = g * h * g⁻¹` (verified in `Algebra/Group/End.lean` line 728), so `MulAut.conj g⁻¹` is the automorphism $h \\mapsto g^{-1} h g$. The `Subgroup.map` (verified in `Algebra/Group/Subgroup/Map.lean` line 112) is the image of a subgroup, so `Subgroup.map (MulAut.conj g⁻¹) (stabilizer G b) = {g⁻¹ y g : y ∈ G_b} = g⁻¹ G_b g`. The hypothesis `h : g • a = b` is exactly \"there exists $g \\in G$ such that $ga = b$\" for the given $g$. The types (arbitrary group $G$, arbitrary MulAction on $S$) match the universal quantification in the informal statement. Logically equivalent.",
+  "duration_ms": 154715,
+  "cost_usd": 0.4268025
+}

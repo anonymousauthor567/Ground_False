@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_b4.lean",
+  "stem": "putnam_1991_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. \"Odd prime p\" is faithfully encoded by `(podd : Odd p)` and `(pprime : Prime p)` on `p : ℕ`, which together restrict p to {3, 5, 7, ...}. The sum `∑ j : Fin (p + 1), (p.choose j) * ((p + j).choose j)` ranges over j = 0, 1, ..., p, matching $\\sum_{j=0}^p \\binom{p}{j}\\binom{p+j}{j}$ (with the Fin-to-ℕ coercion giving the correct binomial arguments). The congruence `[MOD (p^2)]` unfolds to `Nat.ModEq (p^2)`, i.e., modulo $p^2$, and the RHS `2 ^ p + 1` matches $2^p + 1$. No hypotheses are added or dropped, and no types or quantifiers are altered.",
+  "duration_ms": 114001,
+  "cost_usd": 0.34497799999999995
+}

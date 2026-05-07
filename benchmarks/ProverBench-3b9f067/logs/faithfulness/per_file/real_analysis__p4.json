@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p4.lean",
+  "stem": "real_analysis__p4",
+  "verdict": "stronger",
+  "reasoning": "The informal statement involves ln(x), which in standard math is only defined for x > 0, so the universal quantifier implicitly ranges over positive reals. Under this standard reading the claim is true. However, Mathlib's `Real.log` is total: `log_neg_eq_log` gives `log(-x) = log(x)` for all x. So the Lean statement `∀ x : ℝ, (1 - log x)/x² < 0 ↔ x > exp 1` asserts the iff over ALL reals. At x = -10, `log(-10) = log 10 > 1`, so `(1 - log(-10))/100 < 0` is true, but `-10 > exp 1` is false — the iff fails. Thus the Lean statement is strictly stronger than the informal one (it drops the implicit hypothesis x > 0 and claims the iff for additional cases where x ≤ 0), and in fact it is unprovable as stated. The faithful formalization would add the hypothesis `0 < x`.",
+  "duration_ms": 866847,
+  "cost_usd": 1.7972255
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses metric spaces X and Y (matching the informal \"metric space\"), a function f with `UniformContinuous f` (matching \"uniformly continuous mapping\"), a sequence x : ℕ → X with `CauchySeq x` (matching \"Cauchy sequence {x_n} in X\"), and concludes `CauchySeq (λ n => f (x n))` (matching \"{f(x_n)} is a Cauchy sequence in Y\"). The universal quantification over Cauchy sequences in the informal statement is captured by the implicit universal quantifier on (x, hx). The hypotheses and conclusion align exactly with the informal claim, with no extra or missing assumptions.",
+  "duration_ms": 17518,
+  "cost_usd": 0.037378
+}

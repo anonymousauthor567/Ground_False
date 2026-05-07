@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "theorem_name": "Shakarchi_exercise_5_1_corrected",
+  "informal": "Prove that if $f$ is holomorphic in the unit disc, bounded and not identically zero, and $z_{1}, z_{2}, \\ldots, z_{n}, \\ldots$ are its zeros $\\left(\\left|z_{k}\\right|<1\\right)$, then $\\sum_{n}\\left(1-\\left|z_{n}\\right|\\right)<\\infty$.",
+  "lean": "\ntheorem Shakarchi_exercise_5_1_corrected\n    (f : ℂ → ℂ) (_hf : DifferentiableOn ℂ f (ball 0 1))\n    (_hb : Bornology.IsBounded (Set.range f)) (_h0 : f ≠ 0) (zeros : ℕ → ℂ)\n    (_hz : Set.range zeros = {z | f z = 0 ∧ z ∈ (ball (0 : ℂ) 1)})\n    (hsumm : Summable fun n : ℕ => (1 - ‖zeros n‖)) :\n    ∃ (l : ℝ), Tendsto (fun n => ∑ i ∈ range n, (1 - ‖zeros i‖)) atTop (𝓝 l)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove that the sum ∑(1 − |z_n|) converges (i.e., that the sequence is summable). The Lean signature instead takes `hsumm : Summable (fun n => 1 − ‖zeros n‖)` as a hypothesis and merely concludes that the partial sums tend to some limit — which is an immediate triviality from `Summable`. Thus the Lean theorem assumes the very fact that was to be proved, and its actual content is vacuous compared to the informal claim. The substantive conclusion (summability of (1 − |z_n|) for zeros of a bounded holomorphic function on the disc) is missing, so the Lean version is strictly weaker than the informal statement.",
+  "duration_ms": 12568,
+  "cost_usd": 0.06417575
+}

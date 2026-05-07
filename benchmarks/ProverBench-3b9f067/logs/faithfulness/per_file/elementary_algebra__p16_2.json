@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p16_2.lean",
+  "stem": "elementary_algebra__p16_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement makes two claims: (1) the equation 2 = -12 + 2r has a unique solution, and (2) that unique solution is r = 7. The Lean theorem `unique_solution : ∃! r : ℝ, given_equation r` only asserts the existence of a unique solution, without specifying that the solution equals 7. The specific value r = 7 appears only in the axiom `isolate_r`, which is assumed rather than proven, and is not referenced in the theorem statement. One could prove `∃! r, given_equation r` without ever identifying the value 7 in the theorem's content. Hence the Lean statement is logically weaker than the informal claim, which pins down the specific value of the solution.",
+  "duration_ms": 53812,
+  "cost_usd": 0.16644399999999998
+}

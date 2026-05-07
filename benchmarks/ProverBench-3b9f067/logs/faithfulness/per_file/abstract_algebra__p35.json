@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p35.lean",
+  "stem": "abstract_algebra__p35",
+  "verdict": "weaker",
+  "reasoning": "The informal statement gives P(i) = 1/i for i = 1, 2, ..., n+1, which is n+1 interpolation conditions (exactly the right number to determine a degree-n polynomial). The Lean hypothesis uses `Finset.range (n + 2)`, i.e. i ∈ {0, 1, ..., n+1}, combined with `P.eval (i+1) = 1/(i+1)`, which imposes n+2 conditions: P(1) = 1, P(2) = 1/2, ..., P(n+1) = 1/(n+1), AND P(n+2) = 1/(n+2). This is an off-by-one error — the correct encoding should use `Finset.range (n+1)`. The Lean hypothesis is strictly stronger than the informal's, so it picks out a smaller (indeed typically empty) class of polynomials, making the Lean theorem vacuously true while the informal is substantively true. Logically, informal ⟹ Lean but not conversely, so the Lean statement is weaker.",
+  "duration_ms": 299903,
+  "cost_usd": 0.726014
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "theorem_name": "Munkres_exercise_32_2b",
+  "informal": "Show that if $\\prod X_\\alpha$ is regular, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.",
+  "lean": "\ntheorem Munkres_exercise_32_2b\n  {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]\n  (h : ∀ i, Nonempty (X i)) (h2 : RegularSpace (Π i, X i)) :\n  ∀ i, RegularSpace (X i)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the product space ∏ X_α is regular and each X_α is nonempty, then each X_α is regular. The Lean signature takes an index type ι, a family of topological spaces X i, the hypothesis that each X i is nonempty, and that the product Π i, X i is a RegularSpace, and concludes that each X i is a RegularSpace. This matches the informal statement exactly: the hypotheses (nonemptiness, regularity of product) and conclusion (regularity of each factor) align. The quantifier structure is preserved.",
+  "duration_ms": 6443,
+  "cost_usd": 0.12303249999999999
+}

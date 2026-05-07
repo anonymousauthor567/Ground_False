@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a4.lean",
+  "stem": "putnam_1999_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the iterated double sum from the informal statement. The substitutions m → m+1 and n → n+1 correctly shift indices from ℕ (starting at 0) to start at 1, matching the informal lower bounds. The numerator `(m+1)^2 * (n+1)` and denominator `3^(m+1) * ((n+1)*3^(m+1) + (m+1)*3^(n+1))` exactly match `m^2 n / (3^m(n 3^m + m 3^n))` after substitution. The outer infinite sum is expressed via `Tendsto` of partial sums on `Finset.range i` converging to the solution, while the inner infinite sum is expressed via `tsum` (`∑' n : ℕ`). This iterated interpretation (inner first, then outer partial sums) is the standard reading of the written double sum. The comment acknowledges the order-dependence assumption, but for this series (positive terms, summable) the value is well-defined either way.",
+  "duration_ms": 162136,
+  "cost_usd": 0.41812175
+}

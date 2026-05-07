@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"F has characteristic p ≠ 0\" via `[CharP F p]` with `hp : p ≠ 0` (for a field, this forces p prime), sets `m = p^n`, and concludes `Separable (X^m - X)`. Mathlib's `Polynomial.Separable` for a nonzero polynomial over a field is equivalent to having no repeated roots (distinct roots in any splitting field), which matches \"all roots distinct\". The only added hypothesis is `hn : n > 0`, which is necessary for the statement to be true: at n = 0, m = 1, so X^m - X = 0, and Mathlib's `not_separable_zero` shows the zero polynomial is not Separable. This is precisely the kind of implicit premise discussed in the worked example — any mathematician reading the exercise in context (Herstein's chapter on finite fields of order p^n) understands n ≥ 1. Making this premise explicit to ensure the claim is true counts as faithful, not weaker.",
+  "duration_ms": 142688,
+  "cost_usd": 0.5130790000000001
+}

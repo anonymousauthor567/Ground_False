@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes both cases of the informal claim. The sum ∑ n : Fin (p-1), (n+1)^k enumerates 1^k + 2^k + ... + (p-1)^k exactly. The conjunction splits into the two cases based on whether (p-1) ∣ k, matching the \"if... and if...\" structure. The use of `[MOD p]` (Nat.ModEq) for s ≡ 0 is fine since both are naturals, and the use of `[ZMOD p]` (Int.ModEq) for s ≡ -1 is appropriate because -1 is not a natural number, requiring coercion of s to ℤ; this means p ∣ (s+1), the correct interpretation. The introduction of s via a defining hypothesis `hs` is stylistically unusual but logically equivalent to inlining the sum. The theorem quantifies over k universally, matching the informal statement.",
+  "duration_ms": 76672,
+  "cost_usd": 0.2675245
+}

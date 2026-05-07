@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The sum `∑ i : Fin n, (↑i + 1) * X^i` correctly produces `1 + 2X + 3X² + ... + nX^(n-1)` = P_n(x) as described. The hypotheses `0 < j` and `0 < k` match \"positive integers\", `j ≠ k` matches \"j ≠ k\", and `IsCoprime (P j) (P k)` in ℚ[x] is precisely the standard notion of relatively prime polynomials (in a PID, `IsCoprime` is equivalent to gcd = 1). Using ℚ as the coefficient ring is the natural choice for this Putnam problem and matches the standard interpretation of \"relatively prime polynomials\". The quantifier structure and all typing are faithful to the informal claim.",
+  "duration_ms": 52545,
+  "cost_usd": 0.12973775
+}

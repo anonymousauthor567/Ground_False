@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_a2.lean",
+  "stem": "putnam_2002_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. The unit sphere (sphere 0 1) is used in place of \"a sphere\", but this is equivalent since the claim is invariant under translation and positive scaling. The closed hemisphere is encoded as the intersection of S with the half-space {P | ⟪P, V⟫ ≥ 0}; since S ⊆ unit_sphere (centered at 0), this equals S intersected with a closed hemisphere of the unit sphere, as intended. The constraint V ≠ 0 is a necessary implicit premise (without it, V=0 would trivially satisfy the condition since 0 ≥ 0 for all P). \"Some four\" is correctly rendered as `.encard ≥ 4` (at least four), and `S.encard = 5` correctly requires 5 distinct points. Ambient ℝ³ is the standard setting for \"a sphere\".",
+  "duration_ms": 146977,
+  "cost_usd": 0.441856
+}

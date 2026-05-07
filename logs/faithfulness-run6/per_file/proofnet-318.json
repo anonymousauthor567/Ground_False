@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim. The hypothesis `f : X → Y` with `UniformContinuousOn f A` is the standard Mathlib way to encode \"f : A → Y is uniformly continuous\" (by `uniformContinuousOn_iff_restrict` in Mathlib's Topology/UniformSpace/Basic.lean, these are equivalent). The conclusion provides: (i) existence of `g : closure A → Y`, (ii) `UniformContinuous g` (matching \"g is uniformly continuous\"), (iii) `g` agrees with `f` on `A` (matching the extension property — uses `subset_closure` to embed `A` into `closure A`), and (iv) uniqueness among all continuous functions extending `f` (matching \"uniquely extended to a continuous function\"). Quantifying uniqueness over continuous rather than uniformly continuous extensions matches the natural reading of the informal text and is mathematically correct since any two continuous maps agreeing on a dense set agree everywhere (Y metric ⇒ Hausdorff). All hypotheses (metric spaces, completeness of Y) match exactly.",
+  "duration_ms": 128165,
+  "cost_usd": 0.43829775000000004
+}

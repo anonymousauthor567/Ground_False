@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches Axler's Exercise 5.24. The hypotheses capture: V is a real vector space (AddCommGroup + Module ℝ V), finite-dimensional (standard implicit assumption in Axler's Chapter 5), T has no eigenvalues (every eigenspace is trivial), and U is a T-invariant subspace. The one subtle point is that the Lean version uses `Submodule.map T U = U` (i.e., T(U) = U) whereas \"invariant\" informally means T(U) ⊆ U. However, under the given hypotheses (T has no eigenvalues, so 0 is not an eigenvalue and T is injective; V is finite-dimensional, so U is finite-dimensional), T|_U : U → U injective implies T(U) = U. Thus T(U) ⊆ U and T(U) = U are equivalent here, so the theorem statement is logically equivalent to the informal one. The conclusion `Even (finrank ℝ U)` correctly encodes \"U has even dimension\".",
+  "duration_ms": 49689,
+  "cost_usd": 0.14246825
+}

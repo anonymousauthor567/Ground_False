@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b2.lean",
+  "stem": "putnam_1964_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim about maximal intersecting families. `[Nonempty S]` surfaces an implicit premise — the claim \"half the subsets\" requires |S| ≥ 1 to make sense (half of 2^n requires n ≥ 1), and is consistent with Mathlib's `Set.Intersecting.is_max_iff_card_eq` which requires `Nontrivial (Set S)`. The hypothesis hPP quantifies over all pairs (including T=U), forcing ∅ ∉ P, which is the standard convention for intersecting families and is necessary for the count to be correct. The maximality condition hPS (\"no T outside P meets all members of P\") is equivalent to \"P cannot be extended\" given hPP: the edge case T=∅ is automatically excluded from hPS's scope since ∅ doesn't meet any nonempty set, and for T≠∅ the two formulations coincide. The conclusion |P| = 2^(|S|-1) correctly encodes \"half of the subsets\". No genuine semantic mismatch.",
+  "duration_ms": 303101,
+  "cost_usd": 0.9116557499999999
+}

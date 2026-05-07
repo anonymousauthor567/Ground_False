@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_b2.lean",
+  "stem": "putnam_1981_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The predicate `P` captures the constraint `1 ≤ r ≤ s ≤ t ≤ 4` exactly. The function `f` encodes the expression `(r-1)² + (s/r-1)² + (t/s-1)² + (4/t-1)²` exactly. The `IsLeast` predicate, per Mathlib's definition (`a ∈ s ∧ a ∈ lowerBounds s`), asserts that `putnam_1981_b2_solution` both lies in the image set and is a lower bound — i.e., it is the minimum value attained. The set `{y | ∃ r s t, P (r, s, t) ∧ f (r, s, t) = y}` is precisely the image of `f` over the constraint region. Thus the Lean statement asserts exactly that the given real number is the minimum value of the expression across the constraint, matching the informal claim.",
+  "duration_ms": 51454,
+  "cost_usd": 0.12775725
+}

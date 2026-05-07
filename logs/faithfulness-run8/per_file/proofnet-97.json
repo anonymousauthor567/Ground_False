@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says there are infinitely many primes p with p ≡ -1 (mod 6). The Lean statement uses `Nat.Primes` (= `{p : ℕ // p.Prime}`) and forms the subtype of primes satisfying `p ≡ -1 [ZMOD 6]`, which (after the standard `Nat.Primes → ℕ → ℤ` coercion) is exactly `Int.ModEq 6 (p : ℤ) (-1)`, i.e., p ≡ -1 (mod 6), equivalent to p ≡ 5 (mod 6). Asserting `Infinite` on this subtype is logically equivalent to \"there exist infinitely many such primes\". No extra hypothesis, no narrowing, no change of quantifier or type. This is a faithful formalization.",
+  "duration_ms": 47182,
+  "cost_usd": 0.19122725
+}

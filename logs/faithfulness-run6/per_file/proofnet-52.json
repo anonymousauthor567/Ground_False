@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: every group of order 312 has a normal Sylow p-subgroup for some prime p dividing its order. The Lean formalization takes an arbitrary finite group G with `card G = 312` (equivalent to \"a group of order 312\") and asserts the existence of a natural number p and a Sylow p-subgroup P of G such that p is prime, p divides |G|, and P is normal. In Mathlib, `Sylow p G` represents a maximal p-subgroup of G, and `P.Normal` (via coercion to `Subgroup G`) corresponds to the standard notion of a normal subgroup. The conditions `p.Prime` and `p ∣ card G` correctly encode \"for some prime p dividing its order\" — without the divisibility constraint the statement would be trivially true (any non-divisor prime gives the trivial Sylow subgroup). The quantifier structure (universal over G of order 312, existential over p and P) matches the informal claim exactly.",
+  "duration_ms": 117661,
+  "cost_usd": 0.3865545
+}

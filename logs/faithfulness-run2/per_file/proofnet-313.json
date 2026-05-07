@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over any type `α` carrying a `LinearOrder` and `OrderTopology` instance (which asserts the topology equals the order topology) and concludes `RegularSpace α`. This is exactly \"every order topology is regular.\" Although Mathlib's `RegularSpace` does not bundle T1 (whereas Munkres' definition of \"regular\" does), under the given hypotheses an order topology is automatically Hausdorff, so `RegularSpace` and `T3Space` are equivalent in this context, making the two statements logically equivalent. No hypothesis is silently added or dropped, and the universal quantification is preserved.",
+  "duration_ms": 29797,
+  "cost_usd": 0.09032
+}

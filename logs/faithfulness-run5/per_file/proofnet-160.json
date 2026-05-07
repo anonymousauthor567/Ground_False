@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `g n = Real.sqrt (n + 1) - Real.sqrt n` matches the informal $a_i = \\sqrt{i+1} - \\sqrt{i}$ exactly (natural number coerced to ℝ inside `Real.sqrt`). The sum `∑ i ∈ range n, g i` is precisely $\\sum_{i<n} a_i$ since `range n = {0, 1, ..., n-1}`. The conclusion `Tendsto (fun n => ∑ i ∈ range n, g i) atTop atTop` is the standard Mathlib encoding of \"the partial sums tend to ∞ as n → ∞\", which is exactly the informal limit claim. No hypotheses are added or dropped, and the quantifier structure and ambient types match.",
+  "duration_ms": 20309,
+  "cost_usd": 0.09402975
+}

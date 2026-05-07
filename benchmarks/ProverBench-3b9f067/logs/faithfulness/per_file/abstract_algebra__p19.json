@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p19.lean",
+  "stem": "abstract_algebra__p19",
+  "verdict": "stronger",
+  "reasoning": "In Lean 4, variables declared via `variable` are only auto-included when referenced (directly or transitively) in the theorem. The body `∃ (A B : Polynomial ℝ), P = A^2 + Polynomial.X * B^2` references `P` but not `hP`, so the hypothesis `hP : ∀ x ≥ 0, P.eval x ≥ 0` is silently dropped. The resulting signature is effectively `∀ {P : Polynomial ℝ}, ∃ A B, P = A^2 + X * B^2`, i.e., the claim for ALL real polynomials without any positivity assumption. This drops a hypothesis the informal statement explicitly requires, so the Lean statement logically implies the informal one (as a special case) but asserts much more — in fact, the dropped-hypothesis version is false (e.g., P = -1 cannot have A(0)² = -1). This is a \"stronger\" faithfulness failure per the rubric's guidance on dropping required hypotheses.",
+  "duration_ms": 707504,
+  "cost_usd": 1.7384422500000005
+}

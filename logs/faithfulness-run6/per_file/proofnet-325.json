@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all four components of the informal modulus of continuity definition: positivity on (0, ∞) via `∀ x > 0, μ x > 0` (matching codomain (0, ∞)), continuity via `ContinuousOn μ (Ioi 0)`, strict monotonicity via `StrictMonoOn μ (Ioi 0)`, and the limit condition via `Tendsto μ (𝓝[>] 0) (𝓝 0)` (which is the only meaningful notion of \"s → 0\" since μ is only relevant on (0, ∞)). Encoding μ as ℝ → ℝ rather than as a dependent type on (0, ∞) is a standard equivalent formalization since behavior outside (0, ∞) is unconstrained and one can always extend a (0,∞) → (0,∞) function to ℝ → ℝ. The inequality `|f s - f t| ≤ μ(|s - t|)` matches the informal definition, and the biconditional structure is preserved. The hypothesis `hab : a ≤ b` makes explicit the implicit assumption that [a,b] is a proper interval. Both directions (→ and ←) correspond exactly to the informal claim.",
+  "duration_ms": 191020,
+  "cost_usd": 0.6982744999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement accurately: V is a complex inner product space, T is a linear endomorphism, the normality hypothesis `T * adjoint T = adjoint T * T` matches \"T is a normal operator\", `T^9 = T^8` matches, and the conclusion `IsSelfAdjoint T ∧ T^2 = T` matches \"T is self-adjoint and T^2 = T\". The added `[FiniteDimensional ℂ V]` hypothesis is a necessary implicit premise: in Mathlib, `LinearMap.adjoint` is defined only for finite-dimensional inner product spaces (see Mathlib/Analysis/InnerProductSpace/Adjoint.lean line 467, where `adjoint` on `LinearMap` requires `[FiniteDimensional 𝕜 E] [FiniteDimensional 𝕜 F]`). Without this hypothesis, the normality condition involving `adjoint T` wouldn't even type-check with `LinearMap.adjoint`. This makes explicit an implicit premise needed for the statement to be well-formed, which is not a faithfulness error.",
+  "duration_ms": 155774,
+  "cost_usd": 0.33600549999999996
+}

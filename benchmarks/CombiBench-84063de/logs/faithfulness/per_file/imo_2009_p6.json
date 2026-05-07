@@ -1,0 +1,8 @@
+{
+  "file": "imo_2009_p6.lean",
+  "stem": "imo_2009_p6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all hypotheses of IMO 2009 P6: distinct positive integers via `Function.Injective a` and `∀ i, a i > 0`; the set $M$ of $n-1$ positive integers via `M.card = n - 1` and `∀ m ∈ M, m > 0`; and $s \\notin M$ via `haM : ∑ n, (a n) ∉ M` (the bound `n` correctly sums over `Fin n`). The conclusion `∃ σ : Equiv.Perm (Fin n), ∀ k, (∑ i ≤ k, (a ∘ σ) i) ∉ M` uses `Finset.Iic k` to capture all landing points after 1 through $n$ jumps, as $k$ ranges over `Fin n`. The starting point 0 is not a landing point and is excluded from $M$ by positivity anyway. The extra hypothesis `hn : n ≥ 1` surfaces the standard implicit premise from the notation $a_1, \\ldots, a_n$ (the original IMO problem explicitly states $n$ is positive), so this is a faithful rendering rather than a weakening.",
+  "duration_ms": 181758,
+  "cost_usd": 0.5837077500000001
+}

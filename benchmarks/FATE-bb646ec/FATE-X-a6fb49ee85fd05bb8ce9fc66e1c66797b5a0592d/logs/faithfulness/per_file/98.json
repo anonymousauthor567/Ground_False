@@ -1,0 +1,8 @@
+{
+  "file": "98.lean",
+  "stem": "98",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures each part of the informal statement. The typeclasses `[Field K] [NumberField K] [CommRing A] [IsDomain A] [Algebra K A] [Algebra.FiniteType K A]` match \"K number field, A finite-type K-algebra, A domain\". The endomorphism `f : A →ₐ[K] A` is the natural reading of \"endomorphism\" in a K-algebra context, and on `AlgHom.End` multiplication is composition with `1 = id`, so `∀ n > 0, f^n ≠ 1` is precisely `¬ IsOfFinOrder f` (via `isOfFinOrder_iff_pow_eq_one`), which is \"f is not of finite order\". The conclusion `∃ m, m.IsMaximal ∧ ∀ n > 0, m.comap (f^n) ≠ m` matches \"exists a maximal ideal m such that for all n ∈ ℕ_+, f^{-n}(m) ≠ m\", since `Ideal.comap (f^n) m` is exactly the preimage (f^n)^{-1}(m). No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 316116,
+  "cost_usd": 0.59250675
+}

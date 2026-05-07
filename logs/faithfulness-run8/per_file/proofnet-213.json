@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $(a_1 a_2 \\dots a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} \\dots a_1^{-1}$ in a group $G$. The Lean statement takes a `List G`, and claims `as.prod⁻¹ = (as.reverse.map (λ x => x⁻¹)).prod`. Unfolding: if `as = [a_1, ..., a_n]`, then `as.reverse = [a_n, ..., a_1]`, and mapping with inverse gives `[a_n⁻¹, ..., a_1⁻¹]`, whose product is exactly `a_n⁻¹ * a_{n-1}⁻¹ * ... * a_1⁻¹`. This is logically equivalent to Mathlib's `List.prod_inv_reverse` (which uses `(L.map inv).reverse` — the same list since `reverse` and `map` commute). The extension to the empty list is trivial (both sides equal 1) and is the standard convention. The formalization is strictly faithful.",
+  "duration_ms": 45045,
+  "cost_usd": 0.15030875
+}

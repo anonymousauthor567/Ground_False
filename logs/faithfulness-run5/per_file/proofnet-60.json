@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim directly: `[Ring R]` encodes \"ring\" (with multiplicative identity, consistent with Mathlib's standard convention), the hypothesis `∀ a : R, a^2 = a` encodes the defining property of a Boolean ring, and the conclusion `∀ a b : R, a*b = b*a` is the definition of commutativity. The universal quantification over R is correctly expressed via `{R : Type*}`, so the theorem says \"for every Boolean ring, multiplication is commutative.\" The hypothesis and conclusion match the informal statement, and no extra conditions narrow or widen the claim.",
+  "duration_ms": 66007,
+  "cost_usd": 0.17363099999999998
+}

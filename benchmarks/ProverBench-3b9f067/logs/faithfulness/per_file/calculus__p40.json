@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p40.lean",
+  "stem": "calculus__p40",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the derivative of f(x) = e^(-x²/2) equals -x·e^(-x²/2). The Lean statement expresses this as function equality `deriv (fun x => exp (-x^2 / 2)) = fun x => -x * exp (-x^2 / 2)`. In Lean 4, `^` binds tighter than unary `-`, so `-x^2 / 2` parses as `(-(x^2))/2`, which over ℝ equals -(x²/2), matching the informal notation. The `deriv` operator gives the classical derivative where functions are differentiable (and exp(-x²/2) is differentiable everywhere on ℝ). Function equality in Lean corresponds to pointwise equality via funext, so this captures the pointwise claim about f'(x). The derivative -x·e^(-x²/2) is correctly expressed as `-x * exp (-x^2 / 2)`. No hypotheses are added or dropped; the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 276439,
+  "cost_usd": 0.8316295
+}

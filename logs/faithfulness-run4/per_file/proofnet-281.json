@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts divergence of $\\sum' 1/n$ over squarefree integers, which in Ireland-Rosen classically means positive squarefree integers. The Lean statement asserts `¬ Summable` over the subtype `{p : ℤ // Squarefree p}` with ℚ values. Mathlib's `Squarefree` excludes 0 (via `not_squarefree_zero`) and includes ±1, ±2, ±3, .... Although the Lean index set includes negative squarefree integers (which the informal likely does not), the two statements are logically equivalent: `Summable` over ℚ corresponds to unconditional/absolute convergence, and the absolute sum $\\sum 1/|n|$ over all squarefree integers equals twice the sum over positive squarefree integers. Thus `¬ Summable` holds iff the positive-part series diverges, which is exactly the informal claim. The formalization is faithful.",
+  "duration_ms": 708416,
+  "cost_usd": 1.5679465000000001
+}

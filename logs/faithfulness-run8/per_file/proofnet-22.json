@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Axler's Exercise 6.2. The typeclass setup `[NormedAddCommGroup V] [RCLike F] [InnerProductSpace F V]` is the standard Mathlib encoding of \"V is an inner product space over F\" where F is ℝ or ℂ — matching Axler's convention that F ∈ {ℝ, ℂ}. The inner product notation `⟪u, v⟫_F = 0` uses the scoped notation from `InnerProductSpace` correctly resolving to `inner F u v`. The right-hand side `∀ (a : F), ‖u‖ ≤ ‖u + a • v‖` directly translates \"‖u‖ ≤ ‖u+av‖ for all a ∈ F\", and the scalar multiplication `a • v` is the correct action. The iff structure and quantifier order exactly match the informal statement. No hypotheses are dropped or added, and the conclusion is logically equivalent.",
+  "duration_ms": 78334,
+  "cost_usd": 0.33140625
+}

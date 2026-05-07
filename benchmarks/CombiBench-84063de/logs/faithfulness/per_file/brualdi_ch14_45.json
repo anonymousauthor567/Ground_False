@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch14_45.lean",
+  "stem": "brualdi_ch14_45",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `finRotate n : Equiv.Perm (Fin n)`, which is exactly ρ_n (the rotation 1→2→...→n→1), and `Finset.Icc 1 n = {1,...,n}` matches the informal list {ρ_n, ρ_n^2, ..., ρ_n^n}. The only potential mismatch is `IsCycle` vs. \"n-cycle\": Mathlib's `IsCycle f` just means f is some cycle of length ≥ 2, not necessarily of length n. However, for n odd prime and i ∈ {1,...,n-1}, gcd(i,n)=1, so orderOf((finRotate n)^i) = n, and by `IsCycle.orderOf` the support equals n, making it a full n-cycle. Conversely, an n-cycle on Fin n is `IsCycle`. At i = n, (finRotate n)^n = identity, which fails `IsCycle` (by `not_isCycle_one`) and also fails \"is an n-cycle\" informally — both statements share this edge case. Hence the formulations are logically equivalent under the hypothesis that n is an odd prime.",
+  "duration_ms": 739369,
+  "cost_usd": 2.1606783999999997
+}

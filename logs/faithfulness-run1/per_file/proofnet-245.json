@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "informal": "Let $\\varphi: R \\rightarrow S$ be a surjective homomorphism of rings. Prove that the image of the center of $R$ is contained in the center of $S$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_3_16 {R S : Type*} [Ring R] [Ring S]\n   {φ : R →+* S} (hf : Function.Surjective φ) :\n   φ '' (center R) ⊆ center S",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for a surjective ring homomorphism φ : R → S, the image of the center of R is contained in the center of S. The Lean signature has φ : R →+* S (a ring homomorphism), assumes Function.Surjective φ, and concludes φ '' (center R) ⊆ center S. The types (Ring R, Ring S), the surjectivity hypothesis, and the conclusion all match the informal claim directly. Note that \"center R\" here refers to Subsemigroup.center (or the appropriate Mathlib center) on the underlying multiplicative structure, which is the standard center of a ring. No extra hypotheses (like commutativity, finiteness) are added or removed.",
+  "duration_ms": 6853,
+  "cost_usd": 0.045365
+}

@@ -1,0 +1,8 @@
+{
+  "file": "97.lean",
+  "stem": "97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: G is an arbitrary group with the hypothesis that every subgroup is normal (a Dedekind group), and for all a, b ∈ G, there exists j such that ba = a^j b. The quantifier structure ∀ a b, ∃ j corresponds directly to \"if a, b ∈ G, ... for some j\". The choice of `j : ℤ` with `a ^ j` interpreted as `zpow` is the standard group-theoretic convention for \"some power of a\" — it captures exactly the statement that ba b⁻¹ ∈ ⟨a⟩. No extra or missing hypotheses, and no change in the ambient objects or conclusion.",
+  "duration_ms": 69871,
+  "cost_usd": 0.18214775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. G is a finite group ([Group G] [Fintype G]), φ is a group automorphism (G ≃* G). The hypothesis uses a Finset I with (∀ x ∈ I, φ x = x⁻¹) and (3/4)·|G| < |I|; since I is a universally quantified parameter and the conclusion doesn't depend on it, this is equivalent to the existential \"there exists such I\" which in turn is equivalent to \"|{x : φ(x) = x⁻¹}| > (3/4)|G|\" — the informal condition. The conclusion is the conjunction of \"φ(x) = x⁻¹ for all x\" and \"G is abelian (x*y = y*x for all x,y)\", which exactly matches \"φ(y) = y⁻¹ for all y ∈ G, and so G is abelian\". The coercions between ℕ and ℚ in the inequality work correctly.",
+  "duration_ms": 71981,
+  "cost_usd": 0.2639495
+}

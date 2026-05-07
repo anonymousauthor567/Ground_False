@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler Exercise 3.8. The hypothesis `[FiniteDimensional F V]` matches \"V finite dimensional\"; `L : V →ₗ[F] W` matches T ∈ L(V,W). The conclusion `U ⊓ (ker L) = ⊥` exactly encodes \"U ∩ null T = {0}\" using the standard submodule lattice operations. The final equation `range L = range (domRestrict L U)` captures \"range T = {T u : u ∈ U}\": I verified in Mathlib (`Algebra/Module/Submodule/LinearMap.lean`) that `domRestrict L U = L ∘ U.subtype`, and `range_domRestrict` shows its range equals `U.map L`, i.e., {L u : u ∈ U}. Using a general field F rather than ℝ/ℂ is a standard faithful generalization that preserves the intended mathematical content.",
+  "duration_ms": 81334,
+  "cost_usd": 0.29566749999999997
+}

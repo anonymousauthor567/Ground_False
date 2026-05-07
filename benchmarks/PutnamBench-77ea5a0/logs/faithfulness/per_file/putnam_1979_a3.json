@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a3.lean",
+  "stem": "putnam_1979_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The recurrence is correctly encoded (for n=3, x 3 = x 1 * x 2 / (2*x 1 - x 2), matching the informal formula). The conclusion `∀ m, ∃ n > m, ∃ a : ℤ, a = x n` correctly captures \"x_n is integer for infinitely many n\". The solution set `∃ m : ℤ, a = m ∧ b = m` applied to (x 1, x 2) correctly asserts x_1 = x_2 ∈ ℤ, which is indeed the correct answer (via y_n = 1/x_n being arithmetic, we get x_n → 0 unless x_1 = x_2). The only minor encoding choice is requiring x 0 ≠ 0, but x 0 never appears in the recurrence nor the \"infinitely many\" condition (since n > m for all m forces n ≥ 1), so this is immaterial and does not alter the iff.",
+  "duration_ms": 168751,
+  "cost_usd": 0.46318899999999996
+}

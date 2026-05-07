@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses ∃! together with three conjuncts that encode \"largest topology contained in all T_i\": (1) T' is a topology, (2) T' ⊆ T i for every i, and (3) T' is the greatest topology with property (2). This precisely matches the informal claim that there is a unique largest topology contained in all the T_α. The universe quantification over X and the family I is handled via a function T : I → Set (Set X) with the hypothesis that each T i is a topology — a faithful encoding of \"a family of topologies on X\". Uniqueness is automatic from conditions (2) and (3), so the ∃! correctly captures \"unique largest\". No hypotheses are silently added or dropped, and the quantifier structure matches the informal statement.",
+  "duration_ms": 101536,
+  "cost_usd": 0.37046775
+}

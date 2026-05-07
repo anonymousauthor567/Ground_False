@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_a6.lean",
+  "stem": "putnam_2018_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components: (1) four points in the Euclidean plane via `EuclideanSpace ℝ (Fin 2)`; (2) pairwise distinctness (via the `P1 ≠ P2` conjunct inside PPprops, applied to all 6 pairs — sufficient for 4 distinct points); (3) \"no three on a line\" via the four non-collinearity conditions for all C(4,3) = 4 triples using Mathlib's standard `Collinear` predicate; (4) the squared-distance rationality condition for all 6 segments via `∃ q : ℚ, (dist P1 P2)^2 = q`; (5) triangle areas are encoded as the 2D Lebesgue volume of the convex hull of 3 points, which is the standard formalization of triangle area in ℝ²; and (6) the rational-quotient conclusion via `∃ q : ℚ, (…).toReal = q`. Since both triangles have positive finite area (non-collinear triples), the ENNReal division and `.toReal` give the ordinary real area ratio, so the conclusion correctly asserts rationality of the ratio. No hypothesis is silently dropped or added and the encoding is logically equivalent to the informal statement.",
+  "duration_ms": 276288,
+  "cost_usd": 0.5483652499999999
+}

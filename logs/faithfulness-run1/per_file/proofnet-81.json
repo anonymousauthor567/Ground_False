@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "informal": "If $G_1$ and $G_2$ are cyclic groups of orders $m$ and $n$, respectively, prove that $G_1 \\times G_2$ is cyclic if and only if $m$ and $n$ are relatively prime.",
+  "lean": "\ntheorem Herstein_exercise_2_9_2 {G H : Type*} [Fintype G] [Fintype H] [Group G]\n  [Group H] (hG : IsCyclic G) (hH : IsCyclic H) :\n  IsCyclic (G × H) ↔ (card G).Coprime (card H)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes two finite cyclic groups G and H (via [Fintype G], [Fintype H], [Group G], [Group H], hG : IsCyclic G, hH : IsCyclic H), which corresponds to \"G_1 and G_2 cyclic of orders m and n\" since finiteness is implicit in having an order m, n. The conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` matches \"G_1 × G_2 is cyclic iff m and n are relatively prime\", with card G = m and card H = n. The quantifier structure (universal over such groups) is preserved by the type-level binders. No extraneous hypotheses or missing hypotheses; this is the standard faithful encoding.",
+  "duration_ms": 9564,
+  "cost_usd": 0.049402
+}

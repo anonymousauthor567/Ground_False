@@ -1,0 +1,8 @@
+{
+  "file": "imo_2003_p1.lean",
+  "stem": "imo_2003_p1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes each component of the informal statement. `S := Finset.Icc 1 1000000` (on ℕ) represents {1,...,1000000}. `A : Finset S` with `A.card = 101` represents a 101-element subset of S (via the CoeSort instance giving the subtype {x // x ∈ S}). `Function.Embedding (Fin 100) S` provides exactly 100 distinct elements of S via the injection property. The set comprehension `{ a.1 + (x i).1 | a ∈ A }` correctly forms the sets {a + x_i | a ∈ A} as sets of natural numbers by extracting underlying values via `.1`. The pairwise disjointness is correctly expressed with `∀ i j, i ≠ j → Disjoint ...`. No hypotheses are silently added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 148675,
+  "cost_usd": 0.49099725
+}

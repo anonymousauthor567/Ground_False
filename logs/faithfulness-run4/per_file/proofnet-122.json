@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has three pieces of data: (a) X is locally path connected, (b) U is open, (c) U is connected; and the conclusion that U is path connected. The Lean signature encodes each of these exactly: `[LocPathConnectedSpace X]` for (a), `hU : IsOpen U` for (b), `hcU : IsConnected U` for (c), and `IsPathConnected U` for the conclusion. Mathlib's `IsConnected` (nonempty + preconnected) and `IsPathConnected` (nonempty + every pair joined by a path in the set) both incorporate nonemptiness consistently, and Mathlib already has `IsOpen.isConnected_iff_isPathConnected` under `LocPathConnectedSpace`, confirming that this is exactly the intended statement. No hypotheses are added or dropped and the quantifier/type structure matches.",
+  "duration_ms": 78579,
+  "cost_usd": 0.27059049999999996
+}

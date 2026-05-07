@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch6_21.lean",
+  "stem": "brualdi_ch6_21",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `numDerangements n`, which is Mathlib's standard derangement number $D_n$ defined by the recurrence $D_0=1$, $D_1=0$, $D_{n+2}=(n+1)(D_n + D_{n+1})$ (confirmed in `Mathlib/Combinatorics/Derangements/Finite.lean`). The formalization quantifies universally over `n : ℕ` and asserts `Even (numDerangements n) ↔ Odd n`, which exactly matches the informal iff claim about parity of $D_n$ versus parity of $n$. The types, the universal quantifier (implicit via `(n : ℕ)`), and the biconditional all align with the informal reading. No hypotheses are added or dropped, and no stronger/weaker variant is introduced.",
+  "duration_ms": 54914,
+  "cost_usd": 0.1641355
+}

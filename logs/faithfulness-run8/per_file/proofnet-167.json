@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The function `f : ℝ → ℝ` matches \"real-valued\" (using a total function is standard for \"defined on E\" since only values on E matter for both the graph and ContinuousOn). The set `E : Set ℝ` with hypothesis `IsCompact E` captures \"E is compact\". The set-builder notation `{(x, f x) | x ∈ E}` in Lean 4 desugars to `{p | ∃ x ∈ E, p = (x, f x)}`, which is exactly the graph of f restricted to E as a subset of ℝ × ℝ. The conclusion `ContinuousOn f E ↔ IsCompact G` preserves the bidirectional nature of the claim. No hypotheses are silently added or removed, and the quantifier structure matches the informal statement.",
+  "duration_ms": 68059,
+  "cost_usd": 0.29156449999999995
+}

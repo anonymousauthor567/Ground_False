@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. The IVP hypothesis `hf` requires a < b and considers both `f a < c < f b` and `f b < c < f a`; this is logically equivalent to the informal \"if f(a) < c < f(b), then f(x)=c for some x between a and b\", where a and b are not ordered (the informal version handles b < a by symmetry of \"between\"). The strict a < x < b is fine since f(a) ≠ c ≠ f(b) forces x to be strictly inside. The `hg` hypothesis quantifies over ℚ and asserts closedness of {x | f x = r}, matching \"for every rational r, the set of all x with f(x)=r is closed.\" The conclusion Continuous f matches exactly. No hidden hypotheses are added or removed.",
+  "duration_ms": 30831,
+  "cost_usd": 0.12431674999999999
+}

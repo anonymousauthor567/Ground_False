@@ -1,0 +1,8 @@
+{
+  "file": "75.lean",
+  "stem": "75",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim exactly. Mathlib's `IsPGroup p G` is defined as `∀ g : G, ∃ k : ℕ, g ^ p ^ k = 1`, which under `[Fact p.Prime]` is equivalent to \"every element has order a power of p\" (confirmed by `IsPGroup.iff_orderOf` in `Mathlib/GroupTheory/PGroup.lean`). The hypothesis `gp : IsPGroup p G` captures \"G is such a group\", `f : G →* H` with `sf : Function.Surjective f` captures the surjective homomorphism, and the conclusion `IsPGroup p H` captures \"H is a p-group too\". The `Fact p.Prime` assumption corresponds to \"a fixed prime p\" in the informal statement. This is literally the Mathlib lemma `IsPGroup.of_surjective`, with no extra or missing hypotheses relative to the informal problem.",
+  "duration_ms": 71697,
+  "cost_usd": 0.19908575
+}

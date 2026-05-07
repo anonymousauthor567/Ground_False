@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "informal": "Let $f \\colon X \\rightarrow X$ be continuous. Show that if $X = [0, 1]$, there is a point $x$ such that $f(x) = x$. (The point $x$ is called a fixed point of $f$.)",
+  "lean": "\ntheorem Munkres_exercise_24_3a (f : I → I) (hf : Continuous f) :\n  ∃ (x : I), f x = x",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `I` denotes `unitInterval`, which is exactly `[0,1] ⊆ ℝ` with the subspace topology. The Lean signature takes a continuous function `f : I → I` and asserts the existence of a fixed point `x : I` with `f x = x`, which is precisely the informal claim. The quantifier structure (existence of a fixed point), the domain/codomain ([0,1]), and the continuity hypothesis all match. No extra or missing assumptions are present.",
+  "duration_ms": 5545,
+  "cost_usd": 0.042682250000000005
+}

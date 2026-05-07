@@ -1,0 +1,8 @@
+{
+  "file": "111.lean",
+  "stem": "111",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Ring R` (general, possibly non-commutative), matches the hypothesis `a^2 = 0`, and states `∀ x : R, Commute (a*x + x*a) a`. In Mathlib, `Commute u v` unfolds to `u * v = v * u`, so the conclusion is exactly `(a*x + x*a) * a = a * (a*x + x*a)`, which is \"ax + xa commutes with a\". The free variable x in the informal statement is conventionally understood as universally quantified over R, and the Lean `∀ x : R` makes this explicit without changing the meaning. No extra hypotheses (commutativity, characteristic, finiteness, etc.) are added, and no hypotheses are omitted. This is a strictly faithful formalization.",
+  "duration_ms": 155819,
+  "cost_usd": 0.15898125000000002
+}

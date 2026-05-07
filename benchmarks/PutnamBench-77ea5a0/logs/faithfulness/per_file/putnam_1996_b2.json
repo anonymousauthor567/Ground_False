@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_b2.lean",
+  "stem": "putnam_1996_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately encodes the informal claim. The hypothesis `npos : n > 0` matches \"positive integer n\". The product `∏ i ∈ Finset.range (2*n), if Odd i then i else 1` correctly computes 1·3·5·⋯·(2n-1): for each i in {0,...,2n-1}, the odd values (1,3,5,...,2n-1) contribute themselves while even values contribute 1, so the product equals the product of odd numbers up to 2n-1. The two-sided inequality ((2n-1)/e)^((2n-1)/2) < product < ((2n+1)/e)^((2n+1)/2) matches exactly, using real-valued exponentiation (rpow) since the exponent is a real number. The `(2*n - 1 : ℝ)` annotation ensures computation in ℝ, so there's no natural-subtraction truncation issue. Introducing `prododd` as a bound variable with `hprododd` specifying its value is a logically equivalent reformulation. The formalization is strictly faithful.",
+  "duration_ms": 93943,
+  "cost_usd": 0.29552275
+}

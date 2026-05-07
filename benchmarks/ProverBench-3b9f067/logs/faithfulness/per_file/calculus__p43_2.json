@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p43_2.lean",
+  "stem": "calculus__p43_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that the average velocity v_avg = (y(2.5) − y(2))/(2.5 − 2) equals −32 ft/s. The Lean theorem signature `heightAtTwoPointFive : heightFunction 2.5 = 0` only states that y(2.5) = 0, which is merely one intermediate computation. The actual claim — that the quotient expression equals −32 — is not formalized anywhere in the theorem signature. Even combined with the axiomatized `heightAtTwo`, proving y(2.5) = 0 does not by itself assert the average velocity equality. The Lean statement is strictly weaker: it is implied by the informal claim (via the definition of y) but does not imply the informal claim about average velocity.",
+  "duration_ms": 177666,
+  "cost_usd": 0.33894425
+}

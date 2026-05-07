@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes: metric spaces α (=X), β (=Y); continuous f : α → β; s : Set α with Dense s (meaning closure s = univ, i.e., E dense in X); and concludes f '' Set.univ ⊆ closure (f '' s), which is exactly f(X) ⊆ closure(f(E)). This is the standard characterization of \"f(E) is dense in f(X)\" (since f(E) ⊆ f(X), density of f(E) in the subspace f(X) is equivalent to f(X) ⊆ closure_Y(f(E))). The informal statement mentions g only because part (b) of the original Rudin 4.4 exercise uses it; part (a) as quoted depends only on f and E, so its omission is appropriate. All hypotheses (metric space structure, continuity, density of E) and the conclusion correspond precisely, so the formalization is faithful.",
+  "duration_ms": 42336,
+  "cost_usd": 0.17179325
+}

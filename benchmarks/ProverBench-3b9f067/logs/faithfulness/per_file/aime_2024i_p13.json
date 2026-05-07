@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024i_p13.lean",
+  "stem": "aime_2024i_p13",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures AIME 2024 I Problem 13. The predicate `isSolution p n := p.Prime ∧ 0 < n ∧ p² ∣ n⁴ + 1` correctly encodes \"p prime, n positive, p² divides n⁴+1\". Hypothesis h₀ asserts (p,m) satisfies the property; h₁ (∀ q < p, ¬∃n, isSolution q n) correctly encodes that p is the least prime with this property; h₂ (∀ k < m, ¬ isSolution p k) correctly encodes that m is the least positive witness for p — for k=0 the conjunction fails vacuously via 0<0, and for 0<k<m, since p.Prime holds from h₀, the negation reduces to ¬(p² ∣ k⁴+1). The conclusion m = 110 matches the known answer (with p = 17). Types (ℕ), quantifier structure, and minimality semantics are all correctly encoded.",
+  "duration_ms": 135438,
+  "cost_usd": 0.42023449999999996
+}

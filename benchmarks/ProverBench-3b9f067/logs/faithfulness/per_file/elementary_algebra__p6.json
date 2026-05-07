@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p6.lean",
+  "stem": "elementary_algebra__p6",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for all positive real numbers a and b, a^3 + b^3 ≥ a^2*b + a*b^2. The Lean theorem quantifies over a b : ℝ (via the variable declaration) with hypotheses (ha : 0 < a) and (hb : 0 < b), matching \"positive real numbers a and b\" exactly. The conclusion a^3 + b^3 ≥ a^2 * b + a * b^2 is a literal transcription of the informal inequality. There is no drift in types, hypotheses, conclusion, or quantifier structure.",
+  "duration_ms": 15204,
+  "cost_usd": 0.05118375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all components of the informal claim: μ is positive on (0,∞), continuous on (0,∞), strictly increasing on (0,∞), has right limit 0 at 0, and the inequality |f(s)-f(t)| ≤ μ(|s-t|) holds on Icc a b. Although Lean uses μ: ℝ → ℝ rather than (0,∞) → (0,∞), all constraints are restricted to (0,∞), and one can freely extend any informal modulus by setting μ(0) = 0 (covering the trivial s = t case of the inequality), and restrict Lean's μ by dropping values on (−∞,0]; the existentials are therefore equivalent. UniformContinuous on the subtype Icc a b correctly encodes uniform continuity of f: [a,b] → ℝ, and 𝓝[>] 0 is the appropriate one-sided limit since μ is only defined / constrained on (0,∞). No hypothesis is added or dropped.",
+  "duration_ms": 75174,
+  "cost_usd": 0.2589965
+}

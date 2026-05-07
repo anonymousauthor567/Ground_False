@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "informal": "Prove that $x^3 - 3x - 1$ is irreducible over $\\mathbb{Q}$.",
+  "lean": "\ntheorem Herstein_exercise_5_5_2 : Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)`, which is exactly the claim that the polynomial x^3 - 3x - 1 is irreducible over ℚ. The polynomial type is `Polynomial ℚ`, matching the informal \"over ℚ\", and `Irreducible` in Mathlib for a polynomial over a field captures the standard notion of irreducibility (non-unit, not a product of two non-units). No extra hypotheses or weaker conclusions are introduced.",
+  "duration_ms": 5901,
+  "cost_usd": 0.04239525
+}

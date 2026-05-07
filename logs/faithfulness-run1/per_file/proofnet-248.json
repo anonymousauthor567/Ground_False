@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "informal": "Let $R=\\mathbb{Z}[\\sqrt{-n}]$ where $n$ is a squarefree integer greater than 3. Prove that $2, \\sqrt{-n}$ and $1+\\sqrt{-n}$ are irreducibles in $R$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_8_3_5a {n : ℤ} (hn0 : n > 3) (hn1 : Squarefree n) :\n  Irreducible (2 : Zsqrtd $ -n) ∧\n  Irreducible (⟨0, 1⟩ : Zsqrtd $ -n) ∧\n  Irreducible (1 + ⟨0, 1⟩ : Zsqrtd $ -n)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement requires n to be a squarefree integer > 3, and asks to show 2, √(-n), and 1+√(-n) are irreducible in Z[√(-n)]. The Lean signature uses Zsqrtd (-n), which is Mathlib's Z[√(-n)]. The element ⟨0,1⟩ in Zsqrtd represents 0 + 1·√(-n) = √(-n), and 1 + ⟨0,1⟩ represents 1 + √(-n). The hypotheses `n > 3` and `Squarefree n` match the informal \"squarefree integer greater than 3\". The conjunction asserts irreducibility of all three elements as required. This is a faithful encoding.",
+  "duration_ms": 8911,
+  "cost_usd": 0.0512755
+}

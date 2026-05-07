@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem universally quantifies over `p : ℕ` (prime) and `x : ℤ`, with hypothesis `(p : ℤ) ∣ (x^4 - x^2 + 1)`, and concludes `(p : ℤ) ≡ 1 [ZMOD 12]`. This matches the informal statement: \"any prime divisor of x^4 - x^2 + 1 is ≡ 1 (mod 12)\" is standardly read as \"for all integers x and all primes p, if p | x^4 - x^2 + 1 then p ≡ 1 (mod 12)\". The ZMOD notation corresponds to `Int.ModEq 12`, i.e., 12 ∣ (p - 1), which exactly expresses \"p ≡ 1 modulo 12\". Coercing the Nat prime to ℤ for the divisibility and congruence is standard. No hypotheses are added or dropped; the quantifier structure and conclusion match precisely.",
+  "duration_ms": 119997,
+  "cost_usd": 0.39205599999999996
+}

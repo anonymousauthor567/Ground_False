@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler's exercise 6.13. The ambient `NormedAddCommGroup V` + `InnerProductSpace F V` with `[RCLike F]` corresponds exactly to Axler's \"inner product space over ℝ or ℂ\". The orthonormal list $(e_1,\\dots,e_m)$ is encoded as `e : Fin n → V` with `Orthonormal F e`, which Mathlib defines as unit-norm and pairwise-orthogonal — matching the informal definition. The conclusion's sum `∑ i : Fin n, ‖⟪v, e i⟫_F‖^2` corresponds to $|⟨v,e_i⟩|^2$ since for `RCLike F` the norm on `F` is the modulus; the differing inner-product conjugacy convention between Axler and Mathlib is immaterial under absolute value. Finally, `Submodule.span F (e '' Set.univ)` equals `Submodule.span F (Set.range e)`, which is the span of $\\{e_1,\\dots,e_m\\}$. Both sides of the iff match, so the formalization is strictly faithful.",
+  "duration_ms": 129547,
+  "cost_usd": 0.44722125
+}

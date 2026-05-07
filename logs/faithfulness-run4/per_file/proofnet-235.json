@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: a group of order 56 has a normal Sylow p-subgroup for some prime p dividing |G|. The Lean statement asserts the existence of a natural number p and a Sylow p-subgroup P of G such that (i) p is prime, (ii) p divides card G (= 56), and (iii) P is normal. This matches the informal statement component by component: the existential quantifiers over p and P, the primality condition, the divisibility condition `p ∣ card G`, and the normality condition `P.Normal` (a structure defined in Mathlib's Sylow file). `Sylow p G` in Mathlib is a maximal p-subgroup, which is the standard notion used for Sylow subgroups. No hypothesis is added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 86984,
+  "cost_usd": 0.25406724999999997
+}

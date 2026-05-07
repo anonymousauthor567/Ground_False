@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_a4.lean",
+  "stem": "putnam_2023_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim correctly. The hypothesis `hv` asserts that v is orthogonally equivalent to the canonical 12 unit-icosahedral vertices given by the standard (±1,±φ,0), (±φ,0,±1), (0,±1,±φ) presentation scaled by 1/√(1+φ²); since `LinearIsometryEquiv` over a real inner product space is precisely an orthogonal transformation, this is the correct notion of \"unit vectors to the vertices of a regular icosahedron centered at the origin.\" The conclusion `∃ a : Fin 12 → ℤ, ‖∑ a(i) • v(i) - w‖ < ε` exactly matches the informal density claim, with the norm on `EuclideanSpace ℝ (Fin 3)` being the Euclidean norm. The one subtle point — that `hv` fixes an ordering modulo the icosahedral symmetry group rather than arbitrary orderings — is immaterial, because the conclusion is permutation-invariant in the v_i, so the Lean statement is logically equivalent to the order-agnostic informal claim.",
+  "duration_ms": 416459,
+  "cost_usd": 0.7808405
+}

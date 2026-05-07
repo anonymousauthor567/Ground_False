@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a1.lean",
+  "stem": "putnam_1968_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes the Putnam 1968 A1 identity 22/7 - π = ∫₀¹ x⁴(1-x)⁴/(1+x²) dx exactly. Because `Real.pi` fixes the ambient type as ℝ, the literal `22/7` elaborates as real division (≈ 3.1428...), matching the intended rational value. The `∫ x in (0)..1, ...` notation is Mathlib's `intervalIntegral` with the default Lebesgue (volume) measure, matching the standard definite integral in the informal statement. The integrand, the bounds, and the equation structure all align, and the orientation 0..1 is the natural one. No hypotheses are added or dropped. Therefore the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 50381,
+  "cost_usd": 0.18156650000000002
+}

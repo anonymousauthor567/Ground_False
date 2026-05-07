@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "theorem_name": "Ireland_Rosen_exercise_4_8_corrected",
+  "informal": "Let $p$ be an odd prime. Show that $a$ is a primitive root modulo $p$ iff $a^{(p-1) / q} \\not \\equiv 1(p)$ for all prime divisors $q$ of $p-1$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_4_8_corrected {p : ℕ} (hp : Odd p) (hp' : p.Prime) (a : (ZMod p)ˣ) :\n  IsPrimitiveRoot (a : ZMod p) (p - 1) ↔\n    ∀ q : ℕ, q ∣ (p - 1) → q.Prime →\n      ¬ ((a : ZMod p) ^ ((p - 1) / q) = 1)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"a is a primitive root mod p\" as `IsPrimitiveRoot (a : ZMod p) (p - 1)`, which matches because the multiplicative group of ZMod p has order p−1 when p is prime. Taking `a : (ZMod p)ˣ` reflects the implicit assumption gcd(a,p)=1 in the informal statement. The right-hand side quantifies over natural numbers q with both `q ∣ (p−1)` and `q.Prime`, which is precisely \"for all prime divisors q of p−1\", and asserts a^((p−1)/q) ≠ 1 in ZMod p. The hypotheses `Odd p` and `p.Prime` correctly capture \"odd prime p\". The biconditional matches the informal \"iff\", so the formalization is logically equivalent.",
+  "duration_ms": 11489,
+  "cost_usd": 0.0555915
+}

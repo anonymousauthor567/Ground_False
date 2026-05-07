@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes: a metric space X, a sequence p : ℕ → X with CauchySeq p, a subsequence encoded via a strictly monotone φ : ℕ → ℕ (the standard Mathlib encoding of a subsequence's index function), the hypothesis that the subsequence (p ∘ φ) converges to r, and the conclusion that p itself converges to r. Every element of the informal statement — metric space, Cauchy sequence, convergent subsequence, and the conclusion of full-sequence convergence to the same limit — is captured precisely. The use of StrictMono for φ matches the informal notion of a subsequence with strictly increasing indices.",
+  "duration_ms": 33104,
+  "cost_usd": 0.13153925
+}

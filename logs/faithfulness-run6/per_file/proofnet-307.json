@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures every ingredient of the informal statement: `Function.Surjective p` (surjective), `Continuous p` (continuous), `IsClosedMap p` (Mathlib's `IsClosedMap` means the image of every closed set is closed, matching \"closed map\"), `∀ y, IsCompact (p ⁻¹' {y})` (compact fibers), `CompactSpace Y` (Y is compact), and the conclusion `CompactSpace X` (X is compact). The two hypotheses share the name `hp`, which is merely a cosmetic shadowing issue — both hypotheses are still part of the context and the logical statement is unchanged. No hypotheses are added or dropped, no quantifier structure is changed, and no types are altered. This is a faithful formalization.",
+  "duration_ms": 59859,
+  "cost_usd": 0.1763595
+}

@@ -1,0 +1,8 @@
+{
+  "file": "76.lean",
+  "stem": "76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"a finite torsion-free module over a Dedekind domain is projective.\" `IsDedekindDomain R` (with `CommRing R`) gives that R is a Dedekind domain (this class extends `IsDomain`). `Module.Finite R M` is the standard formalization of \"finitely generated module,\" which is the conventional meaning of \"finite module\" in commutative algebra. `NoZeroSMulDivisors R M` encodes \"torsion-free\": since R is a domain, this is equivalent to the standard torsion-free notion (Mathlib provides `NoZeroSMulDivisors → Module.IsTorsionFree` under `IsDomain R`, and the converse holds because `r • x = 0` with `r ≠ 0` forces `x = 0` by torsion-freeness). The conclusion `Module.Projective R M` matches \"projective.\" No hypotheses are dropped, added, or altered.",
+  "duration_ms": 233311,
+  "cost_usd": 0.46195450000000005
+}

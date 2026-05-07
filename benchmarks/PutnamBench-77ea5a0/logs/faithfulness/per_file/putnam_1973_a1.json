@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_a1.lean",
+  "stem": "putnam_1973_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes both parts of the informal claim. The triangle is set up in `EuclideanSpace ℝ (Fin 2)` with non-collinearity of A, B, C, and X, Y, Z lie on the respective closed segments (which match \"sides\" in the informal statement including endpoints). Areas are encoded as `volume (convexHull ℝ {·, ·, ·})`, which in 2D Euclidean space equals the triangle's area. Part 1's length constraint (BX ≤ XC, etc.) is captured using `dist`, and the inequality [XYZ] ≥ (1/4)[ABC] is direct. Part 2 is unconditional (matching \"regardless of this constraint\") and uses `sInf` of a 3-element set in ℝ≥0∞; since sInf of a finite set equals the minimum, `sInf {a, b, c} ≤ v` is equivalent to \"at least one of a, b, c is ≤ v\", faithfully capturing \"one of [AZY], [BXZ], or [CYX] ≤ [XYZ]\".",
+  "duration_ms": 89633,
+  "cost_usd": 0.32667275
+}

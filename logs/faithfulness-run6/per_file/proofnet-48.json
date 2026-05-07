@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"Transitive permutation group on the finite set A\" is encoded by `[Fintype α]`, `G : Subgroup (Equiv.Perm α)` (permutation group), and `h_tran : ∀ a b, ∃ σ : G, σ a = b` (standard transitivity). The cardinality hypothesis `Fintype.card α > 1` exactly matches $|A| > 1$. The conclusion `∃ σ : G, ∀ a, σ a ≠ a` is a verbatim translation of \"there is some σ ∈ G such that σ(a) ≠ a for all a ∈ A\" — i.e., the existence of a fixed-point-free (derangement) element. No hypotheses are added or dropped, and quantifier structure matches exactly.",
+  "duration_ms": 38720,
+  "cost_usd": 0.13772150000000002
+}

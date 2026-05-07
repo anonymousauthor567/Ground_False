@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-92.lean",
+  "stem": "proofnet-92",
+  "informal": "Prove that $\\cos 1^{\\circ}$  is algebraic over $\\mathbb{Q}$.",
+  "lean": "theorem Herstein_exercise_5_3_10 : IsAlgebraic ℚ (cos (Real.pi / 180))",
+  "verdict": "faithful",
+  "reasoning": "1° in radians is π/180, so `cos (Real.pi / 180)` correctly represents cos 1°. `IsAlgebraic ℚ x` asserts that x is algebraic over ℚ, which matches the informal claim exactly. No extra hypotheses or weakened conclusions are present.",
+  "duration_ms": 4583,
+  "cost_usd": 0.040868749999999995
+}

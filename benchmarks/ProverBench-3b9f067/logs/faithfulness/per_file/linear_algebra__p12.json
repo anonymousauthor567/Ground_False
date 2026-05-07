@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p12.lean",
+  "stem": "linear_algebra__p12",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly assumes `AB = BA`. In Lean 4, `variable` declarations for explicit propositional hypotheses are auto-included in a theorem only if they are referenced in the theorem's statement or body. The theorem signature only references `A`, `B`, `u`, `lambda` (via `hB : IsEigenvector B u lambda`), and has body `sorry` — so neither `hAB : A * B = B * A` nor `hu : u ≠ 0` is included in the effective type of `eigenvector_preserved_under_commuting_matrix`. Dropping `hAB` makes the Lean claim strictly stronger (and in fact false): e.g., with B = [[1,1],[0,1]], u = (1,0), A = [[0,1],[1,0]], Au = (0,1) is not an eigenvector of B. Since the Lean statement drops a hypothesis the informal statement explicitly requires, the verdict is \"stronger\".",
+  "duration_ms": 1006745,
+  "cost_usd": 2.7412055
+}

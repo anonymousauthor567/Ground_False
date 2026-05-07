@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "informal": "Prove that if $H$ is a normal subgroup of $G$ of prime index $p$ then for all $K \\leq G$ either $K \\leq H$, or $G=H K$ and $|K: K \\cap H|=p$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_3_3 {p : Nat.Primes} {G : Type*} [Group G]\n  {H : Subgroup G} [hH : H.Normal] (hH1 : H.index = p) :\n  ∀ K : Subgroup G, K ≤ H ∨ (H ⊔ K = ⊤ ∧ (K ⊓ H).relIndex K = p)",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal statement. `p : Nat.Primes` with `H.index = p` captures \"prime index p\". `H.Normal` and `H : Subgroup G` capture the hypothesis. The universal quantifier `∀ K : Subgroup G` matches \"for all K ≤ G\" (every subgroup is ≤ G). The disjunction `K ≤ H ∨ ...` matches. Since H is normal, the product set HK is a subgroup and equals the join `H ⊔ K`; thus `H ⊔ K = ⊤` is equivalent to `G = HK`. Finally `(K ⊓ H).relIndex K = p` is exactly `[K : K ∩ H] = p`. No hypotheses are added or dropped, and the conclusion is logically equivalent.",
+  "duration_ms": 9766,
+  "cost_usd": 0.05472
+}

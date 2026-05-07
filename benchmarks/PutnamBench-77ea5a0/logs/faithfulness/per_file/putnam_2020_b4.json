@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_b4.lean",
+  "stem": "putnam_2020_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes (2n+1)-tuples as functions ℕ → ℤ with s_j = 0 for j ≥ 2n (covering the informal s_{2n} = 0 and standardizing values at j > 2n so V n is finite). This standardization preserves the bijection with informal tuples, and these extra indices don't appear in q (which sums over j ∈ Icc 1 (2n-1)) or the walk constraint (j ∈ Icc 1 (2n)). The walk condition |s_j - s_{j-1}| = 1 is correctly captured, the definition of q(v) = 1 + Σ_{j=1}^{2n-1} 3^{s_j} matches exactly, and M n is computed as (∑' over V n of 1/q)/|V n| which equals the finite average since V n is finite (so tsum equals the finite sum, and ncard gives the true cardinality). The \"n positive\" hypothesis is not needed since we only evaluate at n = 2020. All mathematical content matches faithfully.",
+  "duration_ms": 249440,
+  "cost_usd": 0.56629475
+}

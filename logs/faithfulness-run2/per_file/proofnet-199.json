@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Axler Exercise 1.4: for a vector space V over a field F, if a•v = 0 then a = 0 or v = 0. The Lean encoding uses `[Field F] [AddCommGroup V] [Module F V]`, which is exactly the standard Mathlib way to express \"V is a vector space over the field F\". The variables `v : V` and `a : F` are universally quantified as arguments to the theorem, matching the \"if a ∈ F, v ∈ V\" framing. The conclusion `a • v = 0 → a = 0 ∨ v = 0` matches the informal conclusion precisely. No extra hypotheses (like finite-dimensionality) are added, and no hypotheses are dropped.",
+  "duration_ms": 9872,
+  "cost_usd": 0.043506249999999996
+}

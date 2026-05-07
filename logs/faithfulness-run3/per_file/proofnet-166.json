@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal Tietze extension claim. The hypotheses `IsClosed E` and `ContinuousOn f E` correspond to E being closed in ℝ and f being continuous on E. The conclusion asserts the existence of a continuous g : ℝ → ℝ agreeing with f on E, matching the informal conclusion. The only stylistic difference is that f is typed as `ℝ → ℝ` (a total function) rather than as a function only defined on E, but this is the standard Mathlib encoding and is mathematically equivalent here, since the conclusion only compares f and g on E — the values of f outside E are irrelevant to both the hypothesis (via `ContinuousOn`) and the conclusion (quantified over `x ∈ E`).",
+  "duration_ms": 28307,
+  "cost_usd": 0.0658395
+}

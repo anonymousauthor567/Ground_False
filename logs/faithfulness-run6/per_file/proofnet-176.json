@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches all parts of the informal statement: `hΩ : IsOpen Ω` captures \"open set Ω\", `hf : DifferentiableOn ℂ f Ω` captures \"f is holomorphic on Ω\", `hc : ∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c` captures \"Re(f) is constant\", and the conclusion `f a = f b` for arbitrary `a b : Ω` expresses \"f is constant on Ω\". The added `IsPreconnected Ω` hypothesis is a necessary implicit premise — without connectedness, the statement is false (e.g., on Ω = two disjoint disks, take f = 0 on one and f = i on the other: Re(f) = 0 is constant but f is not constant). Any mathematician reads \"holomorphic with constant real part ⟹ constant\" as applying to a connected open set (region). Per the worked example guidance, surfacing such implicit premises needed for truth is faithful, not weaker.",
+  "duration_ms": 100515,
+  "cost_usd": 0.32619125
+}

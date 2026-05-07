@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches Mathlib's `Polynomial.notMem_nonZeroDivisors_iff` (the McCoy theorem) in `Mathlib/Algebra/Polynomial/AlgebraMap.lean`. The LHS `∃ q ≠ 0, p * q = 0` is the standard encoding of \"p is a zero divisor\" in a CommRing (equivalent to `p ∉ R[X]⁰`). The RHS `∃ b ≠ 0, b • p = 0` uses scalar multiplication, which by `smul_eq_C_mul` equals `C b * p`, i.e., \"b times p(x) = 0\" as a polynomial. The CommRing assumption is the standard setting for this theorem and matches DF's polynomial ring context. The quantifier structure, types, and biconditional all match. Edge case $p=0$ is handled consistently on both sides.",
+  "duration_ms": 316907,
+  "cost_usd": 1.017025
+}

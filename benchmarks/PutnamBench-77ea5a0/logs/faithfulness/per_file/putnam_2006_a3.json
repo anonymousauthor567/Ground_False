@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_a3.lean",
+  "stem": "putnam_2006_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The recurrence `x(k+1) = x(k) + x(k-2005)` for k ≥ 2006 is identical. The conclusion `∃ i > 0, ∀ j ∈ Finset.range 2005, 2006 ∣ x(i+j)` correctly encodes \"2005 consecutive terms (x(i), ..., x(i+2004)) each divisible by 2006\" starting at a positive index. The only minor deviation is the initial condition covering 0 ≤ k ≤ 2006 rather than 1 ≤ k ≤ 2006, which adds x(0) = 0. However, x(0) is never used by the recurrence (for k ≥ 2006, k-2005 ≥ 1) and the conclusion only queries indices ≥ 1, so this extension is logically benign and yields an equivalent statement — any function satisfying the informal hypotheses can be modified at 0 to satisfy the Lean hypotheses without changing the conclusion.",
+  "duration_ms": 265392,
+  "cost_usd": 0.7172365
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $|ab| = |ba|$ for all $a, b \\in G$, where $|x|$ denotes the order of the element. The Lean signature quantifies over an arbitrary group `G` and arbitrary elements `a b : G`, concluding `orderOf (a * b) = orderOf (b * a)`. Mathlib's `orderOf` is defined for any element of a group and returns 0 in the infinite-order case, so the equality captures the statement for both finite and infinite orders — matching the informal reading. No hypotheses are added or dropped, the quantifier structure matches (universal over `a`, `b`, and implicitly over groups), and the conclusion matches exactly. This is a faithful formalization.",
+  "duration_ms": 34339,
+  "cost_usd": 0.11049775
+}

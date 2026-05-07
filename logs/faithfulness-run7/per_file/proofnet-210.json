@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement accurately: `T : End ℂ V` is a linear operator on a complex inner-product space, the hypothesis `T * adjoint T = adjoint T * T` is exactly the definition of a normal operator, and the conclusion `∃ S, S^2 = T` matches the informal claim that T has a square root. The added `[FiniteDimensional ℂ V]` assumption is an implicit premise made explicit: (1) Mathlib's `LinearMap.adjoint` is defined only for finite-dimensional spaces (line 463 of `Adjoint.lean`), so without it the hypothesis cannot even be stated; (2) the claim requires finite-dimensionality to be true, since the standard proof uses the complex spectral theorem; (3) Axler's textbook has finite-dimensional V as a standing assumption throughout. Surfacing this premise is a correct and faithful reading of the intended mathematical content, not a weakening.",
+  "duration_ms": 117336,
+  "cost_usd": 0.39171000000000006
+}

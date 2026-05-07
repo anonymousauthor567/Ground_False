@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly and faithfully encodes \"if |G|=132 then G is not simple.\" The group G is universally quantified via `{G : Type*}`, `Fintype G` and `Group G` provide the finite group structure, `card G = 132` (with `open Fintype`) captures |G|=132, and `¬ IsSimpleGroup G` captures \"G is not simple.\" Since 132 > 1, G is automatically nontrivial, so Mathlib's `IsSimpleGroup` definition (which includes nontriviality) poses no issue. The hypotheses and conclusion match exactly what the informal exercise asks.",
+  "duration_ms": 22056,
+  "cost_usd": 0.0749805
+}

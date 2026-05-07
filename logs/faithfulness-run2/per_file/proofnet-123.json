@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches Munkres 26.11 under the standard mathematical reading. The compact Hausdorff hypothesis matches (`CompactSpace` + `T2Space`). The chain condition `∀ a b ∈ A, a ⊆ b ∨ b ⊆ a` is logically equivalent to \"simply ordered by proper inclusion\" on a collection of sets (total order by ⊆ iff strict total order by ⊊ on distinct elements). Closed and connected conditions map directly. The one subtle point is that Lean's `IsConnected` means `Nonempty ∧ IsPreconnected`, and Lean adds the explicit `A.Nonempty` hypothesis, whereas Munkres' formal definition of \"connected\" technically admits the empty set. However, in the standard reading of this exercise (and standard math usage of \"connected subset\"), the sets are implicitly nonempty and A is implicitly nonempty—otherwise the result is trivial or ill-posed (empty A would force X itself to be connected, which isn't given). So the Lean encoding faithfully captures the intended content of the exercise.",
+  "duration_ms": 92980,
+  "cost_usd": 0.29481975000000005
+}

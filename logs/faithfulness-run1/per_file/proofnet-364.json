@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "theorem_name": "Shakarchi_exercise_2_13_corrected",
+  "informal": "Suppose $f$ is an analytic function defined everywhere in $\\mathbb{C}$ and such that for each $z_0 \\in \\mathbb{C}$ at least one coefficient in the expansion $f(z) = \\sum_{n=0}^\\infty c_n(z - z_0)^n$ is equal to 0. Prove that $f$ is a polynomial.",
+  "lean": "\ntheorem Shakarchi_exercise_2_13_corrected\n    {f : ℂ → ℂ}\n    (hf : ∃ (c : ℕ → ℂ) (k : ℕ),\n        ∀ z : ℂ,\n          Tendsto (fun n => ∑ i ∈ range (min n k.succ), c i * z ^ i)\n            atTop (𝓝 (f z))) :\n    ∃ (c : ℕ → ℂ) (k : ℕ), f = λ z => ∑ i ∈ range k.succ, c i * z ^ i",
+  "verdict": "different",
+  "reasoning": "The informal hypothesis is: f is entire and for every center z₀ ∈ ℂ, at least one Taylor coefficient cₙ(z₀) of f at z₀ vanishes. The Lean hypothesis is entirely different: it asserts the existence of a single sequence c : ℕ → ℂ and a single natural number k such that for all z, the partial sums ∑_{i < min(n, k+1)} cᵢ zⁱ converge to f(z). Since min(n, k+1) is bounded by k+1, this stabilizes to ∑_{i < k+1} cᵢ zⁱ, so the hypothesis already says f is a polynomial of degree ≤ k expanded at the origin. The Lean theorem is therefore trivial (hypothesis already gives the conclusion) and does not capture the \"vanishing-coefficient at every z₀\" condition at all. This is a fundamental mismatch in hypotheses, not a logical strengthening or weakening of the original claim.",
+  "duration_ms": 11057,
+  "cost_usd": 0.05569075
+}

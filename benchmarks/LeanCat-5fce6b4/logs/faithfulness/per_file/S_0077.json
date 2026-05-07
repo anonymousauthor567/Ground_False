@@ -1,0 +1,8 @@
+{
+  "file": "S_0077.lean",
+  "stem": "S_0077",
+  "verdict": "weaker",
+  "reasoning": "The informal statement just requires \"a category with pullbacks\" — conventionally meaning a locally small category. The Lean statement adds `[SmallCategory C]`, which by Mathlib's convention means `Category.{u} C` with objects and morphisms in the same universe, a strictly stronger hypothesis than a general `[Category.{v} C]`. Mathlib's `Ind`, along with the `Sind`/`Rec` constructions defined in this very file (declared under `variable {C : Type u} [Category.{v} C]`), work universe-polymorphically and do not require `SmallCategory`. Thus the Lean theorem proves only the special case where C is small, not the general result claimed informally. Since this is not merely surfacing an implicit premise needed for truth (the non-small universe-polymorphic version is sensible and standard in Mathlib), the added smallness hypothesis makes the Lean statement logically weaker.",
+  "duration_ms": 861371,
+  "cost_usd": 2.5420327499999993
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses the symmetric-limit formulation lim_{y→∞} ∫_{-y}^{y} f, while the informal statement is an improper integral ∫_{-∞}^{∞}. In general, these differ (CPV vs. improper integral), but for this specific integrand cos(x)/(x²+a²) we have the absolutely integrable majorant 1/(x²+a²), so the function is Lebesgue-integrable on ℝ, making the symmetric-limit formulation logically equivalent to the improper integral claim. The hypothesis 0 < a matches \"a > 0\", and the RHS π · (e^(-a)/a) equals π·e^(-a)/a as stated informally. This is a standard Mathlib encoding of such improper integrals and produces an equivalent mathematical assertion.",
+  "duration_ms": 79461,
+  "cost_usd": 0.2266545
+}

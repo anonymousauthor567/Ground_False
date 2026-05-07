@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℚ (with its standard topology inherited from ℝ) is not locally compact. The Lean formalization writes `¬ LocallyCompactSpace ℚ`, where `ℚ` carries its canonical topology (induced from ℝ as a metric space, as defined in `Mathlib/Topology/Instances/Rat.lean`). In Mathlib, `LocallyCompactSpace` asserts that every neighborhood of every point contains a compact neighborhood, while Munkres' definition uses \"each point has a compact neighborhood\" (which matches Mathlib's `WeaklyLocallyCompactSpace`). However, since ℚ is a metric space and therefore Hausdorff (R₁), these two notions are equivalent (via `WeaklyLocallyCompactSpace.locallyCompactSpace`). Hence the negations are equivalent, and the Lean statement is a faithful formalization.",
+  "duration_ms": 63575,
+  "cost_usd": 0.30862975000000004
+}

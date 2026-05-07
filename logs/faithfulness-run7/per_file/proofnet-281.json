@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the family `(1 : ℚ) / i` indexed by squarefree integers i ∈ ℤ is not Summable. In Mathlib, `Squarefree (0 : ℤ)` is false, so the indexing subtype excludes 0 (avoiding 1/0 issues). For ℝ/ℚ-valued series, Mathlib's `Summable` is equivalent to absolute/unconditional summability, so `¬ Summable (1/i over ℤ-squarefree)` is equivalent to `∑ 1/|i|` diverging, which equals `2 · ∑_{n>0, squarefree} 1/n` diverging — exactly the informal claim. The inclusion of ±1 and negative squarefree integers does not change the divergence question because of this equivalence. Hence the Lean formalization expresses the same mathematical claim as the informal statement.",
+  "duration_ms": 177142,
+  "cost_usd": 0.5593735000000001
+}

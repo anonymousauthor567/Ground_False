@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b1.lean",
+  "stem": "putnam_1992_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal problem. `S : Finset ℝ` with `S.card = n` correctly represents \"a set of n distinct real numbers\" since Finsets are duplicate-free. The set `A S = {x | ∃ a ∈ S, ∃ b ∈ S, a ≠ b ∧ (a + b) / 2 = x}` is exactly the set of averages of two distinct elements. `IsLeast` (requiring both membership and lower-bound) correctly encodes \"the smallest possible number of elements,\" which is the minimum of achievable cardinalities. The hypothesis `hn : n ≥ 2` matches the informal constraint, and using ℤ for k is benign because `.ncard : ℕ` coerces cleanly and `2n-3 ≥ 1` for n ≥ 2. All aspects of the informal question are preserved without drift.",
+  "duration_ms": 88459,
+  "cost_usd": 0.25857874999999997
+}

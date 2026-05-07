@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "informal": "Prove that every homomorphism of fields is injective.",
+  "lean": "\ntheorem Artin_exercise_3_2_7 {F : Type*} [Field F] {G : Type*} [Field G]\n  (φ : F →+* G) : Injective φ",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every field homomorphism is injective. The Lean signature takes two fields F and G and a ring homomorphism φ : F →+* G, and concludes Injective φ. A ring homomorphism between fields is exactly what is meant by a \"homomorphism of fields\" (it preserves both addition and multiplication, and the unit). The universal quantification over F, G, and φ matches the informal \"every\". This is the standard faithful encoding.",
+  "duration_ms": 6062,
+  "cost_usd": 0.0402995
+}

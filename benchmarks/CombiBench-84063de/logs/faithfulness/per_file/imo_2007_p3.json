@@ -1,0 +1,8 @@
+{
+  "file": "imo_2007_p3.lean",
+  "stem": "imo_2007_p3",
+  "verdict": "weaker",
+  "reasoning": "The informal IMO problem asks for a partition of vertices V = V₁ ⊔ V₂ such that ω(G[V₁]) = ω(G[V₂]), where each \"room\" carries the induced friendship subgraph inherited from G. The Lean encoding uses `∃ a : SimpleGraph.Subgraph G, a.coe.cliqueNum = aᶜ.coe.cliqueNum`. While `aᶜ.coe` (computed via the Heyting complement in the CompletelyDistribLattice of Subgraphs) is indeed the induced subgraph on V \\ a.verts, `a.coe` uses `a.Adj` — which is only required to satisfy `a.Adj ≤ G.Adj` and is NOT required to equal G.Adj restricted to a.verts. Thus a can drop edges and `a.coe.cliqueNum` can be strictly less than ω(G[a.verts]). This gives extra witnesses: e.g., in K₃, take a with a.verts = {1,2} and a.Adj = ⊥, giving a.coe.cliqueNum = 1 = aᶜ.coe.cliqueNum, yet no partition of K₃ yields equal induced ω. Hence informal ⟹ Lean (take a = induced subgraph), but Lean ⇏ informal, so the Lean statement is strictly weaker.",
+  "duration_ms": 1681698,
+  "cost_usd": 5.4724755
+}

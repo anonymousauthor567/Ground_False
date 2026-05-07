@@ -1,0 +1,8 @@
+{
+  "file": "85.lean",
+  "stem": "85",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the existence of a transfinite Euclidean domain that cannot be equipped with a ℕ-valued Euclidean norm (Hiblot-Nagata theorem). Mathlib's `EuclideanDomain` is precisely the \"transfinite Euclidean domain\" (confirmed by the Mathlib docstring in `Algebra/EuclideanDomain/Defs.lean`: \"sometimes called a transfinite Euclidean domain\"), as it uses a well-founded relation rather than a ℕ-valued norm. The `EuclideanNormNat` class defined locally in the file mirrors the axioms of a classical Euclidean domain with norm values in ℕ. The statement `∃ R, ∃ (_ : EuclideanDomain R), IsEmpty (EuclideanNormNat R)` correctly expresses: there exists a ring R with a transfinite Euclidean domain structure such that no ℕ-valued Euclidean norm structure can be given to R. Typeclass resolution of `[CommRing R]` in `EuclideanNormNat R` will use the `CommRing R` instance derived from `EuclideanDomain R`, so the existential asks the right question about the same underlying ring. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 408868,
+  "cost_usd": 0.55170325
+}

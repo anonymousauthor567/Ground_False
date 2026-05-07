@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each clause of the informal statement: `I : Type*` encodes \"arbitrary collection\" without any countability restriction (matching the parenthetical), `[Nonempty I]` captures \"nonempty collection\", `H : I → Subgroup G` with `∀ i, Normal (H i)` encodes a collection of normal subgroups, and `Normal (⨅ (i : I), H i)` is the claim that the intersection is a normal subgroup. The `iInf` of subgroups (via `CompleteLattice (Subgroup G)`) equals the set-theoretic intersection on carriers, matching Mathlib's own `normal_iInf_normal` formulation. No hypotheses are silently added or dropped, and the types and quantifiers match the informal meaning.",
+  "duration_ms": 42573,
+  "cost_usd": 0.1467505
+}

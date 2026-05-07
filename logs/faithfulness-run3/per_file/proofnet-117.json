@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement piece-by-piece: X is a topological space, A is a subset (`Set X`), r : X → A uses the subtype which carries the subspace topology inherited from X, continuity is captured by `hr`, and the retraction condition `∀ x : A, r x = x` (both sides in ↥A) is equivalent to \"r(a) = a for each a ∈ A\". The conclusion `IsQuotientMap r` is Mathlib's standard notion (surjectivity plus coinduced topology), which is exactly what Munkres means by quotient map. No extra or missing hypotheses are present.",
+  "duration_ms": 163515,
+  "cost_usd": 0.32124150000000007
+}

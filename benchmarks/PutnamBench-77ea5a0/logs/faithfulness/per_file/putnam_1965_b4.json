@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_b4.lean",
+  "stem": "putnam_1965_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formulation correctly captures all parts of the informal statement. The partial sums u_n and v_n match the informal numerator/denominator exactly (with correct summation ranges ⌊n/2⌋ and ⌊(n-1)/2⌋ and using n.choose, where choose returns 0 above n). The recursion f_{n+1}(x) = (f_n(x) + x)/(f_n(x) + 1) is mathematically correct (derivable via u_{n+1} = u_n + xv_n, v_{n+1} = u_n + v_n), and the Lean solution p(h) = h + id, q(h) = h + 1 encodes exactly this rational function. The hypotheses v_n(x) ≠ 0, v_{n+1}(x) ≠ 0, q(f_n)(x) ≠ 0 are the natural and necessary conditions for the identity to hold given Lean's division-by-zero convention. The convergence set s = {x : x ≥ 0} and limit g(x) = √x are correct: for x ≥ 0 the limit equals √x, and for x < 0 the sequence y·cot(n·arctan(y)) oscillates without converging. The statement `s = {x | ∃ l, Tendsto (fun n ↦ f n x) atTop (𝓝 l)}` precisely encodes \"the set of x where the limit converges.\"",
+  "duration_ms": 247473,
+  "cost_usd": 0.7374222500000001
+}

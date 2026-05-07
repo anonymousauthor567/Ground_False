@@ -1,0 +1,8 @@
+{
+  "file": "22.lean",
+  "stem": "22",
+  "verdict": "weaker",
+  "reasoning": "The second conjunct of the conclusion, `∀ x : F, IsIntegral ℤ x → ‖(x : ℂ)‖ = 1 → ∃ n, x ^ n = 1`, is trivially true. Since no type is given for `n`, Lean elaborates `n : ℕ` by default (using the `Monoid.npow`-derived `HPow F ℕ F` instance, as `F` is a field), and `pow_zero` gives `x ^ 0 = 1` in any monoid. Thus one can always pick `n = 0`, making this clause vacuous — it does not express \"x is a root of unity\". Mathlib's own convention for roots of unity requires `0 < n` (see `isOfFinOrder_iff_pow_eq_one : IsOfFinOrder x ↔ ∃ n, 0 < n ∧ x ^ n = 1` in `GroupTheory/OrderOfElement.lean`). Because the informal claim \"each algebraic integer is a root of unity\" implies the Lean statement but not conversely (the Lean statement is implied by even weaker facts), the formalization is logically weaker. The other pieces — `IsMulCommutative (F ≃ₐ[ℚ] F)` for abelian Galois group, `Module.Finite ℚ F` + `IsGalois ℚ F` for finite Galois, and the finiteness conjunct — are fine.",
+  "duration_ms": 652046,
+  "cost_usd": 1.3379124999999998
+}

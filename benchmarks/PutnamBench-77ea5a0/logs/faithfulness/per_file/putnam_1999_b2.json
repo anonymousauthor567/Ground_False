@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_b2.lean",
+  "stem": "putnam_1999_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) \"Quadratic Q\" is correctly encoded as Q.natDegree = 2. (2) The identity P = Q·P'' is expressed pointwise over ℂ, which is equivalent to polynomial equality since ℂ is infinite; `Polynomial.derivative^[2] P` correctly denotes the second derivative. (3) \"At least two distinct roots\" is directly encoded. (4) \"n distinct roots\" where n = deg P is encoded as an injection from Fin (P.natDegree) into the roots of P — since a degree-n polynomial has at most n distinct roots, this is equivalent to having exactly n distinct roots. Edge cases (P = 0, or deg P ≤ 1) either trivialize the statement or are ruled out by the hypothesis P = Q·P'' itself, so no extra hypotheses are needed.",
+  "duration_ms": 168689,
+  "cost_usd": 0.5057205
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"if u is a unit in R then so is -u\" is exactly captured by the Lean signature: hypothesis `IsUnit u` → conclusion `IsUnit (-u)` in a general ring `[Ring R]`. The typeclass `[Ring R]` is the standard setting that makes both \"unit\" and \"-u\" meaningful without assuming commutativity. This matches Mathlib's `IsUnit.neg` (which holds for Monoid with HasDistribNeg, a weaker setting satisfied by any Ring). No hypotheses are added or dropped relative to the informal statement, and the quantification over u in R is implicit in the Lean variable binding. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 61741,
+  "cost_usd": 0.22481575
+}

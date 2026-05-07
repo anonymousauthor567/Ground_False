@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `Subring R` is defined to share the same 0 and 1 as R (see `Mathlib/Algebra/Ring/Subring/Defs.lean`: \"Note in particular that it shares the same 0 and 1 as R\"), so `(1 : F) ∈ K` holds automatically for any `K : Subring F`. Hence the hypothesis `hK` is redundantly true and does not strengthen or weaken the claim. Dummit & Foote's informal notion of \"subring containing the identity\" corresponds exactly to Mathlib's `Subring`, so the Lean formulation matches the informal statement. The conclusion `IsDomain K` (= `IsCancelMulZero + Nontrivial`) correctly captures \"integral domain\" in this setting, and commutativity of K is inherited automatically from the field F. Thus the Lean statement asserts precisely the same mathematical claim.",
+  "duration_ms": 93374,
+  "cost_usd": 0.3131735
+}

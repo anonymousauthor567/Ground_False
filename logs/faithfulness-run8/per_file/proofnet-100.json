@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `IsPrimitiveRoot (a : ZMod p) (p - 1)` is equivalent to `orderOf(a) = p-1`, which is exactly \"a is a primitive root mod p\" (since `(ZMod p)ˣ` has order `p-1` for prime `p`). Similarly, `IsPrimitiveRoot (-a : ZMod p) ((p - 1) / 2)` correctly asserts that `-a` has order `(p-1)/2`. The typing `a : (ZMod p)ˣ` makes explicit the implicit premise that `a` is coprime to `p` (a standard convention when discussing primitive roots). Since `p = 4t+3 ≥ 3`, integer division `(p-1)/2` yields `2t+1` without issue. The hypotheses (prime `p` of form `4t+3`) and the iff conclusion match the informal claim's quantifier structure.",
+  "duration_ms": 283955,
+  "cost_usd": 0.953082
+}

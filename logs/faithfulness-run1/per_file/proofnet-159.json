@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-159.lean",
+  "stem": "proofnet-159",
+  "theorem_name": "Rudin_exercise_3_3",
+  "informal": "If $s_{1}=\\sqrt{2}$, and $s_{n+1}=\\sqrt{2+\\sqrt{s_{n}}} \\quad(n=1,2,3, \\ldots),$ prove that $\\left\\{s_{n}\\right\\}$ converges, and that $s_{n}<2$ for $n=1,2,3, \\ldots$.",
+  "lean": "\ntheorem Rudin_exercise_3_3\n  : ∃ (x : ℝ), Tendsto f atTop (𝓝 x) ∧ ∀ n, f n < 2",
+  "verdict": "faithful",
+  "reasoning": "Assuming `f` is defined elsewhere as the recursive sequence s_n with s_1 = √2 and s_{n+1} = √(2 + √s_n), the Lean statement asserts exactly the two claims of the informal problem: (1) the sequence converges, encoded as ∃ x : ℝ, Tendsto f atTop (𝓝 x), and (2) every term is strictly less than 2, encoded as ∀ n, f n < 2. Convergence to a real limit is the standard Lean encoding of \"{s_n} converges\". The universal quantifier `∀ n` covers all natural-number indices, matching \"for n = 1, 2, 3, …\" (any 0-indexing shift just reindexes the sequence and the bound still holds). No extra hypotheses are introduced and no claim is weakened, so the encoding is logically equivalent.",
+  "duration_ms": 12579,
+  "cost_usd": 0.05218025
+}

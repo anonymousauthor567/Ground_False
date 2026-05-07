@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches Mathlib's `inner_eq_sum_norm_sq_div_four` polarization identity for complex inner product spaces. The apparent sign difference from Axler's informal statement (`‖u+iv‖²·i - ‖u-iv‖²·i` in Axler vs. `(‖u-I•v‖² - ‖u+I•v‖²)·I` in Lean) is entirely due to convention: Axler's inner product is linear in the first argument, while Mathlib's is linear in the second argument. Under Mathlib's convention with `⟪u, I•v⟫ = I·⟪u,v⟫`, one computes ‖u±Iv‖² = ‖u‖² + ‖v‖² ∓ 2·Im⟪u,v⟫ (opposite sign from Axler), so the correct Mathlib formulation swaps the ± terms. Transcribing Axler's formula literally would actually give a FALSE statement in Mathlib. The Lean version captures the same mathematical content (the polarization identity expressing the complex inner product via norms) correctly adapted to Mathlib's sesquilinearity convention.",
+  "duration_ms": 145088,
+  "cost_usd": 0.47035075
+}

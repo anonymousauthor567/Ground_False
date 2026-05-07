@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a chain of iffs \"A ↔ B ↔ C\" where A: xy=yx, B: y⁻¹xy=x, C: x⁻¹y⁻¹xy=1. The standard reading of a chain of iffs is \"A ↔ B and B ↔ C\", which is exactly what the Lean statement encodes as the conjunction `(A ↔ B) ∧ (B ↔ C)`. This is logically equivalent to all three being pairwise equivalent (transitivity of iff gives A ↔ C automatically). The group operations, inverses, and identity in the Lean expressions correspond exactly to the informal equations, and the statement is universally quantified over arbitrary groups G and arbitrary elements x, y, matching the informal text.",
+  "duration_ms": 15045,
+  "cost_usd": 0.08059425
+}

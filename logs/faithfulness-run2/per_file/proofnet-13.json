@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim accurately. The hypothesis `n > 0` is implicit in the informal statement since for n=0 the polynomial x^n − p = 1 − p is a unit in ℚ[x] (not irreducible), so the claim requires n ≥ 1 to be true. The use of `p : ℕ` with `Prime p` matches the standard textbook reading of \"prime integer\" (positive prime), and the cast into `Polynomial ℚ` correctly realizes x^n − p as a polynomial in ℚ[x]. The conclusion `Irreducible` matches the informal claim of irreducibility in ℚ[x]. Under the natural mathematical reading, the Lean formalization is logically equivalent to the informal statement.",
+  "duration_ms": 46916,
+  "cost_usd": 0.15510024999999997
+}

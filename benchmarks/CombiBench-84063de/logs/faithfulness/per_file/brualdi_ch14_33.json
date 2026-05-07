@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch14_33.lean",
+  "stem": "brualdi_ch14_33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that a permutation and its inverse have the same (cycle) type — \"type\" of a permutation in combinatorics (e.g., Brualdi) standardly means cycle type. The Lean theorem asserts exactly `σ.cycleType = σ⁻¹.cycleType` for an arbitrary `σ : Equiv.Perm α`. The `[Fintype α]` and `[DecidableEq α]` instances are required by Mathlib's definition of `Equiv.Perm.cycleType` (which uses `cycleFactorsFinset`), so they are necessary implicit premises rather than scope-narrowing hypotheses. The universal quantification over α and σ matches the informal claim, and Mathlib even has `Equiv.Perm.cycleType_inv` stating precisely this equality. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 23480,
+  "cost_usd": 0.10072275
+}

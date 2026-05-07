@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the Blaschke condition. `DifferentiableOn ℂ f (ball 0 1)` encodes holomorphy on the open unit disc; `Bornology.IsBounded (f '' (ball 0 1))` encodes boundedness of f on the disc; `¬ Set.EqOn f 0 (ball 0 1)` encodes \"not identically zero\". The conclusion sums over the subtype of zeros in the disc with weight `(analyticOrderAt f z).toNat · (1 - ‖z‖)`. Since f is holomorphic (hence analytic) and not identically zero on the connected open disc, each zero has a finite analytic order equal to its multiplicity, so `.toNat` preserves the value. Thus Σ_{distinct z} mult(z)·(1-|z|) is precisely Σₙ(1-|zₙ|) with zeros listed according to multiplicity, matching the informal statement. No hypotheses are added or dropped, and the quantifier/type structure matches.",
+  "duration_ms": 129661,
+  "cost_usd": 0.44433475000000006
+}

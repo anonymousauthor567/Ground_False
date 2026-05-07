@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal claim. `IsPrimitiveRoot (a : ZMod p) (p - 1)` is equivalent to \"orderOf a = p - 1\" via Mathlib's `IsPrimitiveRoot.iff_orderOf` lemma (in PrimitiveRoots.lean), which precisely captures \"a is a primitive root mod p\" since |(ZMod p)ˣ| = p - 1. Similarly, `IsPrimitiveRoot (- (a : ZMod p)) ((p - 1) / 2)` means \"orderOf (-a) = (p-1)/2\", matching \"-a has order (p-1)/2\". Using `a : (ZMod p)ˣ` surfaces the implicit premise that a is coprime to p (needed for it to be a primitive root). The hypotheses `p.Prime` and `p = 4 * t + 3` directly encode \"prime p of the form 4t+3\", and the iff structure is preserved. All quantifier structure and types match the informal statement.",
+  "duration_ms": 281346,
+  "cost_usd": 0.977196
+}

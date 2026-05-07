@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the uniqueness of positive integers $a, n$ with $a^{n+1} - (a+1)^n = 2001$. The Lean statement uses `∃!` over `ℕ × ℕ` with `p.1 > 0 ∧ p.2 > 0`, which matches \"unique positive integers\" (positive naturals = positive integers). The potential concern is that `ℕ` uses truncated subtraction: when $a^{n+1} < (a+1)^n$, the Lean expression evaluates to 0, not to a negative value. However, since the target value 2001 is positive, truncation-to-0 fails the equation in Lean exactly when the integer difference would be negative (and thus also not equal 2001 in the informal reading). For pairs where $a^{n+1} \\geq (a+1)^n$, ℕ subtraction gives the correct integer value. Hence the solution sets coincide, and the Lean statement faithfully captures the informal claim.",
+  "duration_ms": 18541,
+  "cost_usd": 0.08424875
+}

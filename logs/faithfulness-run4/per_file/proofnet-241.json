@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures \"P ∩ H is the unique Sylow p-subgroup of H\" correctly. The expression `(H ⊓ P.toSubgroup).subgroupOf H` is exactly P ∩ H viewed as a subgroup of H (elements of H that lie in P). The universal statement `∀ R : Sylow p H, R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H` encodes uniqueness, and together with `Nonempty (Sylow p H)` (an automatic instance in Mathlib, but stating it explicitly is harmless) it yields that (H ∩ P).subgroupOf H is THE unique Sylow p-subgroup of H. The finiteness hypothesis [Fintype G] surfaces the implicit premise from Dummit-Foote that the group is finite (required for Sylow uniqueness theory in the textbook sense). The redundant [Fintype H] instance and the auto-true Nonempty conjunct don't weaken or strengthen the claim; they are logically neutral.",
+  "duration_ms": 213388,
+  "cost_usd": 0.52502825
+}

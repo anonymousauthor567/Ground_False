@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal Putnam 1998 B6 claim. The universal over a, b, c ∈ ℤ matches, and `∃ n : ℤ, n > 0` faithfully encodes \"there exists a positive integer n\". The condition `¬ ∃ m : ℤ, Real.sqrt(P(n)) = m` correctly expresses that √P(n) is not an integer: under Mathlib's convention (sqrt of non-positive reals returns 0), this holds precisely when P(n) > 0 and P(n) is not a perfect square — which is the standard mathematical reading of \"√P(n) is not an integer\" (requiring √P(n) to exist as a real and not equal any integer; note √0 = 0 is an integer, matching the informal reading). The integer polynomial is correctly coerced to ℝ for Real.sqrt. This is the natural and faithful formalization.",
+  "duration_ms": 277554,
+  "cost_usd": 0.7916122500000001
+}

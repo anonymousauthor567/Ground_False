@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that a real function satisfying $\\lim_{h\\to 0} f(x+h)-f(x-h)=0$ for every $x$ need not be continuous, i.e., to exhibit such a counterexample. The Lean theorem asserts the existence of $f : \\mathbb{R} \\to \\mathbb{R}$ such that (i) for every $x$, `Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)` — which is exactly the condition that $f(x+h)-f(x-h) \\to 0$ as $h \\to 0$ — and (ii) $\\neg$ `Continuous f`, i.e., $f$ fails to be continuous. The types match (ℝ → ℝ), no extra hypotheses are silently added or dropped, and the quantifier structure (\"need not be continuous\" ↔ existence of a counterexample) is properly encoded.",
+  "duration_ms": 39968,
+  "cost_usd": 0.14684875
+}

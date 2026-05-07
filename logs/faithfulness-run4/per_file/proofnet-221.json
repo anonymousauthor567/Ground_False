@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `H : AddSubgroup ℚ` encodes \"subgroup of the additive group of rationals\". The hypothesis `∀ ⦃x : ℚ⦄, x ∈ H → x ≠ 0 → (1/x) ∈ H` (strict implicits are semantically equivalent here) matches \"1/x ∈ H for every nonzero x ∈ H\". The conclusion `H = ⊥ ∨ H = ⊤` correctly encodes \"H = 0 or H = ℚ\" since `⊥` is the zero subgroup and `⊤` is all of ℚ in Mathlib's `AddSubgroup` lattice. No hypotheses are added or dropped, no types are changed, and the quantifier structure matches.",
+  "duration_ms": 95823,
+  "cost_usd": 0.27720525
+}

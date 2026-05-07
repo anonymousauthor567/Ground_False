@@ -1,0 +1,8 @@
+{
+  "file": "probability__p1_4.lean",
+  "stem": "probability__p1_4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a three-part problem requiring proofs of (a) λ = 1, (b) P{X ≤ 1} = 2e^(-1), and (c) cov(X, X²) = 3, all from the hypothesis P{X>0} = 1-e^(-1). The Lean file only formalizes part (c) as a theorem (`cov_X_X2`); parts (a) and (b) are encoded as axioms rather than theorems to be proven, so they don't constitute proofs at all. Furthermore, the theorem `cov_X_X2` takes `lambda = 1` directly as a hypothesis instead of starting from the original premise P{X>0} = 1-e^(-1), effectively bypassing the derivation required by part (a). While the covariance formula itself (E[X³] - E[X]·E[X²] = 3) is encoded correctly for Poisson(1), the overall formalization only captures one of the three conjuncts in the informal statement, making it strictly weaker.",
+  "duration_ms": 397663,
+  "cost_usd": 1.03530075
+}

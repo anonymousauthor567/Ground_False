@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes each component of the informal statement exactly: X is a MetricSpace, K and F are sets in X, IsCompact K captures \"K is compact\", IsClosed F captures \"F is closed\", and Disjoint K F captures \"K and F are disjoint\". The conclusion `∃ δ : ℝ, δ > 0 ∧ ∀ p q, p ∈ K → q ∈ F → dist p q > δ` is the direct literal encoding of \"there exists δ > 0 such that d(p,q) > δ if p ∈ K, q ∈ F\". The quantifier structure and strict inequality match, and no extraneous hypotheses (e.g., nonemptiness) are imposed. This is logically equivalent to the informal claim.",
+  "duration_ms": 38422,
+  "cost_usd": 0.09803225
+}

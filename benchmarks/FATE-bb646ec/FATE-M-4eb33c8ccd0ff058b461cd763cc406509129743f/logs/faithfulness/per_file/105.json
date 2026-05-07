@@ -1,0 +1,8 @@
+{
+  "file": "105.lean",
+  "stem": "105",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly expresses \"N(N(P)) = N(P)\" for a p-Sylow subgroup P of G via `P.normalizer.normalizer = P.normalizer`, matching the informal claim. The `[Finite (Sylow p G)]` hypothesis is an implicit premise needed for the theorem to be true (it's exactly the hypothesis used by Mathlib's own `Sylow.normalizer_normalizer` at line 740 of `Mathlib/GroupTheory/Sylow.lean`). Sylow theory conventionally takes place in a setting where there are finitely many Sylow p-subgroups (standard textbook convention for problems about Sylow subgroups), so surfacing this premise is a faithful reading rather than a narrowing of scope. The `[Fact (Nat.Prime p)]` instance encodes \"p is prime\" as required. No hypothesis has been silently dropped or added beyond what is implicitly needed; the conclusion is a verbatim translation of the informal equation.",
+  "duration_ms": 159631,
+  "cost_usd": 0.41127949999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. V is a vector space over the field F (via AddCommGroup + Module F V), and S, T are linear endomorphisms V →ₗ[F] V. The commutativity hypothesis `hST : S ∘ T = T ∘ S` uses Function.comp on coerced underlying functions, which is equivalent to linear-map composition equality by LinearMap extensionality. The expression `T - c • LinearMap.id` exactly represents T − λI, its `ker` is the null space, and `Submodule.map S (ker ...) ≤ ker ...` precisely expresses S-invariance (S sends the null space into itself). The free variable `c : F` delivers the universal quantification over all λ ∈ F. No hypotheses are dropped or added, and no types are altered.",
+  "duration_ms": 214722,
+  "cost_usd": 0.63046925
+}

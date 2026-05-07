@@ -1,0 +1,8 @@
+{
+  "file": "39.lean",
+  "stem": "39",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem precisely captures the informal statement. `CommRing R + IsDomain R + IsIntegrallyClosed R` exactly matches \"normal domain\" (Mathlib defines `IsIntegrallyClosed R` as integrally closed in `FractionRing R`, which for a domain is the definition of a normal domain). `IsNoetherianRing R` adds the Noetherian hypothesis. The extension L/K is encoded via `Field L`, `Algebra (FractionRing R) L`, `FiniteDimensional (FractionRing R) L`, and the compatibility scalar tower `IsScalarTower R (FractionRing R) L`, where `FractionRing R` is the canonical fraction field K. `integralClosure R L` is exactly the R-subalgebra of elements integral over R, matching R̄. Finally, `p.primesOver (integralClosure R L)` is defined as `{P : Ideal B | P.IsPrime ∧ P.LiesOver p}` — the set of primes lying over p — and `.Finite` asserts finiteness, precisely matching \"only finitely many primes of R̄ lie over p\".",
+  "duration_ms": 374020,
+  "cost_usd": 0.7109657500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `ZMod p` with `Nat.Prime p` correctly encodes F = ℤ_p; `Polynomial (ZMod p)` is F[x]; `Irreducible q` and `q.degree = n` capture \"q irreducible of degree n\"; and `Polynomial (ZMod p) ⧸ span {q}` (with `open Ideal`) is F[x]/(q(x)). The conclusion is the conjunction of (i) existence of a Fintype instance whose cardinality equals p^n, and (ii) `IsField` on the quotient — precisely \"field with exactly p^n elements\". The existential-Fintype form is a standard Mathlib way to assert finite cardinality. Irreducibility forces q ≠ 0 and non-unit (so deg q ≥ 1), so no degenerate case is smuggled in. No hypotheses are dropped or added beyond the informal claim.",
+  "duration_ms": 273210,
+  "cost_usd": 0.8268479999999999
+}

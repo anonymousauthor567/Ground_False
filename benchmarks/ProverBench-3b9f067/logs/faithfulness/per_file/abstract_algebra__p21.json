@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p21.lean",
+  "stem": "abstract_algebra__p21",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully mirrors the informal statement. `[Ring R]` corresponds to the informal \"ring (R,+,·)\" under the standard mathematical convention that ring means ring with 1 (this is the Mathlib convention and the typical textbook convention where this exercise arises). The hypothesis `∀ a : R, a^3 = a` is an exact translation of \"every element a ∈ R satisfies a^3 = a\" (Lean's `a^3` on a ring is `a * a * a` via Monoid.npow). The conclusion `∀ a b : R, a * b = b * a` is an exact translation of \"a · b = b · a for all a, b ∈ R\" — the universal quantification and equality match precisely. No hypotheses are dropped or added in a way that would strengthen or weaken the claim.",
+  "duration_ms": 134717,
+  "cost_usd": 0.35155675000000003
+}

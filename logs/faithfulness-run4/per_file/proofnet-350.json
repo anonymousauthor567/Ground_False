@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a set E ⊆ ℝ and a function f : ℝ → ℝ that is continuous on E but admits no continuous extension g : ℝ → ℝ agreeing with f on E. This matches the informal Rudin 4.5(b) claim. The only encoding choice is representing \"f defined on E\" as a total function f : ℝ → ℝ together with ContinuousOn f E. This is the standard Mathlib idiom and is logically equivalent to the informal statement, since ContinuousOn f E depends only on values of f on E and the non-extension condition ∀ x ∈ E, f x = g x also depends only on values on E, so values outside E are irrelevant. Any informal witness extends (arbitrarily) to satisfy the Lean statement, and any Lean witness restricts to an informal witness. Hypotheses, conclusion, and quantifier structure all align.",
+  "duration_ms": 54115,
+  "cost_usd": 0.19937424999999998
+}

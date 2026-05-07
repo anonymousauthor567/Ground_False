@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_b6.lean",
+  "stem": "putnam_2014_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the Putnam 2014 B6 statement. The function `f : ℝ → ℝ` is effectively treated as a function on [0,1] since all hypotheses and the conclusion only concern that interval. The Lipschitz hypothesis (with K > 0) and the rational condition (with integers a, b such that f(r) = a + b*r, using automatic ℚ → ℝ coercion) match the informal statement. The conclusion uses `Finset (Interval ℝ)` where `Interval ℝ = WithBot (NonemptyInterval ℝ)` represents closed intervals, and `coeHom` coerces to the underlying `Set ℝ`. Affine linearity `f x = c + m * x` is the correct reading of \"linear\" in this context (consistent with the hypothesis form a + br), and the union condition `Icc 0 1 = ⋃ Ii ∈ I, coeHom Ii` correctly expresses that the intervals cover [0,1]. No hypothesis is silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 265060,
+  "cost_usd": 0.7492575
+}

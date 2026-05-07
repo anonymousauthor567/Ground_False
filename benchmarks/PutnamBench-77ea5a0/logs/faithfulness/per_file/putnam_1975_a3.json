@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_a3.lean",
+  "stem": "putnam_1975_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the optimization problem: hypothesis `0 < a < b < c` matches, the constraint set `P` correctly expresses $x^b + y^b + z^b = 1$ with $x,y,z \\geq 0$, and $f = x^a + y^b + z^c$ matches the informal objective. The conclusion splits into two parts: `solution.1` is claimed to lie in the feasible set and dominate all other feasible points (i.e., achieves the max), and `solution.2` is claimed to lie in the feasible set and be dominated by all other feasible points (i.e., achieves the min). This is the standard \"find a specific point and verify it attains the extremum\" encoding used for Putnam optimization problems, faithfully answering \"at what points does $f$ attain its max and min\".",
+  "duration_ms": 272722,
+  "cost_usd": 0.73226175
+}

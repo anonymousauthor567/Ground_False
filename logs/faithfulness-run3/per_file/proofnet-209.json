@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures exactly what Axler 7.9 asks. The normality hypothesis `T * adjoint T = adjoint T * T` matches \"normal operator\"; `IsSelfAdjoint T` (which unfolds to `adjoint T = T`) matches \"self-adjoint\"; and `∀ e : T.Eigenvalues, (e : ℂ).im = 0` says every eigenvalue has zero imaginary part, i.e., is real. The `FiniteDimensional ℂ V` assumption is an implicit premise from Axler's context — the entire book works in finite-dimensional spaces, and indeed the claim is false in infinite dimensions (a normal shift-type operator can have no eigenvalues, making \"all eigenvalues real\" vacuously true without the operator being self-adjoint). Making this premise explicit is a correct reading, not a weakening. The complex inner product space, the endomorphism type, and the iff structure all match precisely.",
+  "duration_ms": 122463,
+  "cost_usd": 0.50988925
+}

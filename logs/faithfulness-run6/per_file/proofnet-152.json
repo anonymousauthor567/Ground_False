@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the reverse triangle inequality for complex numbers: for complex x, y, ||x|-|y|| ≤ |x-y|. In the Lean statement, x y : ℂ and ‖·‖ denotes the norm on ℂ, which by Mathlib's definition coincides with the complex absolute value |·|. Thus ‖x‖ and ‖y‖ are real numbers representing |x| and |y|, the outer |·| is the real absolute value, and ‖x - y‖ equals |x - y|. The Lean inequality |‖x‖ - ‖y‖| ≤ ‖x - y‖ is therefore literally the informal statement ||x| - |y|| ≤ |x - y|. No hypotheses are added or dropped, and the quantification over all complex x, y is preserved.",
+  "duration_ms": 22843,
+  "cost_usd": 0.10110350000000001
+}

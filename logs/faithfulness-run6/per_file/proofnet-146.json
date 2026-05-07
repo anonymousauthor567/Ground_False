@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely captures the informal statement. The hypothesis `hn : n > 0` matches \"$n$ is a positive integer\". The polynomial `∑ i : Fin n, (n-i) * z^i` enumerates $i = 0, 1, \\ldots, n-1$ with coefficient $n-i$, producing exactly $n + (n-1)z + (n-2)z^2 + \\cdots + 1 \\cdot z^{n-1}$ as in the informal definition. The conclusion `¬ (∃ z : ℂ, ‖z‖ ≤ 1 ∧ f n z = 0)` directly encodes \"no roots in the closed unit disk\" since `‖·‖` on `ℂ` is the standard complex absolute value. The coercions in `(n-i) * z^(i:ℕ)` resolve correctly because $i < n$ for $i : \\text{Fin } n$, and the quantifier structure ($\\neg \\exists$) is equivalent to \"for all $z$ in the disk, $f_n(z) \\neq 0$\".",
+  "duration_ms": 98628,
+  "cost_usd": 0.355637
+}

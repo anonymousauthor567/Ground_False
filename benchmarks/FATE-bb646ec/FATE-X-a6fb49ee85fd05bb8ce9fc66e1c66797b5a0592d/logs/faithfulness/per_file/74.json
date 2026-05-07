@@ -1,0 +1,8 @@
+{
+  "file": "74.lean",
+  "stem": "74",
+  "verdict": "faithful",
+  "reasoning": "All components of the informal statement match the Lean formalization. `[IsRegularLocalRing R]` captures \"regular local ring\" per the custom class defined in the file. `RingTheory.Sequence.IsRegular R rs` is Mathlib's standard regular-sequence notion applied to R-as-a-module (non-zero-divisor chain plus properness of the generated ideal), matching \"x_1,...,x_c regular sequence in R\". `Ideal.ofList rs / Ideal.span {y}` unfolds via Mathlib's `Submodule.Div` (defined as `{x | ∀ z ∈ J, x·z ∈ I}`) to exactly the colon ideal `((x_1,…,x_c):y)`, matching J. Finally, since R is local and J is proper (ensured by `y ∉ (rs)`), R⧸J is local, so `IsGorensteinRing (R⧸J)` (the custom class: all maximal-ideal localizations are Gorenstein-local) is equivalent to \"R⧸J is Gorenstein\" in this local context. The three custom classes faithfully encode their informal definitions.",
+  "duration_ms": 720828,
+  "cost_usd": 1.9689775000000005
+}

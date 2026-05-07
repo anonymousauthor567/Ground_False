@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "theorem_name": "Rudin_exercise_3_13_corrected",
+  "informal": "Prove that the Cauchy product of two absolutely convergent series converges absolutely.",
+  "lean": "\ntheorem Rudin_exercise_3_13_corrected\n   (a b : ℕ → ℝ)\n   (ha : ∃ y, Tendsto (fun n => ∑ i ∈ range n, |a i|) atTop (𝓝 y))\n   (hb : ∃ y, Tendsto (fun n => ∑ i ∈ range n, |b i|) atTop (𝓝 y)) :\n   ∃ y,\n     Tendsto\n       (fun n =>\n         ∑ i ∈ range n,\n           |∑ j ∈ range (i + 1), a j * b (i - j)|)\n       atTop (𝓝 y)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that if Σa_n and Σb_n converge absolutely, then their Cauchy product Σc_n with c_n = Σ_{j=0}^{n} a_j b_{n-j} also converges absolutely. The Lean hypotheses ha, hb encode that the partial sums of |a i| and |b i| converge (i.e., absolute convergence of the two series). The conclusion asserts the existence of a limit for the partial sums of |Σ_{j ∈ range(i+1)} a_j · b(i-j)|, which is exactly Σ |c_i| converges — the absolute convergence of the Cauchy product. The index manipulation `range (i+1)` and `b (i-j)` correctly captures j = 0..i with b_{i-j}. Restricting to ℝ matches the most natural reading of the informal statement, and quantifier structure/types are correct. This is a logically equivalent formalization.",
+  "duration_ms": 19261,
+  "cost_usd": 0.0747365
+}

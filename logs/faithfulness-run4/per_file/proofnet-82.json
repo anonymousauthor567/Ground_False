@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: P is a Sylow p-subgroup (`{P : Sylow p G}`), P is normal (`hP : P.Normal`), p is prime (`hp : Nat.Prime p`), and the conclusion that P equals every Sylow p-subgroup Q (i.e., P is unique). In Mathlib, `Sylow p G` is defined as a maximal p-subgroup (GroupTheory/Sylow.lean:53), which coincides with Herstein's \"p-Sylow subgroup\" for finite groups. While the informal statement implicitly assumes finite G (being in Herstein's Sylow chapter), the theorem actually holds without finiteness under Mathlib's definition: if P is a normal maximal p-subgroup and Q is any maximal p-subgroup, then PQ is a p-group (via Q/(P∩Q) ≅ PQ/P), so by maximality PQ=P, giving Q⊆P, then Q=P by maximality of Q. The Lean version captures exactly the mathematical content of the informal claim.",
+  "duration_ms": 645755,
+  "cost_usd": 1.572137
+}

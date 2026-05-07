@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `P n = ∑ i : Fin n, (↑i + 1) * X^i` correctly encodes $P_n(x) = 1 + 2x + 3x^2 + \\cdots + nx^{n-1}$: for Fin n indexing i from 0 to n-1, the term is (i+1)X^i, matching the informal sum. The hypotheses `0 < j`, `0 < k`, `j ≠ k` faithfully capture \"positive integers j and k with j ≠ k\". The conclusion `IsCoprime (P j) (P k)` in ℚ[x] is Bezout-style coprimality (∃ a b, aP_j + bP_k = 1), which in the PID ℚ[x] is equivalent to having gcd 1 — the standard mathematical meaning of \"relatively prime polynomials\" in a Putnam context. Using ℚ as coefficient ring is the natural reading (the polynomials have integer coefficients viewed in a field). The quantifier structure matches exactly, with no added or dropped hypotheses.",
+  "duration_ms": 137663,
+  "cost_usd": 0.43448074999999997
+}

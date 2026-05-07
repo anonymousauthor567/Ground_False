@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G of order 2907 is not simple. The Lean signature universally quantifies over a type G equipped with `[Fintype G] [Group G]` (yielding a finite group), assumes `card G = 2907`, and concludes `¬ IsSimpleGroup G`. The `Fintype` instance is consistent with—and implied by—the informal cardinality hypothesis, so it adds no extra constraint. Mathlib's `IsSimpleGroup` matches the standard mathematical notion of a simple group (nontrivial with no nontrivial proper normal subgroups), so the negation matches \"not simple.\" Quantifier structure, hypotheses, and conclusion all align with the informal claim.",
+  "duration_ms": 10647,
+  "cost_usd": 0.0406745
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The nested unions `⋃ (a : ℚ) (b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` enumerate exactly the open intervals in ℝ with rational endpoints a < b. `Set.image2 (fun s t => s ×ˢ t)` applied to this set and itself produces precisely `{Ioo ↑a ↑b ×ˢ Ioo ↑c ↑d | a,b,c,d : ℚ, a < b, c < d}`, matching the informal collection. `TopologicalSpace.IsTopologicalBasis` on `ℝ × ℝ` (carrying the standard product topology) asserts exactly what Munkres means by \"basis for ℝ²\": the collection covers the space, satisfies the directed intersection axiom, and generates the ambient topology. The \"countable\" adjective is a trivial consequence of the ℚ-indexing and not a separate claim. Types, quantifier structure, and the ambient space all match.",
+  "duration_ms": 98574,
+  "cost_usd": 0.37241124999999997
+}

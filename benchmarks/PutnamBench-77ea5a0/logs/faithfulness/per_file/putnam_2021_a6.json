@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a6.lean",
+  "stem": "putnam_2021_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Putnam 2021 A6. P is forced to be `Polynomial ℤ` by the factorization `P = Q * R` with `Q R : Polynomial ℤ`. The condition `∀ n, P.coeff n = 0 ∨ P.coeff n = 1` correctly formalizes \"coefficients are all 0 or 1\". `Q.degree > 0` in Mathlib (where `degree : WithBot ℕ` returns ⊥ for the zero polynomial) correctly captures \"nonconstant\". The conclusion `P.eval 2 ≠ 0 ∧ P.eval 2 ≠ 1 ∧ ¬Prime (P.eval 2)` correctly captures \"P(2) is composite\" since P has nonnegative coefficients so P(2) ≥ 0, and ruling out 0, 1, and primes from a nonnegative integer is exactly the condition for being composite. The iff with `putnam_2021_a6_solution := True` correctly answers the question posed (\"Does it follow...?\") affirmatively.",
+  "duration_ms": 308217,
+  "cost_usd": 0.7803402500000001
+}

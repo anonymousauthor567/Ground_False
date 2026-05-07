@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_a1.lean",
+  "stem": "putnam_1972_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. It quantifies over n > 0 and asserts non-existence of r > 0 with r+3 ≤ n such that C(n,r), C(n,r+1), C(n,r+2), C(n,r+3) form an arithmetic progression. The `fourAP` predicate, specified via the iff hypothesis as `n4-n3 = n3-n2 ∧ n3-n2 = n2-n1`, is precisely the standard condition for four numbers to be in AP (equal consecutive differences). Using ℤ (via coercion from Nat.choose's ℕ output) correctly avoids truncating natural subtraction issues. The quantifier structure, hypotheses (positivity of n and r, r+3 ≤ n), and conclusion all match the informal statement exactly.",
+  "duration_ms": 42477,
+  "cost_usd": 0.15744175
+}

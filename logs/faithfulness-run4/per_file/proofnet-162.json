@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Rudin Exercise 3.20. `CauchySeq p` matches \"Cauchy sequence in metric space X\" (with `[MetricSpace X]` providing the metric structure). The pair `φ : ℕ → ℕ` with `hφ : StrictMono φ` is the standard Mathlib idiom for a subsequence index, and `Tendsto (p ∘ φ) atTop (𝓝 r)` correctly expresses that the subsequence converges to r. The conclusion `Tendsto p atTop (𝓝 r)` matches \"the full sequence converges to p\". Quantifier structure (universal over sequence, subsequence, and limit) is preserved via the parameters. No hypotheses are added or dropped.",
+  "duration_ms": 36425,
+  "cost_usd": 0.12315475000000001
+}

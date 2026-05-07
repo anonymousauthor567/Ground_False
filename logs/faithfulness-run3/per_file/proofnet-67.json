@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal claim: f and g are ℚ-polynomials; the hypothesis `∀ n, ∃ a : ℤ, (f*g).coeff n = a` expresses that every coefficient of fg is an integer; and the conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` with i, j as free theorem parameters expresses that for all indices i and j, the product of the corresponding coefficients is an integer. The \"∃ a : ℤ, x = a\" idiom is the standard Lean way of saying a rational number is an integer. Types, hypotheses, and quantifier structure all line up with the informal claim.",
+  "duration_ms": 19728,
+  "cost_usd": 0.07931549999999998
+}

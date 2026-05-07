@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. \"Ordered set in the order topology\" is captured by `[LinearOrder Y] [OrderTopology Y]` (Munkres uses \"ordered set\" to mean a linearly/simply ordered set, which is how the order topology is defined). The continuity hypotheses on f and g implicitly require X to have a topology, which is correctly encoded via `TopologicalSpace X`. The function h(x) = min{f(x), g(x)} corresponds precisely to `λ x => min (f x) (g x)` using Mathlib's `LinearOrder.min`, and the conclusion is exactly that this function is continuous. No hypothesis is silently added or dropped.",
+  "duration_ms": 43405,
+  "cost_usd": 0.16443975
+}

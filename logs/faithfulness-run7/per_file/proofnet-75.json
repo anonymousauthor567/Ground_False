@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for an integer $a > 1$, $n \\mid \\varphi(a^n - 1)$. The Lean signature takes $a, n : \\mathbb{N}$ with hypothesis $a > 1$, and concludes $n \\mid (a^n - 1).\\text{totient}$. Since \"integer $a > 1$\" implies $a \\geq 2$, which is automatically a positive integer, the choice of $\\mathbb{N}$ for $a$ is equivalent. Nat-subtraction $a^n - 1$ agrees with integer subtraction whenever $a \\geq 2$ (so $a^n \\geq 1$). Mathlib's `Nat.totient` is precisely Euler's $\\varphi$ (verified in `Mathlib/Data/Nat/Totient.lean`, with `totient 1 = 1` and the standard coprime-count definition). For $n = 0$, the statement reduces to $0 \\mid \\varphi(0) = 0 \\mid 0$, which is vacuously true in $\\mathbb{N}$, so no implicit $n \\geq 1$ hypothesis is needed. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 91285,
+  "cost_usd": 0.289868
+}

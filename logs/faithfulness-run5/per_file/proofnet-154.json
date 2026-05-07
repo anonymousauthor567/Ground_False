@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `n > 1` for `n : ℕ` is equivalent to `k ≥ 2`. The type `EuclideanSpace ℝ (Fin n)` is Mathlib's standard representation of $\\mathbb{R}^n$ with the Euclidean inner product, and `⟪x, y⟫_ℝ` on this space is exactly the dot product $\\sum_i x_i y_i$. The conclusion asserts the existence of a nonzero vector orthogonal to $x$, which matches the informal claim. Quantifier structure (∃ y with y ≠ 0 and ⟨x,y⟩ = 0) matches the informal one exactly.",
+  "duration_ms": 27693,
+  "cost_usd": 0.10131149999999998
+}

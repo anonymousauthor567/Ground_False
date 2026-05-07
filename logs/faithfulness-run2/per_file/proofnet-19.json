@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully expresses the informal claim. The commutativity hypothesis `S ∘ T = T ∘ S` (as functions) is equivalent to $ST = TS$ as linear maps by extensionality. The conclusion `Submodule.map S (ker (T - c • LinearMap.id)) ≤ ker (T - c • LinearMap.id)` expresses exactly that $\\ker(T - cI)$ is invariant under $S$. Making $c$ a free parameter of the theorem correctly captures \"for every $\\lambda \\in \\mathbf{F}$.\" While Axler's $\\mathbf{F}$ is $\\mathbb{R}$ or $\\mathbb{C}$ and $V$ is typically finite-dimensional, this specific claim is a purely algebraic statement valid over any field and any module; the generalization does not alter the mathematical content being asserted.",
+  "duration_ms": 65374,
+  "cost_usd": 0.19535075
+}

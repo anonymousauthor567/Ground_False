@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-296.lean",
+  "stem": "proofnet-296",
+  "informal": "Let $Y$ be an ordered set in the order topology. Let $f, g: X \\rightarrow Y$ be continuous. Show that the set $\\{x \\mid f(x) \\leq g(x)\\}$ is closed in $X$.",
+  "lean": "\ntheorem Munkres_exercise_18_8a {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]\n  [LinearOrder Y] [OrderTopology Y] {f g : X → Y}\n  (hf : Continuous f) (hg : Continuous g) :\n  IsClosed {x | f x ≤ g x}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes Y is an ordered set with the order topology, and f,g : X → Y are continuous, with X a topological space. The Lean signature matches: X and Y are topological spaces, Y has a LinearOrder and OrderTopology (i.e., the topology agrees with the order topology), and f, g are continuous. The conclusion {x | f x ≤ g x} is closed is exactly the informal claim. No extra or missing hypotheses; types and quantifier structure align.",
+  "duration_ms": 6870,
+  "cost_usd": 0.0436985
+}

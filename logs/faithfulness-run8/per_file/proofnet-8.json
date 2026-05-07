@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-8.lean",
+  "stem": "proofnet-8",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that in the ring ℤ[x], the intersection of the ideals (2) and (x) equals the ideal (2x). The Lean theorem uses `Polynomial ℤ` for ℤ[x], `Ideal.span {2}` / `Ideal.span {X}` for the ideals (2) and (x), `Ideal.span {2 * X}` for (2x), and `⊓` for the lattice meet of ideals. Since `open Ideal` is active and `span` takes a single argument, `span` resolves to `Ideal.span` rather than `Submodule.span` (which requires the scalar ring explicitly). The meet `⊓` on ideals coincides with set-theoretic intersection (verified via `Submodule.coe_inf`). Thus the Lean statement asserts exactly the claimed equality of ideals with no added or dropped hypotheses.",
+  "duration_ms": 196590,
+  "cost_usd": 0.7144462500000001
+}

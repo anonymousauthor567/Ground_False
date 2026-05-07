@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures every element of Axler's exercise 7.14: `Module.End 𝕜 V` with `InnerProductSpace 𝕜 V` matches L(V); `RCLike 𝕜` matches F = ℝ or ℂ; `IsSelfAdjoint T` uses the adjoint-based star structure on endomorphisms of an inner product space (Mathlib Adjoint.lean); the hypothesis `∃ v, ‖v‖ = 1 ∧ ‖T v - l • v‖ < ε` matches the approximate-eigenvector condition; and the conclusion `∃ l' : T.Eigenvalues, ‖l - l'‖ < ε` uses Mathlib's `Eigenvalues` subtype (genuine eigenvalues via `HasEigenvalue`) with coercion to 𝕜, where the RCLike norm coincides with the absolute value/modulus. The `FiniteDimensional 𝕜 V` hypothesis is an implicit premise from Axler's chapter context and is necessary for truth (self-adjoint operators in infinite dimensions may have continuous spectrum with no actual eigenvalues), so making it explicit is faithful rather than restrictive.",
+  "duration_ms": 307531,
+  "cost_usd": 0.91923125
+}

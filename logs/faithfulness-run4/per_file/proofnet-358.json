@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "Each part of the informal statement maps cleanly onto the Lean signature: \"f'(x), g'(x) exist\" → `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x`; \"g'(x) ≠ 0\" → `deriv g x ≠ 0` (consistent with `DifferentiableAt.hasDerivAt` giving `HasDerivAt f (deriv f x) x`); \"f(x)=g(x)=0\" → `f x = 0` and `g x = 0`; and the conclusion \"lim_{t→x} f(t)/g(t) = f'(x)/g'(x)\" → `Tendsto (fun t => f t / g t) (𝓝[≠] x) (𝓝 (deriv f x / deriv g x))`. Rudin's Definition 4.1 for the limit of a function uses the punctured neighborhood (t ≠ x), which matches `𝓝[≠] x` exactly. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 101426,
+  "cost_usd": 0.3266735
+}

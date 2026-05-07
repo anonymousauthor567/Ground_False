@@ -1,0 +1,8 @@
+{
+  "file": "58.lean",
+  "stem": "58",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"at most one extension\" as a Subsingleton on the subtype of intermediate fields of the algebraic closure. The choice of AlgebraicClosure F as the ambient field is natural because α^4 ∈ F forces α to be algebraic over F. The predicate \"α^4 ∈ F\" is encoded via membership in ⊥ : IntermediateField, which by Mathlib's `mem_bot` equals the range of algebraMap F (AlgebraicClosure F), faithfully capturing \"belongs to F under the embedding\" (and similarly for α^2 ∉ F). The conjunction M = F⟮α⟯ together with F⟮α⟯ = F⟮α^2⟯ correctly asserts that the extension equals both F(α) and F(α²). The quantifier structure — ∃ α such that M equals F(α) with the three conditions — matches \"at most one intermediate field that can be written as F(α) for some α satisfying the conditions\", which is the standard reading of the informal statement.",
+  "duration_ms": 448149,
+  "cost_usd": 0.9786345
+}

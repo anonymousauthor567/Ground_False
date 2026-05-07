@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that exactly (p-1)/2 of the nonzero residues mod p are quadratic residues and (p-1)/2 are nonresidues. The Lean statement asserts the existence of a Finset S1 of nonzero QRs with |S1|=(p-1)/2 and a Finset S2 of nonzero non-QRs with |S2|=(p-1)/2. Though these \"existence\" forms individually look weaker than \"exactly\", their conjunction is equivalent: S1 and S2 are disjoint subsets of ZMod p \\ {0} (size p-1), and (p-1)/2 + (p-1)/2 = p-1 forces both to be exactly the full sets of QRs and non-QRs. Note that {q : ∃x, x²=q} coincides with the squares in ZMod p (and 0 is excluded from S), and \"¬∃x, x²=q\" automatically excludes 0 since 0 is a square, so the encoding matches the informal claim. With p an odd prime (from Nat.Prime p and p%2=1), the informal and Lean claims are logically equivalent.",
+  "duration_ms": 40776,
+  "cost_usd": 0.15084775000000003
+}

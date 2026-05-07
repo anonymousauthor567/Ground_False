@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds an explicit `IsPreconnected Ω` hypothesis that does not appear in the informal statement, which only says \"bounded open subset\" (not \"domain\" or \"region\"). This is a genuine extra hypothesis: Lean's hypothesis set strictly contains the informal's. The conclusion difference (continuous ℂ-linear map x↦cx in Lean versus \"linear/affine\" in the informal) is not an issue here, because under the hypotheses f(z₀)=z₀ and f'(z₀)=1, both forms collapse to f = identity, so the conclusions are equivalent under the remaining hypotheses. Thus the Lean version proves the conclusion only under a strict superset of the informal hypotheses, making it logically weaker as a theorem. (Interestingly, without connectedness the informal claim is literally false, but that is a separate matter from faithfulness of the formalization.)",
+  "duration_ms": 162869,
+  "cost_usd": 0.46961425
+}

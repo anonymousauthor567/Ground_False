@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_a1.lean",
+  "stem": "putnam_2000_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the Putnam 2000 A1 problem. It introduces `A : ℝ` with `A > 0` matching \"positive real A\", and defines the set of achievable S = ∑ x_j² values over positive sequences x : ℕ → ℝ whose tsum equals A. Mathlib's `tsum` returns 0 when non-summable, but since A > 0, `∑' j, x j = A` forces summability, and given positive x_j summing to A we have x_j → 0, so x_j² is automatically summable as well — hence the tsum convention introduces no drift. The types (ℕ → ℝ, ℝ), positivity constraint (x j > 0), equality to A, and the sum-of-squares equation all match the informal statement directly, and the set-level equality correctly asks for \"the possible values of ∑ x_j²\".",
+  "duration_ms": 97470,
+  "cost_usd": 0.30801700000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"n complex numbers z_1, ..., z_n\" as a function f : ℕ → ℂ indexed by `range n`, which is the standard Mathlib idiom for a finite sequence of complex numbers. The norm ‖·‖ on ℂ coincides with the complex absolute value |·|, and `∑ i ∈ range n, f i` gives the sum f(0) + f(1) + ... + f(n-1) of n complex numbers. The inequality direction and quantifier structure (for all n and all such sequences) match the informal claim. The case n = 0 is the trivial 0 ≤ 0, which is consistent with the informal statement. This is the natural, logically equivalent formalization of the triangle inequality for a finite sum of complex numbers.",
+  "duration_ms": 10670,
+  "cost_usd": 0.049967250000000005
+}

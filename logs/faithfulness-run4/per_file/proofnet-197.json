@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"Let K be a finite field; prove the product of nonzero elements is -1.\" The Lean hypotheses `[Field K] [Fintype Kˣ]` are equivalent to \"K is a finite field\": since K = Kˣ ∪ {0} in a field, Fintype Kˣ forces K to be finite, and conversely a finite field gives Fintype Kˣ. The nonzero elements of a field are exactly its units, so `∏ x : Kˣ, x` is the product of nonzero elements. The `-1` is in `Kˣ`, which is well-defined via Mathlib's `HasDistribNeg αˣ` instance for units of rings with distributive negation. This matches Mathlib's own `prod_univ_units_id_eq_neg_one` theorem form exactly. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 120357,
+  "cost_usd": 0.33548025
+}

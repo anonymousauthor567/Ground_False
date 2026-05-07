@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that the symmetric group S_Ω on Ω = {1, 2, 3, ...} is infinite. The Lean statement `Infinite (Equiv.Perm ℕ)` asserts that the type of permutations of ℕ is infinite. Although Lean's ℕ starts at 0 while the informal Ω starts at 1, both are countably infinite sets, and Equiv.Perm gives the underlying bijection type of the symmetric group. Since the cardinality of the symmetric group depends only on the cardinality of the underlying set, and {0,1,2,...} and {1,2,3,...} have the same cardinality, the two statements express the same mathematical content. Asserting `Infinite` on the type Equiv.Perm ℕ is exactly the assertion that the symmetric group on a countably infinite set is infinite.",
+  "duration_ms": 27368,
+  "cost_usd": 0.09917825
+}

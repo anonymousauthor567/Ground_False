@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Munkres Exercise 29.10. In Munkres, \"neighborhood of x\" means an open set containing x, and \"X is locally compact at x\" means there is a compact subspace containing a neighborhood of x. The hypothesis `∃ U, x ∈ U ∧ IsOpen U ∧ (∃ K, U ⊆ K ∧ IsCompact K)` directly encodes Munkres' pointwise local compactness definition. The input neighborhood U is encoded as `IsOpen U ∧ x ∈ U`, matching Munkres' convention. The conclusion asserts existence of an open V containing x with compact closure contained in U, which exactly matches the informal claim. T2Space X is the Hausdorff hypothesis. Types and quantifier structure match precisely.",
+  "duration_ms": 81401,
+  "cost_usd": 0.30339200000000005
+}

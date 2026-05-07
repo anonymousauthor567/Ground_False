@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Axler 5.13: `T : End F V` matches T ∈ L(V); `Submodule.map T U ≤ U` is exactly T(U) ⊆ U, i.e., U is T-invariant; `finrank F U = finrank F V - 1` captures \"dimension dim V − 1\"; and `∃ c : F, T = c • LinearMap.id` states T is a scalar multiple of the identity. The `FiniteDimensional F V` hypothesis is not explicit in the informal text, but it is an implicit premise required for \"dim V − 1\" to be meaningful, so making it explicit does not count as a weakening. Edge cases (finrank V = 0 or 1) behave correctly under ℕ truncated subtraction since the conclusion holds trivially.",
+  "duration_ms": 79995,
+  "cost_usd": 0.2674305
+}

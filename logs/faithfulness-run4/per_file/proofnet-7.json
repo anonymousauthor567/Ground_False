@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-7.lean",
+  "stem": "proofnet-7",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over any group G and elements a, b : G, and asserts equality of the subgroup closures of {a, b} and {b*a*b^2, b*a*b^3}. This is exactly the informal claim that a, b generate the same subgroup as bab², bab³. The types (arbitrary `Group G`, elements in G), the objects (`Subgroup.closure` of the respective two-element sets), and the conclusion (equality of subgroups) all match the informal reading. No hypotheses are added or dropped, and neither direction of the equality is strengthened or weakened.",
+  "duration_ms": 75178,
+  "cost_usd": 0.24413274999999998
+}

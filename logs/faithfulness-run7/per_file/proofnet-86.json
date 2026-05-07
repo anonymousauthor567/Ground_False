@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. The hypotheses `Nat.Prime p` and `Odd p` together express \"odd prime p\". The sum `∑ i ∈ Finset.range (p-1), (1 / (i + 1) : ℚ)` gives terms 1/1, 1/2, ..., 1/(p-1), matching the informal harmonic sum. The expression `(a / b : ℚ)` with `a b : ℤ` elaborates as rational division `(↑a : ℚ) / (↑b : ℚ)`, not integer division. The universal quantification `∀ a b : ℤ, (a/b : ℚ) = sum → p | a` is logically equivalent to the informal \"let the sum = a/b, show p | a\": in reduced form a₀/b₀ any other integer representation has a = k·a₀, so p | a₀ ↔ p | a; and for b = 0, the hypothesis `0 = sum` is false (sum is nonzero for p ≥ 3), making the implication vacuously true. No hidden strengthening or weakening.",
+  "duration_ms": 291439,
+  "cost_usd": 0.9455455
+}

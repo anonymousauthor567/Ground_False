@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the classical Dirichlet integral $\\int_0^\\infty (\\sin x)/x\\,dx = \\pi/2$. Since $(\\sin x)/x$ is not Lebesgue-integrable on $[0,\\infty)$, this integral is conventionally interpreted as the improper Riemann integral, namely $\\lim_{y\\to\\infty} \\int_0^y (\\sin x)/x\\,dx$. The Lean statement expresses precisely this: the `intervalIntegral` from 0 to $y$ tends to $\\pi/2$ as $y \\to \\infty$ (`atTop`). The integrand, bounds, and limit value all match the informal assertion, so the formalization is logically equivalent under the standard reading.",
+  "duration_ms": 24962,
+  "cost_usd": 0.0529345
+}

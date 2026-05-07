@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the hypotheses and conclusion of the informal statement. `Function.Surjective p`, `Continuous p`, `IsClosedMap p`, `∀ y, IsCompact (p ⁻¹' {y})`, and `CompactSpace Y` correspond precisely to \"closed continuous surjective map with compact point-fibers on a compact target\", and the conclusion `CompactSpace X` is exactly \"X is compact\". The only cosmetic issue is that both the closed-map hypothesis and the compact-fiber hypothesis are named `hp` (the first is shadowed), but this affects only tactic-level naming, not the logical content of the theorem statement. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 46308,
+  "cost_usd": 0.12288450000000001
+}

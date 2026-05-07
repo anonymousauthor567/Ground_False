@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that L(a) = {x ∈ R | xa = 0} is an ideal of R. The Lean statement asserts ∃ I : Ideal R, {x : R | x*a=0} = I, which (via the SetLike coercion from Ideal R to Set R, since Ideal R := Submodule R R in Mathlib) means the set {x | x*a=0} coincides with the underlying set of some ideal. This is logically equivalent to L(a) being an ideal: one direction gives I explicitly when L(a) is an ideal, and the other direction transfers the ideal structure through the set equality. The ring is correctly taken to be a CommRing, the element a ∈ R is properly quantified, and the set definition matches exactly. Hence the formalization is faithful.",
+  "duration_ms": 141414,
+  "cost_usd": 0.435121
+}

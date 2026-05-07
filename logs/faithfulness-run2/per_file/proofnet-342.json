@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "stronger",
+  "reasoning": "The informal statement, coming from Rudin Ch. 3 on sequences, asks for the limit of the sequence a_n = √(n²+n) - n where n ∈ ℕ. The Lean signature instead binds `n : ℝ` and uses `atTop` on the reals, asserting convergence of the real-valued function as a continuous variable tends to infinity. Real-to-infinity convergence is strictly stronger: it implies the sequence limit by restriction to ℕ, but the sequence limit does not in general imply the real-variable limit. Hence the Lean statement logically implies the informal claim but asks for more than Rudin demands.",
+  "duration_ms": 38753,
+  "cost_usd": 0.121593
+}

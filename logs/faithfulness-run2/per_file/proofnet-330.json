@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one on every point. `ContDiff ℝ ⊤ f` expresses that f is C^∞ (infinitely differentiable), and the hypotheses `f 0 = 0`, `f 1 = 1`, and `∀ x, f x ≥ 0` correspond exactly to the informal assumptions. The conclusion quantifies `n : ℕ+` (a positive integer, matching \"positive integer n\") and `x : ℝ`, with `iteratedDeriv n f x < 0` correctly expressing that the n-th derivative at x is negative. No hypotheses are added or dropped, and the quantifier structure and types align exactly with the informal claim.",
+  "duration_ms": 9308,
+  "cost_usd": 0.04514475000000001
+}

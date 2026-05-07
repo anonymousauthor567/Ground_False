@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Herstein 4.3.25) asserts that the ring of 2×2 real matrices has no nontrivial two-sided ideals. In Herstein's convention, \"ideal\" means two-sided ideal (this matters: the claim is false for one-sided ideals, e.g., matrices with zero second column form a nontrivial left ideal). The Lean signature uses `TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)`, correctly modeling 2×2 real matrices with two-sided ideals. Mathlib's `coe_bot` gives `(⊥ : TwoSidedIdeal R) = {0}` and `coe_top` gives `(⊤ : TwoSidedIdeal R) = Set.univ`, so `I = ⊥ ∨ I = ⊤` is exactly \"I = (0) or I = R\". The universal quantification over I is implicit in the theorem's parameter binding and matches the informal \"suppose that I is an ideal\". No hypotheses are added or dropped, and no semantic drift occurs.",
+  "duration_ms": 54751,
+  "cost_usd": 0.23530024999999996
+}

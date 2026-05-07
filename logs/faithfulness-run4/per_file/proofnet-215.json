@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any element x in a group G, x and x⁻¹ have the same order. The Lean theorem states `orderOf x = orderOf x⁻¹` for an arbitrary group `G` (with `[Group G]`) and an arbitrary element `x : G`. Both the hypothesis (x is an element of a group) and the conclusion (equality of orders) match exactly. Mathlib even has `orderOf_inv : orderOf x⁻¹ = orderOf x` which confirms this is the standard formalization. The implicit universal quantification over G and x via auto-bound type/variable universes captures the \"for x an element in G\" phrasing correctly. This is a faithful formalization.",
+  "duration_ms": 24144,
+  "cost_usd": 0.10096524999999999
+}

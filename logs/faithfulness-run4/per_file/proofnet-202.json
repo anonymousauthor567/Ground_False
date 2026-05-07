@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Axler 5.1 precisely: T : V →ₗ[F] V is an operator in L(V); the family U : Fin n → Submodule F V corresponds to U₁, ..., Uₘ; the hypothesis `Submodule.map T (U i) ≤ U i` is exactly T-invariance of each Uᵢ (i.e., T(Uᵢ) ⊆ Uᵢ); and the conclusion `Submodule.map T (∑ i, U i) ≤ ∑ i, U i` states that the sum of submodules (which in Mathlib is the standard subspace sum U₁ + ⋯ + Uₙ) is T-invariant. The universal quantification over n : ℕ correctly generalizes \"suppose m subspaces\". The statement makes no finite-dimensionality assumption, which matches the informal statement (the result holds for any F-vector space). No hypotheses are added or dropped, and the types match.",
+  "duration_ms": 72842,
+  "cost_usd": 0.27802750000000004
+}

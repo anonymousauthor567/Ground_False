@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim directly. \"Ordered set in the order topology\" is encoded as `[LinearOrder Y] [OrderTopology Y]` (with the required `TopologicalSpace Y`), which is exactly Munkres's setup for a simply/linearly ordered set under its order topology. The hypotheses of continuity of `f` and `g` are preserved, and `h(x) = min{f(x), g(x)}` is faithfully written as `λ x => min (f x) (g x)`. The conclusion `Continuous (λ x => …)` matches the requested continuity of `h`. There are no missing or extra hypotheses and no change in quantifier structure or types.",
+  "duration_ms": 13902,
+  "cost_usd": 0.04550425000000001
+}

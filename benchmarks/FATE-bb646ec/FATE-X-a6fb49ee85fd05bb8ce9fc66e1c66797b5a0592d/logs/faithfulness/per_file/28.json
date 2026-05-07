@@ -1,0 +1,8 @@
+{
+  "file": "28.lean",
+  "stem": "28",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each part of the informal statement exactly. \"K/ℚ is a finite extension\" is encoded by `[Field K] [Algebra ℚ K] [Module.Finite ℚ K]`, which for a field K is equivalent to K being a finite extension of ℚ. `Field.absoluteGaloisGroup K` is defined in Mathlib as `AlgebraicClosure K ≃ₐ[K] AlgebraicClosure K`, i.e., the Galois group of the algebraic closure over K — precisely the absolute Galois group. The \"nontrivial\" condition is `g ≠ 1`, and \"infinite number of conjugates\" is encoded as the infiniteness of the set `{g' | IsConj g g'}`, where `IsConj` in a group matches the standard group-theoretic notion (∃ c, c * g * c⁻¹ = g'). No hypotheses are dropped, added, or weakened, and the conclusion matches the informal claim exactly.",
+  "duration_ms": 91941,
+  "cost_usd": 0.26980525000000005
+}

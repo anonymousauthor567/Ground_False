@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all `z : ℂ` with `‖z‖ = 1` (every point of the unit circle), defines the partial sum sequence `s n = ∑_{i∈range n} z^(i+1)/(i+1)^2 = ∑_{k=1}^{n} z^k/k^2` via the hypothesis `h`, and asserts `∃ y, Tendsto s atTop (𝓝 y)`, which is exactly convergence of the partial sums. The indexing `(i+1)` naturally starts the series at `k=1`, which matches the informal series $\\sum z^n/n^2$ (which must start at n=1 to avoid division by zero). While the encoding via a hypothesis `s = ...` is stylistically unusual, it is logically equivalent to directly stating convergence of that explicit partial sum. All elements — the universal quantification over the unit circle, the series terms, and the convergence conclusion — faithfully match the informal claim.",
+  "duration_ms": 70238,
+  "cost_usd": 0.22873925
+}

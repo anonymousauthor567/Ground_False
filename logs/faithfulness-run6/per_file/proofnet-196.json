@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses the standard \"for every N, there exists a prime p ≥ N\" encoding of infinitude of primes with a given property. The condition `p + 1 ≡ 0 [MOD 4]` unfolds (via Mathlib's `Nat.ModEq n a b := a % n = b % n`) to `(p+1) % 4 = 0`, i.e., `4 ∣ (p+1)`, which is exactly `p ≡ -1 (mod 4)`. Both the quantifier structure (infinitude) and the congruence condition (p ≡ -1 mod 4) match the informal statement precisely, with no extra or missing hypotheses.",
+  "duration_ms": 41685,
+  "cost_usd": 0.14897875
+}

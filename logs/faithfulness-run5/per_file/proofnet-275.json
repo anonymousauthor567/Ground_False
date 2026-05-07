@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all components of the informal claim: F is a field (via [Field F]), it has characteristic p ≠ 0 (via CharP F p together with hp : p ≠ 0), n is a positive integer (hn : n > 0), m = p^n (hm), and the conclusion (a+b)^m = a^m + b^m is exactly what is asked. The variables p, m, n, a, b are universally quantified at the theorem level, matching \"for all a, b ∈ F and any positive integer n\". For a field, CharP F p with p ≠ 0 forces p to be prime, matching the standard notion of field characteristic in the informal statement. No hypotheses are added or dropped, and the conclusion is identical.",
+  "duration_ms": 71165,
+  "cost_usd": 0.12788675
+}

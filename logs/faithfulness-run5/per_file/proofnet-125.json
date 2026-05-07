@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem exactly captures Munkres Exercise 28.5. The local definition `countably_compact` encodes \"every countable open cover has a finite subcover\" — Munkres's standard definition. On the other side of the iff, the Lean statement requires: `C` is an ℕ-indexed sequence with each `C n` closed (`IsClosed`), nonempty (`C n ≠ ∅`), and nested (`C (n+1) ⊆ C n`), and concludes `∃ x, ∀ n, x ∈ C n`, which is logically equivalent to `(⋂ n, C n).Nonempty`. This faithfully matches \"every nested sequence $C_1 \\supset C_2 \\supset \\cdots$ of closed nonempty sets has a nonempty intersection.\" Indexing from 0 vs 1 is immaterial for an infinite sequence. No extra hypotheses (such as T1 or Hausdorff) are introduced, and none are dropped. The iff direction matches the informal \"if and only if\". Hence the formalization is strictly faithful.",
+  "duration_ms": 87326,
+  "cost_usd": 0.29400875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-331.lean",
+  "stem": "proofnet-331",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely mirrors the informal statement. Initial conditions x 0 = 1, x 1 = a, x 2 = a are given, and the recurrence x (n+1) = 2·x n·x (n-1) - x (n-2) holds for n ≥ 2 (yielding x 3 from x 0, x 1, x 2 as expected). The hypothesis ∃ n, x n = 0 matches \"x_n = 0 for some n.\" The conclusion `∃ c ≠ 0, Periodic x c` with c : ℕ (so c ≥ 1) and Mathlib's Periodic meaning ∀ n, x (n + c) = x n, which is the standard definition of a periodic sequence. No extra assumptions nor missing ones.",
+  "duration_ms": 22207,
+  "cost_usd": 0.10320549999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for all elements $a, b$ in a group $G$, the order of $ab$ equals the order of $ba$. The Lean signature takes an arbitrary group `{G : Type*} [Group G]` with arbitrary elements `a b : G` and concludes `orderOf (a * b) = orderOf (b * a)`. Mathlib's `orderOf` is precisely the order of a group element (standard meaning of $|x|$ in Dummit & Foote). No hypotheses are added or omitted, the quantifier structure matches (universal over group and elements), and the conclusion is identical. This is a strictly faithful formalization.",
+  "duration_ms": 15799,
+  "cost_usd": 0.06379499999999999
+}

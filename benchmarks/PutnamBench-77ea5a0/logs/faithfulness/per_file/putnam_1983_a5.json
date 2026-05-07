@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_a5.lean",
+  "stem": "putnam_1983_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the intended problem. The informal \"$\\alpha_n$\" is a typographical artifact for \"$\\alpha^n$\" (this is Putnam 1983 A5, classically about α^n), which the Lean correctly encodes as `α ^ n`. The positive real α becomes `α : ℝ` with `α > 0`, the quantification over positive integers n is equivalently expressed via `∀ n : ℕ, n > 0 →` (positive ℕ and positive ℤ coincide), and `⌊α^n⌋ - n` with automatic coercion yields an integer whose evenness is tested via `Even`. The iff with the solution `True` asserts that such α exists, matching the \"Prove or disprove\" formulation (whose answer is affirmative). No hypotheses are added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 64167,
+  "cost_usd": 0.20730900000000002
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "informal": "If $z$ is a complex number, prove that there exists an $r\\geq 0$ and a complex number $w$ with $| w | = 1$ such that $z = rw$.",
+  "lean": "\ntheorem Rudin_exercise_1_11a (z : ℂ) :\n  ∃ (r : ℝ) (w : ℂ), r ≥ 0 ∧ ‖w‖ = 1 ∧ z = r * w",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature existentially quantifies over a real r ≥ 0 and a complex w with ‖w‖ = 1 (which is the modulus |w| for complex numbers in Mathlib), asserting z = r * w (with r coerced to ℂ via scalar multiplication notation). This is exactly the polar-form-style claim in the informal statement: existence of nonnegative real r and unit-modulus complex w with z = rw. The quantifier structure (∃ r, ∃ w), the type of w (ℂ), and the conclusion all match. No extra hypotheses are imposed and none are missing.",
+  "duration_ms": 8013,
+  "cost_usd": 0.045225749999999995
+}

@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p5.lean",
+  "stem": "abstract_algebra__p5",
+  "verdict": "incomparable",
+  "reasoning": "The Lean formalization has two serious semantic mismatches. First, in the informal statement P(x)=ax⁴+bx³+cx²+dx+e, so \"b\" denotes the coefficient of x³. In Mathlib, `P.coeff n` is the coefficient of Xⁿ (confirmed in Mathlib/Algebra/Polynomial/Basic.lean line 667: \"`coeff p n` ... is the coefficient of `X^n` in `p`\"), so `P.coeff 1` is the coefficient of x (i.e. \"d\" in the informal notation), not \"b\". The Lean exclusion condition therefore refers to -d/(2a) rather than -b/(2a). Second, and more critically, the informal hypothesis \"x₁+x₂ ∈ ℚ\\{-b/(2a)}\" requires x₁+x₂ to be rational AND distinct from the special value, but the Lean hypothesis only excludes the special value — it omits the rationality of x₁+x₂ entirely. Without rationality of the sum, the conclusion fails (e.g., for P(x)=x⁴-2, take x₁=⁴√2 and x₂=i⁴√2: their sum is not rational, and x₁x₂=i√2 is not rational). So the Lean version is weaker in this critical hypothesis but also mismatches the excluded value, making it not logically comparable to the informal statement.",
+  "duration_ms": 408402,
+  "cost_usd": 0.8059102499999999
+}

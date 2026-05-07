@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p64_5.lean",
+  "stem": "calculus__p64_5",
+  "verdict": "incomparable",
+  "reasoning": "The Lean `equation` is defined as `cos(2x) − √3 sin(2x)` (just the LHS), and the theorem asks for x ∈ [0, 2π) with `equation x = 0`, i.e., cos(2x) − √3 sin(2x) = 0. The informal statement concerns the different equation cos(2x) − √3 sin(2x) = √2. These are literally different equations with different solution sets (e.g., the Lean's equation has solutions π/12, 7π/12, 13π/12, 19π/12, while the informal's has solutions near 17π/24, 23π/24, 41π/24, 47π/24). The author likely intended `equation x := cos(2x) − √3 sin(2x) − √2` so that `equation x = 0` would correspond to the informal equation (consistent with the `simplified_equation` axiom's form), but the actual definition omits the `− √2` term. Additionally, the Lean theorem does not specify that the four solutions are 0, π/3, π, 4π/3. Because the Lean encodes a different equation, neither statement logically implies the other.",
+  "duration_ms": 184459,
+  "cost_usd": 0.55216775
+}

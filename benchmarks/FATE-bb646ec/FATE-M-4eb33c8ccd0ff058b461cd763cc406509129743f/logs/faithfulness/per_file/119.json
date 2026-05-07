@@ -1,0 +1,8 @@
+{
+  "file": "119.lean",
+  "stem": "119",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. `[CommRing R]` captures \"commutative ring with identity 1\". `[CommRing R'] [IsDomain R']` captures \"integral domain\" (in Mathlib, IsDomain extends IsCancelMulZero and Nontrivial, which combined with CommRing gives precisely a commutative ring with no zero divisors and 1 ≠ 0). `(f : R →+* R')` is a ring homomorphism, and `Ideal.IsPrime (RingHom.ker f)` asserts the kernel is a prime ideal. The unused type variable `F` is harmless and does not affect the logical content. This is in fact the exact formulation of `RingHom.ker_isPrime` in Mathlib (Mathlib/RingTheory/Ideal/Maps.lean).",
+  "duration_ms": 53771,
+  "cost_usd": 0.168834
+}

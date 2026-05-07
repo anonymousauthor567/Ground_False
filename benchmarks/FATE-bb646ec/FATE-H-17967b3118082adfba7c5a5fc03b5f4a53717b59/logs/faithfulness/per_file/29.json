@@ -1,0 +1,8 @@
+{
+  "file": "29.lean",
+  "stem": "29",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that any degree-p Galois extension E/F (where F has characteristic p) is isomorphic to F adjoined with a root of x^p - x - a for some a in F. This means E is isomorphic to F[X]/(X^p - X - a) as an F-algebra, i.e., via an F-algebra isomorphism that respects the embedding of F. However, the Lean formalization uses ≃+* (a ring isomorphism) rather than ≃ₐ[F] (an F-algebra isomorphism). A ring isomorphism between two F-algebras need not commute with the algebra maps from F, so it does not capture that E is the specific extension obtained by adjoining a root of the Artin-Schreier polynomial over F. For a general field F of characteristic p (not just the prime field), a mere ring isomorphism is strictly weaker than an F-algebra isomorphism.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

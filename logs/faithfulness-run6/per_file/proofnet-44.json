@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that an abelian simple group G is isomorphic to Z_p for some prime p. The Lean formalization states that G is cyclic and admits a Fintype structure whose cardinality is prime. These are mathematically equivalent: (1) if G ≅ Z_p for prime p, then G is finite, cyclic, and has prime cardinality; (2) if G is cyclic with prime cardinality p, then G ≅ Z_p canonically. The hypotheses `[CommGroup G] [IsSimpleGroup G]` match \"abelian simple group\" exactly, with no extra finiteness assumption (aligning with \"do not assume G is a finite group\"). The ∃ over Fintype G correctly captures the emergent finiteness. This matches Mathlib's canonical `exists_prime_addEquiv_ZMod` (just reformulated via IsCyclic + prime card rather than an explicit equivalence).",
+  "duration_ms": 98855,
+  "cost_usd": 0.32005474999999994
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for a continuous real function f on a metric space X, the zero set Z(f) = {p ∈ X : f(p) = 0} is closed. The Lean signature takes α with [MetricSpace α], f : α → ℝ with h : Continuous f, and introduces z : Set α together with g : z = f⁻¹' {0} (which is exactly the zero set of f), and concludes IsClosed z. Since z is definitionally equal to f⁻¹' {0} via g, proving IsClosed z is logically equivalent to proving IsClosed (f⁻¹' {0}), which is exactly the informal claim. The ambient type (metric space), the continuity hypothesis, the definition of the zero set, and the conclusion (topologically closed) all match. This is a faithful formalization.",
+  "duration_ms": 25920,
+  "cost_usd": 0.11335825
+}

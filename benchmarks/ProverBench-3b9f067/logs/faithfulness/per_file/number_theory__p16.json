@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p16.lean",
+  "stem": "number_theory__p16",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that 579 is the *smallest* natural number satisfying n%7=5, n%9=3, n%11=7. The Lean statement asserts that *every* such n equals 579 (universal uniqueness). These are different claims. By CRT, solutions form the arithmetic progression {579, 1272, 1965, ...} with common difference lcm(7,9,11)=693, so 1272 is a counterexample to the Lean statement (1272%7=5, 1272%9=3, 1272%11=7, but 1272≠579). Neither claim implies the other: a vacuous model (empty solution set) makes the Lean claim true but the informal claim false, while a model with multiple solutions {579, 1272} makes the informal claim true but the Lean claim false. The faithful encoding should use something like IsLeast or conjoin \"579 satisfies the conditions\" with \"∀ m satisfying the conditions, 579 ≤ m\".",
+  "duration_ms": 107480,
+  "cost_usd": 0.26466075
+}

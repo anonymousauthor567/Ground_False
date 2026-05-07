@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that if P is a normal p-Sylow subgroup of G then every automorphism of G fixes P setwise, which is exactly the definition of a characteristic subgroup. In Mathlib, `Subgroup.Characteristic H` is defined as `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`, and by `characteristic_iff_map_eq` this is equivalent to `∀ ϕ : G ≃* G, H.map ϕ.toMonoidHom = H` — i.e., \"φ(H) = H for every automorphism φ of G\". The hypothesis `hP : P.Normal` faithfully encodes \"P ⊲ G\", and the `hp : Nat.Prime p` hypothesis is the implicit premise conveyed by \"p-Sylow subgroup\". No extra hypothesis (e.g., finiteness of G) has been silently added; the signature works for arbitrary groups. Thus the Lean statement matches the informal claim exactly.",
+  "duration_ms": 158334,
+  "cost_usd": 0.541813
+}

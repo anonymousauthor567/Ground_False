@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"abelian group G of order p*q, p, q distinct primes ⇒ G cyclic\" precisely. `Nat.Primes` = {p : ℕ // p.Prime}, so `p q : Nat.Primes` with `hpq : p ≠ q` captures \"distinct primes\". Since `card G : ℕ`, the `p*q` on the RHS uses the coercion `Nat.Primes → ℕ` to form the natural-number product pq, matching \"order pq\". `[CommGroup G]` is exactly \"abelian group\", and `[Fintype G]` is implicit in the phrase \"of order pq\" (finite order), so it is a required premise for the statement to make sense, not an extra assumption. The conclusion `IsCyclic G` matches \"G is cyclic\". No hypotheses are added or dropped beyond what the informal statement assumes.",
+  "duration_ms": 100811,
+  "cost_usd": 0.29446075000000005
+}

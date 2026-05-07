@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over groups G, assumes G/Z(G) is cyclic via `IsCyclic (G ⧸ center G)`, and concludes `center G = ⊤`. The conclusion `center G = ⊤` (the center is the whole group) is exactly \"G = Z\", which is logically equivalent to \"G is abelian\". The informal statement's two conclusions (\"G is abelian\" AND \"G = Z\") are equivalent to each other and both captured by `center G = ⊤`. The center is normal in Mathlib (instNormalCenter), so the quotient group is well-defined. This is a faithful formalization.",
+  "duration_ms": 64004,
+  "cost_usd": 0.14387125
+}

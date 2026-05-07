@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram law in $\\mathbb{R}^k$. The Lean statement universally quantifies over dimension `n : ℕ` (matching the `k` in the informal text — just a variable rename) and over `x, y : EuclideanSpace ℝ (Fin n)`, which is Mathlib's standard formalization of $\\mathbb{R}^n$ with the Euclidean norm (verified in `Mathlib/Analysis/InnerProductSpace/PiL2.lean`, where `‖x‖^2 = ∑ i, ‖x i‖^2`). The conclusion `‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2` is exactly the parallelogram identity in the informal claim. No hypotheses are added or dropped and no types are changed. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 54607,
+  "cost_usd": 0.13757075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely captures the informal claim from Rudin's Exercise 4.6. The function type `ℝ → ℝ` matches \"real-valued function\" on a subset of ℝ, `E : Set ℝ` matches \"E is a set of real numbers\", hypothesis `h₁ : IsCompact E` matches \"Suppose E is compact\", the definition `G = {(x, f x) | x ∈ E}` exactly matches \"the graph of f is the set of points (x, f(x)) for x ∈ E\", and the conclusion `ContinuousOn f E ↔ IsCompact G` matches \"f is continuous on E if and only if its graph is compact\". No hypotheses have been added or dropped, and the quantifier structure and conclusion are preserved.",
+  "duration_ms": 67404,
+  "cost_usd": 0.18023375
+}

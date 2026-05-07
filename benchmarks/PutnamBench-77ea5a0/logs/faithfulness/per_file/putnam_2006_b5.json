@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b5.lean",
+  "stem": "putnam_2006_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the same claim as the informal one. The informal $f:[0,1]\\to\\mathbb{R}$ continuous is encoded as $f:\\mathbb{R}\\to\\mathbb{R}$ with `ContinuousOn f (Icc 0 1)`, a standard Mathlib idiom that yields the same set of achievable values of $I(f)-J(f)$ since the integrals over $[0,1]$ and the continuity requirement only depend on $f|_{[0,1]}$. The integrals `∫ x in (0)..1, x^2 * f x` and `∫ x in (0)..1, x * (f x)^2` match $I(f)$ and $J(f)$ exactly (the `J(x)` in the informal is a clear typo for `J(f)`). `IsGreatest S a` unfolds to `a ∈ S ∧ a ∈ upperBounds S`, which is precisely the meaning of \"maximum value\": achieved by some $f$ and an upper bound for all $f$. No hypotheses are added or dropped that narrow or widen the scope.",
+  "duration_ms": 121049,
+  "cost_usd": 0.40232399999999996
+}

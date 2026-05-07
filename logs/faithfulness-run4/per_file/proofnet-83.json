@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly captures the informal claim: `G` is a finite group (`Fintype G`, `Group G`) of order $p^n$ (`card G = p^n`), `K` is a subgroup of order $p^{n-1}$ (`card K = p^(n-1)`), and the conclusion is `K.Normal`. The primality hypothesis `hp : Nat.Prime p` makes explicit the universally understood implicit premise that $p$ is prime — the letter `p` in this context is standard notation for a prime, and without primality the claim is false. The use of `Nat` truncated subtraction `n-1` is harmless: for $n=0$ the subgroup has order 1 (trivially normal), and for $n \\geq 1$ it matches the informal statement exactly. No hypotheses are narrower or broader than the informal reading, so this is a faithful formalization.",
+  "duration_ms": 116443,
+  "cost_usd": 0.32310675
+}

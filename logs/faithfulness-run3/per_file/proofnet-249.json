@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all components of the informal claim: q is a (positive) prime via `q.Prime` on ℕ — equivalent to positive prime in ℤ, which is the standard reading; `q ≡ 3 [ZMOD 4]` is Int.ModEq expressing q ≡ 3 (mod 4); `GaussianInt ⧸ span {↑q}` is exactly ℤ[i]/(q) since GaussianInt = ℤ[i] and span of a singleton is the principal ideal; `IsField` is the field predicate; and `∃ finR : Fintype _, Fintype.card _ finR = q^2` correctly expresses \"has q² elements\" (Fintype cardinalities being canonical when they exist). Using ℕ for q rather than ℤ is immaterial since the mod 4 condition forces positivity and (q) = (-q) as ideals. No hypotheses are added or dropped relative to the intended claim.",
+  "duration_ms": 156657,
+  "cost_usd": 0.39481
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-279.lean",
+  "stem": "proofnet-279",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures \"1/2 + 1/3 + ... + 1/n is not an integer\". The sum `(Finset.range (n - 1)).sum (fun i => 1 / (i + 2))` over ℚ correctly enumerates terms 1/2, 1/3, ..., 1/n (since i ranges over {0, ..., n-2}, so i+2 ranges over {2, ..., n}). The conclusion `¬ ∃ a : ℤ, sum = (a : ℚ)` is the standard formulation of \"is not an integer\" in ℚ. The hypothesis `2 ≤ n` is the minimum required for the expression \"1/2 + ... + 1/n\" to make sense (with 1/2 itself being the first term when n=2), which is the natural reading of the informal statement. There is no drift in hypotheses, conclusion, or quantifier structure.",
+  "duration_ms": 60573,
+  "cost_usd": 0.19172849999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses match exactly: G is a topological group (via `TopologicalSpace`, `Group`, and `IsTopologicalGroup`), and C is defined as `connectedComponent (1 : G)`, which is the connected component containing the identity (1 is the identity in a multiplicative group). The conclusion `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` is the standard Mathlib-idiomatic way to say \"C is a normal subgroup of G\": since `Set G` has no group structure on its own, asserting C is a normal subgroup requires exhibiting a `Subgroup G` whose carrier equals C (this is how Mathlib itself defines `Subgroup.connectedComponentOfOne`). The two formulations are logically equivalent: if C is a normal subgroup then such an H exists (uniquely), and if such H exists then C carries a normal subgroup structure. No hypotheses are added or dropped, and no conclusion is changed.",
+  "duration_ms": 84502,
+  "cost_usd": 0.227138
+}

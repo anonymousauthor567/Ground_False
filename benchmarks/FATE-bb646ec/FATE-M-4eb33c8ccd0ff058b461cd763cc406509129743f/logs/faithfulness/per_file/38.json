@@ -1,0 +1,8 @@
+{
+  "file": "38.lean",
+  "stem": "38",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. Per Mathlib's Coset/Defs.lean convention, `MulOpposite.op g • H` (with H coerced to `Set G`) is the right coset Hg, and `g' • H.carrier` is the left coset g'H. The hypothesis `∃ g' : G, MulOpposite.op g • H = g' • H.carrier` correctly captures \"Hg equals some left coset of H\". The conjunctive conclusion `MulOpposite.op g • H = g • H.carrier ∧ g ∈ Subgroup.normalizer H` matches exactly \"Hg = gH and g ∈ N_G(H)\". Mathlib's `Subgroup.normalizer H := {g | ∀ n, n ∈ H ↔ g*n*g⁻¹ ∈ H}` is the standard group-theoretic normalizer. No hypotheses added or dropped, and quantifier structure matches.",
+  "duration_ms": 592302,
+  "cost_usd": 1.5930067500000002
+}

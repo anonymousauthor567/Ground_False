@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_b1.lean",
+  "stem": "putnam_1996_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all elements of the informal statement: (1) `selfish s = (s.card ∈ s)` matches the definition of a selfish set, (2) `(s : Set ℕ) ⊆ Set.Icc 1 n` correctly encodes \"subsets of {1,2,...,n}\", (3) `∀ ss : Finset ℕ, ss ⊂ s → ¬selfish ss` correctly expresses minimality (and since any proper subset of s ⊆ Icc 1 n is automatically in Icc 1 n, the ambient restriction is preserved), and (4) `Nat.fib` gives the correct count (verified: n=1→1, n=2→1, n=3→2). The `npos : n ≥ 1` hypothesis is a reasonable surfacing of the implicit premise in the notation \"{1,2,...,n}\", which is conventionally read as requiring n ≥ 1. The use of `encard` with the ℕ-valued solution coerces cleanly to ℕ∞. No drift in hypotheses, conclusion, or types.",
+  "duration_ms": 157524,
+  "cost_usd": 0.49537500000000007
+}

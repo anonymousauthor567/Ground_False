@@ -1,0 +1,8 @@
+{
+  "file": "S_0035.lean",
+  "stem": "S_0035",
+  "verdict": "faithful",
+  "reasoning": "The Lean `Construct` structure correctly encodes \"construct\" = concrete category over Set (category C with faithful functor U : C ⥤ Type). The `IsRealization` predicate captures \"full concrete embedding\": `F ⋙ T.U = S.U` is the concreteness condition (V∘F = U with strict equality, standard for concrete functors); `Functor.Full F` is fullness; `Function.Injective F.obj` is injective-on-objects. Faithfulness of F is automatic since `S.U` is faithful and F is concrete, so the three stated conditions correctly characterize a full concrete embedding (= realization). The theorem's quantifier structure `∃ T, ∀ S, ∃ F, IsRealization S T F` directly mirrors \"there is a construct (C,U) such that every construct has a realization to (C,U)\". Universe levels are consistently parameterized, which is the standard way to formalize such universally quantified categorical statements.",
+  "duration_ms": 229749,
+  "cost_usd": 0.7324124999999999
+}

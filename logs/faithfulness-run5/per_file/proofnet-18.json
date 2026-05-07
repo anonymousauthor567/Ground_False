@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypothesis `hm : m = p.degree` (with m : ℕ coerced to WithBot ℕ) already forces p ≠ 0 because `(0 : ℂ[X]).degree = ⊥`, so the explicit `hp : p ≠ 0` is redundant rather than narrowing the scope. The LHS `@card (p.rootSet ℂ) _ = m` correctly expresses \"p has m distinct roots\" — `Polynomial.rootSet` is defined as `(aroots).toFinset`, discarding multiplicities. The RHS `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)` correctly expresses \"p and p' have no common roots\", since disjoint sets share no elements. Even the edge case m = 0 (p a nonzero constant, p' = 0) works with Mathlib's convention that the zero polynomial's rootSet is empty. The statement is logically equivalent to the informal one.",
+  "duration_ms": 138197,
+  "cost_usd": 0.39183675
+}

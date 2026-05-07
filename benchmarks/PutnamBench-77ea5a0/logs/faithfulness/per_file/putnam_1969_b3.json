@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b3.lean",
+  "stem": "putnam_1969_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all three components: (1) the recurrence `T n * T (n+1) = n` for n ≥ 1 matches the informal \"$T_n T_{n+1} = n$ whenever $n \\geq 1$\"; (2) `Tendsto (fun n => T n / T (n+1)) atTop (𝓝 1)` is the standard formalization of $\\lim_{n\\to\\infty} T_n/T_{n+1} = 1$; (3) `Real.pi * (T 1)^2 = 2` matches the conclusion. The sequence type ℕ → ℝ is the natural reading given π appears in the conclusion. `T 0` is unconstrained, but since the conclusion only involves `T 1` and hT1 starts from n=1, this doesn't weaken or strengthen the claim. No positivity hypothesis is needed because $T_1 \\neq 0$ follows from $T_1 T_2 = 1$, and $T_1^2$ is sign-invariant. The formalization is strictly faithful.",
+  "duration_ms": 87641,
+  "cost_usd": 0.23374949999999997
+}

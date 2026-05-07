@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `CommGroup G` encodes \"abelian group\", `Fintype G` together with `card G = p*q` encodes \"of order pq\" (finiteness is implicit in stating a definite order). `{p q : Nat.Primes}` with `hpq : p ≠ q` encodes \"distinct primes\" — `Nat.Primes` is Mathlib's subtype `{p : ℕ // p.Prime}` (verified in `Data/Nat/Prime/Defs.lean`). The product `p*q` is elaborated via the coercion `Nat.Primes → ℕ`. The conclusion `IsCyclic G` matches \"G is cyclic\". No hypothesis is silently added or dropped, and no type is changed.",
+  "duration_ms": 71308,
+  "cost_usd": 0.24259275000000002
+}

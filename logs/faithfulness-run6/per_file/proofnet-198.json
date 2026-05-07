@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-198.lean",
+  "stem": "proofnet-198",
+  "verdict": "faithful",
+  "reasoning": "The Lean `Complex` structure has fields `re : ℝ` and `im : ℝ`, so `(⟨-1/2, Real.sqrt 3 / 2⟩ : ℂ)` is exactly the complex number with real part −1/2 and imaginary part √3/2, which equals $\\frac{-1+\\sqrt{3}i}{2}$. The equation `_ ^ 3 = 1` states precisely that this number's cube equals 1, matching the informal claim that it is a cube root of 1. There are no extra hypotheses, no missing hypotheses, and no changes in quantifier structure or ambient type. This is a strictly faithful formalization.",
+  "duration_ms": 38473,
+  "cost_usd": 0.13292825
+}

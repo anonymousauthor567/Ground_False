@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely mirrors the informal claim: for every complex z, it asserts existence of a real r ≥ 0 and a complex w with norm 1 such that z = r * w (where r is coerced to ℂ via Complex.ofReal). The norm `‖w‖` on ℂ coincides with the modulus `|w|`, and the non-negativity and unit-modulus conditions are stated exactly. No hypotheses are added or dropped, and the quantifier structure (∃ r, ∃ w with conjoined conditions) matches the informal existential. This is the standard polar-form statement.",
+  "duration_ms": 72248,
+  "cost_usd": 0.09369099999999998
+}

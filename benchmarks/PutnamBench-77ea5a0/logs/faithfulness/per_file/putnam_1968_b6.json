@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_b6.lean",
+  "stem": "putnam_1968_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes Putnam 1968 B6: ℚ (with its standard metric topology inherited from ℝ, as confirmed in Mathlib's Topology/Instances/Rat.lean) is not hemicompact. The ¬∃ with the conjunction \"each K_n is compact\" AND \"every compact S is contained in some K_n\" matches the informal quantifier structure exactly. The parenthetical \"(closed and bounded)\" in the informal statement is a Heine-Borel-style informal gloss of \"compact\" — the primary term is \"compact\", which Lean faithfully encodes as `IsCompact`. `IsCompact` on `Set ℚ` gives the standard topological notion of compactness in the subspace topology, which is the mathematical content of the Putnam problem. There are no dropped or added hypotheses, no changes to types or quantifier structure.",
+  "duration_ms": 138861,
+  "cost_usd": 0.41651625000000003
+}

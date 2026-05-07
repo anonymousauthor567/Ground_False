@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p13_3.lean",
+  "stem": "calculus__p13_3",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims that the tangent line to f(x) = sec²x at (π/3, f(π/3)) is given by y = 8√3·x + 4 - 8√3π/3. However, the only theorem to be proved in the Lean file is `derivative_value_at_pi_over_3`, which merely asserts the numerical identity `2·(1/cos(π/3))²·tan(π/3) = 8√3`. This is only one sub-computation (the value of the slope) needed to establish the tangent line equation. The full tangent line equation claim (y = 8√3·x + 4 - 8√3π/3) is never stated as a theorem. The informal statement implies the Lean lemma (assuming the derivative formula and standard tangent line derivation), but the Lean lemma does not imply the tangent line equation. Additionally, key facts (f(π/3) = 4 and the derivative formula) are introduced as unproved axioms rather than theorems, so they don't carry the burden of proof either.",
+  "duration_ms": 32985,
+  "cost_usd": 0.09752224999999999
+}

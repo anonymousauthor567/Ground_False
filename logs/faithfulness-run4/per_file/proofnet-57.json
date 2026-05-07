@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely matches the informal statement. `{G : Type*} [Group G] [Fintype G]` with `card G = 105` encodes \"group of order 105\". The hypothesis `(P : Sylow 3 G) [hP : P.Normal]` faithfully encodes \"a Sylow 3-subgroup of G is normal\" — `Sylow 3 G` is Mathlib's structure for Sylow 3-subgroups and `P.Normal` means the underlying subgroup is normal. The conclusion `∀ a b : G, a*b = b*a` is exactly the definition of G being abelian for a group. No hypotheses are added or dropped and the quantifier structure matches.",
+  "duration_ms": 180591,
+  "cost_usd": 0.4266905
+}

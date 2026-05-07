@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that $(1+i)^2$ divides $2$ in $\\mathbb{Z}[i]$. In Mathlib, `GaussianInt` is exactly $\\mathbb{Z}[i]$ (defined as `Zsqrtd (-1)`), and `⟨1, 1⟩ : GaussianInt` is the element with real part 1 and imaginary part 1, i.e., $1+i$. The Lean expression `(⟨1, 1⟩ : GaussianInt) ^ 2 ∣ 2` reads \"$(1+i)^2$ divides $2$\", which is precisely the informal claim \"$2$ is divisible by $(1+i)^2$\". The ambient ring, the element $1+i$, the squaring, and the divisibility relation all match exactly.",
+  "duration_ms": 8510,
+  "cost_usd": 0.04965725
+}

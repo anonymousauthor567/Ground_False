@@ -1,0 +1,8 @@
+{
+  "file": "imo_2015_p1.lean",
+  "stem": "imo_2015_p1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures both parts of IMO 2015 P1 faithfully. The `balanced` predicate matches the informal \"for any two different A, B ∈ S, ∃ C ∈ S with AC=BC\". The `centre_free` predicate matches \"for any three points A, B, C ∈ S, no P ∈ S has PA=PB=PC\" — the added distinctness hypotheses (A ≠ B, B ≠ C, A ≠ C) are the standard reading of \"three points\" needed for the definition to be non-trivial (otherwise A=B=C would always violate it via P=A). Part (1) is encoded as `∀ n ≥ 3, ∃ (S : Finset ...), balanced S ∧ S.card = n`, where the Finset coerces to a Set and `S.card = n` means exactly n points. Part (2) is encoded as a set equality against `imo_2015_p1_solution`, which is the standard \"determine all n such that P(n)\" formalization. The plane is encoded as `EuclideanSpace ℝ (Fin 2)`, and the two subproblems are joined with `∧` as is conventional. No semantic drift detected.",
+  "duration_ms": 153667,
+  "cost_usd": 0.5161085
+}

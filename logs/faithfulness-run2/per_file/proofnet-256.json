@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for any group G with Fintype G (i.e., finite) and any a : G, there exists a natural number n > 0 with a^n = 1. This matches the informal claim exactly: finiteness is captured by [Fintype G], the \"given a ∈ G\" is the universal binder on `a`, the existence of a positive integer n is `∃ n : ℕ, n > 0 ∧ ...`, and a^n = e corresponds to a^n = 1 in the multiplicative group. The quantifier structure (∀ a, ∃ n) matches \"depending on a,\" and no extra or missing hypotheses appear.",
+  "duration_ms": 12149,
+  "cost_usd": 0.0347395
+}

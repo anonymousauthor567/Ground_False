@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if P is a normal p-Sylow subgroup of G, then φ(P) = P for every automorphism φ of G. The Lean statement assumes P : Sylow p G with P.Normal (matching the hypothesis) and concludes Subgroup.Characteristic (P : Subgroup G). In Mathlib, `Subgroup.Characteristic H` means H is fixed (setwise) by every automorphism of G, i.e. ∀ φ : G ≃* G, φ(H) = H, which is exactly the informal conclusion. The prime hypothesis is included (as needed for Sylow p G to be meaningful). Hence the Lean signature precisely captures the informal claim.",
+  "duration_ms": 10596,
+  "cost_usd": 0.055874
+}

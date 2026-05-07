@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The informal claim asserts that the intersection of any collection of subspaces of a vector space V is a subspace. The Lean statement sets V as a module over a field F (i.e., a vector space), takes an arbitrary indexed family u : ι → Submodule F V (which encodes \"any collection\" of subspaces), and concludes ∃ U : Submodule F V, (⋂ i, (u i).carrier) = ↑U — i.e., the set-theoretic intersection is the underlying set of some submodule, which is precisely \"the intersection is a subspace.\" Since (u i).carrier equals the coercion to Set by Submodule.mem_carrier, and the witness U = ⨅ i, u i exists by Submodule.coe_iInf, this is logically equivalent to the informal claim. No hypotheses are dropped or added, no types are changed, and the quantifier structure matches.",
+  "duration_ms": 93587,
+  "cost_usd": 0.31914624999999996
+}

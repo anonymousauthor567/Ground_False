@@ -1,0 +1,8 @@
+{
+  "file": "imo_2011_p4.lean",
+  "stem": "imo_2011_p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes IMO 2011 P4. The permutation σ : Equiv.Perm (Fin n) represents the placement order (σ j = step at which weight 2^j is placed), place_left : Fin n → Bool encodes the pan choice for each weight, and weight_of_left_pan/weight_of_right_pan correctly compute the cumulative weights on each pan after step \"step\" by summing 2^j.1 over weights with σ j ≤ step. The is_valid_placement predicate quantifies over step : Fin n (giving n checks, covering the state after each of the n placements from step 0 to step n-1), which correctly captures \"the right pan is never heavier than the left pan\". The count over pairs (σ, place_left) in valid_placements matches \"the number of ways in which this can be done\" — i.e., total ways to order placements AND assign pans. The imo_2011_p4_solution being `sorry` is the natural encoding of a \"determine the count\" problem and does not affect faithfulness of the theorem statement itself.",
+  "duration_ms": 219866,
+  "cost_usd": 0.6853209999999998
+}

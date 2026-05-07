@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Rudin Exercise 2.19(a), using Rudin's Definition 2.45 of \"separated\": two sets A, B are separated iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅. The Lean formalization unfolds this definition directly as the conclusion `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅`. The hypotheses (metric space X, A and B closed, A and B disjoint) match exactly. Notably, the author correctly avoids Mathlib's `SeparatedNhds`, which encodes a stronger notion (separated by disjoint open neighborhoods) not matching Rudin's \"separated\" definition in general. The types, quantifier structure, and logical content are all preserved.",
+  "duration_ms": 40408,
+  "cost_usd": 0.1710745
+}

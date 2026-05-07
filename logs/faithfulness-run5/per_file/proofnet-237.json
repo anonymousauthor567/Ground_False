@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `[Fintype G] [Group G]` with `card G = 105` (from `open Fintype`, giving `Fintype.card G = 105`), which precisely captures |G| = 105. The conclusion `(∃ (P : Sylow 5 G), P.Normal) ∧ (∃ (P : Sylow 7 G), P.Normal)` asserts exactly \"there exists a normal Sylow 5-subgroup and there exists a normal Sylow 7-subgroup\" — the standard reading of the informal claim. I confirmed in `Mathlib/GroupTheory/Sylow.lean` that `Sylow p G` extends `Subgroup G` and `P.Normal` is the standard Mathlib predicate for a Sylow subgroup being a normal subgroup (used throughout that file). No hypotheses are silently added or dropped, types match, and the quantifier structure is preserved. This is a strictly faithful formalization.",
+  "duration_ms": 80932,
+  "cost_usd": 0.2700575
+}

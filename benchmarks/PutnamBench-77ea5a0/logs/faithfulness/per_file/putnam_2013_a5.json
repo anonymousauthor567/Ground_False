@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_a5.lean",
+  "stem": "putnam_2013_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal Putnam 2013 A5 statement. The area functions match the geometric area: `area2` uses 2D Lebesgue volume of the triangle's convex hull in ℝ²; `area3` uses μH[2] (2-dim Hausdorff measure) of the triangle in ℝ³, which by Mathlib's `hausdorffMeasure_pi_real` is normalized geometrically and, being isometry-invariant, gives the standard Euclidean area of a triangle in ℝ³. The sum `∑i∑j∑k if (i<j ∧ j<k) then ...` is equivalent to summing over 1≤i<j<k≤m. Although `a : Fin m → Fin m → Fin m → ℝ` is defined for all triples rather than only strictly increasing ones (as noted in the file comment), only i<j<k values enter the sum, so the quantification ∀a is equivalent to quantifying over lists indexed by i<j<k. The conclusion `∀ a, areadef2 a → areadef3 a` exactly matches \"area definite for ℝ² implies area definite for ℝ³\".",
+  "duration_ms": 394010,
+  "cost_usd": 0.8199035000000001
+}

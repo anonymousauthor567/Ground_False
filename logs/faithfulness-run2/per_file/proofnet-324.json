@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-324.lean",
+  "stem": "proofnet-324",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that the series $\\sum 1/(k(\\log k)^p)$ converges for $p > 1$. Since the terms are only defined for $k \\geq 2$ (otherwise $\\log k \\leq 0$ or division by zero occurs), the conventional reading is that the sum is taken over $k \\geq 2$. The Lean statement uses the reindexing $k \\mapsto k+2$ so that as $k$ ranges over $\\mathbb{N}$ starting at 0, the actual denominator arguments range over $2, 3, 4, \\ldots$, matching exactly the intended domain of summation. `Summable` corresponds to the convergence of the series, and for non-negative real terms this is precisely the notion of convergence intended. Thus the Lean formalization captures the same mathematical claim.",
+  "duration_ms": 14245,
+  "cost_usd": 0.0671175
+}

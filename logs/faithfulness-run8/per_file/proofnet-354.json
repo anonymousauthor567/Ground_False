@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes all components of the informal claim. The metric space `X`, the sets `K, F : Set X`, and the three hypotheses `IsCompact K`, `IsClosed F`, `Disjoint K F` directly correspond to \"K and F are disjoint sets in a metric space X, K compact, F closed\". The conclusion `∃ δ : ℝ, δ > 0 ∧ ∀ p q : X, p ∈ K → q ∈ F → dist p q > δ` matches exactly \"there exists δ > 0 such that d(p,q) > δ if p ∈ K, q ∈ F\", preserving the strict inequality and the universal quantification over the two sets. No hypotheses are added, dropped, or altered, and no types are changed.",
+  "duration_ms": 42229,
+  "cost_usd": 0.17699825000000002
+}

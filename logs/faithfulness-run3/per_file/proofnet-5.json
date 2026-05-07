@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that if G/Z (where Z is the center) is cyclic, then G is abelian and G = Z. The Lean hypothesis `IsCyclic (G ⧸ center G)` directly encodes \"G/Z is cyclic\". The conclusion `center G = ⊤` states that the center equals the whole group, which is exactly equivalent to G being abelian and to G = Z (both consequences asserted by the informal statement). The group G is quantified over all groups (via `(G : Type*) [Group G]`), matching the informal universal reading. No hypotheses are added or dropped, and the types match standard Mathlib conventions.",
+  "duration_ms": 14412,
+  "cost_usd": 0.04721775
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "informal": "If $A$ and $B$ are disjoint closed sets in some metric space $X$, prove that they are separated.",
+  "lean": "\ntheorem Rudin_exercise_2_19a {X : Type*} [MetricSpace X]\n  (A B : Set X) (hA : IsClosed A) (hB : IsClosed B) (hAB : Disjoint A B) :\n  SeparatedNhds A B",
+  "verdict": "stronger",
+  "reasoning": "Rudin's Definition 2.45 says two sets A and B are \"separated\" iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅. Mathlib's `SeparatedNhds A B` asserts the existence of disjoint open neighborhoods U ⊇ A, V ⊇ B. In general topological spaces, `SeparatedNhds` strictly implies Rudin's separation (disjoint open neighborhoods force the closures to miss the other set), but the converse fails. So the Lean conclusion is stronger than what the informal statement asks — even though in a metric space (which is normal) disjoint closed sets do satisfy both, the Lean theorem asserts the stronger property `SeparatedNhds` rather than the weaker \"separated\" notion Rudin defines. Therefore the Lean statement is logically stronger than the informal one.",
+  "duration_ms": 17951,
+  "cost_usd": 0.074944
+}

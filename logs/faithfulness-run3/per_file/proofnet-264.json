@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if φ is a surjective homomorphism from G to G' and N is a normal subgroup of G, then φ(N) is normal in G'. The Lean signature encodes exactly this: φ : G →* G' is a group homomorphism, hφ : Function.Surjective φ captures \"onto\", [N.Normal] captures N ⊲ G, and the conclusion (Subgroup.map φ N).Normal captures φ(N) ⊲ G'. The quantification over arbitrary groups G and G' and arbitrary such φ, N is preserved, and Subgroup.map φ N is Mathlib's standard notion of the image subgroup φ(N). No hypotheses are added or dropped.",
+  "duration_ms": 8726,
+  "cost_usd": 0.045458
+}

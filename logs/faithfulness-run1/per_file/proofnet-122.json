@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "informal": "Let $X$ be locally path connected. Show that every connected open set in $X$ is path connected.",
+  "lean": "\ntheorem Munkres_exercise_25_4 {X : Type*} [TopologicalSpace X]\n  [LocPathConnectedSpace X] (U : Set X) (hU : IsOpen U)\n  (hcU : IsConnected U) : IsPathConnected U",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in a locally path connected space, every connected open set is path connected. The Lean signature assumes `LocPathConnectedSpace X`, takes an open set `U` with `IsOpen U` and `IsConnected U`, and concludes `IsPathConnected U`. In Mathlib, `IsConnected` bundles nonemptiness with preconnectedness, and `IsPathConnected` likewise requires nonemptiness; this matches the standard convention in Munkres where \"connected\" sets are implicitly nonempty (the empty set case is vacuous anyway). The hypotheses, conclusion, and quantifier structure all align with the informal claim.",
+  "duration_ms": 10393,
+  "cost_usd": 0.05267725000000001
+}

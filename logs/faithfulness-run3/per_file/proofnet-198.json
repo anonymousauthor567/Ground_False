@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-198.lean",
+  "stem": "proofnet-198",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that $\\frac{-1 + \\sqrt{3}i}{2} = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i$ is a cube root of 1. The Lean statement constructs the complex number with real part $-1/2$ and imaginary part $\\sqrt{3}/2$ via the anonymous constructor `⟨-1/2, Real.sqrt 3 / 2⟩ : ℂ`, which is exactly this complex number. It then asserts the cube equals 1. This matches the informal claim exactly — no hypotheses are added or removed, the object is the same, and the conclusion (cube equals 1) is the same.",
+  "duration_ms": 8181,
+  "cost_usd": 0.049340499999999995
+}

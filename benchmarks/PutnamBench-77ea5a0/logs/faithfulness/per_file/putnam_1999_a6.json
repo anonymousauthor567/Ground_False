@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a6.lean",
+  "stem": "putnam_1999_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The sequence is modeled as `a : ℤ → ℝ` with the correct base cases `a 1 = 1, a 2 = 2, a 3 = 24`. The recurrence `∀ n : ℕ, n ≥ 4 → a n = (6·a(n-1)²·a(n-3) - 8·a(n-1)·a(n-2)²) / (a(n-2)·a(n-3))` captures the stated formula; since `n ≥ 4` the indices `n-1, n-2, n-3` are all ≥ 1 so Lean's elaboration of the subtractions (whether as ℕ or ℤ) yields the same integer values. The conclusion `∀ n, n ≥ 1 → ∃ k : ℤ, a n = k * n` — with `n : ℤ` inferred from `a n` and `k * n` coerced to ℝ — exactly expresses that $a_n$ is an integer multiple of $n$ for all positive integers $n$. No hypothesis is added or dropped, no quantifier changed, and no conclusion weakened or strengthened.",
+  "duration_ms": 547048,
+  "cost_usd": 1.35410625
+}

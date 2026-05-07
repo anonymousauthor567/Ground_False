@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim: given a prime p, a Sylow p-subgroup P of G (defined in Mathlib as a maximal p-subgroup, coinciding with the classical notion for finite groups), and the assumption that P is normal, every Sylow p-subgroup Q equals P — i.e., P is the unique Sylow p-subgroup. The hypotheses and conclusion match. Although the Lean version does not explicitly assume G is finite (whereas Herstein's textbook context is finite groups), the theorem \"a normal maximal p-subgroup is unique\" is actually true for arbitrary groups (if Q is another maximal p-subgroup, PQ is a subgroup by normality of P, and it is a p-group since both P and PQ/P ≃ Q/(P∩Q) are p-groups; maximality then forces P = Q). So no finiteness hypothesis is silently dropped in a way that affects truth or content. The quantifier structure ∀Q, P=Q is the correct encoding of uniqueness.",
+  "duration_ms": 246665,
+  "cost_usd": 0.709448
+}

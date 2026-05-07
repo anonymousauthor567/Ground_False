@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram law in R^k for vectors x, y ∈ R^k. The Lean formalization uses `EuclideanSpace ℝ (Fin n)`, which is Mathlib's standard encoding of R^n with the Euclidean inner-product norm — so `‖·‖` corresponds exactly to the Euclidean |·|. The variable renaming k → n is immaterial, and n is universally quantified over ℕ matching the \"for any k\" reading. The conclusion `‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2` matches the informal equality verbatim, and x, y are universally quantified over the space. No hypotheses are added or dropped, and no types are changed. This is a strictly faithful formalization.",
+  "duration_ms": 26848,
+  "cost_usd": 0.08166400000000001
+}

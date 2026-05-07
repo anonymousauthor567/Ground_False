@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The informal statement fixes an integer n > 1 such that (ab)^n = a^n b^n for all a, b ∈ G, and asks to prove (aba⁻¹b⁻¹)^(n(n-1)) = e. The Lean formalization parameterizes n as a natural number with hn : n > 1, which is equivalent to \"fixed integer n > 1\" since n > 1 forces positivity and natural-number powers coincide with integer powers in this range. The hypothesis `∀ a b, (a*b)^n = a^n * b^n` and the conclusion `∀ a b, (a*b*a⁻¹*b⁻¹)^(n*(n-1)) = 1` match the informal claim exactly, including the quantifier structure and the exponent n(n-1). This is a faithful formalization.",
+  "duration_ms": 22418,
+  "cost_usd": 0.07110675000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p31.lean",
+  "stem": "number_theory__p31",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"(x²+1)/(y²-5) is not an integer for integers x, y > 2\" is equivalent to saying (y²-5) does not divide (x²+1) in ℤ. Since y > 2 forces y² - 5 ≥ 4 > 0, the denominator is nonzero, and the rational (x²+1)/(y²-5) is an integer iff ∃ z : ℤ, x²+1 = z·(y²-5) — which matches Mathlib's `dvd_iff_exists_eq_mul_left` (a ∣ b ↔ ∃ c, b = c*a). The Lean statement negates this existential, correctly quantifies universally over x, y : ℤ with 2 < x and 2 < y, and uses the right integer types throughout. Hypotheses, conclusion, quantifier structure, and types all match the informal statement exactly.",
+  "duration_ms": 127760,
+  "cost_usd": 0.23318975
+}

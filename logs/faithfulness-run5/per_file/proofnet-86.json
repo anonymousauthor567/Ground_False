@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures \"odd prime p\" via `Nat.Prime p` and `Odd p`. The sum `∑ i ∈ Finset.range (p-1), (1/(i+1) : ℚ)` correctly enumerates 1/1 + 1/2 + ... + 1/(p-1) in ℚ. The expression `(a/b : ℚ)` with `a b : ℤ` elaborates as casting to ℚ and dividing in ℚ. The universal quantification over all integer pairs (a,b) representing the sum is equivalent to the informal \"specific representation\" reading: if H_{p-1} = n/d in lowest terms with p∣n, then any a/b = n/d forces a to be a multiple of n (hence of p); the degenerate b=0 case gives 0/0 = 0 ≠ H_{p-1} so the implication holds vacuously. The conclusion `↑p ∣ a` matches exactly.",
+  "duration_ms": 102029,
+  "cost_usd": 0.30821224999999997
+}

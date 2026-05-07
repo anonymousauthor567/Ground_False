@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p7_1.lean",
+  "stem": "real_analysis__p7_1",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts ∃ c ∈ (0,8) with f'(c) = 0, specifically c = 4. The Lean lemma instead proves a general derivative formula: ∀ x ∈ (0,8), HasDerivAt f ((1/3)(8x-x²)^(-2/3)(8-2x)) x. Evaluating this formula at x = 4 yields 0 (since (8-2·4) = 0), so the Lean lemma implies the informal existence/uniqueness claim about the critical point c = 4. However, the informal claim does not imply the derivative formula at all other points in (0,8). Thus Lean → informal but not vice versa, making the Lean statement strictly stronger. It proves an entire pointwise derivative identity on the interval rather than the single existence-of-critical-point claim requested.",
+  "duration_ms": 160388,
+  "cost_usd": 0.449072
+}

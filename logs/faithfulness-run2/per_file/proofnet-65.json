@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-65.lean",
+  "stem": "proofnet-65",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $\\mathbb{Z}[i]/(1+i)$ is a field of order 2. The Lean signature encodes $\\mathbb{Z}[i]$ as `GaussianInt`, encodes $1+i$ as `⟨1, 1⟩` (which in `Zsqrtd` is the element with re=1, im=1, i.e. $1+i$), and takes `Ideal.span` of this singleton to form the ideal $(1+i)$. The quotient ring is then formed, and the statement asserts both `IsField` on the quotient (it is a field) and the existence of a `Fintype` instance with `Fintype.card = 2` (it has exactly 2 elements). This precisely captures \"is a field of order 2\" without adding or removing hypotheses or conclusions.",
+  "duration_ms": 15351,
+  "cost_usd": 0.059243500000000004
+}

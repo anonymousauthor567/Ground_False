@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b4.lean",
+  "stem": "putnam_1992_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 1992 B4. The `IsValid` predicate correctly encodes the three hypotheses: nonzero, degree < 1992, and coprime to x³-x (over ℝ[X], a PID, `IsCoprime` is equivalent to \"no nonconstant common factor\"). The `pair p f` relation asserts that f/g equals the 1992nd iterated derivative pointwise. Although this is pointwise equality (rather than equality in the field of rational functions), any representation must satisfy f = F·h, g = G·h where F/G is the lowest-term rational function, so the minimum deg(f) equals deg(F)—matching the informal question. The `IsLeast` on `{k : ℕ | ...}` with `k = f.degree` correctly forces f ≠ 0 (degree ≠ ⊥) and captures \"smallest possible degree\". The quantification over valid p matches \"smallest possible\" over all choices.",
+  "duration_ms": 1254126,
+  "cost_usd": 3.21814525
+}

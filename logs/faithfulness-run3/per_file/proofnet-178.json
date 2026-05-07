@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis ‖z‖ = 1 encodes \"point on the unit circle\". The partial sum s(n) = ∑_{i ∈ range n} z^(i+1)/(i+1)^2 correctly equals ∑_{k=1}^{n} z^k/k^2, which is the standard indexing for this series (since the k=0 term is undefined). The conclusion ∃ y, Tendsto s atTop (𝓝 y) is the standard Lean/Mathlib way to express \"the series converges at z\" — i.e., the sequence of partial sums has a limit. No extra hypotheses are added and no hypotheses are dropped. This is a standard, equivalent encoding.",
+  "duration_ms": 20851,
+  "cost_usd": 0.07824075
+}

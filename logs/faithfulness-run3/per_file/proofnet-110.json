@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-110.lean",
+  "stem": "proofnet-110",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures both parts of the informal claim. T is the collection of open intervals with rational endpoints (`Ioo ↑a ↑b` with `a b : ℚ, a < b`), matching $(a,b)$ with rational $a,b$. The first two conjuncts are exactly Munkres's two basis conditions (covering and the intersection refinement property), and the third conjunct asserts that the generated topology differs from the lower limit topology (correctly defined via `Ico`, the half-open intervals $[a,b)$). Types, quantifier structure, and conclusions all align without adding or dropping hypotheses.",
+  "duration_ms": 33189,
+  "cost_usd": 0.11311850000000001
+}

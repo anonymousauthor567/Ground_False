@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_a5.lean",
+  "stem": "putnam_1981_a5",
+  "verdict": "stronger",
+  "reasoning": "The informal statement assumes \"P has n distinct real roots all greater than 1\", which under standard mathematical reading means P's real roots are exactly these n roots, all > 1. The Lean formalization defines n(P) as simply the count of real roots in (1, ∞) and quantifies universally over ALL polynomials P, with no hypothesis requiring P's other real roots (if any) to also be > 1. Thus the Lean claim applies to polynomials like P(x) = (x-0.5)(x-2)(x-3) which have roots both ≤ 1 and > 1 — polynomials outside the scope of the informal statement. The Lean claim implies the informal one (by specialization), but the informal does not imply the Lean one, since it says nothing about polynomials with roots ≤ 1. This is a case of dropping a restrictive hypothesis (all roots > 1), making the Lean statement strictly stronger than what the informal asks.",
+  "duration_ms": 1414816,
+  "cost_usd": 3.90828875
+}

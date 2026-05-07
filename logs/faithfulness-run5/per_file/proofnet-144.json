@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `n > 0` matches \"positive integer n\". The expression `10^10^10^n + 10^10^n + 10^n - 1` correctly encodes $10^{10^{10^n}}+10^{10^n}+10^n-1$ because `^` is right-associative in Lean 4. The natural number subtraction is safe since the sum is always at least 3. `Nat.Prime` matches the standard notion of primality, and `¬ Nat.Prime` asserts \"not prime\" as required. No hypotheses are dropped or added beyond what the informal statement specifies.",
+  "duration_ms": 16151,
+  "cost_usd": 0.0661245
+}

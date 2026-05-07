@@ -1,0 +1,8 @@
+{
+  "file": "43.lean",
+  "stem": "43",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes each component of the informal statement: `F : IntermediateField ℚ ℂ` represents a field between ℚ and ℂ; `[FiniteDimensional ℚ F]` and `[IsGalois ℚ F]` capture \"finite Galois\"; and `∀ f g : F ≃ₐ[ℚ] F, f * g = g * f` expresses that the Galois group is abelian. The minimal monic polynomial is correctly encoded via `minpoly ℚ α`, which in Mathlib is always the monic minimal polynomial when α is integral (guaranteed by finiteness of F/ℚ). The norm `‖·‖` on `α : F` agrees with the complex absolute value, since IntermediateField inherits the normed structure from ℂ via `SubalgebraClass.normedRing`. The conclusion quantifies universally over `β : ℂ` with `β ∈ f.rootSet ℂ`, matching \"for every complex root β of f(x), |β| = 1\". No hypotheses are silently added or omitted.",
+  "duration_ms": 516348,
+  "cost_usd": 1.02143525
+}

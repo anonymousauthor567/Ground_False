@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The hypotheses encode precisely: G is a finite group (via [Fintype G], needed to give meaning to |G| = pqr), |G| = p*q*r (hG), p, q, r are all prime (hpqr1), and p < q < r (hpqr). The conclusion is a three-way disjunction asserting the existence of a normal Sylow subgroup for one of p, q, or r, using Mathlib's standard `Sylow p G` structure (a maximal p-subgroup) and the `P.Normal` predicate (the underlying subgroup being normal in G). This matches \"G has a normal Sylow subgroup for either p, q or r\" exactly. No hypotheses are added or dropped beyond what the informal claim requires, and the quantifier structure and types are correct.",
+  "duration_ms": 41734,
+  "cost_usd": 0.17215175
+}

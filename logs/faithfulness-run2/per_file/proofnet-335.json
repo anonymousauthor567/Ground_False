@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the n complex numbers z_1, ..., z_n as a function f : ℕ → ℂ with the sum taken over range n, which is logically equivalent to universal quantification over finite sequences of n complex numbers (values of f outside range n don't affect either side). The norm ‖·‖ on ℂ is precisely the complex absolute value |·|, and the conclusion ‖∑ f i‖ ≤ ∑ ‖f i‖ exactly matches the triangle inequality in the informal statement. No hypotheses are added or dropped, and the quantifier structure (universal in n and the sequence) is preserved.",
+  "duration_ms": 11750,
+  "cost_usd": 0.050336000000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "balticway_2015_p7.lean",
+  "stem": "balticway_2015_p7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. `Ladies := Fin 100` matches the 100-member club. `had_tea.degree l = 56` uses Mathlib's `degree = #(G.neighborFinset v)`, which correctly counts the number of distinct other ladies adjacent to `l` (no self-loops in `SimpleGraph`), matching \"tea with exactly 56 of the other members\". The existence of a 50-clique captures \"the Board of 50 ladies all had tea with one another\" — the Lean existential form is mathematically equivalent to the informal naming of a specific set with that property. The conclusion `group1 ∪ group2 = univ ∧ Disjoint group1 group2 ∧ IsClique group1 ∧ IsClique group2` encodes a partition of the club into two tea-cliques, matching \"split into two groups so that within each group any lady has had tea with any other.\" While the Lean version technically allows one group to be empty whereas \"split into two groups\" might suggest non-emptiness, this edge case is impossible under the degree-56 hypothesis (the other group would need to be a 100-clique, requiring degree 99), so the two readings coincide.",
+  "duration_ms": 221681,
+  "cost_usd": 0.5875239999999999
+}

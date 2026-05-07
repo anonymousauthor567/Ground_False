@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "informal": "Prove that if a group contains exactly one element of order 2 , then that element is in the center of the group.",
+  "lean": "\ntheorem Artin_exercise_2_4_19 {G : Type*} [Group G] {x : G}\n  (hx : orderOf x = 2) (hx1 : ∀ y, orderOf y = 2 → y = x) :\n  x ∈ center G",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `orderOf x = 2` together with `∀ y, orderOf y = 2 → y = x` exactly express \"x is the unique element of order 2 in G,\" which matches \"the group contains exactly one element of order 2.\" The conclusion `x ∈ center G` is the informal claim that this element lies in the center. The group G is arbitrary, matching the informal universal quantification. No extra hypotheses (like finiteness or commutativity) are imposed, and nothing is dropped. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 10500,
+  "cost_usd": 0.044538749999999995
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "informal": "Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be an infinitely differentiable function satisfying $f(0)=0, f(1)=1$, and $f(x) \\geq 0$ for all $x \\in$ $\\mathbb{R}$. Show that there exist a positive integer $n$ and a real number $x$ such that $f^{(n)}(x)<0$.",
+  "lean": "\ntheorem Putnam_exercise_2018_a5 (f : ℝ → ℝ) (hf : ContDiff ℝ ⊤ f)\n  (hf0 : f 0 = 0) (hf1 : f 1 = 1) (hf2 : ∀ x, f x ≥ 0) :\n  ∃ (n : ℕ+) (x : ℝ), iteratedDeriv n f x < 0",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: `ContDiff ℝ ⊤ f` encodes \"infinitely differentiable\" (smooth) on ℝ, `hf0`/`hf1` give f(0)=0 and f(1)=1, and `hf2` gives f(x) ≥ 0 for all x ∈ ℝ. The conclusion uses `n : ℕ+` (a positive integer) and `iteratedDeriv n f x < 0`, which is exactly \"there exist a positive integer n and a real x with f^{(n)}(x) < 0\". Quantifier structure (∃ n, ∃ x) and types (ℝ → ℝ) match. No extra or missing hypotheses.",
+  "duration_ms": 7493,
+  "cost_usd": 0.04769325
+}

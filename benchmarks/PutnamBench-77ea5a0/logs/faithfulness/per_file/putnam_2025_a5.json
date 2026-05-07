@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a5.lean",
+  "stem": "putnam_2025_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses a 0-indexed reframing where Lean's `n` = informal `n-1` (so permutations are of `Fin (n+1)` and the sign sequence has length `n`). The hypothesis `1 ≤ n` in Lean corresponds exactly to the informal `n ≥ 2`. The condition `0 < (s i : ℤ) * ((σ i.succ : ℤ) - (σ i.castSucc : ℤ))` correctly encodes $s_i(a_{i+1} - a_i) > 0$ since `i.castSucc` and `i.succ` denote the embeddings of $i$ and $i+1$ into `Fin (n+1)`. Relabeling permutations from $\\{1,\\ldots,n\\}$ to `Fin (n+1)` preserves the count because the condition only depends on differences. The maximality formulation as an iff with the solution set correctly captures \"determine the sequences for which f(s) is maximal\". The solution set describes the two alternating sign patterns, matching the expected answer.",
+  "duration_ms": 407198,
+  "cost_usd": 0.70299725
+}

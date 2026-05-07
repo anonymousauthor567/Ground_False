@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `CommGroup G` with `Fintype G` means finite abelian group. `n ∣ card G` together with the fact that any group has cardinality ≥ 1 (the identity is always present) forces n > 0, matching \"positive divisor.\" The conclusion asserts the existence of a subgroup H with |H| = n. The hint \"Use Cauchy's Theorem and induction\" is a proof strategy suggestion, not part of the statement itself. The slight oddity of existentially quantifying over `H_fin : Fintype H` is harmless encoding — Subgroup G inherits a canonical Fintype from G, and any two Fintype instances yield the same cardinality, so this is semantically equivalent to asserting a subgroup of order n exists.",
+  "duration_ms": 34200,
+  "cost_usd": 0.1407655
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-43.lean",
+  "stem": "proofnet-43",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the additive group ℚ has no proper subgroups of finite index. The Lean signature quantifies over arbitrary `AddSubgroup ℚ` H, assumes `H ≠ ⊤` (i.e., H is a proper subgroup), and concludes `H.index = 0`. In Mathlib, `Subgroup.index` is defined as `Nat.card (G ⧸ H)`, which is 0 exactly when the quotient is infinite (cf. `index_eq_zero_iff_infinite`). So `H.index = 0` correctly encodes \"H does not have finite index.\" The use of `AddSubgroup ℚ` matches Dummit-Foote 3.2.21a, which concerns the additive group of rationals. The Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 89747,
+  "cost_usd": 0.25716825
+}

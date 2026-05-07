@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-331.lean",
+  "stem": "proofnet-331",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the Putnam 2018 B4 claim. The initial conditions `x 0 = 1`, `x 1 = a`, `x 2 = a` match the informal $x_0 = 1$ and $x_1 = x_2 = a$. The recurrence `∀ n ≥ 2, x (n+1) = 2*(x n)*(x (n-1)) - x (n-2)` matches $x_{n+1} = 2 x_n x_{n-1} - x_{n-2}$ for $n \\geq 2$ (natural subtraction is safe since $n \\geq 2$). The hypothesis `∃ n, x n = 0` captures \"$x_n = 0$ for some $n$\". The conclusion `∃ c ≠ 0, Periodic x c` with Mathlib's `Periodic x c := ∀ n, x (n + c) = x n` and `c : ℕ` with `c ≠ 0` correctly expresses \"the sequence is periodic\" with positive period. The universal quantification over sequences satisfying the hypotheses is equivalent to the statement about the uniquely determined sequence.",
+  "duration_ms": 70937,
+  "cost_usd": 0.23441725000000002
+}

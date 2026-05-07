@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all `x : ℝ` and `y : ℚ` with `y ≠ 0`, and concludes `Irrational x → Irrational (x * y)`. This matches the informal statement: `y : ℚ` with `h : y ≠ 0` exactly models \"r is rational, r ≠ 0\"; `Irrational` in Mathlib (`x ∉ Set.range ((↑) : ℚ → ℝ)`) matches \"not rational\"; and `x * y` (with automatic coercion of `y : ℚ` to `ℝ`) equals `y * x = rx` by commutativity of multiplication on ℝ, so `Irrational (x * y)` is equivalent to `Irrational (rx)`. No hypotheses are added or removed beyond what the informal statement requires.",
+  "duration_ms": 46648,
+  "cost_usd": 0.15291524999999997
+}

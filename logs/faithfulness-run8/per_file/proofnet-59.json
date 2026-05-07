@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that in an integral domain R, if x² = 1 then x = ±1. The Lean formalization uses `[CommRing R] [IsDomain R]`, which in Mathlib precisely encodes \"integral domain\" (a commutative ring with no zero divisors and 0 ≠ 1, since `IsDomain` extends `IsCancelMulZero` and `Nontrivial`). The hypothesis `hx : x^2 = 1` matches the informal hypothesis, and the conclusion `x = 1 ∨ x = -1` is exactly \"x = ±1\". There is no drift in hypotheses, conclusion, types, or quantifier structure.",
+  "duration_ms": 30284,
+  "cost_usd": 0.117123
+}

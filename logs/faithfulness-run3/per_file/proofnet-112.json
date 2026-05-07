@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if U is open in X and A is closed in X, then U−A is open and A−U is closed. The Lean statement takes an arbitrary topological space X, sets U and A, hypotheses `IsOpen U` and `IsClosed A`, and concludes `IsOpen (U \\ A) ∧ IsClosed (A \\ U)`. The set difference `\\` in Mathlib corresponds exactly to the mathematical \"−\" of sets. Both parts of the conjunction match the two claims in the informal statement, and the hypotheses match precisely. This is a faithful formalization.",
+  "duration_ms": 15050,
+  "cost_usd": 0.03561575
+}

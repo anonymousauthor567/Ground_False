@@ -1,0 +1,8 @@
+{
+  "file": "95.lean",
+  "stem": "95",
+  "verdict": "faithful",
+  "reasoning": "Unwinding the pointwise actions: `x⁻¹ • (M : Set G) = {x⁻¹ * m : m ∈ M}` (the left coset x⁻¹M), and `op x • S = {s * x : s ∈ S}` (since `Mul.toSMulMulOpposite` gives `op a • b = b * a`). Composing, `op x • (x⁻¹ • M) = {x⁻¹ * m * x : m ∈ M}`, which is exactly x⁻¹Mx. The hypothesis `∀ x, op x • (x⁻¹ • M) ⊆ M` captures \"x⁻¹Mx ⊂ M for all x ∈ G\", and the conclusion `∀ x, op x • (x⁻¹ • M) = M` captures \"x⁻¹Mx = M\" with the implicit universal quantification preserved. The type `M : Subgroup G` in a `Group G` matches \"M is a subgroup of G\". No hypotheses are added or dropped; the conjugation encoding is correct.",
+  "duration_ms": 140673,
+  "cost_usd": 0.36970225
+}

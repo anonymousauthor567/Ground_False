@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any abelian simple group G is isomorphic to Z_p for some prime p, equivalently: G is cyclic of prime order. The Lean conclusion `IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (@card G G_fin)` captures exactly this: it asserts G is cyclic and admits a Fintype structure (i.e., G is finite) whose cardinality is prime. A cyclic group of prime order is isomorphic to ZMod p, and conversely. The hypotheses `CommGroup G` and `IsSimpleGroup G` directly match \"abelian simple group\", and finiteness is not assumed (it is derived as part of the conclusion through the existential Fintype), faithfully matching the parenthetical \"do not assume G is a finite group\". So the two statements are logically equivalent.",
+  "duration_ms": 132153,
+  "cost_usd": 0.40895225
+}

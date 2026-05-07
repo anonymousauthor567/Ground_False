@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-32.lean",
+  "stem": "proofnet-32",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for elements x and g in a group G, the order of x equals the order of g⁻¹xg. The Lean signature takes an arbitrary type G with a Group instance, and elements x g : G, concluding orderOf x = orderOf (g⁻¹ * x * g). The notation |·| in group theory denotes order, which Mathlib represents as `orderOf`. The quantification over x and g is correctly captured by explicit binders, and the universal claim \"for any group\" is captured by the type-class parameter `{G : Type*} [Group G]`. The conjugation expression g⁻¹xg corresponds exactly to g⁻¹ * x * g. No hypotheses are added or dropped, and the conclusion is an equality matching the informal one.",
+  "duration_ms": 30102,
+  "cost_usd": 0.11232824999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_a6.lean",
+  "stem": "putnam_1969_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The sequence `x : ℕ → ℝ` represents the real sequence $(x_n)$; the recurrence `y n = x (n-1) + 2 * (x n)` for `n ≥ 2` matches $y_n = x_{n-1} + 2x_n$ (natural subtraction is safe since `n ≥ 2`). The hypothesis `∃ c, Tendsto y atTop (𝓝 c)` is the standard Mathlib encoding of \"(y_n) converges\", and the conclusion `∃ C, Tendsto x atTop (𝓝 C)` likewise encodes \"(x_n) converges\". The fact that `y 0` and `y 1` are unconstrained is immaterial since convergence only depends on the tail. The offset between 1-indexing (informal) and 0-indexing (Lean) is just a shift and does not affect the mathematical content.",
+  "duration_ms": 105559,
+  "cost_usd": 0.35658575000000003
+}

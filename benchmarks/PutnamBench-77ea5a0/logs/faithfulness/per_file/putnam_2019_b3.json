@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b3.lean",
+  "stem": "putnam_2019_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. Orthogonality of Q is encoded via dot products of both rows and columns (redundant for square matrices but mathematically equivalent to being orthogonal). The unit vector condition `uᵀ*u = 1` correctly encodes u^T u = 1 via the 1×1 identity matrix. P = 1 - 2*(u*uᵀ) exactly matches I - 2uu^T. The conclusion \"det(Q-I) ≠ 0 → det(PQ-I) = 0\" correctly encodes \"1 is not an eigenvalue of Q implies 1 is an eigenvalue of PQ\" since a matrix has 1 as an eigenvalue iff det(M-I)=0. The `n > 0` hypothesis is needed for the statement to be true (at n=0, the hypothesis holds vacuously but the conclusion fails since det of a 0×0 matrix is 1), and it's implicit in the phrases \"n-by-n matrix\" and \"u ∈ ℝⁿ\" — making an implicit premise explicit is faithful.",
+  "duration_ms": 129928,
+  "cost_usd": 0.44271475
+}

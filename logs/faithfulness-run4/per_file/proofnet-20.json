@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ v : V, ∃ c : F, v ∈ eigenspace S c` unfolds, via Mathlib's `eigenspace` definition in `LinearAlgebra/Eigenspace/Basic.lean` (`x ∈ eigenspace f μ ↔ f x = μ • x`), to: every vector v admits a scalar c with S v = c • v. This is the standard encoding of \"every vector in V is an eigenvector of T\"; the zero vector is captured trivially (0 ∈ eigenspace S c for any c), and the claim's bite is on nonzero vectors as intended. The conclusion `∃ c : F, S = c • LinearMap.id` says S v = c • v for all v, i.e., T is a scalar multiple of the identity. Types match: F is a field, V an F-module (hence vector space). The informal statement does not explicitly require finite-dimensionality, and the result is in fact true without it, so omitting `FiniteDimensional` does not distort the claim. No hypotheses are silently added or removed, and the quantifier structure matches.",
+  "duration_ms": 134146,
+  "cost_usd": 0.36834275
+}

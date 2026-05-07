@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-98.lean",
+  "stem": "proofnet-98",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3` is a direct, literal translation of the informal claim. Both variables are in ℤ (integers), the equation 7x³ + 2 = y³ matches exactly, and \"has no solution\" is correctly encoded as the negation of existential quantification. There are no added or dropped hypotheses, no type changes, and no alteration of the quantifier structure.",
+  "duration_ms": 7645,
+  "cost_usd": 0.037602250000000004
+}

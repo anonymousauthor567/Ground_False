@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: given a^2 = 0 in a ring R, show that ax + xa commutes with a. The Lean statement assumes [Ring R], a x : R, and h : a^2 = 0, and concludes a * (a*x + x*a) = (a*x + x*a) * a, which is exactly the definition of \"ax + xa commutes with a\". The universal quantification over x is captured by x being a free variable in the theorem signature. The ring hypothesis matches the context (Herstein Chapter 4 on rings). Both sides in fact equal a*x*a using a^2 = 0, confirming the claim is true. No hypotheses are added or dropped, and the type is correctly a general Ring.",
+  "duration_ms": 27835,
+  "cost_usd": 0.07571675
+}

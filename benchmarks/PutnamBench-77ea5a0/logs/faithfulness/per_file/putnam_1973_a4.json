@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_a4.lean",
+  "stem": "putnam_1973_a4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the number of real zeros of f(x) = 2^x - 1 - x^2. The Lean statement defines f exactly as written and asserts that the solution (3) equals {x : ℝ | f x = 0}.ncard. Set.ncard gives the natural-number cardinality of a finite set (with junk value 0 if infinite), which correctly encodes \"how many zeros\". Since the zero set is genuinely finite (three zeros at x = 0, 1, and approximately 4.26), the ncard encoding matches the informal count exactly. The function type is ℝ → ℝ and the zero set is over ℝ, matching \"on the real line\". No hypotheses are added or dropped, and the quantifier structure is correct.",
+  "duration_ms": 53537,
+  "cost_usd": 0.13666950000000003
+}

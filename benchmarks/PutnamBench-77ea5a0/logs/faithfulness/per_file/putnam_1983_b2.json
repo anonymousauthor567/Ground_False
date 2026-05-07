@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_b2.lean",
+  "stem": "putnam_1983_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. Representations are modeled as `Multiset ℕ` with three constraints: (a) every element is a power of 2 via `∃ k : ℕ, m = (2^k : ℤ)` (which includes k=0, giving 1 as a valid power); (b) each element appears at most 3 times via `M.count m ≤ 3` (equivalent to \"no power used more than 3 times\" since elements not in M have count 0); (c) the multiset sums to n. `Set.ncard` correctly counts the finite set of such multisets. The conclusion `∃ p : Polynomial ℝ, ∀ n : ℕ+, ⌊p.eval (n : ℝ)⌋ = f n` exactly matches \"can we find a real polynomial p(x) such that f(n) = ⌊p(n)⌋\". Using ℕ+ (positive integers) is a natural reading consistent with the informal example f(7), and avoids ambiguity at n=0.",
+  "duration_ms": 158474,
+  "cost_usd": 0.46539925
+}

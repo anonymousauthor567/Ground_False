@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. \"Real vector space\" corresponds to `AddCommGroup V` + `Module ℝ V`. \"T has no eigenvalues\" is expressed as `∀ c : ℝ, eigenspace T c = ⊥`, which is equivalent to the absence of eigenvalues (by Mathlib's `hasEigenvalue_iff`). T-invariance of U is captured by `Submodule.map T U ≤ U` (i.e., T(U) ⊆ U), and \"even dimension\" becomes `Even (finrank ℝ U)`. The `FiniteDimensional ℝ V` hypothesis makes explicit the standing assumption of Axler's Chapter 5 (where this exercise originates) that V is finite-dimensional — this is a standard implicit premise that the concept of \"even dimension\" and the typical proof technique rely on, so surfacing it explicitly is a faithful rendering rather than a weakening.",
+  "duration_ms": 199919,
+  "cost_usd": 0.59932175
+}

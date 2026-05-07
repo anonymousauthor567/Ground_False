@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $ab$ and $ba$ are conjugate in a group. In Mathlib, `IsConj x y` in a group is equivalent to `∃ c, c * x * c⁻¹ = y` (per `isConj_iff` in `Mathlib/Algebra/Group/Conj.lean`). The Lean statement `∃ g : G, b * a = g * a * b * g⁻¹` reads, using associativity, as `∃ g, b * a = g * (a * b) * g⁻¹`, which is exactly `IsConj (a*b) (b*a)`. The group is universally quantified (`{G : Type*} [Group G]`) and so are the elements `a b : G`, matching the informal \"in a group\". No hypotheses are added or dropped, and the conclusion matches the definition of conjugacy precisely. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 48552,
+  "cost_usd": 0.142388
+}

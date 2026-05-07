@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The custom `countably_compact` definition correctly formalizes \"every countable open cover has a finite subcover\". The theorem's RHS captures all four components of the informal statement: each C n is closed (`IsClosed (C n)`), nonempty (`C n ≠ ∅`), nested (`C (n+1) ⊆ C n`, matching $C_1 \\supset C_2 \\supset \\cdots$), and the conclusion `∃ x, ∀ n, x ∈ C n` expresses nonempty intersection. The biconditional structure matches the informal \"if and only if\". Starting indexing at 0 rather than 1 is mathematically inconsequential. No extraneous hypotheses are added and no required ones are dropped.",
+  "duration_ms": 158247,
+  "cost_usd": 0.536962
+}

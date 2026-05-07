@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: for any integers a, b, c, there exists a positive integer n such that √(n³+an²+bn+c) is not equal to any integer. The types (ℤ for a, b, c, n), positivity of n, the cubic expression, and the non-integer condition all match the informal statement. The encoding \"¬ ∃ m : ℤ, Real.sqrt (...) = m\" is the standard way to express \"√(...) is not an integer\". While Mathlib's Real.sqrt returns 0 for negative inputs (a minor convention difference), this doesn't affect the truth value or the intended mathematical content: the witness must be a positive n where the cubic is a non-negative non-square, which matches the standard mathematical reading of the Putnam problem.",
+  "duration_ms": 165070,
+  "cost_usd": 0.39234349999999996
+}

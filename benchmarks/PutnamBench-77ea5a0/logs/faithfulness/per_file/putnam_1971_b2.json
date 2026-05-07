@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_b2.lean",
+  "stem": "putnam_1971_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures \"find all functions F: ℝ\\{0,1} → ℝ satisfying F(x) + F((x-1)/x) = 1+x\". The set S = univ \\ {0, 1} correctly represents ℝ\\{0,1}, and the functional equation P is stated verbatim on S. Although the Lean encoding uses total functions ℝ → ℝ (which is standard), the uniqueness claim is stated as agreement on S (∀ x ∈ S, f x = F x), which correctly corresponds to uniqueness on the intended domain ℝ\\{0,1}. Both directions of \"find all\" are present: every F in the solution set satisfies the equation on S, and every f satisfying the equation agrees with some F in the solution set on S. Since the solution set is a singleton, this correctly says the solution on S is uniquely determined.",
+  "duration_ms": 83160,
+  "cost_usd": 0.27757775
+}

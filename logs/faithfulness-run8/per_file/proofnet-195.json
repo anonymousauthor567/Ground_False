@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-195.lean",
+  "stem": "proofnet-195",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization asserts `Irreducible (X^3 - 9 : Polynomial (ZMod 31))`, which is exactly the informal claim that $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}[x]$. Since 31 is prime, `ZMod 31` is the standard Mathlib encoding of the finite field $\\mathbb{F}_{31}$, and `Polynomial (ZMod 31)` is the polynomial ring over it. The Mathlib `Irreducible` predicate (not a unit, and every factorization yields a unit factor) is the standard notion of irreducibility in a commutative ring. No hypotheses are added or dropped, the polynomial `X^3 - 9` matches $x^3 - 9$, and the statement is true (9 is not a cube mod 31, so the cubic has no root in $\\mathbb{F}_{31}$ and is therefore irreducible).",
+  "duration_ms": 55367,
+  "cost_usd": 0.255168
+}

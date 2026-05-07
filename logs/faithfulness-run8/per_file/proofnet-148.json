@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the claim of the informal statement: a rational y (via `y : ℚ`, coerced to ℝ in `x + y`) with y ≠ 0, plus an irrational x, implies x + y is irrational. The Mathlib `Irrational` predicate (defined as not being in the range of ℚ → ℝ) matches the standard definition. Although the order of addition is `x + y` rather than `r + x`, addition in ℝ is commutative, so this is a superficial difference. The `y ≠ 0` hypothesis matches the informal \"r ≠ 0\". Hypotheses and conclusion line up one-to-one, so the formalization is strictly faithful.",
+  "duration_ms": 54493,
+  "cost_usd": 0.221038
+}

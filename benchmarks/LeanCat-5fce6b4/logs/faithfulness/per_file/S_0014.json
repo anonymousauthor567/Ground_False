@@ -1,0 +1,8 @@
+{
+  "file": "S_0014.lean",
+  "stem": "S_0014",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely captures the informal content. `IsInitialHom` encodes \"g lifts whenever f∘g lifts\" correctly (the non-trivial direction of the informal definition; the other direction is automatic). `IsEmbedding` is the conjunction of initiality and monic U-image, matching \"initial morphism with U(f) monic\". `IsInjectiveObj` quantifies over all embeddings m and all f : A → I, demanding an extension g : B → I with m ≫ g = f, exactly matching the informal definition. `PosetConcrete` is correctly constructed using `PartOrd` (Mathlib's category of posets with order-preserving maps) with the standard forgetful functor to `Type u` (the base \"Set\"). The conclusion `∀ (s : Set P), ∃ x, IsLUB s x` is precisely the definition of a sup-lattice (= complete lattice, since all sups implies all infs). This is the classical theorem characterizing injective objects in PoSet as complete lattices, faithfully formalized.",
+  "duration_ms": 362648,
+  "cost_usd": 1.07495375
+}

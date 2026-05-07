@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a2.lean",
+  "stem": "putnam_2022_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Putnam 2022 A2. (1) `S = {P | natDegree P = n}` with n ≥ 2 correctly captures \"real polynomials of degree exactly n\" since natDegree P = n for n ≥ 2 implies P ≠ 0 and leading term at degree n. (2) The `negs` function, when applied to `P^2`, sums over `Finset.range ((P^2).natDegree + 1)` checking `(P^2).coeff i < 0`, which correctly counts negative coefficients of P^2 (indices beyond natDegree have coefficient 0, contributing nothing). (3) `sSup {negs (P^2) | P ∈ S}` gives the maximum since for n ≥ 2 the set is nonempty (e.g., P = X^n yields 0) and bounded above by 2n+1. (4) The solution `fun n => 2*n - 2` matches the known Putnam answer. The hypothesis n ≥ 2 matches the informal statement. Types (ℝ[X], ℕ) are correct.",
+  "duration_ms": 202974,
+  "cost_usd": 0.39912875
+}

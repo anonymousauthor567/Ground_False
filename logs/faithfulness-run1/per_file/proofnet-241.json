@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "informal": "Let $P$ be a normal Sylow $p$-subgroup of $G$ and let $H$ be any subgroup of $G$. Prove that $P \\cap H$ is the unique Sylow $p$-subgroup of $H$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_33 {G : Type*} [Group G] [Fintype G] {p : ℕ}\n  (P : Sylow p G) [hP : P.Normal] (H : Subgroup G) [Fintype H] :\n  (∀ R : Sylow p H, R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H) ∧\n  Nonempty (Sylow p H)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"P∩H is the unique Sylow p-subgroup of H\" decomposes into existence (there is a Sylow p-subgroup of H, and it equals P∩H) and uniqueness (every Sylow p-subgroup of H equals P∩H). The Lean statement encodes uniqueness via `∀ R : Sylow p H, R.toSubgroup = (H ⊓ P).subgroupOf H` and existence via `Nonempty (Sylow p H)`. Together with the existence clause, the universal clause forces P∩H itself to be a Sylow p-subgroup of H, and the universal clause then guarantees uniqueness. The hypotheses (G finite, P a normal Sylow p-subgroup, H an arbitrary subgroup) match the informal statement exactly, and `(H ⊓ P).subgroupOf H` is the standard Mathlib encoding of P∩H viewed as a subgroup of H. No extra or missing hypotheses are introduced.",
+  "duration_ms": 20916,
+  "cost_usd": 0.0795285
+}

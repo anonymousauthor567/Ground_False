@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The group G, the hypothesis ∀ a b, (a*b)^n = a^n * b^n, and the conclusion ∀ a b, (a*b*a⁻¹*b⁻¹)^(n*(n-1)) = 1 all match precisely. Although the informal statement says \"integer n > 1\" while Lean uses ℕ with hn : n > 1, this is mathematically equivalent since n > 1 restricts n to positive integers ≥ 2, for which ℕ and ℤ exponentiation in a group coincide. The truncated subtraction n - 1 in ℕ gives the correct value since n ≥ 2. The commutator expression and the overall exponent n(n-1) are encoded faithfully, and 1 correctly represents the group identity e.",
+  "duration_ms": 29289,
+  "cost_usd": 0.11404349999999999
+}

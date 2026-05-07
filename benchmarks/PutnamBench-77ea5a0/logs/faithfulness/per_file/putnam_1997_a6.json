@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_a6.lean",
+  "stem": "putnam_1997_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal Putnam 1997 A6 problem. The recurrence is encoded correctly via `hx0`, `hx1`, `hxk` parameterized by `c` through `x : ℝ → (ℤ → ℝ)`. The set `S = {c | x c (n+1) = 0}` matches \"values of $c$ for which $x_{n+1}=0$\". Since $x_{n+1}$ is a polynomial of degree $n$ in $c$, `S` is finite and nonempty, so `sSup S = max S` equals \"the largest value\" mentioned in the informal statement. The quantifier `∀ k : Set.Icc 1 n` correctly encodes \"$1 \\leq k \\leq n$\". The solution `Nat.choose (n.toNat-1) (k.toNat-1)` equals $\\binom{n-1}{k-1}$ for $n \\geq 1$ and $k \\in [1,n]$, which is the known correct answer. Use of `ℤ` rather than `ℕ` for sequence index is immaterial since only positive indices appear in the conclusion.",
+  "duration_ms": 786015,
+  "cost_usd": 1.1277115
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes a ring R (via `[Ring R]`) with the hypothesis `hR : ∀ a : R, a^2 = a`, which precisely encodes the Boolean ring condition. The conclusion `∀ a b : R, a*b = b*a` is exactly commutativity of multiplication. The quantifier structure (\"every Boolean ring\" becomes a universally quantified type variable R with the Boolean hypothesis) is a standard and faithful encoding. No extra hypotheses (like commutativity, finiteness, or characteristic) are added, and none of the informal hypotheses are dropped. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 11977,
+  "cost_usd": 0.035737000000000005
+}

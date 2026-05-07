@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a2.lean",
+  "stem": "putnam_1986_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the units digit of ⌊10^20000/(10^100+3)⌋. The Lean formalization performs the division in ℝ (via `(10^20000 : ℝ) / (10^100 + 3)`), applies `Nat.floor` to extract the greatest natural number ≤ the quotient (which matches the mathematical floor since the quotient is positive), and takes `% 10` which yields the rightmost base-10 digit of a natural number. The answer is set to 3. Types, operations, and semantics all line up precisely with the informal question, with no added/dropped hypotheses or changes in quantifier structure.",
+  "duration_ms": 88205,
+  "cost_usd": 0.25419224999999995
+}

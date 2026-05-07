@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. The function type `f : ℝ → ℝ` matches \"$f$ defined for all real $x$\". The hypothesis `∀ x y : ℝ, |(f x - f y)| ≤ (x - y) ^ 2` is a direct translation of $|f(x)-f(y)| \\leq (x-y)^2$ for all real $x,y$. The conclusion `∃ c, f = λ _x => c` is the standard Lean encoding of \"$f$ is constant\" — it asserts the existence of a value $c$ such that $f$ equals the constant function with value $c$, which is logically equivalent to $f$ being constant. No hypotheses have been added or dropped, and no stronger or weaker claim is made.",
+  "duration_ms": 29600,
+  "cost_usd": 0.11281875000000001
+}

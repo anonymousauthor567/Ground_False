@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. (1) `CompletelyRegularSpace` in Mathlib is defined purely as the separation axiom (continuous separation of points from closed sets by [0,1]-valued functions) without requiring T₁ — this exactly matches \"completely regular (separation property only)\"; the T₃.₅ version (adding T₀) would be `T35Space`. (2) `StoneCech X` is Mathlib's Stone-Čech compactification, built for arbitrary topological spaces with the expected universal property. (3) `IsConnected (univ : Set X)` is equivalent to `ConnectedSpace X` via `connectedSpace_iff_univ`, capturing the standard \"X is connected\" notion; the empty-space edge case is harmless since both sides of the biconditional become false together (StoneCech of the empty space is empty). (4) The biconditional, the universal quantification over X, and all typeclass assumptions align with the informal claim. No hypotheses are added or dropped beyond what the informal statement supplies.",
+  "duration_ms": 330207,
+  "cost_usd": 1.1674900000000001
+}

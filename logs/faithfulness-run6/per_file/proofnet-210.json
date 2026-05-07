@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. It expresses V as a complex inner-product space via `InnerProductSpace ℂ V`, encodes normality as `T * adjoint T = adjoint T * T` (T commutes with its adjoint), and states the conclusion as existence of `S : End ℂ V` with `S^2 = T`, matching the informal definition of square root. The added `FiniteDimensional ℂ V` hypothesis surfaces an implicit premise: Mathlib's `LinearMap.adjoint` is only defined under a `FiniteDimensional` assumption, and without finite-dimensionality the adjoint of an arbitrary linear operator may not exist, making the hypothesis \"normal operator\" ill-defined on general inner product spaces. This is making an implicit premise explicit that is needed for the statement to be meaningful and true, which the system prompt explicitly classifies as faithful rather than weaker.",
+  "duration_ms": 145356,
+  "cost_usd": 0.44356025
+}

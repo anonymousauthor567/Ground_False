@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `ℝˣ` (= `Units ℝ`, the multiplicative group of nonzero reals) and `ℂˣ` (= `Units ℂ`, the multiplicative group of nonzero complexes), which are exactly the objects referenced by ℝ−{0} and ℂ−{0} viewed as multiplicative groups. The type `ℝˣ ≃* ℂˣ` is the type of multiplicative group isomorphisms between them, and `IsEmpty` states that this type has no inhabitants, i.e., no such isomorphism exists. This is precisely the informal claim that these two multiplicative groups are not isomorphic, with no added or dropped hypotheses.",
+  "duration_ms": 28920,
+  "cost_usd": 0.11265625
+}

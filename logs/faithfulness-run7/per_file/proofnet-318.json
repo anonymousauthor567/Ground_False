@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: given metric spaces X, Y with Y complete and a set A ⊂ X, a uniformly continuous function on A extends uniquely to a continuous function on closure(A), and that extension is uniformly continuous. The hypothesis `UniformContinuousOn f A` is equivalent to uniform continuity of `f` restricted to `A` (via `uniformContinuousOn_iff_restrict`), so using `f : X → Y` instead of `f : A → Y` is a standard faithful encoding — only f's values on A are referenced. The conclusion encodes: existence of g with `UniformContinuous g`, the extension property `g(x) = f(x)` for x ∈ A, and uniqueness among continuous extensions g'. The uniqueness quantifies over merely continuous g', matching \"uniquely extended to a continuous function,\" and separately asserts the found g is uniformly continuous. All quantifiers, hypotheses, and conclusions match.",
+  "duration_ms": 227420,
+  "cost_usd": 0.77674725
+}

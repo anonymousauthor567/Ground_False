@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p11_1.lean",
+  "stem": "linear_algebra__p11_1",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks to prove the inequality det(A²) ≥ 0 for real 2×2 matrices. The Lean lemma instead asserts the equality det(A*A) = (det A)^2. This equality is a stronger algebraic identity: combined with sq_nonneg it trivially implies det(A*A) ≥ 0, but it asserts more than the inequality — it gives the exact value of det(A²) as a square. The conclusion asked informally is an inequality using the order on ℝ, whereas the Lean conclusion is an equality that holds over any commutative ring. Hence the Lean statement is logically stronger than what the informal statement requested.",
+  "duration_ms": 64246,
+  "cost_usd": 0.17472475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p18.lean",
+  "stem": "calculus__p18",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts ∫₂⁸ (1/x + x²) dx = ln(4) + 168, which is correct: the 1/x part contributes ln(8) − ln(2) = ln(4) and the x² part contributes (8³ − 2³)/3 = 168. The Lean statement encodes this using the Bochner integral `∫ x in Set.Icc 2 8, (1/x + x^2)` with real-valued integrand, asserting equality to `Real.log 4 + 168`. For the continuous function 1/x + x² on [2,8], the Bochner integral over Set.Icc 2 8 with Lebesgue measure coincides with the standard definite integral from 2 to 8, and endpoint inclusion does not matter (boundary has measure zero). All components — integrand, interval, conclusion, and ambient type ℝ — match the informal claim exactly.",
+  "duration_ms": 105630,
+  "cost_usd": 0.26696075
+}

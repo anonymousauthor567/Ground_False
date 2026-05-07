@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "faithful",
+  "reasoning": "The core claim U⊥ = {0} ↔ U = V is encoded exactly: `U.orthogonal = ⊥ ↔ U = ⊤` in `Submodule K V` (where ⊥ = {0} and ⊤ = V). The Lean formalization adds `CompleteSpace V` and `IsClosed U` — these are genuine implicit premises needed for the statement to be TRUE: without them, a dense proper subspace (e.g. finite sequences in ℓ²) would satisfy U⊥ = {0} yet U ≠ V. Mathlib's `Submodule.orthogonal_eq_bot_iff` confirms this requires `HasOrthogonalProjection`, which is supplied precisely by a complete ambient space together with a closed subspace. Per the system prompt's worked-example guidance, surfacing a premise required for truth (analogous to adding `1 ≤ r`) is a faithful reading rather than a weakening. The types match (Submodule over RCLike field corresponds to subspace of a complex/real inner product space), so the formalization captures the intended mathematical content.",
+  "duration_ms": 395204,
+  "cost_usd": 1.161674
+}

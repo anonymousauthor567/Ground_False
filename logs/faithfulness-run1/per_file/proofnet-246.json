@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "informal": "Let $R$ be a commutative ring with $1 \\neq 0$. Prove that if $a$ is a nilpotent element of $R$ then $1-a b$ is a unit for all $b \\in R$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_4_27 {R : Type*} [CommRing R] (hR : (0 : R) ≠ 1)\n  {a : R} (ha : IsNilpotent a) (b : R) :\n  IsUnit (1-a*b)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the elements of the informal statement: R is a commutative ring, the hypothesis 1 ≠ 0 is encoded as (0 : R) ≠ 1, a is nilpotent (IsNilpotent a), and the conclusion IsUnit (1 - a*b) is stated for all b : R (b is a free variable bound by the theorem). The quantifier structure (\"for all b\") is preserved. No extra hypotheses are added and none are dropped, and the types match standard mathematical reading. This is a strictly faithful formalization.",
+  "duration_ms": 6929,
+  "cost_usd": 0.04470025000000001
+}

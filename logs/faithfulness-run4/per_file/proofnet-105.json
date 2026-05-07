@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Munkres 13.1) asks: given a topological space X and a subset A such that every point of A has an open neighborhood contained in A, show A is open. The Lean signature takes an arbitrary topological space `X`, an arbitrary subset `A : Set X`, assumes `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A` (which translates \"for each x ∈ A there is an open set U containing x with U ⊂ A\" literally), and concludes `IsOpen A`. This is the forward direction of Mathlib's `isOpen_iff_forall_mem_open` (`IsOpen s ↔ ∀ x ∈ s, ∃ t, t ⊆ s ∧ IsOpen t ∧ x ∈ t`), with conjuncts simply reordered. No hypotheses are added or dropped, the quantifier structure matches exactly, and the conclusion matches. This is a faithful formalization.",
+  "duration_ms": 57092,
+  "cost_usd": 0.18987174999999998
+}

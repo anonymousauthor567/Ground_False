@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $x^2+y^2-1$ is irreducible in $\\mathbb{Q}[x,y]$. The Lean signature encodes $\\mathbb{Q}[x,y]$ as `MvPolynomial (Fin 2) ℚ`, which is the standard Mathlib representation of the polynomial ring in two variables over $\\mathbb{Q}$. The polynomial $(MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1$ corresponds to $x^2+y^2-1$, and `Irreducible` is the standard Mathlib definition of irreducibility (not a unit, and not a product of two non-units), which matches the informal notion. There are no extra or missing hypotheses.",
+  "duration_ms": 7905,
+  "cost_usd": 0.040904
+}

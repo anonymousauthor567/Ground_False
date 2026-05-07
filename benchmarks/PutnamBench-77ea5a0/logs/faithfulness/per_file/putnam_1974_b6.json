@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b6.lean",
+  "stem": "putnam_1974_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `Finset.Icc 1 1000` (as a subset of ℤ) as a concrete 1000-element set, which is appropriate since the number of subsets with a given cardinality mod class depends only on the size. The set `{S | S ⊆ Finset.Icc 1 n ∧ S.card ≡ k [MOD 3]}` counts Finset ℤ subsets of {1,...,1000} with |S| ≡ k mod 3, matching the informal \"how many subsets with cardinality ≡ k mod 3\". The `Nat.ModEq` notation `[MOD 3]` correctly captures \"≡ mod 3\", and `ncard` gives the count. The conclusion returns the triple (count0, count1, count2), matching the three quantities asked for in the informal statement. The choice of ℤ vs ℕ for n is inconsequential since Finset.Icc 1 1000 has 1000 elements either way.",
+  "duration_ms": 223558,
+  "cost_usd": 0.56087875
+}

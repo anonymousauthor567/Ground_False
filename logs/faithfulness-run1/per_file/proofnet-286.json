@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "informal": "Prove that $1^{k}+2^{k}+\\cdots+(p-1)^{k} \\equiv 0(p)$ if $p-1 \\nmid k$ and $-1(p)$ if $p-1 \\mid k$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_4_11 {p : ℕ} (hp : p.Prime) (k s: ℕ)\n  (hs : s = ∑ n : Fin (p-1), (n + 1 : ℕ) ^ k) :\n  ((¬ p - 1 ∣ k) → s ≡ 0 [MOD p]) ∧ (p - 1 ∣ k → s ≡ -1 [ZMOD p])",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature defines s as ∑_{n : Fin (p-1)} (n+1)^k = 1^k + 2^k + ... + (p-1)^k, which matches the informal sum. The conclusion is split into two implications: if p-1 ∤ k then s ≡ 0 mod p (using Nat.ModEq), and if p-1 ∣ k then s ≡ -1 mod p (using Int.ModEq via ZMOD, which correctly handles the negative residue). The hypothesis hp : p.Prime matches the implicit primality assumption. The mixing of MOD and ZMOD is appropriate: 0 ≡ s mod p as naturals is equivalent to as integers, and -1 needs ZMOD. The statement matches the informal claim faithfully.",
+  "duration_ms": 10947,
+  "cost_usd": 0.056472499999999995
+}

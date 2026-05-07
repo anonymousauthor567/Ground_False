@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The hypothesis `hM` directly encodes \"every element not in M is a unit\", and the conclusion `IsMaximal M ∧ ∀ N, IsMaximal N → N = M` correctly expresses \"M is a maximal ideal and is the unique maximal ideal\". The added hypothesis `hProper : ∃ x, x ∉ M` (equivalent to M being a proper ideal) surfaces a necessary implicit premise: if M = R, the hypothesis `hM` is vacuously satisfied but the conclusion \"M is maximal\" fails (Mathlib's `IsMaximal` requires `IsCoatom`, i.e., M ≠ ⊤), and in the zero ring no maximal ideals exist at all. Since the informal phrasing \"every element of R not in M is a unit\" naturally presupposes non-M is nonempty and the conclusion requires M to be proper, this is surfacing an implicit premise, not narrowing scope. Mathlib's `Ideal R` (left ideals) with `[Ring R]` is a standard reading of \"ideal of a ring\", and the result holds at this level of generality.",
+  "duration_ms": 212501,
+  "cost_usd": 0.6713722500000001
+}

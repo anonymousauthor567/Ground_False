@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_a5.lean",
+  "stem": "putnam_2004_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal problem. Colorings are encoded as `Fin m × Fin n → Prop` (using Prop.fintype's 2 elements, giving 2^(mn) colorings). Adjacency via `Nat.dist = 1` on same row/column correctly means \"share a common side\". The `connected` relation correctly captures \"sequence of same-colored squares, consecutive sharing a side\" via a nonempty list. `cmr` counts connected monochromatic components by identifying them as sets R equal to the connectivity class of some P ∈ R. The conclusion Σ cmr(C) > 2^(mn) · mn/8 is equivalent to the expected value > mn/8 under the uniform distribution. The `Inhabited (Fin m × Fin n)` hypothesis surfaces the implicit premise that m, n ≥ 1 (otherwise both sides equal 0 and the inequality would be false), which is needed for truth and corresponds to the natural reading of \"an m×n checkerboard\".",
+  "duration_ms": 986886,
+  "cost_usd": 2.22985225
+}

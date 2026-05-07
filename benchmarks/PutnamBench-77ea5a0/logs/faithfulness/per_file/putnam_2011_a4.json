@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a4.lean",
+  "stem": "putnam_2011_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Putnam problem. `Matrix (Fin n) (Fin n) ℤ` is an n×n matrix with integer entries. `(A r) ⬝ᵥ (A r)` is the dot product of row r with itself, and `Even`/`Odd` match the parity conditions. `Pairwise fun r1 r2 ↦ Odd ((A r1) ⬝ᵥ (A r2))` unfolds to `∀ r1 r2, r1 ≠ r2 → Odd ((A r1) ⬝ᵥ (A r2))`, exactly \"every dot product of two different rows is odd\". The hypothesis `0 < n` captures \"positive integer n\". The \"characterize which n\" structure via an iff with an unknown solution set is the standard Putnam formalization pattern. There is no drift in hypotheses, conclusion, or types.",
+  "duration_ms": 73958,
+  "cost_usd": 0.241001
+}

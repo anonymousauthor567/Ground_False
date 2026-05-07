@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p22.lean",
+  "stem": "elementary_algebra__p22",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement term-by-term. The hypotheses `0 < a`, `0 < b`, `0 < c` correctly encode \"positive real numbers a, b, c\". The left-hand side `2*a^3 + 2*b^3 + 2*c^3 + a^2*b + b^2*c + c^2*a` matches `2a³ + 2b³ + 2c³ + a²b + b²c + c²a`, and the right-hand side `3*a*b^2 + 3*b*c^2 + 3*c*a^2` matches `3ab² + 3bc² + 3ca²` with the same cyclic ordering. The `≥` direction is preserved, and the universal quantification over positive reals is correctly expressed via the implicit universal quantifier on `a b c : ℝ` plus the positivity hypotheses. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 23348,
+  "cost_usd": 0.06323324999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin's exercise 3.21. All hypotheses match: complete metric space (`MetricSpace X` + `CompleteSpace X`), closedness (`IsClosed`), nonemptiness (`.Nonempty`), boundedness (`Bornology.IsBounded`, the standard Mathlib notion), nesting (`E n ⊇ E (n+1)`), and diameter tending to 0 (`Tendsto (Metric.diam ∘ E) atTop (𝓝 0)`). The conclusion `∃ a, Set.iInter E = {a}` correctly encodes \"the intersection consists of exactly one point\" — existence of a point such that the intersection equals the singleton. The starting index difference (informal 1 vs Lean 0) is immaterial because the sets are nested, so the intersections coincide.",
+  "duration_ms": 16756,
+  "cost_usd": 0.07530099999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2008_p5.lean",
+  "stem": "imo_2008_p5",
+  "verdict": "uncompilable",
+  "reasoning": "This Lean file contains type errors or syntax errors and does not compile successfully. The formalization is therefore invalid regardless of its semantic faithfulness to the informal statement.",
+  "duration_ms": 669455,
+  "cost_usd": 2.42647875
+}

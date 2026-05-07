@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `∃!` over `ℕ × ℕ` with both components constrained to be positive (`p.1 > 0 ∧ p.2 > 0`), correctly encoding \"unique positive integers $a, n$\". The only potential concern is the natural-number subtraction in `p.1^(p.2+1) - (p.1+1)^(p.2) = 2001`, but since the RHS is 2001 > 0, any solution must satisfy $a^{n+1} > (a+1)^n$, which means natural subtraction agrees with integer subtraction there. So the set of solutions in ℕ matches the set of positive-integer solutions under the informal reading. The known unique solution (a=13, n=2) is captured either way since $13^3 - 14^2 = 2001$. The quantifier structure, typing, and conclusion all match the informal claim.",
+  "duration_ms": 62005,
+  "cost_usd": 0.148807
+}

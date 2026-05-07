@@ -1,0 +1,8 @@
+{
+  "file": "52.lean",
+  "stem": "52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim: for an arbitrary group G (encoded as `{G : Type*} [Group G]`) and arbitrary elements a, b, c ∈ G, the hypothesis a*b*c = e (written as `a * b * c = 1` using Mathlib's standard multiplicative identity notation) implies b*c*a = e (written as `b * c * a = 1`). The quantifier structure, the types, the hypothesis, and the conclusion all align precisely with the informal statement. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 29082,
+  "cost_usd": 0.0764745
+}

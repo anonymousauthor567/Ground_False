@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if f is continuous on (a,b) and satisfies midpoint convexity f((x+y)/2) ≤ (f(x)+f(y))/2 for all x,y ∈ (a,b), then f is convex. The Lean signature encodes exactly this: `hf : ContinuousOn f (Set.Ioo a b)` matches continuity on (a,b); the hypothesis `h` expresses midpoint convexity for all x,y in (a,b); the conclusion `ConvexOn ℝ (Set.Ioo a b) f` uses Mathlib's standard definition of convexity (Convex ℝ s ∧ f(αx+βy) ≤ α·f(x) + β·f(y) for α,β ≥ 0, α+β=1), which matches the classical definition. The extra hypothesis `hab : a < b` simply surfaces the implicit assumption that (a,b) is a genuine open interval — this is clear from the informal phrasing \"defined in (a,b)\" and is a correct faithful reading of the intended content (it's harmless since when a ≥ b the set is empty and the conclusion would be trivially true). Types and quantifier structure all match.",
+  "duration_ms": 69972,
+  "cost_usd": 0.2231355
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "theorem_name": "Shakarchi_exercise_2_2",
+  "informal": "Show that $\\int_{0}^{\\infty} \\frac{\\sin x}{x} d x=\\frac{\\pi}{2}$.",
+  "lean": "\ntheorem Shakarchi_exercise_2_2 :\n    Tendsto (fun y => ∫ x in (0 : ℝ)..y, Real.sin x / x) atTop (𝓝 (Real.pi / 2))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the improper integral ∫₀^∞ sin(x)/x dx = π/2, which by definition means the limit as y → ∞ of ∫₀^y sin(x)/x dx equals π/2. The Lean signature expresses exactly this: `Tendsto (fun y => ∫ x in 0..y, sin x / x) atTop (𝓝 (π/2))`, using the interval integral and the limit at infinity. This matches the standard meaning of an improper Riemann integral, and π/2 is the correct value. No hypotheses are added or omitted, and the quantifier structure (limit of partial integrals) faithfully captures the improper integral.",
+  "duration_ms": 8952,
+  "cost_usd": 0.05491825
+}

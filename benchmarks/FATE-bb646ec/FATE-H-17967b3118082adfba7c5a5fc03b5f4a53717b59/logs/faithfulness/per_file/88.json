@@ -1,0 +1,8 @@
+{
+  "file": "88.lean",
+  "stem": "88",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. [CommRing R] [IsNoetherianRing R] [IsLocalRing R] captures \"Noetherian local ring\"; hx, hy capture \"x, y ∈ m\"; `Sequence.IsRegular R [x, y]` (with R as module over itself) captures \"[x, y] is a regular sequence of length 2\" — Mathlib's definition requires x to be a non-zero-divisor in R, y to be a non-zero-divisor in R/(x), and (x,y) ≠ R, which is the classical notion. The list of length 2 [x, y] encodes \"length 2\". The hypothesis n ≥ 2 is captured. The conclusion `¬ ∃ a b, x^(n-1)*y^(n-1) = a*x^n + b*y^n` matches exactly. Including hx and hy explicitly (even though they are stated in the informal text) correctly captures the intended mathematical content.",
+  "duration_ms": 314973,
+  "cost_usd": 0.7880492500000001
+}

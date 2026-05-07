@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `p.Prime` matches \"p is prime\"; `α : ℕ` with `α > 0` matches \"α ∈ ℤ^+\" (positive integers); `Fintype.card G = p ^ α` (with `[Fintype G]`) matches \"G is a group of order p^α\"; `H.index = p` uses `Subgroup.index` which is defined as `Nat.card (G ⧸ H)`, matching the standard notion of index; and `H.Normal` is precisely the normal subgroup property. The universal quantification over all subgroups H is preserved. No hypotheses are added or dropped beyond what is needed to make sense of \"order p^α\" (finiteness of G), which is implicit in the informal statement.",
+  "duration_ms": 74681,
+  "cost_usd": 0.21513225
+}

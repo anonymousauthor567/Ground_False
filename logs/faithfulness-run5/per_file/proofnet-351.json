@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Rudin 4.8a) asserts: if f : ℝ → ℝ is uniformly continuous on a bounded set E ⊆ ℝ, then f is bounded on E. The Lean signature matches exactly: E : Set ℝ represents the bounded subset of R¹, f : ℝ → ℝ is the real-valued function, `UniformContinuousOn f E` is the standard Mathlib notion of uniform continuity on a set (matching Rudin's definition), `Bornology.IsBounded E` correctly encodes boundedness of E in ℝ (equivalent to metric boundedness on ℝ), and `Bornology.IsBounded (Set.image f E)` faithfully encodes \"f is bounded on E\" (i.e., the image f(E) is bounded). Quantifier structure, hypotheses, and conclusion all align. This is a strictly faithful formalization.",
+  "duration_ms": 42933,
+  "cost_usd": 0.14994625
+}

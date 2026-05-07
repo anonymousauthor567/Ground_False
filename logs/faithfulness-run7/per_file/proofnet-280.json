@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one. `Int.gcd` in Mathlib is defined as `Nat.gcd i.natAbs j.natAbs`, giving the standard non-negative gcd. The hypothesis `a ≠ 0` matches \"nonzero integer\", and `n > m` matches \"n > m\". The conclusion is a conjunction of two implications: `Odd a → gcd = 2` and `Even a → gcd = 1`, which correctly pairs \"1 or 2\" with \"odd or even\" (odd a makes both terms even so gcd=2; even a makes both terms odd with gcd=1). The auto-bound `f_a` with the equality hypothesis `hf` is a roundabout but logically equivalent way to refer to the gcd function. Since every integer is exactly odd or even, the conjunction captures the full dichotomy claim.",
+  "duration_ms": 170473,
+  "cost_usd": 0.571824
+}

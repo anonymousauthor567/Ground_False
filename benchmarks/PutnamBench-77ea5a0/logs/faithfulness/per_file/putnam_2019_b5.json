@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b5.lean",
+  "stem": "putnam_2019_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal Putnam 2019 B5 problem. The Fibonacci recurrence `∀ x ≥ 1, F(x+2) = F(x+1) + F(x)` with `F 1 = F 2 = 1` matches the informal definition (substituting m = x+2 gives the m ≥ 3 recurrence). The polynomial is specified with exact degree 1008 and interpolation at the 1009 odd values 2n+1 for n = 0,...,1008, matching the informal. The conclusion uses the standard Putnam \"find-the-answer\" idiom: an iff statement encoding that (2019, 1010) is the unique pair (j, k) with j, k ≥ 1 satisfying p(2019) = F_j - F_k. Uniqueness indeed holds here, as F_j - F_k = F_{2019} - F_{1010} forces j = 2019, k = 1010 by the strict monotonicity and growth of Fibonacci numbers. The 1 ≤ j, 1 ≤ k constraints properly exclude the unconstrained F(0) value. The ℕ choice is appropriate since the problem's Fibonacci indices are non-negative.",
+  "duration_ms": 390372,
+  "cost_usd": 0.9738055
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement adds `hAn : A.Nonempty` and `hBn : B.Nonempty` hypotheses not literally present in the informal text. However, the Lean formalization encodes the conditions \"f(A) = {0}\" and \"f(B) = {1}\" via image equalities `f '' A = {0}` and `f '' B = {1}`. Under this literal reading, if A or B were empty, the image would be ∅, which is not equal to the singleton {0} (resp. {1}), making the claim false. So the nonemptiness hypotheses are exactly the implicit premise required for the literal statement to be true — a mathematician reading \"$f(A) = \\{0\\}$\" would take A to be nonempty. Per the worked example in the instructions, surfacing such implicit premises is faithful, not weaker. All other elements (complete regularity, disjoint closed subsets, A compact, continuous map to [0,1]) match exactly.",
+  "duration_ms": 76784,
+  "cost_usd": 0.15179350000000003
+}

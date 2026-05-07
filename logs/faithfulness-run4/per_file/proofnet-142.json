@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal Putnam 1998 A3 problem. The hypothesis `ContDiff ℝ 3 f` exactly means f is three-times continuously differentiable (has a continuous third derivative), matching the informal hypothesis. The function type `ℝ → ℝ` matches \"real function on the real line.\" The conclusion asserts existence of a point `a` such that the product `f(a) · f'(a) · f''(a) · f'''(a) ≥ 0`, using `deriv f a` for the first derivative and `iteratedDeriv 2 f` / `iteratedDeriv 3 f` for the second and third derivatives. From Mathlib's `iteratedDeriv_zero`, `iteratedDeriv_one`, and `iteratedDeriv_succ` lemmas, these are the standard encodings of f'', f'''. The quantifier structure and inequality match exactly.",
+  "duration_ms": 69755,
+  "cost_usd": 0.335918
+}

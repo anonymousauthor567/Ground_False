@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_a5.lean",
+  "stem": "putnam_1980_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures every piece of the informal statement. \"Nonconstant polynomial with real coefficients\" is encoded as `P : Polynomial ℝ` with `P.degree > 0`: since Mathlib's `degree` lives in `WithBot ℕ` where the zero polynomial has degree `⊥` and nonzero constants have degree `0`, the condition `P.degree > 0` excludes exactly the constant polynomials (including zero), matching \"nonconstant\". The two integrals `∫ t in (0)..x, P.eval t * Real.sin t` and `∫ t in (0)..x, P.eval t * Real.cos t` correctly encode $\\int_0^x P(t)\\sin t\\,dt$ and $\\int_0^x P(t)\\cos t\\,dt$. The chained equality `0 = ∫P sin = ∫P cos` is logically equivalent to the conjunction `0 = ∫P sin ∧ 0 = ∫P cos`. The conclusion `Set.Finite {x : ℝ | ...}` correctly expresses \"only finitely many real solutions x\". No hypotheses are added or dropped beyond what the informal statement provides.",
+  "duration_ms": 115462,
+  "cost_usd": 0.4256764999999999
+}

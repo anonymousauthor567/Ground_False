@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures all components of the informal statement. `[CommRing R]` matches \"commutative ring\"; `hR : (0 : R) ≠ 1` is logically equivalent to \"1 ≠ 0\"; `IsNilpotent a` (defined in Mathlib as `∃ n : ℕ, x ^ n = 0`) matches \"a is a nilpotent element\"; the free variable `(b : R)` provides the universal quantification \"for all b ∈ R\"; and `IsUnit (1-a*b)` matches \"1-ab is a unit\". The hypotheses, conclusion, types, and quantifier structure all align exactly with the informal statement.",
+  "duration_ms": 73129,
+  "cost_usd": 0.16496900000000003
+}

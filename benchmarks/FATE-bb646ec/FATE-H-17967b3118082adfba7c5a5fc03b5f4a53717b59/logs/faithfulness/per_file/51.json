@@ -1,0 +1,8 @@
+{
+  "file": "51.lean",
+  "stem": "51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for K = F(theta) a simple algebraic extension and L an intermediate field, if g(x) = x^r + alpha_1*x^{r-1} + ... + alpha_r is the minimal polynomial of theta over L, then F(alpha_1, ..., alpha_r) = L. The Lean formalization uses IntermediateField.adjoin F over the image of the coefficient set of (minpoly L theta) and asserts equality with L, given that F(theta) = top (i.e., K = F(theta)). This directly encodes the informal claim using Mathlib's minpoly and coeffs API.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

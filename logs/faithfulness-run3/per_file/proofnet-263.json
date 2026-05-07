@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a finite group G and automorphism φ, if more than 3/4 of elements satisfy φ(x) = x⁻¹, then all elements do, and G is abelian. The Lean signature uses `G ≃* G` for the automorphism, `[Fintype G]` for finiteness, and encodes the \"more than 3/4\" hypothesis by an (implicitly universally quantified) Finset I with the property that every x ∈ I satisfies φ x = x⁻¹ and |I| > 3/4·|G|. This is logically equivalent to saying |{x : φ x = x⁻¹}| > 3/4·|G|: one direction takes I to be exactly this set, the other uses I ⊆ {x : φ x = x⁻¹}. The conclusion is stated as a conjunction of (∀ x, φ x = x⁻¹) and abelianness (∀ x y, x*y = y*x), matching both parts of the informal conclusion. The rational coercion of `(0.75 : ℚ) * card G < card I` gives the intended strict inequality. No hypotheses are added or dropped.",
+  "duration_ms": 39227,
+  "cost_usd": 0.13060675000000002
+}

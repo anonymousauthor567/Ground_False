@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: p is prime, G is a finite group of order p^n, K is a subgroup of order p^(n-1), and the conclusion is that K is normal (Mathlib's Subgroup.Normal matches the standard definition of closure under conjugation, per Mathlib/Algebra/Group/Subgroup/Defs.lean:617). The Fintype instances are the natural way to encode finiteness of G (needed to state \"order p^n\") and are not extra mathematical hypotheses. The use of ℕ-truncated subtraction in p^(n-1) is benign: when n = 0, G is trivial and K must also be trivial, which is vacuously normal; for n ≥ 1, it gives the correct exponent. No hypothesis is dropped, strengthened, or weakened.",
+  "duration_ms": 105930,
+  "cost_usd": 0.38103824999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ H : Subgroup G, H = ⊤ ∨ H = ⊥` correctly captures Herstein's \"no proper subgroups\" (i.e., only ⊥ and ⊤ are subgroups). The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` correctly captures \"cyclic of order p, p prime.\" The added `h_nontrivial` hypothesis surfaces an implicit premise: the trivial group vacuously satisfies the \"no proper subgroups\" condition but is not of prime order, so nontriviality is needed for the statement to be true — and is clearly intended by Herstein's phrasing \"of order p\" (a prime, hence ≥ 2). Per the worked example in the instructions, making such an implicit premise explicit is faithful, not weaker. Types and quantifier structure match the informal claim.",
+  "duration_ms": 120416,
+  "cost_usd": 0.26453525
+}

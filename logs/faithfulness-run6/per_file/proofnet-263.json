@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement accurately. G is a finite group (Group + Fintype), φ : G ≃* G represents an automorphism as a group isomorphism from G to itself. The density condition \"more than three-fourths\" is encoded as (0.75 : ℚ) * card G < card I with strict inequality, where I is a finset of elements on which φ acts as inverse. Although the informal formulation says \"the set of elements where φ(x) = x⁻¹ exceeds 3/4 |G|\" while the Lean quantifies over an arbitrary such finset I, these are logically equivalent: any such I is a subset of {x : φ(x) = x⁻¹}, so |{x : φ(x) = x⁻¹}| ≥ |I| > 3/4|G|, and conversely one can take I to be that full set. The conclusion (∀ x, φ x = x⁻¹) ∧ (∀ x y, x*y = y*x) exactly captures \"φ is inversion everywhere and G is abelian.\"",
+  "duration_ms": 120762,
+  "cost_usd": 0.38050025000000004
+}

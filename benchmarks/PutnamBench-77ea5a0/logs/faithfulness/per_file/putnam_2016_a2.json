@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_a2.lean",
+  "stem": "putnam_2016_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean set `{m | 0 < m ∧ (m - 1).choose n < m.choose (n - 1)}` correctly encodes $\\binom{m}{n-1} > \\binom{m-1}{n}$. The added `0 < m` condition is redundant for determining the maximum: for n ≥ 2, m = 0 yields `0.choose n = 0 < 0.choose (n-1) = 0`, which is false, so m = 0 is not in the informal set anyway; for n = 1, m = 0 is in the informal set but the maximum is m = 1 regardless. Thus `IsGreatest` picks out the same value M(n) as the informal definition for all n > 0. The coercion `M n / (n : ℝ)` elaborates as real division `(M n : ℝ) / n`, matching the informal limit. The solution $(3+\\sqrt{5})/2 = \\phi^2$ is the correct Putnam 2016 A2 answer.",
+  "duration_ms": 378353,
+  "cost_usd": 0.8200792499999999
+}

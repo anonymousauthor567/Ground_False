@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b5.lean",
+  "stem": "putnam_1988_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal problem. The matrix type is `Matrix (Fin (2*n+1)) (Fin (2*n+1)) ℝ`, matching the \"2n+1 by 2n+1\" dimensions. `Mnskewsymm` gives skew-symmetry (which forces diagonal entries to 0 over ℝ). `hMn1` precisely captures \"entries in the first n subdiagonals equal 1\" via `1 ≤ i - j ≤ n → Mn i j = 1`, and `hMnn1` captures \"remaining entries below the main diagonal equal -1\" via `i - j > n → Mn i j = -1`. These hypotheses, combined with skew-symmetry, uniquely determine Mn (upper entries follow from lower ones). I verified the encoding against both example matrices M₁ and M₂. The hypothesis `n > 0` correctly formalizes \"positive integers n\". Over ℝ (a field), Mathlib's `Matrix.rank` (finrank of range of mulVecLin) is equivalent to the classical determinantal rank mentioned in the problem. The conclusion `Mn.rank = 2*n` matches the intended answer.",
+  "duration_ms": 406154,
+  "cost_usd": 0.5106552499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses match: N > 0, M coprime to N (M.gcd N = 1), d coprime to φ(N) (d.gcd N.totient = 1), and M' ≡ M^d mod N. The conclusion uses an existential \"∃ d'\" with the inverse condition (d' * d ≡ 1 mod φ(N)) conjoined with M ≡ M'^{d'} mod N. This is equivalent to the informal \"where d' is the inverse\": since gcd(d, φ(N)) = 1 guarantees such d' exists, and since M'^{d'} mod N depends only on d' mod φ(N) (because M' is coprime to N, so Euler's theorem applies), the existential and the universal/\"the\" formulations coincide. Using ℕ for d rather than ℤ matches standard reading of the problem where M^d is a well-defined integer power. No hypothesis is missing or silently added.",
+  "duration_ms": 86931,
+  "cost_usd": 0.30369074999999995
+}

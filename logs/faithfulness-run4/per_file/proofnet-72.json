@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes `[Group G]` and `[Fintype G]`, which corresponds exactly to \"G is a finite group\". The conclusion `∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1` asserts the existence of a positive integer m such that every element of G raised to the m-th power equals the identity (1), matching \"$a^m = e$ for all $a \\in G$\". Using `ℕ` with `m > 0` instead of `ℤ` with `m > 0` is equivalent since positive integers and positive naturals are in bijection. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 13885,
+  "cost_usd": 0.044247999999999996
+}

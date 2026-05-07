@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. The hypotheses `hp : Nat.Prime p`, `hp1 : ¬ p ∣ m`, `hG : card G = p*m`, `[H.Normal]`, and `hH : card H = p` directly encode \"|G| = pm with p prime, p ∤ m, H is a normal subgroup of order p\". The conclusion `Subgroup.Characteristic H` corresponds to the Mathlib definition (fixed by all automorphisms of G), which is the standard definition of a characteristic subgroup. The `[Fintype G]` instance is needed to give meaning to `card G = p*m` and is implied by |G| = pm in the informal reading. Quantifier structure (universal over G, p, m, H) matches. No drift in hypotheses or conclusion.",
+  "duration_ms": 73363,
+  "cost_usd": 0.23032574999999997
+}

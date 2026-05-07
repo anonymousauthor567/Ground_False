@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "theorem_name": "Ireland_Rosen_exercise_18_4_corrected",
+  "informal": "Show that 1729 is the smallest positive integer expressible as the sum of two different integral cubes in two ways.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_18_4_corrected :\n    1729 = sInf correctedSet",
+  "verdict": "unclear",
+  "reasoning": "The Lean signature asserts `1729 = sInf correctedSet`, but the definition of `correctedSet` is not provided. Whether the theorem faithfully formalizes \"1729 is the smallest positive integer expressible as the sum of two different integral cubes in two ways\" depends entirely on what `correctedSet` contains: it must be the set of positive integers n such that there exist (at least) two essentially distinct representations n = a³ + b³ with a ≠ b (and the two representations being different as unordered pairs, with appropriate handling of integral vs natural cubes). Without seeing this definition, I cannot verify whether the encoding correctly captures \"two different integral cubes\" (a ≠ b within a representation) and \"two ways\" (two distinct unordered pairs), nor whether `sInf` over the empty case or sign conventions are handled. Hence the faithfulness is genuinely undetermined.",
+  "duration_ms": 10826,
+  "cost_usd": 0.047473999999999995
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes \"$f(E)$ is dense in $f(X)$\" as $f(X) \\subseteq \\overline{f(E)}$, which is the standard equivalent characterization (subspace density of $f(E)$ in $f(X)$ is equivalent to $f(X)$ being contained in the closure of $f(E)$ in $Y$, since $f(E) \\subseteq f(X)$). The metric space hypotheses match, `Dense s` in Mathlib means `∀ x, x ∈ closure s`, matching \"$E$ is dense in $X$\", and `Continuous f` matches the continuity assumption. The informal statement mentions a second function $g$, but $g$ is never used in the conclusion; dropping an unused universally quantified hypothesis yields a logically equivalent claim. So the formalization is strictly faithful.",
+  "duration_ms": 109016,
+  "cost_usd": 0.33040699999999995
+}

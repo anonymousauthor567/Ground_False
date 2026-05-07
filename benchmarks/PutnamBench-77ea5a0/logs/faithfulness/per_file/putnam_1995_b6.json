@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_b6.lean",
+  "stem": "putnam_1995_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal claim. S(α) is defined as {x : ℕ | ∃ n ≥ 1, x = Nat.floor(nα)}, which for α > 0 and n ≥ 1 coincides with {⌊nα⌋ : n = 1, 2, 3, ...} (Nat.floor agrees with the standard floor on positive reals). The statement Set.Ici 1 = {x : ℕ | 1 ≤ x} = {1, 2, 3, ...} in ℕ matches the informal {1, 2, 3, ...}. The three pairwise intersection conditions together with the union equation correctly encode \"disjoint union of three sets\". The negated existential ¬∃ α β γ > 0 faithfully captures \"cannot be expressed\". Allowing α ∈ (0, 1) rather than α ≥ 1 is logically equivalent because for α < 1 we have 0 ∈ S(α), which automatically breaks the union equation (since 0 ∉ Set.Ici 1), so the broader quantification is vacuous in those cases.",
+  "duration_ms": 458032,
+  "cost_usd": 1.46296
+}

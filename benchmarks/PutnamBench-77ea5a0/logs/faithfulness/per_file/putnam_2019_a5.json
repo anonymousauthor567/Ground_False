@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_a5.lean",
+  "stem": "putnam_2019_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal problem. The polynomial q is uniquely determined by hq combined with ha0 (coeff 0 = 0, coeff k = 0 for k > p-1) and haother (coeff k = k^((p-1)/2) mod p for k ∈ [1, p-1]), matching q(x) = Σ_{k=1}^{p-1} a_k x^k exactly. The coercion `((k : ℕ) ^ ((p-1)/2)) % p : ZMod p` is equal to `(k : ZMod p)^((p-1)/2)` since the ℕ→ZMod p cast factors through mod p. The hypotheses `podd : Odd p` and `pprime : p.Prime` together correctly capture \"odd prime\". The conclusion uses `IsGreatest {n | (X-1)^n ∣ q} ((p-1)/2)`, faithfully encoding \"the greatest n such that (x-1)^n divides q(x)\". The solution `(p-1)/2` matches the well-known Putnam 2019 A5 answer.",
+  "duration_ms": 193554,
+  "cost_usd": 0.503892
+}

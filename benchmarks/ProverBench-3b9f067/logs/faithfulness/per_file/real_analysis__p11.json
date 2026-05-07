@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p11.lean",
+  "stem": "real_analysis__p11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes each component of the informal claim: `DifferentiableOn ℝ f (Ioo a b)` matches \"f differentiable on (a,b)\"; the quantifiers over x₁, x₂ ∈ Ioo a b match \"for any two points in (a,b)\"; `Ioo (min x₁ x₂) (max x₁ x₂)` correctly formalizes \"ξ between x₁ and x₂\" (strictly, in the standard MVT reading); and `f x₁ - f x₂ = (x₁ - x₂) * deriv f ξ` faithfully encodes the equation f(x₁) - f(x₂) = (x₁ - x₂)f'(ξ). The equation is symmetric under swapping x₁ and x₂ so the orientation via min/max is natural. The only subtle point is the degenerate x₁ = x₂ case, where the Ioo is empty — but the informal statement is also literally false there (there is no strict \"between\"), so both formulations handle this degenerate case identically. The encoding mirrors Mathlib's `exists_deriv_eq_slope` style.",
+  "duration_ms": 1400616,
+  "cost_usd": 2.6232395000000004
+}

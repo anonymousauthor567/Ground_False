@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Irreducible (12 + 6 * X + X ^ 3 : Polynomial ℚ)` asserts exactly what the informal statement claims: that the polynomial $x^3 + 6x + 12$ is irreducible over $\\mathbb{Q}$. The polynomial `12 + 6*X + X^3` is literally $X^3 + 6X + 12$ (terms written in reverse order). The type `Polynomial ℚ` is the polynomial ring $\\mathbb{Q}[X]$, matching \"in $\\mathbb{Q}$\" (understood as $\\mathbb{Q}[x]$). Mathlib's `Irreducible` (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) is the standard definition: non-unit that cannot be written as a product of two non-units, which is the correct notion of polynomial irreducibility over a field. No hypotheses are added or dropped.",
+  "duration_ms": 51045,
+  "cost_usd": 0.19746775000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "118.lean",
+  "stem": "118",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature expresses exactly the informal claim: for any commutative ring R (encoded by `[CommRing R]`) and any a, b : R, if a and b are nilpotent (`IsNilpotent a`, `IsNilpotent b`), then a + b is nilpotent. Mathlib's `IsNilpotent x` unfolds to `∃ n : ℕ, x ^ n = 0`, which is the standard definition. The only idiosyncrasy is that the hypotheses `h₁` and `h₂` are declared as implicit `{…}` rather than explicit `(…)`; this is purely a Lean ergonomic choice (affecting how the lemma is applied) and does not change the logical content — both versions state the same universally-quantified implication. Quantifier structure, types, hypotheses, and conclusion all match the informal statement faithfully.",
+  "duration_ms": 77820,
+  "cost_usd": 0.19446075000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-331.lean",
+  "stem": "proofnet-331",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The initial conditions (x 0 = 1, x 1 = a, x 2 = a) and the recurrence relation (x(n+1) = 2*x(n)*x(n-1) - x(n-2) for n ≥ 2) exactly match the informal definition. The hypothesis `∃ n, x n = 0` matches \"if x_n = 0 for some n\". The conclusion `∃ c ≠ 0, Periodic x c` — where `Periodic x c` is defined in Mathlib as `∀ n, x (n+c) = x n` and `c : ℕ` so `c ≠ 0` means `c ≥ 1` — is exactly the standard meaning of \"the sequence is periodic\" (has a positive period). The `c ≠ 0` constraint is necessary since `Periodic x 0` holds trivially. No hypotheses are added or removed, and no quantifiers are altered.",
+  "duration_ms": 49012,
+  "cost_usd": 0.18612875
+}

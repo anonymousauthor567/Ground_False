@@ -1,0 +1,8 @@
+{
+  "file": "74.lean",
+  "stem": "74",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any group G and proper subgroups H₁, H₂, G ≠ H₁ ∪ H₂. The Lean signature quantifies over arbitrary groups G (via `{G : Type*} [Group G]`) and arbitrary subgroups H₁, H₂, with hypotheses `H₁ ≠ ⊤` and `H₂ ≠ ⊤`, which is the standard definition of a proper subgroup (H ≠ G). The conclusion `¬(H₁.carrier ∪ H₂.carrier = ⊤)` correctly expresses that the set-theoretic union of the underlying sets does not equal the whole group, since `(⊤ : Set G) = Set.univ`. No hypotheses are silently added or dropped (no finiteness, commutativity, etc.), the quantification structure matches, and the ambient types are correct. This is a logically equivalent encoding of the informal claim.",
+  "duration_ms": 164871,
+  "cost_usd": 0.40928824999999996
+}

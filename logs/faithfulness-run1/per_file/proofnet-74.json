@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "theorem_name": "Herstein_exercise_2_3_17_corrected",
+  "informal": "If $G$ is a group and $a, x \\in G$, prove that $C\\left(x^{-1} a x\\right)=x^{-1} C(a) x$",
+  "lean": "theorem Herstein_exercise_2_3_17_corrected {G : Type*} [Group G] (a x : G) :\n  centralizer {x⁻¹ * a * x} = (fun g : G => x⁻¹ * g * x) '' (centralizer {a})",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the centralizer of x⁻¹ a x equals the conjugate x⁻¹ C(a) x. In Lean, `centralizer {x⁻¹ * a * x}` is the set of elements commuting with x⁻¹ a x (centralizer of a singleton equals centralizer of the element), and `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is exactly the set {x⁻¹ c x : c ∈ C(a)}, i.e., x⁻¹ C(a) x. Both sides are sets in the arbitrary group G, and the statement is universally quantified over G, a, x via the type and arguments. No extra hypotheses (like finiteness or commutativity) are imposed, and the conclusion is a set equality matching the informal claim. Hence the encoding is logically equivalent to the informal statement.",
+  "duration_ms": 12794,
+  "cost_usd": 0.06125125
+}

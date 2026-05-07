@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The hypothesis `[CompletelyRegularSpace X]` matches Mathlib's definition of completely regular without requiring T1, which aligns with the informal parenthetical \"separation property only\" that explicitly distinguishes this from T3½ (which includes T1). The conclusion `IsConnected (univ : Set X) ↔ IsConnected (univ : Set (StoneCech X))` is the standard Mathlib encoding for \"X is a connected topological space\" (equivalent to `ConnectedSpace X` via `connectedSpace_iff_univ`). The `StoneCech` construction in Mathlib produces the Stone-Čech compactification via `T2Quotient (PreStoneCech α)`, matching the informal notion. Both directions of the iff are preserved, and the universal quantification over X is correctly expressed via Lean's type-level quantifier.",
+  "duration_ms": 148242,
+  "cost_usd": 0.5678752499999999
+}

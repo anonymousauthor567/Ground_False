@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p57_2.lean",
+  "stem": "calculus__p57_2",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that f is concave up on two specific open intervals. The Lean lemma `f_second_deriv` instead states a formula for the second derivative: deriv (deriv f) x = (50*x^2 - 525*x - 175)/((5*x^2+35)^(5/2)). These are logically incomparable: knowing an explicit formula for f'' does not directly yield concavity on an interval (that requires additional sign analysis), and the concavity statement does not determine the specific algebraic form of f''. The Lean file never mentions ConvexOn/concavity, the specific intervals (-∞, (21-√497)/4) or ((21+√497)/4, ∞), nor the bounds involving √497. Moreover, in Lean 4 the exponent `5/2` is parsed as ℕ-division giving `2`, not the intended 5/2 exponent, further deviating from a faithful rendering. The signature formalizes a different theorem than the one asked for.",
+  "duration_ms": 401098,
+  "cost_usd": 0.9722959999999998
+}

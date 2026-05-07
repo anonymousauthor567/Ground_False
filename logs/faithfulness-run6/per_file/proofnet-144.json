@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over `n : ℕ` with `hn : n > 0`, matching \"each positive integer n\". The expression `10^10^10^n + 10^10^n + 10^n - 1` uses Lean 4's right-associative `^`, so `10^10^10^n` parses as `10^(10^(10^n))`, exactly the informal tower $10^{10^{10^n}}$. Natural number subtraction is safe here because for n > 0 (in fact for all n ≥ 0), the sum is at least 10, so the truncated subtraction equals ordinary subtraction. The conclusion `¬ Nat.Prime (...)` matches \"is not prime\". Thus the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 30541,
+  "cost_usd": 0.09959799999999999
+}

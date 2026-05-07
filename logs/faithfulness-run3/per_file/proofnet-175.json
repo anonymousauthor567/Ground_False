@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all core components of Rudin Exercise 5.15: f : ℝ → ℝ is twice-differentiable on (a, ∞) via the two DifferentiableOn hypotheses (and since Ioi a is open, `deriv f` agrees with the true derivative there, so its differentiability encodes existence of f''). The three `sSup` expressions correctly define M₀, M₁, M₂ as least upper bounds of |f|, |f'|, |f''| on (a, ∞). The BddAbove hypotheses are not a narrowing: they surface the implicit premise that these LUBs are finite real numbers (necessary because M0, M1, M2 : ℝ, and without boundedness, `sSup` would return the junk value 0 rather than the true supremum). The conclusion M1^2 ≤ 4 * M0 * M2 matches exactly. This is a natural, idiomatic formalization of the informal claim.",
+  "duration_ms": 215887,
+  "cost_usd": 0.2497165
+}

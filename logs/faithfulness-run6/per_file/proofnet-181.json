@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the improper integral from -∞ to ∞ of cos(x)/(x²+a²) equals π·e^(-a)/a for a > 0. The Lean statement formalizes this as the symmetric limit of interval integrals ∫_{-y}^{y} as y → ∞ tending to π·e^(-a)/a. Since the integrand is dominated by 1/(x²+a²), which is Lebesgue integrable over ℝ, the function is absolutely integrable, and thus the symmetric limit coincides with both the Lebesgue integral and the usual improper integral. The hypothesis a > 0 matches the informal condition exactly, and the target value π·(exp(-a)/a) matches π·e^(-a)/a. Using the symmetric-limit `Tendsto`/`intervalIntegral` form is a standard and faithful encoding of ∫_{-∞}^{∞} for this absolutely integrable function.",
+  "duration_ms": 174883,
+  "cost_usd": 0.6115484999999999
+}

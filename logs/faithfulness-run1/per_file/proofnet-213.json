@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "informal": "Prove that $(a_1a_2\\dots a_n)^{-1} = a_n^{-1}a_{n-1}^{-1}\\dots a_1^{-1}$ for all $a_1, a_2, \\dots, a_n\\in G$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_15 {G : Type*} [Group G] (as : List G) :\n  as.prod⁻¹ = (as.reverse.map (λ x => x⁻¹)).prod",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for any list `as` of elements in a group `G`, the inverse of the product of the list equals the product of the reversed list with each element inverted. This is exactly the informal claim that (a_1 a_2 ... a_n)^{-1} = a_n^{-1} a_{n-1}^{-1} ... a_1^{-1}. The use of `List G` correctly captures the finite sequence indexed by 1..n; quantification over `as : List G` covers all n and all choices of a_i. The empty list case (n = 0) gives 1^{-1} = 1, which is consistent with the convention. No extra hypotheses (like commutativity or finiteness) are added or dropped.",
+  "duration_ms": 8986,
+  "cost_usd": 0.057683
+}

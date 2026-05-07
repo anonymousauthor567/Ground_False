@@ -1,0 +1,8 @@
+{
+  "file": "25.lean",
+  "stem": "25",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement has two conjuncts mirroring the informal claim. (1) `Nonempty ((RatFunc (ZMod 2) ≃+* RatFunc (ZMod 2)) ≃* Equiv.Perm (Fin 3))` asserts RingAut(F₂(t)) ≅ S₃; since ZMod 2 is the prime field, every ring automorphism fixes it, so this ring-automorphism group equals the full automorphism group Aut(F₂(t)), and Equiv.Perm (Fin 3) is exactly S₃. (2) `IntermediateField.fixedField ⊤ = IntermediateField.adjoin (ZMod 2) {u}` with u = (X⁴-X)³/(X²-X)⁵ states that the fixed field of the top subgroup of Gal(F₂(t)/F₂) (i.e., the whole Aut group) equals F₂(u). Using only one of the two algebraically-equal expressions for u from the informal statement is sufficient, since the informal asserts they are equal. The conjunction, objects, and types all align with standard Mathlib conventions, making this a faithful formalization.",
+  "duration_ms": 981539,
+  "cost_usd": 1.6406285
+}

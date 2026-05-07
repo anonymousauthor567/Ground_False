@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures all components: (1) `{p : Nat.Primes}` with `H.index = p` correctly expresses that H has prime index; (2) `[hH : H.Normal]` captures normality; (3) `∀ K : Subgroup G` correctly quantifies over all subgroups K ≤ G; (4) the first disjunct `K ≤ H` matches directly; (5) `H ⊔ K = ⊤` encodes $G = HK$, which is equivalent since H is normal (making HK = ⟨H,K⟩ = H ⊔ K); (6) `(K ⊓ H).relIndex K = p` unfolds via Mathlib's definition (`relIndex := subgroupOf.index`) to [K : K ∩ H] = p, matching |K : K ∩ H| = p. No hypotheses are added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 189973,
+  "cost_usd": 0.42963850000000003
+}

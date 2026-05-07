@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. The finiteness hypothesis (`Fintype G`), properness of H (`H ≠ ⊤`), containment `H ≤ M`, and maximality of M (encoded as `M ≠ ⊤ ∧ ∀ K, M ≤ K → K = M ∨ K = ⊤`) correspond directly to the informal definition that a maximal subgroup is one that is not G and whose only supergroups are itself and G. No hypotheses are added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 12162,
+  "cost_usd": 0.056500499999999995
+}

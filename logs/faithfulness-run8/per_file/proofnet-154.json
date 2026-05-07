@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `n > 1` in ℕ is equivalent to `n ≥ 2`, matching the hypothesis `k ≥ 2`. `EuclideanSpace ℝ (Fin n)` is defined as `PiLp 2 (fun _ : Fin n => ℝ)`, which is exactly ℝ^n with the standard Euclidean structure. The inner product `⟪x, y⟫_ℝ` on this space is the standard dot product ∑ᵢ xᵢ yᵢ, so the condition `⟪x, y⟫_ℝ = 0` matches `x · y = 0`. The existential quantifier, the nonzero condition, and the orthogonality condition all match exactly. No hypotheses are added or dropped.",
+  "duration_ms": 31201,
+  "cost_usd": 0.13320825
+}

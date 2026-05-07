@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-156.lean",
+  "stem": "proofnet-156",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one closely. `EuclideanSpace ℝ (Fin k)` is Mathlib's standard encoding of ℝ^k, `¬ Set.Countable E` correctly captures \"E is uncountable\", and `P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}` is exactly Rudin's definition of the set of condensation points of E (every neighborhood of x contains uncountably many points of E, i.e. U ∩ E is uncountable). The conclusion `Perfect P` uses Mathlib's `Perfect` structure (closed + every point is an accumulation point of itself), which is the standard definition. The quantifier structure, types, and ambient space all align with the informal claim.",
+  "duration_ms": 92723,
+  "cost_usd": 0.36541975
+}

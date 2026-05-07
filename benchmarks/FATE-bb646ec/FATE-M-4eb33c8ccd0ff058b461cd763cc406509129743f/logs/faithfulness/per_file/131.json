@@ -1,0 +1,8 @@
+{
+  "file": "131.lean",
+  "stem": "131",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks to prove N_G(H) = C_G(H) (normalizer equals centralizer of H). The Lean statement, however, asserts `Subgroup.center G = Subgroup.normalizer H`, i.e., Z(G) = N_G(H). These are different: `Subgroup.center G` is the center of G (elements commuting with all of G), while the centralizer of H would be `Subgroup.centralizer (H : Set G)`. Since always Z(G) ⊆ C_G(H) ⊆ N_G(H), the assertion Z(G) = N_G(H) strictly implies C_G(H) = N_G(H), but not conversely: e.g., in G = S_3 with H = ⟨(12)⟩, the informal claim holds (N_G(H) = C_G(H) = H) but Z(S_3) = {e} ≠ H = N_G(H), so the Lean claim is false. Hence the Lean statement is logically stronger than (and actually not equivalent to) the informal statement — it demands equality with the center of the whole group rather than the centralizer of H.",
+  "duration_ms": 305024,
+  "cost_usd": 0.5875907499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-292.lean",
+  "stem": "proofnet-292",
+  "verdict": "faithful",
+  "reasoning": "The user-defined `is_topology X T` captures the standard topology axioms (univ, closed under binary intersection, closed under arbitrary union — which gives ∅ ∈ T via `sUnion ∅ = ∅`). Let `OA = opens(generateFrom A)` and `I = sInter {T | is_topology X T ∧ A ⊆ T}`. One shows `OA = I` by standard reasoning: `I` is itself a topology containing A (so `OA ⊆ I`), and `OA` is a topology containing A (so `I ⊆ OA`). The Lean statement `generateFrom A = generateFrom I` as `TopologicalSpace` is equivalent to `OA = opens(generateFrom I)`; since `I` is already a topology, `opens(generateFrom I) = I`, so the Lean equation reduces to `OA = I` — exactly the informal claim. The `generateFrom` wrapper on the RHS is just a type-coercion because `sInter` returns `Set (Set X)` while `generateFrom A` is a `TopologicalSpace`. The \"subbasis\" premise is vacuous since any `Set (Set X)` generates a topology. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 294240,
+  "cost_usd": 0.73712925
+}

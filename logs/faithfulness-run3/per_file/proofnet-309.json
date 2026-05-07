@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses match exactly: X is a metric space, X is compact (via `CompactSpace`), and f : X → X is an `Isometry` (which in Mathlib is defined as edist-preserving, equivalent to distance-preserving on metric spaces). The informal conclusion \"f is bijective and hence a homeomorphism\" is precisely captured by `Continuous f ∧ Bijective f ∧ IsOpenMap f`: a continuous bijection is a homeomorphism iff it is an open map (equivalent to having continuous inverse). Although `Continuous f` follows automatically from `Isometry f`, stating it as part of the conjunction does not alter the logical content of the conclusion. Therefore the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 61102,
+  "cost_usd": 0.1834105
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `a : ℕ` with `a > 1` is equivalent to \"integer $a > 1$\" since `a ≥ 2`. `Nat.totient` in Mathlib is Euler's φ-function (defined in Mathlib/Data/Nat/Totient.lean:36). The natural-number subtraction `a^n - 1` is well-behaved here since `a ≥ 2` implies `a^n ≥ 1`. The edge case `n = 0` gives `a^0 - 1 = 0`, `φ(0) = 0`, and `0 ∣ 0` holds, so no false corner case is introduced. No hypothesis is added or dropped, and the conclusion matches the informal divisibility claim.",
+  "duration_ms": 133635,
+  "cost_usd": 0.35863100000000003
+}

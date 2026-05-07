@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin's Exercise 2.24. The metric space `X` is correctly typed. The hypothesis `∀ A : Set X, A.Infinite → ∃ p : X, AccPt p (𝓟 A)` correctly formalizes \"every infinite subset has a limit point\": Mathlib's `AccPt p (𝓟 A) := NeBot (𝓝[≠] p ⊓ 𝓟 A)` unfolds to \"every neighborhood of p contains a point q ∈ A with q ≠ p\", which is exactly Rudin's definition of a limit point (p need not belong to A). The conclusion `SeparableSpace X` matches the standard definition of separability (existence of a countable dense subset). No hypotheses are added or dropped, and the types align with the informal statement.",
+  "duration_ms": 58352,
+  "cost_usd": 0.1855225
+}

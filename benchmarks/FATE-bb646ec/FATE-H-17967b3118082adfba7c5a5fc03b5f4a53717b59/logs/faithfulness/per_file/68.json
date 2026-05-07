@@ -1,0 +1,8 @@
+{
+  "file": "68.lean",
+  "stem": "68",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. `CommRing A` + `IsNoetherianRing A` captures \"Noetherian ring\" (associated primes require commutativity in Mathlib, so this is the natural reading). `hx : x ∈ nonZeroDivisors A` precisely expresses \"x is not a zero-divisor\", and `hx' : ¬ IsUnit x` expresses \"x is not a unit\". With `open Ideal` in scope, `span {x}` is `Ideal.span {x}` = xA, so the quotients are the correct A/xA and A/x^n A. `associatedPrimes A M` is exactly Mathlib's Ass_A(M). The hypothesis `n ≥ 1` matches the informal \"n = 1, 2, ...\" explicitly. The minor use of `Type` rather than `Type*` is a stylistic universe restriction that does not meaningfully change the claim.",
+  "duration_ms": 160265,
+  "cost_usd": 0.5449775
+}

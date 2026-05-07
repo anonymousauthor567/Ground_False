@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding `ℕ →ᵇ I` with `I = Icc 0 1` captures exactly $[0,1]^\\omega$ with the uniform topology. Since ℕ carries the discrete topology in Mathlib, every function ℕ → I is continuous; since I is bounded, every such function is bounded. Thus `ℕ →ᵇ I` is canonically bijective with `I^ℕ = [0,1]^ω`. Mathlib's `BoundedContinuousFunction.instPseudoMetricSpace` equips this type with the distance `sInf {C | 0 ≤ C ∧ ∀ n, dist (f n) (g n) ≤ C}`, which equals the supremum metric `⨆ n, dist (f n) (g n)` — exactly the uniform metric on $[0,1]^\\omega$ (and equal to Munkres' $\\bar\\rho$ on $[0,1]^\\omega$ since all pointwise distances are ≤ 1). `LocallyCompactSpace` is the standard definition. So `¬ LocallyCompactSpace (ℕ →ᵇ I)` asserts exactly the informal claim.",
+  "duration_ms": 194008,
+  "cost_usd": 0.7576499999999999
+}

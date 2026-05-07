@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if G/Z is cyclic (where Z is the center of G), then G is abelian and G = Z. The Lean statement takes a group G with hypothesis `IsCyclic (G ⧸ center G)` and concludes `center G = ⊤`. The conclusion `center G = ⊤` means the center is the whole group, which is equivalent to both \"G = Z\" and \"G is abelian\" (the two equivalent conclusions in the informal statement). The hypothesis matches exactly. No extra hypotheses (like Fintype) are imposed, and the universal quantification over G is preserved. This is a faithful formalization.",
+  "duration_ms": 9499,
+  "cost_usd": 0.12954325
+}

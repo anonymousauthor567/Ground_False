@@ -1,0 +1,8 @@
+{
+  "file": "S_0039.lean",
+  "stem": "S_0039",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the existence of a unique concrete functor T: Top_0^op → Frm over Set. The Lean formalization defines ConcreteCat as a category with a faithful forgetful functor, defines IsConcreteFunc via the standard condition F ⋙ U_B ≅ U_A, defines the relevant concrete categories (T0TopCat^op with the opens functor L, and Frm with the forgetful functor), and states Nat.card (ConcreteFuncsIso T0TopCatopConcrete FrmConcrete) = 1. This correctly encodes \"there exists a unique concrete functor\" as the cardinality of the type of such functors being exactly 1. The helper definitions (T0TopCat, forgetFrm, L) correctly model the mathematical objects involved.",
+  "duration_ms": null,
+  "cost_usd": null
+}

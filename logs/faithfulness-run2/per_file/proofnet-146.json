@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines $f_n(z) = n + (n-1)z + (n-2)z^2 + \\cdots + z^{n-1} = \\sum_{i=0}^{n-1}(n-i)z^i$ and claims no roots in $\\{z : |z| \\leq 1\\}$. The Lean definition `∑ i : Fin n, (n-i) * z^(i : ℕ)` sums over $i \\in \\{0, 1, \\ldots, n-1\\}$ with coefficient $(n-i)$, giving exactly $n + (n-1)z + \\cdots + 1 \\cdot z^{n-1}$. Since $i < n$ for $i : \\text{Fin } n$, natural subtraction $(n-i)$ gives the correct value before coercion to $\\mathbb{C}$. The hypothesis `hn : n > 0` matches \"positive integer\", and the conclusion `¬ (∃ z : ℂ, ‖z‖ ≤ 1 ∧ f n z = 0)` using the standard complex norm $\\|z\\| = |z|$ correctly captures \"no roots in the closed unit disk\". The universal `∀ n` in `hf` is just a convenient way to define the family for all natural numbers; the claim still applies only to the given $n > 0$.",
+  "duration_ms": 20798,
+  "cost_usd": 0.10313474999999998
+}

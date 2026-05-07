@@ -1,0 +1,8 @@
+{
+  "file": "S_0058.lean",
+  "stem": "S_0058",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes both sides of the iff. `CompactSpace X` is Mathlib's standard compact topological space predicate. `Op X := TopologicalSpace.Opens X` is the poset of open subsets, which automatically gets a `SmallCategory` instance via `Preorder` (from `CategoryTheory/Category/Preorder.lean`), with morphisms `U ⟶ V` corresponding to inclusion `U ≤ V` — this matches \"the category Op(X) of open subsets\". `(⊤ : Op X)` is the whole space viewed as an open set (`coe_top : (⊤ : Opens α) = Set.univ`). `IsFinitelyPresentable` is defined in `CategoryTheory/Presentable/Finite.lean` as `IsCardinalPresentable X ℵ₀`, which unfolds to `coyoneda.obj (op X)` preserving ℵ₀-filtered (= filtered) colimits — precisely the informal definition \"Hom(c, -) preserves filtered colimits\". The statement matches the classical equivalence, so it is strictly faithful.",
+  "duration_ms": 324576,
+  "cost_usd": 1.05846125
+}

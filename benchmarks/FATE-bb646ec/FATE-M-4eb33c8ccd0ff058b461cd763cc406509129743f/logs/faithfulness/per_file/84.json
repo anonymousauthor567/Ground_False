@@ -1,0 +1,8 @@
+{
+  "file": "84.lean",
+  "stem": "84",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that every element of $D_{2n}$ has a **unique** factorization of the form $a^i b^j$ — i.e., both existence and uniqueness. The Lean statement uses plain `∃` (existence only), stating that for every element $g$ there exists some $t : \\mathrm{ZMod}\\ n$ such that $g = r\\ t$ or $g = sr\\ t$. This captures only the existence part; it says nothing about uniqueness of the index $t$ or about the rotation/reflection dichotomy being exclusive. A correct formalization would need something like `∃! (t : ZMod n) (j : Fin 2), ...` or separately assert disjointness and uniqueness. Since the Lean statement is logically implied by the informal statement but does not imply it, the formalization is weaker.",
+  "duration_ms": 196358,
+  "cost_usd": 0.58665125
+}

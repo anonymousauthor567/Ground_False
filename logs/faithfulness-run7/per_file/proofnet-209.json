@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim accurately: `T * adjoint T = adjoint T * T` is the standard normality hypothesis; `IsSelfAdjoint T` equals `adjoint T = T`; and `T.Eigenvalues` unfolds to `{μ : ℂ // T.HasEigenvalue μ}`, so `∀ e : T.Eigenvalues, (e : ℂ).im = 0` says every eigenvalue has zero imaginary part, i.e., is real. The `FiniteDimensional ℂ V` hypothesis is an implicit premise: Mathlib's `LinearMap.adjoint` is only defined under `FiniteDimensional`, and the statement itself is false in infinite dimensions (e.g., a normal operator may have no eigenvalues, making \"all eigenvalues real\" vacuously true without self-adjointness). Since the informal statement implicitly assumes the finite-dimensional setting (without which it would be false), making this premise explicit is faithful, not weakening. The quantifier structure, conclusion direction (iff), and types all match.",
+  "duration_ms": 170616,
+  "cost_usd": 0.619144
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a3.lean",
+  "stem": "putnam_2025_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization carefully encodes all components of the game: (1) GameString n = Fin n → Fin 3 represents strings of n digits in {0,1,2}; (2) initialState is all zeros; (3) isValidMove requires exactly one differing position (via ∃!) where the digits differ by ±1 using val-based arithmetic, correctly forbidding 0↔2 jumps; (4) IsValidGamePlay uses List.Chain from initialState plus Nodup on the full trajectory (including initial state), matching \"new string not appeared before\"; (5) HasWinningStrategy is an inductive (least fixed point) definition that correctly captures \"player-to-move can win\" for finite games — vacuous when opponent has no reply (win), unprovable when the current player has no move (loss); (6) AliceHasWinningStrategy n = HasWinningStrategy n [] places Alice as first mover; (7) the hypothesis 1 ≤ n matches \"For each n ≥ 1\"; (8) the theorem asks putnam_2025_a3_solution n ↔ AliceHasWinningStrategy n, faithfully asking to characterize when Alice wins. All definitions align with standard game-theoretic meaning.",
+  "duration_ms": 292573,
+  "cost_usd": 0.808176
+}

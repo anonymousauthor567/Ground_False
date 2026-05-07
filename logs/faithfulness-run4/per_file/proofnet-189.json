@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over types `G` with `[Group G] [Fintype G]` and `card G = 224` (where `card` is `Fintype.card` from the opened `Fintype` namespace), and concludes `IsSimpleGroup G → false`. This precisely encodes \"for every finite group G of order 224, G is not simple\", which is exactly the informal claim \"no group of order 224 is simple.\" The `Fintype G` instance plus `card G = 224` is the standard Lean way to assert \"G is a finite group of order 224\" — not an extra restriction. `IsSimpleGroup` in Mathlib (Mathlib/GroupTheory/Subgroup/Simple.lean) is the standard definition (nontrivial, every normal subgroup is ⊥ or ⊤), matching the mathematical meaning of \"simple\". The conclusion `→ false` (which type-checks as `→ False` via the Bool→Prop coercion, as evidenced by the completed proof in proofnet-189.lean) is equivalent to negation of simplicity. No hypothesis is added or dropped relative to the informal statement.",
+  "duration_ms": 522508,
+  "cost_usd": 1.6802592500000002
+}

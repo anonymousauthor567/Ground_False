@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement from Axler's \"Linear Algebra Done Right\" Exercise 7.10. The hypotheses correctly encode: V is a complex inner product space, T is a linear operator (End ℂ V), T is normal (T * adjoint T = adjoint T * T), and T^9 = T^8. The conclusion IsSelfAdjoint T ∧ T^2 = T matches the informal \"T is self-adjoint and T^2 = T.\" The explicit FiniteDimensional ℂ V hypothesis is faithful to Axler's convention, where L(V) and the spectral theorem context throughout Chapter 7 implicitly assume finite-dimensionality. Thus the Lean statement captures the same mathematical claim under its standard reading.",
+  "duration_ms": 20479,
+  "cost_usd": 0.07549525
+}

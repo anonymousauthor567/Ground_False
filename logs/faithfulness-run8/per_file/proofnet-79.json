@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely: `[CommGroup G]` encodes \"abelian group\", `∃ g, orderOf g = m` and `∃ g, orderOf g = n` encode the existence of elements of orders m and n, `m.Coprime n` encodes \"m and n are relatively prime\", and the conclusion `∃ g, orderOf g = m * n` encodes \"G has an element of order mn\". The convention that `orderOf g = 0` means infinite order in Mathlib does not introduce a mismatch: if `m = 0`, then `Nat.Coprime 0 n` forces `n = 1` and the conclusion `orderOf g = 0` is witnessed by `hm` itself, so the edge case is trivially consistent. For all standard positive cases, the formalization is logically equivalent to the informal claim, with no added, dropped, or modified hypotheses.",
+  "duration_ms": 145643,
+  "cost_usd": 0.5058767500000001
+}

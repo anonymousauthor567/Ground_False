@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that disjoint closed sets A, B in a metric space are \"separated.\" In standard topological terminology (and specifically in Rudin's Definition 2.45 of separated sets), two sets A and B are \"separated\" iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅ — no point of either lies in the closure of the other. The Lean conclusion `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅` encodes exactly this definition. The hypotheses `IsClosed A`, `IsClosed B`, `Disjoint A B`, and the metric space structure, match the informal \"disjoint closed sets in some metric space X\" exactly. This is the correct literal formalization; notably it is NOT the stronger Mathlib notion `SeparatedNhds` (which would require disjoint open neighborhoods). The statement is logically equivalent to the informal claim.",
+  "duration_ms": 93163,
+  "cost_usd": 0.32432500000000003
+}

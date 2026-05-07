@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses `p.Prime` and `p = 4*t+1` correspond exactly to \"prime p of the form 4t+1\" (the universally-quantified t with this equation is equivalent to ∃t, p = 4t+1). The element `a : ZMod p` is the standard way to represent elements mod p. `IsPrimitiveRoot a (p-1)` in Mathlib unfolds to `a^(p-1) = 1` and `∀ l, a^l = 1 → (p-1) ∣ l`, which correctly captures \"a is a primitive root mod p\" since (ZMod p)ˣ has order p-1. For the edge case a = 0, both `IsPrimitiveRoot 0 (p-1)` and `IsPrimitiveRoot (-0) (p-1)` are false, so the iff is vacuously true, matching the standard convention that 0 is not a primitive root. The conclusion is a bidirectional iff exactly as stated.",
+  "duration_ms": 207612,
+  "cost_usd": 0.725492
+}

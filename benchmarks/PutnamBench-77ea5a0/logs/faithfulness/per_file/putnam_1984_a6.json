@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_a6.lean",
+  "stem": "putnam_1984_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures both parts of Putnam 1984 A6. (1) `f` is correctly characterized as the last nonzero digit of n! via `Nat.digits 10 (n!)` (little-endian) with `find? (· ≠ 0)` — matching f(5)=2. (2) Part (a) is encoded as the existence of a function g such that f(∑ 5^(a_i)) = g(∑ a_i) for all k>0 and injective a : Fin k → ℕ; \"distinct nonneg integers\" ↔ `Injective a` with `ℕ` codomain, and k>0 is implicit in the informal \"a_1,...,a_k\". (3) `IsPeriodicFrom 1 g p` unfolds to `∀ y, g(y+1+p) = g(y+1)`, i.e., g(s+p)=g(s) for all s≥1, exactly matching \"for all s ≥ 1\". (4) `P` correctly encodes \"least positive period, or 0 if none exists\" via `IsLeast` on the positive-period set, with the sentinel convention documented. The existential over g is appropriate because part (a) establishes g's well-definedness. No hypotheses are added or dropped.",
+  "duration_ms": 165182,
+  "cost_usd": 0.520725
+}

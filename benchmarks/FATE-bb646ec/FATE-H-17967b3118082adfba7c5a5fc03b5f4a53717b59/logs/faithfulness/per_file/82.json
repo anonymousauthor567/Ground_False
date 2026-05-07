@@ -1,0 +1,8 @@
+{
+  "file": "82.lean",
+  "stem": "82",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. UFD is standardly represented as `[CommRing D] [IsDomain D] [UniqueFactorizationMonoid D]` in Mathlib. The hypothesis `∀ P : Ideal D, [P.IsPrime] → P ≠ ⊥ → P.IsMaximal` (where `[P.IsPrime]` is instance-implicit, logically equivalent to `P.IsPrime →`) correctly expresses \"every nonzero prime ideal is maximal\" since `P ≠ ⊥` means P is nonzero. The conclusion `IsPrincipalIdealRing D` together with the ambient `IsDomain D` hypothesis gives exactly \"D is a PID\". The types, hypotheses, and conclusion all match the informal statement without strengthening or weakening.",
+  "duration_ms": 114807,
+  "cost_usd": 0.31277699999999997
+}

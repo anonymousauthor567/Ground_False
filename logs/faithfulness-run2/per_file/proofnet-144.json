@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for each positive integer n, the number $10^{10^{10^n}}+10^{10^n}+10^n-1$ is not prime. In Lean, `^` is right-associative, so `10^10^10^n` parses as `10^(10^(10^n))` and `10^10^n` as `10^(10^n)`, matching the informal expression exactly. The hypothesis `n > 0` corresponds to \"positive integer n\". Since the number is clearly positive, natural-number subtraction by 1 coincides with integer subtraction. `¬ Nat.Prime (...)` correctly formalizes \"is not prime\". No hypotheses or conclusions are added or dropped.",
+  "duration_ms": 18178,
+  "cost_usd": 0.045374250000000005
+}

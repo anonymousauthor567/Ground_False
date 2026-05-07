@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-98.lean",
+  "stem": "proofnet-98",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3` is a direct and exact encoding of \"the equation 7x³ + 2 = y³ has no solution in integers\". The variables are correctly quantified over ℤ, the equation matches literally, and the negation of existence captures \"no solution\" precisely. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 25393,
+  "cost_usd": 0.037792000000000006
+}

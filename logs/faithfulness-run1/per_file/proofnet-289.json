@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "informal": "Show that the collection $$\\mathcal{T}_\\infty = \\{U | X - U \\text{ is infinite or empty or all of X}\\}$$ does not need to be a topology on the set $X$.",
+  "lean": "\ntheorem Munkres_exercise_13_3b : ¬ ∀ X : Type, ∀s : Set (Set X),\n  (∀ t : Set X, t ∈ s → (Set.Infinite tᶜ ∨ t = ∅ ∨ t = ⊤)) →\n  (Set.Infinite (⋃₀ s)ᶜ ∨ (⋃₀ s) = ∅ ∨ (⋃₀ s) = ⊤)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show 𝒯_∞ need not be a topology. The Lean statement asserts that 𝒯_∞ is not always closed under arbitrary unions (negation of a universal closure property). Since 𝒯_∞ always contains ∅ and X by definition, and is always closed under finite intersection (the union of two infinite complements is infinite), the only topology axiom that can fail is closure under arbitrary union. Hence \"is not a topology\" and \"fails closure under arbitrary union\" are mathematically equivalent for this specific 𝒯_∞, and the Lean encoding captures exactly the content of the exercise. The types and quantifiers match (universal X, family of sets, conclusion about ⋃₀), and ⊤ for Set X equals univ.",
+  "duration_ms": 66888,
+  "cost_usd": 0.17521124999999999
+}

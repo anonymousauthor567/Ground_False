@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_a2.lean",
+  "stem": "putnam_1980_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal Putnam 1980 A2 problem. The positivity of r and s is captured by `rspos`, and the positivity of a, b, c, d is embedded in the `abcdlcm` predicate. The four ternary LCM conditions `lcm[a,b,c] = lcm[a,b,d] = lcm[a,c,d] = lcm[b,c,d] = 3^r * 7^s` are correctly expressed using `Nat.lcm (Nat.lcm _ _) _`, which is the ternary LCM. The set `{(a,b,c,d) : ℕ⁴ | abcdlcm a b c d}` and its `encard` correctly count the number of ordered quadruples of positive integers satisfying the conditions. The solution is a function of r and s as required. The free-predicate encoding with a biconditional `habcdlcm` is a standard PutnamBench convention that fully pins down the set being counted.",
+  "duration_ms": 104837,
+  "cost_usd": 0.29998625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: V is a complex inner product space, T ∈ End ℂ V (= L(V)), T commutes with its adjoint (normality), and T^9 = T^8; concluding IsSelfAdjoint T ∧ T^2 = T. The only added hypothesis is `FiniteDimensional ℂ V`, which surfaces an implicit premise: Mathlib's `LinearMap.adjoint` is only defined when the space is finite-dimensional (verified in `Mathlib/Analysis/InnerProductSpace/Adjoint.lean` line 463, which requires `[FiniteDimensional 𝕜 E]`). The informal statement's use of \"normal operator\" on a \"complex inner-product space\" presupposes that adjoints exist, which for a mere inner product space (not necessarily a Hilbert space) requires finite-dimensionality. Adding this premise makes the statement well-typed without changing its mathematical content, so it is a faithful formalization.",
+  "duration_ms": 246037,
+  "cost_usd": 0.7670250000000001
+}

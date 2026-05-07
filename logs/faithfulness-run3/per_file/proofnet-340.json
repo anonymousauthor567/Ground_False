@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "verdict": "faithful",
+  "reasoning": "The ambient space `EuclideanSpace ℝ (Fin k)` correctly represents ℝ^k. The hypothesis `¬ Set.Countable E` captures \"E is uncountable\". The set P is defined as {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}, which states that every neighborhood of x has uncountable intersection with E — this is exactly the standard definition of a condensation point (and it is equivalent to the \"every open neighborhood\" formulation since any neighborhood in 𝓝 x contains an open neighborhood and vice versa). The conclusion `Set.Countable (E \\ P)` directly matches \"at most countably many points of E are not in P\". No hypotheses are added or dropped, and no types have been changed.",
+  "duration_ms": 32330,
+  "cost_usd": 0.0753785
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "informal": "Prove that the intersection of any collection of subspaces of $V$ is a subspace of $V$.",
+  "lean": "\ntheorem Axler_exercise_1_8 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] {ι : Type*} (u : ι → Submodule F V) :\n  ∃ U : Submodule F V, (⋂ (i : ι), (u i).carrier) = ↑U",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says: the intersection of any collection of subspaces of V is itself a subspace. The Lean signature fixes a field F, a vector space V (AddCommGroup + Module F V), and an arbitrary index type ι with a family u : ι → Submodule F V, then asserts the existence of a Submodule U whose carrier equals ⋂ i, (u i).carrier. Saying \"there exists a submodule whose underlying set equals this intersection\" is exactly the assertion that the intersection set is a subspace. The index type being an arbitrary Type* faithfully captures \"any collection,\" and the empty-ι case (where the intersection is all of V) is correctly handled since V itself is a submodule. No extra hypotheses (e.g. finiteness, nonemptiness) are imposed, and no part of the conclusion is weakened.",
+  "duration_ms": 12128,
+  "cost_usd": 0.05403775
+}

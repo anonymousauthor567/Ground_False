@@ -1,0 +1,8 @@
+{
+  "file": "31.lean",
+  "stem": "31",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a field F and a natural number n ≥ 2, and asserts the existence of two elements a, b ∈ GL(Fin n, F) with a*b ≠ b*a. In Mathlib, `GL (Fin n) F` is `(Matrix (Fin n) (Fin n) F)ˣ`, i.e., the group of n×n invertible matrices over F, matching GL_n(F). \"Non-abelian\" is exactly the negation of commutativity, which is logically equivalent to ∃ a b, a*b ≠ b*a. The hypothesis `[Field F]` matches the standard reading of \"F\" as a field in GL_n(F). The quantifier structure (∀ F, ∀ n ≥ 2, ∃ a b, ...) exactly mirrors \"for any n ≥ 2 and any F, GL_n(F) is non-abelian\". Since Field extends DivisionRing (requiring 0 ≠ 1), every field is nontrivial and the statement is true (e.g., GL_2(F_2) ≅ S_3). No hypothesis is dropped or added inappropriately.",
+  "duration_ms": 206864,
+  "cost_usd": 0.3827364999999999
+}

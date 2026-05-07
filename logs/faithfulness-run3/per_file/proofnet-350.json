@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal one under the standard Mathlib encoding of \"a function defined on E\" as a total function f : ℝ → ℝ together with `ContinuousOn f E`. The existential on E ⊂ ℝ, the continuity of f on E, and the non-existence of a continuous extension g : ℝ → ℝ with g(x) = f(x) on E are all preserved exactly. Given a continuous f : E → ℝ, one can extend arbitrarily outside E to obtain the Lean form; conversely, restricting f to E yields the informal form. The equality `f x = g x` for x ∈ E correctly expresses the extension condition.",
+  "duration_ms": 27378,
+  "cost_usd": 0.09509625000000002
+}

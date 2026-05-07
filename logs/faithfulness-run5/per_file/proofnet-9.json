@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim: for every element x in I ∩ J (encoded as the subtype ↑(I ⊓ J)), its image under the quotient map R → R/(I*J) is nilpotent. The Mathlib operators are correctly used: ⊓ is the intersection of ideals, I*J is the product of ideals, Ideal.Quotient.mk is the canonical projection, and IsNilpotent matches the standard meaning. The one possible concern is the CommRing hypothesis, but in standard mathematical usage \"ideals I, J in a ring R\" with the product IJ forming a quotient ring R/IJ implicitly assumes commutativity (so that IJ is two-sided and the quotient is a ring); making this explicit is surfacing an implicit premise rather than strengthening or weakening the claim. The quantifier structure, hypotheses, and conclusion all agree with the informal statement.",
+  "duration_ms": 245262,
+  "cost_usd": 0.701286
+}

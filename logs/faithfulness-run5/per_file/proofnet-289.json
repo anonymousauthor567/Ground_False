@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The membership predicate `{t | Set.Infinite tᶜ ∨ t = ∅ ∨ t = Set.univ}` correctly matches \"X - U is infinite, empty, or all of X\" (since t = Set.univ ⟺ complement is empty, and t = ∅ ⟺ complement is all of X). The three conditions being negated correspond exactly to Mathlib's three topology axioms (`isOpen_univ`, `isOpen_sUnion`, `isOpen_inter`); the axiom that ∅ is open follows from `isOpen_sUnion` on the empty family, so nothing is missing. The \"does not need to be a topology on the set X\" is correctly rendered as ∃ X : Type such that these axioms fail in conjunction — matching the standard reading that the construction fails for some (e.g., infinite) X.",
+  "duration_ms": 233570,
+  "cost_usd": 0.7545430000000001
+}

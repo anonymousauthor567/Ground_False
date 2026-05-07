@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a closed subspace of a normal space is normal. The Lean statement takes a topological space X with `NormalSpace X`, a subset A with `IsClosed A`, and concludes `NormalSpace {x // x ∈ A}`. The subtype `{x // x ∈ A}` automatically carries the subspace topology in Mathlib, so `NormalSpace` on this subtype exactly means the closed subspace A (with the subspace topology) is normal. The hypotheses (normal ambient space, closed subset) and conclusion (subspace is normal) match the informal claim precisely, with no added or omitted assumptions.",
+  "duration_ms": 8016,
+  "cost_usd": 0.03528625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_a2.lean",
+  "stem": "putnam_1993_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement component by component: `x : ℕ → ℝ` represents the sequence indexed from 0; `xnonzero` captures \"nonzero real numbers\"; `hx` encodes $x_n^2 - x_{n-1}x_{n+1} = 1$ for $n \\geq 1$ (equivalent to $n = 1, 2, 3, \\ldots$); and the conclusion asserts the existence of a real $a$ with $x_{n+1} = ax_n - x_{n-1}$ for all $n \\geq 1$. The natural subtraction `n - 1` is safe because both the hypothesis and the conclusion are guarded by `n ≥ 1`, so it always equals the true predecessor. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 24975,
+  "cost_usd": 0.08850000000000001
+}

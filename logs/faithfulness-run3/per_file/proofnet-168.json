@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. It takes E : Set ℝ with hypothesis Bornology.IsBounded E (matching \"bounded set E in R^1\"), then universally quantifies over f : ℝ → ℝ with hypothesis UniformContinuousOn f E (matching \"real uniformly continuous function on E\"), and concludes Bornology.IsBounded (Set.image f E) (matching \"f is bounded on E\", i.e., the image f(E) is bounded). The quantifier reordering (taking E first, then ∀ f) is logically equivalent to the universal statement \"for all bounded E ⊆ ℝ and all f : ℝ → ℝ uniformly continuous on E, f(E) is bounded.\" Types and notions (Bornology.IsBounded for metric boundedness in ℝ, UniformContinuousOn for uniform continuity restricted to E) match standard Mathlib conventions and the informal meaning.",
+  "duration_ms": 13430,
+  "cost_usd": 0.06367725
+}

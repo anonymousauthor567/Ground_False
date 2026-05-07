@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly formalizes the informal claim: the interval integral `∫ x in (0:ℝ)..(1:ℝ), Real.log (Real.sin (Real.pi * x))` corresponds exactly to $\\int_0^1 \\log(\\sin \\pi x)\\,dx$, and `- Real.log 2` corresponds to $-\\log 2$. The bounds (0 to 1), integrand (log ∘ sin ∘ (π·)), and value (-log 2) all align precisely. The function log(sin(πx)) is Lebesgue integrable on [0,1] (logarithmic singularities at endpoints are integrable), so the Bochner-based `intervalIntegral` is well-defined. No extra hypotheses are added or omitted, and the types (all ℝ) are correct. This is a strictly faithful formalization.",
+  "duration_ms": 22331,
+  "cost_usd": 0.09362075
+}

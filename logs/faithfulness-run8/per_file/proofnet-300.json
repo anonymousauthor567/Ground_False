@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. The setup has topological spaces X and Y with a continuous map p : X → Y (hypothesis h). The conclusion states: if there exists a continuous f : Y → X such that p ∘ f = id (which by type inference is id : Y → Y, the identity of Y), then p is a quotient map. Mathlib's `IsQuotientMap` is defined as surjectivity plus the coinduced-topology condition, which is the standard definition of a quotient map (Munkres-style). No hypotheses are added or dropped, no types are changed, and the quantifier structure matches. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 27555,
+  "cost_usd": 0.09707974999999999
+}

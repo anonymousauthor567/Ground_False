@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"H is the unique subgroup of a given order in G implies H is characteristic.\" The Lean version captures this precisely: `[Fintype H]` surfaces the implicit premise that H has a finite order (required to meaningfully say \"a given order\"), and the hypothesis `hH` states that any finite subgroup K with the same cardinality as H must equal H, which is exactly the uniqueness condition. The conclusion `H.Characteristic` matches Mathlib's standard definition of a characteristic subgroup (invariant under all automorphisms of G), which aligns with the informal notion. Quantifying over `Fintype K` in the hypothesis doesn't weaken the claim since any subgroup of G with the same finite cardinality as H is necessarily finite. Thus the Lean formalization is logically equivalent to the informal statement under standard mathematical reading.",
+  "duration_ms": 145009,
+  "cost_usd": 0.4272555
+}

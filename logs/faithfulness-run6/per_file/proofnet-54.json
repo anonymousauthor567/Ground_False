@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that a group of order 200 has a normal Sylow 5-subgroup. The Lean theorem sets G as a finite group (`[Fintype G] [Group G]`) with `card G = 200`, and concludes `∃ N : Sylow 5 G, N.Normal`. Verified in Mathlib's `GroupTheory/Sylow.lean`: `Sylow p G` is the type of maximal p-subgroups, and `N.Normal` is the standard way to state that the underlying subgroup is normal. The existential `∃ N : Sylow 5 G, N.Normal` exactly encodes \"has a normal Sylow 5-subgroup\". Hypotheses, types, conclusion, and quantifier structure all match the informal claim with no extraneous additions.",
+  "duration_ms": 60914,
+  "cost_usd": 0.334521
+}

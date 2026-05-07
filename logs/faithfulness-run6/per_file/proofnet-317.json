@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal claim: `X` is a topological space with `CompactSpace X` and `T2Space X` (compact Hausdorff), `X1 X2 : Set X` are closed (`IsClosed X1`, `IsClosed X2`), their union is everything (`X1 ∪ X2 = univ`), and each is metrizable as a subspace (`MetrizableSpace X1`, `MetrizableSpace X2` — using Mathlib's convention where `Set X` coerces to the subtype with the induced subspace topology, and `MetrizableSpace` for a subtype means the subspace topology is metrizable). The conclusion `MetrizableSpace X` matches \"X is metrizable\". No hypotheses are added or omitted, and the quantifier structure (universal over any such `X`, `X1`, `X2`) matches the informal statement.",
+  "duration_ms": 43700,
+  "cost_usd": 0.16301875
+}

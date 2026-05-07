@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_b1.lean",
+  "stem": "putnam_1993_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `IsLeast {n : ℕ | 0 < n ∧ ...} putnam_1993_b1_solution` correctly encodes \"smallest positive integer n such that...\" — IsLeast asserts both membership and lower-bound property. The quantifier `∀ m ∈ Set.Ioo (0 : ℤ) 1993` correctly captures \"for every integer m with 0 < m < 1993\". The existential `∃ k : ℤ` matches \"there exists an integer k\". Crucially, in the comparisons `m / 1993 < (k : ℝ) / n` and `(k : ℝ) / n < (m + 1) / 1994`, Lean's elaborator forces both sides of `<` to have type `ℝ`, so `m / 1993` elaborates to `(↑m : ℝ) / 1993` (real division, not integer division), matching the informal fractions exactly. The condition `0 < n` handles the positivity requirement (avoiding n = 0 where division would be 0 by Mathlib convention).",
+  "duration_ms": 804050,
+  "cost_usd": 0.7717067499999999
+}

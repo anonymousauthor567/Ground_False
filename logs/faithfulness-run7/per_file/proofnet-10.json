@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim on all counts: R is a ring, M is an ideal, every non-element of M is a unit (IsUnit), M is maximal (IsMaximal M in Mathlib requires M ≠ ⊤), and it is the unique maximal ideal. The only apparent extra is `hProper : ∃ x : R, x ∉ M`, which asserts M is a proper ideal. Without this, M = R is a vacuous counterexample (the unit hypothesis holds vacuously, but IsMaximal M fails since maximal ideals are proper). This hypothesis is thus an implicit premise needed for the informal statement to be true — indeed the phrasing \"every element of R which is not in M is a unit\" naturally presupposes there are such elements, and the conclusion \"M is a maximal ideal\" presupposes M ≠ R. Making this explicit in Lean counts as faithful, not weaker.",
+  "duration_ms": 98379,
+  "cost_usd": 0.32732125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes both claims. The sum `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` correctly computes 1^k + 2^k + ... + (p-1)^k since n : Fin (p-1) ranges from 0 to p-2, giving (↑n + 1) from 1 to p-1. The first conjunct `(¬ p - 1 ∣ k) → s ≡ 0 [MOD p]` uses Nat.ModEq, which is equivalent to p ∣ s. The second conjunct `p - 1 ∣ k → s ≡ -1 [ZMOD p]` uses Int.ModEq (with s coerced to ℤ), correctly capturing \"≡ -1 mod p\" — this requires ZMOD since -1 isn't a natural number. The structure as a conjunction of two implications matches the informal \"A if B and C if D\" pattern. The primality hypothesis hp : p.Prime matches the informal \"prime p\".",
+  "duration_ms": 187865,
+  "cost_usd": 0.6116495
+}

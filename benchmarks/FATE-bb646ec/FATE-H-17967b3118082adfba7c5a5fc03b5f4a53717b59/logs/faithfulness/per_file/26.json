@@ -1,0 +1,8 @@
+{
+  "file": "26.lean",
+  "stem": "26",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `IsCoatom H` for `H : Subgroup G` is precisely the definition of a maximal subgroup: H ≠ ⊤ (proper) and every subgroup strictly above H equals ⊤ (= G itself). `Subgroup.center G` is Z(G), and `commutator G` is Mathlib's [G,G] (defined as ⁅⊤, ⊤⁆). Subgroup `≤` is inclusion, and `∨` matches \"either...or\". No hypotheses are added or dropped, and no quantifiers or types are changed. The only minor convention is `G : Type` instead of `Type*`, but this is a universe-level encoding detail, not a mathematical difference.",
+  "duration_ms": 148809,
+  "cost_usd": 0.39161250000000003
+}

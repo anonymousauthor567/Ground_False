@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. The informal statement says: assume each X_α is nonempty, and if the product ∏ X_α is regular (separation property only), then each X_α is regular. The Lean formalization takes a family `X : ι → Type*` with topologies, hypothesis `∀ i, Nonempty (X i)` (each factor nonempty), `RegularSpace (Π i, X i)` (product regular), and concludes `∀ i, RegularSpace (X i)` (each factor regular). Mathlib's `RegularSpace` is defined as the pure separation property (\"for closed s and a ∉ s, there exist disjoint open sets U ⊇ s and V ∋ a\"), with no T₀/T₁ assumption — exactly matching the informal parenthetical \"(separation property only)\"; the T₀-strengthened notion would be `T3Space`. Hypotheses, conclusion, quantifier structure, and ambient setting (arbitrary index type ι) all align with the informal statement.",
+  "duration_ms": 136826,
+  "cost_usd": 0.414512
+}

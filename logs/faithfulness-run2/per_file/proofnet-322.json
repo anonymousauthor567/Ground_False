@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely: a ℕ-indexed sequence of compact (IsCompact, i.e., covering compact) sets, each nonempty, with s i ⊇ s (i+1) (equivalent to the full descending chain by induction), concluding that ⋂ i, s i is nonempty. The T2Space assumption is the minimal natural hypothesis needed for the theorem to be true (without it, e.g., in the cofinite topology on ℕ, the claim fails), and since the informal statement does not name a narrower ambient setting, using T2 is the standard and faithful encoding. All quantifier structure, object types, and the nonemptiness conclusion match the informal statement.",
+  "duration_ms": 70289,
+  "cost_usd": 0.21570075
+}

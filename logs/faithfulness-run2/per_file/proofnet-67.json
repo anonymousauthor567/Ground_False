@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: f, g : Polynomial ℚ captures \"polynomials with rational coefficients\"; the hypothesis `∀ n, ∃ a : ℤ, (f*g).coeff n = a` (with implicit coercion) captures \"f*g has integer coefficients\"; and the conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` captures \"the product is an integer\". The indices i, j appear as free variables in the theorem signature, which in Lean 4 amounts to universal quantification over all natural numbers, matching \"any coefficient ... any coefficient\". The quantifier structure, ambient types, and hypothesis/conclusion all align with the informal claim.",
+  "duration_ms": 17820,
+  "cost_usd": 0.06260925
+}

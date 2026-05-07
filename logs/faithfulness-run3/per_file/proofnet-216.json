@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says $|ab| = |ba|$ for all $a,b \\in G$, where $|\\cdot|$ denotes the order of an element in a group. The Lean signature quantifies over an arbitrary group `G` (via `{G : Type*} [Group G]`) and arbitrary elements `a b : G`, and asserts `orderOf (a * b) = orderOf (b * a)`. Mathlib's `orderOf` is exactly the group-theoretic order of an element (handling infinite order as 0, which matches the convention that two elements have \"the same order\" when both have infinite order). This matches the informal statement exactly — same hypotheses (none beyond being a group), same conclusion, same quantifier structure.",
+  "duration_ms": 34844,
+  "cost_usd": 0.040885500000000005
+}

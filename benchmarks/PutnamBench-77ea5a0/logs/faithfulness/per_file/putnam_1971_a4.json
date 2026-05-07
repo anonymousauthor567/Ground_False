@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a4.lean",
+  "stem": "putnam_1971_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all components of the informal statement faithfully. The polynomial $(x+y)^n(x^2 - (2-\\epsilon)xy + y^2)$ (correcting an obvious typo in the informal) is encoded correctly using `MvPolynomial.X 0`, `MvPolynomial.X 1`, and `MvPolynomial.C (2 - δ)`. The range ε ∈ (0,1) matches `0 < ε ∧ ε < 1`, and \"for n sufficiently large\" matches `∃ N, ∀ n ≥ N`. The phrase \"positive coefficients\" is formalized as `∀ i, coeff i (P n ε) ≥ 0`, which is the standard mathematical reading: since the polynomial is homogeneous of degree n+2, most coefficients are literally 0, so \"positive coefficients\" must mean \"nonnegative\" in context (equivalent to `f ∈ ℝ_≥0[x,y]`). This convention is consistent with the dataset (e.g., putnam_2007_b1 formalizes \"positive integer coefficients\" identically as `coeff n ≥ 0`). No extra hypotheses are added or removed, and the quantifier structure matches exactly.",
+  "duration_ms": 422856,
+  "cost_usd": 1.33887975
+}

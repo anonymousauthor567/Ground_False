@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a1.lean",
+  "stem": "putnam_1962_a1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the classical \"Happy Ending\" theorem. The Lean encoding has: (1) S a set of 5 points in ℝ² via S.ncard = 5 (distinct points, since ncard counts distinct elements), (2) the no-three-collinear hypothesis quantified over all 3-subsets of S, and (3) a conclusion that some 4-subset T has no point inside the convex hull of the other 3. For 4 points in general position (no 3 collinear, which follows from the hypothesis applied to subsets of T), being in \"convex position\" (no point in the convex hull of the others) is exactly equivalent to forming the vertices of a convex quadrilateral: if one point were inside the triangle of the other three, the four points would form a triangle, not a quadrilateral; conversely, in a convex quadrilateral no vertex lies in the triangle of the other three vertices. Hence the conclusion ¬∃ t ∈ T, t ∈ convexHull(T \\ {t}) faithfully captures \"T forms the vertices of a convex quadrilateral\" under the given hypotheses.",
+  "duration_ms": 135638,
+  "cost_usd": 0.5342587499999999
+}

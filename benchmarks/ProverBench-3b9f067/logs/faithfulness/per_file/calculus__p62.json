@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p62.lean",
+  "stem": "calculus__p62",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is about an indefinite integral (antiderivative relation) in standard calculus notation. The Lean formalization instead uses `∫ x, f x`, which in Mathlib is the Bochner integral `integral volume f` — a definite integral over all of ℝ yielding a single real number. The bound variable `x` in `∫ x, f x` shadows the outer `x : ℝ`, so the LHS is constant while the RHS `-√(49-x²) + C` depends on the outer x, C that are universally quantified. This makes the Lean statement false (a constant cannot equal an expression that varies with x, C for all x, C), while the informal statement is true as an antiderivative relation. The two statements are about fundamentally different mathematical objects (antiderivative vs. definite integral over ℝ) with different quantifier structures, so they are neither logically equivalent nor does one cleanly imply the other as a mathematical formalization.",
+  "duration_ms": 272097,
+  "cost_usd": 0.6079262500000001
+}

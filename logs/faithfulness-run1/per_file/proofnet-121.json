@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "theorem_name": "Munkres_exercise_24_2_corrected",
+  "informal": "Let $f: S^{1} \\rightarrow \\mathbb{R}$ be a continuous map. Show there exists a point $x$ of $S^{1}$ such that $f(x)=f(-x)$.",
+  "lean": "theorem Munkres_exercise_24_2_corrected\n    {f : (Metric.sphere (0 : ℂ) 1 : Set ℂ) → ℝ}\n    (hf : Continuous f) : ∃ x, f x = f (-x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes S^1 as the unit sphere of radius 1 centered at 0 in ℂ, which is the standard identification of S^1. The map f is a continuous function from this circle to ℝ, matching the informal hypothesis. The conclusion ∃ x, f x = f (-x) expresses precisely that some point and its antipode map to the same value, since negation on the unit circle in ℂ is the antipodal map (and the subtype on the sphere centered at 0 inherits a Neg instance because ‖-x‖ = ‖x‖). Quantifier structure, types, and the conclusion all align with the informal claim, so the formalization is logically equivalent.",
+  "duration_ms": 14661,
+  "cost_usd": 0.069173
+}

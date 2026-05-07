@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes \"unique largest topology contained in all T_α\". The `is_topology` definition captures the standard topology axioms (∅ ∈ T follows from sUnion ∅ = ∅ via the arbitrary-union axiom). The family of topologies is encoded as `T : I → Set (Set X)` with `h : ∀ i, is_topology X (T i)`, matching \"family of topologies on X\". The conclusion `∃! T'` with conjuncts (T' is a topology), (T' ⊆ T i for all i), and (every topology T'' contained in all T i is ⊆ T') correctly expresses \"unique largest topology contained in all T_α\". The use of `∃!` is consistent with \"unique largest\", and while uniqueness is in fact a consequence of the maximality condition, asserting it explicitly neither strengthens nor weakens the claim.",
+  "duration_ms": 31768,
+  "cost_usd": 0.12572224999999998
+}

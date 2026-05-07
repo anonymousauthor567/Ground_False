@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean sum `∑ i ∈ Finset.range (p-1), 1/(i+1)` correctly expands to 1/1 + 1/2 + ... + 1/(p-1), matching the informal harmonic sum. The hypotheses (Nat.Prime p, Odd p) capture \"odd prime\". The universal quantifier over (a,b:ℤ) with a/b = H_{p-1} → p ∣ a is logically equivalent to \"p divides the reduced numerator N\": if a/b = N/D (reduced), then a = kN, b = kD for some integer k, so p ∣ a for all valid (a,b) iff p ∣ N. The edge cases with b=0 are vacuous since the sum is nonzero. This matches the intended meaning of the informal statement, which asks to show p divides the numerator of the harmonic sum written as a fraction.",
+  "duration_ms": 72783,
+  "cost_usd": 0.22983725
+}

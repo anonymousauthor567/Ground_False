@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_b3.lean",
+  "stem": "putnam_1971_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement parameterizes by T > 0 (time difference between start times), treats car 1 as starting at time 0 with laps = ⌊t⌋, and car 2 as starting at time T with laps = ⌊t-T⌋. The set {t | t ≥ T ∧ ⌊t⌋ = 2⌊t-T⌋} correctly captures \"times when both cars are running and car 1 has exactly twice as many laps as car 2,\" and Lebesgue measure matches \"total amount of time.\" A direct computation confirms the measure equals 1 for every T > 0. The t ≥ T restriction surfaces an implicit premise needed for the claim to be nontrivially true (without it, Nat.floor being 0 on negatives would make the set have infinite measure). The use of Nat.floor on nonneg reals agrees with the usual floor. The units (\"1 lap/hour\"/\"1 hour\") and the \"exactly twice\" equality are all correctly rendered. This is a faithful formalization.",
+  "duration_ms": 548066,
+  "cost_usd": 1.5687065
+}

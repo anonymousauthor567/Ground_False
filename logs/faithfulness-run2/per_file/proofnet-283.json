@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim as an iff: given ¬n.Prime, (n-1)! ≡ 0 [MOD n] ↔ n ≠ 4. The backward direction captures the main assertion \"composite n, n≠4 ⇒ (n-1)! ≡ 0 (mod n).\" The forward direction corresponds to the \"except when n=4\" clause, which naturally asserts that n=4 is genuinely exceptional (i.e., (3)! = 6 ≢ 0 mod 4, which is true). The ℕ+ type and ¬n.Prime hypothesis match \"n is not prime\" (including n=1 trivially, since 1 ≡ 0 mod 1). This is the standard interpretation of the classical Wilson-converse exercise in Ireland-Rosen.",
+  "duration_ms": 39306,
+  "cost_usd": 0.15079325
+}

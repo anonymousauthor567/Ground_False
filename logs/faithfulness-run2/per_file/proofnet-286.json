@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The sum `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` correctly represents $1^k + 2^k + \\cdots + (p-1)^k$ since n ranges over 0 to p-2, making n+1 range over 1 to p-1. The two implications match: first conjunct `(¬ p - 1 ∣ k) → s ≡ 0 [MOD p]` (using Nat.ModEq, equivalent to $p \\mid s$) matches the informal $\\equiv 0 \\pmod p$, and the second `p - 1 ∣ k → s ≡ -1 [ZMOD p]` (using Int.ModEq with coercion to handle the negative value) matches $\\equiv -1 \\pmod p$. Introducing `s` as a separate variable with a hypothesis is stylistic but logically equivalent. Edge cases (including p=2 and k=0) verify correctly.",
+  "duration_ms": 51727,
+  "cost_usd": 0.15637849999999998
+}

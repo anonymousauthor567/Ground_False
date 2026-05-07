@@ -1,0 +1,8 @@
+{
+  "file": "90.lean",
+  "stem": "90",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the claim: for any field $k$, there exists $n$ and an intermediate field $K$ of $k(x_1,...,x_n)/k$ such that $K \\cap k[x_1,...,x_n]$ is not a finitely generated $k$-algebra. Although the informal statement says \"$n > 0$\" while Lean uses `n : ℕ`, the two are logically equivalent because $n = 0$ gives `FractionRing (MvPolynomial (Fin 0) k) ≃ k`, the only intermediate field is $\\top$, and the intersection is trivially finitely generated — so $n = 0$ cannot witness the Lean existential. The use of `IntermediateField` (which requires $K \\supseteq k$) correctly surfaces the implicit premise needed for \"$K \\cap k[x_1,...,x_n]$ is a $k$-algebra\" to make sense. The intersection `K.toSubalgebra ⊓ (algHom ...).range` correctly represents $K \\cap k[x_1,...,x_n]$ viewed inside the fraction field, and `Algebra.FiniteType` is the standard notion of finitely generated $k$-algebra.",
+  "duration_ms": 465172,
+  "cost_usd": 0.7149575
+}

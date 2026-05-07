@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a4.lean",
+  "stem": "putnam_2022_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures Putnam 2022 A4. The sequence X : ℕ → Ω → ℝ is i.i.d. uniform on [0,1] via MeasureTheory.pdf.IsUniform and iIndepFun (which defaults to ℙ). The set-valued k(ω) = sSup{Set.Iic m : ∀ l < m, X l > X (l+1)} equals {0,...,M} where M is the position of the first ascent in 0-indexed terms, which corresponds exactly to k-1 in the informal 1-indexed setup. Correspondingly, S = ∑' i∈k(ω), X_i/2^(i+1) with exponent i+1 compensates exactly for the 0-indexing shift, yielding the same sum as the informal ∑_{i=1}^k X_i/2^i. The strict vs non-strict inequality difference (Lean uses X_l > X_{l+1} while the informal complement is X_l ≥ X_{l+1}) is irrelevant since continuous i.i.d. values have no ties a.s., and the k=∞ case is a null event. The answer 2·Real.exp(1/2) - 3 = 2√e - 3 matches the correct Putnam answer (verified by the standard computation ∑_{i=1}^∞ 2^{-i}/(i+1)!). The formalization is faithful.",
+  "duration_ms": 591209,
+  "cost_usd": 1.7442942500000005
+}

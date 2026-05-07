@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_b2.lean",
+  "stem": "putnam_1984_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes \"the minimum value of (u-v)² + (√(2-u²) - 9/v)² for 0<u<√2 and v>0 is 8\" using `IsLeast` on the image set. The expression `f u v` matches the informal one exactly. The domain is correctly encoded: `u : Set.Ioo 0 √2` (coerced to ℝ) gives 0 < u < √2, and `v > 0` gives v > 0. `IsLeast S 8` means 8 ∈ S (minimum is attained — which is true here at u=1, v=3) and 8 is a lower bound, exactly capturing \"the minimum value is 8\". The set-builder with `∃ᵉ` is the standard Mathlib way to build the image of the two-variable function over the constrained domain. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 176589,
+  "cost_usd": 0.5289932500000001
+}

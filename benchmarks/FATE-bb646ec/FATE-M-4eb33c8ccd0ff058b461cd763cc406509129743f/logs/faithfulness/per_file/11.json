@@ -1,0 +1,8 @@
+{
+  "file": "11.lean",
+  "stem": "11",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that in any ring R, both a(b-c)=ab-ac and (b-c)a=ba-ca hold for all a,b,c∈R. Mathlib's `Ring` class is the standard notion of a (unital, associative) ring (extending Semiring, AddCommGroup, AddGroupWithOne), matching \"any ring R\". The implicit `{R : Type*}` plus the explicit `(a b c : R)` provide the universal quantification over the ring and its elements. The conclusion is the exact conjunction of the two identities stated informally. No hypotheses have been added or dropped, and no types have been changed, so the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 75595,
+  "cost_usd": 0.11956275
+}

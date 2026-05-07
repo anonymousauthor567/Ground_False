@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"Let K be a finite field; the product of nonzero elements is -1.\" The Lean statement uses [Field K] [Fintype Kˣ], which is equivalent to \"K is a finite field\" because for a field, K = Kˣ ∪ {0}, so Fintype Kˣ ↔ Fintype K. The nonzero elements of a field are precisely the units, so ∏ x : Kˣ, x captures the product of nonzero elements. The equality is taken in Kˣ, but since the coercion Kˣ → K is injective and sends -1 to -1 (Units.coe_neg_one), this is logically equivalent to the informal claim in K. This is essentially Mathlib's own formulation in prod_univ_units_id_eq_neg_one (FieldTheory/Finite/Basic.lean line 110), which uses the same [Fintype Kˣ] approach to avoid typeclass diamonds. The formalization is strictly faithful.",
+  "duration_ms": 121920,
+  "cost_usd": 0.422763
+}

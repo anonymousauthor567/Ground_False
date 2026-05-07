@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `‖z‖ = 1` places z on the unit circle, and `s n = ∑ i ∈ range n, i * z^i` is exactly the sequence of partial sums of the power series ∑ n zⁿ (the i=0 term is 0, so it matches whether one indexes from 0 or 1). The conclusion `¬ ∃ y, Tendsto s atTop (𝓝 y)` states that these partial sums have no complex limit, i.e., the series diverges. The universal quantification over points of the unit circle is captured by the theorem's free variable z with hypothesis `‖z‖ = 1`. The coercion i * z^i correctly computes (↑i : ℂ) * z^i. No hypotheses are silently added or dropped.",
+  "duration_ms": 51920,
+  "cost_usd": 0.14250825
+}

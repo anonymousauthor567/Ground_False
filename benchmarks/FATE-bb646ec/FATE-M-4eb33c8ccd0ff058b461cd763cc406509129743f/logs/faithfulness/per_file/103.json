@@ -1,0 +1,8 @@
+{
+  "file": "103.lean",
+  "stem": "103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"if P is a normal Sylow p-subgroup of G, then φ(P) = P for every automorphism φ of G\". `P : Sylow p G` with `[P.Normal]` is the standard Mathlib encoding of a normal Sylow p-subgroup; `φ : G ≃* G` is a group automorphism; and `φ '' P = P` expresses set-theoretic equality of images via the `SetLike` coercion, matching the informal \"φ(P) = P\". The added `[Fintype G]` hypothesis is making an implicit premise explicit: the classical proof relies on a normal Sylow subgroup being characteristic (Mathlib's `characteristic_of_normal` requires `[Finite (Sylow p G)]`), and in infinite groups a normal Sylow p-subgroup need not even be unique, so the claim can fail. The textbook context of \"p-Sylow subgroup of G\" conventionally assumes G is finite, making this a faithful rendering rather than a narrowing.",
+  "duration_ms": 311072,
+  "cost_usd": 0.82248175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Metric.sphere (0 : ℂ) 1 = {z : ℂ | dist z 0 = 1}`, which is exactly the unit circle $S^1$ identified as a subspace of ℂ ≅ ℝ². Mathlib (in `Mathlib/Analysis/Normed/Group/BallSphere.lean`) equips `sphere (0 : E) r` with an `InvolutiveNeg` instance defined as the antipodal map (via `Subtype.map Neg.neg`), with `coe_neg_sphere : ↑(-v) = (-v : E)`, so `-x` in the Lean signature is precisely the antipodal map on $S^1$. The continuous function `f : sphere → ℝ`, the continuity hypothesis, and the conclusion `∃ x, f x = f (-x)` exactly match the informal claim (Borsuk–Ulam for $S^1$). No hypotheses are added or dropped.",
+  "duration_ms": 79571,
+  "cost_usd": 0.22686225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes an arbitrary z on the unit circle (via ‖z‖ = 1) and defines s n as the partial sum ∑_{i<n} i·z^i, which is the n-th partial sum of the series ∑ n z^n (the i=0 term vanishes). The conclusion ¬ ∃ y, Tendsto s atTop (𝓝 y) expresses that the partial sums have no limit, i.e., the series does not converge. Since z is arbitrary on the unit circle, this matches the informal statement \"does not converge on any point of the unit circle.\" There are no extra hypotheses or missing conditions, and the types (ℂ, ℕ, partial sums) align with the standard interpretation.",
+  "duration_ms": 21989,
+  "cost_usd": 0.06854725
+}

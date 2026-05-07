@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `[Field K] [Infinite K]` encodes \"infinite field F\"; `[AddCommGroup V] [Module K V]` encodes \"vector space V over F\"; `[Fintype ι]` with `γ : ι → Submodule K V` encodes \"finitely many subspaces\"; `h : ∀ i, γ i ≠ ⊤` encodes \"each is proper\" (⊤ is the whole-space submodule); and `(⋃ i, (γ i : Set V)) ≠ ⊤` encodes \"their union is not V\", since for `Set V`, `⊤ = Set.univ` (verified via Mathlib's `Set.top_eq_univ`). No hypothesis is added or dropped, and quantifier structure matches the informal statement.",
+  "duration_ms": 99317,
+  "cost_usd": 0.28597225000000004
+}

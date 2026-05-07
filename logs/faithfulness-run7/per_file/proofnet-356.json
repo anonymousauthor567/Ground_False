@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The type `g : ℝ → ℝ` matches \"real function on ℝ¹\". The `Differentiable ℝ g` hypothesis surfaces an implicit premise (the informal statement's reference to \"derivative\" implies differentiability, and without this the boundedness condition could be vacuously satisfied since Mathlib's `deriv` returns 0 at non-differentiable points). The hypothesis `∃ M, ∀ x, |deriv g x| ≤ M` correctly encodes the bounded derivative \"|g'| ≤ M\". The conclusion `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (λ x => x + ε * g x)` correctly captures \"f is one-to-one if ε is small enough\" as the existence of a positive threshold N below which injectivity holds. The definition of `f(x) = x + ε g(x)` and `Function.Injective` correspond precisely to the informal \"one-to-one\" claim.",
+  "duration_ms": 60933,
+  "cost_usd": 0.22847175
+}

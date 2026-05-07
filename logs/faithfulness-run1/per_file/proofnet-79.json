@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "informal": "If $G$ is an abelian group and if $G$ has an element of order $m$ and one of order $n$, where $m$ and $n$ are relatively prime, prove that $G$ has an element of order $mn$.",
+  "lean": "\ntheorem Herstein_exercise_2_6_15 {G : Type*} [CommGroup G] {m n : ℕ}\n  (hm : ∃ (g : G), orderOf g = m)\n  (hn : ∃ (g : G), orderOf g = n)\n  (hmn : m.Coprime n) :\n  ∃ (g : G), orderOf g = m * n",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `CommGroup G` for \"abelian group\", encodes \"has an element of order m\" as `∃ g : G, orderOf g = m` (and similarly for n), encodes coprimality via `Nat.Coprime`, and concludes with `∃ g : G, orderOf g = m * n`. This matches the informal statement directly. The quantifier structure (universal over G via the type variable, existentials over the elements) and the conclusion are preserved. No extra hypotheses (like Fintype) are added, and no required hypotheses are dropped. Edge cases like m=0 or n=0 are consistent under standard Mathlib conventions for `orderOf` and `Nat.Coprime`.",
+  "duration_ms": 11492,
+  "cost_usd": 0.0537115
+}

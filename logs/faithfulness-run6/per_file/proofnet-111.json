@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the two projection maps π₁ : X × Y → X and π₂ : X × Y → Y are open maps, using the standard definition of open map (image of an open set is open). The Lean statement introduces π₁ and π₂ as generic functions but pins them via `h₁ : π₁ = Prod.fst` and `h₂ : π₂ = Prod.snd`, making the claim logically equivalent to `IsOpenMap (Prod.fst : X × Y → X) ∧ IsOpenMap (Prod.snd : X × Y → Y)`. Mathlib's `IsOpenMap f := ∀ U, IsOpen U → IsOpen (f '' U)` matches the informal definition verbatim. The topological space structure on X and Y is implicit in the informal problem and correctly supplied by typeclass. No hypotheses are added or dropped and the conclusion matches.",
+  "duration_ms": 22342,
+  "cost_usd": 0.11320825000000001
+}

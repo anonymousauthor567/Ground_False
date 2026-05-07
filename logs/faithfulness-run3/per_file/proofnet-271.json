@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the set L(a) = {x ∈ R | xa = 0} is an ideal of R. The Lean statement asserts ∃ I : Ideal R, {x : R | x*a=0} = I, which (via the SetLike coercion from Ideal R to Set R) says exactly that the set {x | x*a = 0} coincides with the carrier of some ideal, i.e., that this set is itself an ideal of R. The ring R is a commutative ring, matching the informal hypothesis, and a : R is an arbitrary element. This is logically equivalent to the informal claim, with no added or dropped hypotheses and no change in the mathematical content.",
+  "duration_ms": 23381,
+  "cost_usd": 0.0589995
+}

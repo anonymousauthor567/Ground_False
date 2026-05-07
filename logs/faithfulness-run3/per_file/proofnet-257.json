@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if there exist three consecutive integers i for which (ab)^i = a^i b^i holds for all a, b in G, then G is abelian. The Lean formalization captures this precisely: it existentially quantifies over an integer n (in ℤ, matching \"integers\"), and asserts the identity (a*b)^i = a^i * b^i for all a, b ∈ G at i = n, n+1, n+2 (three consecutive integers). The conclusion ∀ a b, a*b = b*a correctly expresses \"G is abelian\". The integer power operation on a group is well-defined in Lean's Group class (using inverses for negative exponents), which matches the informal reading. The quantifier structure, types, hypotheses, and conclusion all align exactly with the informal claim.",
+  "duration_ms": 28168,
+  "cost_usd": 0.048997
+}

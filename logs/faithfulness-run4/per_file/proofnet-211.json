@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the operation $a \\star b = a - b$ on $\\mathbb{Z}$ is not commutative. \"Not commutative\" means the negation of \"$\\forall a, b: a \\star b = b \\star a$\", which is classically equivalent to \"$\\exists a, b: a \\star b \\neq b \\star a$\". The Lean statement `∃ a b : ℤ, a - b ≠ b - a` is precisely this existential witness of non-commutativity, with the correct type `ℤ` and the correct operation $a - b$. The formalization is therefore logically equivalent to the informal claim.",
+  "duration_ms": 7002,
+  "cost_usd": 0.0359625
+}

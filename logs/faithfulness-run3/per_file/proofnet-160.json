@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `g n = Real.sqrt (n + 1) - Real.sqrt n` exactly matches the informal $a_i = \\sqrt{i+1} - \\sqrt{i}$. The sum `∑ i ∈ range n, g i` matches $\\sum_{i<n} a_i$ since `range n = {0, 1, ..., n-1}`. The conclusion `Tendsto (fun n => ...) atTop atTop` is the standard Mathlib encoding of \"the sequence tends to infinity as n → ∞\". No hypotheses are added or dropped, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 25181,
+  "cost_usd": 0.053795499999999996
+}

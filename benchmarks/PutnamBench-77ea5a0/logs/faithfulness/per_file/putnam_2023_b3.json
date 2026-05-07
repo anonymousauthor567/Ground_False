@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b3.lean",
+  "stem": "putnam_2023_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The `IsZigZag` predicate encodes: differences are nonzero (first conjunct: `y(i+1) ≠ y(i)`) and alternate in sign (second conjunct `y(i+2) < y(i+1) ↔ y(i) < y(i+1)` equates `d_{i+1} < 0` with `d_i > 0`). The `Fin k` arithmetic: in `i + 1 < k`, Lean elaborates as Nat coercion `↑i + 1 < k`; under this hypothesis, modular addition in `y (i+1)` doesn't wrap, giving consistent semantics. The function `a` is characterized via `IsGreatest` as the largest k for which an order embedding `Fin k ↪o Fin n` (strictly increasing index sequence) yields a zigzag subsequence. The expectation `𝔼` is w.r.t. the canonical product measure on `Fin n → Icc 0 1`, where `MeasureSpace` on `Icc 0 1` via `Subtype.measureSpace` gives uniform probability, and `MeasureSpace.pi` gives the i.i.d. product—matching \"chosen independently from uniform on [0,1].\" The hypothesis `2 ≤ n` matches \"for n ≥ 2.\" Sanity-checked against n=2 (expected 2) and n=3 (expected 8/3), both consistent with the (2n+2)/3 formula.",
+  "duration_ms": 1676986,
+  "cost_usd": 2.5727512499999996
+}

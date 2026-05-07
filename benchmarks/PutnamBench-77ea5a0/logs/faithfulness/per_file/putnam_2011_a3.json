@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a3.lean",
+  "stem": "putnam_2011_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the Putnam \"find\" problem faithfully: `solution : ℝ × ℝ` packages the required real number c (`solution.1`) and positive real L (`solution.2`). The conjunction asserts (1) `L > 0`, matching \"positive number L\", and (2) `Tendsto ... atTop (𝓝 L)`, matching \"$\\lim_{r\\to\\infty} \\cdots = L$\". The integrand `r ^ c * x ^ r * sin x / (x ^ r * cos x)` with real `r` and real `x` uses `Real.rpow`, consistent with the informal $r^c$ and $x^r$. The integration domain `Set.Ioo 0 (π/2)` is equivalent (for Lebesgue integration of continuous functions) to the informal $[0, \\pi/2]$ since the boundary has measure zero. No hypotheses have been added or dropped, and the quantifier structure matches the standard \"provide a witness and verify it\" formalization pattern.",
+  "duration_ms": 111206,
+  "cost_usd": 0.30148600000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p1.lean",
+  "stem": "abstract_algebra__p1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement says P takes \"values ±1 at three different integer points,\" meaning at three distinct integer points the values each lie in {+1, -1} in any combination. The Lean hypothesis fixes a specific pattern: P(a) = 1, P(b) = -1, P(c) = 1 — exactly two values are +1 and one is -1. This excludes valid instances of the informal hypothesis, e.g., polynomials where all three distinct integer points have value +1 (like P(x) = (x-1)(x-2)(x-3) + 1, which satisfies P(1)=P(2)=P(3)=1) or all have value -1, or the pattern (+1, -1, -1). The standard pigeonhole proof (using that a-z, b-z, c-z divide ±1, hence are in {±1}, but are 3 distinct values) works for all ±1 configurations, so the informal claim is genuinely more general. Thus Informal ⟹ Lean but Lean ⇏ Informal, making the Lean statement strictly weaker. This is not a case of surfacing an implicit premise — the informal statement is unambiguously true in full generality.",
+  "duration_ms": 131084,
+  "cost_usd": 0.34632300000000005
+}

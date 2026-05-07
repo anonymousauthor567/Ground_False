@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that any subring of a field containing the identity is an integral domain. The Lean formalization takes a field F, a Mathlib `Subring F` (which in Mathlib already automatically contains 1 via `Submonoid.one_mem'`), adds the redundant but correct hypothesis `(1 : F) ∈ K`, and concludes `IsDomain K`. Since K inherits the commutative ring structure from F, `IsDomain K` corresponds exactly to the standard notion of integral domain (nontrivial with no zero divisors). The redundant hypothesis `hK` does not change the meaning — the statement ranges over exactly the same mathematical objects as the informal one. This is a faithful formalization.",
+  "duration_ms": 98922,
+  "cost_usd": 0.35069825
+}

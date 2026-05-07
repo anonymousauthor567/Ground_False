@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a5.lean",
+  "stem": "putnam_2014_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The polynomial `∑ i ∈ Finset.Icc 1 n, i * X^(i-1)` correctly expands to `1 + 2X + 3X² + ... + nX^(n-1)` as specified. The hypotheses `j > 0 ∧ k > 0` correctly encode \"positive integers\", and `j ≠ k` matches \"j ≠ k\". The conclusion `IsCoprime (P j) (P k)` in `Polynomial ℂ` correctly captures \"relatively prime polynomials\": in the PID ℂ[X], `IsCoprime` (defined as ∃ a b, a·x + b·y = 1) is equivalent to the standard notion of relatively prime polynomials (having no common non-unit factor), and this is equivalent to being relatively prime in ℚ[X] for polynomials with rational coefficients. No hypotheses are dropped or added, and the quantifier structure matches exactly.",
+  "duration_ms": 136512,
+  "cost_usd": 0.31798625
+}

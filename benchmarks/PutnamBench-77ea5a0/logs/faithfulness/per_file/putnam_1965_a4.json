@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_a4.lean",
+  "stem": "putnam_1965_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement exactly: H1 \"no boy dances with every girl\" → ¬∃ b, ∀ g, dances g b; H2 \"each girl dances with at least one boy\" → ∀ g, ∃ b, dances g b; and the conclusion about existing g, h, b, c matches verbatim. The added `Fintype G`, `Fintype B`, and `Nonempty G/B` assumptions surface implicit premises needed for truth — without finiteness the claim is actually false (counterexample: G=B=ℕ with dances(i,j) ⟺ j>i satisfies both hypotheses but the conclusion forces the contradiction g<b≤h<c≤g). The phrase \"at a party\" in the informal statement strongly implies a finite combinatorial setting, which any mathematician would assume by convention. Per the worked-example guidance, making such implicit truth-preserving premises explicit is faithful, not weakening.",
+  "duration_ms": 135234,
+  "cost_usd": 0.3770255
+}

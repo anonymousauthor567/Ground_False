@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "informal": "If $C_{0}+\\frac{C_{1}}{2}+\\cdots+\\frac{C_{n-1}}{n}+\\frac{C_{n}}{n+1}=0,$ where $C_{0}, \\ldots, C_{n}$ are real constants, prove that the equation $C_{0}+C_{1} x+\\cdots+C_{n-1} x^{n-1}+C_{n} x^{n}=0$ has at least one real root between 0 and 1.",
+  "lean": "\ntheorem Rudin_exercise_5_4 {n : ℕ}\n  (C : ℕ → ℝ)\n  (hC : ∑ i ∈ (range (n + 1)), (C i) / (i + 1) = 0) :\n  ∃ x, x ∈ (Set.Icc (0 : ℝ) 1) ∧ ∑ i ∈ range (n + 1), (C i) * (x^i) = 0",
+  "verdict": "weaker",
+  "reasoning": "The informal statement (Rudin Exercise 5.4) asserts the existence of a real root strictly between 0 and 1, i.e., in the open interval (0,1). The Lean signature uses `Set.Icc (0 : ℝ) 1`, which is the closed interval [0,1] including the endpoints. This is logically weaker: if C₀ = 0, then x = 0 trivially satisfies the polynomial equation and would satisfy the Lean conclusion without giving a root in the open interval required by the informal claim. Thus the informal statement implies the Lean statement, but not conversely. (The hypothesis and polynomial encoding otherwise match correctly.)",
+  "duration_ms": 10482,
+  "cost_usd": 0.0556875
+}

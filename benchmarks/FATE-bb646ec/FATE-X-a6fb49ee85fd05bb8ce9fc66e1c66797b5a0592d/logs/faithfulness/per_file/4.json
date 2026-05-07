@@ -1,0 +1,8 @@
+{
+  "file": "4.lean",
+  "stem": "4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement on every point. \"Odd prime p\" is encoded as `Odd p` plus `p.Prime`. \"Finite group G of order p(p+1)\" is encoded via `[Finite G] [Group G]` with `Nat.card G = p * (p + 1)`. \"G does not have a normal Sylow p-subgroup\" is logically equivalent to `∀ (H : Sylow p G), ¬ H.Normal` (no Sylow p-subgroup is normal), using Mathlib's standard `Sylow.Normal` predicate. The conclusion `∃ n : ℕ, p + 1 = 2 ^ n` correctly captures \"p+1 is a power of 2\" in the standard mathematical sense. There are no added or missing hypotheses, no quantifier changes, and no type mismatches.",
+  "duration_ms": 237852,
+  "cost_usd": 0.40004525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_b4.lean",
+  "stem": "putnam_2000_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization is logically equivalent to the informal statement. f is typed as ℝ → ℝ (a real continuous function), `Continuous f` matches \"continuous function\", `∀ x, f (2 * x ^ 2 - 1) = 2 * x * f x` directly encodes the functional equation $f(2x^2-1) = 2xf(x)$ for all real x, and the conclusion `∀ x, x ∈ Icc (-1) 1 → f x = 0` exactly matches \"f(x) = 0 for −1 ≤ x ≤ 1\" since `Set.Icc (-1) 1` is the closed interval [-1, 1]. No hypotheses have been added or dropped, and the types and quantifier structure match.",
+  "duration_ms": 29004,
+  "cost_usd": 0.08415775
+}

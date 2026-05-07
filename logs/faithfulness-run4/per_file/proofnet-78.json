@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly what the informal statement claims: given a finite group G with |G| = p² for a prime p, there exists a normal subgroup N of order p. The hypotheses `[Group G] [Fintype G]` with `card G = p^2` correctly encode \"group of order p²\", `Nat.Prime p` matches \"p a prime\", and `∃ N : Subgroup G, card N = p ∧ N.Normal` matches \"has a normal subgroup of order p\". The extra `∃ (Fin : Fintype N)` binder is a technical device to enable the `card N` expression — since `Fintype G` automatically induces `Fintype N` for any subgroup N, this does not change the mathematical content. The quantifier structure, types, and conclusion all align with the informal statement.",
+  "duration_ms": 74849,
+  "cost_usd": 0.26908599999999994
+}

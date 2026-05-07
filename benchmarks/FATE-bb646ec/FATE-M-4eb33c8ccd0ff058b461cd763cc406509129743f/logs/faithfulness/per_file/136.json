@@ -1,0 +1,8 @@
+{
+  "file": "136.lean",
+  "stem": "136",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement in all components. \"Positive integers $a, b$\" is captured by `a b : ℤ` with the explicit hypothesis `a > 0 ∧ b > 0`. The coprimality condition `(a,b)=1` is captured by `IsCoprime a b`, which for integers is equivalent to `Int.gcd a b = 1` (verified in Mathlib's `Int.isCoprime_iff_gcd_eq_one`). \"$ab$ is a square\" maps to `IsSquare (a * b)`, and the conclusion \"both $a$ and $b$ are squares\" maps to `IsSquare a ∧ IsSquare b`, with `IsSquare` being the standard Mathlib definition `∃ r, a = r * r`. The positivity hypothesis is genuinely needed (e.g., $a = b = -1$ would be a counterexample without it), and is explicitly included. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 106608,
+  "cost_usd": 0.27779200000000004
+}

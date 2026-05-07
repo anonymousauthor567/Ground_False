@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses match: `DifferentiableOn ℂ f (ball 0 1)` encodes holomorphic on the unit disc (equivalent to analytic in ℂ), `Bornology.IsBounded (f '' ball 0 1)` encodes boundedness, and `¬ Set.EqOn f 0 (ball 0 1)` encodes \"not identically zero\". The conclusion sums `(analyticOrderAt f z).toNat * (1 - ‖z‖)` over the subtype of distinct zeros in the open disc. This is exactly the standard reading of the informal sum $\\sum_n (1 - |z_n|)$ where zeros $z_k$ are enumerated with multiplicity: summing over distinct zeros weighted by multiplicity equals summing over zeros with repetition. Since f is not identically zero on the connected disc and is analytic there, every zero is isolated and of finite order, so `.toNat` recovers the true multiplicity. The two formulations are equivalent.",
+  "duration_ms": 172346,
+  "cost_usd": 0.5397107500000001
+}

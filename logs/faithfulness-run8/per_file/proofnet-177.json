@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the intended meaning. The encoding of \"holomorphic\" as `DifferentiableOn ℂ f Ω`, \"|f| is constant\" as `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c`, and \"f is constant\" as `∀ a b ∈ Ω, f a = f b` are all standard and logically equivalent to the informal notions. The only extra hypothesis is `IsPreconnected Ω`, which is a necessary implicit premise: without connectedness, the literal claim is false (e.g., f = 1 on one disk and f = -1 on another disjoint disk gives |f|=1 constant but f non-constant). Making this implicit premise explicit is per instructions not a faithfulness error. The `IsOpen` hypothesis matches \"open set Ω\" exactly. Thus the formalization is strictly faithful.",
+  "duration_ms": 141773,
+  "cost_usd": 0.47282425
+}

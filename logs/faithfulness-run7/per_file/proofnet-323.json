@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has f : ℝ → ℝ satisfying |f(t) - f(x)| ≤ |t - x|² for all t, x, and concludes that f is constant. The Lean signature takes f : ℝ → ℝ with hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` (exactly matching the informal inequality, with variable renaming) and concludes `∃ c, f = λ _x => c`, i.e., there exists c such that f equals the constant function with value c. This is precisely the standard meaning of \"f is constant.\" The hypothesis, conclusion, quantifier structure, and types all align with the informal statement.",
+  "duration_ms": 12885,
+  "cost_usd": 0.03894275
+}

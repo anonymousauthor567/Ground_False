@@ -1,0 +1,8 @@
+{
+  "file": "45.lean",
+  "stem": "45",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `RatFunc F` is Mathlib's F(x), and `F⟮(f : RatFunc F) / g⟯` is `IntermediateField.adjoin F {f/g}`, i.e., F(f/g). The coercion `(f : RatFunc F)` is the algebraMap from F[X], and g is auto-coerced in the division, giving the rational function f/g. Under the hypotheses f ≠ 0, g ≠ 0, `f.natDegree = 0` is equivalent to \"f is a nonzero constant\", so `¬(f.natDegree = 0 ∧ g.natDegree = 0)` correctly encodes \"not both constant\". Since `Module.finrank = 0` for infinite-dimensional modules and `max f.natDegree g.natDegree > 0` under the hypotheses, the equality simultaneously asserts finiteness and the exact value, matching \"has finite degree max(deg f, deg g)\". Hypotheses and conclusion align precisely; no extra assumptions are added beyond the informal text.",
+  "duration_ms": 334817,
+  "cost_usd": 0.787822
+}

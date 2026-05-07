@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims every injective entire function f : ℂ → ℂ has the form f(z) = az + b with a ≠ 0. The Lean encoding uses `Differentiable ℂ f` for f : ℂ → ℂ, which is exactly \"entire\" (complex-differentiable on all of ℂ), and `Function.Injective f` for injectivity. The conclusion `∃ a b : ℂ, f = (λ z => a * z + b) ∧ a ≠ 0` matches precisely: function equality corresponds to f(z) = az + b for all z, and the a ≠ 0 condition is explicitly stated in the informal claim. Types, hypotheses, quantifier structure, and conclusion all align.",
+  "duration_ms": 30099,
+  "cost_usd": 0.11104975
+}

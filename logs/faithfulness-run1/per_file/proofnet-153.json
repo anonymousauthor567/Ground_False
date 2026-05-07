@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "informal": "Suppose $k \\geq 3, x, y \\in \\mathbb{R}^k, |x - y| = d > 0$, and $r > 0$. Prove that if $2r > d$, there are infinitely many $z \\in \\mathbb{R}^k$ such that $|z-x|=|z-y|=r$.",
+  "lean": "\ntheorem Rudin_exercise_1_16a\n  (n : ℕ)\n  (d r : ℝ)\n  (x y _z : EuclideanSpace ℝ (Fin n)) -- R^n\n  (h₁ : n ≥ 3)\n  (h₂ : ‖x - y‖ = d)\n  (h₃ : d > 0)\n  (h₄ : r > 0)\n  (h₅ : 2 * r > d)\n  : Set.Infinite {z : EuclideanSpace ℝ (Fin n) | ‖z - x‖ = r ∧ ‖z - y‖ = r}",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `EuclideanSpace ℝ (Fin n)` with `n ≥ 3` matching $\\mathbb{R}^k$ with $k \\geq 3$. The hypotheses $\\|x-y\\| = d$, $d > 0$, $r > 0$, and $2r > d$ all match the informal statement. The conclusion `Set.Infinite {z | ‖z-x‖ = r ∧ ‖z-y‖ = r}` correctly encodes \"there are infinitely many z with |z-x|=|z-y|=r\". The unused parameter `_z` is just an extra variable that doesn't affect the logical content (it's an arbitrary point in the space, freely chosen, not constrained). The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 7731,
+  "cost_usd": 0.048612749999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement in all essential aspects: `n ≥ 3` corresponds to $k \\geq 3$, `EuclideanSpace ℝ (Fin n)` is the standard Mathlib encoding of $\\mathbb{R}^k$, `‖x - y‖ = d` with `d > 0` captures $|x-y|=d>0$, `r > 0` and `2 * r > d` match the hypotheses, and `Set.Infinite {z | ‖z - x‖ = r ∧ ‖z - y‖ = r}` captures \"infinitely many $z$ such that $|z-x|=|z-y|=r$\". The only oddity is that `z` appears as an unused parameter in the binder list (while also being re-bound in the set comprehension), but since `EuclideanSpace ℝ (Fin n)` is always inhabited (it has a zero element), this adds no logical content and does not weaken or strengthen the statement.",
+  "duration_ms": 40026,
+  "cost_usd": 0.14280574999999998
+}

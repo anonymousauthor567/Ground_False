@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes \"H is the unique subgroup of a given order in G implies H is characteristic.\" The `[Fintype H]` assumption makes explicit the implicit premise that \"order\" means finite cardinality (standard usage in Dummit-Foote). The hypothesis `hH` says every finite subgroup K with `card K = card H` equals H, which is equivalent to the informal \"unique subgroup of that order\" (since any subgroup with the same finite cardinality must itself be finite). The conclusion `H.Characteristic` uses Mathlib's standard definition (fixed by all automorphisms of G via `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`), which matches the informal claim. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 152584,
+  "cost_usd": 0.4974675
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes Rudin's 2.29. Each `f n` is specified as an open interval with EReal endpoints, which correctly captures \"segment\" in the sense needed for this theorem (including unbounded intervals like (-∞, b), (a, +∞), and ℝ — necessary because for U = ℝ no disjoint cover by bounded segments exists). The \"at most countable\" condition is encoded via a ℕ-indexed sequence where the finite case is handled by letting excess `f n` be empty (achievable with `a ≥ b` in EReal). Pairwise disjointness `f n ∩ f m = ∅` for `n ≠ m` matches \"disjoint,\" and `U = ⋃ n, f n` matches \"union equals U.\" The `f n ⊆ U` clause is redundant but harmless. No hypotheses are silently added or dropped, and no types are altered.",
+  "duration_ms": 53924,
+  "cost_usd": 0.18339899999999998
+}

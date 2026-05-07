@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-195.lean",
+  "stem": "proofnet-195",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `Irreducible (X^3 - 9 : Polynomial (ZMod 31))`. Since 31 is prime, `ZMod 31` is exactly the field $\\mathbb{F}_{31}$, and `Polynomial (ZMod 31)` is the polynomial ring $\\mathbb{F}_{31}[x]$. Mathlib's `Irreducible` predicate (defined in `Mathlib/Algebra/Group/Irreducible/Defs.lean` as non-unit with only unit factorizations) matches the standard notion of an irreducible polynomial over a field. The coercion of 9 to `ZMod 31` and the polynomial `X^3 - 9` correspond exactly to the informal $x^3 - 9$ in $\\mathbb{F}_{31}[x]$. No hypotheses are added or dropped, and the conclusion is identical. Hence the formalization is strictly faithful.",
+  "duration_ms": 54433,
+  "cost_usd": 0.19779424999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-159.lean",
+  "stem": "proofnet-159",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `f 0 = √2` and `f (n+1) = √(2 + √(f n))` matches the informal recursion `s_1 = √2`, `s_{n+1} = √(2 + √(s_n))` under the index shift `f n = s_{n+1}` (so `{f n}_{n≥0} = {s_n}_{n≥1}` as sequences). Convergence is invariant under index shift, so `Tendsto f atTop (𝓝 x)` captures \"{s_n} converges.\" The conjunct `∀ n, f n < 2` ranges over all `n : ℕ`, covering exactly `s_1, s_2, s_3, …`, matching the informal \"$s_n < 2$ for $n = 1, 2, 3, \\ldots$\". The existential wrapping the limit is the standard Lean encoding of \"converges\" with an implicit limit. No hypotheses are added or dropped.",
+  "duration_ms": 33198,
+  "cost_usd": 0.14401
+}

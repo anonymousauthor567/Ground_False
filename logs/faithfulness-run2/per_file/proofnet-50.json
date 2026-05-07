@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. H being \"the unique subgroup of a given order\" is encoded as: H has a Fintype instance (finite order) and for every finite subgroup K with the same cardinality, K = H. The quantification over Fintype instances on K is harmless since Fintype is essentially unique up to cardinality; and any subgroup with the same cardinality as the finite H is automatically finite. The conclusion `H.Characteristic` matches \"H is characteristic in G\", and G is properly universally quantified. The Fintype H assumption aligns with the standard interpretation of \"a given order\" as a specified finite cardinality in this classical Dummit & Foote exercise.",
+  "duration_ms": 53575,
+  "cost_usd": 0.17393625
+}

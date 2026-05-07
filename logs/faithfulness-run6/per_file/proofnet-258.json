@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly: G is an arbitrary group, n is a fixed integer with n > 1 (encoded as ℕ with hn : n > 1, which is equivalent since n is positive), the hypothesis (a*b)^n = a^n * b^n is universally quantified over a, b ∈ G, and the conclusion (a*b*a⁻¹*b⁻¹)^(n*(n-1)) = 1 directly formalizes (aba⁻¹b⁻¹)^(n(n-1)) = e. The left-associative parse of a * b * a⁻¹ * b⁻¹ yields the commutator aba⁻¹b⁻¹, and natural subtraction n-1 is well-defined and correct since n > 1. The identity element 1 corresponds to e. There are no missing or extra hypotheses, and no change in quantifier structure or types.",
+  "duration_ms": 47598,
+  "cost_usd": 0.15627100000000002
+}

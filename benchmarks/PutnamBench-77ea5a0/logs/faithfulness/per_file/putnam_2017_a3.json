@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_a3.lean",
+  "stem": "putnam_2017_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. Using `ℝ → ℝ` with `ContinuousOn f (Set.Icc a b)` and `f '' (Set.Icc a b) ⊆ Set.Ioi 0` is logically equivalent to \"f : [a,b] → (0,∞) continuous\" since values outside [a,b] don't appear in any hypothesis or conclusion. The integral over `Set.Ioo a b` equals the integral over `Set.Icc a b` for continuous functions (endpoints have measure zero), so `fgint` and `hI` correctly encode the required integral identities. The hypothesis `∃ x : Set.Icc a b, f x ≠ g x` correctly encodes \"f ≠ g as functions on [a,b]\". The conclusion `∀ n > 0, I (n+1) > I n` correctly states that $I_1 < I_2 < \\cdots$ is strictly increasing, and `Tendsto I atTop atTop` is the standard Mathlib encoding of $\\lim_{n\\to\\infty} I_n = \\infty$ (independent of the unspecified value $I_0$). All components match.",
+  "duration_ms": 94304,
+  "cost_usd": 0.250737
+}

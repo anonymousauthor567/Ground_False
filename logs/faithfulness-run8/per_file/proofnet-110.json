@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-110.lean",
+  "stem": "proofnet-110",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly captures the two claims of the informal statement. First, the conjunction of `∀ x : ℝ, ∃ S ∈ T, x ∈ S` (covering) and the intersection refinement axiom is precisely Munkres' definition of a basis (Topology, §13). Second, `generateFrom T ≠ lower_limit_topology ℝ` asserts that the generated topology differs from the lower limit topology, which matches the informal claim. The set T = {S | ∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b} correctly encodes \"open intervals (a,b) with rational a < b\" (Mathlib's `Ioo a b = {x | a < x < b}`), and `lower_limit_topology ℝ` is defined in the file using `Ico` generators matching Munkres' $\\mathbb{R}_\\ell$. The formalization avoids using `IsTopologicalBasis` (which would additionally tie T to the ambient Euclidean topology — a stronger claim) and instead spells out the two basis axioms directly, making it a strictly faithful rendering.",
+  "duration_ms": 232974,
+  "cost_usd": 0.84885875
+}

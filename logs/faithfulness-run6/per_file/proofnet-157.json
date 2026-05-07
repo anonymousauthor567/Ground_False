@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly matches the informal claim. `MetricSpace X` + `SeparableSpace X` faithfully encode \"separable metric space\", and `IsClosed A` encodes \"closed set\". The conclusion `∃ P₁ P₂, A = P₁ ∪ P₂ ∧ Perfect P₁ ∧ Set.Countable P₂` captures \"union of a perfect set and an at-most-countable set\". Mathlib's `Perfect` is defined as closed with every point an accumulation point (matching Rudin's definition) and explicitly allows the empty set (per the file comment \"We do not require perfect sets to be nonempty\"), matching the informal \"(possibly empty)\". `Set.Countable` encodes \"at most countable\" (finite or countably infinite). No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 68725,
+  "cost_usd": 0.2925435
+}

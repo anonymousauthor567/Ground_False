@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "faithful",
+  "reasoning": "Axler's ch. 6 has a standing assumption that V is a finite-dimensional inner product space over ℝ/ℂ; in that context every subspace is automatically closed and V is automatically complete. The Lean version replaces the finite-dimensionality assumption with the Mathlib-natural hypotheses [CompleteSpace V] + (hU : IsClosed U), which are exactly the implicit premises required for the theorem to hold in Mathlib's general inner product space framework (confirmed by `Submodule.orthogonal_eq_bot_iff` which needs `HasOrthogonalProjection`, provided here by closedness + completeness). Without these, the statement is literally false (a dense proper subspace has trivial orthogonal complement). In Axler's finite-dim setting the Lean hypotheses are automatic, so the Lean claim specializes to exactly Axler's claim. The conclusion `U.orthogonal = ⊥ ↔ U = ⊤` matches \"U⊥ = {0} ↔ U = V\" precisely. This is surfacing implicit premises needed for truth, which per the guidelines counts as faithful.",
+  "duration_ms": 1040027,
+  "cost_usd": 0.7780060000000001
+}

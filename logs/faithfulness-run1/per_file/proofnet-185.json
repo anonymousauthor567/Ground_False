@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "informal": "Prove that the center of the product of two groups is the product of their centers.",
+  "lean": "\ntheorem Artin_exercise_2_8_6 {G H : Type*} [Group G] [Group H] :\n  Nonempty (center (G × H) ≃* (center G) × (center H))",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"Z(G × H) = Z(G) × Z(H)\" cannot be expressed as literal equality since Z(G × H) lives inside G × H while Z(G) × Z(H) is a product of subgroups; the standard faithful encoding is a group isomorphism, which is exactly `center (G × H) ≃* center G × center H`. Wrapping in `Nonempty` just asserts existence of such an iso (i.e. that the two groups are isomorphic), which matches the mathematical content of the statement. The hypotheses ([Group G], [Group H]) are exactly what the informal statement requires—no extra finiteness/commutativity/etc. assumptions, and G, H are universally quantified. Hence the Lean theorem captures the same claim, neither weaker nor stronger.",
+  "duration_ms": 9702,
+  "cost_usd": 0.048043749999999996
+}

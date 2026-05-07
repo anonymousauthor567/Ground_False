@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p2.lean",
+  "stem": "number_theory__p2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement fundamentally mismatches the informal claim in multiple directions. (1) The informal explicitly defines u = y - 2x, but the Lean leaves u as a free (universally quantified) integer variable — so the Lean claims the formula holds for ANY u, not just u = y-2x. (2) The informal has existential n (some n exists per solution), but the Lean universally quantifies n, claiming the formula holds for ALL n. This makes the Lean statement false (e.g., x=0, y=1, u=0, n=0 satisfies the equation but not the formula). (3) \"General solution\" indicates a full parametrization (iff), but the Lean only encodes one direction. The Lean is stronger in the universal-quantifier direction (over u and n) yet weaker in missing the converse of the iff, so it is neither uniformly stronger nor weaker — the statements are incomparable.",
+  "duration_ms": 413417,
+  "cost_usd": 0.29913599999999996
+}

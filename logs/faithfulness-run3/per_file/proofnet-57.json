@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly what the informal statement asserts: G is a finite group with `card G = 105`, P is a Sylow 3-subgroup of G, and P is assumed normal (`P.Normal`). The conclusion `∀ a b : G, a*b = b*a` is the literal definition of G being abelian/commutative — logically equivalent to `CommGroup G`. The hypotheses and conclusion match the informal claim with no added or missing assumptions (finiteness is implicit in the informal \"group of order 105\"). Hence this is a strictly faithful formalization.",
+  "duration_ms": 16354,
+  "cost_usd": 0.05302825
+}

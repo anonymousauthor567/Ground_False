@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "informal": "Prove that $|\\mathbf{x}+\\mathbf{y}|^{2}+|\\mathbf{x}-\\mathbf{y}|^{2}=2|\\mathbf{x}|^{2}+2|\\mathbf{y}|^{2}$ if $\\mathbf{x} \\in R^{k}$ and $\\mathbf{y} \\in R^{k}$.",
+  "lean": "\ntheorem Rudin_exercise_1_17\n  (n : ℕ)\n  (x y : EuclideanSpace ℝ (Fin n)) -- R^n\n  : ‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram identity in R^k for arbitrary x, y. The Lean signature universally quantifies over n : ℕ and over x, y in EuclideanSpace ℝ (Fin n), which is exactly R^n with the standard Euclidean norm. The conclusion ‖x+y‖² + ‖x-y‖² = 2‖x‖² + 2‖y‖² matches the informal equation. The renaming k → n is cosmetic, and no extra hypotheses are imposed nor required ones omitted.",
+  "duration_ms": 6803,
+  "cost_usd": 0.04495525
+}

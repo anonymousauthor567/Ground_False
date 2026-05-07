@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement faithfully. `CommGroup G` with `Fintype G` corresponds to \"finite abelian group\". The hypothesis `n ∣ card G` matches \"n is a divisor of its order\". The \"positive\" qualifier on n is automatically enforced: since G is a Fintype group it has card ≥ 1, and in ℕ, `0 ∣ m` iff `m = 0`, so `n ∣ card G` forces n ≥ 1. The conclusion `∃ (H : Subgroup G) (H_fin : Fintype H), @card H H_fin = n` is logically equivalent to \"there exists a subgroup of order n\", since subgroups of a Fintype group are automatically Fintype. No hypotheses are dropped or added, and the quantifier structure matches.",
+  "duration_ms": 45171,
+  "cost_usd": 0.1664405
+}

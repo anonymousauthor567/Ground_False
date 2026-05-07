@@ -1,0 +1,8 @@
+{
+  "file": "imo_2017_p5.lean",
+  "stem": "imo_2017_p5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes IMO 2017 P5: `height : Perm (Fin (N*(N+1)))` models N(N+1) players with distinct heights (bijection → all distinct), indexed by position in the row. `kept : Fin (2*N) ↪o Fin (N*(N+1))` is an order-preserving embedding, correctly representing the 2N remaining players in their original row order (with N(N−1) removed since 2N + N(N−1) = N(N+1)). The count `#{l | height (kept l) < height (kept i)}` is the 0-indexed height rank of the i-th kept player within the kept set. Requiring this to be even and rank(j) = rank(i)+1 enumerates exactly the N pairs (shortest & 2nd shortest), (3rd & 4th shortest), …, (2nd tallest & tallest) — equivalent to the N conditions about consecutive pairs of tallest players. The symmetric disjunction `(i<k ∧ k<j) ∨ (j<k ∧ k<i)` correctly captures \"no kept player positioned between them\" regardless of which of the pair appears first in the row. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 411978,
+  "cost_usd": 1.7209444999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `IsPrimitiveRoot (3 : ZMod p) (p - 1)` is the standard Mathlib encoding of \"3 is a primitive root mod p\" when p is prime (since the multiplicative group of ZMod p has order p-1). The only notable feature is the hypothesis `2 ≤ n`, which excludes the cases n = 0 (p = 2) and n = 1 (p = 3). The case p = 3 is critical: 3 is conventionally a Fermat prime (F_0 = 2^1+1 = 3), but \"3 is a primitive root mod 3\" is literally FALSE since 3 ≡ 0 mod 3 isn't even a unit. Any mathematician reading the informal exercise understands that p = 3 must be excluded — this is an implicit premise required for the statement to be true. Per the system prompt's worked example, surfacing such an implicit premise is a faithful reading, not a weakening. The set of (p,n) satisfying the Lean hypotheses (using the fact that 2^n+1 prime forces n to be a power of 2 or 0) is exactly the Fermat primes ≥ 5, which is the intended mathematical content.",
+  "duration_ms": 326990,
+  "cost_usd": 1.0230407499999998
+}

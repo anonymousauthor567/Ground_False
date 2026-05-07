@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_a3.lean",
+  "stem": "putnam_1991_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The hypothesis `hn : n = p.degree` (with automatic coercion `ℕ → WithBot ℕ`) together with `hge : n ≥ 2` expresses \"polynomial of degree n ≥ 2\". The encoding `r : ℕ → ℝ` (rather than `Fin n → ℝ`) is an intentional and correct choice, explicitly noted by the author, because `i + 1` then happens in ℕ instead of wrapping modulo `n`: for `i : Fin (n-1)`, `r (i+1)` elaborates to `r (↑i + 1)` which gives the actual next index. The three conditions — strict ordering `r 0 < r 1 < ... < r (n-1)`, `p` vanishing at each `r i`, and `p'` vanishing at each midpoint — match the informal statement exactly (1-based vs 0-based indexing is purely notational). The solution-set answer (degree exactly 2 with two distinct real roots) is the correct Putnam answer, and the theorem's iff structure faithfully formalizes \"find all polynomials... for which...\".",
+  "duration_ms": 212361,
+  "cost_usd": 0.64767525
+}

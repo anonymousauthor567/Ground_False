@@ -1,0 +1,8 @@
+{
+  "file": "70.lean",
+  "stem": "70",
+  "verdict": "faithful",
+  "reasoning": "`AdjoinRoot (X^2 + C 4 : ℤ[X])` unfolds to `ℤ[X] ⧸ (span {X^2 + 4})`, which is precisely $\\mathbb{Z}[X]/(x^2+4)$. Mathlib's `IsIntegrallyClosed R` is the standard notion (R is the integral closure of itself in `FractionRing R`), matching the informal meaning of 'integrally closed'. The negation directly encodes 'is not integrally closed', and the polynomial `X^2 + C 4` is the correct encoding of $x^2+4$ in ℤ[X]. No hypotheses are added or dropped, no types are altered, and since $X^2+4$ is irreducible over ℤ the quotient is a domain, so the fraction-field formulation matches the informal reading unambiguously.",
+  "duration_ms": 163415,
+  "cost_usd": 0.366092
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a4.lean",
+  "stem": "putnam_2015_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The set `S x = {n : ℤ | n > 0 ∧ Even ⌊n * x⌋}` matches \"positive integers n with ⌊nx⌋ even\" since n > 0 in ℤ selects exactly positive integers. The function `f(x) = ∑' n : S x, 1/2^(n:ℤ)` correctly captures the infinite sum via tsum (the series is bounded by 1, hence summable, so the tsum equals the conventional infinite sum). `Set.Ico 0 1` is [0,1). The predicate `p l ↔ ∀ x ∈ [0,1), f x ≥ l` is precisely \"l is a lower bound for f on [0,1)\", and `IsGreatest p putnam_2015_a4_solution` means the solution is the largest such l — exactly matching \"the largest real number L such that f(x) ≥ L for all x ∈ [0,1)\". The quantifier structure and ambient objects are preserved; no hypothesis is added or dropped.",
+  "duration_ms": 109343,
+  "cost_usd": 0.37841275
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "informal": "If $R$ is a commutative ring and $a \\in R$, let $L(a) = \\{x \\in R \\mid xa = 0\\}$. Prove that $L(a)$ is an ideal of $R$.",
+  "lean": "\ntheorem Herstein_exercise_4_3_1 {R : Type*} [CommRing R] (a : R) :\n  ∃ I : Ideal R, {x : R | x*a=0} = I",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says L(a) = {x ∈ R | xa = 0} is an ideal of R. The Lean version asserts the existence of an ideal I whose underlying set equals {x : R | x*a = 0}. This is logically equivalent to \"the set {x | xa = 0} is an ideal,\" since an ideal is determined by its underlying set, and a set is an ideal iff there exists an Ideal whose carrier equals it. The commutative ring hypothesis matches, and `x*a` corresponds to `xa`. No hypotheses are added or dropped, and the conclusion is the same statement.",
+  "duration_ms": 7534,
+  "cost_usd": 0.04548975000000001
+}

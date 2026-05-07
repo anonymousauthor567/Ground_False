@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the content of Herstein's exercise: it quantifies existentially over an integer n (using ℤ, matching \"integers\") and asserts that the identity (ab)^i = a^i b^i holds for all a, b ∈ G at three consecutive values i = n, n+1, n+2, and concludes G is abelian (∀ a b, a*b = b*a). The nested structure ∃ n, (∀ a b, P n) ∧ (∀ a b, P (n+1)) ∧ (∀ a b, P (n+2)) is logically equivalent to the natural reading \"there exist three consecutive integers for which the identity holds for every pair of elements.\" No hypotheses have been added or removed, the ambient group is arbitrary, and the conclusion matches \"G is abelian.\"",
+  "duration_ms": 31909,
+  "cost_usd": 0.12867575
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. In Mathlib, `Sylow p G` is defined as a maximal p-subgroup (via `IsPGroup`), matching the notion of \"p-Sylow subgroup\". `P.Normal` corresponds to \"P ◁ G\". The conclusion `∀ Q : Sylow p G, P = Q` directly expresses \"P is the only p-Sylow subgroup\". The primality hypothesis `hp : Nat.Prime p` mirrors the \"p-Sylow\" terminology in the informal statement. Notably, the statement holds for arbitrary (even infinite) groups via `IsPGroup.to_sup_of_normal_right`: if P is a normal p-subgroup and Q is any p-subgroup, then P ⊔ Q is a p-subgroup, and by maximality of both P and Q, we get P = Q. Hence no finiteness hypothesis needs to be added, and none is missing. The Lean formalization is logically equivalent to the informal statement.",
+  "duration_ms": 383660,
+  "cost_usd": 1.3341224999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "34.lean",
+  "stem": "34",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. \"Valuation ring\" is correctly encoded as `CommRing R` + `IsDomain R` + `ValuationRing R` (Mathlib's `ValuationRing` class itself assumes a commutative integral domain, matching the standard convention). \"Krull dimension ≥ 2\" is correctly encoded as `2 ≤ ringKrullDim R`, where `ringKrullDim` takes values in `WithBot ℕ∞` so the inequality properly captures \"at least 2\" (the variable name `two_lt` is misleading but the actual proposition is `2 ≤ ...`, i.e., \"≥ 2\"). \"R[[X]] is not integrally closed\" is correctly encoded as `¬ (IsIntegrallyClosed R⟦X⟧)`, which by Mathlib's definition means R[[X]] does not contain all integral elements of its fraction field — the standard meaning. No hypotheses are added or dropped beyond the standard convention, and the quantifier structure matches.",
+  "duration_ms": 296335,
+  "cost_usd": 0.7437440000000001
+}

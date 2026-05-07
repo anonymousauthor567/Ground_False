@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_a5.lean",
+  "stem": "putnam_2009_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks whether there exists a finite abelian group G such that the product of orders of all its elements equals 2^2009. The Lean statement encodes \"finite abelian group\" as `CommGroup G` + `Fintype G`, which is the standard Mathlib encoding. The \"product of the orders of all its elements\" becomes `∏ g : G, orderOf g`, which ranges over all elements of G (well-defined because of `Fintype G`), and `orderOf` in Mathlib is the standard order of a group element. The existential question is wrapped in an iff with `putnam_2009_a5_solution` (which equals `False`), correctly encoding the yes/no question. All quantifier structure, types, and the conclusion match the informal statement.",
+  "duration_ms": 28310,
+  "cost_usd": 0.10808725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b4.lean",
+  "stem": "putnam_2022_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem correctly encodes the Putnam 2022 B4 question. The hypothesis n ≥ 4 matches the informal constraint. The ap3 predicate defines \"3-term AP when sorted in increasing order\" correctly: for distinct x0,x1,x2 (which is guaranteed here by the distinctness hypothesis combined with n ≥ 4 making i, (i+1) mod n, (i+2) mod n distinct), it asserts that the unique sorted triple satisfies the AP condition. The xprog predicate requires distinctness over Fin n indices and the AP condition on each cyclic triple (x_i, x_{i+1 mod n}, x_{i+2 mod n}); enumerating i=0..n-1 gives exactly the cyclic triples listed informally, including the wrap-around ones. Using ℕ → ℝ instead of Fin n → ℝ is logically equivalent for the existence statement since xprog only constrains values at Fin n indices. The \"find all n\" problem is standardly encoded as an iff with a solution set.",
+  "duration_ms": 315974,
+  "cost_usd": 0.6956197499999999
+}

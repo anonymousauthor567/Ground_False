@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: (1) V as a complex inner product space, (2) normality as T·T* = T*·T, (3) the conclusion as existence of S with S² = T. The `FiniteDimensional ℂ V` assumption is the standard implicit convention in Axler's book (where V is assumed finite-dimensional throughout Chapter 7, and the notation $\\mathcal{L}(V)$ signals this context); moreover, the theorem relies on the spectral theorem for normal operators which is the Axler-style finite-dimensional result. Under this standard reading, the Lean statement asserts exactly the same claim as the informal Axler exercise.",
+  "duration_ms": 47062,
+  "cost_usd": 0.13517275
+}

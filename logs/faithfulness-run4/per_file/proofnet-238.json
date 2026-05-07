@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G of order 6545 is not simple. The Lean signature takes an arbitrary type G with `[Fintype G] [Group G]`, hypothesizes `card G = 6545`, and concludes `¬ IsSimpleGroup G`. The `Fintype` instance is the natural way to express that `|G|` is defined as a natural number equal to 6545 — it does not add a hidden assumption beyond what \"|G| = 6545\" already implies. Mathlib's `IsSimpleGroup` (defined in `Mathlib/GroupTheory/Subgroup/Simple.lean`) is the standard notion: nontrivial with only trivial normal subgroups. So the Lean theorem captures precisely the informal claim.",
+  "duration_ms": 62907,
+  "cost_usd": 0.151229
+}

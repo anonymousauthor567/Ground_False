@@ -1,0 +1,8 @@
+{
+  "file": "S_0029.lean",
+  "stem": "S_0029",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization introduces `RingCat.units : RingCat ⥤ Grp` sending R to Rˣ (the group of units) and acting on morphisms by `Units.map`—this is exactly the units functor $(-)^\\times$ from the informal statement, mirroring Mathlib's existing `MonCat.units`. The theorem `∃ (left : Grp ⥤ RingCat), Nonempty (left ⊣ RingCat.units)` is the standard Prop-level formalization of \"admits a left adjoint\" — it is literally the body of Mathlib's `Functor.IsRightAdjoint` definition (`class IsRightAdjoint (right : D ⥤ C) : Prop where exists_leftAdjoint : ∃ (left : C ⥤ D), Nonempty (left ⊣ right)`). The functor source/target, the object/morphism mapping, and the adjunction existence quantifier all match the informal claim with no extra or missing hypotheses.",
+  "duration_ms": 88498,
+  "cost_usd": 0.36862875
+}

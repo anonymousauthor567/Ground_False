@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The types `f : ℝ → ℝ` and `E : Set ℝ` match \"real-valued function on a set of real numbers\"; `G : Set (ℝ × ℝ)` with `h₂ : G = {(x, f x) | x ∈ E}` encodes the graph as \"set of points (x, f(x)) for x ∈ E\"; `h₁ : IsCompact E` matches \"E is compact\"; and the conclusion `ContinuousOn f E ↔ IsCompact G` matches \"f is continuous on E iff its graph is compact\". Using `ContinuousOn f E` with a function defined on all of ℝ is the standard Mathlib idiom and is equivalent to the informal notion of continuity on E. No hypothesis is added, dropped, or changed, and the quantifier/conclusion structure is preserved.",
+  "duration_ms": 89967,
+  "cost_usd": 0.35292074999999995
+}

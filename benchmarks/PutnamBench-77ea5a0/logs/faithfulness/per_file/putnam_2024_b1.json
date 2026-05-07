@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_b1.lean",
+  "stem": "putnam_2024_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Putnam 2024 B1 problem. The grid values `i.succ + j.succ - k` correctly realize the 1-indexed expression $i + j - k$ since `Fin.succ i` coerces to `i.val + 1` in ℤ. Positivity of both $n$ and $k$ is required via `0 < n ∧ 0 < k`, matching \"positive integers.\" The \"select $n$ squares, no two in same row or column\" condition is encoded as an injective `f : Fin n → Fin n` (equivalent to a permutation on a finite set of equal size), and the requirement that selected values are \"exactly $1, \\ldots, n$\" is captured by `Set.range (fun i => grid n k i (f i)) = Set.Icc (1 : ℤ) n`. The quantifier structure — finding the set of $(n, k)$ pairs for which such a selection exists — matches the informal \"For which $n$ and $k$...\" question.",
+  "duration_ms": 162603,
+  "cost_usd": 0.47587175
+}

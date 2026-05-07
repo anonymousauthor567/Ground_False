@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Set.centralizer`, where `centralizer S = {c | ∀ m ∈ S, m * c = c * m}`. Thus `centralizer {x⁻¹ * a * x}` is exactly the set of elements commuting with $x^{-1}ax$, i.e., $C(x^{-1}ax)$. The RHS `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is the image of $C(a)$ under conjugation by $x$, which is $\\{x^{-1} g x : g \\in C(a)\\} = x^{-1}C(a)x$. The group $G$ is quantified universally via the section variables `{G : Type*} [Group G]`, and `a, x` are arbitrary, matching the informal statement. No extra hypotheses are added and no content is dropped; the set equation in Lean is exactly the claimed identity $C(x^{-1}ax) = x^{-1}C(a)x$.",
+  "duration_ms": 73906,
+  "cost_usd": 0.23096075000000002
+}

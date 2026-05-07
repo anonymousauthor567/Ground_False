@@ -1,0 +1,8 @@
+{
+  "file": "113.lean",
+  "stem": "113",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"for every positive integer n, X^n - 2 is irreducible over ℤ.\" The Lean hypothesis `1 ≤ n` matches the standard meaning of \"positive integer\" (n ≥ 1). The conclusion `Irreducible (X ^ n - 2 : ℤ[X])` uses Mathlib's standard `Irreducible` predicate applied in the ring ℤ[X], which is precisely the notion of an irreducible polynomial over the integers (non-unit with only unit factorizations). The expression `X ^ n - 2` in `ℤ[X]` directly encodes the polynomial $X^n - 2$ with integer coefficients. There is no extra or missing hypothesis, no change of type, and no change of quantifier structure. Thus the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 70539,
+  "cost_usd": 0.22409600000000002
+}

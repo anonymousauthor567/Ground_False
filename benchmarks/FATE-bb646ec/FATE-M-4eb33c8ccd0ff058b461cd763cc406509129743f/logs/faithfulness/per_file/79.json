@@ -1,0 +1,8 @@
+{
+  "file": "79.lean",
+  "stem": "79",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"x^3 - 2 has only one real root\" asserts that there is exactly one real number x satisfying x^3 - 2 = 0, equivalently x^3 = 2. The Lean statement `∃! x : ℝ, x ^ 3 = 2` uses Mathlib's `ExistsUnique` predicate (defined as `∃ x, p x ∧ ∀ y, p y → y = x`), which encodes \"there exists exactly one x such that x^3 = 2\". The equation `x^3 = 2` is equivalent to `x^3 - 2 = 0`, and the ambient type is `ℝ`, matching \"real root\". This is the standard faithful encoding.",
+  "duration_ms": 58408,
+  "cost_usd": 0.14804725
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "informal": "Prove that $\\frac{(x+2)^p-2^p}{x}$, where $p$ is an odd prime, is irreducible in $\\mathbb{Z}[x]$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_9_4_2d {p : ℕ} (hp : p.Prime ∧ p > 2)\n  {f : Polynomial ℤ} (hf : f = (X + 2)^p):\n  Irreducible (∑ n ∈ (f.support \\ {0}), (f.coeff n : Polynomial ℤ) * X ^ (n-1) :\n  Polynomial ℤ)",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `p.Prime ∧ p > 2` correctly captures \"p is an odd prime\" (since the only even prime is 2). The polynomial expression encodes ((X+2)^p − 2^p)/X correctly: f = (X+2)^p has support {0,1,…,p} (all binomial coefficients C(p,n)·2^(p−n) are nonzero), so summing over support \\ {0} gives Σ_{n=1}^{p} C(p,n)·2^(p−n) · X^(n−1), which equals ((X+2)^p − 2^p)/X — the n=0 term (constant 2^p) is exactly what's subtracted, and dividing by X corresponds to the X^(n−1) shift. The conclusion `Irreducible` over `Polynomial ℤ` matches \"irreducible in ℤ[x]\". No extra or missing hypotheses, and the type is correct.",
+  "duration_ms": 14886,
+  "cost_usd": 0.0731975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p18.lean",
+  "stem": "elementary_algebra__p18",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts that when the fraction EQUALS the decomposition as rational functions (i.e., for all valid x), then α-β+γ=1. The Lean formalization uses `variable (α β γ : ℤ)(x : ℝ)`, so the theorem quantifies x universally outside the implication: ∀ α β γ x, (fraction x = decomposed α β γ x → α-β+γ=1), which is equivalent to ∀ α β γ, (∃ x, equality at x) → α-β+γ=1. This hypothesis is strictly weaker than \"equality for all x\", making the Lean claim logically stronger (Lean→informal, but not vice versa). The Lean statement is in fact false: taking α=1, β=63, γ=1, x=4 gives fraction(4) = 108/41 = (4+63)/41 + 1 = decomposed(1,63,1,4), yet α-β+γ=-61≠1. The Lean drops the \"for all x\" scope that the informal decomposition identity requires, which is a classic way of making a claim stronger than what was asked.",
+  "duration_ms": 245300,
+  "cost_usd": 0.6035744999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypotheses `NormalSpace X`, `IsClosed A`, `IsClosed B`, and `Disjoint A B` correspond exactly to \"X is normal\" and \"pair of disjoint closed sets\". The conclusion asserts existence of open sets U ⊇ A and V ⊇ B (which is the standard Munkres definition of \"neighborhoods\" of A and B) with `closure U ∩ closure V = ∅`, which is equivalent to `Disjoint (closure U) (closure V)` via `disjoint_iff_inter_eq_empty`. This matches \"neighborhoods whose closures are disjoint\" precisely. No hypothesis is added or dropped and no quantifier structure is changed.",
+  "duration_ms": 68425,
+  "cost_usd": 0.2921135
+}

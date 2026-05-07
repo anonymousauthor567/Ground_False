@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement expresses the triangle inequality for a finite sum of complex numbers. The function `f : ℕ → ℂ` together with `range n` encodes the finite sequence `z_1, ..., z_n` (as `f 0, ..., f (n-1)`), and universal quantification over `f` and `n` covers all possible finite tuples of complex numbers. For complex numbers, the norm `‖z‖` coincides with the absolute value `|z|`. The `n = 0` case degenerates to `‖0‖ ≤ 0`, which is vacuously handled. This matches Mathlib's `norm_sum_le` specialized to ℂ and is the standard faithful encoding of the informal claim.",
+  "duration_ms": 39082,
+  "cost_usd": 0.14499774999999998
+}

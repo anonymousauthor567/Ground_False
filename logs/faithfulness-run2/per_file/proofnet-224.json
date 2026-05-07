@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if H and K are normal subgroups of G, then H ∩ K is also normal. The Lean signature takes an arbitrary group G, two subgroups H K with [Normal H] and [Normal K] as instance hypotheses, and concludes Normal (H ⊓ K). In Mathlib, the infimum H ⊓ K of two subgroups is definitionally the intersection of their underlying sets, so this matches \"H ∩ K\". The quantifier structure (for all G, H, K) is correctly captured via Lean's implicit universal quantification over the declared variables. No extra hypotheses (like finiteness or commutativity) are introduced, and none of the required hypotheses are dropped.",
+  "duration_ms": 7649,
+  "cost_usd": 0.03399375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "149.lean",
+  "stem": "149",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims C_H(x) = H ∩ C_G(x) where H ≤ G and x ∈ H. In Lean, x : H encodes \"x is an element of the subgroup H\" (equivalent to x ∈ H). The LHS `Subgroup.map H.subtype (Subgroup.centralizer {x})` correctly computes the centralizer of x within H (as a Subgroup H) and embeds it into G via the inclusion homomorphism — this matches C_H(x) viewed as a subgroup of G. The RHS `H ⊓ Subgroup.centralizer {x.1}` is H ∩ C_G(x) as a subgroup of G, using the underlying element x.1 : G. Both sides are of type `Subgroup G`, and since multiplication in H is inherited from G, the elements coincide, so the equality asserts exactly the informal claim. This is the standard way to formalize equality of a subgroup-of-a-subgroup with an intersection of subgroups; no hypotheses are added or dropped.",
+  "duration_ms": 121003,
+  "cost_usd": 0.36826125000000004
+}

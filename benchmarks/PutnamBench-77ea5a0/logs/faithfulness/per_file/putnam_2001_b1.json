@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_b1.lean",
+  "stem": "putnam_2001_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. `n : ℕ` with `n > 0` and `Even n` matches \"even positive integer\". The grid entries `nums k l = k * n + l + 1` (with k, l : Fin n being 0-indexed and cast to ℤ) correctly encode the informal (k-1)n+l formula when translating to 1-indexed notation: for k.val = j, the entry is j*n + l.val + 1, matching row (j+1) column (l.val+1). The coloring via `Fin 2` correctly represents a two-coloring, and the constraint that n/2 squares of each row/column have color 0 implies (by Fin 2) that the other n/2 have color 1, matching \"half red, half black\". The conclusion equates the two color-indexed sums, matching the claim. No hypotheses are silently added or dropped.",
+  "duration_ms": 76377,
+  "cost_usd": 0.19738475
+}

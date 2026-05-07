@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_3.lean",
+  "stem": "hackmath_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the count of 4-digit numbers formed from {3,5,8,9} without repetition (answer: 4! = 24). The Lean formalization defines `sol` as the Finset of naturals `s` with 1000 ≤ s ≤ 9999 and `(Nat.digits 10 s).toFinset = {3, 5, 8, 9}`. Since any s in [1000, 9999] has exactly 4 base-10 digits, and the Finset {3,5,8,9} has exactly 4 distinct elements, the condition `toFinset = {3,5,8,9}` forces each of 3, 5, 8, 9 to appear exactly once by pigeonhole — precisely capturing \"formed from 3,5,8,9 without repetition\". The cardinality equation `sol.card = hackmath_3_solution` correctly asks for the count. The encoding via a hypothesis characterizing `sol` uniquely determines the Finset, so the statement is logically equivalent to the informal claim.",
+  "duration_ms": 122759,
+  "cost_usd": 0.42306925000000006
+}

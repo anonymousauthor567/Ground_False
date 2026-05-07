@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_b5.lean",
+  "stem": "putnam_1979_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures all elements of the informal statement. The set C is a subset of ℝ × ℝ; it is closed and convex, contains (0,0), and the hypothesis `hCnint` correctly excludes all other integer-coordinate points. The `volume` on ℝ × ℝ is the product Lebesgue (area) measure. The hypothesis `hCeven` uses the four closed quadrants; while these overlap on the axes, the axes have 2D measure zero, so the equal-volume condition is equivalent to \"area equally distributed among the four quadrants.\" The three chained equalities transitively yield equal measure in all four quadrants. The conclusion `volume C ≤ 4` matches $A(C) \\leq 4$. No hypotheses are added or dropped beyond what the informal statement asserts.",
+  "duration_ms": 165607,
+  "cost_usd": 0.45183725
+}

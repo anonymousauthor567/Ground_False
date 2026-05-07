@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: for integers a, b, if a divides b in ℤ[i] then a divides b in ℤ. In Lean, `ofInt a : GaussianInt` is the embedding ⟨a, 0⟩ of the integer a into GaussianInt = ℤ√(-1) (and is propositionally equal to the intCast of a, per `ofInt_eq_intCast` in Mathlib's Zsqrtd.Basic). Hence `(ofInt a : GaussianInt) ∣ ofInt b` precisely expresses divisibility of a by... wait — actually divisibility of b by a — in the Gaussian integers, and the conclusion `a ∣ b` is divisibility in ℤ. The variables a b : ℤ are universally quantified, and the implication goes in the direction stated informally. No extra hypotheses are added and none are dropped. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 60090,
+  "cost_usd": 0.21397725
+}

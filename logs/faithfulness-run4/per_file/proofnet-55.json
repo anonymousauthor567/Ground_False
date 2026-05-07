@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over any finite group G with |G|=1365 and concludes ¬IsSimpleGroup G, which is exactly what the informal statement asserts. Mathlib's IsSimpleGroup is the standard definition of a simple group (nontrivial with only trivial normal subgroups); since 1365 > 1, the nontriviality condition is automatically satisfied and causes no hidden weakening. The `card G = 1365` hypothesis with `open Fintype` resolves to `Fintype.card G = 1365`, matching |G|=1365. No hypotheses are added or dropped, and the quantifier structure and ambient types match.",
+  "duration_ms": 67974,
+  "cost_usd": 0.22921324999999998
+}

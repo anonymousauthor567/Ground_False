@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes each clause of the informal statement exactly: `IsQuotientMap p` is Mathlib's quotient-map predicate (surjective and topology on Y is coinduced), matching \"p is a quotient map\"; `ConnectedSpace Y` matches \"Y is connected\"; `∀ y : Y, IsConnected (p ⁻¹' {y})` matches \"each set p⁻¹({y}) is connected\"; and the conclusion `ConnectedSpace X` matches \"X is connected\". Mathlib's `IsConnected` requires nonempty + preconnected, but surjectivity of a quotient map already ensures every fiber is nonempty, so no semantic drift arises. Types, quantifier structure, and hypotheses all align with the informal claim.",
+  "duration_ms": 64955,
+  "cost_usd": 0.27799825
+}

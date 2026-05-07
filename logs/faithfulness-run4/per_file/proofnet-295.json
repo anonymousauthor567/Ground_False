@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `IsTopologicalBasis` on a set of subsets of `ℝ × ℝ` (which carries the standard product topology = ℝ²). The inner union `⋃ (a b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` is exactly `{(a,b) ⊂ ℝ : a,b ∈ ℚ, a<b}`, and `Set.image2 (fun s t => s ×ˢ t)` of this with itself yields precisely `{(a,b) × (c,d) | a<b, c<d, a,b,c,d ∈ ℚ}`, matching the informal collection. The \"countable\" adjective in the informal statement is descriptive (a property of this collection) rather than an additional conclusion; the task asked is to show it is a basis, which is what Lean asserts. The quantifier structure, ambient space (ℝ² via `ℝ × ℝ`), and conclusion all align, so this is a faithful formalization.",
+  "duration_ms": 131923,
+  "cost_usd": 0.4849045
+}

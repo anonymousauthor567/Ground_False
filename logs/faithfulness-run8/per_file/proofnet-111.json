@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `IsOpenMap f` is defined as `∀ U : Set X, IsOpen U → IsOpen (f '' U)`, which is exactly the informal definition stated at the top of the exercise. The Lean theorem universally quantifies over topological spaces `X` and `Y` and then introduces `π₁, π₂` with hypotheses `π₁ = Prod.fst` and `π₂ = Prod.snd`, which pins them down to be the standard coordinate projections. The conclusion `IsOpenMap π₁ ∧ IsOpenMap π₂` is therefore logically equivalent to asserting that the projections from `X × Y` to `X` and to `Y` are open maps, which is exactly what the informal statement asks to prove. No hypotheses are silently added or removed, and the conclusion matches both directions of the informal claim.",
+  "duration_ms": 17851,
+  "cost_usd": 0.08482300000000001
+}

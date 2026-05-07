@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch2_6.lean",
+  "stem": "brualdi_ch2_6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures each condition of the informal statement precisely: `n > 5400` matches \"greater than 5400\"; `(Nat.digits 10 n).Nodup` matches \"digits are distinct\" (in base 10); and `2 ∉ (Nat.digits 10 n) ∧ 7 ∉ (Nat.digits 10 n)` matches \"digits 2 and 7 do not occur\". Using ℕ instead of ℤ is inconsequential since any integer > 5400 is positive. Using `Finset ℕ` with the characterizing iff is appropriate because the set is finite (digits must come from {0,1,3,4,5,6,8,9} and be distinct, so at most 8 digits). The cardinality `s.card` therefore counts exactly the integers described in the informal statement.",
+  "duration_ms": 71792,
+  "cost_usd": 0.23899699999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p25.lean",
+  "stem": "abstract_algebra__p25",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement in all essential respects. The hypothesis `∀ x : ℝ, eval (Real.cos x) P = eval (Real.sin x) P` correctly encodes \"P(cos x) = P(sin x) for all x\", and the conclusion `∃ Q : Polynomial ℝ, ∀ x : ℝ, eval x P = eval (x^4 - x^2) Q` correctly encodes \"there exists a polynomial Q such that P(x) = Q(x⁴ - x²) for all x\". The variable P is an implicit parameter of type `Polynomial ℝ`, giving the correct universal quantification over real polynomials. The types (real polynomial, real x), quantifier structure, and polynomial evaluation (via `eval`) all match. The classical result (P must be even, then P(x) = R(x²) with R(y) = R(1-y), hence R(y) = S(y-y²), giving P(x) = Q(x⁴-x²)) is correctly formalized without dropping or adding hypotheses.",
+  "duration_ms": 178211,
+  "cost_usd": 0.396721
+}

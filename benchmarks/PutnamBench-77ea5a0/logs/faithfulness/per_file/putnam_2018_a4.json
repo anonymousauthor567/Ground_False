@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_a4.lean",
+  "stem": "putnam_2018_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal Putnam 2018 A4 statement. It universally quantifies over a group G, has matching hypotheses (m,n positive with gcd=1), defines a_k via the floor formula ⌊mk/n⌋ - ⌊m(k-1)/n⌋ for k ∈ {1,...,n} (using Set.Icc 1 n subtype), and asserts the product (g·h^a_1)·(g·h^a_2)·...·(g·h^a_n) = 1 via List.Ico 1 (n+1) giving [1,...,n]. The conclusion g*h = h*g matches. The encoding choice of `a : ℕ → ℤ` (with only values at k=1,...,n constrained) is harmless since only those values are used in the product. The use of zpow for h^(a k) with a k : ℤ is consistent with natural powers since a_k are non-negative. This is a faithful formalization.",
+  "duration_ms": 247547,
+  "cost_usd": 0.44716825000000004
+}

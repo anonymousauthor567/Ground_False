@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b1.lean",
+  "stem": "putnam_1994_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"Find all positive integers n within 250 of exactly 15 perfect squares.\" The hypothesis `0 < n` encodes \"positive integer\". The set `{m : ℕ | |n - m^2| ≤ 250}` correctly counts distinct perfect squares within 250 of n (using m : ℕ avoids double-counting since (-m)² = m², and m=0 contributes 0, which is a standard perfect square). The ≤ 250 interpretation of \"within 250\" is standard and verified to yield the given solution set {315..325} ∪ {332..350}: e.g., n=314 gives 16 squares (8²=64 is exactly 250 away), n=315 gives 15, n=325 gives 15, n=326 gives 16 (24²=576 is exactly 250 away), n=331 gives 16, n=332 gives 15, n=350 gives 15. The `encard = 15` asserts \"exactly 15\" as a cardinality in ℕ∞.",
+  "duration_ms": 123399,
+  "cost_usd": 0.38884425
+}

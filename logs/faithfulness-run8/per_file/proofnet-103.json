@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. The hypotheses `a < 0`, `p ≡ q [ZMOD 4*a]`, and `¬ ((p : ℤ) ∣ a)` correspond directly to \"$a$ negative\", \"$p \\equiv q \\pmod{4a}$\", and \"$p \\nmid a$\". Using `4*a` as the modulus even when it is negative is fine because Mathlib's `Int.ModEq` satisfies `a ≡ b [ZMOD -n] ↔ a ≡ b [ZMOD n]`, so this matches the informal congruence. The conclusion `legendreSym p a = legendreSym q a` is exactly $(a/p)=(a/q)$ using Mathlib's standard Legendre symbol. The Lean formalization does not restrict to odd primes, but the case $p=2$ or $q=2$ forces $p=q=2$ (since $4 \\mid 4a$), making the conclusion trivial, so no spurious generality is introduced. Types, quantifier structure, and logical content all match.",
+  "duration_ms": 265867,
+  "cost_usd": 0.9031730000000001
+}

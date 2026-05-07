@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler's Exercise 3.8. The informal claim \"$U \\cap \\operatorname{null} T = \\{0\\}$\" is exactly `U ⊓ (ker L) = ⊥` (submodule intersection equals the zero submodule). The informal claim \"range $T = \\{Tu : u \\in U\\}$\" is captured by `range L = range (domRestrict L U)`, because by Mathlib's `LinearMap.range_domRestrict` lemma, `range (domRestrict L U) = U.map L = {L u | u ∈ U}`. The hypotheses match: `V` finite dimensional over `F` with `L : V →ₗ[F] W` corresponds to $T \\in \\mathcal{L}(V,W)$. Using a general `[Field F]` is a reasonable reading since the informal text does not pin down the base field, and the result indeed holds over any field.",
+  "duration_ms": 114601,
+  "cost_usd": 0.41269325000000007
+}

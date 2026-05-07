@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Axler's statement. `p : Polynomial ℂ` matches 𝒫(ℂ); `hm : m = p.degree` correctly says p has degree m (via WithBot ℕ coercion of m : ℕ); `card (p.rootSet ℂ) = m` correctly counts distinct roots since Mathlib's `rootSet` is defined via `(p.aroots S).toFinset` (deduplicated); and `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)` correctly captures 'p and p′ have no roots in common'. The hypothesis `hp : p ≠ 0` is actually redundant—it follows from `hm` since m : ℕ cannot coerce to ⊥ in WithBot ℕ—so it merely surfaces an implicit premise needed for 'has degree m' to make sense. Quantifier structure and iff direction both match.",
+  "duration_ms": 174336,
+  "cost_usd": 0.5601079999999999
+}

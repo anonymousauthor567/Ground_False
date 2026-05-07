@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal statement concerns an improper integral $\\int_{-\\infty}^\\infty \\frac{x\\sin x}{x^2+a^2}dx$ whose integrand is NOT absolutely Lebesgue-integrable (decays like $|\\sin x|/|x|$ at infinity), so a Bochner integral encoding would fail. The Lean statement formalizes it as the symmetric-cutoff limit `Tendsto (λ y => ∫ x in -y..y, ...) atTop (𝓝 (π · exp(-a)))`, which is the standard way to encode improper integrals of this type (especially from Shakarchi-style complex analysis where such integrals are computed by residues / contour arguments). Because the integrand is even (x·sin x is even, x²+a² is even), the symmetric PV limit coincides with the improper Riemann interpretation, and both equal $\\pi e^{-a}$; so the symmetric-limit formulation is mathematically equivalent to the informal claim, not weaker. The hypothesis `0 < a`, the integrand expression, and the target value all match the informal statement exactly.",
+  "duration_ms": 173741,
+  "cost_usd": 0.9064274999999999
+}

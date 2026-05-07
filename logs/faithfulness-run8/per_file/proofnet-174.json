@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. Hypothesis (a) \"f continuous for x ≥ 0\" is encoded as `ContinuousOn f (Set.Ici 0)`; (b) \"f'(x) exists for x > 0\" as `DifferentiableOn ℝ f (Set.Ioi 0)`; (c) \"f(0) = 0\" as `f 0 = 0`; (d) \"f' is monotonically increasing\" as `MonotoneOn (deriv f) (Set.Ioi 0)`. Since f is differentiable on (0,∞), `deriv f` gives the correct f' values there. The conclusion \"g(x) = f(x)/x is monotonically increasing\" on (0,∞) is correctly encoded as `MonotoneOn (λ x => f x / x) (Set.Ioi 0)`. Rudin's \"monotonically increasing\" is the non-strict version (x ≤ y ⇒ f(x) ≤ f(y)), which matches Mathlib's `MonotoneOn`. No hypotheses added or dropped.",
+  "duration_ms": 42836,
+  "cost_usd": 0.179171
+}

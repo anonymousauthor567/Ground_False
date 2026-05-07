@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `Subgroup.closure {DihedralGroup.r 1}` is indeed the rotation subgroup since `r 1` generates all rotations `{r i : i ∈ ZMod n}` (via `r_one_pow` in Mathlib's Dihedral.lean). The conclusion `R ≠ ⊤ ∧ ∀ K, R ≤ K → K = R ∨ K = ⊤` is logically equivalent to the standard definition of a maximal subgroup (proper, with no intermediate subgroup). The `n ≠ 0` hypothesis surfaces the implicit Dummit-Foote context where \"dihedral group\" means the finite D_{2n} (n ≥ 1), excluding the infinite dihedral group `DihedralGroup 0` (which Mathlib uses for D_∞); this is making an implicit contextual premise explicit rather than weakening the statement. The theorem is universally quantified over n, matching \"a dihedral group\".",
+  "duration_ms": 202671,
+  "cost_usd": 0.62165025
+}

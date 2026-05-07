@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p23.lean",
+  "stem": "number_theory__p23",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"for every n ∈ ℕ, every prime p dividing n^4 - n^2 + 1 has the form 12k+1 for some k ∈ ℕ.\" The `variable (n : ℕ)` auto-binds n as a universal quantifier, matching the informal \"for n ∈ ℕ.\" The universal quantification over p with Prime and divisibility hypotheses correctly captures \"every prime divisor.\" The encoding `∃ k : ℕ, p = 12 * k + 1` correctly represents \"form 12k+1\": although k = 0 is permitted (giving p = 1), this is excluded by the primality hypothesis, matching the informal convention. The natural number subtraction `n^4 - n^2` causes no issue since n^4 ≥ n^2 for all n ∈ ℕ, so the value equals the integer computation (including for n = 0, 1, where the value is 1 and the claim is vacuous). The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 153931,
+  "cost_usd": 0.4450945
+}

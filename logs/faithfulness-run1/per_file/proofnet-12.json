@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "informal": "Prove that $x^2+1$ is irreducible in $\\mathbb{F}_7$",
+  "lean": "\ntheorem Artin_exercise_11_4_6b {F : Type*} [Field F] [Fintype F] (hF : card F = 7) :\n  Irreducible (X ^ 2 + 1 : Polynomial F)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show x^2+1 is irreducible in F_7[x]. The Lean signature quantifies over any finite field F of cardinality 7; since all fields of cardinality 7 are isomorphic to F_7 (the prime field of characteristic 7), the assertion is equivalent to irreducibility of X^2+1 over F_7. The conclusion `Irreducible (X^2+1 : Polynomial F)` is exactly the polynomial-ring irreducibility claim. No hypotheses are missing or extraneous, and the type encoding faithfully captures the intended ambient ring.",
+  "duration_ms": 9590,
+  "cost_usd": 0.0556705
+}

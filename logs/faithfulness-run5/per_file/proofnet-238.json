@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a finite group G (via `{G : Type*} [Fintype G] [Group G]`), hypothesizes `Fintype.card G = 6545` (i.e., |G| = 6545), and concludes `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is the standard definition (nontrivial group with only trivial normal subgroups), matching the usual textbook meaning of \"simple\". The `Fintype` instance is just what's needed to make `|G| = 6545` meaningful — it does not add an extraneous restriction since finiteness is implicit in the informal statement. The quantifier structure, hypothesis, and conclusion all line up exactly with the informal claim, so the formalization is logically equivalent.",
+  "duration_ms": 42311,
+  "cost_usd": 0.14369400000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement accurately. The [GCDMonoid R] typeclass is a formalization necessity to access the `gcd` function; in an integral domain it is equivalent to \"every pair has a GCD,\" which is already part of condition (i). Hypothesis h1 expresses \"gcd = r*a + s*b\" for nonzero a,b, matching (i) (the form is invariant under unit multiplication so the particular GCD choice doesn't matter). Hypothesis h2 mirrors the descending divisibility chain condition with the unit factor allowed to depend on n; although the informal says \"positive integer N\" while Lean allows N : ℕ (including 0), these are logically equivalent since one can always replace N with max(N,1). The conclusion `IsPrincipalIdealRing R` combined with `[IsDomain R]` is the standard definition of a PID. No hypotheses are dropped or added beyond what the informal statement expresses.",
+  "duration_ms": 79840,
+  "cost_usd": 0.26945375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the content of Rudin's exercise 4.24: continuity on the open interval (ContinuousOn on Set.Ioo a b), the midpoint-inequality hypothesis quantified over all points in (a,b), and the conclusion ConvexOn ℝ (Set.Ioo a b) f (whose Mathlib definition gives the standard convex-combination inequality for all x,y in the set and nonnegative weights summing to 1). The only additional hypothesis `hab : a < b` merely makes explicit the standard convention that \"(a,b)\" denotes a nonempty open interval; when a ≥ b both the informal and Lean statements are vacuously true (Ioo a b = ∅, and ConvexOn ℝ ∅ f trivially holds), so the two statements are logically equivalent. This matches the worked example in the instructions where surfacing an implicit premise is judged faithful.",
+  "duration_ms": 116405,
+  "cost_usd": 0.40737724999999997
+}

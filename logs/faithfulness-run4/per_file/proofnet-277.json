@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a is algebraic over ℚ of degree at most 80, given that a satisfies p(a)=0 for the specific p. The Lean statement encodes this as the existence of a nonzero polynomial q ∈ ℚ[X] with q.natDegree ≤ 80 satisfying aeval a q = 0. This is logically equivalent to \"a is algebraic over ℚ with minimal polynomial of degree ≤ 80\": such a q exists iff the minimal polynomial of a has degree ≤ 80 (forward: take q = min poly; backward: min poly divides q). The hypothesis p(a) = 0 with the √2, √5, √7, √11 coefficients coerced from ℝ to ℂ correctly encodes the informal polynomial equation. The natDegree (rather than degree) convention is safe here because q ≠ 0 is explicitly required. No hidden added/dropped hypotheses — fully faithful.",
+  "duration_ms": 60828,
+  "cost_usd": 0.15787475
+}

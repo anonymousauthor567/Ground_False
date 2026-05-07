@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over x in I ⊓ J (which is the intersection of ideals in Mathlib) and asserts that its image under Ideal.Quotient.mk (I*J) is nilpotent — precisely the informal claim. Using CommRing matches Artin's standard commutative-ring setting, where the product ideal IJ is defined. The subtype coercion from ↑(I ⊓ J) to R works with Ideal.Quotient.mk, and the free variable x corresponds to \"any element\". No hypotheses are added or dropped relative to the informal statement, and the conclusion (IsNilpotent) matches exactly.",
+  "duration_ms": 25054,
+  "cost_usd": 0.09160350000000002
+}

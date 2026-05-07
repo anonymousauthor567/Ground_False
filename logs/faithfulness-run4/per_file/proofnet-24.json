@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "faithful",
+  "reasoning": "The informal statement comes from Axler's \"Linear Algebra Done Right\", Chapter 6, which implicitly assumes V is finite-dimensional. In that setting, every subspace is automatically closed and the ambient space is automatically complete, so the statement \"U⊥ = {0} ↔ U = V\" holds unconditionally. However, in an arbitrary inner product space the literal claim is false (e.g., a dense proper subspace of a Hilbert space has trivial orthogonal complement but is not the whole space). The Lean formalization surfaces the implicit premises needed for truth: `IsClosed U` and `CompleteSpace V` together ensure `U.HasOrthogonalProjection` (the exact hypothesis required by Mathlib's `Submodule.orthogonal_eq_bot_iff`). In Axler's implicit finite-dim setting, both hypotheses are automatic, so the Lean statement captures exactly the same mathematical content as the informal claim. This matches the worked-example principle of making implicit premises explicit, and the conclusion `U.orthogonal = ⊥ ↔ U = ⊤` is a direct translation of \"U⊥ = {0} ↔ U = V\".",
+  "duration_ms": 333596,
+  "cost_usd": 1.106902
+}

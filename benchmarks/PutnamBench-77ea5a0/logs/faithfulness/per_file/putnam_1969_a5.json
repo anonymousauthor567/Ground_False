@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_a5.lean",
+  "stem": "putnam_1969_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has two directions that combine to form an iff: (A) if x(0) ≠ y(0), no u drives the solution to (0,0), and (B) if x(0) = y(0), some u does, for any T > 0. The Lean iff `x0 = y0 ↔ ∃ x y u, [ODE] ∧ x 0 = x0 ∧ y 0 = y0 ∧ x t = 0 ∧ y t = 0` captures exactly this: the forward direction is claim (B) for the specific t > 0, and the backward direction is the contrapositive of (A) at that t (uniqueness of solutions to the linear ODE makes \"∃ u, x, y\" match \"for some u, the unique solution\"). The ODE encoding `deriv x = -2 • y + u` is pointwise equivalent to dx/dt = -2y(t) + u(t); `Differentiable ℝ` and `Continuous u` give the natural global regularity automatic for this linear system. Since t is a parameter with 0 < t, the theorem applies uniformly to every positive time, matching \"never pass through (0,0)\" in the forward-time interpretation.",
+  "duration_ms": 266327,
+  "cost_usd": 0.8372955
+}

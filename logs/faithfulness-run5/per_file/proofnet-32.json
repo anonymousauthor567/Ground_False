@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-32.lean",
+  "stem": "proofnet-32",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for elements x, g in a group G, the order of x equals the order of g⁻¹xg. The Lean statement introduces G as an arbitrary Group, takes x g : G, and asserts orderOf x = orderOf (g⁻¹ * x * g). The quantification, the ambient object (an arbitrary group), and the conclusion match exactly. `orderOf` in Mathlib is the standard notion of order of a group element, matching |·| in the informal text. No extra hypotheses are added or dropped. This is a strictly faithful formalization.",
+  "duration_ms": 54658,
+  "cost_usd": 0.08129974999999999
+}

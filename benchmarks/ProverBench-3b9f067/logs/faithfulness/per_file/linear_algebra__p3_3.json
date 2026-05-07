@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p3_3.lean",
+  "stem": "linear_algebra__p3_3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `A : Matrix n n ℝ` with `{n : Type} [Fintype n] [DecidableEq n]` captures \"n×n matrix\". `[Invertible A]` captures \"A is invertible\". The conclusion `det A⁻¹ = (det A)⁻¹` is the same as `|A⁻¹| = 1/|A|` because in ℝ, `x⁻¹ = 1/x`, and since A is Invertible, Mathlib's `invOf_eq_nonsing_inv` ensures `A⁻¹` here is the genuine matrix inverse. Using ℝ as the base ring is the standard undergraduate-linear-algebra default for this kind of statement. The two auxiliary `axiom` declarations only affect the (sorry'd) proof, not the theorem signature. Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 167784,
+  "cost_usd": 0.45257225000000006
+}

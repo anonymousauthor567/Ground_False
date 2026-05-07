@@ -1,0 +1,8 @@
+{
+  "file": "19.lean",
+  "stem": "19",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says: for every finite group G (in Type), there exist n : ℕ and a subgroup H of alternatingGroup (Fin n) such that G is multiplicatively isomorphic to H. In Mathlib, `alternatingGroup (Fin n)` is defined as `sign.ker : Subgroup (Perm (Fin n))`, which is exactly $A_n$, and `Subgroup (alternatingGroup (Fin n))` is a subgroup of $A_n$. `Nonempty (G ≃* H)` expresses the existence of a group isomorphism between G and H. Thus the formalization asserts exactly \"every finite group is isomorphic to a subgroup of $A_n$ for some n.\" The only minor technicality is `G : Type` rather than `Type*`, but any finite group is isomorphic to a group in Type 0, so this imposes no real restriction. The formalization is faithful.",
+  "duration_ms": 119653,
+  "cost_usd": 0.30367900000000003
+}

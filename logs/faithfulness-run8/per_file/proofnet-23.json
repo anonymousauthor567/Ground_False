@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches Mathlib's `inner_eq_sum_norm_sq_div_four` verbatim. Although the signs of the imaginary terms appear swapped compared to Axler's informal statement, this is because Mathlib's inner product is conjugate-linear in the FIRST argument (physics convention: `inner_smul_left : ⟪r•x, y⟫ = r† * ⟪x, y⟫`), whereas Axler uses the math convention (linear in the first argument). Under the relation ⟨u,v⟩_Axler = conj(⟪u,v⟫_Mathlib), taking the conjugate of Axler's identity flips the sign of the imaginary part, yielding precisely the Lean expression `(‖u+v‖² - ‖u-v‖² + (‖u - I•v‖² - ‖u + I•v‖²)·I)/4`. Thus the Lean statement expresses the same mathematical content as Axler's claim, correctly translated into Mathlib's convention. Hypotheses (complex inner product space, any u, v) match the informal statement exactly.",
+  "duration_ms": 160182,
+  "cost_usd": 0.60566125
+}

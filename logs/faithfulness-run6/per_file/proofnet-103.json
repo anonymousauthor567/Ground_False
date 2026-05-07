@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses match precisely: `a < 0` (ha), `p ≡ q (mod 4a)` via `Int.ModEq` (confirmed as `a % n = b % n` in Mathlib, and sign-invariant via `modEq_neg`), and `p ∤ a` (h1). The conclusion `legendreSym p a = legendreSym q a` correctly represents $(a/p) = (a/q)$ since Mathlib's `legendreSym p a = quadraticChar (ZMod p) a` agrees with the classical Legendre symbol for odd primes. The `[Fact p.Prime]` and `[Fact q.Prime]` instance hypotheses make explicit the primality implicit in using the symbol $(\\cdot/p)$; this is a correct surfacing of premises required for the Legendre symbol to be defined. Edge cases with $p = 2$ are either vacuous or trivial under the congruence hypothesis. No hypothesis is added or dropped that changes the mathematical content.",
+  "duration_ms": 104333,
+  "cost_usd": 0.3765275
+}

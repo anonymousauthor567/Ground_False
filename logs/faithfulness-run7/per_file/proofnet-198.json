@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-198.lean",
+  "stem": "proofnet-198",
+  "verdict": "faithful",
+  "reasoning": "The Complex structure in Mathlib has fields `re` and `im`, so `(⟨-1/2, Real.sqrt 3 / 2⟩ : ℂ)` denotes the complex number with real part `-1/2` and imaginary part `√3/2`, which is exactly $\\frac{-1+\\sqrt{3}i}{2}$. The Lean conclusion `^ 3 = 1` is precisely the claim that its cube equals 1. There is no hidden hypothesis, no change of quantifier, and no change of type. This is a direct and faithful formalization.",
+  "duration_ms": 23295,
+  "cost_usd": 0.10023725
+}

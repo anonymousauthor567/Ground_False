@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_a1.lean",
+  "stem": "putnam_2020_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all three conditions. (i) `2020 ∣ x` is exact. (ii) For positive x, `Nat.log 10 x + 1` equals the number of decimal digits, so `≤ 2020` matches \"at most 2020 decimal digits\". (iii) With k ≥ l, the sum `∑ i ∈ Finset.range (k-l+1), 10^(i+l) = 10^l + 10^(l+1) + ... + 10^k` produces exactly a number whose decimal representation is (k-l+1) consecutive 1s followed by l consecutive 0s, with k-l+1 ≥ 1. Positivity (\"positive integer N\") is implicit because condition (iii) forces x ≥ 10^l ≥ 1, so x=0 is automatically excluded. The computed answer 508536 = 504·1009 matches the standard combinatorial analysis (b≥2, a divisible by 4, a+b ≤ 2020), confirming the encoding is semantically correct.",
+  "duration_ms": 424547,
+  "cost_usd": 0.9912472499999999
+}

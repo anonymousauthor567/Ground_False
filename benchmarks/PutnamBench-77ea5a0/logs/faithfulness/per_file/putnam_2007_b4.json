@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_b4.lean",
+  "stem": "putnam_2007_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all components of the informal statement precisely: (1) n is a positive natural number via `n : ℕ` and `npos : n > 0`; (2) pairs of real polynomials are encoded as `(Polynomial ℝ) × (Polynomial ℝ)`; (3) the equation `(P(X))² + (Q(X))² = X^(2n) + 1` is faithfully expressed as `P ^ 2 + Q ^ 2 = Polynomial.X ^ (2 * n) + 1`; (4) the condition `deg P > deg Q` uses Mathlib's `Polynomial.degree` which returns `WithBot ℕ`, correctly handling the zero polynomial case (degree ⊥) consistent with standard mathematical convention; (5) the counting uses `ncard` which returns the natural-number cardinality of the set. No hypotheses are added or dropped, and the types match the informal intent.",
+  "duration_ms": 119258,
+  "cost_usd": 0.38917275000000007
+}

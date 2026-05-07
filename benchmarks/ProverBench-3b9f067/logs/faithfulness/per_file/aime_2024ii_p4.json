@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024ii_p4.lean",
+  "stem": "aime_2024ii_p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal problem correctly. Positivity of x, y, z is captured by hx, hy, hz. The three logarithmic equations match the informal ones exactly via Real.logb 2. The hypothesis `answer : ans = |Real.logb 2 (x^4 * y^3 * z^2)|` (with implicit Rat-to-Real coercion) forces ans to be the unique rational 25/8. For a positive reduced rational, Mathlib's `Rat.num` (Int) and `Rat.den` (Nat) give exactly the coprime positive integers m and n from the informal statement. Since |log₂(x⁴y³z²)| = 25/8 > 0, ans.num = 25 and ans.den = 8, so ↑ans.den + ans.num = 33 correctly expresses m + n = 33. The quantifier over `ans : ℚ` with the equality hypothesis is equivalent to stating the property about the specific rational value, so there is no semantic drift.",
+  "duration_ms": 229781,
+  "cost_usd": 0.6378487500000001
+}

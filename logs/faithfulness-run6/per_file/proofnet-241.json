@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding expresses exactly \"P ∩ H is the unique Sylow p-subgroup of H.\" The conjunction combines (a) `∀ R : Sylow p H, R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H` (every Sylow p-subgroup of H coincides with P ∩ H viewed inside H), with (b) `Nonempty (Sylow p H)` (existence). Together these imply `(H ⊓ P).subgroupOf H` is itself a Sylow p-subgroup (via some R) and that it is the unique one — matching the informal claim. `(H ⊓ P.toSubgroup).subgroupOf H` unfolds to `H ∩ P` pulled back via the subtype inclusion, i.e. the canonical Mathlib encoding of \"P ∩ H as a subgroup of H\". The `P.Normal` hypothesis and `Fintype G`/`Fintype H` surface the implicit finiteness premise of the Dummit-Foote context needed for the claim's truth; the `Nonempty` conjunct is redundant (Mathlib has a global instance) but not incorrect. No hypotheses are silently dropped or added beyond what the informal statement requires.",
+  "duration_ms": 540173,
+  "cost_usd": 1.7557337499999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "1.lean",
+  "stem": "1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `[CommRing R] [IsDomain R] [UniqueFactorizationMonoid R]` is the standard Mathlib encoding of a UFD. The hypotheses `hp : Prime p`, `hq : Prime q`, `hpq : ¬ Associated p q` together with `h : ∀ {x : R}, Prime x → Associated x p ∨ Associated x q` precisely capture \"two nonassociate prime elements p, q such that every prime element is an associate of either p or q\". The conclusion `IsPrincipalIdealRing R` combined with the in-scope `IsDomain R` is Mathlib's documented way of expressing \"R is a PID\" (there is no single `PrincipalIdealDomain` class). No hypotheses are added, dropped, or changed in type, so this is logically equivalent to the informal claim.",
+  "duration_ms": 126030,
+  "cost_usd": 0.288865
+}

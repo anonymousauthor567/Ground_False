@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler's exercise. \"U ∪ W is a subspace\" is encoded as \"there exists a submodule U' whose carrier equals U ∪ W\", which is logically equivalent: if such U' exists, U ∪ W is a submodule; conversely, if U ∪ W is a submodule, one can take U' to be it. \"One subspace is contained in the other\" becomes `U ≤ W ∨ W ≤ U`, matching set containment on submodules. The ambient setup (Field F, AddCommGroup V, Module F V) correctly encodes a vector space over a field, matching Axler's convention. No hypotheses are added or dropped, and the iff structure is preserved.",
+  "duration_ms": 23796,
+  "cost_usd": 0.0775585
+}

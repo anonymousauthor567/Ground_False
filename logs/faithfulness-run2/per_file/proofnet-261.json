@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all components of the informal statement exactly: `CommGroup G` and `Fintype G` together encode \"abelian group of [finite] order,\" `card G = p^n * m` gives the specified order, `Nat.Prime p` and `¬ p ∣ m` match \"$p$ prime with $p \\nmid m$\", and the subgroup `H` with `card H = p^n` matches the hypothesis on $H$'s order. The conclusion `Subgroup.Characteristic H` matches \"H is a characteristic subgroup.\" No hypotheses are silently added or dropped, and no types are altered. This is a faithful formalization.",
+  "duration_ms": 19215,
+  "cost_usd": 0.08731575
+}

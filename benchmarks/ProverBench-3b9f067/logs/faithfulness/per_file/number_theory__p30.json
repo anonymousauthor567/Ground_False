@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p30.lean",
+  "stem": "number_theory__p30",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for prime p = 4k-1 with a ∈ ℤ such that x² ≡ a (mod p) has a solution, the solutions are x = ±a^k. This has two parts: (1) every solution x is ≡ ±a^k (mod p), and (2) ±a^k really are solutions. The Lean theorem (with auto-included section variables hp : p = 4k-1, hp_prime : Nat.Prime p, and ha : ∃ x, x² ≡ a [ZMOD p]) has conclusion: (∀ x, x² ≡ a [ZMOD p] → x ≡ a^k ∨ x ≡ -a^k [ZMOD p]) ∧ ((a^k)² ≡ a [ZMOD p]). The first conjunct captures uniqueness (\"solutions are among ±a^k\") and the second conjunct witnesses that a^k is actually a solution, from which (-a^k)² ≡ a follows trivially. The hypotheses (p = 4k-1, p prime, existence of a solution) and types (p,k : ℕ, a : ℤ) exactly match the informal setup. This is a standard and faithful Lean rendering of the informal claim.",
+  "duration_ms": 892493,
+  "cost_usd": 2.1587235
+}

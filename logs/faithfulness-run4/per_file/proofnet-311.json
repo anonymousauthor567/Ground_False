@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"countable product\" as a ℕ-indexed family `X : ℕ → Type*`, which matches Munkres' standard convention for a countably infinite product in the relevant chapter. The product topology is automatically provided by `Pi.topologicalSpace` (the infimum of induced topologies, i.e., standard product topology). The hypothesis \"each factor has a countable dense subset\" is correctly rendered as `∀ i, ∃ s : Set (X i), Countable s ∧ Dense s`, and the conclusion is the same predicate for `Π i, X i`. Here `Countable s` for `s : Set α` uses the `CoeSort` coercion and is `rfl`-equivalent to `s.Countable` via `countable_coe_iff`, so it exactly means \"s is a countable set\". `Dense` is Mathlib's standard `∀ x, x ∈ closure s`. The structure, quantifiers, and types all match the informal claim exactly.",
+  "duration_ms": 451622,
+  "cost_usd": 1.219072
+}

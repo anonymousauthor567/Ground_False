@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. `[TopologicalSpace G] [Group G] [IsTopologicalGroup G]` encodes \"topological group\"; `C = connectedComponent (1 : G)` encodes \"C is the component containing the identity\" (the identity of a multiplicative group is `1`, which is what `e` denotes informally). The conclusion `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` is the standard Mathlib idiom for asserting that the set C is the underlying set of a normal subgroup — it is equivalent to \"C is a normal subgroup of G\". No hypothesis is added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 64395,
+  "cost_usd": 0.26576
+}

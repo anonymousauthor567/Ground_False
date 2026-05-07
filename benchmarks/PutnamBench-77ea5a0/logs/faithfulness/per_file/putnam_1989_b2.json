@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_b2.lean",
+  "stem": "putnam_1989_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `Nonempty S` matches \"non-empty set\"; `Semigroup S` provides the associative operation; `IsCancelMul S` (which extends both `IsLeftCancelMul` and `IsRightCancelMul`) captures the two-sided cancellation property stated in the informal text. The set `{(a * ·)^[n] a | n : ℕ}` iterates `x ↦ a*x` starting from `a`, producing {a, a², a³, ...} = {a^n : n ≥ 1} by associativity, matching the informal set for n = 1, 2, 3, .... The conclusion `∃ e, ∀ x, e*x=x ∧ x*e=x ∧ ∃ y, x*y=e ∧ y*x=e` correctly states that S has a two-sided identity shared across all elements and each element has a two-sided inverse — exactly the group axioms. The solution value `True` matches the informal answer \"Yes, S must be a group\". The `Type` vs `Type*` universe restriction is an explicitly acknowledged standard formalization convention that doesn't change the mathematical content.",
+  "duration_ms": 134390,
+  "cost_usd": 0.479352
+}

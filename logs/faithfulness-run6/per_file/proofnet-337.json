@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "The informal statement specializes to k=1, where R^1 is canonically identified with R, and the dot product of two 1-dimensional vectors (x)·(y) is exactly x*y. The Lean signature captures this directly: a universal quantifier over x : ℝ, the hypothesis x ≠ 0, and the negated existence of y : ℝ with y ≠ 0 and x * y = 0. The quantifier structure, hypothesis, and conclusion all match the informal claim under the standard R^1 ≅ R identification. No hypotheses are added or dropped, and no types are changed meaningfully.",
+  "duration_ms": 21993,
+  "cost_usd": 0.05885025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_a4.lean",
+  "stem": "putnam_1963_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `T a n = n * ((1 + a(n+1))/a n - 1)` matches the informal expression. The predicate `P a C ↔ C ≤ limsup (T a) atTop ∨ ¬ BddAbove (range (T a))` correctly encodes \"standard extended-real limsup ≥ C\": Mathlib's `Filter.limsup` on ℝ returns a real value (with `sInf ∅ = 0` in the unbounded-above case), so the disjunct with `¬ BddAbove` covers the case where the true mathematical limsup is +∞. When the range is bounded above, Mathlib's limsup agrees with the standard mathematical limsup. Part 1 (∀ positive a, P a 1) says limsup T_a ≥ 1 for every positive sequence, matching the first informal claim. Part 2 (∀ C > 1, ∃ positive a, ¬ P a C) says for every C > 1 there is a positive sequence with limsup T_a < C (in extended reals, which forces it to be bounded above), expressing \"1 cannot be replaced by any larger number\". The positivity hypothesis ∀ n, 0 < a n matches the informal \"sequence of positive real numbers\", and starting index from 0 vs 1 is irrelevant for limsup atTop. This is a faithful formalization.",
+  "duration_ms": 184239,
+  "cost_usd": 0.5078432500000001
+}

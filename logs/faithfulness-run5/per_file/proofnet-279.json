@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-279.lean",
+  "stem": "proofnet-279",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the harmonic-tail sum 1/2 + 1/3 + ... + 1/n: `Finset.range (n-1)` with summand `1/(i+2)` produces indices 0, ..., n-2, giving denominators 2, ..., n, which matches the informal expression. The conclusion `¬ ∃ a : ℤ, sum = (a : ℚ)` is the standard Lean idiom for \"the rational sum is not an integer\". The hypothesis `2 ≤ n` makes explicit the implicit premise needed for truth — without it, n = 0 or n = 1 would give an empty sum (equal to 0, which is an integer) due to truncated subtraction in ℕ; the ellipsis notation \"1/2 + ... + 1/n\" in the informal statement implicitly assumes at least one term, i.e., n ≥ 2. Surfacing this premise is faithful, not a narrowing of scope.",
+  "duration_ms": 33203,
+  "cost_usd": 0.13048774999999999
+}

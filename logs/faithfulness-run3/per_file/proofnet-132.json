@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes `LocallyCompactSpace X` and `T2Space X` and concludes `RegularSpace X`. Mathlib's `LocallyCompactSpace` matches \"locally compact\" and `T2Space` matches \"Hausdorff\". Mathlib's `RegularSpace` is just the point/closed-set separation axiom (without T1), whereas Munkres's \"regular\" additionally requires T1. However, since the hypothesis `T2Space X` already implies T1, concluding `RegularSpace X` under these hypotheses is logically equivalent to concluding `T3Space X` (Munkres-regular). Thus the combined statement matches the informal claim exactly.",
+  "duration_ms": 156241,
+  "cost_usd": 0.3371132499999999
+}

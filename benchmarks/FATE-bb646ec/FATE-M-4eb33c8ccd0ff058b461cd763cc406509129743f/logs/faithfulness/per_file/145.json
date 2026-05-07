@@ -1,0 +1,8 @@
+{
+  "file": "145.lean",
+  "stem": "145",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses Mathlib's `IsPGroup p G := ∀ g : G, ∃ k, g ^ p ^ k = 1` and concludes `∃ n, Fintype.card G = p ^ n`, which is exactly the claim \"the order of the p-group is a power of p\". The two typeclass assumptions `Fact (Nat.Prime p)` and `Fintype G` are implicit premises of the informal statement: \"p-group\" standardly assumes p is prime, and speaking of \"the order\" of a group presupposes the group is finite (otherwise `Fintype.card G` is not even meaningful). These are natural surfacings of implicit premises needed for the statement to make sense, not unwarranted extra hypotheses that narrow the claim. The quantifier structure and conclusion match exactly.",
+  "duration_ms": 163838,
+  "cost_usd": 0.35424525
+}

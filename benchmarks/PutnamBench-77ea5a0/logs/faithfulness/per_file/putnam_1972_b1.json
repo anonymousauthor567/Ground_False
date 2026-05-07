@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b1.lean",
+  "stem": "putnam_1972_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The function S is defined exactly as the informal series ∑ x^n(x-1)^(2n)/n!. The \"coefficients of the power series\" are formalized by introducing p : ℕ → ℝ together with the hypothesis hp that there exists a > 0 such that ∑ p n · x^n = S(x) on ball 0 a (a neighborhood of 0). Since S is real-analytic (in fact entire) at 0, its Taylor coefficients are unique, so p must be exactly the power series coefficients — this is a standard faithful encoding. The conclusion ¬∃ n, p n = 0 ∧ p (n+1) = 0 ∧ p (n+2) = 0 matches \"no three consecutive coefficients equal 0\" exactly. No hypotheses are added or dropped that change the mathematical content.",
+  "duration_ms": 162377,
+  "cost_usd": 0.47859350000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for infinitely many integers n such that n, n+1, n+2 are each sums of two integer squares. The Lean statement encodes \"infinitely many\" via `∀ N, ∃ n > N`, which is the standard way to express that the set of such n is infinite. Although the informal talks about \"integers\" while Lean uses ℕ for both n and the two squared values, this is semantically equivalent: any integer that is a sum of two integer squares must be non-negative (hence ∈ ℕ), and since (-k)² = k², sums of two integer squares equal sums of two natural squares. The set of such n is bounded below by 0, so \"infinitely many\" equals \"unbounded above\", which matches the Lean quantification. The `Fin 6 → ℕ` packaging is just a convenient bundle of six existential witnesses. The claim is logically equivalent to the informal statement.",
+  "duration_ms": 19204,
+  "cost_usd": 0.069595
+}

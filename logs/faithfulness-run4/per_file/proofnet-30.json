@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal statement: `x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)` matches \"x^2 = 1 iff |x| is either 1 or 2.\" In Mathlib, `orderOf x` is precisely the standard notion of element order (|x|) in a group, and it correctly returns 0 for infinite-order elements, so the biconditional still holds in that case (x^2 ≠ 1 when x has infinite order). The group G is universally quantified with no extra structure assumed (no Fintype, no commutativity), matching \"Let x be an element of G.\" No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 41389,
+  "cost_usd": 0.17257274999999997
+}

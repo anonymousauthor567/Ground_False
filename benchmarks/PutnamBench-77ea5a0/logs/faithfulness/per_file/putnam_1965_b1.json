@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_b1.lean",
+  "stem": "putnam_1965_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the limit. Using `Fin (n+1)` with `n : ℕ` ranging over `atTop` is equivalent to letting `m = n+1` range over positive integers toward infinity — which is exactly what the informal statement requires (the case `n=0` is ill-defined anyway due to division by zero and a 0-dim integral). The set `{x : Fin (n+1) → ℝ | ∀ k, x k ∈ Set.Icc 0 1}` is the unit hypercube `[0,1]^(n+1)`, and the default measure on `Fin (n+1) → ℝ` via `MeasureTheory.MeasureSpace.pi` is the product Lebesgue measure, matching the iterated integral by Fubini. The integrand `cos²(π/(2(n+1)) · Σ x_k)` matches the informal integrand under the reindexing. The \"find the value\" phrasing is faithfully encoded via `putnam_1965_b1_solution`. The shift `n → n+1` only reparameterizes the sequence and preserves the limit.",
+  "duration_ms": 147316,
+  "cost_usd": 0.51457425
+}

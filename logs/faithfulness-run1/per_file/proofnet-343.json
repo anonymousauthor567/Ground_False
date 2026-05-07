@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "theorem_name": "Rudin_exercise_3_5_corrected",
+  "informal": "For any two real sequences $\\left\\{a_{n}\\right\\},\\left\\{b_{n}\\right\\}$, prove that $\\limsup _{n \\rightarrow \\infty}\\left(a_{n}+b_{n}\\right) \\leq \\limsup _{n \\rightarrow \\infty} a_{n}+\\limsup _{n \\rightarrow \\infty} b_{n},$ provided the sum on the right is not of the form $\\infty-\\infty$.",
+  "lean": "theorem Rudin_exercise_3_5_corrected\n    (a b : ℕ → EReal)\n    (_hareal : ∀ n, a n ≠ ⊤ ∧ a n ≠ ⊥)\n    (_hbreal : ∀ n, b n ≠ ⊤ ∧ b n ≠ ⊥)\n    (_ha : limsup a ≠ ⊤)\n    (hb : limsup b ≠ ⊥)\n    (havoid : limsup a ≠ ⊥ ∨ limsup b ≠ ⊤) :\n    limsup (λ n => a n + b n) ≤ limsup a + limsup b",
+  "verdict": "weaker",
+  "reasoning": "The informal claim's only side condition is that limsup a + limsup b is not of the form ∞−∞, i.e., the pair (limsup a, limsup b) is not (+∞,−∞) or (−∞,+∞). The Lean signature instead imposes the stronger hypotheses limsup a ≠ ⊤ and limsup b ≠ ⊥, plus a disjunction ruling out (−∞,+∞). This excludes legitimate cases such as limsup a = +∞ with limsup b = +∞ (sum = +∞, no ∞−∞ issue), or limsup a finite with limsup b = −∞, which the informal statement covers. So the Lean theorem is logically weaker: it is a special case implied by the informal claim but does not imply it.",
+  "duration_ms": 20728,
+  "cost_usd": 0.08499999999999999
+}

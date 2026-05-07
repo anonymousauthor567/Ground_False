@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p61.lean",
+  "stem": "calculus__p61",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Tendsto (fun x => (3^x - 1)/x) (𝓝[≠] 0) (𝓝 (Real.log 3))`, which is the standard Mathlib encoding of \"lim_{x→0} f(x) = ln 3\". The filter `𝓝[≠] 0` (punctured neighborhood of 0) matches the classical ε-δ definition of limit where x ≠ a, and this is especially appropriate here since at x = 0 the expression is 0/0. With `x : ℝ` and the target `Real.log 3 : ℝ`, `3^x` elaborates to `Real.rpow 3 x`, which is the standard real exponential matching the informal `3^x`. `Real.log 3` is the natural logarithm, matching `ln 3`. The formalization captures exactly the informal claim with no added or dropped hypotheses.",
+  "duration_ms": 143658,
+  "cost_usd": 0.280465
+}

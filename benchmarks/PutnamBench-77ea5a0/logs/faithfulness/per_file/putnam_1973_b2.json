@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_b2.lean",
+  "stem": "putnam_1973_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The hypothesis `∃ q1 q2 : ℚ, z.re = q1 ∧ z.im = q2` encodes \"x and y rational\" since x = z.re and y = z.im (with the standard ℚ → ℝ coercion). The norm hypothesis `‖z‖ = 1` matches ||z|| = 1. The conclusion `∀ n : ℤ, ∃ q : ℚ, ‖z^(2*n) - 1‖ = q` correctly formalizes \"||z^{2n} - 1|| is rational for every integer n\", using integer power `z^(2*n)` with n : ℤ (zpow), which is well-defined since ||z|| = 1 implies z ≠ 0. The quantifier structure, types, and mathematical content all align with the informal statement.",
+  "duration_ms": 50880,
+  "cost_usd": 0.16104050000000003
+}

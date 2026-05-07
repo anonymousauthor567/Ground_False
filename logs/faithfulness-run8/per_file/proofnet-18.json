@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `hm : m = p.degree` (with the natural coercion `m : ℕ → WithBot ℕ`) encodes \"p has degree m\" as in the informal statement. `@card (p.rootSet ℂ) = m` says p has exactly m distinct roots in ℂ (since `rootSet` is a finset of roots without multiplicity). `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)` says p and p' share no roots. The `hp : p ≠ 0` hypothesis is redundant (implied by `hm` since `m : ℕ` implies `p.degree ≠ ⊥`), but surfacing this implicit premise does not change the meaning or narrow the scope beyond the informal statement. The edge case m = 0 (nonzero constant) works: both sides are vacuously true since `rootSet` of a nonzero constant is ∅ and `rootSet 0 = ∅`. No drift in types, quantifier structure, hypotheses, or conclusion.",
+  "duration_ms": 206818,
+  "cost_usd": 0.782409
+}

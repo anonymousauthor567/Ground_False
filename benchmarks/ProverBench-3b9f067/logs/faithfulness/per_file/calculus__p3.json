@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p3.lean",
+  "stem": "calculus__p3",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement wraps the entire assertion in a leading `¬`, asserting the negation of what the informal statement claims. The informal statement positively claims \"the local max is 41/4 at x=3 AND the local min is -13/3 at x=-2\" (which is in fact true: f(3)=41/4 is the global max and f(-2)=-13/3 is the global min on [-3,3]). The Lean, however, asserts `¬(∃ x ... max at 3 = 41/4) ∧ (∃ z ... min at -2 = -13/3))`, i.e., the claim is FALSE. This reverses the polarity entirely — the Lean statement is a mathematically false claim while the informal is a true claim, and they neither imply each other nor express equivalent content. This is a severe formalization error, not a mere strengthening/weakening.",
+  "duration_ms": 114424,
+  "cost_usd": 0.3081
+}

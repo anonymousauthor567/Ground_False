@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b3.lean",
+  "stem": "putnam_1966_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The sequence is `p : ℕ → ℝ` with all values positive, the partial sums are indexed over `Finset.Icc 1 m` matching the informal sum starting at n=1, and convergence is expressed via `∃ r, Tendsto (partial sum) atTop (𝓝 r)`, which is the standard Mathlib encoding of series convergence. The expression `(p n) * n^2 / (∑ i ∈ Finset.Icc 1 n, p i)^2` parses correctly as n²p_n / (Σp_i)² due to left-associativity of `*` and `/`. The only superfluous constraint is `p 0 > 0` (since `p 0` doesn't appear in any sum), but this is harmless standard encoding—the Lean claim is mathematically equivalent to the informal one since one could always set `p 0` to any positive value without affecting either series.",
+  "duration_ms": 99318,
+  "cost_usd": 0.297267
+}

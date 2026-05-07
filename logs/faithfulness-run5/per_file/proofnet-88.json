@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. `ZMod p` with `Nat.Prime p` is the field F = ℤ/pℤ; `Irreducible q` and `q.degree = n` (via WithBot ℕ coercion) capture that q is irreducible of degree n. The `span {q}` resolves to `Ideal.span {q}` via the `open Ideal` directive, so the quotient is exactly F[x]/(q(x)). The conclusion asserts both (1) the quotient is finite with cardinality p^n, expressed via `∃ is_fin : Fintype ..., @card ... is_fin = p^n` (a standard, logically equivalent encoding for \"has exactly p^n elements\"), and (2) it is a field, via Mathlib's `IsField` predicate. No hypotheses are dropped or added, and the mathematical content is fully preserved.",
+  "duration_ms": 105068,
+  "cost_usd": 0.39212975
+}

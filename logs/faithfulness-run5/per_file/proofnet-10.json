@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement adds one extra hypothesis `hProper : ∃ x : R, x ∉ M`, which is equivalent to saying M is a proper ideal (M ≠ ⊤). Without this premise, the informal statement is literally false: taking M = R makes the hypothesis \"every element not in M is a unit\" vacuously true, yet M = R is not a maximal ideal (Mathlib's `IsMaximal` requires `IsCoatom`, hence M ≠ ⊤). Any mathematician reading \"prove that M is a maximal ideal\" would implicitly understand M to be proper. This exactly parallels the worked example in the system prompt: surfacing an implicit premise needed for truth. The conclusion `IsMaximal M ∧ ∀ N, IsMaximal N → N = M` correctly captures \"M is maximal and the only maximal ideal.\"",
+  "duration_ms": 108358,
+  "cost_usd": 0.26012825
+}

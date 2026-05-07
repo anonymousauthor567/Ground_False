@@ -1,0 +1,5399 @@
+# Faithfulness audit of `proofnet_verified/`
+
+For each Lean file we asked Claude to read the full file content (informal statement + Lean theorem signature) and decide whether the Lean encoding is a *strictly faithful* formalization (neither stronger nor weaker).
+
+## Summary
+
+| verdict | count |
+|---|---|
+| faithful | 640 |
+| weaker | 19 |
+| stronger | 6 |
+| incomparable | 7 |
+| unclear | 0 |
+| error | 0 |
+| **total** | **672** |
+
+## faithful (640)
+
+### putnam_1962_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement is the classical "Happy Ending" theorem. The Lean encoding has: (1) S a set of 5 points in ℝ² via S.ncard = 5 (distinct points, since ncard counts distinct elements), (2) the no-three-collinear hypothesis quantified over all 3-subsets of S, and (3) a conclusion that some 4-subset T has no point inside the convex hull of the other 3. For 4 points in general position (no 3 collinear, which follows from the hypothesis applied to subsets of T), being in "convex position" (no point in the convex hull of the others) is exactly equivalent to forming the vertices of a convex quadrilateral: if one point were inside the triangle of the other three, the four points would form a triangle, not a quadrilateral; conversely, in a convex quadrilateral no vertex lies in the triangle of the other three vertices. Hence the conclusion ¬∃ t ∈ T, t ∈ convexHull(T \ {t}) faithfully captures "T forms the vertices of a convex quadrilateral" under the given hypotheses.
+
+### putnam_1962_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim through a bidirectional characterization: every function satisfying the average-equals-geometric-mean condition on a valid domain equals (on that domain) some element of the solution set, and conversely every solution-set element satisfies the condition on some valid domain. The encoding choices are principled: `Ico 0 x` vs closed `[0, x]` for integration is measure-theoretically identical (single point has Lebesgue measure zero); `Real.sqrt` is the geometric mean of nonneg numbers; and the `0 ≤ f` hypothesis makes explicit the implicit premise needed for the geometric mean to be well-defined (a standard reading surfacing of a necessary premise). The domain stratification into `Ioi 0` (infinite case) and `Ioo 0 e` (finite half-open case) covers the essential cases — the closed finite case `[0, e]` reduces to the half-open case since any solution on `[0, e]` restricts to one on `[0, e)` and the solution-set formulas extend naturally. This is a reasonable, equivalent formalization of "find every function."
+
+### putnam_1962_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization is a faithful encoding of Routh's theorem (symmetric case). The naming is shifted (Lean's A', B', C' are the informal P, Q, R on the sides; Lean's P, Q, R are the informal U, V, W forming the inner triangle), but the mathematics matches exactly. Each ratio hypothesis (dist C A'/dist A' B = k, etc.) correctly encodes CP/PB = k, AQ/QC = k, BR/RA = k. The inner triangle vertices are correctly defined as pairwise cevian intersections. The non-collinearity hypothesis captures "ABC is a triangle". Using volume (Lebesgue measure) of convex hulls in EuclideanSpace ℝ (Fin 2) correctly represents the triangle areas. The formula (k-1)²/(k²+k+1) matches Routh's theorem for the symmetric case with ratio k. Edge cases (k=1 gives concurrent cevians and area 0; k>0 ensures points are strictly interior on segments) are handled correctly.
+
+### putnam_1962_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal claim. `iteratedDeriv 1 f` equals `deriv f` (f') and `iteratedDeriv 2 f` equals `deriv (deriv f)` (f''), as confirmed in Mathlib's `IteratedDeriv/Defs.lean`. The hypotheses `|f x| ≤ 1` and `|iteratedDeriv 2 f x| ≤ 1` on `Set.Icc a b`, with `b - a ≥ 2`, match "an interval of length at least 2" where the bounds hold. The conclusion `|iteratedDeriv 1 f x| ≤ 2` on the same interval matches $|f'(x)| \le 2$. The explicit `Differentiable ℝ f ∧ Differentiable ℝ (deriv f)` hypothesis makes explicit the implicit premise that $f$ is twice differentiable (needed for $|f''|$ to be meaningful); encoding this on all of ℝ rather than just $[a,b]$ is the standard, benign Lean convention, and is logically equivalent via standard $C^2$ extension arguments.
+
+### putnam_1962_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal Putnam 1962 A6 problem. The closure conditions `hSadd` and `hSprod` directly match "a+b ∈ S" and "ab ∈ S" whenever a, b ∈ S. The "exactly one of three" condition is correctly encoded as the conjunction of "at least one" (r ∈ S ∨ -r ∈ S ∨ r = 0) and three pairwise mutual-exclusion clauses (¬(r ∈ S ∧ -r ∈ S), ¬(r ∈ S ∧ r = 0), ¬(-r ∈ S ∧ r = 0)), which is logically equivalent to "exactly one of the three holds". The conclusion `S = { r : ℚ | r > 0 }` correctly represents "S is the set of all positive rational numbers". No hypotheses are added, omitted, or modified, and no types are changed.
+
+### putnam_1962_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean theorem faithfully formalizes the informal statement. The function `p : ℕ → ℝ → ℝ` is pinned down by two hypotheses: `p 0 = fun x => 1` encodes $x^{(0)} = 1$, and `p n = fun x => ∏ i ∈ Finset.range n, (x - i)` for $n > 0$ encodes $x^{(n)} = x(x-1)\cdots(x-n+1)$ (product over $i = 0, \ldots, n-1$). The conclusion `p n (x+y) = ∑ k ∈ Finset.range (n+1), Nat.choose n k * (p k x) * (p (n - k) y)` exactly matches $(x+y)^{(n)} = \sum_{k=0}^n \binom{n}{k} x^{(k)} y^{(n-k)}$: `Finset.range (n+1)` iterates $k \in \{0, \ldots, n\}$, and natural subtraction `n - k` is well-defined in that range. Taking $x, y \in \mathbb{R}$ is the natural reading of the Putnam identity. The case $n = 0$ is correctly handled in both sides.
+
+### putnam_1962_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature asserts ∃ f : ℝ → Set ℕ+, ∀ a b : ℝ, a < b → f a ⊂ f b. In Mathlib, `⊂` on `Set α` is `HasSSubset` defined as `<`, i.e., proper (strict) subset, matching the informal `⊂` (which must mean proper subset, else any constant function would satisfy it). The quantifier structure `∃ f, ∀ a b, a < b → ...` matches the informal "exists a function f such that f(a) ⊂ f(b) whenever a < b". The only deviation is `ℕ+` vs `ℕ`, but since ℕ and ℕ+ are in bijection (both countably infinite), the existence of a strictly increasing ℝ-indexed chain of subsets is logically equivalent in either case — one can transport any such chain through the bijection. Hence the two statements have the same truth value, making the Lean formalization faithful. The note at the top explicitly records the (accepted) modification from "exhibit" to "existential", which matches the Lean.
+
+### putnam_1962_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures every aspect of the informal claim. S is a set in EuclideanSpace ℝ (Fin 2) (the Euclidean plane), and convexity with 0 ∈ S is correctly asserted. The topological alternative "0 ∈ interior S ∨ IsClosed S" matches "either the origin is an interior point or S is closed". The ray condition "∀ P ≠ 0, ∃ Q, SameRay ℝ P Q ∧ Q ∉ S" correctly encodes "every ray from origin has a point outside S": when P ≠ 0, SameRay ℝ P Q means Q = 0 or Q is a positive multiple of P — i.e., Q lies on the ray from the origin in direction P. Since 0 ∈ S, the witness Q must actually be a nonzero point on the ray that's outside S. The conclusion Bornology.IsBounded S matches "S is bounded".
+
+### putnam_1962_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement precisely captures the informal claim. The hypothesis `n : ℤ` with `n > 1` matches "integer n greater than 1". The lower bound `(3n+1)/(2n+2)` and upper bound `2` are encoded verbatim as real expressions. The sum `∑ i : Finset.Icc 1 n, ((i : ℝ) / n) ^ (n : ℝ)` uses Finset's CoeSort to make `i` range over the subtype of integers in [1, n], which is equivalent (by `Finset.sum_coe_sort`) to summing over `i ∈ Finset.Icc 1 n`, i.e., i from 1 to n. The exponent `(n : ℝ)` invokes `Real.rpow`, but since i ≥ 1 and n > 1 imply the base i/n > 0, this matches ordinary exponentiation $(i/n)^n$. The conjunction encodes the double inequality correctly.
+
+### putnam_1962_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement after surfacing the implicit premise "f is not constant". The literal informal statement is false without this premise: for n ≥ 1 and f ≡ 1, we have |f| ≤ 1 everywhere and can choose any 2n distinct points satisfying |f(xᵢ)| = 1, yet f = cos(nx+a) fails (constant ≠ non-constant cosine). The classical proof argument (at each max point f'(xᵢ) = 0, and f' has degree ≤ n so ≤ 2n zeros) naturally requires excluding the constant f' ≡ 0 case. The Lean's `(¬∃ c, f = fun _ => c) → ∃ a, f = cos(nx+a)` is logically equivalent to adding "f non-constant" as a hypothesis. All other elements match: the sum ranges `Finset.Icc 0 n`, the closed interval for boundedness, the half-open interval for the 2n points, using `ncard = 2n` to encode 2n distinct points, and the coercions on k*x and n*x.
+
+### putnam_1963_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The function f : ℕ → ℕ with the hypothesis `hfpos : ∀ n, f n > 0` captures "positive integers" codomain (f(0) being positive is a harmless/vacuous extra constraint that is always satisfiable, since the informal function defined on positive integers can always be extended). `StrictMonoOn f (Set.Ici 1)` correctly captures "strictly increasing sequence" indexed from 1. For natural numbers, `IsRelPrime m n` is equivalent to `Nat.Coprime m n` (via `Nat.coprime_iff_isRelPrime`), matching "gcd(m,n) = 1". The multiplicative hypothesis requires m > 0 and n > 0, matching the informal's "positive integers". The conclusion `∀ n > 0, f n = n` exactly matches "f(n) = n for every positive integer n". The two statements are logically equivalent under the standard encoding of partial functions on positive integers as total functions on ℕ.
+
+### putnam_1963_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The operator P is correctly defined: by induction P n y = δ(δ-1)(δ-2)...(δ-(n-1))y, matching the informal δ operator product. The initial conditions ∀ i < n, deriv^[i] y 1 = 0 match y(1)=y'(1)=...=y^(n-1)(1)=0. The kernel (x-t)^(n-1)·f(t)/((n-1)!·t^n) is the correct Volterra kernel since δ(δ-1)...(δ-n+1)y = x^n y^(n)(x). The hypothesis 0 < n makes explicit the implicit premise that n ≥ 1 (needed for the ODE/factorial/power to make sense). The regularity hypotheses (ContDiffOn on [1,∞), ContDiffAt at 1) are standard technical needs for Mathlib's deriv to compute correctly. The iff structure is a natural characterization of "the formula gives the (unique) solution" — both directions follow from the ODE having a unique solution with these ICs.
+
+### putnam_1963_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean definition `T a n = n * ((1 + a(n+1))/a n - 1)` matches the informal expression. The predicate `P a C ↔ C ≤ limsup (T a) atTop ∨ ¬ BddAbove (range (T a))` correctly encodes "standard extended-real limsup ≥ C": Mathlib's `Filter.limsup` on ℝ returns a real value (with `sInf ∅ = 0` in the unbounded-above case), so the disjunct with `¬ BddAbove` covers the case where the true mathematical limsup is +∞. When the range is bounded above, Mathlib's limsup agrees with the standard mathematical limsup. Part 1 (∀ positive a, P a 1) says limsup T_a ≥ 1 for every positive sequence, matching the first informal claim. Part 2 (∀ C > 1, ∃ positive a, ¬ P a C) says for every C > 1 there is a positive sequence with limsup T_a < C (in extended reals, which forces it to be bounded above), expressing "1 cannot be replaced by any larger number". The positivity hypothesis ∀ n, 0 < a n matches the informal "sequence of positive real numbers", and starting index from 0 vs 1 is irrelevant for limsup atTop. This is a faithful formalization.
+
+### putnam_1963_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes Putnam 1963 A6 (Butterfly Theorem for ellipses). The ellipse is defined via the two-foci sum-of-distances definition with `r > dist F1 F2` ensuring non-degeneracy — an implicit premise of the informal statement. The chords passing through M are correctly captured via `M ∈ segment ℝ A B` (M is inside the ellipse since it's the midpoint of a chord of a convex set, so being on the segment is equivalent to being on the chord through M). The intersection points P, Q are encoded via `Collinear` hypotheses (P on lines AC and UV; Q on lines BD and UV), which is the standard Mathlib encoding. The technical hypotheses `A ≠ C`, `B ≠ D`, `AB ≠ CD` are all needed premises (lines must be well-defined; "two other chords" implies distinctness), not scope-narrowing restrictions. The conclusion `M = midpoint ℝ P Q` matches exactly. The labeling of which cross-chord is which (AC vs AD) is consistent with the informal statement's specific notation.
+
+### putnam_1963_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks "For what integer a does x²-x+a divide x^13+x+90?" — a find-the-answer problem. The Lean formalization uses the standard pattern of asserting ∀ a : ℤ, (divisibility) ↔ a = solution, which correctly characterizes the complete set of integer solutions. The polynomial ring is correctly inferred as ℤ[X] because a : ℤ and C a is used. The polynomials X² - X + C a and X^13 + X + C 90 accurately represent the informal polynomials, and Polynomial divisibility ∣ matches the informal "divides". The iff structure captures both that a = 2 works and that no other integer does, which is exactly what "for what integer a" asks for.
+
+### putnam_1963_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal question asks whether S = {2^m · 3^n : m, n ∈ ℤ} is dense in the positive reals P = (0, ∞). Since S ⊆ P and P is open in ℝ, the closure of S in the subspace topology of P equals (closure in ℝ) ∩ P, so "S dense in P" is equivalent to P ⊆ closure_ℝ(S). The Lean statement `closure S ⊇ Set.Ioi (0 : ℝ)` captures exactly this: every positive real is a limit point of S. The definition of S in Lean — `{2^m * 3^n | (m : ℤ) (n : ℤ)}` in ℝ with integer exponents — matches the informal definition exactly. The answer is wrapped in the iff with the solution `True`, which makes the theorem say "S is indeed dense in P". This is a logically equivalent, faithful formalization.
+
+### putnam_1963_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly formalizes the informal problem. The conjunction `ContDiff ℝ 1 f ∧ Differentiable ℝ (deriv f)` is logically equivalent to "f is twice differentiable": the first conjunct gives f differentiable and f' continuous (C¹), and the second gives f' differentiable (so f'' exists). Conversely, if f is twice differentiable, then f' being differentiable implies f' is continuous, yielding C¹; thus both conjuncts hold. The functional equation `(f x)^2 - (f y)^2 = f (x + y) * f (x - y)` matches the informal equation exactly. The solution set covers the three classical families: A·sinh(ku), Au (linear), and A·sin(ku), which correspond to f''=cf with c>0, c=0, c<0 respectively (using f(0)=0 which follows from the equation). All twice-differentiable solutions are automatically smooth (since f''=cf with f continuous forces f to be C^∞), so no pathological solutions are missed. The formalization is strictly faithful.
+
+### putnam_1963_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal content. The sequence is indexed by ℤ instead of ℕ, but values at negative indices are unconstrained and don't appear in any hypothesis or the conclusion (the series sums `∑ n : Fin N, a n` covers n = 0, 1, ..., N-1 via Fin N → ℕ → ℤ coercion; `atTop` on ℤ means n → +∞). The inequality hypothesis `haineq` faithfully encodes "0 ≤ a_k ≤ 100a_n for n ≤ k ≤ 2n, n ≥ 1". The series convergence hypothesis `haseries` encodes convergence of partial sums starting from index 0, matching "∑_{n=0}^∞ a_n converges". The conclusion `Tendsto (fun n : ℤ => n * a n) atTop (𝓝 0)` is equivalent to lim_{n→∞} n·a_n = 0 since eventually n ≥ 0 under atTop on ℤ. The use of ℤ is slightly unusual but does not alter the mathematical content.
+
+### putnam_1963_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal content precisely. S(A) is defined as the union of `segment ℝ p q` over all pairs (p,q) ∈ A × A, which matches the closed-segment definition and automatically includes the degenerate case `segment ℝ p p = {p}` (by `segment_same`), honoring the note that one-point sets count as closed segments. The recursion `A n = S(A (n-1))` for n ≥ 1 matches, `Nonempty (A 0)` is equivalent to `(A 0).Nonempty`, and the conclusion `∀ n ≥ 2, A n = A (n+1)` is equivalent to `A₂ = A₃ = ⋯`. The hypothesis `1 ≤ d ∧ d ≤ 3` surfaces the implicit premise that "Euclidean space of at most three dimensions" refers to a genuine (positive-dimensional) Euclidean space; this is a standard surfacing of implicit context, not a narrowing of scope, especially since d = 0 would be a trivial singleton case.
+
+### putnam_1964_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all elements: (1) A : Finset with A.card = 6 encodes exactly 6 distinct points since Finset elements are distinct by definition; (2) EuclideanSpace ℝ (Fin 2) is the Euclidean plane with the standard distance; (3) dists is defined as the set of pairwise distances between distinct points via the predicate a ≠ b ∧ d = dist a b; (4) since dists is finite, nonempty, and bounded, sSup gives the max (D) and sInf gives the min (d); (5) since the points are distinct, all distances are positive so sInf > 0 and the ratio is well-defined; (6) the universal quantification over such A is captured by the free parameters. The statement `sSup dists / sInf dists ≥ Real.sqrt 3` matches `D/d ≥ √3` exactly.
+
+### putnam_1964_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses `ℝ → ℝ` rather than `Icc 0 1 → (0,∞)` but compensates with explicit hypotheses: `∀ x ∈ Icc 0 1, f x > 0` for the positive codomain, and `ContinuousOn f (Icc 0 1)` for continuity on $[0,1]$. The three interval integrals `∫ x in (0)..1, ...` correctly encode $\int_0^1 f$, $\int_0^1 x f$, and $\int_0^1 x^2 f$, matching $1$, $\alpha$, $\alpha^2$ respectively. Since the integrals only depend on values on $[0,1]$ and all constraints are restricted to $[0,1]$, the set characterization is in bijective correspondence (modulo extensions outside $[0,1]$) with the informal solution set; in particular the truth of "solution set is empty" transfers cleanly between the two encodings. The α-parametrization and conclusion structure match the informal problem exactly.
+
+### putnam_1964_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The density condition `range x ⊆ Ioo 0 1 ∧ closure (range x) ⊇ Ioo 0 1` correctly encodes "distinct points dense in (0,1)" combined with `Injective x`. The definitions of `a n` and `b n` use `sSup ({0} ∪ ...)` and `sInf ({1} ∪ ...)` over previous indexed points, correctly identifying the endpoints of the sub-interval containing $x_n$. Lean's 0-based indexing shifts the informal 1-based indexing by one (at Lean's n=0, the "previous points" set is empty, giving a₀ = x₀ and b₀ = 1-x₀, matching informal's n=1 case). The tsum over ℕ therefore includes the same set of terms as the informal sum from n=1 to ∞. The conclusion `∑' n, a n * b n * (a n + b n) = 1/3` correctly expresses convergence to 1/3.
+
+### putnam_1964_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all the informal content: an integer-valued sequence `u : ℕ → ℤ`, boundedness (there exist upper and lower integer bounds), the recurrence holding for all n ≥ 4 (the correct starting index given the indices n-1 through n-4), and the conclusion of eventual periodicity (∃ N, ∃ c > 0, ∀ n ≥ N, u(n+c) = u n). The recurrence is stated as an equality in ℝ, which correctly captures the intended meaning given that both sides must be integers. The added hypothesis that the denominator is nonzero is an implicit premise needed for the division expression in the informal statement to be mathematically meaningful — without it, Lean's convention a/0 = 0 would silently impose spurious constraints. Surfacing this implicit premise is a correct and faithful formalization, not a scope-narrowing addition.
+
+### putnam_1964_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the quantifier structure (∃k, ∀a positive sequence, inequality), and the indexing is correct: Lean's n starting from 0 with (n+1) and Finset.range (n+1) matches the informal sum from n=1 with partial sum a_1+...+a_n. The only apparent addition is the convergence hypothesis ∃L, Tendsto (partial sums of 1/a_n) to L. However, this is necessary to make the statement literally true in Lean's conventions: Lean's `tsum` returns 0 for non-summable series, so without this hypothesis, a counterexample exists (e.g., a_n = 1 on perfect squares and n³ otherwise gives ∑1/a_n = ∞ but ∑n/S_n < ∞, which would make the Lean statement false: positive LHS ≤ k·0). This matches the worked example's pattern: the hypothesis surfaces an implicit premise needed for literal truth. The substantive mathematical content (the Hardy-type inequality) is exactly what the Lean version encodes; divergent cases are vacuously true in extended reals and are the trivial portion the informal statement implicitly excludes.
+
+### putnam_1964_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding correctly represents collinear points as `S : Finset ℝ` (points on a line), and encodes unordered pairs as ordered pairs with `a < b`, making `distance (a,b) = b - a` positive and well-defined. The hypothesis "d < k" (where k is the max distance) is equivalently captured by "∃ m ∈ pairs, distance m > distance p", since S is finite so the maximum is achieved. The "another pair" requirement is correctly encoded with `q ≠ p ∧ distance p = distance q`. The conclusion `∀ p q : pairs, q ≠ p → ∃ r : ℚ, distance p / distance q = r` matches the informal claim; the `q ≠ p` restriction is inconsequential since `distance p / distance p = 1 ∈ ℚ` trivially. All hypotheses and conclusions align semantically with the informal statement.
+
+### putnam_1964_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes Putnam 1964 B1. Hypothesis `h : ∀ n, 0 < a n` correctly captures "positive integers" (since ℕ in Mathlib includes 0). `h' : Summable fun n ↦ (1:ℝ)/a n` matches the convergent series (indexing from 0 vs 1 only adds one finite term, preserving summability). `h'' : ∀ n, b n = {k | a k ≤ n}.ncard` correctly defines $b_n$ as the count of indices $k$ with $a_k \le n$, matching the standard reading of "the number of $a_n$ which are at most $n$". Under the summability hypothesis, $\{k : a_k \le n\}$ is necessarily finite, so `Set.ncard` gives the intended cardinality rather than its junk value. The conclusion `Tendsto (fun n ↦ (b n : ℝ)/n) atTop (𝓝 0)` directly matches $\lim b_n/n = 0$. The division by 0 at n=0 is harmless since `atTop` ignores finitely many values.
+
+### putnam_1964_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim about maximal intersecting families. `[Nonempty S]` surfaces an implicit premise — the claim "half the subsets" requires |S| ≥ 1 to make sense (half of 2^n requires n ≥ 1), and is consistent with Mathlib's `Set.Intersecting.is_max_iff_card_eq` which requires `Nontrivial (Set S)`. The hypothesis hPP quantifies over all pairs (including T=U), forcing ∅ ∉ P, which is the standard convention for intersecting families and is necessary for the count to be correct. The maximality condition hPS ("no T outside P meets all members of P") is equivalent to "P cannot be extended" given hPP: the edge case T=∅ is automatically excluded from hPS's scope since ∅ doesn't meet any nonempty set, and for T≠∅ the two formulations coincide. The conclusion |P| = 2^(|S|-1) correctly encodes "half of the subsets". No genuine semantic mismatch.
+
+### putnam_1964_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. `f : ℝ → ℝ` and `Continuous f` correspond directly to the informal hypotheses. The hypothesis `∀ α > 0, Tendsto (fun n : ℕ ↦ f (n * α)) atTop (𝓝 0)` expresses "for every positive real α, the sequence f(nα) indexed by natural numbers tends to 0" — matching the informal statement (using ℕ for the index is standard; n = 0 doesn't affect the limit). The conclusion `Tendsto f atTop (𝓝 0)` is the standard Mathlib encoding of lim_{x→∞} f(x) = 0 for real x. No hypotheses are added or omitted, and types align exactly.
+
+### putnam_1964_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the Putnam problem: great circles are defined as intersections of the unit sphere with planes {x | ⟨v_i, x⟩ = 0} through the origin (with v_i ≠ 0, ensuring a proper great circle); distinctness via Function.Injective; general position via "at most 2 circles contain both x and y" (which for great circles is mathematically equivalent to "no three share a common intersection"); and the region count via non-empty sign-pattern subsets, which for hyperplanes in general position bijects with connected components of S² minus the circles. The answer n² - n + 2 is the classical correct formula. The hypothesis hn : 0 < n is a necessary implicit premise: with n=0 the sphere has 1 region but the formula gives 2, so "n great circles" implicitly assumes n ≥ 1 — making this explicit is faithful per the worked example convention, not weaker.
+
+### putnam_1964_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement correctly. `StrictMono a ∧ ∀ n, a n > 0` encodes "strictly monotonic increasing sequence of positive integers". The recursive definition `b 0 = a 0` and `b (n+1) = lcm (b n) (a (n+1))` yields $b_n = \text{lcm}(a_0, \dots, a_n)$, matching the informal LCM definition. The only superficial difference is that Lean uses 0-indexing while the informal uses 1-indexing, but this is merely a relabeling: under reindexing $a'_n = a_{n+1}$, the Lean sum $\sum_{n=0}^\infty 1/b_n$ corresponds precisely to the informal $\sum_{n=1}^\infty 1/b_n$, and convergence is preserved. The conclusion `∃ L, Tendsto (partial sums) atTop (𝓝 L)` is the standard formulation of series convergence. No hypothesis is silently added, dropped, or changed in a meaningful way.
+
+### putnam_1964_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the Putnam 1964 B6 problem. D is defined as the closed unit disk {v | dist 0 v ≤ 1} in the Euclidean plane EuclideanSpace ℝ (Fin 2), which matches "the unit disk in the plane". The relation `cong A B` is defined as the existence of a function f : ℝ² → ℝ² that preserves all distances (∀ v w, dist v w = dist (f v) (f w)) with B = f '' A — this is precisely the standard definition of congruent subsets: A and B are related by an isometry of the ambient plane. Since any distance-preserving map on a finite-dimensional Euclidean space is automatically a bijective isometry (by Mazur-Ulam), this captures "there exists an isometry taking A onto B", and the relation is symmetric. The conclusion ¬∃ A B, cong A B ∧ A ∩ B = ∅ ∧ A ∪ B = D exactly mirrors the informal "we cannot find congruent sets A, B with A ∩ B = ∅ and A ∪ B = D".
+
+### putnam_1965_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the planar geometry problem. The external angle bisector at A is characterized by the angle condition ∠XAB = (π - ∠CAB)/2, which is half the external angle at A. Combined with X lying on line BC and dist A X = dist A B (encoding AP = AB), this faithfully captures the informal constraint. Similarly for Y at vertex B. The angle ordering constraints and the conclusion ∠CAB = π/15 match the informal statement exactly.
+
+### putnam_1965_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal identity. The sum range `Finset.Icc 0 ((n-1)/2)` correctly encodes r = 0, ..., ⌊(n-1)/2⌋ since ℕ division is floor division. The summand `((n - 2*r) * Nat.choose n r / (n : ℚ))^2` parses left-to-right as `((n-2r)·C(n,r))/n` squared (in ℚ), which equals `((n-2r)/n · C(n,r))^2`. Natural-number subtraction `n - 2*r` is safe throughout the summation range (2r ≤ n-1 < n), as is `2*n - 2` and `n - 1` given `n > 0`. The RHS `C(2n-2, n-1)/n` matches `(1/n)·C(2n-2, n-1)`. The universal quantifier `∀ n > 0` matches "every positive integer n". Numerical checks for n=1,2,3 confirm the identity.
+
+### putnam_1965_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement exactly: H1 "no boy dances with every girl" → ¬∃ b, ∀ g, dances g b; H2 "each girl dances with at least one boy" → ∀ g, ∃ b, dances g b; and the conclusion about existing g, h, b, c matches verbatim. The added `Fintype G`, `Fintype B`, and `Nonempty G/B` assumptions surface implicit premises needed for truth — without finiteness the claim is actually false (counterexample: G=B=ℕ with dances(i,j) ⟺ j>i satisfies both hypotheses but the conclusion forces the contradiction g<b≤h<c≤g). The phrase "at a party" in the informal statement strongly implies a finite combinatorial setting, which any mathematician would assume by convention. Per the worked-example guidance, making such implicit truth-preserving premises explicit is faithful, not weakening.
+
+### putnam_1965_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. `permsOfFinset (Finset.Icc 1 n)` gives exactly the orderings of {1,...,n} (via permutations of ℕ that fix everything outside this set, with cardinality n!). The condition quantifies m over positions 2 to n (Finset.Icc 2 n) with earlier positions k ∈ Finset.Ico 1 m = {1,...,m-1}, and `p m = p k + 1 ∨ p m = p k - 1` correctly captures "differs by 1" — in ℕ subtraction, when p(k) = 1 the `p k - 1 = 0` case is harmlessly excluded since p(m) ∈ {1,...,n} can never be 0, leaving only the p(m) = p(k) + 1 option. The quantification "for every integer i except the first" is equivalent to iterating over positions 2,...,n since each integer appears at a unique position. The `n > 0` condition aligns with "integers from 1 to n" being non-empty.
+
+### putnam_1965_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the limit. Using `Fin (n+1)` with `n : ℕ` ranging over `atTop` is equivalent to letting `m = n+1` range over positive integers toward infinity — which is exactly what the informal statement requires (the case `n=0` is ill-defined anyway due to division by zero and a 0-dim integral). The set `{x : Fin (n+1) → ℝ | ∀ k, x k ∈ Set.Icc 0 1}` is the unit hypercube `[0,1]^(n+1)`, and the default measure on `Fin (n+1) → ℝ` via `MeasureTheory.MeasureSpace.pi` is the product Lebesgue measure, matching the iterated integral by Fubini. The integrand `cos²(π/(2(n+1)) · Σ x_k)` matches the informal integrand under the reindexing. The "find the value" phrasing is faithfully encoded via `putnam_1965_b1_solution`. The shift `n → n+1` only reparameterizes the sequence and preserves the limit.
+
+### putnam_1965_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding faithfully captures the round-robin tournament setup: `won : Fin n → Fin n → Bool` with `hirrefl` (no self-play, matching "each other player") and `hantisymm` (exactly one winner per game, matching "each game results in a win for one player and a loss for the other"). The definition `w r = ∑ j, if won r j then 1 else 0` counts wins correctly. The definition `l r = n - 1 - w r` is mathematically equivalent to directly counting losses: since every player plays n-1 others, and by antisymm every non-self game contributes either a win or a loss for r. The conclusion `∑ (w r)^2 = ∑ (l r)^2` exactly matches the informal claim. The setup uses ℤ for w and l, which is natural and avoids natural-number subtraction pitfalls. No hypothesis is added or dropped; no logical strengthening or weakening occurs.
+
+### putnam_1965_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement counts triples (a,b,c) of integers with a > 0, a ≤ b, c > 0, satisfying the Pythagorean equation a²+b² = c² and the area/perimeter condition ab/2 = 2(a+b+c) (computed in ℚ to handle the division properly). The constraint a ≤ b canonicalizes the ordering of legs (capturing "up to orientation"), and since c > 0 combined with a²+b²=c² uniquely determines c from (a,b), each congruence class of integer right triangles corresponds to exactly one triple. Translation is irrelevant for side-length/area/perimeter data. The positivity of b follows automatically from a > 0 and a ≤ b. The three solutions (9,40,41), (10,24,26), (12,16,20) are indeed the complete solution set (verified via (a-8)(b-8)=32). The formalization captures exactly the mathematical content of the informal claim.
+
+### putnam_1965_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formulation correctly captures all parts of the informal statement. The partial sums u_n and v_n match the informal numerator/denominator exactly (with correct summation ranges ⌊n/2⌋ and ⌊(n-1)/2⌋ and using n.choose, where choose returns 0 above n). The recursion f_{n+1}(x) = (f_n(x) + x)/(f_n(x) + 1) is mathematically correct (derivable via u_{n+1} = u_n + xv_n, v_{n+1} = u_n + v_n), and the Lean solution p(h) = h + id, q(h) = h + 1 encodes exactly this rational function. The hypotheses v_n(x) ≠ 0, v_{n+1}(x) ≠ 0, q(f_n)(x) ≠ 0 are the natural and necessary conditions for the identity to hold given Lean's division-by-zero convention. The convergence set s = {x : x ≥ 0} and limit g(x) = √x are correct: for x ≥ 0 the limit equals √x, and for x < 0 the sequence y·cot(n·arctan(y)) oscillates without converging. The statement `s = {x | ∃ l, Tendsto (fun n ↦ f n x) atTop (𝓝 l)}` precisely encodes "the set of x where the limit converges."
+
+### putnam_1965_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. V vertices is encoded via a Fintype `K` with `V = Nat.card K`, which is equivalent to existential quantification over V-vertex graphs (any bijection transports graphs between sets of equal cardinality). E edges is captured by `G.edgeSet.ncard = E`, and the hypothesis `4*E ≤ V^2` matches `4E ≤ V²` exactly. The "no triangles (cycles of length 3)" conclusion is expressed as `∀ a : K, ∀ w : G.Walk a a, w.length ≠ 3`. Since `SimpleGraph` adjacency is irreflexive, a closed walk of length 3 `a → v₁ → v₂ → a` must have all three vertices distinct (any coincidence forces a self-loop, contradicting irreflexivity), giving a triangle; conversely, every triangle yields such a walk. Hence this is logically equivalent to triangle-freeness in a simple graph.
+
+### putnam_1965_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes all components of the informal statement correctly. Distinctness of the four points A,B,C,D is captured by `S.ncard = 4`. A circle is encoded as `through (r, P) Q := dist P Q = r`, which is precisely the locus of points at distance r from center P in the plane `EuclideanSpace ℝ (Fin 2)`. The hypothesis `hABCD` quantifies over all pairs (r,P) and (s,Q) such that A,B lie on the first "circle" and C,D lie on the second, asserting existence of a common point—exactly "every circle through A,B intersects every circle through C,D". Degenerate cases (r ≤ 0) are handled vacuously since A ≠ B forces any valid r to be positive. The conclusion correctly splits into collinear (Mathlib's `Collinear ℝ S`) or cocyclic (all four points equidistant from some center P with radius r, which in 2D is precisely lying on a common circle). No extra or missing hypotheses.
+
+### putnam_1966_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean definition of f(n) sums over Finset.Icc 0 n, which includes m=0. Since a_0 = 0/2 = 0 (0 is even), the extra term contributes nothing, so Lean's f(n) equals the informal f(n) = a_1 + ... + a_n for all n ≥ 0 (where the informal a_n uses 1-indexing to produce "0, 1, 1, 2, 2, 3, ..."). The integer divisions match since we evaluate at non-negative arguments (x+y > 0 and x-y > 0 under the hypotheses). The conclusion ∀ x y : ℤ, x > 0 ∧ y > 0 ∧ x > y → x*y = f(x+y) - f(x-y) precisely encodes "all positive integers x and y with x > y satisfy xy = f(x+y) - f(x-y)". Spot-check: x=3, y=2 gives xy=6 and f(5)-f(1)=6-0=6 ✓. The formalization is strictly faithful.
+
+### putnam_1966_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The non-degeneracy hypothesis `¬Collinear {A, B, C}` ensures we have a genuine triangle. The side lengths a, b, c and semi-perimeter p match the informal definitions. The `hr` hypothesis correctly characterizes r as the inradius: the `∃!` uniqueness on each side-line holds iff the circle of radius r centered at I is tangent to that line (0 intersections if line is outside, 2 if secant, 1 iff tangent), and the condition that the closed ball B(I, r) lies inside the convex hull of {A, B, C} ensures I is inside the triangle (ruling out excircles whose centers lie outside). Together these uniquely identify r as the inradius of triangle ABC. The conclusion matches the informal inequality exactly. Thus the formalization is logically equivalent to the informal statement.
+
+### putnam_1966_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes the informal statement. The hypothesis `hx1 : 0 < x 1 ∧ x 1 < 1` matches $0 < x_1 < 1$; `hxi : ∀ n ≥ 1, x (n+1) = (x n) * (1 - x n)` matches the recurrence for all $n \geq 1$; and `Tendsto (fun n : ℕ => n * (x n)) atTop (𝓝 1)` matches $\lim_{n\to\infty} nx_n = 1$ (with automatic coercion of `n : ℕ` to ℝ). Although `x 0` is unconstrained, this is irrelevant because the term at `n = 0` equals `0 * (x 0) = 0` and a single term does not affect the limit at infinity. The quantifier structure, types, and mathematical content are all faithfully preserved.
+
+### putnam_1966_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal claim. The hypotheses `a 1 = 2` and the recursion `a (n+1) = if ∃ m : ℤ, m^2 = a n + 1 = True then a n + 2 else a n + 1` uniquely define `a` (for n ≥ 1) as the sequence of non-perfect-square positive integers: since `=` is left-associative at precedence 50, `m^2 = a n + 1 = True` parses as `(m^2 = a n + 1) = True`, which by propext is equivalent to `m^2 = a n + 1`, i.e., `a n + 1` is a perfect square — in which case we skip it. Starting from 2, this generates 2, 3, 5, 6, 7, 8, 10, ... matching the non-squares. The conclusion `a n = n + round (Real.sqrt n)` uses Mathlib's `round` (nearest integer, ties toward +∞), which agrees with "closest integer" in this problem since √n for non-square n is irrational (no tie cases). Types align properly (all in ℤ with appropriate coercions from ℕ). The formalization neither adds nor drops hypotheses beyond what the informal statement intends.
+
+### putnam_1966_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all three parts of the informal statement: (1) C is the set of continuous real functions; (2) linearity is encoded via constant-function multiplication `(fun x => a) * f`, which equals pointwise `a * f x`; (3) locality on closed bounded intervals `Set.Icc r s` with `r ≤ s` faithfully captures "identical on some interval I" (for continuous functions, agreement on closed intervals is equivalent to agreement on open intervals with the same endpoints). The conclusion `T g = f * g` correctly expresses `T(g)(x) = f(x)g(x)` via pointwise function multiplication. The standard Lean convention of `r ≤ s` (including singletons as degenerate intervals) aligns with the mathematical convention where intervals are connected subsets of ℝ. The imageTC hypothesis properly models T as a map from C to C.
+
+### putnam_1966_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures Ramanujan's nested radical via a standard truncation. For each n ≥ 1, a_n is defined by backward recursion: a_n(n) = n as the base case, and a_n(m) = m·√(1 + a_n(m+1)) for 1 ≤ m < n. Unrolling gives a_n(1) = √(1 + 2·√(1 + 3·√(1 + ... + (n-1)·√(1+n)))), exactly matching the coefficient pattern 2, 3, 4, 5, ... in the informal statement. The informal "..." denotes an infinite nested radical, which is standardly interpreted as the limit of finite truncations; the Lean's Tendsto (fun n => a n 1) atTop (𝓝 3) expresses this interpretation correctly. Using Ramanujan's identity m(m+2) = m·√(1 + (m+1)(m+3)), one verifies a_n(1) increases monotonically to 3, so the Lean claim is both true and the natural formalization. The hypothesis structure properly constrains a_n only on {1,...,n}, which is sufficient.
+
+### putnam_1966_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes a convex polygon as a cyclic sequence of n ≥ 3 vertices indexed by ZMod n. The hypotheses are: (1) each vertex lies in [0,1]×[0,1] (the unit square — WLOG by translation/rotation), (2) hnoncol ensures vertices are distinct and no three are collinear, and (3) hconvex ensures each edge lies on the boundary of the convex hull (not entering the interior), which together with hnoncol correctly captures "convex polygon with n distinct vertices in convex position". The conclusion ∑ (dist (L i) (L (i+1)))² ≤ 4 correctly sums the squared side lengths, using Fin n as the index (equivalent to ZMod n for n ≥ 1, with i+1 wrapping cyclically). Since the polygon is the convex hull of its vertices and the unit square is convex, vertices in the unit square implies the whole polygon is in the unit square. These conditions make explicit the standard implicit assumptions of "convex polygon with n sides" without narrowing the claim beyond what the informal statement intends.
+
+### putnam_1966_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The sequence is `p : ℕ → ℝ` with all values positive, the partial sums are indexed over `Finset.Icc 1 m` matching the informal sum starting at n=1, and convergence is expressed via `∃ r, Tendsto (partial sum) atTop (𝓝 r)`, which is the standard Mathlib encoding of series convergence. The expression `(p n) * n^2 / (∑ i ∈ Finset.Icc 1 n, p i)^2` parses correctly as n²p_n / (Σp_i)² due to left-associativity of `*` and `/`. The only superfluous constraint is `p 0 > 0` (since `p 0` doesn't appear in any sum), but this is harmless standard encoding—the Lean claim is mathematically equivalent to the informal one since one could always set `p 0` to any positive value without affecting either series.
+
+### putnam_1966_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement faithfully. The "increasing sequence of mn+1 positive integers" is encoded as a Finset S of size m*n+1 with all elements positive — Finset enforces distinctness, and since elements are in ℕ the strictly increasing order is recoverable. The antichain condition "no element divides any other" is correctly encoded as ∀ j i ∈ T, i ≠ j → ¬(j ∣ i), which by iterating over both orderings rules out both directions of divisibility between distinct elements. The chain condition "each element (except the greatest) divides the next" is encoded as ∀ i j ∈ T, j < i → j ∣ i; although this literally says every smaller element divides every larger element, this is logically equivalent to consecutive divisibility by transitivity of ∣. The cardinalities (m+1, n+1) and the disjunction structure match. No extraneous hypotheses are added and none are dropped.
+
+### putnam_1966_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. The ambient type `EuclideanSpace ℝ (Fin 2)` is the Euclidean plane; `S.card ≥ 3` gives n ≥ 3 distinct points (Finset distinctness is automatic); and `∀ s ⊆ S, s.card = 3 → ¬Collinear ℝ s.toSet` is exactly "no three collinear." The existential conclusion encodes the cyclic vertex ordering of a polygon: `L : ZMod S.card → EuclideanSpace` with `∀ p ∈ S, ∃! i, p = L i` forces L to be a bijection onto S (by pigeonhole on equal-size domain/codomain), and `ZMod` arithmetic supplies the cyclic closure (last edge is [L(n-1), L(0)]). The intersection condition states that distinct edges meet only at the four listed endpoints — combined with `hS` (which prevents any vertex from lying on a non-incident edge and prevents adjacent edges from overlapping beyond the shared vertex), this exactly characterizes a simple (non-self-intersecting) closed polygon. No hypotheses are added or removed; the quantifier structure matches.
+
+### putnam_1966_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The function y : ℝ → ℝ with hypotheses `Differentiable ℝ y ∧ Differentiable ℝ (deriv y)` correctly encodes "y is twice-differentiable on ℝ", which is implicit in the ODE y'' + e^x·y = 0. The equation `deriv (deriv y) + Real.exp * y = 0` uses Pi-type pointwise addition and multiplication, so evaluating at any x gives y''(x) + e^x · y(x) = 0, matching the ODE. The conclusion `∃ r s N, ∀ x > N, r ≤ y x ∧ y x ≤ s` says y is bounded both above and below on some neighborhood (N, ∞) of +∞, which is precisely the mathematical meaning of "y remains bounded as x → +∞". The universal quantification over "any solution" is handled correctly by having y as a free parameter constrained by the hypotheses.
+
+### putnam_1967_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal statement. (1) S₀ = 1 is directly encoded. (2) For n ≥ 1, S_n is defined as the ncard of matrices over ℕ (nonneg integers) that are symmetric (∀ i j, A i j = A j i) with column sums equal to 1 (∀ j, ∑ i, A i j = 1), which exactly matches the informal conditions. (3) Part (a) is stated with the natural hypothesis n ≥ 1 (necessary since ℕ-subtraction would otherwise be nonsensical and the recurrence uses S_{n-1}). (4) Part (b) is encoded as a pointwise real identity via `tsum`, which equals the ordinary series since x + x²/2 has infinite radius of convergence. The codomain ℤ (vs. ℕ) for S is a harmless widening via the natural coercion of ncard. Both conjuncts of the conclusion match parts (a) and (b) of the informal exercise.
+
+### putnam_1967_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal problem accurately. The set consists of integers `a` such that there exists an integer polynomial `P` of degree exactly 2 with leading coefficient `a > 0` having two distinct zeros in the open interval (0, 1). The form "ax² - bx + c" in the informal statement is just naming convention — any integer quadratic with positive leading coefficient and two distinct roots in (0,1) automatically has the sign pattern (by Vieta's: positive sum and product of roots force the "-b" and "+c" signs), so no constraint is lost. `P.degree = 2` correctly ensures the polynomial is a genuine quadratic so that `P.coeff 2` is its leading coefficient. `IsLeast` correctly encodes "least positive integer value of a". The existence of two distinct zeros in (0,1) is equivalent (for degree-2 polynomials) to exactly two, matching the informal claim.
+
+### putnam_1967_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization adds `MeasureTheory.IntegrableOn u (Set.Icc 0 1)` as a hypothesis on u. While the literal informal statement says "real-valued function u" without explicit regularity, the integral equation u(x) = 1 + λ∫_x^1 u(y)u(y-x) dy only makes classical mathematical sense when u is at least integrable on [0,1] — this is a standard implicit premise of any integral equation in classical analysis. The original Putnam 1967 A4 problem explicitly assumes u is continuous on [0,1] (which implies integrability), so the informal statement already carries an implicit regularity assumption. The IntegrableOn condition is a natural, minimal regularity requirement that makes the formalization well-typed in Mathlib's integration framework (which otherwise sets integrals of non-integrable functions to 0). This fits the "implicit premise made explicit" pattern described in the guidelines, so it should be judged faithful rather than weaker.
+
+### putnam_1967_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encodes the Euclidean plane as `EuclideanSpace ℝ (Fin 2)`, convexity via `Convex ℝ R`, and "exactly 1 unit apart" via `dist P Q = 1` — all standard and correct. The hypothesis `(MeasureTheory.volume R).toReal > Real.pi / 4` uses the standard Mathlib idiom for "finite area > π/4" (since `ENNReal.toReal ∞ = 0`, this implicitly excludes infinite-measure sets). In competition context, "area greater than π/4" naturally refers to a finite positive real area — infinite-area convex regions (e.g., half-planes) trivially contain points at distance 1 and are not the intended content of the problem. The existential conclusion `∃ P ∈ R, ∃ Q ∈ R, dist P Q = 1` matches "contains a pair of points exactly 1 unit apart" (dist = 1 automatically forces P ≠ Q). The formalization captures the intended mathematical claim without meaningful drift.
+
+### putnam_1967_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal problem. The condition `a 0 * b 1 - a 1 * b 0 ≠ 0` corresponds (under 0-indexing) to $a_1 b_2 - a_2 b_1 \neq 0$. The `numtuples` function counts (via `Set.encard`) the distinct sign-functions `s : Fin 4 → ℝ` attainable as `Real.sign ∘ x` for some nonzero-component solution `x` of the two linear equations; since each `x i ≠ 0`, `Real.sign (x i) = ±1`, matching "plus and minus signs". The set is always finite (≤ 16 elements), so the ℕ/ℕ∞ coercion in `numtuples a b = ...encard` is well-behaved. The conclusion — existence of a witness achieving 8 AND a universal upper bound of 8 under `abneq0` — is precisely the standard encoding of "the maximum is 8". Quantifier structure, hypotheses, and conclusion all match the informal statement.
+
+### putnam_1967_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly maps A,B,C,D,E,F to L 0,...,L 5. The hypotheses capture AB=CD=EF=r (hlens), all vertices on a circle of radius r (hcyclic), and the midpoints P, Q, R of BC, DE, FA. The conclusion `dist P Q = dist R P ∧ dist Q R = dist P Q` correctly encodes that triangle PQR is equilateral. The added hypotheses (r > 0, non-degeneracy of BC/DE/FA, and the horder ordering condition) surface implicit premises inherent in "hexagon ABCDEF inscribed in a circle" — namely that it is a proper circle, a non-degenerate hexagon, and the vertices occur in cyclic order (not a self-intersecting labeling). Without these, the informal statement would not be well-posed or true. Per the guidance, making such implicit premises explicit is a faithful formalization, not a weakening.
+
+### putnam_1967_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The hypothesis `prbound` matches $0 \le p \le 1$ and $0 \le r \le 1$. The identities `id1` and `id2` are stated as universal over all real x, y — this uniquely determines the coefficients A, B, C (as $p^2$, $2p(1-p)$, $(1-p)^2$) and α, β, γ (as $pr$, $p(1-r)+r(1-p)$, $(1-p)(1-r)$), exactly matching the informal setup. The conclusion `max (max A B) C ≥ 4/9` equals $\max\{A,B,C\} \ge 4/9$ on the total order ℝ, and similarly for α, β, γ. Combining parts (a) and (b) into a conjunction is logically equivalent to stating them separately. No hypotheses are added or omitted and no types are changed.
+
+### putnam_1967_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. `Function.Periodic f 1` unfolds to `∀ x, f (x+1) = f x`, exactly "period 1". Continuity is captured correctly. The integrals over `Set.Ioo 0 1` equal the standard $\int_0^1$ (Lebesgue integral, endpoints have measure zero). The limit `Tendsto (fun n : ℤ => ...) atTop (𝓝 ...)` expresses $n \to +\infty$ through integers, which for tail behavior is equivalent to $n \to \infty$ through positive integers as meant informally. The integrand `f x * g (n * x)` directly matches $f(x)g(nx)$, and the limit value $(\int f)(\int g)$ matches. No hypotheses are added or dropped and no quantifier structure is altered.
+
+### putnam_1967_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly models the locker problem: `lockers 0 i = false` encodes all lockers initially locked (false = locked, true = unlocked per the convention fixed by the recurrence), and the recurrence `lockers k i = if k ∣ i then !(lockers (k-1) i) else (lockers (k-1) i)` correctly models operation T_k toggling multiples of k. The conclusion `lockers n i ↔ (∃ j : ℤ, j^2 = i)` uses Lean's Bool→Prop coercion (b ≡ b = true) to assert "locker i unlocked ⇔ i is a perfect square", matching "open if and only if perfect square". Since i ∈ [1,n], `∃ j : ℤ, j^2 = i` is equivalent to i being a natural perfect square. The `npos : n ≥ 1` is needed for the Set.Icc 1 n to be nonempty and is an implicit premise of the informal problem. Extending the domain of `lockers` to ℕ (rather than Icc 0 n) is irrelevant since only values at k ∈ [0,n] are constrained and only `lockers n i` appears in the conclusion.
+
+### putnam_1967_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the claim. Expanding $(2-1)^{-n}$ via the generalized binomial series with maximal exponent of 2 first gives $\sum_{k\geq 0}\binom{-n}{k}2^{-n-k}(-1)^k = \sum_{k\geq 0}\binom{n+k-1}{k}2^{-n-k}$; summing the first $n$ terms equals $\sum_{i=0}^{n-1}\binom{n+i-1}{i}2^{-n-i}$, which I verified equals $1/2$ for $n=1,2,3$. The Lean encoding: `Finset.range n` yields $n$ terms indexed $0..n-1$ starting from the maximal-exponent term ($i=0$ gives $2^{-n}$); `Nat.choose (n+i-1) i` matches the binomial coefficient (nat subtraction is safe since $n\geq 1$); `(2:ℚ)^(-(n:ℤ)-i)` correctly gives $2^{-n-i}$ via the zpow instance on ℚ. The hypothesis `hn : n > 0` is required (for $n=0$, `Finset.range 0` is empty and the sum would be $0 \neq 1/2$), and it matches the informal "positive integer $n$". All quantifier structure, types, and the conclusion match.
+
+### putnam_1967_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement's conclusion exactly: existence of a point in the open unit disk (x0²+y0² < 1 correctly encodes "interior") where the sum of squared partial derivatives is at most 16. The hypothesis modifications are either explicitly acknowledged in the note (domain extended to ℝ², partial differentiability everywhere) or represent surfacing of implicit regularity premises — the classical Putnam 1967 B6 problem canonically requires continuous first partial derivatives (C¹), and the informal phrase "having partial derivatives" is a shorthand for this standard regularity setup. Adding `fcont` (joint continuity on the disk) is a mild regularity condition weaker than C¹ but needed for the classical argument, and is well within the implicit assumptions of the informal statement. The `deriv` expressions correctly capture the partial derivatives of the slice functions.
+
+### putnam_1968_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement formalizes the Putnam 1968 A1 identity 22/7 - π = ∫₀¹ x⁴(1-x)⁴/(1+x²) dx exactly. Because `Real.pi` fixes the ambient type as ℝ, the literal `22/7` elaborates as real division (≈ 3.1428...), matching the intended rational value. The `∫ x in (0)..1, ...` notation is Mathlib's `intervalIntegral` with the default Lebesgue (volume) measure, matching the standard definite integral in the informal statement. The integrand, the bounds, and the equation structure all align, and the orientation 0..1 is the natural one. No hypotheses are added or dropped. Therefore the Lean signature is logically equivalent to the informal claim.
+
+### putnam_1968_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim in every component. The integer variables $a, b, c, d, e, f$ are typed as `ℤ`, the real $\epsilon > 0$ is `ε : ℝ` with `hε : ε > 0`, and the hypothesis `a * d ≠ b * c` matches $ad \neq bc$. The existential is over rationals `r s : ℚ`. `Set.Ioo 0 ε` is defined as $\{x \mid 0 < x \land x < \epsilon\}$, so membership encodes exactly the strict two-sided inequalities $0 < |\cdot| < \epsilon$ from the informal statement. The integer-to-rational-to-real coercions in `(|r * a + s * b - e| : ℝ)` give the mathematically correct value. No hypothesis is added or dropped and the quantifier structure is preserved.
+
+### putnam_1968_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the informal claim. `α : Type*` with `[Finite α]` represents the finite set $S$, and `Set α` represents its subsets. Using `∃ n, s : Fin (2^n) → Set α` together with the uniqueness condition `∀ t, ∃! i, s i = t` forces `2^n = 2^|α|` (so `n = |α|`), making this a bijection from a linearly-ordered index set of size `2^|α|` to the subsets — logically equivalent to a list of all subsets with no repeats. `s 0 = ∅` captures condition (1). The successive condition `i.1 + 1 < 2^n → (s i ∆ s (i+1)).ncard = 1` uses the guard to avoid Fin wrap-around, and symmetric difference of cardinality 1 precisely means "add or remove exactly one element," matching condition (3). No hypotheses are dropped or added beyond what the informal claim requires.
+
+### putnam_1968_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal statement. `EuclideanSpace ℝ (Fin 3)` is standard 3D Euclidean space, and `dist 0 (S i) = 1` correctly encodes "on the unit sphere" since the Euclidean distance from the origin equals √(x² + y² + z²), so setting it to 1 gives x² + y² + z² = 1. The double sum `∑ i, ∑ j, if i < j then (dist (S i) (S j))^2 else 0` computes exactly ∑_{i<j} d(Pᵢ, Pⱼ)², which is the natural reading of "the sum of the squares of the distances between any n points" (each unordered pair counted once). The bound n² matches, and the universal quantification over n and S faithfully encodes "any n points". No extra hypotheses or weakened/strengthened conclusions.
+
+### putnam_1968_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. "Quadratic polynomials with real coefficients" matches `P : ℝ[X]` with `P.degree = 2` (Mathlib's `Polynomial.degree` in `WithBot ℕ` equals 2 iff the polynomial has leading coefficient nonzero at $x^2$, i.e., degree exactly 2). The constraint $|P(x)| \le 1$ on $[0,1]$ is rendered as `∀ x ∈ Set.Icc 0 1, |P.eval x| ≤ 1`. The conclusion `sSup {|(derivative P).eval 0| | P ∈ V} = 8` matches "the supremum of $|P'(0)|$", since `Polynomial.derivative` evaluated at 0 gives the linear coefficient, which equals $P'(0)$. The extremal $P(x) = 8x^2 - 8x + 1$ (a shifted Chebyshev polynomial) has degree 2, satisfies the bound, and achieves $|P'(0)| = 8$, confirming the answer. No hypotheses are silently added or dropped.
+
+### putnam_1968_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes all parts of the informal statement. The condition $n \ge 1$ becomes `P.natDegree ≥ 1`; since $a_0 = \pm 1 \ne 0$ the leading coefficient is nonzero so natDegree equals $n$. The requirement "$a_i = \pm 1$ for all $0 \le i \le n$" is captured by `∀ k ∈ Set.Icc 0 P.natDegree, P.coeff k = 1 ∨ P.coeff k = -1` — since the $k$-th coefficient of $\sum a_i x^{n-i}$ is $a_{n-k}$, the range of indices matches. The roots-are-real condition uses `∀ z : ℂ, P.eval z = 0 → ∃ r : ℝ, r = z`, which (via the standard `Coe ℝ ℂ` = `Complex.ofReal` instance) becomes `↑r = z`, equivalent to `z.im = 0`. The set equality asks to characterize all such polynomials, matching "find all". There is no drift in hypotheses, conclusion, types, or quantifier structure.
+
+### putnam_1968_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature captures the exact mathematical content: X, Y are integer-valued random variables on a probability space (via MeasureSpace Ω + IsProbabilityMeasure ℙ), each taking finitely many values (Set.Finite (X '' Set.univ)), with no independence assumption. The equation asserts P(min(X,Y)=k) = f(P(X=k), P(Y=k), P(max(X,Y)=k)) via the solution abbrev, matching "express P(min=k) in terms of p1, p2, p3". The Measurable hypotheses are implicit premises needed for the probabilities to be well-defined (required for any probability formulation). The solution fun a b c => a + b - c matches the correct identity P(min=k) = P(X=k) + P(Y=k) - P(max=k) verified by case analysis. The conclusion uses .toReal consistently on all four probabilities, which is fine since they are all ≤ 1.
+
+### putnam_1968_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal claim. `[Group G]` with `hG : Finite G` matches "finite group (with multiplicative operation)". `A : Set G` is "a subset of G". The cardinality condition `A.ncard > (Nat.card G : ℚ)/2` uses rational division to properly express "more than half": since G is finite, A ⊆ G is also finite, so A.ncard gives the correct size, and this is equivalent to 2·|A| > |G|. The conclusion `∀ g : G, ∃ x ∈ A, ∃ y ∈ A, g = x * y` matches "every element of G can be expressed as the product of two elements of A". No hypotheses are added or dropped, and the quantifier structure matches.
+
+### putnam_1968_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement formalizes both improper integrals using principal-value-style symmetric limits: ∫_{ball 0 y} f = ∫_{-y}^{y} f for the RHS, and ∫_{ball 0 y \ ball 0 (1/y)} f(x-1/x) = ∫_{1/y<|x|<y} f(x-1/x) for the LHS (handling the singularity at x=0 with the natural coupled limit ε=1/y, A=y). This coupled limit is exactly what the standard substitution proof produces: via x↦-1/x and u=x-1/x, the integral transforms to ∫_{-(y-1/y)}^{y-1/y} f(u) du, which approaches the PV ∫f. The conclusion's second conjunct (∫_{ball 0 y} f → r) combined with the hypothesis forces the common r value by limit uniqueness, correctly asserting the equality of the two improper integrals. Continuity and the existence hypothesis are properly captured. While one could alternatively interpret "integral exists" as the classical independent double-limit improper integral, the PV formalization chosen here is a standard, self-consistent, and mathematically natural interpretation for this identity.
+
+### putnam_1968_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. Entries (a,b,c,d) in {0,...,p-1} with congruence conditions mod p are in canonical bijection with matrices over ZMod p (which equals Fin p for prime p) satisfying the corresponding equality conditions. Matrix indexing matches: M 0 0 = a, M 0 1 = b, M 1 0 = c, M 1 1 = d, so "a + d ≡ 1 (mod p)" becomes M 0 0 + M 1 1 = 1 and "ad - bc ≡ 0 (mod p)" becomes M 0 0 * M 1 1 - M 0 1 * M 1 0 = 0. The hypothesis `Prime p` on ℕ is equivalent to `Nat.Prime p` via `Nat.prime_iff`, matching the informal "p is prime". `Set.ncard` correctly represents "the number of distinct matrices". No hypotheses are added or dropped, and the counting question is preserved.
+
+### putnam_1968_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes Putnam 1968 B6: ℚ (with its standard metric topology inherited from ℝ, as confirmed in Mathlib's Topology/Instances/Rat.lean) is not hemicompact. The ¬∃ with the conjunction "each K_n is compact" AND "every compact S is contained in some K_n" matches the informal quantifier structure exactly. The parenthetical "(closed and bounded)" in the informal statement is a Heine-Borel-style informal gloss of "compact" — the primary term is "compact", which Lean faithfully encodes as `IsCompact`. `IsCompact` on `Set ℚ` gives the standard topological notion of compactness in the subspace topology, which is the mathematical content of the Putnam problem. There are no dropped or added hypotheses, no changes to types or quantifier structure.
+
+### putnam_1969_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes "possible ranges of a real polynomial f(x,y)". Using `MvPolynomial (Fin 2) ℝ` correctly represents bivariate polynomials with real coefficients, and `{z : ℝ | ∃ x : Fin 2 → ℝ, MvPolynomial.eval x f = z}` is exactly the range of f over ℝ². The outer set builder `{... | f : MvPolynomial (Fin 2) ℝ}` correctly quantifies over all such polynomials. The claimed solution set (singletons, closed half-lines Ici/Iic, open half-lines Ioi/Iio, and univ) matches the standard answer — open half-lines appear because of examples like (xy-1)²+x² whose range is (0,∞), which distinguishes the bivariate case from univariate. There is no hidden type mismatch or hypothesis drift, and the quantifier structure matches the informal reading.
+
+### putnam_1969_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement gives the formula $D_n = (-1)^{n-1}(n-1)2^{n-2}$ without explicitly bounding n. The Lean formalization restricts to n ≥ 2. Checking boundary cases: at n = 0, the empty-matrix determinant is 1 but the formula evaluates to 1/4 (under zpow), so the literal universal claim is false without restriction. The expression $2^{n-2}$ in standard Putnam/mathematical convention indicates a natural-number exponent, which implicitly requires n ≥ 2. The `n ≥ 2` hypothesis is thus surfacing an implicit premise necessary for the formula to hold, analogous to the worked example in the instructions. The matrix entries, determinant, and algebraic form of the formula all match; the Lean uses integer exponents consistent with real zpow in ℝ, which is compatible with the informal reading once n ≥ 2. This is a faithful formalization.
+
+### putnam_1969_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts that the partial sums ∑_{i=1}^n (-1)^{i+1} · i^{-i} (over integers i) converge to ∫_{(0,1)} x^x as n → ∞ in ℤ. This is logically equivalent to the infinite series equaling the integral, which is exactly what the informal statement claims. The terms match: for i=1, (-1)²·1⁻¹=1; for i=2, (-1)³·2⁻²=-1/4, matching (-1)^{n+1}n^{-n}. For n ≤ 0 the Icc is empty (sum = 0), but this is irrelevant to the atTop limit. The integral over Ioo(0,1) equals the integral over [0,1] since the boundary has measure zero, and x^x with real x uses Real.rpow as expected. The encoding faithfully captures "series = integral".
+
+### putnam_1969_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement has two directions that combine to form an iff: (A) if x(0) ≠ y(0), no u drives the solution to (0,0), and (B) if x(0) = y(0), some u does, for any T > 0. The Lean iff `x0 = y0 ↔ ∃ x y u, [ODE] ∧ x 0 = x0 ∧ y 0 = y0 ∧ x t = 0 ∧ y t = 0` captures exactly this: the forward direction is claim (B) for the specific t > 0, and the backward direction is the contrapositive of (A) at that t (uniqueness of solutions to the linear ODE makes "∃ u, x, y" match "for some u, the unique solution"). The ODE encoding `deriv x = -2 • y + u` is pointwise equivalent to dx/dt = -2y(t) + u(t); `Differentiable ℝ` and `Continuous u` give the natural global regularity automatic for this linear system. Since t is a parameter with 0 < t, the theorem applies uniformly to every positive time, matching "never pass through (0,0)" in the forward-time interpretation.
+
+### putnam_1969_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The sequence `x : ℕ → ℝ` represents the real sequence $(x_n)$; the recurrence `y n = x (n-1) + 2 * (x n)` for `n ≥ 2` matches $y_n = x_{n-1} + 2x_n$ (natural subtraction is safe since `n ≥ 2`). The hypothesis `∃ c, Tendsto y atTop (𝓝 c)` is the standard Mathlib encoding of "(y_n) converges", and the conclusion `∃ C, Tendsto x atTop (𝓝 C)` likewise encodes "(x_n) converges". The fact that `y 0` and `y 1` are unconstrained is immaterial since convergence only depends on the tail. The offset between 1-indexing (informal) and 0-indexing (Lean) is just a shift and does not affect the mathematical content.
+
+### putnam_1969_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal statement exactly. "Positive integer n" is encoded as `n : ℕ` with `hnpos : n > 0`. "n+1 is divisible by 24" is `24 ∣ n + 1`. "Sum of all divisors of n is divisible by 24" is `24 ∣ ∑ d ∈ divisors n, d`, where `Nat.divisors n` is defined in Mathlib as `{d ∈ Ico 1 (n + 1) | d ∣ n}`, which for positive n gives precisely the set of positive divisors of n, matching the standard number-theoretic σ(n). No hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_1969_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement `P n` correctly encodes "for any finite group G and any n proper subgroups, their union is proper": `[Finite G]` matches "finite group", `H i < ⊤` on Subgroup G means H i is a proper subgroup, and `⋃ i, (H i : Set G) < ⊤` (with ⊤ = Set.univ) means the union doesn't cover G. The claim `P 2` corresponds to the first assertion (cannot be union of two proper subgroups), and `P 3 ↔ False` (with solution = False) correctly captures "no, the statement does not remain true for three", since a counterexample exists (e.g., Klein four group as union of three order-2 subgroups). The encoding via `Fin n → Subgroup G` allows repetitions, but this doesn't change the truth value of the claims. The formalization is logically equivalent to the informal statement.
+
+### putnam_1969_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes all three components: (1) the recurrence `T n * T (n+1) = n` for n ≥ 1 matches the informal "$T_n T_{n+1} = n$ whenever $n \geq 1$"; (2) `Tendsto (fun n => T n / T (n+1)) atTop (𝓝 1)` is the standard formalization of $\lim_{n\to\infty} T_n/T_{n+1} = 1$; (3) `Real.pi * (T 1)^2 = 2` matches the conclusion. The sequence type ℕ → ℝ is the natural reading given π appears in the conclusion. `T 0` is unconstrained, but since the conclusion only involves `T 1` and hT1 starts from n=1, this doesn't weaken or strengthen the claim. No positivity hypothesis is needed because $T_1 \neq 0$ follows from $T_1 T_2 = 1$, and $T_1^2$ is sign-invariant. The formalization is strictly faithful.
+
+### putnam_1969_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim faithfully. (1) "Plane curve" → `Γ : ℝ → EuclideanSpace ℝ (Fin 2)`; continuity via `ContinuousOn Γ [0,1]` surfaces the standard implicit premise for "curve". (2) "Length 1" → `eVariationOn Γ (Set.Icc 0 1) = 1`, which equals the arc length for a rectifiable curve. (3) "Closed rectangle" is encoded by four vertices a,b,c,d whose four oriented angles `∡abc, ∡bcd, ∡cda, ∡dab` all equal π/2; Mathlib's `oangle = π/2` guarantees non-degeneracy (adjacent vertices are distinct and the vectors are perpendicular with consistent orientation), so a convex quadrilateral with four right angles is a genuine rectangle. (4) "Area 1/4" matches `dist a b * dist b c = 1/4`, the product of adjacent side lengths. (5) "Covers Γ" matches `Γ '' (Set.Icc 0 1) ⊆ convexHull ℝ {a,b,c,d}`, i.e., the closed rectangular region. No hypotheses are silently dropped or added beyond the standard reading of "plane curve".
+
+### putnam_1969_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the problem. A and B have the right shapes (3×2 and 2×3 over ℝ). The hypothesis `A * B = Matrix.of p` with `p` specified at all 9 entries (exhaustive since Fin 3 has 3 elements) exactly encodes the given AB matrix. The conclusion `B * A = 9 * (1 : Matrix (Fin 2) (Fin 2) ℝ)` is equivalent to B*A = [[9,0],[0,9]] because in the matrix semiring, the natural-number literal 9 coerces to the diagonal matrix `!![9,0;0,9]` (by `Matrix.natCast_fin_two`), and multiplying by the identity is the identity. All types, hypotheses, and conclusions match the informal statement, so the formalization is strictly faithful.
+
+### putnam_1970_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim. `a, b > 0` matches the universal quantification. `f` is defined as `e^{ax} cos(bx)`. The hypothesis `hp` asserts that `p` is a sequence such that the power series `∑' n, p n * x^n` converges to `f` on some open ball around 0, which uniquely identifies `p` as the Taylor coefficient sequence (since `f` is real-analytic with unique power series expansion). `S` is the set of indices where the coefficient is zero. The conclusion `S = ∅ ∨ ¬Finite S` expresses "either no zero coefficients or infinitely many zero coefficients" — `¬Finite S` where `S : Set ℕ` coerces to the subtype and negates the `Finite` typeclass, meaning the set has infinitely many elements. The `tsum` convention gives the correct value since power series converge absolutely within their radius of convergence. The formalization is a faithful rendering of the informal statement.
+
+### putnam_1970_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts ∃ δ > 0 such that no (x,y) satisfies 0 < x² + y² < δ² together with the equation = 0. The informal statement asserts ∃ δ > 0 such that no (x,y) in the punctured disk 0 < x² + y² < δ satisfies the equation. These are logically equivalent existential claims: any δ witnessing one can be transformed into a witness for the other via δ ↦ √δ or δ ↦ δ². The hypothesis B² - 4AC < 0, the polynomial expression, and the quantifier structure (negated existence ≡ universal ≠ 0) all match. The use of δ² in Lean versus δ in the informal statement is just a different parameterization of the radius and does not change the mathematical content.
+
+### putnam_1970_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all aspects of the informal statement. The function L, pinned down by the hypothesis hL, computes the longest trailing run of equal digits in base 10 (since Nat.digits lists digits least-significant-first). The condition `(Nat.digits 10 (n^2))[0]! ≠ 0` restricts to cases where the trailing digit is nonzero, which together with L's definition correctly captures "longest run of equal nonzero terminating digits". The conclusions assert: (1) length 3 is achievable, (2) no square with nonzero trailing digit exceeds 3, (3) 1444 is a perfect square with this property, (4) L(1444) = 3, (5) 1444's trailing digit is nonzero, and (6) 1444 is minimal among squares achieving this. These six conjuncts together faithfully express both parts of the informal question (the max length and the smallest attaining square). Edge cases like n=0 (where digits is empty and [0]! returns default 0) and squares ending in 0 are correctly excluded by the nonzero condition.
+
+### putnam_1970_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement reindexes the informal claim by shifting indices but is logically equivalent. The hypothesis `Tendsto (fun n => x (n+2) - x n) atTop (𝓝 0)` is equivalent to $\lim_{m \to \infty}(x_m - x_{m-2}) = 0$ under the substitution $m = n+2$. The conclusion `Tendsto (fun n => (x (n+1) - x n)/(n+1)) atTop (𝓝 0)` is equivalent to $\lim_{m \to \infty}(x_m - x_{m-1})/m = 0$ under $m = n+1$. The `+1` in the denominator avoids division by zero, matching that the informal conclusion is meaningful only for $n \geq 1$. The sequence type $\mathbb{N} \to \mathbb{R}$ is the standard encoding. No hypotheses are added, dropped, or altered in strength.
+
+### putnam_1970_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the limit. With `n : ℤ` (forced by `Finset.Icc (1 : ℤ) (2*n)`) and the whole expression expected to be `ℝ`, Lean elaborates `1/(n^4)` as real division `(1:ℝ)/((↑n:ℝ))^4` and `((n^2+i^2) : ℝ)^((1:ℝ)/n)` as `Real.rpow` with real exponent `1/n`. The product bounds i from 1 to 2n matching $\prod_{i=1}^{2n}$, and `atTop` on ℤ captures $n \to \infty$ (negative n's don't affect the limit since atTop only sees arbitrarily large n). A Riemann sum calculation confirms the limit equals $\exp(2\ln 5 - 4 + 2\arctan 2)$, matching the provided solution. All operations are correctly real-valued, and the formalization faithfully encodes the informal limit.
+
+### putnam_1970_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature captures the informal statement exactly. The hypotheses `T > 0` and `H.degree ≤ 3` match "T positive" and "polynomial of degree at most 3" (with `Polynomial ℝ` giving a real polynomial evaluated on ℝ; `degree ≤ 3` on `WithBot ℕ` correctly also covers the zero polynomial). The RHS uses Mathlib's set-average notation `⨍ t in Set.Icc (-T) T, H.eval t`, which by definition is the Bochner integral over [-T, T] divided by the volume of [-T, T] — i.e., the average value of H on [-T, T]. The LHS `(H.eval (-T/√3) + H.eval (T/√3))/2` is the arithmetic mean of H at ±T/√3, matching the informal "average of H(-T/√3) and H(T/√3)". No hypotheses are added or dropped and the quantifier structure is preserved.
+
+### putnam_1970_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim piece-by-piece: S : Set (ℝ × ℝ) captures "subset of ℝ²", IsClosed S captures "closed", the hypothesis ∀ s ∈ S, s.1 ∈ Ioo a b precisely expresses "lies in a < x < b" (since Ioo a b = {x | a < x ∧ x < b}), and {y | ∃ x : ℝ, ⟨x,y⟩ ∈ S} is exactly the projection on the y-axis. The conclusion IsClosed on this set matches "its projection on the y-axis is closed". The explicit hypothesis a < b merely surfaces the implicit premise of the informal "a < x < b" strip; if a ≥ b were allowed, S would be forced empty and the conclusion would be trivial, so this does not change the mathematical content.
+
+### putnam_1970_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypothesis `DifferentiableOn ℝ x (Set.Icc 0 1) ∧ DifferentiableOn ℝ (deriv x) (Set.Icc 0 1)` encodes "twice differentiable on [0, 1]". The conditions `x 1 - x 0 = 1`, `deriv x 0 = 0 ∧ deriv x 1 = 0`, and `|deriv x t| ≤ 3/2 for t ∈ Ioo 0 1` directly mirror the informal hypotheses, and on the open interval (0,1), `deriv x` agrees with the classical derivative. At the endpoints, the second-derivative hypothesis forces `deriv x` to be within-continuous there, which under natural interpretation corresponds to the informal one-sided derivative conditions. The conclusion `∃ t ∈ Set.Icc 0 1, |deriv (deriv x) t| ≥ 9/2` matches `∃ t ∈ [0, 1], |x''(t)| ≥ 9/2`. The use of `deriv` rather than `derivWithin` is the standard PutnamBench convention and does not cause a meaningful semantic drift.
+
+### putnam_1970_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The `ramp` function, defined for `n : ℤ` via nested if-then-else, exactly reproduces the piecewise definition: returns `-n` when `x ≤ -n`, returns `x` when `-n < x ∧ x ≤ n`, and otherwise (when `x > n`) returns `n`. The function `F : ℝ → ℝ` matches "a function on the reals". The biconditional `Continuous F ↔ (∀ n : ℕ, Continuous ((ramp n) ∘ F))` matches "F is continuous iff u_n ∘ F is continuous for all natural numbers n" — the `n : ℕ` is coerced to `ℤ` when passed to ramp, and for `n = 0` the ramp is constantly 0 (continuous), so including 0 in ℕ is harmless. The types, quantifier structure, and biconditional direction all correspond precisely to the informal claim.
+
+### putnam_1970_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement. The hypotheses establish a non-degenerate convex quadrilateral (hSquad: 4 distinct, no 3 collinear; horder: sides don't cross interior of convex hull, forcing cyclic vertex order and convexity). The key hypothesis `hcircum` encodes tangentiality: uniqueness of I with collinearity and dist(O,I)=r forces each side-line to be tangent to the circle centered at O with radius r, and O ∈ convexHull with r > 0 puts O strictly inside the quadrilateral — this is equivalent (via Pitot's theorem for convex quadrilaterals) to the existence of an inscribed circle. The area condition uses the 2D Lebesgue measure of the convex hull, which equals the quadrilateral's area. The conclusion `Cospherical S` is equivalent to concyclic (cyclic quadrilateral) in 2D since coplanarity is automatic. All quantifiers and types match the standard reading.
+
+### putnam_1971_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal Putnam 1971 A1 claim accurately. (1) `S : Set (ℤ × ℤ × ℤ)` with `S.ncard = 9` correctly encodes "a set of 9 lattice points in 3D" — since `Set.ncard` has junk value 0 for infinite sets, the equation to 9 forces finiteness and exactly 9 elements. (2) The function L is defined using `t ∈ Ioo 0 1` (open interval), so L(P,Q) is the open line segment between P and Q, excluding endpoints — this matches "interior of the line segment". (3) The conclusion asserts existence of integers x, y, z and distinct P, Q ∈ S such that the real embedding ((x:ℝ),(y:ℝ),(z:ℝ)) lies in L(P,Q), which is precisely "a lattice point along the interior of the segment joining two distinct points of S". The coercions from ℤ to ℝ are handled correctly. No extra or missing hypotheses, and the quantifier structure matches.
+
+### putnam_1971_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement. The functional equation P(x²+1) = (P(x))² + 1 is rendered as `∀ x : ℝ, P.eval (x^2 + 1) = (P.eval x)^2 + 1` and the initial condition P(0) = 0 as `P.eval 0 = 0`. The "determine all" phrasing is standardly encoded as an iff with a solution set, and the purported solution `{Polynomial.X}` corresponds to P(x) = x, which is the correct answer. The choice of `Polynomial ℝ` is a natural reading for a Putnam polynomial problem; moreover, the functional equation forces P to agree with the identity on infinitely many values (1, 2, 5, 26, ...), so the answer P(x) = x holds whether one works over ℤ, ℚ, ℝ, or ℂ. No hypothesis is silently added or dropped, and the quantifier structure matches the informal claim.
+
+### putnam_1971_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The lattice condition `a.1 = round a.1 ∧ ...` correctly encodes that each coordinate is an integer (since `round : ℝ → ℤ` with coercion back to ℝ equals x iff x is an integer). The hypothesis `habcneq` captures the distinctness of triangle vertices, and `hR : R > 0` with `hcircle` correctly formalizes "lie on a circle of radius R" (with R > 0 being an implicit premise needed for a non-degenerate "circle" containing three distinct points). The conclusion |AB|·|AC|·|BC| ≥ 2R matches abc ≥ 2R under the standard convention that side a = |BC|, b = |AC|, c = |AB|. Three distinct points on a circle of positive radius are automatically non-collinear, so the "triangle" condition is fully captured. The inequality `≥` is correct (equality achievable, e.g., by the right triangle with vertices (0,0), (1,0), (0,1)).
+
+### putnam_1971_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all components of the informal statement faithfully. The polynomial $(x+y)^n(x^2 - (2-\epsilon)xy + y^2)$ (correcting an obvious typo in the informal) is encoded correctly using `MvPolynomial.X 0`, `MvPolynomial.X 1`, and `MvPolynomial.C (2 - δ)`. The range ε ∈ (0,1) matches `0 < ε ∧ ε < 1`, and "for n sufficiently large" matches `∃ N, ∀ n ≥ N`. The phrase "positive coefficients" is formalized as `∀ i, coeff i (P n ε) ≥ 0`, which is the standard mathematical reading: since the polynomial is homogeneous of degree n+2, most coefficients are literally 0, so "positive coefficients" must mean "nonnegative" in context (equivalent to `f ∈ ℝ_≥0[x,y]`). This convention is consistent with the dataset (e.g., putnam_2007_b1 formalizes "positive integer coefficients" identically as `coeff n ≥ 0`). No extra hypotheses are added or removed, and the quantifier structure matches exactly.
+
+### putnam_1971_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal Putnam 1971 A5 problem. The hypothesis `a > 0 ∧ b > 0 ∧ a > b` matches "positive integers with a > b". The set `{s : ℕ | ¬∃ m n : ℕ, m*x + n*y = s}` correctly captures "unattainable scores" — natural number totals not expressible as m·a + n·b with m, n ≥ 0; since 0 is always attainable (m=n=0), the count equals the count of unattainable positive scores. Requiring `ncard = 35` works correctly because `ncard` returns 0 for infinite sets, ruling out non-coprime (a,b). The condition `¬∃ m n : ℕ, m*x + n*y = 58` expresses "58 is unattainable". The conclusion `pab a b ↔ a = 11 ∧ b = 8` is the standard characterization of "find a and b" problems, and (11, 8) is indeed the unique solution (verified by Sylvester's formula (a-1)(b-1)/2 = 35 plus the 58-unattainability constraint).
+
+### putnam_1971_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature accurately captures the informal statement. The hypothesis `∀ n : ℤ, n > 0 → ∃ m : ℤ, (n : ℝ)^c = m` correctly expresses "for every positive integer n, n^c is an integer" — with `(n : ℝ)^c` being `Real.rpow` (confirmed via Mathlib's `noncomputable instance : Pow ℝ ℝ := ⟨rpow⟩`), which is the standard interpretation of raising a positive integer to a real power. Quantifying over `n : ℤ` with `n > 0` is equivalent to quantifying over positive naturals after casting to ℝ. The conclusion `∃ m : ℤ, m ≥ 0 ∧ c = m` correctly states that c equals a non-negative integer (m is coerced to ℝ by the equality). Hypothesis structure, conclusion, and types all match the informal claim without adding or dropping mathematical content.
+
+### putnam_1971_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement exactly. The informal "Let S be a set with a binary operation" is encoded as `S : Type*` with `[Mul S]`, which is standard. Law 1 "x = x·x" is equivalent to `x * x = x` (symmetry of equality). Law 2 matches `(x * y) * z = (y * z) * x` verbatim. The conclusion correctly conjuncts associativity `(x * y) * z = x * (y * z)` and commutativity `x * y = y * x`. No hypotheses are added or omitted; the quantifier structure and types are preserved.
+
+### putnam_1971_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures "find all functions F: ℝ\{0,1} → ℝ satisfying F(x) + F((x-1)/x) = 1+x". The set S = univ \ {0, 1} correctly represents ℝ\{0,1}, and the functional equation P is stated verbatim on S. Although the Lean encoding uses total functions ℝ → ℝ (which is standard), the uniqueness claim is stated as agreement on S (∀ x ∈ S, f x = F x), which correctly corresponds to uniqueness on the intended domain ℝ\{0,1}. Both directions of "find all" are present: every F in the solution set satisfies the equation on S, and every f satisfying the equation agrees with some F in the solution set on S. Since the solution set is a singleton, this correctly says the solution on S is uniquely determined.
+
+### putnam_1971_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement parameterizes by T > 0 (time difference between start times), treats car 1 as starting at time 0 with laps = ⌊t⌋, and car 2 as starting at time T with laps = ⌊t-T⌋. The set {t | t ≥ T ∧ ⌊t⌋ = 2⌊t-T⌋} correctly captures "times when both cars are running and car 1 has exactly twice as many laps as car 2," and Lebesgue measure matches "total amount of time." A direct computation confirms the measure equals 1 for every T > 0. The t ≥ T restriction surfaces an implicit premise needed for the claim to be nontrivially true (without it, Nat.floor being 0 on negatives would make the set have infinite measure). The use of Nat.floor on nonneg reals agrees with the usual floor. The units ("1 lap/hour"/"1 hour") and the "exactly twice" equality are all correctly rendered. This is a faithful formalization.
+
+### putnam_1971_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding matches the informal statement. (1) `δ` is defined via `sSup {t : ℤ | Odd t ∧ t ∣ n}`: for any positive n, this set is nonempty (1 ∈ it) and bounded above by n, and Mathlib's `ConditionallyCompleteLinearOrder ℤ` instance returns the greatest element, which is precisely the greatest (positive) odd divisor. (2) Parsing: the bigsum body is at precedence 67, while `-` is at 65, so `∑ i ∈ Finset.Icc 1 x, (δ i)/(i : ℚ) - 2*x/3` parses as `(∑ i ∈ Finset.Icc 1 x, (δ i)/(i:ℚ)) - 2*x/3` — matching the informal `(Σ δ(n)/n) - 2x/3`. (3) Types: because the subtraction lives in ℚ, `2*x/3` elaborates as `(2 * (x:ℚ))/3 : ℚ` (true rational 2x/3), and `(δ i)/(i:ℚ)` elaborates as `(δ i : ℚ)/(i : ℚ)`. (4) The quantifier `∀ x : ℤ, x > 0 →` faithfully captures "for all positive integers x". No hypotheses are added or dropped relative to the informal statement.
+
+### putnam_1972_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. It quantifies over n > 0 and asserts non-existence of r > 0 with r+3 ≤ n such that C(n,r), C(n,r+1), C(n,r+2), C(n,r+3) form an arithmetic progression. The `fourAP` predicate, specified via the iff hypothesis as `n4-n3 = n3-n2 ∧ n3-n2 = n2-n1`, is precisely the standard condition for four numbers to be in AP (equal consecutive differences). Using ℤ (via coercion from Nat.choose's ℕ output) correctly avoids truncating natural subtraction issues. The quantifier structure, hypotheses (positivity of n and r, r+3 ≤ n), and conclusion all match the informal statement exactly.
+
+### putnam_1972_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature is a conjunction of two parts matching the informal claim exactly. The first conjunct universally quantifies over any type S with a `Mul` instance (which is just a binary operation with no laws) satisfying both axioms x*(x*y)=y and (y*x)*x=y, and concludes commutativity — faithful to "is commutative". The second conjunct existentially asserts the existence of a structure satisfying both axioms that is not associative — faithful to "not necessarily associative" (the standard reading that a non-associative example exists). The combined axiom `∀ x y, A ∧ B` is logically equivalent to two separate universal axioms. Types are used for sets, which is the standard Mathlib convention. No hypotheses are added or dropped.
+
+### putnam_1972_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. Although f is typed as ℝ → ℝ instead of [0,1] → ℝ, the `supercontinuous` predicate only examines f on sequences with values in Icc 0 1, and the solution set `{f | ∃ A B, ∀ x ∈ Icc 0 1, f x = A*x + B}` only constrains f on [0,1] — so the behavior outside [0,1] is irrelevant on both sides, making this equivalent to the informal problem about functions on [0,1]. The climit_exists definition (∑_{i<n} x_i)/n → C matches the standard Cesaro-limit convention (consistent with Mathlib's `Filter.Tendsto.cesaro`). The supercontinuous condition "for any x-sequence in [0,1] with Cesaro limit, f∘x has a Cesaro limit" directly encodes the informal definition. The restriction `x i ∈ Icc 0 1` surfaces the implicit premise that the sequence must lie in the domain of f.
+
+### putnam_1972_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says "if n is an integer greater than 1, then n does not divide 2^n - 1". The Lean uses `n : ℕ` with `hn : n > 1`, which is equivalent to "integer greater than 1" since integers > 1 correspond exactly to natural numbers > 1. The conclusion `¬((n : ℤ) ∣ 2^n - 1)` correctly coerces n to an integer and states non-divisibility of 2^n - 1 (which is elaborated in ℤ due to the left side of ∣). The quantifier structure, hypotheses, and conclusion all match the informal claim.
+
+### putnam_1972_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement: f : ℝ → ℝ is integrable on [0,1], the orthogonality hypothesis `∀ i ∈ Icc 0 (n-1), ∫ x in Icc 0 1, x^i*(f x) = 0` correctly encodes "for all 0 ≤ i ≤ n-1" (vacuous when n=0, matching the informal intent), and the normalization `∫ x in Icc 0 1, x^n*(f x) = 1` is the second integral condition. The conclusion `∃ S ⊆ [0,1] measurable with volume S > 0 and ∀ x ∈ S, |f x| ≥ 2^n * (n+1)` is equivalent to "|f(x)| ≥ 2ⁿ(n+1) on a set of positive measure" — since f is integrable hence measurable, the super-level set is measurable, making the two formulations equivalent. Using n : ℤ with n ≥ 0 is a standard faithful encoding of "non-negative integer n" (and n = 0 makes the conclusion |f| ≥ 1 on a positive-measure set, consistent with ∫f = 1). The hypotheses and conclusion are neither weaker nor stronger than the informal claim.
+
+### putnam_1972_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The function S is defined exactly as the informal series ∑ x^n(x-1)^(2n)/n!. The "coefficients of the power series" are formalized by introducing p : ℕ → ℝ together with the hypothesis hp that there exists a > 0 such that ∑ p n · x^n = S(x) on ball 0 a (a neighborhood of 0). Since S is real-analytic (in fact entire) at 0, its Taylor coefficients are unique, so p must be exactly the power series coefficients — this is a standard faithful encoding. The conclusion ¬∃ n, p n = 0 ∧ p (n+1) = 0 ∧ p (n+2) = 0 matches "no three consecutive coefficients equal 0" exactly. No hypotheses are added or dropped that change the mathematical content.
+
+### putnam_1972_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the same mathematical claim as the informal statement. AntitoneOn matches "nonstrictly decreasing" (non-strict version: a ≤ b → f b ≤ f a). The local conditions on [0, t] (DifferentiableOn, AntitoneOn on Icc 0 t) are essentially equivalent to global conditions, since any function satisfying these on [0, t] can be extended to ℝ preserving the global antitone second derivative (extend with constant x''(0) for τ < 0 and constant x''(t) for τ > t). The combined DifferentiableOn hypotheses on x and deriv x force continuity, making deriv x 0 = 0 and deriv x t = v correctly encode x'(0) = 0 and x'(t) = v. The solution 2s/v is achievable (by the quadratic x(τ) = (v²/(4s))τ²) and upper-bounds the set by concavity of x'. Both the informal and Lean sets have 2s/v as their greatest element, so IsGreatest captures "max is 2s/v" faithfully.
+
+### putnam_1972_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures each component of the informal statement. The arbitrary group is encoded via `(G : Type*) [Group G]`, the equation `A * B * A = B * A^2 * B` matches $ABA = BA^2B$, and `A^3 = 1` matches directly. The phrase "for some positive integer n" is encoded as `∃ n : ℤ, n > 0 ∧ B^(2*n - 1) = 1`; although n is typed as ℤ rather than ℕ, the constraint `n > 0` restricts to positive integers, giving exactly the same set of values {1, 2, 3, ...}, and when n > 0 the integer power `B^(2*n-1)` coincides with ordinary repeated multiplication. The conclusion `B = 1` matches. Bundling the three hypotheses in a single conjunction is logically equivalent to separate hypotheses. No hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_1972_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal claim. The hypothesis `n > 1` on `n : ℕ` captures "$n \geq 2$"; using ℕ rather than ℤ is harmless since any integer ≥ 2 is a natural and $x^n$ for $x : ℤ$ requires non-negative exponent anyway. `MvPolynomial (Fin 3) ℤ` correctly represents a three-variable polynomial with integer coefficients. The `vars`/`hvars` pair unambiguously assigns variable 0 ↦ $x^n$, variable 1 ↦ $x^{n+1}$, variable 2 ↦ $x + x^{n+2}$ (the nested `ite` resolves the `Fin 3` cases correctly). The conclusion "∀ x : ℤ, x = eval (...) P" is equivalent to the polynomial identity over ℤ since ℤ is an infinite integral domain. No hypotheses have been added or dropped, and the quantifier structure (∃ P, ∀ x) matches the informal claim.
+
+### putnam_1972_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. "Skew (non-planar) quadrilateral" is captured by `¬Coplanar ℝ {A, B, C, D}`, where Mathlib's `Coplanar` requires `Module.rank ≤ 2` of the vectorSpan. The angle notation `∠ A B C` from `EuclideanGeometry.angle` matches ∠ABC as the undirected angle at vertex B, and the angle hypotheses `∠ A B C = ∠ C D A ∧ ∠ B C D = ∠ D A B` match ∠ABC=∠CDA and ∠BCD=∠DAB exactly. The conclusion `dist A B = dist C D ∧ dist B C = dist D A` matches AB=CD and AD=BC (using symmetry of `dist`). The ambient `EuclideanSpace ℝ (Fin 3)` is not a restriction because 4 non-coplanar points always span a 3-dimensional affine subspace, and both angles and distances are isometry-invariant, so the statement is equivalent to one in any higher-dimensional Euclidean space.
+
+### putnam_1972_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature captures exactly the informal claim. `k ≥ 1` matches the implicit requirement in "$n_1 < \dots < n_k$". The `n : Fin k → ℤ` with `n i > 0` and strict monotonicity encodes the strictly increasing positive integer sequence. The polynomial `1 + ∑ i, z^(n i)` matches $1 + z^{n_1} + \dots + z^{n_k}$ (integer powers of positive integers coincide with natural powers). `Metric.ball 0 ((√5-1)/2)` is the open disk $|z| < (\sqrt{5}-1)/2$, and the conclusion `zpoly z ≠ 0` on this ball exactly says the polynomial has no roots inside that disk. All hypotheses and the conclusion correspond one-to-one with the informal statement.
+
+### putnam_1973_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes both parts of the informal claim. The triangle is set up in `EuclideanSpace ℝ (Fin 2)` with non-collinearity of A, B, C, and X, Y, Z lie on the respective closed segments (which match "sides" in the informal statement including endpoints). Areas are encoded as `volume (convexHull ℝ {·, ·, ·})`, which in 2D Euclidean space equals the triangle's area. Part 1's length constraint (BX ≤ XC, etc.) is captured using `dist`, and the inequality [XYZ] ≥ (1/4)[ABC] is direct. Part 2 is unconditional (matching "regardless of this constraint") and uses `sInf` of a 3-element set in ℝ≥0∞; since sInf of a finite set equals the minimum, `sInf {a, b, c} ≤ v` is equivalent to "at least one of a, b, c is ≤ v", faithfully capturing "one of [AZY], [BXZ], or [CYX] ≤ [XYZ]".
+
+### putnam_1973_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes both parts of the informal problem. The list L of length 8 with ±1 entries encodes the block of 8 signs; `pluses = 4` correctly encodes "balanced" (4 plus and 4 minus signs). The partial sum `S(n) = ∑_{i=1}^{n} L[i%8]/i` correctly captures the series with period-8 sign pattern (e.g., i=1 uses L[1], i=9 uses L[1], matching "9th term has same sign as 1st"). The first conjunct `pluses = 4 → convergent` is Part 1 (balanced ⟹ convergent). The second conjunct `solution ↔ (convergent → pluses = 4)` encodes the Part 2 question "is balanced necessary?"; with solution = True, this asserts (for every L) that convergent ⟹ balanced, which is the correct answer. The theorem's universal quantification over L makes the second part exactly the "necessity" claim.
+
+### putnam_1973_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal problem. The set-builder `{k + (n : ℝ)/(k : ℝ) | k > (0 : ℤ)}` expands (via Mathlib's extBinder set-builder macro) to the image of `k ↦ k + n/k` as `k` ranges over positive integers `ℤ`. For positive `n`, this set attains its minimum (since `k + n/k → ∞` as `k → ∞` and the real-valued minimum at `k = √n` is achieved near the nearest positive integers), so `sInf` equals the "minimum value" in the informal statement. The conclusion `floor (b n) = floor (Real.sqrt (4*n+1))` under `n > 0` exactly matches "b(n) and √(4n+1) have the same integer part" for positive n. Although `b` is defined on all of `ℤ`, the claim is only asserted for positive `n`, so there is no logical drift.
+
+### putnam_1973_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the number of real zeros of f(x) = 2^x - 1 - x^2. The Lean statement defines f exactly as written and asserts that the solution (3) equals {x : ℝ | f x = 0}.ncard. Set.ncard gives the natural-number cardinality of a finite set (with junk value 0 if infinite), which correctly encodes "how many zeros". Since the zero set is genuinely finite (three zeros at x = 0, 1, and approximately 4.26), the ncard encoding matches the informal count exactly. The function type is ℝ → ℝ and the zero set is over ℝ, matching "on the real line". No hypotheses are added or dropped, and the quantifier structure is correct.
+
+### putnam_1973_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement accurately. The function `a : Finset.Icc 1 (2*n+1) → ℤ` represents 2n+1 integers indexed by the subtype. The hypothesis `h_remove` quantifies over all finsets S of size 2n in the 2n+1-element index type; each such S is the complement of a singleton (i.e., "removing one element"), so this is equivalent to the informal "if any one is removed". The existence of T ⊆ S with |T|=n and equal sums, combined with |S|=2n forcing |S\T|=n, precisely encodes "divided into two sets of n integers with equal sums". The conclusion ∀ i j, a i = a j matches $a_1 = \cdots = a_{2n+1}$. The edge case n=0 is vacuously handled consistently in both forms. No hypotheses are added or dropped.
+
+### putnam_1973_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures exactly the informal claim. The hypothesis `∃ q1 q2 : ℚ, z.re = q1 ∧ z.im = q2` encodes "x and y rational" since x = z.re and y = z.im (with the standard ℚ → ℝ coercion). The norm hypothesis `‖z‖ = 1` matches ||z|| = 1. The conclusion `∀ n : ℤ, ∃ q : ℚ, ‖z^(2*n) - 1‖ = q` correctly formalizes "||z^{2n} - 1|| is rational for every integer n", using integer power `z^(2*n)` with n : ℤ (zpow), which is well-defined since ||z|| = 1 implies z ≠ 0. The quantifier structure, types, and mathematical content all align with the informal statement.
+
+### putnam_1973_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The hypothesis `∀ x ∈ Set.Ico 0 p, Nat.Prime (x^2 - x + p)` uses the range [0, p) instead of the informal (0, p), but this makes no logical difference: at both x = 0 and x = 1, the expression x^2 - x + p evaluates to p, so the extra endpoint x = 0 contributes no new constraint beyond what x = 1 already requires. The conclusion `∃! triple : ℤ × ℤ × ℤ` with conditions `b^2 - 4*a*c = 1 - 4*p ∧ 0 < a ∧ a ≤ c ∧ -a ≤ b ∧ b < a` exactly mirrors the informal "exactly one triple of integers a, b, c satisfying b² - 4ac = 1 - 4p, 0 < a ≤ c, -a ≤ b < a". The use of `p : ℕ` rather than ℤ is immaterial given `p > 1`, and the expression `1 - 4*p` is correctly coerced to ℤ via unification with `b^2 - 4*a*c : ℤ`.
+
+### putnam_1973_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization changes the domain from [0,1] to ℝ, but this is logically equivalent as a universally quantified statement because (a) any f on ℝ with the property on ℝ can be restricted to [0,1] to get the informal claim, and (b) any f on [0,1] with the property can be extended to ℝ by linear continuation using f'(0) and f'(1), preserving C¹, 0 < f' ≤ 1, and f(0)=0, without changing integrals over [0,1]. The comment in the file explicitly acknowledges this extension reasoning. `ContDiff ℝ 1 f` faithfully encodes "continuous derivative" (C¹), the bounds on deriv match the informal 0 < f'(x) ≤ 1, and f(0) = 0 is preserved. The conjunctive conclusion captures both "prove the inequality" and "find an example where equality holds" — with f(x) = x serving as a valid witness on both domains ((1/2)² = 1/4 = ∫₀¹ x³). No hypotheses are silently added or dropped beyond what the extension argument makes equivalent.
+
+### putnam_1974_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes "conspiratorial" correctly: (1) the `a > 0 ∧ b > 0 ∧ c > 0` conjunct inside the universally quantified triple (taking a=b=c) forces every element of S to be positive, matching "set of positive integers"; (2) the conditional `(a ≠ b ∧ b ≠ c ∧ a ≠ c) → (Int.gcd a b > 1 ∨ Int.gcd b c > 1 ∨ Int.gcd a c > 1)` is the exact negation of "three distinct elements are pairwise relatively prime", matching "no three of them are pairwise relatively prime". The conclusion `IsGreatest {k | ∃ S, S ⊆ Icc 1 16 ∧ conspiratorial S ∧ S.encard = k} putnam_1974_a1_solution` correctly states that the solution is the maximum cardinality among conspiratorial subsets of {1,...,16}. The encoding with ℤ and Icc 1 16 restricts to exactly the positive integers 1 through 16, and the encard/ℕ∞ coercion works correctly for this finite answer (11).
+
+### putnam_1974_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the Putnam 1974 A3 problem. The solution sets match the classical answer: primes ≡ 1 (mod 8) for form x²+16y² and primes ≡ 5 (mod 8) for form 4x²+4xy+5y². The biconditional correctly characterizes which primes p > 2 admit each representation (with x, y ∈ ℤ as specified in the informal statement). The hypothesis `assmption` encodes the "well-known theorem" explicitly mentioned in the informal statement as background; since this hypothesis is a true theorem of mathematics, the conditional statement is logically equivalent to the unconditional version, and encoding the mentioned background as a hypothesis is a reasonable reading of the problem. The p>2 condition on the LHS is consistent with primes ≡ 1 or 5 (mod 8), which are all automatically >2.
+
+### putnam_1974_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean sum over Finset.Icc 0 ⌊n/2⌋₊ is numerically equivalent to the informal sum over "k < n/2": for odd n, both ranges coincide; for even n, the Lean range has one extra term at k = n/2, but (n - 2·(n/2)) = 0 makes that term vanish, so the sums are equal in ℚ. The subtraction n - 2k occurs with k ≤ ⌊n/2⌋, so 2k ≤ n and ℕ/ℚ subtraction give the same result. The summand type is ℚ (needed for the outer 1/2^(n-1) multiplication), and n.choose k coerces correctly. The hypothesis `0 < n` surfaces the implicit combinatorial convention that n is a positive integer (also avoiding the ℕ-subtraction artifact 2^(0-1) = 1 in the coefficient). This is faithful in the spirit of the worked example about making implicit premises explicit.
+
+### putnam_1974_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes "minimal degree of a monic integer polynomial f such that 10^6 ∣ f(x) for all integers x, equals the solution." Specifically: `Monic f` with `f : Polynomial ℤ` matches "monic integral polynomial"; `∀ x : ℤ, (10^6 : ℤ) ∣ f.eval x` matches "f(x) is divisible by 1000000 for every integer x" (since 10^6 = 1,000,000); and `sInf {d : ℕ | ∃ f, … ∧ d = f.natDegree}` matches "minimal degree" (for monic polynomials, which are nonzero, natDegree coincides with the usual notion of degree). The `hdivnallx` auxiliary is merely a definitional abbreviation introduced via a hypothesis, not a semantic change. The set is nonempty, so `Nat.sInf` returns the minimum as expected.
+
+### putnam_1974_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. `y : ℝ → ℝ` is a real-valued function of a real variable; `ContDiff ℝ 1 y` is exactly the standard C^1 / continuously differentiable condition. The hypothesis `Tendsto (fun x => (deriv y x)^2 + (y x)^3) atTop (𝓝 0)` directly mirrors "(y')² + y³ → 0 as x → +∞" (using `deriv` is appropriate for functions ℝ → ℝ). The conclusion `Tendsto y atTop (𝓝 0) ∧ Tendsto (deriv y) atTop (𝓝 0)` is precisely "y(x) → 0 and y'(x) → 0 as x → +∞". No extra or missing hypotheses, no type changes, no quantifier drift.
+
+### putnam_1974_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature takes an arbitrary real α, assumes Real.cos (Real.pi * α) = 1/3, and concludes Irrational α. Mathlib's `Irrational` is defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`, i.e., the real number is not rational — exactly the informal meaning. The hypothesis `Real.cos (Real.pi * α) = 1/3` directly encodes `cos(πα) = 1/3`, and the universal quantification over α is implicit via Lean's argument. No extra hypotheses are added and none are dropped, so the formalization is logically equivalent to the informal statement.
+
+### putnam_1974_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The informal claim has an obvious typo ("f : ℝ → ℝ") which should be ℝ² → ℝ given the rest of the text refers to f(x,y) on ℝ²; Lean uses ℝ × ℝ → ℝ, matching the intended domain. The "continuous in each variable separately" hypothesis is correctly rendered by the two hypotheses hfcontx and hfconty, which say that for each fixed y (resp. x), the partial map is continuous. The conclusion asserts existence of a sequence of continuous functions g n : ℝ × ℝ → ℝ with pointwise convergence g_n(x,y) → f(x,y) for all (x,y), encoded via Tendsto ... atTop (𝓝 ...), which is the standard Mathlib way to express pointwise limits of sequences. No hypotheses are added or dropped, the quantifier structure matches, and the types align with the intended mathematical content.
+
+### putnam_1974_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. Since `Finset.Icc (0 : ℕ) n` forces `n : ℕ`, quantifying over "integer n ≥ 0" correctly corresponds to quantifying over ℕ (and the redundant `n ≥ 0` is always true, matching the informal restriction). The sum `∑ i ∈ Finset.Icc (0 : ℕ) n, (n^i : ℝ)/(Nat.factorial i)` is exactly $\sum_{i=0}^{n} n^i/i!$ (which equals $1 + n/1! + n^2/2! + \cdots + n^n/n!$), and `(Real.exp n)/2` is $e^n/2$. The strict inequality `>` matches the informal `>`. All types, bounds, and quantifier structure align with the informal claim.
+
+### putnam_1974_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses `Finset.Icc 1 1000` (as a subset of ℤ) as a concrete 1000-element set, which is appropriate since the number of subsets with a given cardinality mod class depends only on the size. The set `{S | S ⊆ Finset.Icc 1 n ∧ S.card ≡ k [MOD 3]}` counts Finset ℤ subsets of {1,...,1000} with |S| ≡ k mod 3, matching the informal "how many subsets with cardinality ≡ k mod 3". The `Nat.ModEq` notation `[MOD 3]` correctly captures "≡ mod 3", and `ncard` gives the count. The conclusion returns the triple (count0, count1, count2), matching the three quantities asked for in the informal statement. The choice of ℤ vs ℕ for n is inconsequential since Finset.Icc 1 1000 has 1000 elements either way.
+
+### putnam_1975_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures both parts of the informal statement. Part 1 encodes the existence of formulas for x,y in terms of a,b via the solution pair (ℤ×ℤ→ℤ)×(ℤ×ℤ→ℤ), with expected answer (a+b+1, a-b) which algebraically satisfies (a+b+1)² + (a-b)² = 4n+1 when n = (a²+a)/2 + (b²+b)/2. Part 2 encodes the converse with matching quantifier structure: ∀n∈ℤ, (∃x,y∈ℤ, 4n+1=x²+y²) → (∃a,b∈ℤ, n=T_a+T_b). All types match the informal (n, a, b, x, y all integers), and using integer a ∈ ℤ in the triangular number formula is consistent with the informal wording "for some integers a and b" and yields the same set of values as nonneg a. The rational coercion in nab is necessary for the division by 2 but doesn't change the meaning since it equates an integer n with a rational that must equal an integer.
+
+### putnam_1975_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement quantifies over all real (b, c) and asserts that the condition "every complex root z of z² + bz + c satisfies |z| < 1" is equivalent to the solution set. Since the polynomial has degree 2 over ℂ, by FTA it has exactly 2 roots (with multiplicity), so "all roots lie strictly inside the unit disk" coincides with "both roots lie strictly inside the unit disk." The polynomial expression `X^2 + C(b)*X + C(c)` correctly encodes z² + bz + c, `‖z‖ < 1` correctly encodes strictly inside the open unit disk, and the iff structure correctly encodes the "for which ordered pairs" characterization. No hypothesis is added or dropped, and the mathematical content is preserved.
+
+### putnam_1975_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the optimization problem: hypothesis `0 < a < b < c` matches, the constraint set `P` correctly expresses $x^b + y^b + z^b = 1$ with $x,y,z \geq 0$, and $f = x^a + y^b + z^c$ matches the informal objective. The conclusion splits into two parts: `solution.1` is claimed to lie in the feasible set and dominate all other feasible points (i.e., achieves the max), and `solution.2` is claimed to lie in the feasible set and be dominated by all other feasible points (i.e., achieves the min). This is the standard "find a specific point and verify it attains the extremum" encoding used for Putnam optimization problems, faithfully answering "at what points does $f$ attain its max and min".
+
+### putnam_1975_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The hypothesis `Odd m ∧ m > 1` matches "m is an odd integer greater than 1" (using ℕ is fine since m > 1 ensures positivity). The definition `θ = cexp(2πi/(2m))` correctly encodes $\theta = e^{2\pi i/n}$ with $n = 2m$. The conclusion `1/(1-θ) = Polynomial.aeval θ (solution m)` asks to express $(1-\theta)^{-1}$ as a polynomial in θ, and using `Polynomial ℤ` ensures integer coefficients as required. The requirement that θ ≠ 1 (so that 1/(1-θ) is well-defined) follows from the hypotheses since 2m > 2 makes θ a non-trivial root of unity. No hypotheses are silently added or dropped, and the quantifier structure matches.
+
+### putnam_1975_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypothesis defines H as the set of all ℤ-linear combinations u·(3,8)+v·(4,-1)+w·(5,4), which is precisely the additive subgroup generated by these three elements. The conclusion correctly expresses "H is generated by (1,b) and (0,a)" as {(u, u·b + v·a) : u,v ∈ ℤ}, which is the set of all ℤ-linear combinations of (1,b) and (0,a). The quantifier structure "∃ b such that H has this form" matches the informal "for some integer b", and the condition `solution > 0` matches "positive integer a". The answer a = 7 is mathematically correct (gcd of 14 and 35). No hypotheses are added or dropped, and no type changes occur.
+
+### putnam_1975_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes a slab as {x | offset < n·x < offset + thickness} with the constraint ‖n‖=1. Although Mathlib's default norm on Fin 3 → ℝ is the sup norm (not Euclidean), this does not break equivalence: for any vector with ‖n‖_∞ = 1, we have 1 ≤ ‖n‖_2 ≤ √3, so the Euclidean thickness d_i = t_i/‖n_i‖_2 satisfies d_i ≤ t_i ≤ √3·d_i. Hence (t_i) is summable iff (d_i) is summable, and every sequence of geometric slabs with summable Euclidean thicknesses can be reparameterized in Lean's form (and vice versa). The positivity and convergence hypotheses, open-slab definition, and conclusion (univ ≠ ⋃ slabs, i.e., some point lies outside all slabs) all match the informal statement. The two are logically equivalent.
+
+### putnam_1975_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean definition `Multiset.esymm s k = ((s.powersetCard k).map Multiset.prod).sum` matches the informal definition of the k-th elementary symmetric function, and `esymm a 1` equals the sum of elements as required. The supremum claim is faithfully encoded as the conjunction of (a) `ratio ≤ sol k` for every valid multiset, and (b) for every `M < sol k` there exists a valid multiset with `ratio > M` — this is precisely the least-upper-bound property. The hypotheses "positive real entries" and `card a ≥ k` correctly model "positive reals" and "n ≥ k" (multisets suffice since esymm is symmetric). The added `k > 0` is a surfacing of an implicit premise: at k=0 the ratio is always 1 = 1/0!, which is attained, contradicting the informal "never attained" clause, so k=0 is implicitly excluded. Per the guidelines, surfacing such an implicit premise does not make the formalization weaker.
+
+### putnam_1975_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes the informal statement. `setOf P` with `P (x,y) = (x^2 + y^2 = 1)` is exactly the unit circle C. The existence `∃ B ⊆ setOf P, IsClosed B ∧ ...` captures "there exists a closed subset B of C". Closedness in ℝ² agrees with closedness in C since C is closed in ℝ². The condition `∀ x y : ℝ, P (x, y) → Xor' ((x, y) ∈ B) ((-x, -y) ∈ B)` uses Mathlib's `Xor' a b := (a ∧ ¬b) ∨ (b ∧ ¬a)` which means exactly one holds — correctly expressing "contains exactly one point from each diametrically opposite pair" (since (x,y) ≠ (-x,-y) for any point on C, and pairs are traversed symmetrically). The existence question is formalized as an iff with the Prop solution, the standard Putnam pattern.
+
+### putnam_1975_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. Setting `e = Real.exp 1` makes `e^x` (via `HPow ℝ ℝ ℝ` = `Real.rpow`) equal to `Real.exp x` by `Real.exp_one_rpow`, so `f 0 x = e^x` matches $f_0(x) = e^x$. The recurrence `f (n+1) x = x * deriv (f n) x` encodes $f_{n+1}(x) = x f'_n(x)$; Lean's `deriv` equals the true derivative here since each `f_n` is differentiable (polynomial × exponential). The final `e^e` also equals `Real.exp (Real.exp 1)` via the same `rpow` simplification. The `tsum` notation `∑' n : ℕ, ...` equates to the series value when summable (0 otherwise); since `e^e > 0`, the equation forces both summability and the correct limit, matching the informal $\sum_{n=0}^\infty f_n(1)/n! = e^e$. No hypotheses are added or omitted improperly.
+
+### putnam_1975_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes both parts of the informal claim. The harmonic-like sum `s n = ∑ i ∈ Finset.Icc 1 n, 1/(i : ℝ)` equals 1 + 1/2 + ... + 1/n. The first conjunct `n * (n+1 : ℝ)^(1/(n : ℝ)) < n + s n` for n > 1 matches n·(n+1)^(1/n) < n + s_n. The second conjunct `((n : ℝ) - 1)*((n : ℝ)^(-1/(n-1 : ℝ))) < n - s n` for n > 2 matches (n-1)·n^(-1/(n-1)) < n - s_n; the `(n-1 : ℝ)` elaborates to `(n : ℝ) - 1` (and is unambiguous for n > 2 in either elaboration). All coercions, exponents (rpow), and quantifier conditions (n > 1 and n > 2 on ℕ) match the informal statement exactly without adding or omitting hypotheses.
+
+### putnam_1976_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures each piece of the informal statement: P, Q, F_n, G_n match the given formulas (P = x²y+xy², Q = x²+xy+y², F_n = (x+y)ⁿ-xⁿ-yⁿ, G_n = (x+y)ⁿ+xⁿ+yⁿ). The hypothesis `0 < n` matches "positive integers n". The conclusion uses `∃ A : MvPolynomial (Fin 2) ℤ`, which is precisely "a polynomial in two variables with integer coefficients", and `aeval ![P, Q] A` correctly substitutes X 0 ↦ P and X 1 ↦ Q. The form `∃ A, (F_n = aeval ![P,Q] A) ∨ (G_n = aeval ![P,Q] A)` is logically equivalent to `(∃ A, F_n = A(P,Q)) ∨ (∃ B, G_n = B(P,Q))` since ∃ distributes over ∨, so the "either F_n or G_n" choice is faithfully encoded. No hypotheses are added or dropped.
+
+### putnam_1976_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding matches the informal statement precisely. The tuple order (p, r, q, s) matches, the conditions Nat.Prime p ∧ Nat.Prime q ∧ r > 1 ∧ s > 1 translate "p and q prime, r and s greater than 1" correctly, and the equation |(p^r : ℤ) - q^s| = 1 correctly lifts the difference to ℤ to handle the absolute value. Although the informal statement says "integer solutions" and the Lean uses ℕ, the constraints (primality forces positivity, r,s > 1 forces positivity) make the ℕ and ℤ solution sets identical, so this is not a semantic change. The "find all" encoding as set equality is the standard convention for this benchmark.
+
+### putnam_1976_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes: P is monic cubic with integer coefficients a, b and constant -1; r is a real root; P is irreducible over ℚ; Q is monic cubic with integer coefficients c, d and constant +1; r+1 is a root of Q. The conclusion asserts existence of a root s of P equal to one of the two solution functions -1/(r+1) or -(r+1)/r — these are precisely the two "other roots" of P (they're legitimately the third root since the product of all roots is 1). The informal asks to "express another root as a function of r"; since there are two valid expressible roots, encoding the solution as a pair and asserting existence of a matching root is a natural and faithful encoding of this "exhibit a formula" style problem. The implicit constraint s ≠ r is automatically satisfied because neither f₁(r)=r nor f₂(r)=r admits a real solution (both reduce to r²+r+1=0).
+
+### putnam_1976_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement exactly. `ContDiff ℝ 2 f` captures "twice continuously differentiable" (C²). The bound `∀ x, |f x| ≤ 1` matches "|f(x)| ≤ 1 for all real x". The hypothesis `(f 0)^2 + (deriv f 0)^2 = 4` correctly encodes (f(0))² + (f'(0))² = 4 since `deriv f 0` is f'(0). The conclusion `∃ y, f y + iteratedDeriv 2 f y = 0` matches "f(y) + f''(y) = 0 for some y", since `iteratedDeriv 2 f` unfolds to the second derivative via `iteratedDeriv_succ`. All types, hypotheses, quantifiers, and the conclusion align.
+
+### putnam_1976_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean expression captures the informal limit faithfully. Inside the sum, `k : ℤ` from `Finset.Icc (1 : ℤ) n`, so `(2*n)/k` elaborates to `ℤ`-valued Euclidean integer division (with `n` coerced from ℕ to ℤ); since `Int.floor` on an integer is the identity (Mathlib's `Int.floor_int`), `Int.floor ((2*n)/k)` just returns `(2*n) / k : ℤ`. For positive `k, n` (guaranteed by the summation range `[1, n]`), `Int.ediv` equals the mathematical floor `⌊2n/k⌋`, so the summand `Int.floor ((2*n)/k) - 2*Int.floor (n/k)` exactly encodes `⌊2n/k⌋ - 2⌊n/k⌋`. The outer `((1 : ℝ)/n) * (sum)` coerces the integer sum to ℝ, matching `(1/n) Σ_{k=1}^n (...)`. The `Tendsto ... atTop` correctly encodes the limit as `n → ∞`, and the conclusion `Real.log solution.1 - solution.2` with the solution living in `ℕ × ℕ` encodes the `ln(a) - b` form (though ℕ technically allows 0, the solution `(4,1)` has both positive, matching the "positive integers" requirement).
+
+### putnam_1976_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. G is a generic group with elements A, B; the `word` function encodes the alternating A^{n_i}B^{m_i} form (as lists of (ℤ × ℤ) pairs); `hG` asserts every element is such a word (matching "generated by A, B"); the relations A^4=1, A²≠1, B^7=1, B≠1, and ABA^{-1}B=1 are all directly encoded. The conclusion asserts both parts of the question: S.ncard = 8 (number of squares) and S equals the set of 8 specific words (expressing each square as a word in A, B). The solution's 8 elements {1, A², B, B², B³, B⁴, B⁵, B⁶} match the expected squares in the group of order 28 defined by this presentation. Encoding "the group with this presentation" as a universally quantified generic group satisfying the hypotheses is a standard and faithful approach since such groups are isomorphic.
+
+### putnam_1976_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement's components: the initial conditions and recurrence for $u_k$, the positivity (explicitly "assumed as known"), event probabilities ≥ $1-a$, and the conclusion $\mu(\bigcap A_i) \geq u_n$. The added `0 ≤ a` is an implicit premise needed for $1-a$ to be a valid probability lower bound. The independence condition encodes σ($A_i$) ⫫ σ($\{A_j : j < i-1\}$) for each $i$, which captures the informal "$A_i$ and $A_j$ mutually independent if $|i-j|>1$" in the standard probabilistic sense used for "1-dependent" processes — this is the natural/intended reading that makes the theorem provably true (the proof requires $A_i$ to be independent of the joint σ-algebra of earlier events beyond distance 1, not merely pairwise). Measurability is a natural implicit hypothesis. Overall, this is a faithful formalization making necessary implicit premises explicit.
+
+### putnam_1976_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to find the closed form of $\sum_{k=0}^{n} (-1)^k \binom{n}{k} (x-k)^n$, and the well-known answer is $n!$ (this is the $n$-th finite difference of $x^n$). The Lean formalization encodes this as a polynomial identity in $\mathbb{Z}[X]$: the sum $\sum_{k \in \text{range}(n+1)} C((-1)^k \binom{n}{k}) \cdot (X - C(k))^n$ equals the constant polynomial `C (Nat.factorial n) = n!`. The coefficient $(-1)^k \binom{n}{k}$, the base $(X-k)^n$, the summation range $\{0, \ldots, n\}$, and the solution $n!$ all match. The universal quantifier over $n : \mathbb{N}$ is the natural formalization of the free variable $n$ in the informal statement. Since $\mathbb{Z}$ is an infinite integral domain, the polynomial identity in $\mathbb{Z}[X]$ is equivalent to the pointwise identity for all integer (or real) values of $x$.
+
+### putnam_1976_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement faithfully. σ is defined as the sum over Nat.divisors N, which in Mathlib is the finset of positive divisors including 1 and N (and empty for N=0). The quasiperfect predicate σ N = 2N + 1 matches the informal definition. The conclusion ∃ m : ℤ, Odd m ∧ m^2 = N captures "N is the square of an odd integer": Odd over ℤ is the standard ∃ k, m = 2k+1 definition, and m^2 = N (with N coerced to ℤ) expresses that N is such a square. Although the informal statement says "positive integer N", N=0 cannot satisfy σ(0) = 1 (since divisors 0 = ∅, giving σ 0 = 0), so the positivity constraint is automatically enforced by the quasiperfect condition. No hypotheses are missing or added beyond what the informal statement asserts.
+
+### putnam_1977_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The four distinct points of the curve are encoded as S : Finset ℝ with S.card = 4 together with the set {P : Fin 2 → ℝ | P 0 ∈ S ∧ P 1 = y (P 0)}; since y is a function, distinct x-coordinates yield distinct points, so this set has exactly 4 points. Collinearity uses Mathlib's standard Collinear definition (vectorSpan rank ≤ 1), which matches the usual geometric meaning. The conclusion (∑ x ∈ S, x) / 4 = putnam_1977_a1_solution with solution -7/8 precisely states that the average x-coordinate equals this constant, which captures both "the average is a constant k" and "find k". No hypotheses are silently added or dropped; the quantifier structure (implicit ∀ over S followed by implication from collinearity) matches the informal "if...then" claim.
+
+### putnam_1977_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal problem asks for all real solutions of a+b+c=d and 1/a+1/b+1/c=1/d. The algebra yields (a+b)(b+c)(c+a)=0 combined with d=a+b+c, which gives exactly three cases: (a=-b, d=c), (b=-c, d=a), and (a=-c, d=b) — matching the three disjuncts of `putnam_1977_a2_solution` verbatim. The Lean statement encodes "find all solutions" as an iff between the solution predicate and the equations, quantified universally over reals. The nonzero hypotheses a,b,c,d ≠ 0 surface an implicit premise of the informal problem: the expressions 1/a, 1/b, 1/c, 1/d only make mathematical sense when their denominators are nonzero. In Lean, since 1/0 = 0 by convention, without these hypotheses the equations would admit spurious "solutions" (e.g., a=1, b=-1, c=0, d=0) that no mathematician would consider valid. Surfacing such a premise needed for the statement to be mathematically meaningful is explicitly described as a faithful formalization in the guidelines.
+
+### putnam_1977_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for an expression of h(x) in terms of f and g given the two averaging relations. The Lean formalization encodes this faithfully: it takes f, g, h : ℝ → ℝ, assumes the two functional equations f(x) = (h(x+1)+h(x-1))/2 and g(x) = (h(x+4)+h(x-4))/2 (matching exactly), and concludes h equals the solution formula applied to f and g. The solution `g(x) - f(x-3) + f(x-1) + f(x+1) - f(x+3)` correctly yields h(x) by telescoping: the h(x-4), h(x-2), h(x+2), h(x+4) terms cancel, leaving 2h(x)/2 = h(x). This is the standard Lean encoding of "find a formula" problems, equivalent in content to the informal claim.
+
+### putnam_1977_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement precisely. `RatFunc.X / (1 - RatFunc.X)` encodes the rational function $\frac{x}{1-x}$, which is the correct closed form (via telescoping: partial sums equal $\frac{1}{1-x} - \frac{1}{1-x^{2^{N+1}}} \to \frac{x}{1-x}$ on $(0,1)$). `Ioo 0 1` is the open interval $(0,1)$. Because `open RingHom` is in effect, `id ℝ` resolves to `RingHom.id ℝ`, so `putnam_1977_a4_solution.eval (id ℝ) x` evaluates the rational function at $x$ via `RatFunc.eval`. Lean's right-associative `^` makes `x ^ 2 ^ n = x ^ (2^n)` and `x ^ 2 ^ (n+1) = x ^ (2^(n+1))`, matching $x^{2^n}$ and $x^{2^{n+1}}$. The `∑' n : ℕ` sums from $n=0$, matching the informal sum. No hidden hypotheses are added or removed.
+
+### putnam_1977_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. The variables `p m n : ℕ` correctly model "non-negative integers"; `Nat.Prime p` matches "prime"; `hmgen : m ≥ n` matches "m ≥ n". The conclusion `choose (p * m) (p * n) ≡ choose m n [MOD p]` uses `Nat.ModEq`, which is defined as `a % n = b % n`, which is exactly the mathematical meaning of $\binom{pm}{pn} \equiv \binom{m}{n} \pmod p$. `Nat.choose` is the standard binomial coefficient. No hypotheses are added or dropped, and the quantifier/type structure matches.
+
+### putnam_1977_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formulation parameterizes all axis-aligned squares Y ⊆ X with at least one side on ∂X by their centers P ∈ X via the "max-square at P" construction: `room P = min(min a (1-a)) (min b (1-b))` is the L∞-distance to ∂X, and the resulting square always has a side on the boundary. Conversely, any Y satisfying (1)(2)(3) with center (a,b) and half-side s must satisfy s ≤ room(a,b) (from Y⊆X) and s ≥ min{a,1-a,b,1-b} (from one side touching ∂X), giving s = room(a,b). Thus there is a bijection between qualifying squares and centers P ∈ X (degenerate cases with room P=0 give trivial integrals). By Fubini for continuous f, the iterated intervalIntegral equals the double integral over the square. Though Lean quantifies over f : ℝ² → ℝ instead of f : X → ℝ, Tietze extension makes the two quantifications equivalent since hypothesis and conclusion only depend on f|X. The conclusion `∀ P ∈ X, f P = 0` correctly captures "f(x,y) = 0 for all x,y" on the domain X.
+
+### putnam_1977_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the value of the infinite product $\prod_{n=2}^{\infty} \frac{n^3-1}{n^3+1}$. The Lean formalization encodes this as the limit of the partial products $\prod_{n=2}^{N} \frac{n^3-1}{n^3+1}$ as $N \to \infty$ (via `Tendsto ... atTop (𝓝 (2/3))`), which is the standard definition of an infinite product of real numbers. Using `Finset.Icc (2 : ℤ) N` indexed over integers yields the same partial product values as indexing over natural numbers from 2 to N. The closed-form answer 2/3 is correct (telescoping gives $\frac{2(N^2+N+1)}{3N(N+1)} \to 2/3$). No hypotheses are added, dropped, or altered, and no quantifier structure is changed.
+
+### putnam_1977_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures all components of the informal statement: (1) P encodes "ordered triple of positive irrationals summing to 1" (Irrational a/b/c ∧ a,b,c > 0 ∧ a+b+c = 1); (2) balanced encodes "all three less than 1/2"; (3) B encodes the balancing act with f(x) = 2x-1 if x > 1/2, else 2x, applied componentwise; (4) the question "will finitely many iterations always eventually produce a balanced triple" is faithfully rendered as ∀ t, P t → ∃ n : ℕ, balanced (B^[n] t), using Mathlib's Nat.iterate. The iff with putnam_1977_b3_solution (= False) captures the yes/no answer to the Putnam question. The boundary case x = 1/2 in the ite is irrelevant since irrational values can never equal 1/2. No quantifier structure, type, or hypothesis is altered.
+
+### putnam_1977_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the informal statement. The hypothesis `n > 1`, the real-valued sequence encoded as `a : Fin n → ℝ`, and the inequality `A + ∑ (a i)^2 < (1/(n-1))*(∑ a i)^2` all match the informal claim exactly. The conclusion `∀ i j : Fin n, i < j → A < 2*(a i)*(a j)` correctly captures "for all $1 \le i < j \le n$, $A < 2a_i a_j$" — the shift from 1-based to 0-based indexing via `Fin n` is immaterial since `a` is just a reindexing, and the strict inequality `i < j` preserves the pair structure. The `hn : n > 1` hypothesis also ensures `(n:ℝ) - 1 ≠ 0`, making the division meaningful. No hypotheses are added or dropped, and no quantifier structure is altered.
+
+### putnam_1977_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the Putnam 1977 B6 problem. The `[Finite H]` instance makes explicit the implicit premise that "H has h elements" for h : ℕ means H is finite — this is a surfacing of an implicit premise, not a weakening. The hypothesis `ha : ∀ x : H, (x*a)^3 = 1` correctly uses the subgroup subtype coercion to express "(xa)^3 = 1 for all x ∈ H". The set P is encoded as products over lists of H-elements of length ≥ 1 of the form (h*a), and `List.prod` gives x₁a·x₂a·⋯·xₙa, matching the informal description exactly. The conclusion `Finite P ∧ P.ncard ≤ 3*h^2` together states P is finite with at most 3h² elements, matching the informal claim. The parameters h : ℕ with h_def : h = Nat.card H is logically equivalent to using Nat.card H directly.
+
+### putnam_1978_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The set S is correctly encoded: with j ranging over integers with 0 ≤ j ≤ 33, the values 3j+1 produce exactly {1, 4, 7, ..., 100} (34 elements), matching the informal set. The hypothesis T ⊆ S ∧ T.ncard = 20 correctly captures "T is a subset of 20 elements of S" — since T ⊆ S and S is finite, T.ncard = 20 means T has exactly 20 elements. The conclusion `∃ m ∈ T, ∃ n ∈ T, m ≠ n ∧ m + n = 104` precisely expresses "two distinct elements of T with sum 104". The choice of ℤ for the ambient type is appropriate. No hypotheses are added or dropped, and the quantifier structure matches.
+
+### putnam_1978_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement in all substantive ways: the matrix entries correctly encode a (above diagonal), b (below diagonal), and c_i (diagonal) using nested `ite` expressions on i < j and i > j; the polynomial p(x) = ∏_{i=1}^n (c_i - x) is correctly expressed as `∏ i : Fin n, (c i - x)`; and the determinant formula (b·p(a) - a·p(b))/(b-a) is faithfully stated. The hypothesis `a ≠ b` matches "b ≠ a". The added `npos : n > 0` hypothesis surfaces a standard convention implicit in describing "the n × n matrix" with product notation ∏_{i=1}^n, which conventionally assumes n ≥ 1. This is a reasonable reading of the informal statement rather than a substantive weakening.
+
+### putnam_1978_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately encodes every element of the informal statement. The polynomial `p` is written identically. The integral `I k = ∫ x in Ioi 0, x^k / p.eval x` matches $I_k = \int_0^\infty x^k/p(x)\,dx$. The constraint `k ∈ Ioo 0 5` over ℕ yields exactly $\{1,2,3,4\}$, matching "$0 < k < 5$". The conclusion `IsLeast {y | ∃ k ∈ Ioo 0 5, I k = y} (I 2)` unfolds to: (a) $I_2$ is in the set (trivially since $2 \in \{1,2,3,4\}$) and (b) $I_2 \le I_k$ for all $k \in \{1,2,3,4\}$. This is the standard way to say "$k=2$ minimizes $I_k$", which is exactly the content of "for which $k$ is $I_k$ smallest?" with answer 2.
+
+### putnam_1978_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the informal claim. The sequence a_1,...,a_n is represented as `a : Fin n → ℝ` with each term in `Ioo 0 Real.pi` (matching "(0, π)"). The arithmetic mean `μ = ∑ i, a i / n` parses correctly since Mathlib's ∑ notation uses precedence 67 for its body while `/` has precedence 70, so this equals `(∑ i, a i) / n`. The conclusion `∏ i, sin (a i) / (a i) ≤ (sin μ / μ) ^ n` faithfully encodes the product inequality. The added hypothesis `n > 0` is a natural implicit premise (the arithmetic mean requires at least one term), not a narrowing of scope.
+
+### putnam_1978_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement: `EuclideanSpace ℝ (Fin 2)` is the plane, `Finset` gives distinct points, `n = S.card`, and the set `{pair | ∃ P Q ∈ S, pair = {P, Q} ∧ dist P Q = 1}` captures unordered pairs at distance 1 (since `{P, Q}` as a Set is unordered and `dist P Q = 1` forces P ≠ Q). The bound `2 * (n : ℝ) ^ ((3 : ℝ) / 2)` correctly encodes 2n^(3/2). The hypothesis `npos : n > 0` is not a weakening: for n = 0 the claim would reduce to 0 < 0, which is false, so n ≥ 1 is an implicit premise needed for the statement to be true (standard "given n distinct points" convention). Making this explicit is a faithful reading of the intended content.
+
+### putnam_1978_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement precisely: (1) `ℕ+` correctly encodes indices starting at i=1 and j=1; (2) the denominator `i^2*j + 2*i*j + i*j^2` is algebraically identical to the informal `i²j + 2ij + ij²`; (3) the nested `∑'` over positive integers captures the iterated double series — since all terms are positive, this agrees with the informal iterated sum; (4) the answer is set to 7/4 as a ℚ, consistent with the informal problem asking to find the value. Using ℚ is appropriate since every term and the limit are rational. No hypotheses are added or dropped, and the conclusion is an exact equality, so the Lean statement is logically equivalent to the informal claim.
+
+### putnam_1978_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. Base cases P 1 = 1+X and P 2 = 1+2X match. The recursion uses ℕ+ (making explicit the implicit premise n ≥ 1 needed for well-posedness), and PNat subtraction gives the correct value for 2n-1 since 2n ≥ 2 > 1. Checking: for n=1, hPodd gives P 3 = P 2 + 2X·P 1, matching the informal P_3 = P_2 + 2x·P_1. The coefficient C((n:ℝ)+1) matches (n+1). The combination of `haroot` (a n is a root) and `haub` (a n is ≥ all roots) correctly encodes "largest real root". The conclusion `StrictMono a ∧ Tendsto a atTop (𝓝 0)` precisely captures "strictly monotonically increasing and tends to zero". Taking the existence of a_n as a hypothesis is the standard way to formalize "let a_n be the largest real root".
+
+### putnam_1978_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says integers $a,b,c,d$ satisfying the equation exist with the smallest of them arbitrarily large. "Smallest arbitrarily large" means: for any bound $N$, we can find integers with $\min(a,b,c,d) > N$, which is equivalent to requiring all four integers to exceed $N$. The Lean statement quantifies over all $N : \mathbb{R}$ and asserts existence of integers $a,b,c,d$ each greater than $N$ satisfying the same equation $a^2+b^2+c^2+d^2 = abc+abd+acd+bcd$. Using $\mathbb{R}$ for the bound $N$ rather than $\mathbb{Z}$ or $\mathbb{N}$ does not change the meaning since "arbitrarily large" is equivalent under either quantification. The equation and types match exactly, so this is a faithful formalization.
+
+### putnam_1978_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal problem. The set S captures "polynomials of degree 4 with p([-1,1]) ⊆ [0,1]" via `p.degree = 4` (which in Mathlib requires a nonzero x^4 coefficient, matching the standard "degree 4" meaning) and `∀ x ∈ Icc (-1) 1, p.eval x ∈ Icc 0 1` (matching the image condition). The conclusion asserts both that the candidate `4X^4 - 4X^2 + 1` belongs to S and that its coefficient of x^4 is maximal among all members of S, precisely capturing "the polynomial with largest possible coefficient of x^4". The solution polynomial corresponds to (T_4(x) + 1)/2, the known extremal Chebyshev-like answer. No hypotheses are added or dropped, and the conclusion matches the informal request.
+
+### putnam_1978_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes all key components: the constraint $a_{ij} \in [0,1]$ via `Icc 0 1`, the double sum structure via `Finset.Icc 1 n` and `Finset.Icc 1 (m * i)` matching $\sum_{i=1}^n$ and $\sum_{j=1}^{mi}$, the division `a i j / i` (with `ℕ → ℝ` coercion), and the RHS factor `2 * m`. The hypothesis `m > 0 ∧ n > 0` makes explicit the implicit premise — standard in Putnam notation using $\sum_{i=1}^n$ — that $m$ and $n$ are positive integers. While the inequality trivially holds when $m = 0$ or $n = 0$ (both sides equal 0), these degenerate cases are not the substance of the problem, and making this assumption explicit is a faithful reading of the intended mathematical content. The function `a : ℕ → ℕ → ℝ` being defined on all naturals with the bound applied universally is a harmless extension, since any collection of $a_{ij}$ with bounded indices can be extended.
+
+### putnam_1979_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem: "find positive integers n, a_1,...,a_n summing to 1979 that maximize the product". The multiset encoding handles symmetry (since sum and product don't depend on order). The predicate P encodes each required condition: `Multiset.card a > 0` gives positive n, `∀ i ∈ a, i > 0` gives positive a_i, and `a.sum = 1979` gives the sum constraint. The conclusion `P solution ∧ ∀ a, P a → solution.prod ≥ a.prod` correctly asserts that the provided witness (659 threes and a 2, summing to 1979) is valid and achieves the maximum product over all valid configurations — which is exactly what "attains the greatest value" means. This matches the standard PutnamBench pattern for "find the maximizer" problems.
+
+### putnam_1979_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to characterize the real numbers $k$ for which there exists a continuous $f : \mathbb{R} \to \mathbb{R}$ satisfying $f(f(x)) = kx^9$ for all real $x$. The Lean statement formalizes this as a universal biconditional: for every $k$, the existence of such a continuous $f$ is equivalent to `putnam_1979_a2_solution k`. This is the standard way to formalize a "for which $k$" characterization problem. The continuity condition, the domain/codomain types, the functional equation $f(f(x)) = kx^9$, and the universal quantifier over $x$ all match the informal statement exactly. The expression `k*x^9` matches $kx^9$. No extra hypotheses are imposed and none are missing.
+
+### putnam_1979_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The recurrence is correctly encoded (for n=3, x 3 = x 1 * x 2 / (2*x 1 - x 2), matching the informal formula). The conclusion `∀ m, ∃ n > m, ∃ a : ℤ, a = x n` correctly captures "x_n is integer for infinitely many n". The solution set `∃ m : ℤ, a = m ∧ b = m` applied to (x 1, x 2) correctly asserts x_1 = x_2 ∈ ℤ, which is indeed the correct answer (via y_n = 1/x_n being arithmetic, we get x_n → 0 unless x_1 = x_2). The only minor encoding choice is requiring x 0 ≠ 0, but x 0 never appears in the recurrence nor the "infinitely many" condition (since n > m for all m forces n ≥ 1), so this is immaterial and does not alter the iff.
+
+### putnam_1979_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the Putnam problem. The set A is encoded via two disjoint Finsets R, B with equal cardinality (giving 2n distinct points), and the no-three-collinear condition uses Mathlib's `Collinear ℝ` on 3-element subsets of R ∪ B. The segments are parameterized by `w(P,Q)(x) = x*P + (1-x)*Q` for x ∈ [0,1], giving closed line segments. The Finset v has n pairs (L.1, L.2) with L.1 ∈ R and L.2 ∈ B, and the condition that for L ≠ M the Euclidean distance between points on the segments is never 0 correctly enforces non-intersection (including disjoint endpoints). Combined with v.card = n = |R| = |B|, this forces a perfect matching between red and blue points, matching the standard interpretation. The solution wrapping (putnam_1979_a4_solution ↔ ∀...) with intended value True correctly answers the "Must there exist..." question affirmatively.
+
+### putnam_1979_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal claim. (1) The sequence S is defined as `⌊n*x⌋` with n : ℕ, matching ⌊0⌋, ⌊x⌋, ⌊2x⌋, … (2) P x asserts x is a real root of x³ - 10x² + 29x - 25, and the ∃ α β with α ≠ β captures "distinct real roots". (3) The condition `∀ n : ℕ, ∃ m : ℤ, m > n ∧ ∃ c d, S α c = m ∧ S β d = m` says the set of common values in the two sequences is unbounded above; since n ≥ 0 forces m ≥ 1 (m is a positive integer), this is exactly equivalent to "infinitely many positive integers appear in both S(α) and S(β)" (a subset of positive integers is infinite iff unbounded above). No hypotheses are added or dropped, and the quantifier structure matches.
+
+### putnam_1979_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the same claim: for p_i ∈ [0,1], there exists x ∈ [0,1] with ∑ 1/|x - p_i| ≤ 8n · ∑ 1/(2i+1). The only apparent addition is the hypothesis `∀ i ∈ Finset.range n, x ≠ p i`, but this makes explicit an implicit premise of the informal statement: the expression 1/|x - p_i| is mathematically undefined when x = p_i, so any natural reading of the informal claim requires x to avoid the p_i so that the sum is well-defined. In Lean, without this condition the `1/0 = 0` convention would change the meaning of the expression from the intended analytic one. All other elements (types, ranges, quantifier structure, coercions of n and i to ℝ, and the Icc encoding of [0,1]) match directly.
+
+### putnam_1979_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature captures the informal statement faithfully: the hypothesis `0 < a ∧ a < b` encodes "0 < a < b"; the integrand `(b*x + a*(1-x))^t` is the correct expression using `Real.rpow` (valid since the base is strictly positive on [0,1]); the integral `∫ x in Icc 0 1, ...` is the Lebesgue integral over [0,1] which matches the Riemann integral from 0 to 1; the outer `^(1/t)` matches; and `Tendsto ... (𝓝[≠] 0) (𝓝 solution)` encodes "t → 0". Using the punctured neighborhood `𝓝[≠] 0` rather than `𝓝 0` is the correct/standard interpretation since the function is undefined at t = 0 (due to 1/t), and is the only meaningful reading of the informal limit. The solution template `e^{-1}·(b^b/a^a)^{1/(b-a)}` also matches a direct computation of the limit.
+
+### putnam_1979_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The finite field F with n elements is encoded via `Field F`, `Fintype F`, and `hn : n = Fintype.card F`. The odd-cardinality hypothesis is `Odd n`. The irreducible quadratic x² + bx + c is encoded as `p = X^2 + C b * X + C c ∧ Irreducible p`. The expression `p + C d` equals `X² + C b * X + C(c+d)`, matching "x² + bx + c + d". The count `{d : F | Irreducible (p + C d)}.ncard` correctly counts such d. The solution `(n-1)/2` matches the mathematical answer: since n is odd the characteristic is not 2, discriminants b² - 4(c+d) cover all of F as d varies, and exactly (n-1)/2 elements of F are non-squares, giving exactly (n-1)/2 irreducible shifts. The ℕ-to-ℤ coercion on the ncard side is standard and produces the same integer value.
+
+### putnam_1979_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures all elements of the informal statement. The set C is a subset of ℝ × ℝ; it is closed and convex, contains (0,0), and the hypothesis `hCnint` correctly excludes all other integer-coordinate points. The `volume` on ℝ × ℝ is the product Lebesgue (area) measure. The hypothesis `hCeven` uses the four closed quadrants; while these overlap on the axes, the axes have 2D measure zero, so the equal-volume condition is equivalent to "area equally distributed among the four quadrants." The three chained equalities transitively yield equal measure in all four quadrants. The conclusion `volume C ≤ 4` matches $A(C) \leq 4$. No hypotheses are added or dropped beyond what the informal statement asserts.
+
+### putnam_1979_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement uses `Complex.cpow` (via `x ^ ((1 : ℂ)/2)`) which gives the principal square root, while the informal `(...)^{1/2}` denotes "a" square root. Since any complex number w satisfies |Re(w)| = |Re(-w)|, and these are the only two square roots, the inequality holds for one branch iff it holds for both — so the choice of branch is immaterial to the truth of the statement. All other components match directly: `n : ℕ`, `z : Fin n → ℂ` gives n complex numbers; `∑ i : Fin n, (z i)^2` is the sum of squares; `.re` is the real part; `|·|` is the real absolute value; and `∑ i : Fin n, |(z i).re|` is the sum of |Re(z_i)|. Edge cases (n=0 or sum=0) are handled correctly since Mathlib defines `0 ^ (1/2) = 0`. The formalization is logically equivalent to the informal statement.
+
+### putnam_1980_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal Putnam 1980 A2 problem. The positivity of r and s is captured by `rspos`, and the positivity of a, b, c, d is embedded in the `abcdlcm` predicate. The four ternary LCM conditions `lcm[a,b,c] = lcm[a,b,d] = lcm[a,c,d] = lcm[b,c,d] = 3^r * 7^s` are correctly expressed using `Nat.lcm (Nat.lcm _ _) _`, which is the ternary LCM. The set `{(a,b,c,d) : ℕ⁴ | abcdlcm a b c d}` and its `encard` correctly count the number of ordered quadruples of positive integers satisfying the conditions. The solution is a function of r and s as required. The free-predicate encoding with a biconditional `habcdlcm` is a standard PutnamBench convention that fully pins down the set being counted.
+
+### putnam_1980_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement integrates `1 / (1 + (Real.tan x) ^ (Real.sqrt 2))` over `Set.Ioo 0 (Real.pi / 2)` and equates it to `Real.pi / 4`, which matches the informal request to evaluate $\int_0^{\pi/2} dx/(1+(\tan x)^{\sqrt{2}})$. The use of `Set.Ioo` vs `Set.Icc` is immaterial since the endpoints have measure zero (and `tan(π/2)` is undefined anyway, making `Ioo` natural). The expression `(Real.tan x) ^ (Real.sqrt 2)` correctly resolves to `Real.rpow` since both arguments are real, matching the intended real-exponent power. The solution `Real.pi / 4` matches the well-known answer. No hypotheses are silently added or dropped.
+
+### putnam_1980_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures both parts of Putnam 1980 A4 correctly. The `abcvals` predicate is characterized by `habcvals` as exactly "not all zero, each absolute value strictly less than 10^6" — matching the informal phrasing precisely. Part (a) uses ∃ with strict inequality `< 10^(-11)` (via `Real.rpow` since the exponent is real) and part (b) uses ∀ with strict inequality `> 10^(-21)`, matching the informal claims. The integers a, b, c are correctly typed as ℤ, coerced to ℝ inside the absolute value expression `|a + b*Real.sqrt 2 + c*Real.sqrt 3|`. Abstracting the predicate via a hypothesis is logically equivalent to stating it inline since `habcvals` is a biconditional characterization. No hypotheses are added or dropped, and the bounds/quantifier structure exactly match the informal statement.
+
+### putnam_1980_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures every piece of the informal statement. "Nonconstant polynomial with real coefficients" is encoded as `P : Polynomial ℝ` with `P.degree > 0`: since Mathlib's `degree` lives in `WithBot ℕ` where the zero polynomial has degree `⊥` and nonzero constants have degree `0`, the condition `P.degree > 0` excludes exactly the constant polynomials (including zero), matching "nonconstant". The two integrals `∫ t in (0)..x, P.eval t * Real.sin t` and `∫ t in (0)..x, P.eval t * Real.cos t` correctly encode $\int_0^x P(t)\sin t\,dt$ and $\int_0^x P(t)\cos t\,dt$. The chained equality `0 = ∫P sin = ∫P cos` is logically equivalent to the conjunction `0 = ∫P sin ∧ 0 = ∫P cos`. The conclusion `Set.Finite {x : ℝ | ...}` correctly expresses "only finitely many real solutions x". No hypotheses are added or dropped beyond what the informal statement provides.
+
+### putnam_1980_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal problem. The class $C$ encodes $C^1$ functions on $[0,1]$ with the correct boundary conditions $f(0)=0, f(1)=1$ by using functions $\mathbb{R} \to \mathbb{R}$ with `ContDiffOn ℝ 1 f (Set.Icc 0 1)` — a standard faithful encoding since every $C^1$ function on $[0,1]$ extends (many ways) to a function on $\mathbb{R}$ satisfying this, and all extensions agree on $[0,1]$. Integration over `Set.Ioo 0 1` vs $[0,1]$ agrees because $|f'-f|$ is continuous and bounded on $[0,1]$, giving identical Lebesgue integrals. For $x \in (0,1)$, `deriv f x` coincides with the standard derivative because $x$ is an interior point of $[0,1]$ where `ContDiffOn` implies full differentiability in a neighborhood. `IsGreatest {u | ∀ f ∈ C, u ≤ ∫...} c` precisely expresses that $c$ is the largest $u$ such that the inequality holds for all $f \in C$, matching "determine the largest real number $u$". All components are equivalent to the informal claim.
+
+### putnam_1980_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the set of real numbers $c$ such that $(e^x+e^{-x})/2 \leq e^{cx^2}$ holds for all real $x$. The Lean formalization expresses this as an iff: the universally quantified inequality holds if and only if $c$ belongs to `putnam_1980_b1_solution`, which is set to $\{c : \mathbb{R} \mid c \geq 1/2\}$. The quantifier structure (∀ x : ℝ), the inequality, the types, and the formulation match the informal claim exactly. The "for which c" phrasing is naturally captured by an iff with a solution set. Hence the Lean statement is logically equivalent to the informal one.
+
+### putnam_1980_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the informal problem correctly. The sequence is specified by `u 0 = a` and `u (n+1) = 2 * u n - n^2`, matching the informal recurrence $u_0 = a$, $u_{n+1} = 2u_n - n^2$. Quantifying over arbitrary `u : ℕ → ℝ` with these defining equations is equivalent to talking about the unique sequence determined by the recurrence. The conclusion `∀ n : ℕ, u n > 0` matches "$u_n > 0$ for all $n \geq 0$" since natural numbers automatically satisfy $n \geq 0$. The biconditional with the solution set $\{a \mid a \geq 3\}$ captures "for which real numbers $a$" correctly, and the solution $a \geq 3$ is the correct answer (general solution $u_n = (a-3) \cdot 2^n + n^2 + 2n + 3$).
+
+### putnam_1980_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement component-by-component: (a) the index set `Fin 1066` corresponds to $\{0,1,\ldots,1065\}$ (1066 values); (b) `X : Finset T` with `X.card ≥ 10` captures "finite set with at least 10 elements"; (c) `A i ⊆ X ∧ (A i).card > ((1:ℚ)/2) * X.card` faithfully encodes $A_i \subseteq X$ and $|A_i| > |X|/2$ (strict rational inequality equivalent to $2|A_i|>|X|$); (d) the conclusion `∃ Y, Y ⊆ X ∧ Y.card = 10 ∧ ∀ i, ∃ y ∈ Y, y ∈ A i` captures "there exist 10 elements in X such that each $A_i$ contains at least one of them". Requiring `Y.card = 10` (exactly 10 distinct elements) is the standard reading of "10 elements $x_1,\ldots,x_{10}$" in hitting-set problems, and since $|X| \geq 10$ it is equivalent to "at most 10" (pad with extra elements). No hypothesis is dropped or added beyond what the informal statement requires.
+
+### putnam_1980_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the Putnam 1980 B5 question correctly. T = [0,1], IsConvex, P_t, nonnegativity, and continuity all match the informal statement. The one point of concern is that the informal says "increasing" while Lean uses `StrictMonoOn` rather than `MonotoneOn`. However, this distinction does not affect the iff claim: for every t ≥ 0, S^strict_t is closed under multiplication iff t ≤ 1 iff S^mono_t is closed under multiplication. The closure direction follows because strictly-increasing nonneg × strictly-increasing nonneg is strictly increasing. For the non-closure direction at t > 1, the concrete counterexample f(x)=g(x)=x is strictly increasing and (f*g)(x)=x² fails P_t precisely when t > 1. The encoding f : ℝ → ℝ with properties restricted to T is a standard harmless reformulation. Hence the Lean iff claim is logically equivalent to the informal claim.
+
+### putnam_1980_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the recursion G(1,n) = 1/n and G(d,n) = (d/n)·∑_{i=d}^{n} G(d-1, i-1) correctly via the hG hypothesis. Natural number coercions to ℤ handle the domain correctly, Finset.Icc d n gives the correct summation range, and G is uniquely determined on the required domain {(d,n) : 1 ≤ d ≤ n}. The d = 0 case being unconstrained is harmless since both conjuncts are vacuous. The conclusion uses `Rat.den`, which returns the denominator in reduced form (Mathlib's Rat always stores fractions in lowest terms), matching "reduced denominator". `Prime p` for p : ℕ is equivalent to `Nat.Prime p`, capturing "prime integer p". The quantifier structure and conclusion `¬p ∣ (G(d,p)).den` precisely matches the informal claim.
+
+### putnam_1981_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the informal problem. `P n k ↔ 5^k ∣ ∏ m ∈ Finset.Icc 1 n, (m^m : ℤ)` captures "$5^k$ divides $1^1 2^2 \cdots n^n$". The condition `hE : ∀ n ∈ Ici 1, P n (E n) ∧ ∀ k, P n k → k ≤ E n` exactly says $E(n)$ is the greatest $k$ with the divisibility property, for $n \geq 1$ (the only relevant range since the product over an empty range is 1 and $E(0)$ doesn't affect the limit at infinity). The limit `Tendsto (fun n => (E n : ℝ)/n^2) atTop (𝓝 (1/8))` directly matches $\lim_{n \to \infty} E(n)/n^2$. The universal quantification over $P$ and $E$ satisfying their defining properties is a standard Putnam formalization pattern and is logically equivalent to the informal statement.
+
+### putnam_1981_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal question. The function f is defined as e^{-t} times the iterated integral, with Ico 0 t matching [0,t] up to a measure-zero set (irrelevant for Lebesgue integration). The order of integration (outer y, inner x) matches the informal dx dy convention. The existential `∃ L : ℝ, Tendsto f atTop (𝓝 L)` correctly encodes "the limit exists as a finite real number", which is the standard interpretation of the informal question. The integrand's removable singularity at x=y only affects a measure-zero set, so Lean's convention (division by zero = 0) gives the same integral value. The iff with putnam_1981_a3_solution (to be False) correctly encodes the yes/no form with the negative answer.
+
+### putnam_1981_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement defines `f n = (1/n^5) * ∑_{h=1}^n ∑_{k=1}^n (5h^4 - 18h^2k^2 + 5k^4)` using `Finset.Icc 1 n` (which gives {1,...,n}) with real coercions, and asserts `Tendsto f atTop (𝓝 (-1))`. This directly mirrors the informal limit expression. The answer −1 is mathematically correct: expanding gives 10n·∑h^4 − 18(∑h^2)^2 = −n^5 + O(n^4), which divided by n^5 tends to −1. The Finset.Icc 1 n notation correctly captures the index range h,k from 1 to n, and the inner double sum and outer scaling exactly match the informal formula. The behavior at n=0 (where 1/0^5 = 0) is irrelevant to the limit as n → ∞. The formalization is logically equivalent to the informal claim.
+
+### putnam_1981_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement. The predicate `P` captures the constraint `1 ≤ r ≤ s ≤ t ≤ 4` exactly. The function `f` encodes the expression `(r-1)² + (s/r-1)² + (t/s-1)² + (4/t-1)²` exactly. The `IsLeast` predicate, per Mathlib's definition (`a ∈ s ∧ a ∈ lowerBounds s`), asserts that `putnam_1981_b2_solution` both lies in the image set and is a lower bound — i.e., it is the minimum value attained. The set `{y | ∃ r s t, P (r, s, t) ∧ f (r, s, t) = y}` is precisely the image of `f` over the constraint region. Thus the Lean statement asserts exactly that the given real number is the minimum value of the expression across the constraint, matching the informal claim.
+
+### putnam_1981_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes all components of the informal statement. "Infinitely many positive integers n" is expressed via the standard unboundedness idiom `∀ n:ℕ, ∃ m:ℕ, m > n ∧ P m`, which guarantees infinitely many m, all positive (since m > n ≥ 0 implies m ≥ 1). The inner predicate P correctly captures "all primes p dividing n²+3 also divide k²+3 for some k with k²<n". The informal says "some integer k" while Lean uses k:ℕ, but since k²=(−k)² for any integer, and both the divisibility condition p ∣ k²+3 and the inequality k²<n depend only on k², quantifying over ℕ versus ℤ yields equivalent statements. The types and divisibility encoding (casting to ℤ for the divisibility relation) are standard and semantically equivalent.
+
+### putnam_1981_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 1981 B4. The type `Matrix (Fin 5) (Fin 7) ℝ` correctly represents 5×7 real matrices. `VAB V` encodes the closure under linear combinations (rA + sB ∈ V), which is the subspace property the informal statement requires. `Vrank V k` correctly expresses "V contains a matrix of rank k" via existential quantification. Mathlib's `Matrix.rank` (column rank via `finrank` of `LinearMap.range mulVecLin`) agrees with the determinantal rank definition in the informal statement when working over ℝ (a field). The conclusion `Vrank V 3` matches "V contains a matrix of rank 3". The solution being `False` correctly encodes that the universal claim is to be disproved. No hypotheses have been added or dropped, and no quantifier structure has been altered.
+
+### putnam_1981_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. B(n) is defined as the sum of binary digits of n via `sumbits (Nat.digits 2 n)`; since base-2 digits are 0 or 1 (by `Nat.digits_lt_base`), this sum equals the count of 1's, matching the informal definition. The infinite sum `∑' n : Set.Ici 1, B n / ((n : ℝ) * ((n : ℝ) + 1))` correctly indexes from n = 1 to ∞. The conclusion `∃ q : ℚ, Real.exp (...) = q ↔ putnam_1981_b5_solution` with solution `True` asserts exp of the sum is rational, matching the informal "determine whether or not ... is rational." B being constrained only for n > 0 is fine since the sum only uses n ≥ 1. The standard Putnam answer is that the value equals 4 (from sum = 2ln2), so `True` is correct.
+
+### putnam_1982_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement exactly. `B n x = ∑ k ∈ Finset.Icc 1 n, (k : ℝ) ^ x` correctly encodes $B_n(x) = 1^x + 2^x + \cdots + n^x$. The definition `f n = B n (logb n 2) / (n * logb 2 n) ^ 2` correctly encodes $f(n) = B_n(\log_n 2)/(n \log_2 n)^2$ since Mathlib's `logb b x = log x / log b` gives `logb n 2 = log_n 2` and `logb 2 n = log_2 n`. The convergence `∃ L, Tendsto (fun N ↦ ∑ j ∈ Finset.Icc 2 N, f j) atTop (𝓝 L)` precisely captures convergence of the series $f(2) + f(3) + \cdots$ starting from index 2. The iff with `putnam_1982_a2_solution` follows the standard Putnam format where the solution Prop (intended to be `True`) supplies the yes/no answer.
+
+### putnam_1982_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to evaluate $\int_0^{\infty} \frac{\tan^{-1}(\pi x) - \tan^{-1} x}{x} dx$. The Lean formalization encodes this as the limit $\lim_{t \to \infty} \int_0^t \frac{\arctan(\pi x) - \arctan x}{x} dx$, which is the standard definition of the improper integral $\int_0^\infty$. The integrand matches literally, and the claimed value $(\pi/2)\log\pi$ is the correct Frullani integral value. Since the integrand is absolutely integrable on $(0,\infty)$, the improper Riemann interpretation coincides with the Lebesgue interpretation, so using `Tendsto ... atTop` is faithful. The `intervalIntegral` from 0 to t with t → ∞ is the conventional encoding of $\int_0^\infty$ in Mathlib.
+
+### putnam_1982_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean predicate `hdiffeq` encodes exactly the ODE system: y(0) = 1, z(0) = 0, and y'(x) = -z(x)³, z'(x) = y(x)³. The `ContDiff ℝ 1` requirement is slightly stronger than mere differentiability, but for this polynomial system every differentiable solution is automatically C¹ (since z differentiable ⟹ -z³ continuous), so the two readings agree. The uniqueness hypothesis `hfgonly` correctly encodes "no other pair solves the system". The conclusion uses `Function.Periodic`, which in Mathlib unfolds to `∀ x, f(x + L) = f x` — matching the informal "f(x+L) = f(x), g(x+L) = g(x)" (the "f(x) + L" in the informal is clearly a typo), and both f and g share the same positive period L as required. The structure — take unique solution as hypothesis, conclude existence of common positive period — matches the informal statement.
+
+### putnam_1982_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says: positive integers a, b, c, d with a + c ≤ 1982 and a/b + c/d < 1, prove 1 - a/b - c/d > 1/1983^3. The Lean statement uses a, b, c, d : ℤ with explicit positivity (a > 0 ∧ b > 0 ∧ c > 0 ∧ d > 0), which is equivalent to positive integers. The hypothesis a + c ≤ 1982 matches, and the hypothesis (a:ℝ)/b + (c:ℝ)/d < 1 with real-number division matches the informal fractions (since b, d > 0 the coerced division is well-defined and corresponds to the usual rational a/b). The conclusion 1 - (a:ℝ)/b - (c:ℝ)/d > 1/1983^3 matches exactly. Types, hypotheses, quantifier structure, and conclusion all correspond precisely.
+
+### putnam_1982_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all five components of the informal statement correctly: (1) `BijOn b (Ici 1) (Ici 1)` with `b : ℕ → ℕ` faithfully encodes "bijection from positive integers to positive integers"; (2) `StrictAntiOn (fun n => |x n|) (Ici 1)` encodes "|x_n| strictly decreasing" for positive index n; (3) the Tendsto condition for `|b n - (n : ℤ)| * |x n|` correctly represents |b(n) - n|·|x_n| → 0 (via integer subtraction then coercion to ℝ); (4)(5) the sums over `Finset.Icc 1 n` start at 1, matching Σ_{k=1}^n. The extraneous values `b 0` and `x 0` are unconstrained but do not affect any hypothesis or conclusion since all conditions are asserted on `Ici 1` and `atTop` is insensitive to initial terms. Wrapping in `↔ putnam_1982_a6_solution` (where the solution is `False`) is the standard Putnam "prove or disprove" encoding and matches the informal question structure.
+
+### putnam_1982_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. (1) `A` is defined as `.ncard` of `{(m,n) : ℤ×ℤ | m^2+n^2 ≤ x^2+y^2}`, matching "number of integer points with m²+n²≤x²+y²" (the set is finite for each (x,y), so ncard gives the correct count). (2) `g = ∑' k : ℕ, Real.exp (-k^2)` correctly encodes $\sum_{k=0}^\infty e^{-k^2}$ since `ℕ` starts at 0. (3) The iterated integral `∫ y, ∫ x, A(x,y) * Real.exp(-x^2-y^2)` matches the informal double integral (with natural coercion of A from ℕ to ℝ). (4) The conclusion `I = putnam_1982_b2_solution.eval g` expresses I as a polynomial evaluated at g, as the problem requests. The types, quantifier structure, and domains all match precisely with no extra or missing hypotheses.
+
+### putnam_1982_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The set `{(c, d) : Finset.Icc 1 n × Finset.Icc 1 n | ∃ m : ℕ, m^2 = c + d}` represents pairs (c,d) ∈ {1,...,n}² where c+d is a perfect square (since c,d ≥ 1, m=0 never triggers falsely). Dividing `ncard` by `n^2` yields the probability p_n under the uniform distribution. The limit `Tendsto (fun n => p n * Real.sqrt n) atTop (𝓝 (4/3 * (Real.sqrt 2 - 1)))` expresses the answer in the requested form r(√s - t) with r=4/3, s=2, t=1, which matches the correct mathematical answer (verified by asymptotic analysis giving total count ≈ 4(√2-1)/3 · n^(3/2), so p_n · √n → 4/3 · (√2 - 1)). Stating the limit equals the explicit solution is a standard faithful encoding of "express in this form" problems.
+
+### putnam_1982_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal problem. Distinctness is handled by using `Finset ℤ`. The divisibility premise `∀ k, ∏ i ∈ n, i ∣ ∏ i ∈ n, (i + k)` matches the informal divisibility condition. Claim 1's `1 ∈ n ∨ -1 ∈ n` correctly corresponds to "for some i, |n_i| = 1" (since |n_i| = 1 iff n_i ∈ {1, -1}). Claim 2's `n = Finset.Icc (1 : ℤ) n.card` correctly encodes "{n_1, ..., n_s} = {1, 2, ..., s}" where s = |n|. The `n.Nonempty` assumption surfaces the implicit premise that s ≥ 1 (standard interpretation of "n_1, ..., n_s"), without which claim 1 would vacuously fail for the empty set. The solution slot using Prop × Prop properly encodes "prove or counterexample" for each claim.
+
+### putnam_1983_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement counts `{n : ℤ | n > 0 ∧ (n ∣ 10^40 ∨ n ∣ 20^30)}.encard`, which exactly encodes "positive integers n that are exact divisors of at least one of 10^40, 20^30". Using ℤ with the hypothesis `n > 0` is equivalent to using positive naturals, since for positive n ∈ ℤ, divisibility of positive integers 10^40 and 20^30 coincides with divisibility in ℕ. The disjunction `∨` correctly captures "at least one of". The `.encard = (solution : ℕ)` formulation via coercion ℕ → ℕ∞ asserts finiteness and the specific count. The solution 2301 checks out: 1681 + 1891 - 1271 = 2301 by inclusion-exclusion. No hypotheses are added or dropped, and no meaning is changed.
+
+### putnam_1983_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The hypothesis `Odd p ∧ p.Prime` exactly encodes "p is an odd prime" (excluding 2). The sum `∑ i ∈ Finset.range (p-1), (i+1) * n^i` expands to 1 + 2n + 3n² + ... + (p-1)n^(p-2), matching F(n). The conclusion `¬(F a ≡ F b [MOD p])` expresses "F(a) − F(b) is not divisible by p". The only notable encoding choice is using `Finset.Icc 1 p` = {1,...,p} instead of {0,...,p-1} as in the informal, but both are complete residue systems mod p, and since F(p) ≡ F(0) (mod p) (all terms with n^i for i≥1 vanish mod p), and the conclusion only involves values mod p, the two quantifications give logically equivalent statements. This is a standard faithful encoding.
+
+### putnam_1983_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. The parameterization $m = 6k - 1$ with $k > 0$ gives exactly $m \in \{5, 11, 17, \ldots\}$, which matches $m \equiv 5 \pmod 6$ for non-negative integers $m$ (the natural domain for binomial coefficients). The sum indexing over $j \in [1, 2k-1]$ produces lower binomial indices $3j - 1 \in \{2, 5, 8, \ldots, m-3\}$ as required, and $(-1)^{j+1}$ yields the alternating signs $+, -, +, \ldots, -, +$ matching the informal pattern (verified: last term $j = 2k-1$ gives $+\binom{m}{m-3}$, second-to-last $j = 2k-2$ gives $-\binom{m}{m-6}$). The conclusion $S \neq 0$ is stated identically. No hypotheses are silently added or dropped beyond what is needed for the statement to be well-typed and meaningful.
+
+### putnam_1983_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the intended problem. The informal "$\alpha_n$" is a typographical artifact for "$\alpha^n$" (this is Putnam 1983 A5, classically about α^n), which the Lean correctly encodes as `α ^ n`. The positive real α becomes `α : ℝ` with `α > 0`, the quantification over positive integers n is equivalently expressed via `∀ n : ℕ, n > 0 →` (positive ℕ and positive ℤ coincide), and `⌊α^n⌋ - n` with automatic coercion yields an integer whose evenness is tested via `Even`. The iff with the solution `True` asserts that such α exists, matching the "Prove or disprove" formulation (whose answer is affirmative). No hypotheses are added or dropped, and the quantifier structure matches exactly.
+
+### putnam_1983_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The triangle T with vertices (0,0), (a,0), (0,a) is the region {(x,y) : 0 ≤ x, 0 ≤ y, x+y ≤ a}, which is exactly parameterized by the iterated integral ∫₀^a ∫₀^{a-x}. The prefactor a^4/exp(a^3) equals a^4·exp(-a^3). The integrand exp(x^3+y^3) matches. The limit as a → ∞ is correctly encoded via `Tendsto F atTop (𝓝 ·)`. For a → ∞ (eventually a > 0 and a-x ≥ 0 on x ∈ [0,a]), the interval integrals ∫₀..a and ∫₀..(a-x) correspond to the standard integrals over those intervals, matching the informal double integral over T.
+
+### putnam_1983_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. Representations are modeled as `Multiset ℕ` with three constraints: (a) every element is a power of 2 via `∃ k : ℕ, m = (2^k : ℤ)` (which includes k=0, giving 1 as a valid power); (b) each element appears at most 3 times via `M.count m ≤ 3` (equivalent to "no power used more than 3 times" since elements not in M have count 0); (c) the multiset sums to n. `Set.ncard` correctly counts the finite set of such multisets. The conclusion `∃ p : Polynomial ℝ, ∀ n : ℕ+, ⌊p.eval (n : ℝ)⌋ = f n` exactly matches "can we find a real polynomial p(x) such that f(n) = ⌊p(n)⌋". Using ℕ+ (positive integers) is a natural reading consistent with the informal example f(7), and avoids ambiguity at n=0.
+
+### putnam_1983_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes f(n) = n + ⌊√n⌋ using `Int.floor (√n)` (where √ is Real.sqrt from Mathlib) and correctly sets up the recurrence a(n+1) = f(a n) with appropriate ℕ→ℤ coercion. The conclusion `∃ i, ∃ s : ℤ, a i = s^2` faithfully expresses "the sequence contains at least one square" since a_i ∈ ℕ and existence of an integer s with a_i = s² is the standard encoding of a perfect square. The hypothesis `a 0 > 0` surfaces the implicit premise that m is a positive integer (standard Putnam convention where m denotes a positive integer); even if one reads the informal more literally to allow m = 0, that case is trivially true (0 = 0²), so restricting to positive m is the natural reading and matches the worked-example pattern of making implicit premises explicit.
+
+### putnam_1983_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the Putnam 1983 B5 statement. The `dist_fun x = min (x - ⌊x⌋) (⌈x⌉ - x)` correctly computes the distance from x to the nearest integer (matching ||x||). The limit `(1/n) * ∫ x in (1)..n, dist_fun (n/x)` as n → ∞ matches $\lim_{n\to\infty}\frac{1}{n}\int_1^n\|n/x\|\,dx$, with the ℕ-valued n coerced to ℝ for the integration. The solution `log (4 / Real.pi)` is the correct answer. The `fact` hypothesis encodes the "you may assume" Wallis product: the ℝ-valued expected type forces `2*n-1` to be real subtraction (not truncated ℕ-subtraction), so the partial product tending to π/2 correctly represents the infinite product. Providing this true fact as a hypothesis is a faithful encoding of "you may assume" and doesn't change the logical content. All components — hypotheses, types, quantifier structure, and conclusion — align with the informal statement.
+
+### putnam_1984_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement uses `∑' k : Set.Ici 1` over ℕ, where `Set.Ici 1 = {x : ℕ | 1 ≤ x} = {1, 2, 3, ...}`, matching the informal sum index k = 1, 2, 3, .... The summand `6^k / ((3^(k+1) - 2^(k+1)) * (3^k - 2^k))` is exactly the informal expression. The ambient type is ℚ (matching "rational number"). The series telescopes to 2, which is rational and lies in ℚ's topology (inherited from ℝ), so `tsum` correctly yields 2, matching the solution. No hypotheses are added or dropped, and the quantification structure and summand match precisely. This is a faithful formalization.
+
+### putnam_1984_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The matrix definition `if i = j then x else if Even (i.1 + j.1) then a else b` matches the informal definition—while Fin indices are 0-based versus the informal's implicit 1-based indexing, the parity of i+j is preserved under a uniform shift by 2, so both descriptions yield identical matrices (verified against the $M_2$ example). The hypotheses `npos : n > 0` and `aneb : a ≠ b` match "n a positive integer" and "a ≠ b". The filter `𝓝[≠] a` correctly encodes the punctured neighborhood limit $\lim_{x \to a}$. The requirement to "express ... as a polynomial in a, b, and n" is faithfully encoded via `MvPolynomial (Fin 3) ℝ` with `polyabn` mapping variables 0,1,2 to a,b,n respectively, and then evaluating this polynomial. The natural-number subtraction `2 * n - 2` is well-defined since n > 0. No hypotheses are added or dropped relative to the informal statement.
+
+### putnam_1984_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The region R is correctly defined as the standard simplex {(x,y,z) : xᵢ ≥ 0, x+y+z ≤ 1}, w is defined as 1-x-y-z, and the integrand is exactly x¹y⁹z⁸w⁴. The integration is over Fin 3 → ℝ with the product Lebesgue measure (standard MeasureSpace.pi instance), which gives the correct triple integral. The conclusion asserts each of a,b,c,d,n is a positive integer (matching the informal "positive integers") and that the integral equals a!b!c!d!/n!. This matches the Dirichlet integral value 1!·9!·8!·4!/25! = Γ(2)Γ(10)Γ(9)Γ(5)/Γ(26). No hidden hypothesis, no conclusion drift, no type mismatch.
+
+### putnam_1984_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures both parts of Putnam 1984 A6. (1) `f` is correctly characterized as the last nonzero digit of n! via `Nat.digits 10 (n!)` (little-endian) with `find? (· ≠ 0)` — matching f(5)=2. (2) Part (a) is encoded as the existence of a function g such that f(∑ 5^(a_i)) = g(∑ a_i) for all k>0 and injective a : Fin k → ℕ; "distinct nonneg integers" ↔ `Injective a` with `ℕ` codomain, and k>0 is implicit in the informal "a_1,...,a_k". (3) `IsPeriodicFrom 1 g p` unfolds to `∀ y, g(y+1+p) = g(y+1)`, i.e., g(s+p)=g(s) for all s≥1, exactly matching "for all s ≥ 1". (4) `P` correctly encodes "least positive period, or 0 if none exists" via `IsLeast` on the positive-period set, with the sentinel convention documented. The existential over g is appropriate because part (a) establishes g's well-definedness. No hypotheses are added or dropped.
+
+### putnam_1984_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The hypothesis `hf` correctly defines f(n) = 1! + 2! + ... + n! for positive n by summing factorials over Set.Icc 1 n (which is {1,2,...,n}). The conclusion quantifies over n ≥ 1 (matching "positive integer n") and states the recurrence f(n+2) = P(n)f(n+1) + Q(n)f(n), with the integer values coerced to ℝ so they can be compared with real-polynomial evaluations. Using polynomials over ℝ instead of ℤ does not weaken or strengthen the claim here, since the equation at integer inputs is equivalent under the integer-to-real embedding. The standard Putnam "find" encoding via `putnam_1984_b1_solution` is appropriate. No hypotheses are added or dropped silently.
+
+### putnam_1984_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement formalizes "the minimum value of (u-v)² + (√(2-u²) - 9/v)² for 0<u<√2 and v>0 is 8" using `IsLeast` on the image set. The expression `f u v` matches the informal one exactly. The domain is correctly encoded: `u : Set.Ioo 0 √2` (coerced to ℝ) gives 0 < u < √2, and `v > 0` gives v > 0. `IsLeast S 8` means 8 ∈ S (minimum is attained — which is true here at u=1, v=3) and 8 is a lower bound, exactly capturing "the minimum value is 8". The set-builder with `∃ᵉ` is the standard Mathlib way to build the image of the two-variable function over the constrained domain. No hypotheses are added or dropped, and no quantifier structure is changed.
+
+### putnam_1984_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim exactly: it universally quantifies over finite types F (via `Fintype F`) with cardinality ≥ 2, asserts the existence of a binary operation `mul : F → F → F`, and requires for all x, y, z that both right-cancellation (`mul x z = mul y z → x = y`) and non-associativity (`mul x (mul y z) ≠ mul (mul x y) z`) hold. The quantifier structure `∃ mul, ∀ x y z, P ∧ Q` correctly matches "there exists * such that for all x, y, z, (i) and (ii)". The "prove or disprove" framing is handled by the iff with `putnam_1984_b3_solution` (which is set to `True`). No hypotheses are added or dropped, no types changed, and the conclusion is intact.
+
+### putnam_1984_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The function `d` is properly constrained: `hd` says `d k = sumbits (Nat.digits 2 k)`, and since base-2 digits are 0/1, summing them gives the count of 1's — matching d(k). The sum `∑ k : Set.Icc 0 (2^m - 1), ...` correctly ranges over k = 0, 1, ..., 2^m - 1 for m > 0. The body `(-(1 : ℤ)) ^ (d k) * (k : ℕ) ^ m` encodes `(-1)^(d k) * k^m`, and gets elaborated to ℝ via coercion to match the RHS. The RHS `(-1)^m * (a : ℝ)^(f.eval (m : ℝ)) * (g.eval m)!` with solution `(2, X(X-1)/2, X)` yields `(-1)^m * 2^(m(m-1)/2) * m!`. While `Real.rpow` is used for the exponent, since `m(m-1)/2` is always a nonneg integer, this equals the natural power. The polynomial types (`Polynomial ℝ` for f due to the 1/2 coefficient, `Polynomial ℕ` for g=X) are appropriate choices consistent with the informal claim.
+
+### putnam_1985_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal Putnam problem. The informal statement counts ordered triples of sets whose union equals $\{1,...,10\}$ and whose intersection is empty. The Lean statement uses `Set ℤ` as the ambient type, with `Icc 1 10` representing $\{1,...,10\}$ (since for ℤ, `Icc 1 10 = {x | 1 ≤ x ∧ x ≤ 10}` equals the 10-element set). The choice of ambient universe is immaterial to the count: the union constraint forces each $A_i \subseteq \{1,...,10\}$, so the number of valid triples is $6^{10}$ regardless of whether the ambient type is ℤ, ℕ, or any superset of $\{1,...,10\}$ — for each of the 10 elements there are $2^3-2 = 6$ valid membership patterns, while elements outside $\{1,...,10\}$ have exactly 1 pattern (absent from all $A_i$). The expected answer $(10,10,0,0)$ gives $2^{10}\cdot 3^{10} = 6^{10}$, which matches. The conditions, quantifier structure, and answer form all align faithfully.
+
+### putnam_1985_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes exactly the same mathematical claim as the informal statement. The doubly-indexed sequence `a : ℕ → ℕ → ℝ` with hypotheses `ha0` (base case `a m 0 = d / 2 ^ m`) and `ha` (recursion `a m (j + 1) = (a m j) ^ 2 + 2 * a m j`) faithfully captures the sequence definition $a_m(0) = d/2^m$ and $a_m(j+1) = (a_m(j))^2 + 2a_m(j)$, with the universal quantifiers over all $m, j \geq 0$ matching (since ℕ starts at 0). The conclusion `Tendsto (fun n ↦ a n n) atTop (𝓝 (putnam_1985_a3_solution d))` correctly expresses $\lim_{n \to \infty} a_n(n) = \text{solution}(d)$, and the solution function `fun d ↦ exp d - 1` properly depends on the input $d$. No hypotheses are added or dropped, and types match.
+
+### putnam_1985_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal problem. The sequence hypotheses (a 1 = 3 and ∀ i ≥ 1, a (i+1) = 3^(a i)) exactly match the informal recursive definition. The conclusion uses the standard "infinitely often" encoding (∀ N, ∃ i ≥ N, ...) and Fin 100 correctly represents integers 00 to 99. The comparison a i % 100 = k (with k : Fin 100 coerced to ℕ) correctly captures "the last two digits equal k". Although a(0) is unspecified in the Lean statement, this cannot affect the answer because a single value cannot make any residue appear infinitely often; the set is fully determined by the tail behavior (i ≥ 1), which is completely fixed by the hypotheses. The answer set {87} matches the known solution (a_i ≡ 87 mod 100 for all i ≥ 3).
+
+### putnam_1985_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The integral `∫ x in (0)..(2 * Real.pi), ∏ k ∈ Finset.Icc 1 m, cos (k * x)` precisely represents $\int_0^{2\pi}\cos(x)\cos(2x)\cdots\cos(mx)\,dx$, since `Finset.Icc 1 m = {1, 2, ..., m}` gives the correct product of cosines. The range constraint `m ∈ Finset.Icc 1 10` matches `1 ≤ m ≤ 10`. The set comprehension `{m ∈ Finset.Icc 1 10 | I m ≠ 0}` elaborates to a `Set ℕ` that contains exactly those m in [1,10] with $I_m \neq 0$, and equating this with `putnam_1985_a5_solution = {3, 4, 7, 8}` precisely asks for the characterization "for which integers m". The types, quantifier structure, and mathematical content all match.
+
+### putnam_1985_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all components of the informal statement. Γ is defined as ∑_{k=0}^{natDegree} (coeff p k)², which equals a_0² + a_1² + ... + a_m² since coefficients beyond the degree are zero. The polynomial f = 3X² + 7X + 2 matches F(x). The two conditions are faithfully stated: g.eval 0 = 1 captures g(0)=1, and ∀ n : ℕ, n ≥ 1 → Γ(f^n) = Γ(g^n) captures 'for every integer n ≥ 1' (positive integers correspond exactly to ℕ with n ≥ 1). The proposed solution 6X² + 5X + 1 = (3X+1)(2X+1) pairs with f = (3X+1)(X+2), and on the unit circle |X+2|² = |2X+1|², so Γ(f^n) = Γ(g^n) by Parseval.
+
+### putnam_1985_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The polynomial `p m = ∏ i, (X - m i)` matches the informal product. `numnzcoeff` counts nonzero coefficients up through natDegree (which covers all nonzero coefficients since coefficients beyond natDegree are zero). The conclusion asserts (1) `Injective putnam_1985_b1_solution`, confirming the solution consists of distinct integers, and (2) for every injective tuple `m`, the solution's polynomial has at most as many nonzero coefficients — exactly characterizing "achieves the minimum k". The "smallest positive integer" qualifier in the informal statement is automatically satisfied since a monic degree-5 polynomial has at least one nonzero coefficient. The quantifier structure, types (ℤ for integers, Polynomial ℝ for the polynomial), and the minimization condition all match the informal reading precisely.
+
+### putnam_1985_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal definition and question. (1) `f 0 = 1`, `f n` vanishing at 0 for n ≥ 1, and the recurrence `derivative (f (n+1)) = (n+1) * (f n).comp (X+1)` exactly encode $f_0=1$, $f_n(0)=0$, and $f'_{n+1}(x)=(n+1)f_n(x+1)$. (2) Using `Polynomial ℕ` is legitimate because induction shows all $f_n$ have natural coefficients, and these hypotheses uniquely determine f. (3) The conclusion `Nat.factorization ((f 100).eval 1) = putnam_1985_b2_solution` uses Mathlib's standard Finsupp encoding of prime factorization; equating it (via FunLike coercion) with `fun n ↦ ite (n = 101) 99 0` correctly asserts $f_{100}(1) = 101^{99}$, which is the factorization into powers of distinct primes requested. No hypotheses are added or dropped, and no quantifier structure is changed.
+
+### putnam_1985_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures the informal claim. The informal matrix indexed by positive integers is encoded as `a : ℕ → ℕ → ℕ` with the constraint `m > 0 ∧ n > 0` applied in the counting hypothesis `ha` and in the conclusion, effectively ignoring the "phantom" row/column at index 0. The hypothesis `apos` adds positivity for all ℕ×ℕ entries (including the phantoms), but this does not affect the informal content since the phantom entries are not used in `ha` or the conclusion; any informal matrix extends trivially to such an `a` and vice versa. The counting hypothesis `{(m, n) | m > 0 ∧ n > 0 ∧ a m n = k}.encard = 8` correctly formalizes "each positive integer appears exactly eight times" using `Set.encard` (the ℕ∞-valued cardinality). The conclusion `∃ m n, m > 0 ∧ n > 0 ∧ a m n > m * n` matches the informal conclusion exactly.
+
+### putnam_1985_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean integral `∫ t in Set.Ioi 0, t ^ (- (1 : ℝ) / 2) * exp (-1985 * (t + t ^ (-(1 : ℝ))))` matches the informal $\int_0^\infty t^{-1/2} e^{-1985(t+t^{-1})} dt$ exactly, with `t ^ (-(1:ℝ))` correctly encoding $t^{-1}$ as a real power. The solution `sqrt(π/1985) * exp(-3970)` is mathematically correct via the substitution $t = u^2$ and the $u \mapsto 1/u$ symmetry trick, yielding $e^{-2a}\sqrt{\pi/a}$ with $a = 1985$. The `fact` hypothesis `∫ x in univ, exp (- x ^ 2) = sqrt (Real.pi)` correctly represents $\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$ since `univ : Set ℝ` is all of ℝ. This hypothesis is an actual Mathlib theorem (`integral_gaussian` with b=1), so including it does not weaken the theorem — the Lean statement is logically equivalent to the informal one, with the hypothesis faithfully reflecting the "You may assume" clause.
+
+### putnam_1985_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes: (1) G as a finite set of real n×n matrices via `Finset (Matrix (Fin n) (Fin n) ℝ)`, (2) the group structure via closure, identity `1 ∈ G`, and right inverses — which, combined with the associativity of matrix multiplication and the fact that `1` is the two-sided identity of the matrix monoid, is equivalent to G being a group under matrix multiplication, (3) the trace-sum hypothesis using `Matrix.trace` (standard sum of diagonal entries), and (4) the conclusion that the sum equals the zero matrix. The `npos : n > 0` hypothesis merely surfaces an implicit premise (Putnam problems implicitly assume positive n); the n=0 case is trivial anyway, so this does not meaningfully restrict the theorem. The encoding preserves the exact mathematical content of the informal statement.
+
+### putnam_1986_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature defines S as the set of reals satisfying x^4 + 36 ≤ 13x^2 and f as x ↦ x^3 - 3x, matching the informal statement exactly. `IsGreatest {f x | x ∈ S} putnam_1986_a1_solution` asserts that the solution value is in the image of S under f (so it is attained) and is an upper bound for that image — this is precisely the standard definition of "the maximum value of f on S". The set-builder notation `{f x | x ∈ S}` denotes the image f(S), as required. The formalization captures both the attainment and upper-bound aspects of "maximum" correctly and introduces no extra or missing hypotheses.
+
+### putnam_1986_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the units digit of ⌊10^20000/(10^100+3)⌋. The Lean formalization performs the division in ℝ (via `(10^20000 : ℝ) / (10^100 + 3)`), applies `Nat.floor` to extract the greatest natural number ≤ the quotient (which matches the mathematical floor since the quotient is positive), and takes `% 10` which yields the rightmost base-10 digit of a natural number. The answer is set to 3. Types, operations, and semantics all line up precisely with the informal question, with no added/dropped hypotheses or changes in quantifier structure.
+
+### putnam_1986_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. cot is defined as cos/sin. arccot is characterized via a hypothesis that for t ≥ 0, arccot t ∈ Set.Ioc 0 (π/2) (i.e., (0, π/2]) and cot(arccot t) = t. Since cot is a bijection from (0, π/2] to [0, +∞), this uniquely pins down arccot on nonneg inputs — which is exactly the informal definition. The sum ∑' n : ℕ, arccot(n²+n+1) uses only nonneg arguments (n²+n+1 ≥ 1), so the arccot values are uniquely determined by the hypothesis. With tsum notation at precedence 67 and `=` at 50, the expression parses as `(∑' n, arccot(n²+n+1)) = π/2` as intended. The solution π/2 matches. Universal quantification over cot and arccot with these specifying hypotheses is a standard faithful encoding of "where Arccot denotes..."
+
+### putnam_1986_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The transversal is properly encoded as ∑ i, A i (ϕ i) for ϕ : Perm (Fin n), which selects exactly one entry per row and per column. The condition that all transversals have the same sum is faithfully encoded as ∃ S, ∀ ϕ, sum = S. The matrix type Matrix (Fin n) (Fin n) ℤ with entries constrained to {-1, 0, 1} matches the informal statement. The tuple destructuring gives the formula 1·4^n + 2·3^n + (-4)·2^n + 1 = 4^n + 2·3^n - 4·2^n + 1 (correct for Putnam 1986 A4, verified by n=1 giving 3). The restriction to n > 0 is a necessary implicit premise: the formula gives 0 at n=0 while f(0)=1 (the empty matrix vacuously satisfies conditions), and the informal statement clearly intends positive n (the example uses a 3×3 matrix).
+
+### putnam_1986_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement's explicit definition of "linear" ($a_0 + a_1 x_1 + \ldots + a_n x_n$) is actually affine (includes constant), while the Lean uses `IsLinearMap ℝ` (strict linear, no constant). However, the two existential claims are logically equivalent: strict linear trivially implies affine, and given any $g$ satisfying the affine property with $(f_i + \partial g/\partial x_i)(x) = b_i + \sum_j a_{ij}x_j$, one can define $g'(x) = g(x) - \sum_i b_i x_i$ so that $f_i + \partial g'/\partial x_i = \sum_j a_{ij}x_j$ is strict linear. This modification works in every model, so the two ∃-statements are equivalent under standard mathematical reading. Other components (ContDiff 2, fderiv with Pi.single for partial derivatives, constants $c_{ij}$, quantifier structure) correctly match the informal statement.
+
+### putnam_1986_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 1986 A6. The hypothesis `n > 0` is an implicit premise (the informal statement "Let a_1, ..., a_n" with sum from 1 to n presumes n ≥ 1). The hypotheses `bpos` and `binj` correctly encode "distinct positive integers b_i" for i ∈ {1,...,n}. The function `a : ℕ → ℝ` is used only for indices in Finset.Icc 1 n via the sum, matching "real numbers a_1, ..., a_n". The polynomial identity `(1 - x) ^ n * f.eval x = 1 + ∑ i : Finset.Icc 1 n, (a i) * x ^ (b i)` correctly formalizes the equation, with `∑ i : Finset.Icc 1 n` being the standard Mathlib coercion-based sum over {1,...,n} (via Finset.sum_coe_sort). The conclusion asks for `f.eval 1` expressed via `b` and `n`, and the solution `(∏ i : Finset.Icc 1 n, b i) / n!` is the known correct answer. No hypotheses are dropped or added beyond what the informal statement requires.
+
+### putnam_1986_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formulation captures all the geometric constraints correctly. The hypothesis `b^2 + h^2 = 2^2` correctly encodes the rectangle's inscription in a unit circle (its diagonal equals the diameter 2). The area equation `b * h = 0.5 * b * (1 - h / 2)` correctly equates the rectangle area ($bh$) with the triangle area ($\frac{1}{2} b (1-h/2)$), where the triangle height $1 - h/2$ is derived from the apex at $(0,1)$ on the unit circle and the base on the line $y = h/2$ (the "other direction" from the rectangle). The positivity constraints $b, h > 0$ are implicit non-degeneracy conditions. Given $b > 0$, the area equation algebraically yields $h = 2/5$, which matches the solution. Despite the author's own "Note" hedging, the formulas faithfully represent the intended geometric setup.
+
+### putnam_1986_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts that the set of triples T = (x-y, y-z, z-x) arising from complex (x,y,z) satisfying x(x-1)+2yz = y(y-1)+2zx = z(z-1)+2xy equals a specified Finset (coerced to Set). The equation chain is encoded as the conjunction `x*(x-1)+2*y*z = y*(y-1)+2*z*x ∧ y*(y-1)+2*z*x = z*(z-1)+2*x*y`, which is logically equivalent to the three-way equality in the informal statement. The set-equals-Finset formulation simultaneously captures both parts of the informal task: finiteness (since any set equal to a finite set is finite) and the exact enumeration. The solution set {(0,0,0), (0,-1,1), (1,0,-1), (-1,1,0)} matches the four mathematical cases (x=y=z; x=y with z=x+1; y=z with x=y+1; x=z with y=x+1). Types (ℂ) and the ordered triple structure match exactly. No extra hypotheses are added nor required ones omitted.
+
+### putnam_1986_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 1986 B3. Γ is correctly rendered as `Polynomial ℤ`. The congruence relation is defined parametrically via `cong` and characterized by `hcong` as `∀ i : ℕ, m ∣ (f - g).coeff i`, which exactly matches "every coefficient of f−g is an integer multiple of m" (divisibility in ℤ is integer multiples). The hypotheses `n, p > 0`, `Nat.Prime p`, `rf+sg ≡ 1 (mod p)`, and `fg ≡ h (mod p)` match the informal setup (the redundancy of `p > 0` given `Nat.Prime p` is harmless). The conclusion `∃ F G, cong F f p ∧ cong G g p ∧ cong (F*G) h (p^n)` mirrors the informal goal exactly, including the modulus `p^n`. The natural-to-integer coercions for the modulus are automatic and correct. No hypotheses are added, dropped, weakened, or strengthened.
+
+### putnam_1986_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal Putnam problem. The hypotheses `hGeq` and `hGlb` together characterize G(r) as the minimum of |r - √(m²+2n²)| over integer pairs (m,n): `hGlb` makes G(r) a lower bound and `hGeq` asserts it is attained. `Tendsto G atTop (𝓝 0)` is the standard Mathlib encoding of "the limit as r → ∞ exists and equals 0", which exactly captures the prove-or-disprove assertion. The iff with `putnam_1986_b4_solution : Prop` (with answer True) correctly formalizes the "prove or disprove" format. Although G is defined on all of ℝ rather than just positive reals, only behavior as r → ∞ matters for the Tendsto assertion, so this is inconsequential. The formalization is faithful.
+
+### putnam_1986_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the Putnam 1986 B5 problem. The polynomial f = X0² + X1² + X2² + X0·X1·X2 matches the informal f(x,y,z) = x²+y²+z²+xyz. The polynomial identity f(p,q,r) = f(x,y,z) is equivalently expressed via evaluation at all real triples (valid since ℝ is infinite). The four sets in `perms` correctly enumerate permutations with 0 or 2 minus signs: {X0,X1,X2} (0 minuses), and {X0,-X1,-X2}, {-X0,X1,-X2}, {-X0,-X1,X2} (the three 2-minus patterns). Since each set has 3 distinct elements, the condition `{pqr 0, pqr 1, pqr 2} ∈ perms` correctly captures "(p,q,r) is some permutation of (±x, ±y, ±z) with 0 or 2 minus signs". The "prove or disprove" is encoded as `putnam_1986_b5_solution ↔ (...)` with the solution `False`, indicating the assertion is disprovable — matching the known Putnam answer.
+
+### putnam_1986_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement on every substantive point: A, B, C, D are n × n matrices over an arbitrary field F (`Matrix (Fin n) (Fin n) F` with `[Field F]`), the hypothesis that AB^T and CD^T are symmetric is encoded correctly using Mathlib's `IsSymm` (which unfolds to `Mᵀ = M`), the identity hypothesis `A * Dᵀ - B * Cᵀ = 1` uses Mathlib's standard matrix `One` instance for the identity matrix, and the conclusion `Aᵀ * D - Cᵀ * B = 1` is exactly the statement requested. The only added hypothesis is `npos : n > 0`, which makes explicit the standard mathematical convention that "n × n matrices" refers to nonzero dimensions; this is a reasonable surfacing of an implicit premise. Since the n = 0 case is vacuously true anyway (all 0×0 matrices are equal), adding npos does not meaningfully restrict the mathematical content of the claim.
+
+### putnam_1987_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes the same four curves with matching polynomial equations, and asserts $A \cap B = C \cap D$ as required. The only notable addition is the hypothesis `x^2 + y^2 ≠ 0` in the definitions of $A$ and $B$. This is not a semantic drift but rather makes explicit an implicit premise: in the informal statement the expressions $x/(x^2+y^2)$ and $y/(x^2+y^2)$ are not defined at the origin, so any mathematician would read $A$ and $B$ as implicitly excluding $(0,0)$. Moreover, even under Lean's "division by zero = 0" convention the origin is anyway not in $A \cap B$ (because $0 \neq 3$ fails in $B$) and not in $C \cap D$ (because $0 \neq 1$ fails in $C$), so both interpretations yield the same equality. The equations for $A$, $B$, $C$, $D$ and the conclusion all match exactly.
+
+### putnam_1987_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement introduces three helper functions with hypotheses that uniquely determine them: (1) `seqind i` gives the starting position of integer i in the concatenated sequence, anchored at seqind 1 = 1 and incremented by the digit-length of the previous integer; (2) `seqsize k` gives the digit-count of the integer containing position k (constrained at every position k ≥ 1, which is exactly the relevant domain); (3) `f n = seqsize (10^n)`. Verifying the example: seqind 55 = 10 + 2·45 = 100, and seqsize 100 = 2, so f 2 = 2, matching the informal example. The conclusion `f 1987 = putnam_1987_a2_solution` with solution 1984 matches the informal question "Find f(1987)." The helper-function hypotheses, taken together, uniquely pin down f 1987 to the same value as the informal definition, so the formalization is logically equivalent to the informal statement.
+
+### putnam_1987_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures each element of the informal statement: (1) P is encoded as MvPolynomial (Fin 3) ℂ with hPreal asserting all coefficients have imaginary part zero, which is equivalent to P having real coefficients; (2) F : ℝ → ℝ → ℝ is correct since the functional equation is only asserted on real inputs and forces F to be real-valued there; (3) the functional equation is quantified over real x,y,z,u matching the informal statement; (4) the boundary values P(1,0,0)=4, P(0,1,0)=5, P(0,0,1)=6 are correctly encoded via vars which maps coordinates 0,1,2 to the three arguments; (5) A, B, C : ℂ with P(A,B,C)=0 and ‖B-A‖=10 match; (6) the conclusion ‖C-A‖ = (5/3)√30 (via ℝ→ℂ coercion) is the correct answer. No hypotheses are added or dropped beyond standard encoding conventions.
+
+### putnam_1987_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures: (i) C¹ condition via ContDiffOn ℝ 1 F {v | v ≠ ![0,0,0]}; (ii) curl = 0 via the standard definition (verified componentwise: ∂P/∂y−∂N/∂z, ∂M/∂z−∂P/∂x, ∂N/∂x−∂M/∂y); (iii) F(x,y,0) = G(x,y). The one subtlety is that `∀ x y, F ![x,y,0] = G ![x,y]` includes (x,y)=(0,0), where Lean's 0/0=0 convention makes G![0,0] = ![0,0,0], silently adding F(0,0,0) = ![0,0,0]. However, since F's value at the origin does not affect ContDiffOn on {v ≠ 0} or the curl condition at points x ≠ 0, any F satisfying the informal constraints can be modified at the single origin point to match this Lean constraint. Hence the two existence propositions are logically equivalent, and the iff with the Prop-valued solution faithfully captures the problem.
+
+### putnam_1987_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Putnam statement. The function `a` is defined as `{i | (digits 3 n).get i = 0}.ncard`, which correctly counts the number of zero digits in the base-3 representation of n (Mathlib's `digits 3 n` is little-endian with no leading zeros, matching the conventional representation). The `Summable` predicate is over n : ℕ, but at n=0 the term `x^(a 0) / 0^3 = 1/0 = 0` by Lean's division convention, so including n=0 does not affect summability — equivalent to summing from n=1 as in the informal statement. The set equality `{x : ℝ | x > 0 ∧ Summable ...} = {x : ℝ | x > 0 ∧ x < 25}` correctly asks "for which positive x does the series converge?" with answer (0, 25), matching the known Putnam answer derived from (2+x)/27 < 1.
+
+### putnam_1987_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement uses `Real.log` (via `open Real`), matching the informal `ln`, and `Real.sqrt` for square roots. The integrand `sqrt (log (9 - x)) / (sqrt (log (9 - x)) + sqrt (log (x + 3)))` encodes exactly (√ln(9-x))/(√ln(9-x)+√ln(x+3)), and the interval integral `∫ x in (2)..4, ...` matches the bounds [2,4]. The result is asserted equal to the solution constant of type ℝ, so the Lean statement says precisely: the value of the given integral equals this constant. No hypotheses are added or dropped; no quantifiers are changed; types and ambient objects match. This is a faithful formalization.
+
+### putnam_1987_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal claim. Using ℕ for r, s, t correctly encodes "integers with 0 ≤ r, 0 ≤ s" (and t ≥ 0 is forced by r+s ≤ t). The hypothesis `r + s ≤ t` matches. The sum `∑ i : Finset.range (s + 1), ...` uses the `CoeSort` instance (Finset.instCoeSortFinsetType) to interpret the Finset as the subtype `{x // x ∈ Finset.range (s+1)}`, which with `Finset.fintypeCoeSort` sums over i = 0, ..., s, matching the informal sum. The summand `(choose s i : ℚ) / (choose t (r + i))` (with `open Nat`, `choose` = `Nat.choose`) correctly encodes $\binom{s}{i}/\binom{t}{r+i}$ via rational division. The RHS `(t+1 : ℚ) / ((t+1-s) * choose (t-s) r)` gives the correct value: under `r+s ≤ t`, both `t-s` and `t+1-s` are safe under ℕ subtraction (s ≤ t), so the expression equals $\frac{t+1}{(t+1-s)\binom{t-s}{r}}$ mathematically.
+
+### putnam_1987_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement precisely mirrors the informal claim. The field F with hypothesis `(1 : F) + 1 ≠ 0` exactly matches "a field in which 1+1 ≠ 0". The LHS `{(x, y) : F × F | x^2 + y^2 = 1}` captures "the set of solutions to x^2+y^2=1 with x,y in F". The RHS is the union of the singleton `{(1,0)}` and the parametrized set `{((r^2-1)/(r^2+1), 2r/(r^2+1)) | r ∈ {r' : F | r'^2 ≠ -1}}`, which by Mathlib's extBinders set-builder macro unfolds to `{z | ∃ r, r^2 ≠ -1 ∧ ((r^2-1)/(r^2+1), 2r/(r^2+1)) = z}` — exactly "r runs through the elements of F such that r^2 ≠ -1". All formulas, the condition r^2 ≠ -1, and the explicit (1,0) addition match. No hypotheses are added or dropped.
+
+### putnam_1987_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal problem. The initial condition (x 1, y 1) = (0.8, 0.6) and the recurrence `∀ n ≥ 1` matching n = 1, 2, 3, ... are both correctly encoded. The solution tuple (existsx, limx, existsy, limy) with the two-implication structure `((∃ c, Tendsto x atTop (𝓝 c)) → existsx) ∧ (existsx → Tendsto x atTop (𝓝 limx))` correctly captures the "find the limit or prove it doesn't exist" requirement: if existsx = True the solver must prove Tendsto to the specified value; if existsx = False the solver must prove no limit exists. The expected solution (True, -1, True, 0) is mathematically correct: the recurrence is a rotation keeping (x_n, y_n) on the unit circle with angle θ_{n+1} = θ_n + sin θ_n, which converges to π, giving x_n → -1 and y_n → 0.
+
+### putnam_1987_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes: (1) M as a 2n×n complex matrix, (2) the hypothesis that any nonzero row vector z with zM = 0 has at least one non-real entry — expressed as ∃ i, (z 0 i).im ≠ 0, which correctly captures "z_i is not real" since a complex number is real iff its imaginary part is zero, (3) the conclusion that for any real 2n-vector r (encoded as a 2n×1 matrix), there exists a complex n-vector w such that the real parts of Mw equal r componentwise. Matrix multiplication semantics match (z*M is 1×n, M*w is 2n×1). The ¬∀ i, z 0 i = 0 hypothesis is classically equivalent to "not all z_i are zero". The added `npos : n > 0` hypothesis only surfaces an implicit assumption from the informal statement (which writes r_1,…,r_{2n} and w_1,…,w_n, implying n ≥ 1); since n = 0 makes both statements vacuously true, this does not narrow the mathematical content.
+
+### putnam_1987_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal Putnam 1987 B6 statement exactly. `hp : Odd p ∧ Nat.Prime p` captures "odd prime". `Fcard : Fintype.card F = p ^ 2` captures "field of p² elements". `Snz` and `Scard` capture "set of (p²-1)/2 nonzero elements" (the ℕ-to-ℤ coercion on the cardinality equation resolves correctly since (p²-1)/2 is a positive integer for odd primes). `hS` uses Mathlib's `Xor'` (defined as `(a ∧ ¬b) ∨ (b ∧ ¬a)` in `Mathlib/Logic/Basic.lean`), which is exactly "exactly one of a and -a is in S". The conclusion `Even ((S ∩ {x | ∃ a ∈ S, x = 2 * a}).ncard)` is precisely "N = |S ∩ {2a : a ∈ S}| is even". All quantifiers, types, and conditions are faithful.
+
+### putnam_1988_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the planar region as a subset of Fin 2 → ℝ with p 0 being x and p 1 being y. The two conditions |p 0| - |p 1| ≤ 1 and |p 1| ≤ 1 match the informal conditions |x|-|y| ≤ 1 and |y| ≤ 1 exactly. The `volume` on `Fin 2 → ℝ` is the standard 2D Lebesgue measure (via MeasureTheory.MeasureSpace.pi instance), which measures area, and `.toReal` converts ENNReal to ℝ (which is fine since R has finite area). The area equals ∫₋₁¹ 2(|y|+1) dy = 6, matching the stated solution. The formalization is logically equivalent to the informal statement.
+
+### putnam_1988_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. It correctly encodes $f(x) = e^{x^2}$, the existence of an open interval $(a,b)$ (via `a < b` and `Ioo a b`), and the wrong product rule equation $(fg)' = f'g'$ on $(a,b)$. The phrase "nonzero function $g$" is naturally encoded as `∃ x ∈ Ioo a b, g x ≠ 0` (not identically zero), which is the standard reading. The explicit `DifferentiableOn ℝ g (Ioo a b)` hypothesis makes explicit an implicit premise of the informal problem — the "wrong product rule" equation $(fg)' = f'g'$ presupposes that $g$ has a derivative, so this is surfacing an implicit premise rather than adding an unwarranted restriction. Since $f$ is globally differentiable, all derivatives on the open interval are well-defined. The biconditional with `putnam_1988_a2_solution` correctly frames the yes/no existence question.
+
+### putnam_1988_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes exactly the informal claim. The summand `((1/n)/Real.sin(1/n) - 1) ^ x` matches `((1/n) csc(1/n) - 1)^x` since csc = 1/sin; the power `^` resolves to `Real.rpow` (via Mathlib's `instance : Pow ℝ ℝ := ⟨rpow⟩`) which is the standard real exponentiation. The base (1/n)/sin(1/n) - 1 is positive for all n ≥ 1 (since sin(1/n) < 1/n for 1/n ∈ (0,1]), so rpow behaves as expected. The indexing `Finset.Icc (1 : ℕ) t` with `atTop` yields partial sums $\sum_{n=1}^t$ with t → ∞, matching $\sum_{n=1}^\infty$. The existential `∃ L : ℝ, Tendsto ... (𝓝 L)` is the standard definition of series convergence. The statement `{x | series converges at x} = solution` faithfully represents "Determine the set of x for which the series converges."
+
+### putnam_1988_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement models the plane as `EuclideanSpace ℝ (Fin 2)`, a coloring as a function into `Fin n`, and "necessarily exist two points of the same color one inch apart" as `∀ color, ∃ p q, color p = color q ∧ dist p q = 1`. The universal quantifier correctly captures "necessarily" (for any coloring), and while `∃ p q` does not explicitly require `p ≠ q`, this is automatic because `dist p q = 1` forces distinctness. The answer pair `(True, False)` encodes the known result: every 3-coloring of the plane contains a monochromatic pair at unit distance (e.g., via the Moser spindle), while a suitable 9-coloring exists avoiding this (since the chromatic number of the plane is at most 7). Both parts (a) and (b) are captured by `(p 3 ↔ a) ∧ (p 9 ↔ b)`, matching the informal question's structure faithfully.
+
+### putnam_1988_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes "there exists a unique function f: R^+ → R^+ with f(f(x)) = 6x - f(x) and f(x) > 0 for all x > 0." The use of f : ℝ → ℝ with the condition `f x > 0 for x > 0` is equivalent to f: R^+ → R^+ (the behavior outside R^+ is unconstrained in both the existence and uniqueness parts, so restriction/extension gives a bijection between satisfying f's on R^+ and equivalence classes of satisfying f's on R mod equality on positives). The uniqueness clause quantifies over all such g and asserts agreement only on positive reals, which exactly matches "unique function on R^+". The functional equation and positivity conditions are correctly translated. No hypotheses are added or dropped.
+
+### putnam_1988_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal claim. The n-dimensional vector space is captured by `n = Module.finrank F V` together with `FiniteDimensional F V`. The "n+1 eigenvectors" is encoded as a set `evecs` with `encard = n + 1` whose elements all satisfy `A.HasEigenvector f v` for some eigenvalue f (Mathlib's `HasEigenvector` correctly requires nonzero, matching convention). The "any n of them are linearly independent" condition quantifies over `sevecs : Fin n → V` whose range is a size-n subset of evecs; the size constraint forces injectivity, so this correctly asserts that any n-element subset of the n+1 eigenvectors forms a linearly independent family. The conclusion `∃ c : F, A = c • LinearMap.id` faithfully encodes "A is a scalar multiple of identity." The biconditional with `putnam_1988_a6_solution = True` asserts the universal claim holds, matching the informal yes/no question whose answer is affirmative. Universal quantification over fields is the natural reading of the unspecified field in the informal statement.
+
+### putnam_1988_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts: for all integers a ≥ 2 and b ≥ 2, there exist positive integers x, y, z with ab = xy + xz + yz + 1. The types of a, b are inferred as ℤ because x, y, z : ℤ and the equation has no coercions. This is logically equivalent to the informal claim that every composite number (defined as a product ab with a, b ∈ {2,3,4,...}) can be written as xy + xz + yz + 1 with x, y, z positive integers — quantifying over factorizations (a,b) instead of composite values n is equivalent since every composite has at least one such factorization. The positivity constraints x > 0, y > 0, z > 0 on integer-valued x, y, z correctly capture "positive integers". No hypotheses are silently added or dropped.
+
+### putnam_1988_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to prove or disprove: for real x, y with y ≥ 0 and y(y+1) ≤ (x+1)², we have y(y-1) ≤ x². The Lean formalization encodes this as an iff between the claim `∀ x y : ℝ, (y ≥ 0 ∧ y * (y + 1) ≤ (x + 1) ^ 2) → (y * (y - 1) ≤ x ^ 2)` and a solution proposition (which is `True`, indicating the answer is "prove"). Each component matches exactly: the quantifier `∀ x y : ℝ` matches "real numbers x and y", the hypothesis conjunction matches "y ≥ 0 and y(y+1) ≤ (x+1)²", and the conclusion `y * (y - 1) ≤ x ^ 2` matches "y(y-1) ≤ x²". This is the standard "prove or disprove" encoding used in PutnamBench, and the formalization is strictly faithful.
+
+### putnam_1988_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypothesis `hr` defines r n for n ≥ 1 as the minimum of |c - d√3| over nonnegative integers c, d with c + d = n: the existential clause asserts the minimum is attained, and the universal clause asserts r n is a lower bound—together characterizing the minimum exactly as the informal statement requires. The conclusion uses `IsLeast` on the set of positive reals g satisfying r n ≤ g for all n ≥ 1, which means the solution is both an element of this set (it is positive and bounds all r_n) and a lower bound for the set (every valid g is ≥ it). This precisely captures "the smallest positive real number g with r_n ≤ g for all n ∈ N." The types (integers for c, d, n; reals for r_n and g), the nonnegativity constraints, and the restriction to n ≥ 1 all correspond directly to the informal statement.
+
+### putnam_1988_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding abstracts the concept "convergent series of positive reals" via `IsPosConv`, whose definition captures exactly (i) all terms with index ≥ 1 are positive and (ii) the partial sums ∑_{n=1}^N a_n converge. The partial sum is encoded as a sum over the subtype `Set.Icc 1 N`, which yields a_1 + ... + a_N for N ≥ 1, matching ∑_{n=1}^∞. The exponent (n : ℝ)/(n+1) is real division matching n/(n+1). The conclusion claims IsPosConv of the transformed sequence (fun n => (a n)^(n/(n+1))), which encodes exactly "∑_{n=1}^∞ (a_n)^{n/(n+1)} is a convergent series of positive reals". No hypotheses are silently added or removed, no types are changed, and quantifier structure matches. This is a faithful formalization.
+
+### putnam_1988_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the informal problem. The matrix type is `Matrix (Fin (2*n+1)) (Fin (2*n+1)) ℝ`, matching the "2n+1 by 2n+1" dimensions. `Mnskewsymm` gives skew-symmetry (which forces diagonal entries to 0 over ℝ). `hMn1` precisely captures "entries in the first n subdiagonals equal 1" via `1 ≤ i - j ≤ n → Mn i j = 1`, and `hMnn1` captures "remaining entries below the main diagonal equal -1" via `i - j > n → Mn i j = -1`. These hypotheses, combined with skew-symmetry, uniquely determine Mn (upper entries follow from lower ones). I verified the encoding against both example matrices M₁ and M₂. The hypothesis `n > 0` correctly formalizes "positive integers n". Over ℝ (a field), Mathlib's `Matrix.rank` (finrank of range of mulVecLin) is equivalent to the classical determinantal rank mentioned in the problem. The conclusion `Mn.rank = 2*n` matches the intended answer.
+
+### putnam_1988_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The triangular numbers are defined as {t : ℤ | ∃ n : ℤ, t ≥ 0 ∧ t = n(n+1)/2}; though the informal uses n ∈ ℕ, using n ∈ ℤ yields the same set since n(n+1)/2 = (-n-1)(-n)/2, and n(n+1)/2 ≥ 0 for all integers n (so the t ≥ 0 is redundant but harmless). Integer division works exactly because n(n+1) is always even. The condition ∀ t > 0 on ℤ matches "every positive integer t", the iff matches "if and only if", and `.encard = ⊤` correctly encodes "infinitely many" (by Set.encard_eq_top_iff ↔ Infinite). The ambient type ℤ × ℤ matches "ordered pairs of integers".
+
+### putnam_1989_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes "primes whose base-10 representation alternates 1's and 0's, beginning and ending with 1" as follows: `Nat.digits 10 p` returns the base-10 digits in little-endian order, but such alternating-pattern numbers are palindromes, so little-endian and big-endian representations coincide. The predicate `pdigalt l` requires (a) `Odd l.length` — ensuring both the first and last digits lie at even indices, and (b) every even-indexed position is 1, every odd-indexed position is 0. This produces lists [1], [1,0,1], [1,0,1,0,1], ..., representing 1, 101, 10101, .... Since `p.Prime` excludes 0 and 1, the set counts exactly the primes with the described decimal pattern. The `.encard` in `ℕ∞` properly captures the "how many" count, matching the solution value 1 (only 101 is prime among these numbers).
+
+### putnam_1989_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The hypothesis `a > 0 ∧ b > 0` matches "where a and b are positive." The nested integrals `∫ x in Set.Ioo 0 a, ∫ y in Set.Ioo 0 b, ...` correctly reflect the informal `∫_0^a ∫_0^b ... dy dx` (outer in x, inner in y). The integrand `Real.exp (max (b^2 * x^2) (a^2 * y^2))` matches $e^{\max\{b^2x^2, a^2y^2\}}$. Using `Set.Ioo` vs closed intervals is immaterial since they differ by a measure-zero set. The solution `(e^(a²b²) - 1)/(ab)` is correct (verified via region-splitting at $y = bx/a$ and symmetry).
+
+### putnam_1989_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature directly transcribes the informal statement. The variable `z : ℂ` matches "z is a complex number". With `open Complex`, the symbol `I` resolves to `Complex.I`, which satisfies `I^2 = -1` (matching the informal note). The hypothesis `11 * z^10 + 10*I*z^9 + 10*I*z - 11 = 0` is the exact polynomial equation given. On ℂ, `‖·‖` is defined in `Mathlib.Analysis.Complex.Norm` as `√(normSq z)` — the standard complex modulus — so `‖z‖ = 1` faithfully encodes `|z| = 1`. No hypotheses are added or dropped, and the conclusion is identical.
+
+### putnam_1989_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes the coefficient condition via `bin := [1] ++ digits 2 n ++ [1]` (where `digits 2 n` is little-endian). The prepended 1 serves as a boundary below the LSB so that trailing zeros of n count as a block; the appended 1 is a boundary above the MSB but always gives 0 zeros (vacuous) since `digits 2 n` ends with 1 for n > 0, correctly modeling that there are no leading zeros. The quantified condition "for every pair i < j with bin.get i = bin.get j = 1 and all positions strictly between equal to 0, (j - i - 1) is even" is exactly "every block of zeros between consecutive 1s has even length", matching the informal definition. Verified on both examples: a₃₆ = 1 (gaps 2, 2, 0) and a₂₀ = 0 (gap 1 is odd). For n = 0, bin = [1,1] gives a₀ = 1, matching the "1 +" in α's definition. Quantifying over any 2-element field F is equivalent to using 𝔽₂ since all 2-element fields are canonically isomorphic to ZMod 2. The equation α^3 + X·α + 1 = 0 matches the informal conclusion.
+
+### putnam_1989_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the geometric setup: `square` is the unit [0,1]², `perimeter` is the union of four edges, `center` is (1/2, 1/2) in EuclideanSpace ℝ (Fin 2). The set `Scloser = {p ∈ square | ∀ q ∈ perimeter, dist p center < dist p q}` captures "nearer to center than to any edge" because, by compactness of the perimeter, requiring strictly less distance than every perimeter point is equivalent to dist(p, center) < dist(p, perimeter) = min over all four edges. The volume ratio `volume(Scloser)/volume(square)` equals volume(Scloser) since volume([0,1]²)=1, yielding (4√2-5)/3 matching (a,b,c,d)=(4,2,-5,3). The added constraint "b is not a perfect square" is a natural canonical-form disambiguation consistent with the intended answer (the probability is irrational, so b must be non-square) and does not narrow the problem beyond what was asked. The strict inequality and boundary of measure zero don't affect the probability.
+
+### putnam_1989_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. `Nonempty S` matches "non-empty set"; `Semigroup S` provides the associative operation; `IsCancelMul S` (which extends both `IsLeftCancelMul` and `IsRightCancelMul`) captures the two-sided cancellation property stated in the informal text. The set `{(a * ·)^[n] a | n : ℕ}` iterates `x ↦ a*x` starting from `a`, producing {a, a², a³, ...} = {a^n : n ≥ 1} by associativity, matching the informal set for n = 1, 2, 3, .... The conclusion `∃ e, ∀ x, e*x=x ∧ x*e=x ∧ ∃ y, x*y=e ∧ y*x=e` correctly states that S has a two-sided identity shared across all elements and each element has a two-sided inverse — exactly the group axioms. The solution value `True` matches the informal answer "Yes, S must be a group". The `Type` vs `Type*` universe restriction is an explicitly acknowledged standard formalization convention that doesn't change the mathematical content.
+
+### putnam_1989_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement on all key points. The hypotheses correctly encode: differentiability of f (extended to all of ℝ as a standard formalization convenience since conclusions only depend on x ≥ 0 values), the ODE f'(x) = -3f(x) + 6f(2x) for x > 0, and the decay bound |f(x)| ≤ e^(-√x) for x ≥ 0. The moments μ_n are correctly defined as ∫_{(0,∞)} x^n f(x) dx. Part (a) is encoded via an explicit solution formula μ_0 · n!/(3^n · ∏_{m=1}^n(1-2^{-m})), which is the correct closed form derivable via integration by parts. Part (b) correctly encodes both claims: existence of a limit (convergence) via ∃ L, Tendsto..., and "limit is 0 only if μ_0 = 0" as an implication from Tendsto-to-0 to μ_0 = 0 (matching standard English "A only if B" = A → B). The extension of f from [0,∞) to all of ℝ is a routine formalization technique that doesn't alter the mathematical content.
+
+### putnam_1989_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal question. "Countably infinite set" is correctly captured by `Countable S ∧ Infinite S` (Mathlib's `Countable` means "injects into ℕ", and `Infinite` means "not finite"). "Uncountable collection of non-empty subsets" becomes `C : Set (Set S)` with `¬Countable C` and `∀ R ∈ C, R ≠ ∅`. The condition "intersection of any two of them is finite" is correctly rendered as `∀ A ∈ C, ∀ B ∈ C, A ≠ B → (A ∩ B).Finite`; the `A ≠ B` is the intended reading, since otherwise the condition would degenerate (it would imply every member is finite, forcing the family to be countable). Using `S : Type` is not a restriction since any countably infinite type is in `Type 0`. The existential form `∃ S, ...` matches the "Can ... have" question, and equating it with the solution `True` is the correct iff-to-solution pattern used throughout PutnamBench.
+
+### putnam_1989_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The region X is correctly encoded: with [NeZero n], `x (-1)` is the last coordinate (since Fin n has an AddCommGroup structure), so combined with StrictMono and `0 < x 0`, this gives `0 < x_1 < ... < x_n < 1`. `I x = Fin.cons 0 (Fin.snoc x 1)` correctly sets x_0=0 and x_{n+1}=1. The sum S correctly computes ∑_{i=0}^n (x_{i+1}-x_i)f(x_{i+1}) using castSucc/succ. The measure ℙ[|X] (from ProbabilityTheory.ConditionalProbability) is the uniform probability measure on X, so the integral equals the expected value. The existential structure correctly places P outside the ∀f, matching "P independent of f"; degree exactly n, [0,1] bounds on [0,1], and the integral equation all match. The [NeZero n] assumption is an implicit premise required for the statement to be meaningful/true (n=0 would make the problem ill-defined), which is a faithful surfacing of an implicit assumption.
+
+### putnam_1990_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement precisely. The initial conditions `T 0 = 2 ∧ T 1 = 3 ∧ T 2 = 6` correspond to $T_0=2, T_1=3, T_2=6$. The recurrence `T(n+3) = (n+7)T(n+2) - 4(n+3)T(n+1) + (4n+4)T(n)` for all $n \in \mathbb{N}$ is equivalent (by substitution $m = n+3$) to the informal $T_m = (m+4)T_{m-1} - 4m T_{m-2} + (4m-8)T_{m-3}$ for $m \geq 3$. The conclusion `T = solution.1 + solution.2` is function equality, which unfolds to $T_n = n! + 2^n$ for all $n$, matching the informal request for a formula $T_n = A_n + B_n$ with well-known sequences. The sanity check $T_3 = 14 = 3! + 2^3$ confirms consistency.
+
+### putnam_1990_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal question. The predicate `numform x` captures numbers of the form $\sqrt[3]{n}-\sqrt[3]{m}$: since `n m : ℕ` and the exponent `(1:ℝ)/3` is a real number, `n ^ ((1:ℝ)/3)` coerces `n` to ℝ and uses `Real.rpow`, giving the real cube root for non-negative naturals. The range `n, m = 0, 1, 2, ...` corresponds exactly to `ℕ`. The conclusion `∃ s : ℕ → ℝ, (∀ i, numform (s i)) ∧ Tendsto s atTop (𝓝 (Real.sqrt 2))` captures the existence of a sequence of such numbers converging to √2, which is the natural reading of "Is √2 the limit of a sequence of numbers of the form ...?". The solution is `True`, matching the known Putnam answer. Hypotheses, types, and quantifier structure all match.
+
+### putnam_1990_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem. The plane is encoded as `EuclideanSpace ℝ (Fin 2)`, a punch's action is modeled via `Irrational (dist P Q)` matching "distance is irrational", and `S.encard = n` with n : ℕ forces S to be a finite set of exactly n points (since the coerced value in ℕ∞ is finite). The condition `∀ Q, ∃ P ∈ S, Irrational (dist P Q)` faithfully expresses "every point in the plane is removed by at least one punch". Taking `sInf` over ℕ gives the minimum such n (the set is nonempty since n = 3 works, and larger n also work by extension, so sInf = minimum). This is a clean, faithful encoding of the Putnam 1990 A4 problem.
+
+### putnam_1990_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks whether ABAB=0 implies BABA=0 for square matrices of the same size, with solution "False" (i.e., the implication does not always hold). The Lean formalizes this as a universal claim over real n×n matrices for n ≥ 1. The ring ℝ is the standard Putnam convention when unspecified, and the classical counterexample uses real 2×2 matrices, so the answer (False) is the same under any reasonable interpretation. The n ≥ 1 restriction excludes the vacuous 0×0 case but doesn't affect the truth value (for n=0 the implication is trivially true). The "same size" condition is faithfully encoded by having both A and B of type `Matrix (Fin n) (Fin n) ℝ` for the same n. The solution `False` correctly corresponds to the answer "No" to the informal question.
+
+### putnam_1990_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly formalizes the informal problem. The type `Finset (Set.Icc 1 10)` (with `open Nat`) uses the subtype `↥(Set.Icc 1 10)` which has exactly 10 elements (the naturals 1–10), so Finsets of this subtype biject with subsets of {1,...,10}. The predicates `∀ s ∈ S, T.card < s` and `∀ t ∈ T, S.card < t` (with automatic Subtype.val coercion of s, t to ℕ) exactly express "s > |T|" and "t > |S|", and `.card` counts the admissible pairs over the full universe of pairs. The empty-pair case (which satisfies the conditions vacuously) is handled the same way in both the informal and Lean readings. No hypotheses are added or dropped.
+
+### putnam_1990_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes "find all C^1 real functions f such that (f(x))² = ∫₀ˣ [(f(t))² + (f'(t))²] dt + 1990 for all x". `ContDiff ℝ 1 f` is the standard Mathlib definition for continuously differentiable; the interval integral `∫ t in (0:ℝ)..x, ...` matches ∫₀ˣ; and since f is C^1, `deriv f t` agrees with f'(t) everywhere, so `(deriv f t)^2` correctly represents (f'(t))². The biconditional with `putnam_1990_b1_solution` captures the "find all" aspect, and the quantifier structure (∀ x in P_def) matches. The solution set {√1990·eˣ, -√1990·eˣ} is consistent with the equation. No hypotheses are dropped or added beyond what the informal statement requires.
+
+### putnam_1990_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal identity. The numerator ∏ i : Fin j, (1 - z * x^i) iterates over exponents 0..j-1, matching (1-z)(1-zx)...(1-zx^{j-1}). The denominator ∏ i : Set.Icc 1 j, (z - x^i) iterates over exponents 1..j, matching (z-x)(z-x^2)...(z-x^j). The series ∑' j : Set.Ici 1, ... correctly sums from j=1 to ∞, and the hypothesis hP constrains P on exactly the indices j ≥ 1 that appear in the sum, leaving P 0 irrelevant. The bounds |x|<1 and |z|>1 are preserved. The informal statement does not specify real vs. complex, so interpreting x, z : ℝ is a valid and natural reading of the written text.
+
+### putnam_1990_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. Using `Matrix (Fin 2) (Fin 2) ℕ` is equivalent to integer matrices with square entries since perfect squares of integers are non-negative, and commutation under matrix multiplication is preserved by the ℕ → ℤ embedding. The hypothesis `∀ A ∈ S, ∀ i j, (∃ x : ℤ, A i j = x^2) ∧ A i j ≤ 200` correctly encodes that every entry is both a perfect square of an integer and ≤ 200. The threshold 50387 matches the given value (15^4 − 15^2 − 15 + 2 = 50387). The conclusion `∃ A ∈ S, ∃ B ∈ S, A ≠ B ∧ A * B = B * A` correctly encodes "two (distinct) elements that commute", which is the intended reading since any element trivially commutes with itself. `S.encard > 50387` correctly encodes "more than 50387 elements".
+
+### putnam_1990_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The sum `∑ i ∈ Finset.Iic n, a i • X^i` correctly expresses `p_n(x) = a_0 + a_1 x + ... + a_n x^n` since `Finset.Iic n = {0, 1, ..., n}` over ℕ and `a i • X^i = C (a i) * X^i` by `Polynomial.smul_eq_C_mul`. The condition `a.roots.toFinset.card = n` correctly captures "exactly n distinct real roots" (since `roots` is a multiset of real roots and `.toFinset.card` counts distinct ones). The hypothesis `∀ i, a i ≠ 0` captures "nonzero real numbers"; `∀ n ≥ 1` matches "for n=1,2,3,...". The encoding as `(∃ ...) ↔ putnam_1990_b5_solution` with solution `True` properly encodes the yes/no question. All types, quantifiers, and mathematical content align with the informal statement.
+
+### putnam_1991_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal Putnam problem. All hypotheses are correctly encoded: A ≠ B ("different"), A^3 = B^3, A^2 * B = B^2 * A, and the conclusion A^2 + B^2 being invertible uses `Nonempty (Invertible ·)`, the standard Mathlib way to express that a matrix has a two-sided multiplicative inverse. The "can A²+B² be invertible?" question is correctly encoded via existential quantification combined with an iff to the solution Prop. The added `1 ≤ n` hypothesis makes explicit the implicit premise needed for "different n×n matrices" to be sensible (with n = 0 there is only one 0×0 matrix). Since `putnam_1991_a2_solution` is set to False, the theorem asserts that for every n ≥ 1, no such A, B exist with A²+B² invertible, which matches the intended answer "No".
+
+### putnam_1991_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The hypothesis `hn : n = p.degree` (with automatic coercion `ℕ → WithBot ℕ`) together with `hge : n ≥ 2` expresses "polynomial of degree n ≥ 2". The encoding `r : ℕ → ℝ` (rather than `Fin n → ℝ`) is an intentional and correct choice, explicitly noted by the author, because `i + 1` then happens in ℕ instead of wrapping modulo `n`: for `i : Fin (n-1)`, `r (i+1)` elaborates to `r (↑i + 1)` which gives the actual next index. The three conditions — strict ordering `r 0 < r 1 < ... < r (n-1)`, `p` vanishing at each `r i`, and `p'` vanishing at each midpoint — match the informal statement exactly (1-based vs 0-based indexing is purely notational). The solution-set answer (degree exactly 2 with two distinct real roots) is the correct Putnam answer, and the theorem's iff structure faithfully formalizes "find all polynomials... for which...".
+
+### putnam_1991_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures all three conditions correctly: (1) `c : ℕ → EuclideanSpace ℝ (Fin 2)` gives an infinite sequence of centers in ℝ² with no cluster point via `¬ ∃ p, MapClusterPt p atTop c`, which means no subsequence converges — the standard reading of "no limit point in the finite plane". (2) `Summable (fun i ↦ r i ^ 2)` is equivalent to finite sum of areas (areas = π r_i² differ only by the positive constant π); even if Lean allows r_i ∈ ℝ (not just ≥ 0), the squaring and the `closedBall` behavior (empty for r < 0) makes the existence statement equivalent to the informal one by replacing negative radii with 0. (3) `AffineSubspace ℝ (EuclideanSpace ℝ (Fin 2))` with `Module.finrank ℝ L.direction = 1` exactly picks out lines: the empty subspace ⊥ has direction ⊥ with finrank 0, so the finrank-1 constraint forces a non-empty 1-dimensional affine subspace (a line). The encoding as `statement ↔ putnam_1991_a4_solution` (with solution to be `True`) is the standard Putnam "does there exist" framing.
+
+### putnam_1991_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement defines f on the subtype Set.Icc (0:ℝ) 1, with f(y) = ∫ x in (0,y), √(x⁴ + (y-y²)²) dx. IsGreatest on f '' (Set.Icc 0 1) asserts that 1/3 is both attained and an upper bound of the image — exactly "the maximum value is 1/3". The subtype's Zero and One instances (confirmed in Mathlib's Algebra/Order/Interval/Set/Instances.lean) make Set.Icc 0 1 in the subtype equal to the entire subtype, so the image is indeed {f(y) : y ∈ [0,1]}. Coercions from the subtype to ℝ for the integrand and integration bounds are automatic and correct. Set.Ioo vs Set.Icc for integration domain is immaterial under Lebesgue measure. All types, quantifiers, and the conclusion match the informal statement.
+
+### putnam_1991_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature accurately captures Putnam 1991 B1. The hypothesis `hm` correctly defines `m n` as the greatest integer with m² ≤ n (conjunction of "(m n)² ≤ n" and "any m' with m'² ≤ n satisfies m' ≤ m n"). The hypothesis `hS` defines S on non-negative integers as n - (m n)². The sequence `a` has correct initial value A and recurrence aₖ₊₁ = aₖ + S(aₖ). The conclusion asks for equivalence between "sequence eventually constant" and A being a positive perfect square ({A | ∃ x > 0, A = x²}), matching the Putnam answer. That m and S are unspecified for negative inputs is harmless since A > 0 keeps the sequence non-negative. Using `c : ℕ` for the eventual constant value is fine since the sequence values are non-negative (and positive) integers when A > 0. No hypotheses are added or dropped relative to the informal statement.
+
+### putnam_1991_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The non-constant hypothesis `¬∃ c, f = Function.const ℝ c ∨ g = Function.const ℝ c` is logically equivalent (via De Morgan) to "(∀ c, f ≠ const c) ∧ (∀ c, g ≠ const c)", i.e., both f and g are non-constant. `Differentiable ℝ f ∧ Differentiable ℝ g` encodes differentiability on all of ℝ. The two functional equations `fadd` and `gadd` match exactly. Placing `deriv f 0 = 0` as the antecedent of an implication in the conclusion is logically equivalent to including it as a hypothesis, so the overall statement "if f'(0) = 0 then f(x)² + g(x)² = 1 for all x" is preserved. No extra or missing assumptions.
+
+### putnam_1991_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures exactly the informal claim. "Odd prime p" is faithfully encoded by `(podd : Odd p)` and `(pprime : Prime p)` on `p : ℕ`, which together restrict p to {3, 5, 7, ...}. The sum `∑ j : Fin (p + 1), (p.choose j) * ((p + j).choose j)` ranges over j = 0, 1, ..., p, matching $\sum_{j=0}^p \binom{p}{j}\binom{p+j}{j}$ (with the Fin-to-ℕ coercion giving the correct binomial arguments). The congruence `[MOD (p^2)]` unfolds to `Nat.ModEq (p^2)`, i.e., modulo $p^2$, and the RHS `2 ^ p + 1` matches $2^p + 1$. No hypotheses are added or dropped, and no types or quantifiers are altered.
+
+### putnam_1991_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures the informal statement. The hypotheses `podd : Odd p` and `pprime : Prime p` jointly express "p is an odd prime". The sets `{z : ZMod p | ∃ x, z = x^2}` and `{z : ZMod p | ∃ y, z = y^2 + 1}` faithfully encode the informal $\{x^2 : x \in \mathbb{Z}_p\}$ and $\{y^2+1 : y \in \mathbb{Z}_p\}$, and `ZMod p` is the standard Mathlib representation of "the field of integers modulo p". The cardinality is computed via `Set.encard`, which for the finite set `ZMod p` gives precisely "how many elements are in the set" as asked. The solution is coerced from `ℕ` to `ℕ∞` for the equality. No hypotheses are added or omitted, no types are altered, and the conclusion is exactly the asked-for count.
+
+### putnam_1991_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement: the hypothesis `a > 0 ∧ b > 0` captures "positive numbers"; the set `{c | ∀ u, (0 < |u| ∧ |u| ≤ c) → ∀ x ∈ Set.Ioo 0 1, ...}` correctly encodes "for all u with 0 < |u| ≤ c and for all x with 0 < x < 1"; `IsGreatest` over this set expresses "the largest c"; and the inequality `a^x * b^(1-x) ≤ a * (sinh(u*x)/sinh u) + b * (sinh(u*(1-x))/sinh u)` matches literally. The constraint 0 < |u| ensures sinh u ≠ 0, and `a^x` via `Real.rpow` is well-defined because a > 0. The solution is expressed as a function of a and b via `putnam_1991_b6_solution a b`, matching "in terms of a and b".
+
+### putnam_1992_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement claims that f(n) = 1-n is the unique integer function satisfying conditions (i), (ii), (iii). This uniqueness claim is logically equivalent to the iff: "f equals n ↦ 1-n if and only if f satisfies all three conditions". The Lean formalization encodes exactly this iff. The forward direction verifies the specific function satisfies the conditions, and the backward direction captures the uniqueness. The three conditions are transcribed verbatim: f(f n) = n, f(f(n+2)+2) = n, and f(0) = 1, all quantified correctly over ℤ. The type ℤ → ℤ matches "integer-valued function defined on the integers". No hypotheses are added or dropped.
+
+### putnam_1992_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean definition `C α = taylorCoeffWithin (fun x ↦ (1+x)^α) 1992 Set.univ 0` equals `(1992!)⁻¹ · iteratedDerivWithin 1992 (fun x ↦ (1+x)^α) Set.univ 0`, which on `Set.univ` equals `f^(1992)(0)/1992!`. Since `(1+x)^α` (using `Real.rpow` for `α : ℝ`) is smooth at 0, this equals the coefficient of $x^{1992}$ in the power series $\sum \binom{\alpha}{n} x^n$ of $(1+x)^\alpha$ about 0, matching the informal definition of $C(\alpha)$. The integral `∫ y in (0)..1, C(-y-1) * ∑ k ∈ Finset.Icc (1:ℕ) 1992, 1/(y+k)` faithfully encodes $\int_0^1 C(-y-1) \sum_{k=1}^{1992} \frac{1}{y+k}\,dy$, with `Finset.Icc 1 1992` giving indices 1 through 1992 and `k` coerced to ℝ in `y+k`. All types, bounds, and quantifiers match exactly.
+
+### putnam_1992_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal problem. The hypothesis `m : ℕ` with `mpos : m > 0` encodes "positive integer m". The set S is characterized via `hS` as exactly those triples (n, x, y) of positive naturals (n > 0, x > 0, y > 0) with `Coprime n m` (resolving to `Nat.Coprime n m` since `open Nat` is in effect and the arguments are naturals, i.e., `gcd n m = 1`) satisfying `(x^2 + y^2)^m = (x*y)^n`. The "find all triples" framing is properly encoded by asking S to equal the solution set. The quantifier structure, hypotheses, types, and conclusion all align with the informal statement.
+
+### putnam_1992_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The definition `a = fun n ↦ ite (Even {i | (digits 2 n).get i = 1}.ncard) 0 1` correctly captures the informal parity function: `digits 2 n` gives the little-endian base-2 digits, `{i | (digits 2 n).get i = 1}` is the set of positions (in `Fin (digits 2 n).length`) where the digit is 1, and `.ncard` counts these — i.e., the number of 1's in the binary representation of `n`. Thus `a n = 0` when this count is even, else 1, matching the informal definition. The conclusion `¬∃ k > 0, ∃ m > 0, ∀ j ≤ m - 1, a(k+j) = a(k+m+j) ∧ a(k+m+j) = a(k+2*m+j)` encodes the chained equality `a_{k+j} = a_{k+m+j} = a_{k+2m+j}` as the equivalent conjunction. Since `m > 0`, natural subtraction `m - 1` behaves normally, and `j ≤ m - 1` over `ℕ` gives exactly `j ∈ {0, ..., m-1}`. The quantifier structure, types, and claim all match the informal statement.
+
+### putnam_1992_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal problem. `S : Finset ℝ` with `S.card = n` correctly represents "a set of n distinct real numbers" since Finsets are duplicate-free. The set `A S = {x | ∃ a ∈ S, ∃ b ∈ S, a ≠ b ∧ (a + b) / 2 = x}` is exactly the set of averages of two distinct elements. `IsLeast` (requiring both membership and lower-bound) correctly encodes "the smallest possible number of elements," which is the minimum of achievable cardinalities. The hypothesis `hn : n ≥ 2` matches the informal constraint, and using ℤ for k is benign because `.ncard : ℕ` coerces cleanly and `2n-3 ≥ 1` for n ≥ 2. All aspects of the informal question are preserved without drift.
+
+### putnam_1992_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly defines Q(n,k) as the coefficient of X^k in (1+X+X²+X³)^n via `coeff ((1 + X + X^2 + X^3)^n) k`. The sum range `Finset.Iic k` for k : ℕ gives exactly {0, 1, ..., k}, matching the informal $\sum_{j=0}^k$. For the inner term, `choose n j` corresponds to $\binom{n}{j}$ (Mathlib's `Nat.choose` returns 0 when j > n, matching the stated convention). The guard `if 2 * j ≤ k then choose n (k - 2 * j) else 0` correctly handles the convention that $\binom{n}{k-2j} = 0$ when $k - 2j < 0$; this is essential because natural-number subtraction would otherwise truncate k - 2j to 0 and give the wrong value choose n 0 = 1. The formalization is logically equivalent to the informal claim.
+
+### putnam_1992_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes pairs (x,y) as `Fin 2 → ℝ` with `p 0 = x` and `p 1 = y`. The hypothesis `ha` gives `a p 0 = p 0 = x` and `a p (n+1) = ((a p n)^2 + (p 1)^2) / 2 = (a_n^2 + y^2)/2`, matching the informal recurrence exactly (and uniquely determining `a p` by induction). The volume on `Fin 2 → ℝ` is the product Lebesgue measure, which is the standard 2D area. The set `{p | ∃ L, Tendsto (a p) atTop (𝓝 L)}` is precisely "the sequence converges". Since the answer 4 + π is finite, `.toReal` correctly returns the area as a real number. The formalization faithfully captures the informal statement.
+
+### putnam_1992_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 1992 B4. The `IsValid` predicate correctly encodes the three hypotheses: nonzero, degree < 1992, and coprime to x³-x (over ℝ[X], a PID, `IsCoprime` is equivalent to "no nonconstant common factor"). The `pair p f` relation asserts that f/g equals the 1992nd iterated derivative pointwise. Although this is pointwise equality (rather than equality in the field of rational functions), any representation must satisfy f = F·h, g = G·h where F/G is the lowest-term rational function, so the minimum deg(f) equals deg(F)—matching the informal question. The `IsLeast` on `{k : ℕ | ...}` with `k = f.degree` correctly forces f ≠ 0 (degree ≠ ⊥) and captures "smallest possible degree". The quantification over valid p matches "smallest possible" over all choices.
+
+### putnam_1992_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the matrix: Fin (n-1) gives the right size, and the diagonal entries i+3 for i ranging 0..n-2 give 3,4,...,n+1 with off-diagonal entries 1 (via ite (i = j)). The set {x | ∃ n ≥ 2, D n / factorial n = x} is exactly {D_n/n!}_{n≥2}. Bornology.IsBounded on ℚ uses the MetricSpace instance induced from ℝ, which corresponds to the standard notion of a bounded set of rationals (being contained in a bounded interval). The solution is wrapped as an iff with putnam_1992_b5_solution, which is the standard Putnam formalization pattern asking whether the set is bounded. No extra hypotheses are added or removed.
+
+### putnam_1992_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes all four conditions: (i) `1 ∈ M` captures $I \in M$; (ii) `Xor' (A*B ∈ M) (-A*B ∈ M)` correctly expresses "exactly one of $AB$, $-AB$ in $M$" since `Xor'` is defined as exclusive-or and `-A * B = -(A*B)`; (iii) and (iv) are transcribed verbatim. The conclusion `M.encard ≤ n^2` expresses "at most $n^2$ matrices" using the extended natural cardinality. The extra `npos : 0 < n` hypothesis merely surfaces the implicit premise that "$n \times n$ matrices" means positive $n$, which is standard mathematical convention and does not narrow the intended scope (for $n = 0$, conditions (i) and (ii) are inconsistent anyway). No hypotheses are dropped or added beyond the implicit positivity.
+
+### putnam_1993_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem. The curve y=2x-3x³ in the first quadrant rises from (0,0) to its maximum (√2/3, 4√2/9), then descends to (√6/3, 0). The bounds 0 < c < 4√2/9 are implicit premises making the two-region geometric setup well-defined (needed for the line to create two intersections with the curve as in the figure). The first integral over (0, √2/3) of max(c - (2x-3x³), 0) correctly computes Region 1's area (bounded by y-axis, line y=c, and curve), since the max is nonzero exactly on (0, x₁) where the line is above the curve. The second integral over (0, √6/3) of max((2x-3x³) - c, 0) correctly computes Region 2's area, since the max is nonzero exactly on (x₁, x₂) where the curve is above the line. Since the solution is unique in this range (areas are monotone in c), asserting that c=4/9 satisfies these conditions is equivalent to "find c making the areas equal."
+
+### putnam_1993_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement component by component: `x : ℕ → ℝ` represents the sequence indexed from 0; `xnonzero` captures "nonzero real numbers"; `hx` encodes $x_n^2 - x_{n-1}x_{n+1} = 1$ for $n \geq 1$ (equivalent to $n = 1, 2, 3, \ldots$); and the conclusion asserts the existence of a real $a$ with $x_{n+1} = ax_n - x_{n-1}$ for all $n \geq 1$. The natural subtraction `n - 1` is safe because both the hypothesis and the conclusion are guarded by `n ≥ 1`, so it always equals the true predecessor. No hypotheses are added or dropped, and no quantifier structure is changed.
+
+### putnam_1993_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. `Finset (Fin n)` correctly represents $\mathcal{P}_n$ (the power set of an n-element set, bijective to subsets of $\{1,...,n\}$). `Fin m` serves as a linearly ordered m-element set representing $\{1,...,m\}$; since we count functions respecting min-structure, the specific labels don't matter. The condition `f (A ∩ B) = min (f A) (f B)` correctly uses Finset intersection and the LinearOrder min on Fin m. `encard` applied to the set of such functions is coerced to ℕ (fine since the set is finite). The RHS `∑' j : Set.Icc 1 m, (j : ℤ) ^ n` sums over $\{1,...,m\}$, which for finite subtypes equals $\sum_{j=1}^m j^n$. The `n ≥ 1, m ≥ 1` hypotheses reflect the standard convention for positive integer indexing, and even for n=0 or m=0 the formula holds vacuously, so restricting to positive values does not alter the substantive claim. A direct check at n=1, m=2 gives 3 valid functions, matching $1^1 + 2^1 = 3$.
+
+### putnam_1993_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the problem: `x : Fin 19 → ℤ` with `0 < x i ∧ x i ≤ 93` encodes 19 positive integers each ≤ 93, and `y : Fin 93 → ℤ` with `0 < y j ∧ y j ≤ 19` encodes 93 positive integers each ≤ 19. The conclusion uses subsets `is : Finset (Fin 19)` and `js : Finset (Fin 93)`, and `∑ i : is, x i` (sum over the subtype) equals `∑ i ∈ is, x i` by `Finset.sum_coe_sort`, correctly representing "sum of some x_i's." Only `is ≠ ∅` is required, but this is not a weakening: since all x_i > 0, a nonempty x-sum is strictly positive, and since all y_j > 0, the y-sum can only equal it if js is also nonempty. Thus the two nonemptiness conditions are equivalent under the other hypotheses, and the Lean statement is logically equivalent to the informal one.
+
+### putnam_1993_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean `¬Irrational x` is definitionally equivalent to "x is in the range of ℚ → ℝ", i.e., "x is a rational number", matching the informal conclusion. The integrand `((x^2 - x) / (x^3 - 3*x + 1))^2` transcribes the informal integrand faithfully, and all numerals (including `1/101`, `1/11`, `101/100`, `11/10`) elaborate as real division since the ambient type is ℝ. The Lean version uses `Set.Ioo` rather than closed intervals, but for Bochner/Lebesgue integration these yield identical values (Mathlib's `integral_Icc_eq_integral_Ioo`). The denominator x³−3x+1 has no roots in any of the three intervals, so the integrals are well-defined and match the informal values. No hypotheses are dropped or added that change the mathematical content.
+
+### putnam_1993_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the Putnam 1993 A6 self-similar sequence problem. The hypothesis `hseq2inds` encodes the self-similarity property: since between the k-th and (k+1)-th 2 there are seq(k) threes, the positions of 2's are exactly the partial sums ∑(seq(i) + 1), and this also implies seq(0) = 2 via the empty sum case N=0. The conclusion correctly handles the 1-indexed to 0-indexed shift via `n + 1`. The only textual discrepancy is `∃ m : ℤ` (Lean) vs "nonnegative integer m" (informal). However, for r > 0 and n ≥ 0, negative m gives ⌊rm⌋ < 0 ≠ n, so these clauses are equivalent; for r < 0 the Lean condition with r matches the informal condition with -r > 0. Thus the existential statements `∃ r, ...` are logically equivalent in both cases.
+
+### putnam_1993_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. `IsLeast {n : ℕ | 0 < n ∧ ...} putnam_1993_b1_solution` correctly encodes "smallest positive integer n such that..." — IsLeast asserts both membership and lower-bound property. The quantifier `∀ m ∈ Set.Ioo (0 : ℤ) 1993` correctly captures "for every integer m with 0 < m < 1993". The existential `∃ k : ℤ` matches "there exists an integer k". Crucially, in the comparisons `m / 1993 < (k : ℝ) / n` and `(k : ℝ) / n < (m + 1) / 1994`, Lean's elaborator forces both sides of `<` to have type `ℝ`, so `m / 1993` elaborates to `(↑m : ℝ) / 1993` (real division, not integer division), matching the informal fractions exactly. The condition `0 < n` handles the positivity requirement (avoiding n = 0 where division would be 0 by Mathlib convention).
+
+### putnam_1993_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement computes `MeasureTheory.volume` of the set of `p : Fin 2 → ℝ` satisfying `0 < p ∧ p < 1 ∧ Even (round (p 0 / p 1))` and equates its real value to `r + s*π` where `(r,s) = (5/4, -1/4)`. Under the Pi ordering, `0 < p ∧ p < 1` differs from the strict open square `(0,1)²` only on a measure-zero subset of the boundary (the inclusion of points like `(0,1)` or exclusion of `(0,0)`), so the 2D Lebesgue volume agrees exactly with the probability under the uniform distribution on `(0,1)²` (whose density is 1). Mathlib's `round` rounds to the nearest integer (with ties broken towards +∞), which matches "closest integer" up to a measure-zero set of ties. The answer `(5-π)/4` matches the known Putnam 1993 B3 solution and the requested form `r + s·π`. The minor measure-zero discrepancies do not affect the claimed equality, so the formalization is logically equivalent to the informal problem.
+
+### putnam_1993_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. K: ℝ×ℝ→ℝ and f,g: ℝ→ℝ with conditions restricted to [0,1] via subtype quantifiers matches the informal setup. Kpos, Kcont, fgpos, fgcont encode positivity and continuity on [0,1]×[0,1] and [0,1] respectively. The integral uses Set.Ioo 0 1 rather than Set.Icc 0 1, but these produce equal Lebesgue integrals (confirmed by Mathlib's integral_Icc_eq_integral_Ioo, since {0} and {1} have measure zero), so the hypothesis ∫₀¹ f(y)K(x,y) dy = g(x) is preserved. The conclusion ∀ x ∈ [0,1], f(x) = g(x) matches. Coercions from Set.Icc subtypes to ℝ work standardly. No hypothesis is added or dropped, and the quantifier structure is preserved.
+
+### putnam_1993_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts that there is no function p from Fin 4 to the 2D Euclidean space such that for every pair i ≠ j, dist(p i, p j) equals some odd integer. This matches the informal claim about four points in the Euclidean plane with all pairwise odd-integer distances. The distinctness of the four points is implicitly forced by the odd-distance condition: if p i = p j then dist = 0, which is not odd, and since dist ≥ 0, the integer n must be a positive odd integer. The `dist` on `EuclideanSpace ℝ (Fin 2)` is the standard Euclidean distance (confirmed in Mathlib's PiL2.lean), and `Odd n` for `n : ℤ` uses Mathlib's standard definition (∃ k, n = 2k + 1). The condition `i ≠ j` correctly captures "pairwise" (excluding the trivial i = j case). No hypotheses are silently added or dropped.
+
+### putnam_1993_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures Putnam 1993 B6 faithfully. `S : Fin 3 → ℕ` with `Spos : ∀ i, S i > 0` represents 3 positive integers (not necessarily distinct), and `hf` correctly specifies the rule: when `S' i ≤ S' j`, position i becomes 2·S' i, position j becomes S' j - S' i, third position is unchanged. The conclusion asserts the existence of a finite sequence reaching a state containing 0. Although the Lean formalization allows "no-op" transitions (when i, j are picked with S' i > S' j, giving identity), this doesn't affect logical equivalence: we can always drop no-ops to recover a pure rule-application sequence, and a pure rule-application sequence trivially satisfies the Lean condition. The symmetry of picking (i,j) vs (j,i) means any valid rule application is witnessable. The encoding via `ℕ → (Fin 3 → ℕ)` with `Fin N` restricted transitions is an equivalent way to represent a finite sequence of length N+1.
+
+### putnam_1994_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The hypothesis `∀ n ≥ 1, 0 < a n ∧ a n ≤ a (2 * n) + a (2 * n + 1)` matches exactly the informal condition $0 < a_n \leq a_{2n}+a_{2n+1}$ for $n \geq 1$; leaving `a 0` unconstrained is standard since the informal sequence starts at index 1. The conclusion `Tendsto (fun N => ∑ n : Set.Icc 1 N, a n) atTop atTop` states that the partial sums $S_N = \sum_{n=1}^N a_n$ tend to +∞ (the subtype-sum over `Set.Icc 1 N` equals the finite sum from 1 to N). Since all terms are strictly positive by hypothesis, the partial sums are monotonically increasing, so "diverges" in the informal sense is equivalent to "tends to +∞". The Lean conclusion is therefore logically equivalent to the informal "series diverges".
+
+### putnam_1994_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement says "the points of an isosceles right triangle of side length 1 are each colored" — this literally refers to all points of the triangle, which under the natural reading is the closed filled triangular region. The Lean formalization uses `T = convexHull ℝ {!₂[0,0], !₂[1,0], !₂[0,1]}`, the filled isosceles right triangle with legs of length 1 (and hypotenuse √2), matching the "side length 1" specification. The 4-coloring is encoded as `Tcolors : T → Fin 4`, and the conclusion `∃ p q : T, Tcolors p = Tcolors q ∧ dist p.1 q.1 ≥ 2 - √2` exactly captures "two points of the same color at distance ≥ 2-√2" (since 2-√2 > 0, this forces p ≠ q). The formalizer's preamble notes this differs from some original problem version about just the sides, but the informal text as provided in the comment block is about "the points of the triangle," which the filled-triangle encoding faithfully represents.
+
+### putnam_1994_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The matrices are correctly typed `Matrix (Fin 2) (Fin 2) ℤ`. In Mathlib, `Invertible a` provides a two-sided inverse `invOf` in the **same type** as `a`; for an integer matrix this inverse is itself an integer matrix. Hence `Nonempty (Invertible M)` for `M : Matrix (Fin 2) (Fin 2) ℤ` simultaneously captures "M is invertible" AND "its inverse has integer entries" (equivalently, M is a unit in $M_2(\mathbb Z)$, i.e., det M = ±1). The hypotheses assert this for $A, A+B, A+2B, A+3B, A+4B$ (with `2*B, 3*B, 4*B` computed in the matrix ring), and the conclusion asserts it for $A+5B$ — exactly matching the informal claim in both hypothesis and conclusion.
+
+### putnam_1994_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal Putnam 1994 A5 claim precisely. The hypotheses `rpos` and `rlim` formalize "positive sequence with limit 0". The set S uses `∃ i : Fin 1994 → ℕ` with a strict-increase condition `∀ j k, j < k → i j < i k`, which exactly captures "indices $i_1 < i_2 < \cdots < i_{1994}$" and the sum $r_{i_1} + \cdots + r_{i_{1994}}$. The conclusion `∃ c d, a ≤ c ∧ c < d ∧ d ≤ b ∧ Ioo c d ∩ S = ∅` is logically equivalent to "there exists a nonempty open subinterval $(c,d) \subseteq (a,b)$ disjoint from S": nonemptiness follows from `c < d`, and `a ≤ c` with `d ≤ b` is equivalent to `(c,d) ⊆ (a,b)` (allowing endpoint equality doesn't weaken this since open intervals don't include endpoints). No hypotheses are dropped or added, and the quantifier structure matches.
+
+### putnam_1994_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the Putnam 1994 A6 problem: f is 10 permutations of ℤ (Equiv.Perm ℤ matches "bijections"); hf states 0 reaches every integer via some length-≥1 composition, which matches "some composition f_{i_1}∘⋯∘f_{i_m}" (a composition inherently requires m ≥ 1); hmijcomp's recursion correctly yields mijcomp m i 0 = f(i 0) ∘ f(i 1) ∘ ⋯ ∘ f(i (m-1)); F is defined via hF to be the set of compositions (f 0)^[e 0] ∘ ⋯ ∘ (f 9)^[e 9] with e : Fin 10 → Fin 2, which yields id when eᵢ = 0 and fᵢ when eᵢ = 1 (via Function.iterate_zero/one); the conclusion {g ∈ F | g '' A = A}.card ≤ 512 correctly encodes "at most 512 functions in F map A to itself" (for bijective g and finite A, g '' A = A is equivalent to g mapping A to itself). F being a Finset (distinct elements) matches the informal's set-builder notation. All components align with standard mathematical reading.
+
+### putnam_1994_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures "Find all positive integers n within 250 of exactly 15 perfect squares." The hypothesis `0 < n` encodes "positive integer". The set `{m : ℕ | |n - m^2| ≤ 250}` correctly counts distinct perfect squares within 250 of n (using m : ℕ avoids double-counting since (-m)² = m², and m=0 contributes 0, which is a standard perfect square). The ≤ 250 interpretation of "within 250" is standard and verified to yield the given solution set {315..325} ∪ {332..350}: e.g., n=314 gives 16 squares (8²=64 is exactly 250 away), n=315 gives 15, n=325 gives 15, n=326 gives 16 (24²=576 is exactly 250 away), n=331 gives 16, n=332 gives 15, n=350 gives 15. The `encard = 15` asserts "exactly 15" as a cardinality in ℕ∞.
+
+### putnam_1994_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal question. A "straight line" is encoded as y = mx + b, which only excludes vertical lines; vertical lines can intersect the graph of a polynomial function in at most one point, so this restriction cannot change the answer. The set {x : mx + b = polynomial(x)} counts x-coordinates of intersection points, and since each intersection point's x-coordinate uniquely determines it, this matches counting distinct intersection points. Using Set.encard = 4 (verified from Mathlib's Data/Set/Card.lean as cardinality in ℕ∞) expresses "exactly 4 intersection points", which for a degree-4 polynomial (which has at most 4 real roots) coincides with "at least 4 distinct intersection points" — the natural reading of the informal claim. The formalization is therefore strictly faithful.
+
+### putnam_1994_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement precisely. Type inference gives f : ℝ → ℝ (forced by `Real.exp (k * x) < f x` and `deriv f`). The hypothesis `(∀ x, 0 < f x ∧ f x < deriv f x) ∧ Differentiable ℝ f` encodes "positive, differentiable function with f'(x) > f(x) for all x" — matching the three informal conditions. The conclusion `∃ N, ∀ x > N, Real.exp (k * x) < f x` captures "there is some N such that f(x) > e^(kx) for all x > N". The outer set equality `{k | ...} = putnam_1994_b3_solution` faithfully represents "find the set of all real numbers k with the property". No hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_1994_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The matrix A is fully pinned down by `hA` (since Fin 2 has exactly two elements, specifying all four entries determines A). The `matgcd` function is defined via iterated `Int.gcd` of the four entries, which equals gcd{a_00, a_01, a_10, a_11} (Int.gcd is associative/commutative on absolute values, so the nesting order does not matter). The expression `A^n - 1` uses Mathlib's `(1 : Matrix (Fin 2) (Fin 2) ℤ) = diagonal (fun _ => 1)`, which is the identity matrix I. The hypothesis `hd` constrains `d n` only for `n ≥ 1`, matching the informal "For $n \geq 1$"; `d 0` is unconstrained, but `Tendsto d atTop atTop` is a tail property so its value is irrelevant. Finally, `Tendsto d atTop atTop` on ℕ → ℤ is the standard encoding of $\lim_{n\to\infty} d_n = \infty$.
+
+### putnam_1994_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim precisely: (1) n : ℕ with n > 0 matches "n is a positive integer"; (2) f α x = Int.floor (α * x) matches f_α(x) = ⌊αx⌋ — the restriction of the domain to ℤ is immaterial because n² and all iterates are integers anyway; (3) the existential `∃ α : ℝ` and universal `∀ k ∈ Set.Icc 1 n` match "there exists α such that for 1 ≤ k ≤ n"; (4) `(f α)^[k]` is Function.iterate, correctly encoding the iteration $f_\alpha^k$; (5) the conjunction of `(f α)^[k] (n^2) = n^2 - k` and `f (α^k) (n^2) = n^2 - k` correctly unpacks the chained equality $f_\alpha^k(n^2) = n^2 - k = f_{\alpha^k}(n^2)$. No hypotheses are added or dropped, and quantifier structure is preserved.
+
+### putnam_1994_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the Putnam 1994 B6 problem. (1) The function `n : ℕ → ℤ` with hypothesis `n a = 101 * a - 100 * 2^a` matches the informal definition (restricting to ℕ is harmless since only 0 ≤ a ≤ 99 matters). (2) Quantifying `a b c d : Set.Icc 0 99` correctly encodes the subtype {x : ℕ // 0 ≤ x ∧ x ≤ 99} via Lean's coercion of `Set` to its subtype, matching the range constraint. (3) `n a + n b ≡ n c + n d [ZMOD 10100]` uses `Int.ModEq 10100`, the standard mod-10100 congruence in ℤ. (4) `({a, b} : Set (Set.Icc 0 99)) = {c, d}` is logically equivalent to the unordered-pair equality $\{a,b\} = \{c,d\}$. The Lean subtraction is over ℤ (no truncation issues), and the formula applies elementwise to the coerced natural numbers. No hypotheses are added or dropped beyond the informal content.
+
+### putnam_1995_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures every aspect of the informal statement. S being closed under multiplication is encoded by hS; T and U being disjoint subsets of S with union S is encoded by hsub, hunion, and hdisj; the three-element closure properties are encoded by hT3 and hU3 using unrestricted universal quantifiers (correctly allowing "not necessarily distinct" elements); and the conclusion "at least one of T, U is closed under multiplication" is encoded as a disjunction of the two two-element closure properties. Types (Set ℝ) and quantifier structures match exactly. No hidden strengthening or weakening.
+
+### putnam_1995_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal question. The improper integral convergence is formalized as the existence of a real limit of the partial integrals `∫ x in Set.Icc b t, f(x)` as `t → ∞`, which is the standard definition. The hypothesis `ab.1 > 0 ∧ ab.2 > 0` matches "pairs of positive real numbers". The bi-conditional `habconv ab ↔ ab ∈ putnam_1995_a2_solution` provides a characterization of the set of pairs for which the integral converges, matching what the informal question asks. Using `Set.Icc b t` (Bochner integral over a closed interval) is equivalent to the interval integral for the continuous integrand in question, so the limit exists iff the improper integral converges in the usual sense. No hypotheses are added or dropped relative to the informal statement.
+
+### putnam_1995_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal claim. `digits_to_num` assembles a 9-digit number from a Fin 9 → ℤ sequence using powers of 10 (the index direction is reversed from the informal notation, but this is immaterial since we quantify over all positions and divisibility by 7 doesn't depend on which position holds which power of 10). The `relation d e` definition correctly encodes "each number formed by replacing d_i with e_i is divisible by 7" via `if j = i then e j else d j`, and also enforces the implicit constraint that digits lie in [0,10) — which is necessary since Fin 9 → ℤ would otherwise admit arbitrary integer values. Digit bounds on all three sequences follow from the two relation hypotheses. The conclusion `∀ i, 7 ∣ d i - f i` matches exactly. The relation is appropriately asymmetric and matches the informal directed replacement process.
+
+### putnam_1995_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the Putnam problem. The `cut : Fin n` represents the cut position, and `cut + i` uses `Fin.add` (modular addition), which correctly implements cyclic shifting. The quantifier `∀ k` has k inferred as ℕ (from `j.1 ≤ k` with `j.1 : ℕ`). The set `{j : Fin n | j.1 ≤ k}` contains k+1 elements (for k < n), so the Lean inequality "sum of first k+1 beads ≤ k" corresponds exactly to the informal inequality "sum of first k' beads ≤ k'-1" under the substitution k' = k+1 ∈ {1,...,n}. For k ≥ n, the inequality becomes the automatic n-1 ≤ k, contributing no extra constraint. The hypothesis `∑ i, necklace i = n - 1` correctly elaborates to (↑n : ℤ) - 1. All types, hypotheses, and the conclusion match the informal statement.
+
+### putnam_1995_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes Putnam 1995 A5 faithfully. The ODE system `deriv (x i) t = ∑ j, a i j * x j t`, positivity `a i j > 0`, differentiability `Differentiable ℝ (x i)`, and limit `Tendsto (x i) atTop (𝓝 0)` all match the informal hypotheses. The conclusion `¬(∀ b, (∀ t, ∑ b i * x i t = 0) → ∀ i, b i = 0)` is exactly the standard definition of "linearly dependent" for a family of functions. The solution being `True` matches the informal "yes, they are necessarily linearly dependent." The `0 < n` hypothesis surfaces an implicit premise needed for truth (n=0 would make the empty family vacuously linearly independent), which is allowed per the faithfulness guidelines. The universal quantification over n, x, a correctly captures "for any such system."
+
+### putnam_1995_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. The sample space `SM n` correctly encodes matrices whose columns are permutations of {1,2,3} (since the set of column entries equals {1,2,3}, forcing a 3-element column to be a permutation). `Srowsums` is the set of row sums. Event 1 (`sumsprog`) correctly captures "b = a+1 and c = a+2" after sorting, since this forces the sorted sums to be three consecutive integers, equivalent to the set being {a, a+1, a+2}. Event 2 (`encard = 1`) correctly captures "a = b = c". Because the probabilistic description in the informal statement ("all orders equally likely, independent columns") induces a uniform distribution on SM n, the probability ratio P(E1) ≥ 4·P(E2) is equivalent to the cardinality ratio |E1| ≥ 4·|E2|, which is what the Lean asserts. The existential n ≥ 1995 also matches.
+
+### putnam_1995_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal claim. `Finset.range 9` is a 9-element set (just {0,...,8} instead of {1,...,9}, but partition/cardinality statements are invariant under relabeling). The function `Pi` is defined so that `Pi partition k = (Exists.choose (exists_mem)).card`, where `Finpartition.exists_mem partition k.2 : ∃ t ∈ partition.parts, k.1 ∈ t`. By `Finpartition.existsUnique_mem`, the part containing k is unique, so `Exists.choose` returns it and `.card` is the correct π(k). The conclusion `∃ x y : Finset.range 9, x ≠ y ∧ Pi Pt1 x = Pi Pt1 y ∧ Pi Pt2 x = Pi Pt2 y` precisely matches "two distinct x, y with π(x)=π(y) and π'(x)=π'(y)". The universal quantifier over the two partitions matches "for any two partitions". The Pi/Pi_def parameter pattern is logically equivalent to using the defined function directly, since Pi_def fully determines Pi.
+
+### putnam_1995_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes n²-digit positive integers as functions f : ℕ → ℕ satisfying: f 0 ≠ 0 (leading digit nonzero), f i ≤ 9 for i < n², and f i = 0 for i ≥ n² (padding for uniqueness of representation). For n=2 this yields exactly 9·10³ = 9000 integers, matching the example. The matrix construction M(i,j) = f(i·n + j) correctly places digits "in order across the rows" — for 8617 this gives [[8,6],[1,7]] with det = 50, matching the example. Although ∑' is `tsum`, the subtype `digits_set` is finite (9·10^(n²-1) elements), so the tsum equals the intended finite sum over all n²-digit integers. The quantification structure (sum as function of n) and the type (ℤ for the determinant) match the informal claim exactly.
+
+### putnam_1995_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem. The continued fraction 2207 - 1/(2207 - 1/(2207-...)) satisfies the fixed-point equation x = 2207 - 1/x, encoded as `hcontfrac`. This equation has two real roots (approximately 2206.9995 and 0.000453), so the hypothesis `1 < contfrac` is needed to uniquely identify the intended continued fraction value (the large root that the nested expression actually converges to). This is a legitimate implicit premise needed for the statement to make sense — any mathematician reading the continued fraction problem understands which value is meant. The 8th root is correctly formalized as `contfrac ^ ((1:ℝ)/8)` using Real.rpow (well-defined and positive for positive base), and the answer form `(a + b·√c)/d` matches the requested form. The solution (3,1,5,2) gives (3+√5)/2 = φ², and φ¹⁶ = 2207 checks out.
+
+### putnam_1995_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal claim. S(α) is defined as {x : ℕ | ∃ n ≥ 1, x = Nat.floor(nα)}, which for α > 0 and n ≥ 1 coincides with {⌊nα⌋ : n = 1, 2, 3, ...} (Nat.floor agrees with the standard floor on positive reals). The statement Set.Ici 1 = {x : ℕ | 1 ≤ x} = {1, 2, 3, ...} in ℕ matches the informal {1, 2, 3, ...}. The three pairwise intersection conditions together with the union equation correctly encode "disjoint union of three sets". The negated existential ¬∃ α β γ > 0 faithfully captures "cannot be expressed". Allowing α ∈ (0, 1) rather than α ≥ 1 is logically equivalent because for α < 1 we have 0 ∈ S(α), which automatically breaks the union equation (since 0 ∉ Set.Ici 1), so the broader quantification is vacuous in those cases.
+
+### putnam_1996_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement works in `EuclideanSpace ℝ (Fin 2)` (the 2D plane), where `sphere O r = {y | dist y O = r}` precisely corresponds to a circle of radius r centered at O. The hypotheses `C1 = sphere O1 1`, `C2 = sphere O2 3`, and `dist O1 O2 = 10` match the informal setup. The conclusion expresses the locus `{M | ∃ X Y, X ∈ C1 ∧ Y ∈ C2 ∧ M = midpoint ℝ X Y}` as a set equality with the solution, which is the standard encoding of "find the locus". The solution `{p | 1 ≤ dist p (midpoint ℝ O1 O2) ≤ 2}` is the correct closed annulus (inner radius |3-1|/2=1, outer radius (3+1)/2=2, center at midpoint of O1, O2). All quantifiers, types, and hypotheses align with the informal statement.
+
+### putnam_1996_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the problem. `choices : Fin 20 → Set (Fin 6)` captures each of 20 students choosing any subset (size 0 to 6) of the 6 courses. The existentials over `Finset (Fin 20)` with card 5 and `Finset (Fin 6)` with card 2 pick 5 distinct students and 2 distinct courses. The disjunction `↑courses ⊆ ⋂ s ∈ students, choices s ∨ ↑courses ⊆ ⋂ s ∈ students, (choices s)ᶜ` unfolds to "every chosen course is in every chosen student's set" (all 5 chose both) ∨ "every chosen course is outside every chosen student's set" (all 5 chose neither), matching the informal disjunction. The `↔ putnam_1996_a3_solution` (with solution `False`) is the standard Putnam "prove or disprove" encoding. The formalization is logically equivalent to the informal statement.
+
+### putnam_1996_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. (1) `[Finite A]` encodes "finite set A". (2) `hSdistinct` encodes "S is a set of ordered triples of distinct elements". (3) The three conditions (hS1, hS2, hS3) properly quantify over triples/quadruples with pairwise distinct elements via `List.Pairwise (· ≠ ·)` — this matches the informal statement which scopes the conditions to "ordered triples of distinct elements"; the distinctness is needed for consistency (e.g., condition 2 with a=c would give a false iff). (4) The conclusion `∃ g : A → ℝ, Injective g ∧ ∀ a b c, g a < g b ∧ g b < g c → (a,b,c) ∈ S` precisely captures "there exists a one-to-one g with g(a)<g(b)<g(c) ⟹ (a,b,c) ∈ S" — note that injectivity of g combined with the strict inequalities automatically ensures a,b,c are distinct, so no extra distinctness hypothesis is needed there. No hypotheses are added or dropped; the quantifier structure matches.
+
+### putnam_1996_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. `Prime p` on ℕ matches the standard primality notion (equivalent to `Nat.Prime p` in Mathlib), `p > 3` matches "greater than 3", and `k = Nat.floor (2*p/(3 : ℚ))` correctly encodes $k = \lfloor 2p/3 \rfloor$ since the `(3 : ℚ)` forces the division to happen in ℚ (as true rational division) before taking `Nat.floor`. The sum `∑ i ∈ Finset.Icc 1 k, Nat.choose p i` corresponds exactly to $\binom{p}{1} + \binom{p}{2} + \cdots + \binom{p}{k}$, and `p^2 ∣ ...` matches "divisible by $p^2$". Verification for $p=5$ ($k=3$, sum = 25 = $5^2$) and $p=7$ ($k=4$, sum = 98 = $2 \cdot 7^2$) confirms the statement. No hypotheses are added or dropped, and the quantifier structure and types are correct.
+
+### putnam_1996_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal "give a complete description" problem via the standard pattern: for arbitrary c > 0 and f : ℝ → ℝ, the predicate "f is continuous and f(x) = f(x²+c) for all x" is equivalent to f being in an explicit solution set (`putnam_1996_a6_solution c`). The hypothesis `cgt0 : c > 0` matches "Let c > 0 be a constant"; `Continuous f` for f : ℝ → ℝ means continuous on all of ℝ, matching the informal "continuous functions f:ℝ→ℝ"; and `∀ x : ℝ, f x = f (x ^ 2 + c)` exactly captures the functional equation. No hypotheses are dropped or added, no quantifiers are changed, and types match. The `sorry`-ed solution is the standard ProofNet pattern for "describe the set" problems and does not affect faithfulness of the statement.
+
+### putnam_1996_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all elements of the informal statement: (1) `selfish s = (s.card ∈ s)` matches the definition of a selfish set, (2) `(s : Set ℕ) ⊆ Set.Icc 1 n` correctly encodes "subsets of {1,2,...,n}", (3) `∀ ss : Finset ℕ, ss ⊂ s → ¬selfish ss` correctly expresses minimality (and since any proper subset of s ⊆ Icc 1 n is automatically in Icc 1 n, the ambient restriction is preserved), and (4) `Nat.fib` gives the correct count (verified: n=1→1, n=2→1, n=3→2). The `npos : n ≥ 1` hypothesis is a reasonable surfacing of the implicit premise in the notation "{1,2,...,n}", which is conventionally read as requiring n ≥ 1. The use of `encard` with the ℕ-valued solution coerces cleanly to ℕ∞. No drift in hypotheses, conclusion, or types.
+
+### putnam_1996_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement accurately encodes the informal claim. The hypothesis `npos : n > 0` matches "positive integer n". The product `∏ i ∈ Finset.range (2*n), if Odd i then i else 1` correctly computes 1·3·5·⋯·(2n-1): for each i in {0,...,2n-1}, the odd values (1,3,5,...,2n-1) contribute themselves while even values contribute 1, so the product equals the product of odd numbers up to 2n-1. The two-sided inequality ((2n-1)/e)^((2n-1)/2) < product < ((2n+1)/e)^((2n+1)/2) matches exactly, using real-valued exponentiation (rpow) since the exponent is a real number. The `(2*n - 1 : ℝ)` annotation ensures computation in ℝ, so there's no natural-subtraction truncation issue. Introducing `prododd` as a bound variable with `hprododd` specifying its value is a logically equivalent reformulation. The formalization is strictly faithful.
+
+### putnam_1996_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal Putnam 1996 B3 statement. The condition `x '' (Finset.range n) = Set.Icc (1 : ℤ) n` forces x restricted to {0,...,n-1} to be a bijection onto {1,...,n}, faithfully encoding '{x_1,...,x_n}={1,...,n}' (since both sides have exactly n distinct elements). The cyclic sum `∑ i : Fin n, x i * x ((i + 1) % n)` correctly expresses x_1·x_2 + ... + x_{n-1}·x_n + x_n·x_1 with 0-indexing and wraparound via `% n`. The hypothesis `n ≥ 2` matches. `IsGreatest` correctly captures 'largest possible value'. Using ℤ for values and an unrestricted x outside {0,...,n-1} does not affect semantics since only constrained indices appear in the sum. The solution formula (2n³+3n²-11n+18)/6 is the standard known answer (verified for n=2→4, n=3→11, n=4→25).
+
+### putnam_1996_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The power series definition of matsin via `∑' n : ℕ, ((-1)^n / (2n+1)!) • A^(2n+1)` exactly mirrors the informal definition of sin A. The target matrix mat1996 has entries (0,0)=1, (0,1)=1996, (1,0)=0, (1,1)=1, matching [[1,1996],[0,1]]. The "prove or disprove" framing is captured by the iff with `putnam_1996_b4_solution := False`, meaning the statement asserts no such A exists. The series converges for all matrices (dominated by the real sin series), so tsum gives the correct value. The existential over 2×2 real matrices matches the informal statement.
+
+### putnam_1996_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the problem. Strings are modeled as `Fin n → ℤˣ`, with ℤˣ = {±1} naturally representing X (+1) and O (-1). The function Δ is pinned down via `hΔ` as the sum of (S i : ℤ) over `Finset.Icc a b`, which for a ≤ b equals (# of +1's) - (# of -1's) in the consecutive substring from index a to b — exactly Δ(T) in the informal sense. The `balanced` predicate is pinned to `∀ a b, a ≤ b → |Δ S a b| ≤ 2`, which is equivalent to -2 ≤ Δ(T) ≤ 2 for every non-empty consecutive substring; empty substrings trivially satisfy the bound, so coverage is complete. The count is `{S | balanced S}.ncard`. Spot-checking the solution formula against small cases (n=0→1, n=1→2, n=2→4, n=3→6) matches. This is a faithful formalization.
+
+### putnam_1997_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. Series 1 via `∏ i : Finset.range n, 2*((i:ℝ)+1)` yields the empty product (1) for n=0 giving the leading term x, and the products 2, 2·4, 2·4·6, ... for n=1,2,3..., matched with `(-1)^n · x^(2n+1)` — exactly the alternating series x − x³/2 + x⁵/(2·4) − x⁷/(2·4·6) + .... Series 2 similarly uses `(2*((i:ℝ)+1))^2` giving denominators 1, 2², 2²·4², 2²·4²·6², ... times x^(2n), matching the informal second series. The improper integral $\int_0^\infty$ is encoded via `Tendsto (fun t => ∫ x in Set.Icc 0 t, ...) atTop (𝓝 L)`, which is the standard definition of the improper integral converging to L. The answer √e = `Real.sqrt (Real.exp 1)` is appropriate since series1 = x·e^(−x²/2) and series2 = I₀(x). No extra or missing hypotheses; types and quantifier structure are correct.
+
+### putnam_1997_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal problem precisely. (1) The ambient structure is a general group `G`, matching "Let G be a group". (2) `φ : G → G` matches the informal function. (3) The hypothesis `hφ` encodes exactly "φ(g1)φ(g2)φ(g3) = φ(h1)φ(h2)φ(h3) whenever g1g2g3 = e = h1h2h3" with `1` being the Lean name for the group identity. (4) The conclusion asserts the existence of an element `a : G` such that `ψ(g) := a * φ(g)` satisfies the multiplicativity condition `ψ(xy) = ψ(x)ψ(y)` for all x, y. This is precisely the informal conclusion, since for group maps multiplicativity automatically implies preservation of the identity and inverses. No hypotheses are added, dropped, or strengthened.
+
+### putnam_1997_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the Putnam 1997 A5 problem. The type `Fin n → ℕ+` correctly represents ordered n-tuples of positive integers. The condition `∑ i : Fin n, (1 : ℝ)/(t i) = 1` correctly encodes the sum of reciprocals equaling 1 (coercing ℕ+ values to ℝ). `Set.ncard` gives the cardinality of the set, and `Odd (N 10).ncard ↔ True` asserts that $N_{10}$ is odd, which is the expected determination for this problem. While `ncard` returns 0 for infinite sets, $N_{10}$ is indeed finite, so this doesn't cause an issue. The Lean signature is logically equivalent to the informal statement.
+
+### putnam_1997_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal Putnam 1997 A6 problem. The recurrence is encoded correctly via `hx0`, `hx1`, `hxk` parameterized by `c` through `x : ℝ → (ℤ → ℝ)`. The set `S = {c | x c (n+1) = 0}` matches "values of $c$ for which $x_{n+1}=0$". Since $x_{n+1}$ is a polynomial of degree $n$ in $c$, `S` is finite and nonempty, so `sSup S = max S` equals "the largest value" mentioned in the informal statement. The quantifier `∀ k : Set.Icc 1 n` correctly encodes "$1 \leq k \leq n$". The solution `Nat.choose (n.toNat-1) (k.toNat-1)` equals $\binom{n-1}{k-1}$ for $n \geq 1$ and $k \in [1,n]$, which is the known correct answer. Use of `ℤ` rather than `ℕ` for sequence index is immaterial since only positive indices appear in the conclusion.
+
+### putnam_1997_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. `dist_to_int r = |r - round r|` is exactly the distance from r to the nearest integer. The sum `∑ m ∈ Finset.Icc 1 (6*n-1)` correctly ranges over m = 1 to 6n-1 (for n > 0, 6n-1 ≥ 5). Since `dist_to_int : ℝ → ℝ` expects a real number, Lean's bidirectional elaboration of `m/(6*n)` and `m/(3*n)` (with `m : ℕ` from the Finset and `n : ℕ`) forces the expected type ℝ to propagate through the division, producing real division with coercions — not natural division — so these match the informal fractions m/(6n) and m/(3n). The condition `n > 0` matches "for each positive integer n", and encoding "evaluate" as equality with a `putnam_1997_b1_solution : ℕ → ℝ` is the standard PutnamBench convention. The min operator also matches. No hypotheses are silently added or dropped.
+
+### putnam_1997_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. "Twice-differentiable" is encoded via `ContDiff ℝ 1 f` (f is C¹) combined with `Differentiable ℝ (deriv f)` (f' is differentiable); since a differentiable function is continuous, this combined pair is equivalent to "f differentiable everywhere and f' differentiable everywhere", which is exactly twice-differentiability. The hypothesis `∀ x, g x ≥ 0` matches, and the ODE `f x + iteratedDeriv 2 f x = -x * g x * deriv f x` correctly represents f(x)+f''(x)=-xg(x)f'(x) because iteratedDeriv 2 f = deriv (deriv f) agrees with f'' under the differentiability assumptions. The conclusion `IsBounded (range (fun x => |f x|))` precisely states that |f(x)| is bounded as a function on ℝ.
+
+### putnam_1997_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal problem exactly. The hypothesis `n > 0` encodes "positive integer n". The expression `(∑ m ∈ Finset.Icc 1 n, 1/m : ℚ)` correctly computes the harmonic sum in ℚ (with `m : ℕ` coerced to ℚ and `1 : ℚ`, making `1/m` rational division). `Rat.den` in Mathlib returns the denominator in canonical reduced form, with the invariant that `num` and `den` are coprime and `den > 0`, so `.den` is precisely the $q_n$ from the informal statement (positive integer coprime to $p_n$). The iff `n ∈ solution ↔ ¬5 ∣ q.den` directly expresses "determine all n such that 5 does not divide $q_n$". The characterization via set membership is the natural formalization of a "determine all n" problem.
+
+### putnam_1997_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly formalizes the informal statement. `a m n` is defined as the coefficient of x^n in (1+x+x²)^m via `coeff ((1 + X + X ^ 2) ^ m) n`. The universal quantification "for all integers k ≥ 0" is faithfully encoded as `k : ℕ`. The summation `Finset.Iic ⌊2 * (k : ℚ) / 3⌋₊` equals {0, 1, ..., ⌊2k/3⌋}, matching ∑_{i=0}^{⌊2k/3⌋}. The natural-number subtraction `k - i` is safe since ⌊2k/3⌋ ≤ k always, so i ≤ k in the summation range. Finally, `∈ Icc 0 1` on ℤ-valued sums encodes 0 ≤ sum ≤ 1 exactly. No hypotheses are silently added or dropped, and the conclusion is equivalent.
+
+### putnam_1997_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The `tetration` definition correctly encodes a tower of b's with m entries: `tetration 2 1 = 2`, `tetration 2 2 = 2^2 = 4`, `tetration 2 3 = 2^(2^2) = 16`, matching the informal "n terms" tower. The `Nat.ModEq n a b` notation (`a ≡ b [MOD n]`) means `a % n = b % n`, the standard modular congruence. The hypothesis `n ≥ 2` matches "for n ≥ 2", and natural subtraction `n-1` is well-defined here (gives exactly n-1 since n ≥ 2 ≥ 1). The claim `tetration 2 n ≡ tetration 2 (n-1) [MOD n]` is precisely the informal assertion. No hypotheses are added or dropped, and the conclusion matches exactly.
+
+### putnam_1998_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the Putnam 1998 A2 problem. `quadrant P` captures "P on the unit circle in the first quadrant" via `P 0 > 0 ∧ P 1 > 0 ∧ dist 0 P = 1`. `arc P Q` defines the open arc between P and Q. The region for A = `{S | ∃ R ∈ arc, R 0 = S 0 ∧ R 1 > S 1 ∧ S 1 > 0}` is exactly the area below the arc and above the x-axis (endpoints contribute measure zero), and B is analogously the region left of arc, right of y-axis. For unit vectors P,Q, `InnerProductGeometry.angle P Q = arccos(⟨P,Q⟩)` equals the central angle, which equals the arc length on the unit circle. The conclusion `∃ f, ∀ P Q, isarc P Q → A P Q + B P Q = f (angle P Q)` is the standard logical form of "A+B depends only on arc length". The strict inequalities excluding boundary points of the first quadrant and degenerate single-point arcs are minor conventions that don't change the mathematical content.
+
+### putnam_1998_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement exactly. `f : ℝ → ℝ` is a real function on the real line, and `ContDiff ℝ 3 f` is the standard Mathlib encoding of "f has a continuous third derivative" (equivalent to f being C^3). The conclusion uses `deriv f a` for f'(a), `iteratedDeriv 2 f a` for f''(a), and `iteratedDeriv 3 f a` for f'''(a) — confirmed from Mathlib's `iteratedDeriv_succ`: iteratedDeriv (n+1) f = deriv (iteratedDeriv n f), so these are the correct second and third derivatives. The existential quantifier and the ≥ 0 inequality on the four-fold product match the informal statement exactly. No hypotheses are added or dropped, and no types are altered.
+
+### putnam_1998_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding correctly captures the informal problem. The list representation with `A (n + 2) = A (n + 1) ++ A n` for n > 0 is exactly the rule `A_n = A_{n-1} A_{n-2}` for n ≥ 3. The base cases match (A 1 = [0], A 2 = [1]). To interpret the digit list as a decimal number, reversing before `Nat.ofDigits 10` (which is little-endian) gives the correct natural number: e.g. A 3 = [1,0] with reverse [0,1] and ofDigits = 10, matching A_3 = 10. The `1 ≤ n` guard simply reflects that A_n is only defined for n ≥ 1 in the informal problem; this is an implicit premise being made explicit, not a narrowing of scope (and since `n ≡ 1 [MOD 6]` excludes 0 anyway, it doesn't alter the answer set). The conclusion format (set of n with 11 ∣ A_n equals the solution set) precisely matches "Determine all n such that 11 divides A_n".
+
+### putnam_1998_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Vitali-type covering statement. `EuclideanSpace ℝ (Fin 2)` is the standard Mathlib representation of $\mathbb{R}^2$, `ball` gives open discs, `Fin k` encodes the finite collection, and `3 * (r (t i))` correctly gives the tripled radius with the same center. The hypothesis `r i > 0` surfaces the implicit assumption that open discs have positive radius (needed for the statement's standard meaning). Although `t : Fin n → Fin k` is not a priori injective, the pairwise disjointness condition combined with `r (t i) > 0` (since balls contain their centers) forces injectivity, correctly capturing "subcollection". The pairwise disjointness and the final containment $E \subseteq \bigcup 3D_j$ are stated exactly as in the informal version.
+
+### putnam_1998_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all elements of the informal statement. Points in ℝ² are represented as `EuclideanSpace ℝ (Fin 2)`, integer coordinates are expressed via `hint`, and distinctness via `htriangle`. The expression `dist A B + dist B C` matches |AB|+|BC| literally (B as the middle vertex). `(MeasureTheory.volume (convexHull ℝ {A,B,C})).toReal` equals the standard area of triangle ABC (Lebesgue measure of the filled triangle). The `threesquare P Q R` predicate asserts |QP|=|QR| and (P-Q) ⊥ (R-Q), which together with distinctness forms a right isoceles triangle at Q. The disjunction over (A,B,C), (B,C,A), (C,A,B) covers all three possible corners, and three points forming a right isoceles triangle is equivalent to being three vertices of a square. No hypotheses are added or dropped.
+
+### putnam_1998_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the minimum value of the expression for x > 0. The Lean statement formalizes this as sInf of the set of values of the expression over x > 0, equal to the solution (6). Since the expression simplifies to 3(x + 1/x) ≥ 6 with equality at x = 1, the minimum is actually attained, so sInf equals min for this set. Thus "sInf = 6" is equivalent to "the minimum value is 6". The set-builder notation correctly captures the range of the expression over x > 0, and this matches the standard Putnam formalization convention. No hypotheses are silently changed.
+
+### putnam_1998_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the problem: parameterizing the x-axis vertex as (c, 0) and the y=x vertex as (x, x), summing the three Euclidean side-lengths, and taking sInf over this set. The strict triangle inequalities are a standard encoding of "triangle" being non-degenerate (three distinct non-collinear points), which is the conventional mathematical meaning. The hypothesis `0 < b ∧ b < a` exactly matches `0 < b < a`. The solution `if a > b then sqrt(2a²+2b²) else 0` yields sqrt(2a²+2b²) under the given hypothesis, which is the classical reflection-argument answer (reflecting (a,b) over the x-axis and over y=x gives points whose distance is sqrt((a-b)²+(a+b)²) = sqrt(2a²+2b²)). Since the minimum is achieved at a non-degenerate triangle, the strict triangle inequalities don't alter the infimum value, so sInf equals the minimum as the informal problem states.
+
+### putnam_1998_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal problem. The sum `∑ i ∈ Finset.range (m * n), (-1)^(i/m + i/n)` matches ∑_{i=0}^{mn-1} (-1)^(⌊i/m⌋+⌊i/n⌋) (natural number division equals floor for nonneg integers). The hypothesis `n > 0 ∧ m > 0` matches "positive integers m and n". The "find necessary and sufficient conditions" is encoded as an iff between the sum equaling 0 and membership in the explicit solution set `putnam_1998_b4_solution`, following the standard PutnamBench pattern for "find" problems. The solution set `multiplicity 2 n ≠ multiplicity 2 m` uses Mathlib's `multiplicity` which, for positive naturals, gives the 2-adic valuation — matching the known answer. The problem and solution condition are symmetric in m,n, so the pairing order does not matter. No hypotheses are silently added or dropped.
+
+### putnam_1998_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the Putnam 1998 B5 problem. (1) N is defined as ∑_{i=0}^{1997} 10^i = (10^1998 - 1)/9, which is exactly the 1998-digit repunit 111...1 as stated informally. (2) The thousandth digit after the decimal point of √N is extracted as ⌊10^1000 · √N⌋ mod 10: multiplying by 10^1000 shifts the decimal expansion so the 1000th fractional digit becomes the units digit of the integer part, and mod 10 extracts it. Since N is not a perfect square, √N is irrational, so there is no ambiguity about terminating expansions or trailing 9s. (3) The solution equals 1, matching the informal request for "the thousandth digit after the decimal point." The formalization is logically equivalent to the informal statement.
+
+### putnam_1998_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the informal Putnam 1998 B6 using `Real.sqrt` and asks whether its value equals some integer (via coercion). The universal quantification over a, b, c : ℤ, the existential over positive n : ℤ, and the cubic expression n³+an²+bn+c all match exactly. The predicate `¬∃ k : ℤ, (k:ℝ) = Real.sqrt(P(n))` is the standard Mathlib way to express "√P(n) is not an integer" — for P(n) > 0 it captures exactly "P(n) is not a perfect square," which is the intended meaning in the Putnam context. There is a minor quirk: Real.sqrt(negative) = 0 in Mathlib, so n with P(n) < 0 would not satisfy the Lean predicate. However, since P is a cubic with positive leading coefficient, witnesses with P(n) > 0 non-square always exist (the content of the Putnam theorem), so both statements are true with the same natural witnesses. The standard olympiad reading of "√N is not an integer" is "N is not a perfect square," which the Lean encoding captures correctly.
+
+### putnam_1999_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the informal statement. The piecewise function is correctly encoded: `if x < -1 then -1 else (if x ≤ 0 then 3x+2 else -2x+2)` properly matches the three cases (x<-1, -1≤x≤0, x>0). The informal problem asks to "find polynomials f, g, h, if they exist" — an existence question — which is captured by `∃ f g h : Polynomial ℝ, ...` with solution `True`. The quantification is over all x : ℝ, matching "for all x". The types (Polynomial ℝ, eval at ℝ) match the real-variable polynomials in the informal problem. The boundary values are consistent (at x=-1 both cases give -1, at x=0 both cases give 2), so the piecewise function is well-defined under either convention.
+
+### putnam_1999_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes: for a polynomial p : Polynomial ℝ with p(x) ≥ 0 for all real x, there exist k : ℕ (inferred from Fin k) with k > 0 and f : Fin k → Polynomial ℝ such that p(x) = Σ (f j)(x)². The ∃ᵉ notation from Batteries is plain syntactic sugar for nested existentials. The hypothesis `∀ x, p.eval x ≥ 0` faithfully captures "nonnegative for all real x", and the conclusion captures the sum-of-squares decomposition. The constraint k > 0 does not make the statement weaker or stronger than the informal: the informal's `∑_{j=1}^k` already suggests k ≥ 1 by convention, and even if k = 0 were admitted (empty sum, only possible when p = 0), one can always pad with a zero polynomial to achieve k ≥ 1, so the existential claims are logically equivalent. Types and quantifier structure match.
+
+### putnam_1999_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean theorem captures exactly the informal statement. The hypothesis `hf'` asserts that the partial sums ∑_{n<N} a_n x^n converge to f(x) = 1/(1-2x-x²) for all x in some neighborhood of 0 (via `∀ᶠ x in 𝓝 0`), which uniquely determines a_n as the Taylor coefficients by the identity principle for power series. The conclusion `∃ m : ℕ, a_n² + a_{n+1}² = a_m` matches the informal "there is an integer m such that a_n² + a_{n+1}² = a_m", where m being ℕ faithfully encodes the required non-negative integer index into the sequence (m must be ≥ 0 for a_m to refer to a power series coefficient). Typing a_n as ℝ rather than ℤ is a standard and faithful choice since the values arise as real-valued coefficients (and the equation still captures the integer identity). The universal "for each n ≥ 0" is handled by the free variable n : ℕ.
+
+### putnam_1999_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes the iterated double sum from the informal statement. The substitutions m → m+1 and n → n+1 correctly shift indices from ℕ (starting at 0) to start at 1, matching the informal lower bounds. The numerator `(m+1)^2 * (n+1)` and denominator `3^(m+1) * ((n+1)*3^(m+1) + (m+1)*3^(n+1))` exactly match `m^2 n / (3^m(n 3^m + m 3^n))` after substitution. The outer infinite sum is expressed via `Tendsto` of partial sums on `Finset.range i` converging to the solution, while the inner infinite sum is expressed via `tsum` (`∑' n : ℕ`). This iterated interpretation (inner first, then outer partial sums) is the standard reading of the written double sum. The comment acknowledges the order-dependence assumption, but for this series (positive terms, summable) the value is well-defined either way.
+
+### putnam_1999_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. `∃ C : ℝ, ∀ p : Polynomial ℝ, p.degree = 1999 → ...` correctly captures "there exists a constant C such that for any polynomial p of degree 1999". Since `p.degree : WithBot ℕ`, the condition `p.degree = 1999` means degree is exactly 1999 (excluding the zero polynomial whose degree is ⊥), matching the standard competition reading. On ℝ, `‖·‖` equals absolute value, so `‖p.eval 0‖` is |p(0)| and `‖p.eval x‖` is |p(x)|. The interval integral `∫ x in (-1)..1, ‖p.eval x‖` with -1 ≤ 1 equals the Lebesgue integral over [-1,1], matching ∫_{-1}^1 |p(x)| dx. All components align semantically with the informal claim.
+
+### putnam_1999_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The sequence is modeled as `a : ℤ → ℝ` with the correct base cases `a 1 = 1, a 2 = 2, a 3 = 24`. The recurrence `∀ n : ℕ, n ≥ 4 → a n = (6·a(n-1)²·a(n-3) - 8·a(n-1)·a(n-2)²) / (a(n-2)·a(n-3))` captures the stated formula; since `n ≥ 4` the indices `n-1, n-2, n-3` are all ≥ 1 so Lean's elaboration of the subtractions (whether as ℕ or ℤ) yields the same integer values. The conclusion `∀ n, n ≥ 1 → ∃ k : ℤ, a n = k * n` — with `n : ℤ` inferred from `a n` and `k * n` coerced to ℝ — exactly expresses that $a_n$ is an integer multiple of $n$ for all positive integers $n$. No hypothesis is added or dropped, no quantifier changed, and no conclusion weakened or strengthened.
+
+### putnam_1999_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. (1) "Quadratic Q" is correctly encoded as Q.natDegree = 2. (2) The identity P = Q·P'' is expressed pointwise over ℂ, which is equivalent to polynomial equality since ℂ is infinite; `Polynomial.derivative^[2] P` correctly denotes the second derivative. (3) "At least two distinct roots" is directly encoded. (4) "n distinct roots" where n = deg P is encoded as an injection from Fin (P.natDegree) into the roots of P — since a degree-n polynomial has at most n distinct roots, this is equivalent to having exactly n distinct roots. Edge cases (P = 0, or deg P ≤ 1) either trivialize the statement or are ruled out by the hypothesis P = Q·P'' itself, so no extra hypotheses are needed.
+
+### putnam_1999_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes all components of Putnam 1999 B3: (1) The set A matches the standard reading of "0 ≤ x, y < 1" as four inequalities. (2) The sum S(x,y) uses iterated tsums with an indicator that restricts to positive integers m, n > 0 with 1/2 ≤ m/n ≤ 2, where the division is over ℝ via coercion — since all terms x^m y^n are nonnegative on A, the iterated tsum equals the unordered double sum. (3) The filter `𝓝[A] ⟨1,1⟩ = 𝓝 ⟨1,1⟩ ⊓ 𝓟 A` precisely captures the informal "limit as (x,y) → (1,1) with (x,y) ∈ A". (4) The expression (1 - xy²)(1 - x²y)S(x,y) and the solution value 3 match the informal statement. No hypothesis is added or dropped.
+
+### putnam_1999_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim exactly. `ContDiff ℝ 3 f` encodes "continuous third derivative". The quantifier `∀ n ≤ 3, ∀ x, iteratedDeriv n f x > 0` runs over `n : ℕ ∈ {0,1,2,3}` (required by `iteratedDeriv`'s `ℕ` argument), and Mathlib's `iteratedDeriv_zero`, `iteratedDeriv_one`, etc., reduce these to `f x, deriv f x, f''(x), f'''(x) > 0`, matching "f(x), f'(x), f''(x), f'''(x) are positive for all x". The hypothesis `iteratedDeriv 3 f x ≤ f x` is precisely "f'''(x) ≤ f(x)". The conclusion `deriv f x < 2 * f x` is precisely "f'(x) < 2f(x)". No hypotheses are added or dropped and no quantifier structure is altered.
+
+### putnam_1999_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. (1) The hypothesis `n ≥ 3` matches the informal "integer n ≥ 3". (2) `theta = 2 * Real.pi / n` matches "θ = 2π/n". (3) `(1 + A)` correctly represents I + A since `1` on square matrices gives the identity matrix. (4) The matrix entries use `(j.1 + 1) * theta + (k.1 + 1) * theta`, i.e., indices ranging over {1,...,n}, matching the standard 1-indexed mathematical convention for an n×n matrix. Even if the informal intended 0-indexed entries, the determinant would be identical by permutation-invariance: B_{jk} = cos((j+1+k+1)θ) equals S^T A S where A_{jk} = cos((j+k)θ) and S is the cyclic shift permutation, giving det(I+B) = det(I+A). (5) The solution `1 - n^2/4` is the correct value of the determinant. All components align without adding or dropping any hypotheses or changing the mathematical claim.
+
+### putnam_1999_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement exactly. `S : Finset ℤ` with `hSgt : ∀ s ∈ S, s > 1` captures "finite set of integers, each greater than 1". `hSgcd : ∀ n, ∃ s ∈ S, Int.gcd s n = 1 ∨ Int.gcd s n = s` directly encodes "for each integer n, there exists s ∈ S with gcd(s,n)=1 or gcd(s,n)=s" — the equation `Int.gcd s n = s` correctly elaborates via ℕ→ℤ coercion, which is equivalent to the informal meaning since s > 1 > 0. The conclusion `∃ᵉ (s ∈ S) (t ∈ S), Prime (Int.gcd s t)` (using batteries' extended binder, equivalent to `∃ s ∈ S, ∃ t ∈ S, ...`) correctly captures "there exist s, t ∈ S such that gcd(s,t) is prime". No hidden hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_2000_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the Putnam 2000 A1 problem. It introduces `A : ℝ` with `A > 0` matching "positive real A", and defines the set of achievable S = ∑ x_j² values over positive sequences x : ℕ → ℝ whose tsum equals A. Mathlib's `tsum` returns 0 when non-summable, but since A > 0, `∑' j, x j = A` forces summability, and given positive x_j summing to A we have x_j → 0, so x_j² is automatically summable as well — hence the tsum convention introduces no drift. The types (ℕ → ℝ, ℝ), positivity constraint (x j > 0), equality to A, and the sum-of-squares equation all match the informal statement directly, and the set-level equality correctly asks for "the possible values of ∑ x_j²".
+
+### putnam_2000_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement `∀ n : ℕ, ∃ N : ℤ, N > n ∧ ...` is the standard Lean idiom for "unbounded above in ℕ", which is equivalent to "infinitely many" here because the set of valid N is bounded below by 0 (sums of squares are non-negative), and for any bounded-below set of integers, infinite ↔ unbounded above. The use of `i : Fin 6 → ℕ` to encode "sum of two squares of integers" is equivalent since for any integer k, k² = (|k|)², so sums of two integer squares and sums of two natural-number squares are the same set of integers. The types (N : ℤ matching "integer n" in the informal) and the three conditions on N, N+1, N+2 match precisely. No hypotheses are silently added or dropped.
+
+### putnam_2000_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal claim "the improper integral $\lim_{B\to\infty}\int_0^B \sin(x)\sin(x^2)\,dx$ converges" is standardly formalized as the existence of a real number $y$ such that the function $B \mapsto \int_0^B \sin(x)\sin(x^2)\,dx$ tends to $y$ as $B \to \infty$. The Lean statement asserts exactly this using `∃ y : ℝ, Tendsto (fun B => ...) atTop (𝓝 y)`. Using `Set.Ioo 0 B` instead of `[0,B]` is irrelevant since endpoints have Lebesgue measure zero. The integrand `Real.sin x * Real.sin (x ^ 2)` matches $\sin(x)\sin(x^2)$, and no extraneous hypotheses are added or required ones dropped. The formalization is logically equivalent to the informal claim.
+
+### putnam_2000_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures every element of the informal claim. The plane is represented by `EuclideanSpace ℝ (Fin 2)`, three distinct points by `p : Fin 3 → ...` with `pdiff`, integer coordinates by `p n i = round (p n i)` (valid since `round` returns ℤ that is coerced back, so equality holds iff the coordinate is an integer), and the circle condition by `Metric.sphere z r` with `rpos : r > 0`. The center `z` being left free (rather than required to have integer coordinates) is correct — the informal statement does not constrain the circle's center. The conclusion `∃ n m, n ≠ m ∧ dist (p n) (p m) ≥ r^(1/3)` precisely matches "two of these points are separated by a distance of at least r^(1/3)". Using `(1:ℝ)/3` as the exponent gives the cube root as intended. No hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_2000_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization exactly mirrors the informal statement. The polynomial f has integer coefficients (`Polynomial ℤ`), the sequence a maps naturals to integers (`ℕ → ℤ`), the initial condition `a 0 = 0` and the recurrence `a (n+1) = f.eval (a n)` match the informal definitions. The conclusion `(∃ m > 0, a m = 0) → (a 1 = 0 ∨ a 2 = 0)` directly encodes "if there exists a positive integer m with a_m = 0 then a_1 = 0 or a_2 = 0" (note that `m > 0` on ℕ is equivalent to "positive integer m"). No hypotheses are added or dropped, and the quantifier structure is preserved.
+
+### putnam_2000_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Putnam 2000 B1 statement. The types match (integer-valued functions on Fin N), the hypothesis `hodd` correctly expresses "at least one of a_j, b_j, c_j is odd" for each j, and the conclusion `∃ r s t : ℤ, {j | Odd (r*a j + s*b j + t*c j)}.ncard ≥ (4 * N : ℝ) / 7` correctly expresses "at least 4N/7 values of j" via a real-valued comparison (ncard coerced to ℝ ≥ 4N/7), which is the standard meaning of "at least 4N/7" when 4N/7 need not be an integer. The added hypothesis `N ≥ 1` surfaces the implicit convention in the informal phrasing "for $1 \le j \le N$" that N is a positive integer; the excluded N=0 case is vacuously trivial and not mathematically meaningful to the problem. This is a standard surfacing of an implicit premise rather than a substantive narrowing of scope.
+
+### putnam_2000_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement accurately captures the informal claim. The quantifier `∀ m n : ℕ, m ≥ 1 → n ≥ m` matches "all pairs of integers n ≥ m ≥ 1" (since m ≥ 1 and n ≥ m forces both to be positive integers). The divisibility statement `n ∣ Nat.gcd m n * Nat.choose n m` is logically equivalent to "gcd(m,n)/n · C(n,m) is an integer" because n ≥ 1 (so n ≠ 0), and an integer value gcd(m,n)·C(n,m)/n is an integer iff n divides gcd(m,n)·C(n,m). The argument orderings match: `Nat.gcd m n` = gcd(m,n) and `Nat.choose n m` = C(n,m) = n!/(m!(n-m)!).
+
+### putnam_2000_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The function f is correctly defined as the trig polynomial, with a_N ≠ 0. The `mult` function is characterized via hmult as the smallest order at which an iterated derivative is nonzero, which equals the multiplicity of the zero (and 0 when not a zero). Since iterated derivatives of a nonzero trig polynomial are themselves nonzero trig polynomials (with leading coefficient a_N(2πN)^k ≠ 0), the hypothesis condition is always satisfied. Summing via tsum over [0,1) correctly counts zeros with multiplicity on one period (support is finite for trig polynomials). The periodicity makes counting over a fundamental period [0,1) the natural choice consistent with the answer 2N — making this an implicit premise surfaced explicitly. The monotonicity `∀ i j, i ≤ j → M i ≤ M j` is equivalent to the chain N_0 ≤ N_1 ≤ ..., and since ℕ has discrete topology, Tendsto M atTop (𝓝 (2*N)) means M is eventually constant at 2N, matching the limit claim.
+
+### putnam_2000_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization is logically equivalent to the informal statement. f is typed as ℝ → ℝ (a real continuous function), `Continuous f` matches "continuous function", `∀ x, f (2 * x ^ 2 - 1) = 2 * x * f x` directly encodes the functional equation $f(2x^2-1) = 2xf(x)$ for all real x, and the conclusion `∀ x, x ∈ Icc (-1) 1 → f x = 0` exactly matches "f(x) = 0 for −1 ≤ x ≤ 1" since `Set.Icc (-1) 1` is the closed interval [-1, 1]. No hypotheses have been added or dropped, and the types and quantifier structure match.
+
+### putnam_2000_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the Putnam 2000 B5 problem. The sequence S : ℕ → Set ℤ with finiteness (hSfin) and positivity (hSpos) hypotheses matches "$S_0$ is a finite set of positive integers" — while these are stated for all n, they are automatically inherited from $S_0$ under the recursive definition (since $S_{n+1} \subseteq S_n \cup (S_n+1)$ preserves finiteness, and positivity is preserved since elements require $a \in S_n$ or $a-1 \in S_n \geq 1$). The recursive definition uses `Xor'` which encodes "exactly one of" exactly as `(A ∧ ¬B) ∨ (B ∧ ¬A)`. The "infinitely many N" phrasing is correctly encoded as `∀ n, ∃ N ≥ n, P(N)`, which for $\mathbb{N}$ is equivalent to unboundedness, hence to the set being infinite. The set $\{M : \mathbb{Z} \mid M - N \in S_0\}$ equals $\{N + a : a \in S_0\}$. All quantifiers, types, and conclusions match.
+
+### putnam_2001_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization mirrors the informal statement exactly. The set $S$ is encoded as `Type*`, and the binary operation $*$ is provided by the `[Mul S]` typeclass, which gives a total function `* : S → S → S` — matching the closure property "$a*b \in S$" stated informally. The hypothesis `∀ a b : S, (a * b) * a = b` is literally the informal hypothesis. The conclusion `∀ a b : S, a * (b * a) = b` is literally the informal conclusion. Quantifier structure, types, hypothesis, and conclusion all match; no additional typeclass structure (like associativity or identity) is assumed. This is a faithful formalization.
+
+### putnam_2001_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The polynomial definition `X^4 - C(2m+4)·X^2 + C((m-2)^2)` matches $P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2$ exactly. The coefficients live in ℤ, matching "integer coefficients". The condition `∃ n ∈ Ici 1, a.coeff n ≠ 0` (where `coeff : ℤ[X] → ℕ → ℤ`, so `Ici 1 ⊆ ℕ`) says there is some degree ≥ 1 with nonzero coefficient, which is equivalent to `natDegree a ≥ 1` — the standard meaning of "non-constant polynomial" (correctly excluding both the zero polynomial and constant polynomials). Both factors a and b are required to be non-constant, matching "product of two non-constant polynomials". The set-equality formulation answers "for what values of m" faithfully.
+
+### putnam_2001_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal claim. The pair type `ℤ × ℕ` with constraints `a > 0` (where `a : ℤ`) and `n > 0` (where `n : ℕ`) correctly encodes "positive integers a, n" — both constraints yield values ≥ 1. The use of `∃!` over the product type is the standard Mathlib idiom for asserting existence of a unique pair, matching the informal "unique positive integers a, n" which mathematically means a unique pair. The equation `a^(n+1) - (a+1)^n = 2001` is computed in ℤ (since `a : ℤ`), correctly matching the problem (the solution is a=13, n=2, giving 13³ - 14² = 2001). There is no drift in hypotheses, conclusion, quantifier structure, or ambient types.
+
+### putnam_2001_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. `n : ℕ` with `n > 0` and `Even n` matches "even positive integer". The grid entries `nums k l = k * n + l + 1` (with k, l : Fin n being 0-indexed and cast to ℤ) correctly encode the informal (k-1)n+l formula when translating to 1-indexed notation: for k.val = j, the entry is j*n + l.val + 1, matching row (j+1) column (l.val+1). The coloring via `Fin 2` correctly represents a two-coloring, and the constraint that n/2 squares of each row/column have color 0 implies (by Fin 2) that the other n/2 have color 1, matching "half red, half black". The conclusion equates the two color-indexed sums, matching the claim. No hypotheses are silently added or dropped.
+
+### putnam_2001_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement universally quantifies over (x, y : ℝ) with x ≠ 0 and y ≠ 0, which are implicit premises of the informal statement (since 1/x and 1/(2y) require nonzero denominators to be mathematically defined). The eq1/eq2 Prop variables with iff hypotheses is an equivalent encoding of directly stating the two equations. The conclusion `eq1 ∧ eq2 ↔ (x, y) ∈ putnam_2001_b2_solution` correctly captures "find all pairs satisfying the system" — for each (x, y) with nonzero coordinates, the system holds iff the pair is in the solution set, which is equivalent to saying the solution set exactly characterizes all solutions. The expressions inside the iff (1/x + 1/(2y), (x^2+3y^2)(3x^2+y^2), etc.) match the informal equations exactly. Adding x ≠ 0 and y ≠ 0 is making implicit mathematical premises explicit, not a weakening.
+
+### putnam_2001_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal statement. `Set.Ici 1` with the numeric literal `1` defaults to ℕ (no other constraint forces otherwise), so the sum ranges over positive integers n ≥ 1, matching $\sum_{n=1}^\infty$. Mathlib's `round : ℝ → ℤ` rounds to the nearest integer (breaking ties toward +∞), which faithfully encodes $\langle n \rangle$ = closest integer to $\sqrt n$: for positive integer n, $\sqrt n$ can never be a half-integer (since $k + 0.5$ squared is not an integer), so ties never occur and `round` gives the unique closest integer. The numerator `(2:ℝ)^(round (Real.sqrt n)) + (2:ℝ)^(-round (Real.sqrt n))` uses ℤ-power (zpow), correctly giving $2^{\langle n\rangle} + 2^{-\langle n\rangle}$. The denominator `2 ^ (n : ℝ)` uses `Real.rpow`, which agrees with $2^n$ for positive integer n. The equality to `putnam_2001_b3_solution` (= 3) matches "Evaluate ...". No extra or missing hypotheses.
+
+### putnam_2001_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. S = univ \ {-1, 0, 1} in ℚ matches the set definition. The function f : S → S is uniquely determined by the hypothesis `f x = x - 1 / (x : ℚ)` (the equation holds in ℚ via coercion), and f is indeed well-defined since for rational x ∉ {-1,0,1}, x - 1/x is never in {-1,0,1} (x²=1 gives ±1; x²±x-1=0 has irrational roots). The expression `f^[n] '' univ` where `univ : Set ↥S` computes exactly f^(n)(S) in the informal notation, since `f^[n]` is `Nat.iterate f n`. The index set `Ici 1 = {n ∈ ℕ | 1 ≤ n}` matches ∩_{n=1}^∞. The biconditional with `putnam_2001_b4_solution := True` is the standard Putnam "prove or disprove" encoding asking to show the intersection is empty.
+
+### putnam_2001_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature matches the informal statement exactly. The hypothesis `abint` encodes $a, b \in (0, 1/2)$ via strict inequalities. `gcont : Continuous g` matches "continuous real-valued function" (since `g : ℝ → ℝ`). The hypothesis `hg` universally quantifies the functional equation $g(g(x)) = ag(x) + bx$ over all real $x$. The conclusion `∃ c : ℝ, ∀ x : ℝ, g x = c * x` is precisely "g(x) = cx for some constant c". No hypotheses are added or dropped, types are correct, and the quantifier structure matches.
+
+### putnam_2001_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes the sequence as ℤ → ℝ but restricts the hypotheses (positivity and strict increase) to indices n ≥ 1, and the conclusion only references indices n-i and n+i with n > 0 and 1 ≤ i ≤ n-1 (so all referenced indices are ≥ 1). The values at n ≤ 0 are thus unconstrained but irrelevant, making this equivalent to a sequence indexed by positive integers. "Increasing" is interpreted as strictly increasing (a n < a(n+1)), which matches standard Putnam reading. The limit condition `Tendsto (fun n : ℤ => a(n+1)/(n+1)) atTop (𝓝 0)` on ℤ is equivalent to lim_{m→∞} a_m/m = 0 via index shift. The conclusion `Set.Icc 1 (n-1)` captures i = 1,...,n-1, matching the informal quantification (vacuously true when n=1). The iff with `putnam_2001_b6_solution` lets the True/False answer encode the yes/no question faithfully.
+
+### putnam_2002_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The hypothesis `Pderiv` asserts that the polynomial family $P_n$ satisfies the functional equation defining it from the $n$-th iterated derivative of $1/(x^k-1)$, and the conclusion asserts $P_n(1)$ equals a specific value. At points where $x^k = 1$, both sides of the Lean equation become 0 (by Lean's convention for division by zero and non-existent derivatives), making the constraint vacuous there; but on the open set where $x^k \neq 1$, the equation uniquely determines $P_n$ as a polynomial (since polynomials agreeing on an open set are equal). The solution $(-k)^n \cdot n!$ elaborates to $(-1)^n k^n n!$ in $\mathbb{R}$ via coercion, which matches the correct mathematical answer verified via Laurent expansion near $x=1$ and small cases ($n=0,1,2$). The hypothesis $k > 0$ correctly captures "positive integer".
+
+### putnam_2002_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal claim. The unit sphere (sphere 0 1) is used in place of "a sphere", but this is equivalent since the claim is invariant under translation and positive scaling. The closed hemisphere is encoded as the intersection of S with the half-space {P | ⟪P, V⟫ ≥ 0}; since S ⊆ unit_sphere (centered at 0), this equals S intersected with a closed hemisphere of the unit sphere, as intended. The constraint V ≠ 0 is a necessary implicit premise (without it, V=0 would trivially satisfy the condition since 0 ≥ 0 for all P). "Some four" is correctly rendered as `.encard ≥ 4` (at least four), and `S.encard = 5` correctly requires 5 distinct points. Ambient ℝ³ is the standard setting for "a sphere".
+
+### putnam_2002_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures all elements of the informal claim: n ≥ 2 is preserved; subsets of {1,...,n} are encoded as `S ⊆ Set.Icc 1 n` in ℤ; nonemptiness via `Nonempty S` is equivalent to `S.Nonempty` via `Set.nonempty_coe_sort`; the "average is an integer" condition is encoded as `∃ k : ℤ, k = (1/|S|) * (sum)` in ℝ (with `s.1 : ℤ` coerced to ℝ in the tsum since the expected type is ℝ), which is equivalent to saying the real-valued average equals an integer; Tn counts such sets via Set.ncard (well-defined since there are at most 2^n such subsets); and the conclusion `Even (Tn - n)` matches "T_n - n is always even" with n universally quantified. The coercion of Tn from ℕ to ℤ is lossless, and the tsum reduces to a finite sum because S is finite.
+
+### putnam_2002_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures the informal statement: (1) the hypothesis `ha` encodes the three recurrence conditions `a 0 = 1`, `a (2n+1) = a n`, and `a (2n+2) = a n + a (n+1)` for all n ≥ 0 (matching "n ≥ 0" since n : ℕ); (2) these conditions uniquely determine the sequence since every natural number ≥ 1 is either of the form 2k+1 or 2k+2 for some smaller k; (3) `Ici 1 : Set ℕ` (inferred from `a : ℕ → ℚ` context) gives `{n : ℕ | n ≥ 1}` matching "n ≥ 1"; (4) for n ≥ 1, `n - 1` in natural subtraction gives the correct index; (5) the set-builder notation `{a (n - 1) / a n | n ∈ Ici 1}` expands to the intended set of ratios; (6) the conclusion `∀ q : ℚ, q > 0 → q ∈ S` is exactly "every positive rational appears in S". The computed values 1/1, 1/2, 2/1, 1/3, 3/2 match the informal enumeration.
+
+### putnam_2002_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal problem. The function `f : ℕ → ℕ → ℝ` with hypothesis `hf` encodes the recurrence f(b,1)=1, f(b,2)=2, and f(b,n) = n·f(b, (Nat.digits b n).length) for n ≥ 3. Since `(Nat.digits b n).length` for b ≥ 2 is precisely the number of base-b digits of n (as verified in Mathlib's `Nat.Digits.Defs`/`Lemmas` where `digits_len` gives length = log_b(n) + 1), this matches "d = number of base-b digits of n". For b ≥ 2 and n ≥ 3, the recurrence uniquely determines f. The set comprehension `{b ∈ Ici 2 | ...}` correctly restricts to b ≥ 2, and existence of L with Tendsto of partial sums expresses series convergence. Although `hf` is quantified over all b (not just b ≥ 2), the conclusion only examines b ≥ 2, so this doesn't affect faithfulness. Summation over `Finset.Icc 1 m` correctly encodes ∑_{n=1}^m.
+
+### putnam_2002_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts the same mathematical claim as the informal one. The function `f : ℤ → ℝ` with body `1/e - (1 - 1/n)^n` forces the inner `1/n` to elaborate in ℝ via the coercion `(↑n : ℝ)` (since the output type must be ℝ and `e : ℝ`), so `1 - 1/n` is the real number `1 - 1/n`. The exponent `^n` with `n : ℤ` uses `zpow`, which for `n > 1` agrees with the ordinary natural-number power `(1 - 1/n)^n`. The hypothesis `n > 1` on ℤ matches the informal "integers n > 1", and the bounds `1/(2*n*e)` and `1/(n*e)` are the real-valued expressions `1/(2ne)` and `1/(ne)`. The conjunction of the two strict inequalities faithfully represents the informal chained inequality.
+
+### putnam_2002_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses `b ≥ 1` rather than the conventional `b ≥ 2` for bases, but this is logically equivalent in context. For b = 1, `Nat.digits 1 n = List.replicate n 1` has length 3 iff n = 3, and set_lean(3) = {1}, cardinality 1 (since 3 has only 1 or 2 digits in any base ≥ 2). So any n witnessing the Lean statement must have n ≠ 3, and for all n ≠ 3, b = 1 is excluded by the length condition, making set_lean(n) = set_informal(n). Thus informal ⟹ Lean trivially (subset), and Lean ⟹ informal because any Lean-witness n satisfies n ≠ 3 and thus equals the informal set. Mathlib's `Nat.digits` convention (little-endian with nonzero most significant digit) correctly captures "3-digit" (length = 3 with no leading zero), and `List.Palindrome` matches the "reads the same backwards and forwards" condition. n = 0 gives the empty digit list in any base, so cannot witness, naturally restricting to positive integers.
+
+### putnam_2002_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all key components: (1) M is the Moore matrix with rows (x,y,z), (x^p, y^p, z^p), (x^{p²}, y^{p²}, z^{p²}) via M r c = (X c)^(p^r); (2) the cong relation matches "two integer polynomials are congruent mod p iff corresponding coefficients are"; (3) each factor s has form (C a)*(X 0) + (C b)*(X 1) + (C c)*(X 2) with a,b,c : ℤ, matching "ax+by+cz where a,b,c are integers"; (4) the claim is det M ≡ ∏ s mod p. The Finset (rather than multiset) encoding does not weaken the statement: any multiset factorization can be converted to a Finset one by replacing repeated L with L, L+pX₀, L+2pX₀, ..., which remain of the form ax+by+cz and have the same product mod p. For this problem's standard Moore factorization, the p²+p+1 linear factors are already distinct. The statements are logically equivalent.
+
+### putnam_2003_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly counts partitions satisfying the conditions. Using `a : ℕ → ℤ` with the auxiliary constraint `∀ i ≥ k, a i = 0` is a standard encoding to handle the k-dependent domain; each valid function corresponds bijectively to one partition since k is uniquely determined (as the count of positive entries). The conditions `a i > 0` for `i : Fin k`, `∑ i : Fin k, a i = n`, weakly increasing via `∀ i : Fin (k-1), a i ≤ a (i+1)`, and `a (k-1) ≤ a 0 + 1` together are equivalent to the chain $a_1 \leq a_2 \leq \cdots \leq a_k \leq a_1 + 1$ with positive integer entries summing to $n$. In the expression `a (i+1)` with `a : ℕ → ℤ` and `i : Fin (k-1)`, Lean's expected-type-driven elaboration coerces `i` to `ℕ` then adds 1, giving the natural index. The shift from 1-indexed to 0-indexed matches correctly (a_1 ↔ a(0), a_k ↔ a(k-1)). The formalization is logically equivalent to the informal statement.
+
+### putnam_2003_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the inequality term-for-term: `∏ i, a i` gives $a_1 \cdots a_n$, `^ ((1 : ℝ) / n)` gives the $n$-th root via `Real.rpow` (well-defined for nonneg base), and the sum/product structure matches. The nonnegativity hypothesis `∀ i, a i ≥ 0 ∧ b i ≥ 0` matches "nonnegative real numbers". The added `0 < n` is not an extra narrowing hypothesis — it surfaces an implicit premise: the informal statement lists $a_1, \ldots, a_n$ and writes the exponent $1/n$, both of which require $n \geq 1$; without it, in Lean the empty products would give the false claim $1 + 1 \leq 1$. Per the worked-example guideline, making an implicit truth-requiring premise explicit is faithful, not weaker.
+
+### putnam_2003_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses Mathlib's `Real.tan x = sin x / cos x` and the convention `1/0 = 0`. While this differs from the standard convention at singular points (where sin or cos is zero), computation shows that at every singular point on ℝ, the Lean function value is 2, which exceeds the intended minimum 2√2 - 1 ≈ 1.828. The true minimum of |u + 2/(u-1)| (where u = sin x + cos x) equals 2√2 - 1 and is attained at u = 1 - √2, which corresponds to a regular x where sin x · cos x ≠ 0 — so Lean's definition matches the standard one there. Thus `IsLeast (Set.range f) (2√2 - 1)` correctly asserts that 2√2 - 1 is both attained (witnessing some x₀) and is a lower bound for all x ∈ ℝ, which is logically equivalent to the informal claim that 2√2 - 1 is the minimum. The encodings cot = 1/tan, sec = 1/cos, csc = 1/sin are mathematically standard. The formalization is faithful.
+
+### putnam_2003_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement is a direct translation of the informal statement. Variables a, b, c, A, B, C are typed as real numbers (ℝ), matching the informal "real numbers". The hypothesis `aAne0 : a ≠ 0 ∧ A ≠ 0` matches "a ≠ 0 and A ≠ 0". The hypothesis `hle : ∀ x : ℝ, |a * x ^ 2 + b * x + c| ≤ |A * x ^ 2 + B * x + C|` exactly encodes the polynomial inequality holding for all real x. The conclusion `|b ^ 2 - 4 * a * c| ≤ |B ^ 2 - 4 * A * C|` matches the discriminant inequality to be shown. No hypotheses are silently added or dropped, no types are changed, and the quantifier structure is preserved.
+
+### putnam_2003_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the Putnam 2003 A6 question. The counting function r S n is defined using a double tsum over the subtype S with indicator 1 when s1 ≠ s2 and s1 + s2 = n; this equals the number of ordered pairs exactly as in the informal definition (tsum on a finitely-supported function equals the finite count). The subtype inequality s1 ≠ s2 coincides with inequality of the underlying naturals since the subtype coercion is injective. The partition condition A ∪ B = univ ∧ A ∩ B = ∅ faithfully expresses partitioning the nonnegative integers into two parts. The outer existential ∃ A B together with the iff to the solution (intended "True") correctly encodes the yes/no question "Is it possible…?". No hypotheses are added or dropped, and the quantifier structure matches.
+
+### putnam_2003_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization introduces four univariate real polynomials `a, b, c, d : Polynomial ℝ` and asserts that the statement "there exist such polynomials with `1 + x*y + x²*y² = a(x)*c(y) + b(x)*d(y)` for all real x, y" is equivalent to `putnam_2003_b1_solution = False`. This is exactly the Putnam 2003 B1 question, with the answer encoded as "no such polynomials exist." Using ℝ as the coefficient ring is the standard interpretation; since ℝ is infinite, the polynomial identity holding for all real x, y is equivalent to it being a formal polynomial identity. The number of polynomials (four: a, b, c, d), the placement of variables (a, b in x; c, d in y), and the form of the expression all match the informal statement. The formalization is faithful.
+
+### putnam_2003_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the averaging process correctly: `seq 0 j = 1/j` for j ∈ [1,n] matches level 0; `seq k j = (seq (k-1) j + seq (k-1) (j+1))/2` for k ∈ [1,n-1], j ∈ [1,n-k] matches the averaging of consecutive pairs producing n-k entries at level k; and `seq (n-1) 1` at level n-1, position 1 corresponds to the final single entry x_n. Though `seq : ℕ → ℕ → ℚ` is more permissive than `Fin n → Icc 1 n → ℚ`, the hypotheses uniquely determine `seq (n-1) 1` by tracing through the averaging back to level 0 (all required positions at each level are covered and reference only valid positions), so the universally quantified claim is equivalent to x_n < 2/n. Boundary cases n=1 (vacuous havg, seq 0 1 = 1 < 2) and n=2 (seq 1 1 = 3/4 < 1) check out. The `2/n` on the right is correctly interpreted as rational division since the LHS is ℚ.
+
+### putnam_2003_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures both claims of the informal statement. The hypothesis `hABC` encodes A, B, C on the unit circle with equal pairwise distances and the added `dist A B ≠ 0` surfaces the implicit premise that the three points are distinct (an equilateral triangle is implied by "equidistant points"). The first claim (a, b, c form a triangle) is captured by the existence of X, Y, Z with matching pairwise distances in ℝ² — this existence is equivalent to the triangle inequality holding. The second claim (area depends only on |OP|) is correctly captured by placing `∃ f : ℝ → ℝ` OUTSIDE the `∀ P`, so a single function f ties all areas to |OP|. The volume of `convexHull ℝ {X, Y, Z}` in EuclideanSpace ℝ (Fin 2) is the area of the triangle. The strict inequality `dist 0 P < 1` correctly encodes "in the circle's interior". The side-length mapping (XY=PA, YZ=PB, XZ=PC) is a valid assignment of the three sides.
+
+### putnam_2003_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts the same mathematical claim as the informal one. The only surface difference is that informal uses `f : [0,1] → ℝ` while Lean uses `f : ℝ → ℝ` with `Continuous f` — a standard Lean idiom that is logically equivalent here since (a) every continuous function on `[0,1]` extends to a continuous function on `ℝ`, (b) every continuous function on `ℝ` restricts to one on `[0,1]`, and (c) both sides of the inequality only depend on values of `f` on `[0,1]`. The `∫ x in 0..1` notation is `intervalIntegral`, which equals the Lebesgue integral over `Ioc 0 1` when `0 ≤ 1`, agreeing with the informal `∫_0^1` for continuous functions. The double integral structure, the integrand `|f x + f y|`, the integrand `|f x|`, and the `≥` direction all match exactly.
+
+### putnam_2004_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 2004 A1. The attempts sequence `ℕ → Fin 2` properly models success/miss, and while Lean's `S` is defined as the ratio (∑ successes)/N rather than the raw count S(N), this is mathematically equivalent to comparing S(N) to 0.8·N (for N ≥ 1). The hypothesis `1 ≤ a` is a necessary implicit premise so that S is meaningfully defined (S attempts 0 would be 0/0). The strict inequalities `S attempts a < 0.8` and `S attempts b > 0.8` match "less than 80%" and "more than 80%", and the conclusion `∃ c, a < c < b ∧ S attempts c = 0.8` correctly captures "a moment in between when S(N) was exactly 80% of N" (c must be strictly between a and b since the values at the endpoints are not equal to 0.8). The universal quantification over attempts, a, and b correctly formalizes "necessarily", and the iff with `putnam_2004_a1_solution = True` asserts the affirmative answer.
+
+### putnam_2004_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The base cases `u 0 = u 1 = u 2 = 1` match directly. The matrix `fun i j : Fin 2 => u (n + i * 2 + j)` evaluates to [[u(n), u(n+1)], [u(n+2), u(n+3)]] (since (0,0)→n, (0,1)→n+1, (1,0)→n+2, (1,1)→n+3), matching the informal matrix exactly. The determinant equaling `(n)!` uses the scoped Nat.factorial notation, coerced to ℝ — this matches the informal `n!` with the 0!=1 convention. The conclusion `∀ n, ∃ m : ℤ, u n = m` is the standard way to say "u_n is an integer" for a real-valued sequence. Typing u as ℕ → ℝ is the natural choice since the recursion involves division (the determinant condition determines u_{n+3} in terms of u_n, u_{n+1}, u_{n+2}); the Lean statement correctly asserts integrality as a conclusion to be proved rather than assuming it.
+
+### putnam_2004_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal problem. Colorings are encoded as `Fin m × Fin n → Prop` (using Prop.fintype's 2 elements, giving 2^(mn) colorings). Adjacency via `Nat.dist = 1` on same row/column correctly means "share a common side". The `connected` relation correctly captures "sequence of same-colored squares, consecutive sharing a side" via a nonempty list. `cmr` counts connected monochromatic components by identifying them as sets R equal to the connectivity class of some P ∈ R. The conclusion Σ cmr(C) > 2^(mn) · mn/8 is equivalent to the expected value > mn/8 under the uniform distribution. The `Inhabited (Fin m × Fin n)` hypothesis surfaces the implicit premise that m, n ≥ 1 (otherwise both sides equal 0 and the inequality would be false), which is needed for truth and corresponds to the natural reading of "an m×n checkerboard".
+
+### putnam_2004_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes every piece of the informal inequality. The domain `Set.Icc (0:ℝ) 1 × Set.Icc (0:ℝ) 1` represents the closed unit square, `Continuous f` captures the continuity hypothesis, and integration over `Set.Icc (0:ℝ) 1` uses the canonical `Measure.Subtype.measureSpace` instance, which is the Lebesgue measure restricted to [0,1] and corresponds to the informal $\int_0^1$. The four terms match exactly: LHS has `∫ y, (∫ x, f(x,y))^2` and `∫ x, (∫ y, f(x,y))^2`, matching $\int_0^1 F(y)^2\,dy + \int_0^1 G(x)^2\,dx$; RHS has `(∫ y, ∫ x, f(x,y))^2` matching $(\iint f)^2$, and `∫ y, ∫ x, (f(x,y))^2` matching $\iint f^2$. Since $f$ is continuous on a compact set, it is integrable and Fubini applies, so the choice of iteration order for the double integrals is immaterial. The formalization is logically equivalent to the informal claim.
+
+### putnam_2004_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem. The hypothesis `P.degree = n` makes explicit the implicit assumption that $c_n$ is the leading coefficient (natural reading of the notation $P(x) = c_n x^n + \cdots + c_0$). `Polynomial.aeval r P = 0` correctly encodes $P(r) = 0$. The conclusion iterates over $i \in \{0, \ldots, n-1\}$ (the $n$ indices), and the inner sum $\sum_{j=0}^{i} P.\text{coeff}(n-j) \cdot r^{i+1-j}$ expands exactly to $c_n r^{i+1} + c_{n-1} r^i + \cdots + c_{n-i} r$, matching each of the $n$ described sums. The `∃ m : ℤ, m = sum` clause (with the implicit ℤ → ℚ coercion) expresses "the rational sum equals an integer", matching "are integers". Nat subtractions $n-j$ and $i+1-j$ are safe since $j \le i \le n-1$.
+
+### putnam_2004_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement precisely encodes the informal claim. The hypothesis `m > 0 ∧ n > 0` over `m n : ℕ` faithfully captures "positive integers m and n". The factorial notation `!` resolves to `Nat.factorial` via Mathlib's scoped notation. The rational type ascription `: ℚ` on the denominators forces genuine rational division (not integer truncation), with the natural-number factorial numerators coerced to ℚ. The strict inequality `<` matches. LHS and RHS match the informal expressions $(m+n)!/(m+n)^{m+n}$ and $(m!/m^m)(n!/n^n)$ respectively. No hypothesis is added or dropped, and no direction/quantifier is changed.
+
+### putnam_2004_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal problem. Points P_k = (k,0) are encoded as the complex number k; the rotation by θ = 2π/n about P_k is correctly given by Q ↦ k + e^(iθ)(Q - k). The recurrence R 0 = id and R (k+1) = Rk (k+1) ∘ R k yields R n = Rk n ∘ Rk (n-1) ∘ ... ∘ Rk 1, which when applied to an input point applies Rk 1 first, then Rk 2, etc. — matching the informal "applying, in order, R_1, then R_2, …, then R_n". The hypothesis n ≥ 2 matches. The solution fun n z ↦ z + n correctly represents translation by (n,0), which can be verified for small n (e.g., n=2 gives R(z) = z+2). The formalization is logically equivalent to the informal statement.
+
+### putnam_2004_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement precisely. `Finset.range N` gives {0,...,N-1}, so `Tendsto (fun N ↦ ∏ n ∈ Finset.range N, ...) atTop (𝓝 (xprod x))` correctly encodes the infinite product ∏_{n=0}^∞ converging to `xprod x`. The notation `𝓝[<] 1 = nhdsWithin 1 (Set.Iio 1)` (verified in `Mathlib/Topology/Defs/Filter.lean`) correctly encodes the left limit `x → 1⁻`. The hypothesis `hxprod` states that `xprod x` equals the infinite product for every `x ∈ (0,1)`, which is the domain relevant to the left limit at 1. The answer `2 / Real.exp 1` is `2/e`. The overall claim "the left limit at 1 of the function representing the infinite product equals 2/e" is logically equivalent to the informal claim.
+
+### putnam_2004_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all components of the informal statement: A is a non-empty set of positive naturals (Anempty, Apos); N(x) counts elements of A ≤ x via Set.encard on the subtype (with ℕ→ℕ∞ coercion, uniquely determined since the set is always finite); B uses nat-subtraction with the b' > 0 filter, which correctly gives {a - a' : a, a' ∈ A, a > a'}; b strictly increasing with range B forces B infinite, which is the implicit premise of "b₁ < b₂ < ... listed in increasing order"; the unboundedness condition ∀ r ∃ i, b(i+1) - b i ≥ r is exactly "unbounded for sequences of naturals" (not the stronger "tends to infinity"); and the conclusion Tendsto (N x / x) atTop (𝓝 0) is the standard formalization of N(x)/x → 0. Natural subtraction b(i+1) - b i is well-behaved because b is strictly increasing. The formalization is strictly faithful.
+
+### putnam_2005_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures all components of the informal claim. The universal quantification over positive integers uses ℤ with n > 0, which matches "every positive integer". The existential witness provides k pairs (r_i, s_i) encoded as `a : Fin k → Fin 2 → ℕ`, giving nonnegative integer exponents as required. Although the Lean allows k = 0 syntactically, this is automatically excluded because the empty sum is 0 ≠ n, so "one or more" is preserved. The sum `n = ∑ 2^(a i 0) * 3^(a i 1)` matches exactly. The divisibility condition `∀ i j, i ≠ j → ¬(2^(r_i)3^(s_i) ∣ 2^(r_j)3^(s_j))` correctly encodes "no summand divides another" — by applying to both (i,j) and (j,i), it asserts for distinct indices neither divides the other, and also forbids duplicate (r,s) pairs which would violate the antichain condition. The ℕ/ℤ coercion in divisibility is harmless since divisibility agrees on nonnegative values.
+
+### putnam_2005_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal definition: S = Icc 1 n × Icc 1 3 matches the set, the `unit` predicate correctly encodes Euclidean unit distance for integer lattice points (differ by 1 in exactly one coordinate), and the `rooktour` condition encodes all three clauses — the ∃! over Icc 1 (3n) together with |S| = 3n forces p restricted to Icc 1 (3n) to be a bijection onto S, giving both clauses (i) and (iii), while the adjacency condition captures (ii). The boundary conditions p 0 = 0 and p i = 0 for i > 3n are pure encoding artifacts to make the ℕ → ℤ × ℤ function uniquely determined by its values on Icc 1 (3n), so encard of this set equals the number of rook tours. The endpoints p 1 = (1,1) and p(3n) = (n,1) are correctly imposed. The hypothesis npos : n > 0 is an implicit premise needed for the problem to be well-posed. The solution `fun n ↦ if n = 1 then 0 else 2^(n-2)` matches the known Putnam 2005 A2 answer.
+
+### putnam_2005_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement's content: p is a polynomial of degree n with all zeros on the unit circle, g(z) = p(z)/z^(n/2) is encoded via `cpow` (the standard complex power), and the conclusion says any z where g is differentiable with g'(z) = 0 (and z ≠ 0) has |z|=1. The `0 < n` hypothesis is necessary to exclude the trivial n=0 case (where p is a constant and g' ≡ 0 trivially), which would make the informal claim literally false — this is surfacing an implicit premise. The `z ≠ 0` hypothesis is redundant (since g has a pole at 0 and isn't differentiable there) but not harmful. Using `DifferentiableAt ∧ deriv g z = 0` is the standard encoding of "g'(z) = 0" since Mathlib's `deriv` returns 0 at non-differentiable points by convention. The branch-cut subtlety for odd n (where cpow uses the principal branch) doesn't affect faithfulness, as any "missed" zeros on the cut would still satisfy |z|=1.
+
+### putnam_2005_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal claim: ±1 entries via `Hentries`, mutually orthogonal rows via Mathlib's `HasOrthogonalRows` (defined as `∀ i₁ ≠ i₂, A i₁ ⬝ᵥ A i₂ = 0`), and the existence of an a×b all-ones submatrix via `Ssub` (∃ injective rri, cri with S = H.submatrix rri cri) combined with `Sentries`. The conclusion `a * b ≤ n` matches. The extra hypotheses are either redundant or surface implicit premises: `a ≤ n` and `b ≤ n` are already implied by the injective functions in `Ssub`; `npos` is then implied by `1 ≤ a ∧ a ≤ n`; and `1 ≤ a ∧ 1 ≤ b` makes explicit the standard convention that an "a×b submatrix" has positive dimensions (with the trivial a=0 or b=0 cases making ab ≤ n hold vacuously, so this doesn't change the mathematical content). Using ℝ rather than ℤ is inconsequential for this claim.
+
+### putnam_2005_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement formalizes the integral $\int_0^1 \frac{\ln(x+1)}{x^2+1}\,dx$ using the standard Mathlib interval integral notation `∫ x in (0:ℝ)..1, (Real.log (x+1))/(x^2 + 1)`, which matches the informal integrand and bounds exactly. The solution value `Real.pi * (Real.log 2) / 8` corresponds to $\frac{\pi \ln 2}{8}$, which is the correct closed form for this integral. All types are ℝ as expected, the quantifier structure is a direct equality claim, and there are no added or missing hypotheses. This is a strictly faithful formalization of the evaluation request.
+
+### putnam_2005_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem: (1) it asserts the polynomial `putnam_2005_b1_solution : MvPolynomial (Fin 2) ℝ` is nonzero, matching "nonzero polynomial P(x,y)"; (2) it uses 2 variables indexed by `Fin 2`, with index 0 for x and index 1 for y; (3) the evaluation function `fun n : Fin 2 => if (n = 0) then ⌊a⌋ else ⌊2a⌋` correctly maps the two variables to `⌊a⌋` and `⌊2a⌋` cast to ℝ; (4) the universal quantification over `a : ℝ` matches "for all real numbers a"; (5) the conclusion `= 0` matches "P(⌊a⌋, ⌊2a⌋) = 0". The choice of ℝ as coefficient ring is natural and does not weaken or strengthen the statement — since the existence of such a nonzero polynomial over ℝ is equivalent to the existence of one with real coefficients as asked in the informal statement. The MvPolynomial.eval API is used correctly.
+
+### putnam_2005_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts the equality between the set of valid tuples (n, k) satisfying: n > 0, all k i positive for i < n, their sum equals 5n-4, and the sum of reciprocals (in ℝ) equals 1, and the explicit solution set. The encoding uses k : ℕ → ℤ where only the first n values are constrained, and both sides of the equation are invariant under changes to k i for i ≥ n, making the set equality well-defined. The solution cases correctly capture: n=1 with k_0=1; n=3 with {k_0,k_1,k_2}={2,3,6} (which captures all 6 permutations since the sets have equal cardinality 3); and n=4 with all four values equal to 4. The `k '' {0,1,2}` image-set formulation correctly forces a bijection onto {2,3,6} yielding all permutations. The positivity and sum/reciprocal conditions match the informal statement exactly. This is a faithful formalization.
+
+### putnam_2005_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Putnam 2005 B3 problem. The domain/codomain $f:(0,\infty)\to(0,\infty)$ with differentiability is encoded via `hf : ∀ x > 0, 0 < f x` and `hf' : DifferentiableOn ℝ f (Ioi 0)`, which is the standard encoding for a function on an open subset of ℝ. The condition `∃ a > 0, ∀ x > 0, deriv f (a / x) = x / f x` correctly matches "there is a positive real $a$ such that $f'(a/x) = x/f(x)$ for all $x > 0$"; since Ioi 0 is open and $a/x > 0$, `deriv f` agrees with the derivative-within-Ioi-0. The solution set correctly describes $f(x) = cx^d$ on $(0,\infty)$ for $c, d > 0$ with the constraint that if $d=1$ then $c=1$ — this matches the computation $c^2 d \cdot a^{d-1} = 1$, which forces $c=1$ when $d=1$. Here `x ^ d` with real exponent denotes `Real.rpow`, which agrees with $x^d$ for $x > 0$. The iff structure correctly formalizes the "find all" characterization.
+
+### putnam_2005_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the Putnam problem. Positive integers m, n are captured by m, n : ℤ with m > 0 ∧ n > 0. The hypothesis hf defines f(m', n') for all positive m', n' as the cardinality (via Set.encard) of {x : Finset.Icc 1 n' → ℤ | ∑ i : Finset.Icc 1 n', |x i| ≤ m'}. The coerced type Finset.Icc 1 n' has exactly n' elements when n' > 0, so functions from it to ℤ correspond precisely to n'-tuples of integers, and the sum condition matches |x_1|+…+|x_n| ≤ m. The set is finite (bounded tuples in ℤ^n), so the ℕ→ℕ∞ coercion in the equation is well-behaved. The conclusion f m n = f n m matches the symmetry claim exactly. Quantifier structure, types, and conditions all align with the informal statement.
+
+### putnam_2005_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly captures all parts of the informal statement. (1) `P : MvPolynomial (Fin n) ℝ` matches "polynomial with real coefficients in n variables". (2) `∑ i : Fin n, (MvPolynomial.pderiv i)^[2] P = 0` correctly expresses Σᵢ ∂²P/∂xᵢ² = 0 (the Laplacian), since `Derivation` has a FunLike coercion so `(pderiv i)^[2]` iterates the partial derivative twice. (3) Parsing-wise, `∑ i : Fin n, (MvPolynomial.X i) ^ 2 ∣ P` groups as `(∑ i, Xᵢ²) ∣ P` because the ∑ body is `term:67` while `∣` has precedence 50, and the alternative parsing would be ill-typed (sum of Props). (4) Conclusion `P = 0` matches. The extra hypothesis `npos : n > 0` is a reasonable surfacing of the implicit premise — the notation "x₁, ..., xₙ" conventionally assumes n ≥ 1 — and the case n = 0 is degenerate anyway. Per the rubric, making implicit premises explicit counts as faithful.
+
+### putnam_2005_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement: (1) `Equiv.Perm.signAux p` for `Perm (Fin n)` equals `p.sign` (as shown in Mathlib's `Perm/Fin.lean` line 480), and casting to `ℤ` gives +1/-1 for even/odd permutations, matching σ(π); (2) `Set.encard {i : Fin n | p i = i}` correctly defines v p as the number of fixed points ν(π) via the `hv` hypothesis (with coercion ℕ → ℕ∞); (3) the sum `∑ p : Equiv.Perm (Fin n), ...` sums over S_n with real-valued division, matching the informal expression; (4) the RHS `(-1) ^ (n + 1) * (n / (n + 1 : ℝ))` correctly encodes (-1)^(n+1) · n/(n+1). The hypothesis `n ≥ 1` is an implicit premise made explicit: for n = 0, LHS = 1/1 = 1 but RHS = -1·0/1 = 0, so the statement literally fails at n = 0, making n ≥ 1 a necessary (and implicitly assumed) premise rather than an unjustified restriction.
+
+### putnam_2006_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement defines the set `{(x, y, z) : ℝ × ℝ × ℝ | (x^2 + y^2 + z^2 + 8)^2 ≤ 36 * (x^2 + y^2)}` using exactly the same inequality from the informal statement. The measure `MeasureTheory.volume` on `ℝ × ℝ × ℝ` uses the standard product measure instance (from `Mathlib/MeasureTheory/Measure/Prod.lean`), which coincides with the 3-dimensional Lebesgue measure — the standard notion of volume in ℝ³. The region is a bounded torus (equivalent to `(√(x²+y²) - 3)² + z² ≤ 1`), so the ENNReal volume is finite and `.toReal` faithfully converts it to a real number equal to `6π²`. The types, conclusion, and mathematical content all match the informal problem exactly.
+
+### putnam_2006_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim. The recurrence `x(k+1) = x(k) + x(k-2005)` for k ≥ 2006 is identical. The conclusion `∃ i > 0, ∀ j ∈ Finset.range 2005, 2006 ∣ x(i+j)` correctly encodes "2005 consecutive terms (x(i), ..., x(i+2004)) each divisible by 2006" starting at a positive index. The only minor deviation is the initial condition covering 0 ≤ k ≤ 2006 rather than 1 ≤ k ≤ 2006, which adds x(0) = 0. However, x(0) is never used by the recurrence (for k ≥ 2006, k-2005 ≥ 1) and the conclusion only queries indices ≥ 1, so this extension is logically benign and yields an equivalent statement — any function satisfying the informal hypotheses can be modified at 0 to satisfy the Lean hypotheses without changing the conclusion.
+
+### putnam_2006_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the average number of local maxima correctly. The local-maximum condition `(k.1 = 0 ∨ pnat p (k-1) < pnat p k) ∧ (k = n-1 ∨ pnat p k > pnat p (k+1))` correctly handles all three informal cases: at k=0 (informal k=1) only the right-comparison matters; at k=n-1 (informal k=n) only the left-comparison matters; for interior k both comparisons are required. The `pnat` wrapper is used to safely extend the permutation to ℕ→ℕ so that `k-1` and `k+1` can be evaluated, and boundary disjunctions prevent any issue when these fall outside Fin n. The denominator `{p | true}.ncard` equals n! (the total number of permutations). Because the RHS has type ℝ, the division elaborates as real division (Lean coerces the ℕ-valued sum and ncard to ℝ), giving the true rational average — this is necessary for the solution (n+1)/3 to be achievable, e.g., for n=3 where the true average is 4/3 (not the Nat-division result 1). The encoding of "for all permutations" via Fintype's Equiv.Perm (Fin n) and Finset.sum matches the informal "averaging over all permutations of S". The hypothesis n > 1 matches the informal "n > 1".
+
+### putnam_2006_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. "Positive odd integer" is captured by `n : ℕ` with `Odd n` (since `Odd 0` is false in ℕ, this forces `n ≥ 1`). The hypothesis `Irrational (theta / Real.pi)` matches $\theta/\pi$ irrational. The indexing `Set.Icc 1 n` gives $\{1, \ldots, n\}$ matching the informal range. The formula `a k = Real.tan (theta + (k * Real.pi) / n)` correctly encodes $a_k = \tan(\theta + k\pi/n)$ via coercion. The conclusion states equality to the explicit value, which both establishes integrality and identifies the value (addressing both parts of the informal question). The solution function `if (n ≡ 1 [MOD 4]) then n else -n` matches the correct Putnam 2006 A5 answer: $n$ when $n \equiv 1 \pmod 4$ and $-n$ when $n \equiv 3 \pmod 4$ (verified via Vieta's formulas: sum/product = $(-1)^{(n-1)/2} n$).
+
+### putnam_2006_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures both parts of the informal claim: (1) uniqueness of the 3-point equilateral subset of the curve via `∃!`, and (2) that this unique triangle has area 3√3/2. The `equilateral` predicate correctly encodes equilateral triangle: S.encard = 3 ensures three distinct points, and the existence of a common distance d for all distinct pairs forces all three sides to be equal (which also rules out collinearity automatically). The curve is correctly defined. The convex hull of the 3 non-collinear vertices is the triangle, and `MeasureTheory.volume` on ℝ × ℝ is the 2D Lebesgue measure (area). The `.toReal` conversion is lossless since the area is finite. The two conjuncts together are equivalent to saying the unique such S has the specified area. The solution 3 * Real.sqrt 3 / 2 matches 3√3/2.
+
+### putnam_2006_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim exactly: for a Finset X of n real numbers (encoded via X.card = n, which matches the set notation {x_1,...,x_n} since Finsets have no duplicates), there exists a non-empty subset S ⊆ X and an integer m such that |m + ∑_{s ∈ S} s| ≤ 1/(n+1). The RHS 1/(n+1) correctly elaborates in ℝ via coercion, and m : ℤ is coerced to ℝ for the sum. The `npos : n > 0` hypothesis is an implicit premise needed for truth — when n = 0, X is empty and no non-empty subset exists, making the claim false. Surfacing this implicit premise (which is clearly intended by the notation {x_1,...,x_n}) is a faithful reading, not a weakening.
+
+### putnam_2006_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding faithfully captures the informal statement. The unordered pair {A,B} is encoded as `Finset (Finset _)` with card=2, which correctly handles both the "A or B may be empty" case (since n≥1 forces S≠∅, so {∅,S} has card 2) and the unordered nature. The strict inequalities p 1 > m*p 0 + b and p 1 < m*p 0 + b ensure A and B are on opposite sides AND the line is disjoint from S (no point of S lies on the line). While the Lean encoding only allows non-vertical lines y=mx+b, this is equivalent: for any finite S and any partition separable by any line, there always exists a non-vertical separating line (the set of separating lines is open in 2D, so it must intersect the complement of the 1D vertical-line subspace). The existential over A, B ∈ AB captures either labeling of the two pieces (the separation condition is symmetric). IsGreatest correctly expresses "maximum attained" over sets of cardinality n, matching "find the maximum" in the informal problem. The solution formula C(n,2)+1 matches the well-known Putnam 2006 B3 answer.
+
+### putnam_2006_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes all key elements: Z is defined as the set of points with all coordinates in {0,1} (the hypercube vertices), V ranges over ℝ-subspaces of (Fin n → ℝ) ≃ ℝⁿ with Module.rank = k (capturing "dimension k"), (Z ∩ V).ncard correctly counts hypercube vertices in V, and IsGreatest captures "the maximum" (achievable value that is an upper bound). The solution 2^k depends only on k, matching the informal problem. The `npos : n > 0` hypothesis surfaces an implicit premise that is natural from the problem's phrasing about "vertices of a unit hypercube in ℝⁿ" — Putnam contexts implicitly assume n ≥ 1 for such geometric setups. The hypothesis `hk : k ≤ n` matches the informal `0 ≤ k ≤ n` (the lower bound is automatic since k : ℕ). No quantifier, hypothesis, or conclusion drift is present.
+
+### putnam_2006_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement asserts the same claim as the informal one. The informal $f:[0,1]\to\mathbb{R}$ continuous is encoded as $f:\mathbb{R}\to\mathbb{R}$ with `ContinuousOn f (Icc 0 1)`, a standard Mathlib idiom that yields the same set of achievable values of $I(f)-J(f)$ since the integrals over $[0,1]$ and the continuity requirement only depend on $f|_{[0,1]}$. The integrals `∫ x in (0)..1, x^2 * f x` and `∫ x in (0)..1, x * (f x)^2` match $I(f)$ and $J(f)$ exactly (the `J(x)` in the informal is a clear typo for `J(f)`). `IsGreatest S a` unfolds to `a ∈ S ∧ a ∈ upperBounds S`, which is precisely the meaning of "maximum value": achieved by some $f$ and an upper bound for all $f$. No hypotheses are added or dropped that narrow or widen the scope.
+
+### putnam_2006_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 2006 B6. The hypothesis `k > 1`, `a 0 > 0`, and the recurrence `a (n+1) = a n + 1/(a n)^((1:ℝ)/k)` correctly encode $k > 1$, $a_0 > 0$, and $a_{n+1} = a_n + 1/\sqrt[k]{a_n}$ (with `(1:ℝ)/k` coerced so `^` is `Real.rpow`, giving $a_n^{1/k}$). The conclusion `Tendsto (fun n => (a n)^(k+1)/(n^k)) atTop (𝓝 ...)` matches $\lim a_n^{k+1}/n^k$, with `(a n)^(k+1)` as natural power and `n^k` coerced to ℝ in the division. The solution `((k+1)/k)^k` with expected type ℝ → ℝ elaborates with real division, giving the correct Putnam answer. The informal's "for n > 0" is a well-known ambiguity—taken literally it would leave $a_1$ undefined, so the only sensible reading is "for n ≥ 0", which the Lean `∀ n : ℕ` correctly captures. This is surfacing an implicit premise needed for the problem to be well-posed, not a weakening/strengthening.
+
+### putnam_2007_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures "curves are tangent to each other". A point (x,y) lies on both curves y = f(x) and x = f(y) iff f(x) = y and f(y) = x. At such a point, curve 1 has tangent slope f'(x), and curve 2 (by implicit differentiation) has dy/dx = 1/f'(y), so the tangent lines coincide iff f'(x) · f'(y) = 1. The existential quantifier ∃ x y matches "there is a tangent point" (which is what "tangent to each other" means). The universal quantification over α is implicit via α being a theorem parameter, so "α ∈ solution ↔ P(...)" correctly expresses "find all α". Verified with known answer values (α = 2/3 gives tangent point x=y=1/4 with f'=1; α = 3/2 gives x=y=-1/6 with f'=1). The formulation is logically equivalent to the informal statement.
+
+### putnam_2007_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal problem. The plane is encoded as `Fin 2 → ℝ`, which receives the 2D Lebesgue product measure via `MeasureSpace.pi`, so `volume S` is exactly the area. The four existential conditions each pick out a point on one of the four branches: xy=1 with (x>0,y>0), xy=1 with (x<0,y<0), xy=-1 with (x<0,y>0), and xy=-1 with (x>0,y<0) — these are precisely the two branches of each hyperbola. The conditions `∃ p ∈ S, ...` correctly express "S intersects each branch". `Convex ℝ S` is the standard convexity condition, and `IsLeast` correctly formalizes "least possible area" (the value is both achieved and a lower bound), with the solution 4 matching the Putnam answer. No hypotheses are added or dropped, and the quantifier structure over sets S is correct.
+
+### putnam_2007_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding correctly captures Putnam 2007 A3. `perms` encodes permutations of {1,...,3k+1}: the condition `∀ y ∈ Icc 1 (3k+1), ∃! x, f x = y` combined with |Fin (3k+1)| = |Icc 1 (3k+1)| = 3k+1 forces f to be a bijection onto {1,...,3k+1}. `goodperms` filters those permutations where no initial partial sum ∑_{i≤j} f(i) is divisible by 3, with j ranging over all time points (position 0 through 3k), matching "at no time during this process". Since f maps into positive integers, partial sums are automatically positive, so "3 ∣ sum" matches "positive integer divisible by 3". The conclusion `goodperms.ncard = perms.ncard * solution` correctly encodes the probability as the ratio. The `kpos` hypothesis matches the informal "positive integer k".
+
+### putnam_2007_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The `repunit` predicate correctly characterizes positive integers with all base-10 digits equal to 1: `x > 0 ∧ x = floor x` forces x to be a positive integer (via Nat.floor, since `open Nat` is in effect), and `∀ d ∈ digits 10 (floor x), d = 1` correctly requires all base-10 digits to be 1. Mathlib's `Nat.digits 10 n` produces the correct list of base-10 digits (e.g., `digits 10 111 = [1,1,1]`, `digits 10 101 = [1,0,1]`), so the predicate matches repunits exactly. The main condition `∀ n : ℝ, repunit n → repunit (f.eval n)` faithfully expresses "if n is a repunit, then f(n) is a repunit", with the quantification effectively restricted to repunits via the hypothesis. No hypotheses are added or dropped that would alter the mathematical content.
+
+### putnam_2007_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. `G : Type*` with `[Group G] [Fintype G]` encodes "finite group"; `hp : Nat.Prime p` matches "p is a prime"; and `hn : n = {g : G | orderOf g = p}.encard` (via the ℕ → ℕ∞ coercion, finite since G is a Fintype) asserts that n is exactly the number of elements of order p. The conclusion `n = 0 ∨ p ∣ (n + 1)` exactly matches the informal conclusion. The universal quantification over G, p, n matches "suppose... prove". No extra hypotheses are imposed and none are dropped.
+
+### putnam_2007_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes each piece of the informal Putnam 2007 B2 problem: `ContDiffOn ℝ 1 f (Icc 0 1)` captures "f has a continuous derivative on [0,1]", `hfint` captures ∫₀¹ f = 0, the pair `heqmax`/`hmaxub` encodes "max is the maximum of |deriv f x| over [0,1], attained at some x₀", and the conclusion matches |∫₀^α f| ≤ (1/8)·max for α ∈ (0,1). The only subtlety is that `deriv f` at boundary points may differ from the informal one-sided derivative, but for interior x ∈ (0,1), `deriv f x = f'(x)`, so by hmaxub and continuity of |f'| on [0,1], Lean's max is always ≥ the informal max; and since each |deriv f x| ≤ max_informal, Lean's max is ≤ max_informal. So whenever both heqmax and hmaxub hold, Lean max = max_informal; in the rare case where max is only attained at a non-differentiable boundary point, the Lean hypothesis is unsatisfiable and the theorem is vacuously true. Either way, the two statements are logically equivalent.
+
+### putnam_2007_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the recursively defined sequence: `x 0 = 1` matches the informal initial condition, and `x (n + 1) = 3 * (x n) + ⌊(x n) * Real.sqrt 5⌋` matches the recurrence `x_{n+1} = 3x_n + ⌊x_n √5⌋`, where `⌊·⌋` is Mathlib's `Int.floor` (confirmed in Mathlib source), correctly representing the informal floor operator. Manually checking: x_1=5, x_2=26, x_3=136, x_4=712 are all produced by this recurrence. Typing the sequence as ℕ→ℝ (rather than integer-valued) is benign since the recurrence uniquely determines the sequence given x_0=1. Taking `x` as a parameter with hypotheses is equivalent to quantifying over the unique such sequence. The conclusion `x 2007 = putnam_2007_b3_solution` asks precisely for the closed-form expression of x_{2007}, matching the informal question.
+
+### putnam_2007_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures all components of the informal statement precisely: (1) n is a positive natural number via `n : ℕ` and `npos : n > 0`; (2) pairs of real polynomials are encoded as `(Polynomial ℝ) × (Polynomial ℝ)`; (3) the equation `(P(X))² + (Q(X))² = X^(2n) + 1` is faithfully expressed as `P ^ 2 + Q ^ 2 = Polynomial.X ^ (2 * n) + 1`; (4) the condition `deg P > deg Q` uses Mathlib's `Polynomial.degree` which returns `WithBot ℕ`, correctly handling the zero polynomial case (degree ⊥) consistent with standard mathematical convention; (5) the counting uses `ncard` which returns the natural-number cardinality of the set. No hypotheses are added or dropped, and the types match the informal intent.
+
+### putnam_2007_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. The hypothesis `k > 0` matches "k is a positive integer". `P : Finset.range k → Polynomial ℝ` provides exactly k polynomials indexed by {0, 1, ..., k-1} via the coercion to subtype, matching $P_0, P_1, \ldots, P_{k-1}$. The quantifier `∀ n : ℤ` matches "for any integer n". The equation `⌊(n : ℝ) / k⌋ ^ k = ∑ i : Finset.range k, (P i).eval (n : ℝ) * ⌊(n : ℝ) / k⌋ ^ (i : ℕ)` exactly matches the informal equation, summing over i = 0 to k-1. Using `Polynomial ℝ` (rather than over ℤ or ℚ) is reasonable since the informal statement doesn't specify the coefficient ring, and the existential is satisfied by polynomials over ℝ iff it's satisfied by integer-coefficient ones in this context.
+
+### putnam_2007_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes f(n) as the count of multisets of natural numbers (unordered coin collections) whose sum equals n! and whose elements are all factorials k! with k ∈ [1,n], matching the informal definition. The bounds n^(n²/2 ± Cn) · e^(-n²/4) are encoded correctly, with n coerced to ℝ (since C : ℝ forces the exponent to be real). The only apparent drift is the restriction to n ≥ 2 rather than all positive integers, but this surfaces an implicit premise: at n = 1, f(1) = 1 while the upper bound 1^(1/2+C) · e^(-1/4) = e^(-1/4) ≈ 0.779, so the literal informal inequality fails at n = 1 regardless of C. Hence the n ≥ 2 hypothesis is needed for truth and constitutes a faithful reading (matching the system prompt's worked example about implicit premises).
+
+### putnam_2008_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature uses the curried form `f : ℝ → ℝ → ℝ` for the informal `f : ℝ² → ℝ`, which is the standard equivalent encoding. The hypothesis `∀ x y z : ℝ, f x y + f y z + f z x = 0` exactly captures the cyclic sum condition. The conclusion `∃ g : ℝ → ℝ, ∀ x y : ℝ, f x y = g x - g y` matches the informal conclusion precisely, including quantifier structure and the form g(x) - g(y). No hidden extra hypotheses or missing conditions.
+
+### putnam_2008_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures both parts of the informal statement. `cont s` correctly encodes "a move is still possible" (∃ j < k with ¬(s j ∣ s k)). The `trans` predicate correctly encodes a valid step: pick j < k with ¬(P t j ∣ P t k), replace position j by gcd and position k by lcm, leave other positions unchanged. The conclusion `∃ f, ∀ P, init P → trans P → ∃ t, ¬cont (P t) ∧ P t = f` asserts that there is a single terminal configuration f reached by every valid process — which encodes both termination (existence of t with ¬cont) and uniqueness of the final sequence (P t = f for the common f). Positivity of the initial values is made explicit, which is an implicit premise in "positive integers"; positivity is preserved under gcd/lcm, so no further positivity assumption is required. Using Nat.gcd/Nat.lcm on ℕ matches the informal. This is a faithful encoding.
+
+### putnam_2008_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean theorem encodes the informal problem precisely. The hypothesis `hf` gives the functional equation `f(x) = x if x ≤ e, else x*f(log x)`, which uniquely determines f on ℝ by well-founded recursion on iterated logarithms (matching the informal piecewise definition). The sum `∑ n ∈ Finset.range N, 1/(f (n+1))` ranges over n+1 = 1,...,N, correctly representing the partial sums of $\sum_{n=1}^\infty 1/f(n)$. The existence of a real limit `∃ r, Tendsto ... (𝓝 r)` is the standard encoding of convergence of a series in ℝ. The iff linking convergence to `putnam_2008_a4_solution : Prop` correctly formulates the "does it converge?" question as a Prop-valued answer. No extra or missing hypotheses.
+
+### putnam_2008_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes "vertices of a regular n-gon in counterclockwise order". The parameterization $f(k)+ig(k) = O + z\cdot e^{i\cdot 2\pi k/n}$ with $z\neq 0$ is exactly the general form of a regular $n$-gon's vertices in $\mathbb{C}$: $O$ is the center, $|z|$ is the circumradius, $\arg(z)$ is the starting orientation, and as $k$ increases the angle increases (counterclockwise). The condition $z \neq 0$ correctly ensures non-degeneracy. Using $k \in [1,n]$ rather than $[0,n-1]$ gives the same set of vertices since $e^{2\pi i n/n}=1=e^{0}$. The real-to-complex identification $(f(k),g(k)) \mapsto f(k)+ig(k)$ is standard. The conclusion `natDegree ≥ n-1` matches "degree ≥ n-1" since under the hypothesis neither polynomial is zero/constant (so natDegree coincides with the usual degree). The operator precedence in `Complex.I * 2 * Real.pi * k / n` correctly produces $2\pi i k/n$.
+
+### putnam_2008_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes: (1) existence of a positive real constant c, (2) universal quantification over all finite groups G with |G| > 1 via `[Group G]` and `(fing : Fintype G)` with `fing.card > 1`, (3) existence of a list s (the "sequence") with `s.length ≤ c * Real.log (fing.card)`, and (4) for every g ∈ G, existence of a sublist t of s whose product equals g. Mathlib's `List.Sublist` (`<+`) is exactly the order-preserving, non-contiguous selection relation that matches the informal definition of "subsequence" (and matches the given examples). `List.prod` gives the in-order group product, which is what "product of a subsequence" means in general (non-abelian) groups. The empty subsequence case is automatically handled (empty list is a sublist and its product is 1). The choice of base for `log` is immaterial since the constant c is quantified existentially. No hypotheses are added or dropped, and quantifier structure matches.
+
+### putnam_2008_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal problem asks for the maximum number of rational points that can lie on a circle in ℝ² with a non-rational center. The Lean statement uses `IsGreatest` on the set of cardinalities `n` such that there exists a center `c` (with `¬ is_rational_point c`) and radius `r` such that the set of rational points on the circle `{p | dist p c = r}` has `Set.ncard = n`. `IsGreatest S x` means `x ∈ S ∧ x ∈ upperBounds S`, which precisely encodes "maximum": there exists a circle achieving `n = putnam_2008_b1_solution` rational points, and no circle exceeds this. The types (`EuclideanSpace ℝ (Fin 2)` as ℝ², rational point defined as having both coordinates rational) match. Although `Set.ncard` returns 0 on infinite sets, this does not affect correctness: the actual maximum (2) is achieved and is an upper bound in the standard mathematical interpretation. Edge cases (r ≤ 0) only contribute small counts and do not change the supremum. This is a faithful formalization.
+
+### putnam_2008_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the Putnam 2008 B2 problem. The base case `F 0 x = Real.log x` matches $F_0(x) = \ln x$ — although it holds for all real x, Mathlib's `Real.log` extends the usual logarithm in a way that agrees on positives, and the recurrence only uses values on positives (since `x > 0` is assumed), so this doesn't change the conclusion. The recurrence `F (n+1) x = ∫ t in Set.Ioo 0 x, F n t` for `x > 0` matches $F_{n+1}(x) = \int_0^x F_n(t)\,dt$ because integrals over `Ioo 0 x` and `[0,x]` agree (measure zero difference). The conclusion `Tendsto (fun n => n! * F n 1 / Real.log n) atTop (𝓝 (-1))` matches $\lim_{n\to\infty} \frac{n! F_n(1)}{\ln n} = -1$, which is the classical answer (noting $F_1(1) = \int_0^1 \log t\,dt = -1$). Division by `log 1 = 0` at small $n$ is irrelevant to the limit. No hypotheses are added or dropped relative to the informal intent.
+
+### putnam_2008_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal Putnam problem. H is the 4D unit hypercube centered at origin ({P | ∀ i, |P i| ≤ 1/2}, side length 1). A "circle of radius r contained in H" is encoded as: there is a 2D affine subspace A (via Module.finrank ℝ A.direction = 2) with a point C ∈ A such that sphere C r ∩ A ⊆ H. Since C ∈ A and A is 2-dimensional, the intersection sphere C r ∩ A = {y ∈ A | dist y C = r} is precisely a circle of radius r in the plane A. IsGreatest contains (√2/2) states that √2/2 is in contains and is an upper bound — correctly capturing "the largest possible radius". The hypercube placement is arbitrary by translation/rotation invariance, so using the centered hypercube is faithful. Degenerate cases (r ≤ 0) don't affect the maximum.
+
+### putnam_2008_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the informal claim exactly. `p : ℕ` with `Nat.Prime p` matches "p prime"; `h : Polynomial ℤ` matches "polynomial with integer coefficients". The hypothesis `∀ i j : Finset.range (p^2), h.eval i ≡ h.eval j [ZMOD p^2] → i = j` uses the standard `CoeSort` from `Finset` to subtype `{x : ℕ // x ∈ Finset.range (p^2)}`, i.e., naturals less than p². With `Int.ModEq` meaning `a % n = b % n` and `i = j` on the subtype being equivalent to equality of underlying ℕ values, this exactly expresses "h(0), h(1), …, h(p²-1) are distinct modulo p²". The conclusion is formed identically with p³ instead of p², matching "h(0), …, h(p³-1) are distinct modulo p³". The coercion chain subtype → ℕ → ℤ for `h.eval` is standard. No hypotheses are added or dropped, and the meaning is preserved.
+
+### putnam_2008_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim correctly: `ContDiff ℝ 1 f` is the standard encoding of "continuously differentiable" (C¹). The condition `∃ p : ℚ, p = f q ∧ p.den = q.den` uses the coercion from ℚ to ℝ (since p : ℚ and f q : ℝ) to express that f(q) is rational (equals some rational p as a real), and since Mathlib's Rat is in reduced form, p.den is well-defined and p is unique, correctly capturing "same denominator as q". The `ContDiff` conjunct lives under `∀ q`, but since it doesn't depend on q and ℚ is inhabited, this is logically equivalent to placing it outside. The outer `∀ f, (∀ q, fqsat f q) ↔ f ∈ solution` faithfully encodes "find all such f". No hypotheses are silently added or dropped.
+
+### putnam_2008_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The use of `Equiv.Perm (Fin n)` (permutations of {0,...,n-1}) vs the informal's {1,...,n} is inconsequential for counting k-limited permutations, since the displacement condition |σ(i)-i| ≤ k is preserved under the index shift j ↔ j+1. The `klimited` definition correctly coerces to ℤ for the absolute value. The hypothesis `n > 0 ∧ k > 0` matches "positive integers". `Set.ncard` gives the correct cardinality since the ambient type is finite. The modular condition `n ≡ 0 [MOD 2*k+1] ∨ n ≡ 1 [MOD 2*k+1]` using `Nat.ModEq` matches "n ≡ 0 or 1 (mod 2k+1)". The biconditional structure is preserved.
+
+### putnam_2009_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The parameterization (O, v) with v ≠ (0,0) ranges over all non-degenerate squares: A = O, B = O+v, C = O+v+Rv, D = O+Rv where R is rotation by 90°, so the four sides all have length |v| and consecutive sides are perpendicular. Every square in the plane arises from some such (O, v). The restriction v ≠ (0,0) is the standard reading of "square" (requiring non-degenerate vertices); allowing v = 0 would trivialize the problem. The function type ℝ × ℝ → ℝ matches "real-valued function on the plane", the sum condition is faithfully transcribed, and the conclusion ∀ P, f P = 0 matches "f(P)=0 for all points P". Wrapping the implication in an iff with the solution (to be set True) correctly formalizes the yes/no question "Does it follow that...".
+
+### putnam_2009_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature accurately encodes the informal statement. The hypothesis "differentiable on some open interval around 0" is captured by introducing parameters a, b with 0 ∈ Ioo a b and DifferentiableOn on (a,b); since (a,b) is open, deriv agrees with derivWithin here, so using deriv for the ODEs is equivalent. The three ODEs and initial conditions f(0)=g(0)=h(0)=1 are translated literally. The conclusion "find an explicit formula valid in some open interval around 0" is properly encoded as ∃ c d, 0 ∈ Ioo c d ∧ ∀ x ∈ Ioo c d, f x = solution x, matching the informal quantifier structure that the formula need only hold on some (possibly smaller) neighborhood of 0. The solution formula 2^(-1/12) · (sin(6x+π/4)/cos²(6x+π/4))^(1/6) evaluates to 1 at x=0, consistent with f(0)=1.
+
+### putnam_2009_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly formalizes Putnam 2009 A3. The entries at position (i, j) with i, j ∈ Fin n are Real.cos(1 + n·i + j), which gives exactly the left-to-right, top-to-bottom filling pattern described informally: for n=3, entries are cos 1, cos 2, cos 3 in row 0; cos 4, cos 5, cos 6 in row 1; cos 7, cos 8, cos 9 in row 2. The conclusion `Tendsto (fun n => (cos_matrix n).det) atTop (𝓝 putnam_2009_a3_solution)` precisely encodes lim_{n→∞} d_n = solution (here 0). Using `cos_matrix` as a universally quantified matrix function constrained by `hM` is logically equivalent to directly defining the matrix by its entries, since matrix equality is determined by entries. Small-n behavior (e.g., empty matrix at n=0) is irrelevant for the limit.
+
+### putnam_2009_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes all three conditions: (a) `0 ∈ S`, (b) `∀ x ∈ S, x + 1 ∈ S ∧ x - 1 ∈ S`, and (c) `∀ x ∈ S, x ∉ {0,1} → 1/(x*(x-1)) ∈ S`. The conclusion `∀ r : ℚ, r ∈ S` correctly formalizes "S contains all rational numbers". The outer iff with `putnam_2009_a4_solution` (= False) properly encodes the yes/no question "Must S contain all rationals?" — answering False means no, there exists such an S that does not contain all rationals. The types (ℚ, Set ℚ) match, and the quantifier structure aligns with the informal statement.
+
+### putnam_2009_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks whether there exists a finite abelian group G such that the product of orders of all its elements equals 2^2009. The Lean statement encodes "finite abelian group" as `CommGroup G` + `Fintype G`, which is the standard Mathlib encoding. The "product of the orders of all its elements" becomes `∏ g : G, orderOf g`, which ranges over all elements of G (well-defined because of `Fintype G`), and `orderOf` in Mathlib is the standard order of a group element. The existential question is wrapped in an iff with `putnam_2009_a5_solution` (which equals `False`), correctly encoding the yes/no question. All quantifier structure, types, and the conclusion match the informal statement.
+
+### putnam_2009_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim. The conclusion quantifies over all positive rationals q and asserts that q is a quotient of products of factorials of primes, encoded as: there exist k, m : ℕ and functions a : Fin k → ℕ, b : Fin m → ℕ with each a_i and b_j prime (via Nat.Prime), and q = ∏ Nat.factorial(a_i) / ∏ Nat.factorial(b_j). Since q : ℚ, the division elaborates as genuine rational division (the naturals are coerced to ℚ via the NatCast instance), matching the intended meaning. The k=0/m=0 cases give empty products equal to 1, correctly allowing integer representations. The biconditional hypothesis pattern for defining isquotprodprimefact is a standard encoding equivalent to directly stating the existence. The example 10/9 = (2!·5!)/(3!·3!·3!) checks out (240/216 = 10/9). No hypotheses are dropped or added beyond what the informal statement requires.
+
+### putnam_2009_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding models the jumping sequence as an infinite strictly monotone sequence s : ℕ → ℝ with s(0) = 0, requiring that some index n satisfies s(n) = 1, and defines the cost as Σᵢ₌₀^{n-1} (s(i+1)³ - s(i)·s(i+1)²). The cost formula matches b³ - ab² exactly (with a = s(i), b = s(i+1)). Requiring StrictMono on the whole ℕ-indexed sequence doesn't restrict the achievable costs, since any finite strictly increasing sequence 0 = s₀ < ... < sₙ = 1 can be extended to an infinite strictly monotone sequence (e.g., adding 2, 3, ...). The n = 0 case is excluded automatically since s(0) = 0 ≠ 1. Thus the set of achievable c is exactly {c | ∃ finite strictly increasing sequence 0 = s₀ < s₁ < ... < sₙ = 1 with total cost c}, matching the informal question.
+
+### putnam_2009_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization precisely mirrors the informal statement. The `mediocre` predicate encodes "S ⊆ {1,...,n}" via `S ⊆ Icc 1 n` and "whenever a,b ∈ S have integer average, that average is in S" via `2 ∣ a+b → (a+b)/2 ∈ S`. Integer division matches mathematical division here since a,b ≥ 1 implies a+b > 0, and we only use the division when 2 ∣ a+b. The empty set and singletons correctly qualify as mediocre in both versions. A(n) is defined as the ncard of the set of mediocre subsets cast to ℤ, which is correct since S is constrained to be a subset of a finite set Icc 1 n. The final question "find all positive integers n such that A(n+2) - 2A(n+1) + A(n) = 1" is captured by `{n : ℤ | n > 0 ∧ A(n+2) - 2*A(n+1) + A(n) = 1}`. All quantifiers, types, and conditions match the informal statement.
+
+### putnam_2009_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. Polynomials in two real variables are encoded as `MvPolynomial (Fin 2) ℝ`. The "balanced" condition (average = 0 on each circle) is correctly expressed: although the integrand is divided by 2πr instead of 2π (the true arc-length average normalization), the condition "= 0" is unchanged since 2πr ≠ 0 for r > 0, so this is equivalent to the mean integral vanishing. The degree constraint uses `totalDegree ≤ 2009`, which matches "degree at most 2009" for bivariate polynomials. The vector space V is a `Submodule ℝ` (equivalent to subspace since ℝ is a field), correctly defined as the set satisfying both predicates. The dimension is asserted via `Module.rank ℝ V`, which equals the vector space dimension for a module over a field, matching "dimension of V". The answer 2020050 matches the standard computation (sum of d+1 for odd d from 1 to 2009 plus sum of d for even d from 0 to 2008).
+
+### putnam_2009_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization is logically equivalent to the informal statement. The informal function f: (1,∞) → ℝ is encoded as f : ℝ → ℝ with DifferentiableOn ℝ f (Ioi 1); since the hypotheses only constrain f on (1,∞) and the conclusion only concerns behavior as x → ∞, values outside (1,∞) are irrelevant, making this encoding equivalent. The use of `deriv f x` (rather than `derivWithin`) is correct because Ioi 1 is open, so for x > 1, deriv f x equals the correct derivative (via derivWithin_of_isOpen). The ODE is precisely transcribed, and `Tendsto f atTop atTop` in ℝ captures exactly the claim that lim_{x→∞} f(x) = ∞. No hypotheses are added or dropped.
+
+### putnam_2009_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature captures the informal claim precisely. The sequence a : ℕ → ℤ with a 0 = 0 and a 2009 = n matches the requirement "sequence of integers a_0, ..., a_2009 with a_0 = 0 and a_{2009} = n". The quantifier "∀ i : Icc 1 2009" covers exactly the terms after a_0. Case (1) "earlier term plus 2^k" is encoded as ∃ j k : ℕ, j < i ∧ a i = a j + 2^k, with k : ℕ enforcing the "nonnegative integer" condition automatically. Case (2) "b mod c for earlier positive terms b and c" is encoded as ∃ b c : ℕ with b < i, c < i, a b > 0, a c > 0, and a i = a b % a c — the b, c in Lean are indices while their values a b, a c play the role of the informal "b" and "c" (positive terms), which is a naming difference but semantically identical. The integer `%` in Lean (`Int.emod`) with a c > 0 yields a value in [0, a c), matching the bracket comment "0 ≤ (b mod c) < c". No hypotheses are added or dropped.
+
+### putnam_2010_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. `Finset.Icc 1 n` gives {1,...,n}; `boxes : Finset.Icc 1 n → Fin k` encodes a partition into k labeled boxes; the filtered sum `∑ x ∈ Finset.univ.filter (boxes · = i), (x : ℕ)` gives the sum of the values in box i; and `∀ i j, sum i = sum j` says all boxes have equal sums. Although the Lean encoding allows empty boxes syntactically, since all elements of {1,...,n} are positive, any empty box would have sum 0 and force all boxes (including non-empty ones) to have sum 0, which is impossible — so the equal-sum constraint automatically forces every box to be non-empty, matching the informal interpretation. `IsGreatest kboxes (⌈n/2⌉)` correctly asserts that ⌈n/2⌉ is both achievable and an upper bound, capturing "largest k". The hypothesis `n > 0` matches "positive integer n". The answer ⌈n/2⌉ matches the known Putnam 2010 A1 solution.
+
+### putnam_2010_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. "All positive integers n" is encoded as `∀ n : ℤ, n > 0 → ...`, which is equivalent (positive integers are exactly positive elements of ℤ, and ℕ or ℤ with positivity constraint are interchangeable here via coercion to ℝ). The derivative `f'(x)` is encoded via `deriv f x`, which agrees with the classical derivative under the `Differentiable ℝ f` hypothesis. The coercions in `x + n` and `(...)/n` automatically send `n : ℤ` to `(↑n : ℝ)`, matching the informal arithmetic. The solution set `{f | ∃ c d : ℝ, ∀ x, f x = c*x + d}` is exactly the set of affine functions, which is the correct Putnam 2010 A2 answer. The "find all" formulation is properly rendered as set equality.
+
+### putnam_2010_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. `ContDiff ℝ 1 h` for a function on ℝ × ℝ is equivalent to having continuous partial derivatives. The expressions `fderiv ℝ h x (1, 0)` and `fderiv ℝ h x (0, 1)` correctly represent ∂h/∂x and ∂h/∂y respectively (Fréchet derivative applied to coordinate vectors). The PDE equation, boundedness condition `|h x| ≤ M`, and the conclusion `h = 0` all match. The universally-quantified parameters a, b, M in the Lean theorem are logically equivalent to the existential phrasing "for some constants a, b" and "there is a constant M" in the informal statement, because the conclusion `h = 0` does not involve these constants.
+
+### putnam_2010_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal claim. In Lean 4, `^` is right-associative, so `10^10^10^n` parses as `10^(10^(10^n))` matching $10^{10^{10^n}}$, and `10^10^n` matches $10^{10^n}$. The quantifier "for each positive integer n" is encoded as `∀ n : ℕ, n > 0 → ...`. The conclusion "is not prime" is `¬Nat.Prime (...)`. The natural number subtraction `- 1` behaves correctly because for `n > 0` the sum is well above 1, so no truncation issue arises. All components match the informal statement.
+
+### putnam_2010_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the Putnam 2010 A5 problem. "G is a subset of ℝ³" is represented via an embedding `i : G ↪ (Fin 3 → ℝ)`, which is the standard and logically equivalent way to formalize a subset of ℝ³ that carries an abstract group structure unrelated to vector addition. The cross product `⨯₃` in Mathlib's `LinearAlgebra/CrossProduct.lean` is the standard cross product on `Fin 3 → R`. The disjunction `(i a) ⨯₃ (i b) = i (a * b) ∨ (i a) ⨯₃ (i b) = 0` correctly captures the informal "either a × b = a * b or a × b = 0 (or both)". The conclusion `(i a) ⨯₃ (i b) = 0` with a, b as free variables in the theorem signature is logically equivalent to the universal statement. Quantifier structure, types, and hypotheses all match.
+
+### putnam_2010_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses `f : ℝ → ℝ` instead of `Ici 0 → ℝ`, but the hypotheses (`StrictAntiOn f (Ici 0)`, `ContinuousOn f (Ici 0)`, `Tendsto f atTop (𝓝 0)`) restrict all relevant behavior to `[0, ∞)`, matching the informal setup exactly. Since `f` is strictly decreasing on `[0,∞)` with limit 0, `f > 0` everywhere on `[0,∞)`, making the integrand positive; thus "the improper integral diverges" is equivalent to "there is no finite `y` such that the partial integrals converge to `y`," which is precisely the Lean conclusion `¬∃ y, Tendsto (∫ on Ico 0 z) atTop (𝓝 y)`. The choice of `Ico 0 z` vs `Icc 0 z` is Lebesgue-equivalent. All quantifiers, types, and conditions match; this is a faithful formalization.
+
+### putnam_2010_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the informal claim "∃ sequence with $\sum a_i^m = m$ for every positive integer $m$" as an iff with `putnam_2010_b1_solution` (= False). The quantifier `∀ m : ℕ, m > 0` correctly matches "every positive integer m". The use of `∑' i : ℕ, (a i)^m = m` employs Mathlib's `tsum` (unconditional sum), which is the standard way to formalize infinite series in Mathlib. The ℕ-indexing (starting at 0) vs. the informal indexing (starting at 1) is a trivial reindexing — any function `a : ℕ → ℝ` can represent the informal sequence, and vice versa. While there's a subtle distinction between unconditional and conditional convergence, for this problem the mathematical content is preserved (for m ≥ 2, the terms a_i^m either both converge or both diverge, since convergence forces a_i → 0). This is a standard, faithful Mathlib encoding.
+
+### putnam_2010_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes all parts of the informal problem. Integer coordinates are captured by `A i = round (A i)` (which, after the standard ℤ→ℝ coercion, is equivalent to "A i is an integer") across i : Fin 2 for all three points. Integer distances are similarly encoded via `dist A B = round (dist A B)`, etc. Noncollinearity uses Mathlib's standard `¬Collinear ℝ {A, B, C}`. The conclusion `IsLeast {y | ∃ A B C, ABCall A B C ∧ y = dist A B} putnam_2010_b2_solution` unfolds to: 3 is achieved by some valid triple AND every valid triple has dist A B ≥ 3, which is exactly "the smallest possible value of AB is 3". The ambient space `EuclideanSpace ℝ (Fin 2)` with its standard `dist` is the correct model of the plane. No hypothesis is added or dropped, and the quantifier structure matches the informal claim.
+
+### putnam_2010_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the problem. The 2010 boxes are represented by `Fin 2010`, and the 1-indexed informal label `i` for box `B_i` (where moving `i` balls is required) is cleanly represented by `i.1 + 1`, yielding values 1..2010 as required. The `trans` predicate exactly encodes the move rule: destination distinct from source (`i ≠ j`), source has at least `i.1+1` balls, source decreases by exactly `i.1+1`, destination increases by exactly `i.1+1`, and all other boxes remain unchanged. The main statement `∀ B, ∑ i, B i = 2010*n → ∃ P T, P 0 = B ∧ trans P T ∧ ∀ i, P T i = n` correctly captures "for every initial distribution of 2010n balls, there exists a finite sequence of moves reaching n balls in each box." The hypothesis `hn : n > 0` matches "for some positive integer n", and `↔ n ∈ solution` matches "for which values of n". The `∃ᵉ` notation desugars to standard nested existentials. No hypothesis is dropped or added, and quantifier structure matches.
+
+### putnam_2010_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the informal "find all pairs" problem. The identity `p(x)q(x+1) - p(x+1)q(x) = 1` is translated as a universally quantified pointwise equality over ℝ, which is equivalent to polynomial equality since ℝ is infinite. The solution set correctly characterizes the answer: pairs (p, q) with both `p.degree ≤ 1` and `q.degree ≤ 1` (covering linear/constant/zero polynomials via the WithBot ℕ ordering) satisfying `p.coeff 0 * q.coeff 1 - p.coeff 1 * q.coeff 0 = 1`. Writing p = ax+b, q = cx+d, direct expansion gives (ax+b)(cx+c+d) - (ax+a+b)(cx+d) = bc - ad, which in terms of coeffs (a = p.coeff 1, b = p.coeff 0, c = q.coeff 1, d = q.coeff 0) equals b·c - a·d = p.coeff 0 * q.coeff 1 - p.coeff 1 * q.coeff 0, matching exactly. The iff structure properly encodes "find all".
+
+### putnam_2010_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal question. `StrictMono f` is exactly "strictly increasing" (a < b → f a < f b). The functional equation `deriv f x = f (f x)` for all `x` matches $f'(x) = f(f(x))$. The addition of `Differentiable ℝ f` surfaces an implicit premise: in Mathlib, `deriv f x` returns 0 as a junk value when `f` is not differentiable at `x`, so requiring the derivative to equal $f(f(x))$ everywhere genuinely requires `f` to be differentiable everywhere — which is implicit in the informal "$f'(x) = f(f(x))$ for all $x$". The Putnam-style formulation `(∃ f, ...) ↔ putnam_2010_b5_solution` with solution `False` correctly encodes "no such function exists" as the answer to "Is there a function...?"
+
+### putnam_2010_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The matrix A : Matrix (Fin n) (Fin n) ℝ with n ≥ 1 matches the setup. The entrywise k-th power A^{[k]} is encoded via an abstract function Apow together with the specification hApow that forces Apow k = (fun i j => (A i j)^k) for all k > 0; since the theorem is universally quantified over any such Apow, this is logically equivalent to directly using the entrywise power. The hypothesis ∀ k ∈ Set.Icc 1 (n+1), A^k = Apow k corresponds to A^k = A^{[k]} for k = 1, ..., n+1, and the conclusion ∀ k ≥ 1, A^k = Apow k corresponds to A^k = A^{[k]} for all k ≥ 1. The value of Apow 0 is irrelevant since both hypothesis and conclusion exclude k = 0. Matrix power A^k in Mathlib is standard matrix multiplication iterated, matching the informal A^k.
+
+### putnam_2011_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The IsSpiral predicate encodes: (1) n ≥ 2 via P.length ≥ 3 (since P has n+1 points); (2) P_0 = (0,0) via P[0]! = 0, where 0 denotes the zero function on Fin 2 → ℤ; (3) alternating directions east/north/west/south via i % 4 ∈ {0,1,2,3} with correct coordinate updates (east: x increases by l(i), etc.); (4) positive lengths via 0 < l i; (5) strictly increasing lengths via StrictMono l; (6) integer coordinates via the type Fin 2 → ℤ. The final set correctly counts lattice points (x,y) with 0 ≤ x,y ≤ 2011 that are not the last point (getLast!) of any growing spiral, and uses encard to take cardinality. All indexing is valid because P.length ≥ 3 ensures P[0]! and getLast! return real elements, and i+1 ≤ P.length - 1 for i : Fin (P.length - 1).
+
+### putnam_2011_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization applies a standard 1-based to 0-based indexing shift, which preserves the mathematical content. `a 0 = b 0 = 1` corresponds to $a_1 = b_1 = 1$; the recurrence `b n = b(n-1) * a n - 2` for n ≥ 1 corresponds to the informal recurrence for n ≥ 2; the positivity hypothesis for all n ∈ ℕ is fine since `a 0 = b 0 = 1` are already positive; and `∃ B, ∀ n, |b n| ≤ B` is boundedness (equivalent to informal "bounded" since $b_n > 0$). For the sum, since `i : Fin n` coerces to ℕ, `Fin (i + 1)` gives indices 0 through i, and the product `∏ j : Fin (i+1), a j = a 0 · a 1 · … · a i`, matching $a_1 \cdots a_{i+1}$ in informal notation. Thus `∑ i : Fin n, 1/(∏ j : Fin (i+1), a j)` is the n-th partial sum $\sum_{k=1}^{n} 1/(a_1 \cdots a_k)$, and `Tendsto ... atTop (𝓝 3/2)` simultaneously expresses convergence and the value 3/2. All hypotheses and conclusion align faithfully.
+
+### putnam_2011_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the Putnam "find" problem faithfully: `solution : ℝ × ℝ` packages the required real number c (`solution.1`) and positive real L (`solution.2`). The conjunction asserts (1) `L > 0`, matching "positive number L", and (2) `Tendsto ... atTop (𝓝 L)`, matching "$\lim_{r\to\infty} \cdots = L$". The integrand `r ^ c * x ^ r * sin x / (x ^ r * cos x)` with real `r` and real `x` uses `Real.rpow`, consistent with the informal $r^c$ and $x^r$. The integration domain `Set.Ioo 0 (π/2)` is equivalent (for Lebesgue integration of continuous functions) to the informal $[0, \pi/2]$ since the boundary has measure zero. No hypotheses have been added or dropped, and the quantifier structure matches the standard "provide a witness and verify it" formalization pattern.
+
+### putnam_2011_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the Putnam problem. `Matrix (Fin n) (Fin n) ℤ` is an n×n matrix with integer entries. `(A r) ⬝ᵥ (A r)` is the dot product of row r with itself, and `Even`/`Odd` match the parity conditions. `Pairwise fun r1 r2 ↦ Odd ((A r1) ⬝ᵥ (A r2))` unfolds to `∀ r1 r2, r1 ≠ r2 → Odd ((A r1) ⬝ᵥ (A r2))`, exactly "every dot product of two different rows is odd". The hypothesis `0 < n` captures "positive integer n". The "characterize which n" structure via an iff with an unknown solution set is the standard Putnam formalization pattern. There is no drift in hypotheses, conclusion, or types.
+
+### putnam_2011_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures all the hypotheses and conclusion of Putnam 2011 A5 correctly. F as (Fin 2 → ℝ) → ℝ represents ℝ² → ℝ, and both F and g are required to be C² via ContDiff ℝ 2. The properties F(u,u)=0, g(x)>0, and x²g(x)≤1 are all correctly encoded. The auxiliary `vec` is uniquely determined by hvec (since Fin 2 has only two elements) as the pair function, and `Fgrad` is uniquely determined by hFgrad as the partial-derivative vector (which agrees with the true gradient since F is C²). The parallel condition `∃ c, u = c • v` combined with the disjunction "Fgrad uv = 0 ∨ parallel..." is equivalent to "∇F is a scalar multiple of ⟨g(u),-g(v)⟩", matching the informal statement (and noting that ⟨g(u),-g(v)⟩ is nonzero since g>0). The conclusion uses x : Fin (n+1) → ℝ providing n+1 values, and sInf over the finite nonempty set of |F(xᵢ,xⱼ)| for i≠j equals the minimum. All quantifiers and the C/n bound are preserved.
+
+### putnam_2011_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures all components of the Putnam 2011 A6 statement. G is a finite abelian group via `[CommGroup G] [Fintype G]`, n = |G| via `hn`, gset is a set of distinct elements (Set G has distinct elements inherently) with cardinality k via `hk`, the proper subset condition ⊊ is encoded via `k < n`, identity inclusion via `hgset1 : 1 ∈ gset`, and the generating condition via `Subgroup.closure gset = ⊤`. The probability `mgprob` correctly counts sequences f : Fin m → gset whose product equals x, divided by k^m (the total number of such sequences), matching the uniform die over k elements. The conclusion `∃ b ∈ (0,1), ∃ C > 0, Tendsto ... (𝓝 C)` is logically equivalent to "the limit is positive and finite" since C being a real number ensures finiteness and C > 0 ensures positivity. No hypotheses are silently added or dropped.
+
+### putnam_2011_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. "Positive integers h, k" is encoded as h, k : ℤ with h > 0 ∧ k > 0, which is equivalent to taking positive naturals. The quantifier "∀ ε > 0" implicitly has ε : ℝ (by unification with the absolute value of the real expression |h * Real.sqrt m - k * Real.sqrt n|), matching the informal real ε. The existence of positive integers m, n is encoded as m n : ℤ with m > 0 ∧ n > 0. The inequalities ε < |h√m - k√n| < 2ε are expressed correctly via automatic coercions of h, k, m, n to ℝ inside the absolute value expression. No hypotheses are added or dropped, and the logical structure matches exactly.
+
+### putnam_2011_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. (1) "Ordered triples of primes" is represented as `Fin 3 → ℕ` with each coordinate required to be `.Prime`. (2) The quadratic equation $px^2+qx+r=0$ with rational root is encoded as `∃ x : ℚ, (s 0) * x^2 + (s 1) * x + (s 2) = 0`. (3) "Appears in" as one of the three coordinates is encoded as `∃ i : Fin 3, s i = t`. (4) "Seven or more" is `.encard ≥ 7`, using extended natural numbers which correctly handles finite/infinite sets. (5) The theorem is implicitly universally quantified in `t`, characterizing exactly the primes appearing in ≥ 7 elements of $S$. The `t.Prime` conjunct is technically redundant (since any $t$ appearing in an element of $S$ is automatically prime), but it does not alter the set defined by the biconditional.
+
+### putnam_2011_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures Putnam 2011 B3. The informal "open interval containing 0" is logically equivalent to ℝ → ℝ for this claim, since differentiability at 0 is a local property. The hypothesis "g nonzero and continuous at 0" is faithfully encoded as `g 0 ≠ 0` together with `ContinuousAt g 0` — by continuity, g(0) ≠ 0 implies g is nonzero in a neighborhood of 0, so f/g is well-defined near 0. The product fg and quotient f/g are encoded pointwise, matching the informal meaning. The conclusion "must f be differentiable at 0" is correctly framed as an iff with a Prop solution (True, matching the known Putnam answer). No extra hypotheses are imposed on f, and the universal quantification over f, g matches the "let f and g be..." framing of the informal statement.
+
+### putnam_2011_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The function `games : Fin 2011 → Fin 2011 → Bool` encodes 2011 games × 2011 players with Boolean win/loss outcomes. T_{p1,p2} counts games where both players had the same result (matching "both won or both lost", i.e., tied). W_{p1,p2} correctly computes the signed count: (#{games where p1 won, p2 lost}) − (#{games where p1 lost, p2 won}), exactly matching the informal rule that W_{hk} += 1 if h wins and k loses, while W_{kh} -= 1. The outer `: ℂ` annotation triggers Mathlib's binop elaborator to perform subtraction in ℂ (not truncated ℕ subtraction). The conclusion `∃ n : ℕ, det = n ∧ 2^2010 ∣ n` correctly encodes that the determinant is a non-negative integer divisible by 2^2010 (ℕ carries both non-negativity and integrality, and the ℂ-valued coercion is standard). The h=k diagonal case is correctly included.
+
+### putnam_2011_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization precisely captures the informal statement. Hypothesis: `∑ i : Finset.range n, 1 / (1 + (x - a i)^2)` sums over the subtype `↥(Finset.range n)`, which by `Finset.sum_coe_sort` equals `∑ i ∈ Finset.range n, 1 / (1 + (x - a i)^2)`, giving n terms (i from 0 to n-1). Since `a : ℕ → ℝ` is arbitrary, the index shift 1..n → 0..n-1 is a harmless relabeling. Conclusion: `∑' i : Finset.range n, ∑' j : Finset.range n, (1 + (a i - a j)^2)` uses tsum over a finite subtype; by `Finset.tsum_subtype`, this equals `∑ i ∈ Finset.range n, ∑ j ∈ Finset.range n, (1 + (a i - a j)^2)`, exactly the informal double sum. The natural number `n` is implicitly cast to ℝ in `A * n` and `B * n^3`. The existential structures, integrand, squaring, and inequality direction all match. No hypotheses are added or dropped; no scope is narrowed or broadened.
+
+### putnam_2011_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures every component of the informal Putnam 2011 B6. The hypothesis `Odd p ∧ Nat.Prime p` matches "odd prime". `Finset.range p` is exactly $\{0, 1, \ldots, p-1\}$, used both for the range of $n$ and for the summation index $k$. The inner sum `∑ k : Finset.range p, Nat.factorial k * n^(k : ℕ)` sums over the subtype coercion of `Finset.range p` and equals $\sum_{k=0}^{p-1} k! \cdot n^k$ by `Finset.sum_coe_sort`. The filtered set counts $n \in \{0, \ldots, p-1\}$ for which $p \nmid \sum_{k=0}^{p-1} k! n^k$, and `.card ≥ (p + 1)/2` gives the "at least $(p+1)/2$" bound (exact since $p$ odd makes $p+1$ even, so the nat division is precise). No hypotheses are added or omitted, and the conclusion matches exactly.
+
+### putnam_2012_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes "d_i, d_j, d_k are sides of an acute triangle" via the equivalent condition: d_k is the maximum (d_k ≥ d_i, d_k ≥ d_j) and (d_i)² + (d_j)² > (d_k)². For positive reals (guaranteed since all d_i ∈ (1,12) are positive), this is logically equivalent to forming an acute triangle: the inequality implies the triangle inequality ((d_i+d_j)² > d_i²+d_j² > d_k², so d_i+d_j > d_k; the other inequalities hold trivially since d_k is max) and, by the law of cosines, implies the largest angle (opposite d_k) is acute, hence all angles are acute. Conversely, any acute triangle admits a labeling with k as the longest side satisfying this condition. The existential ∃ i j k handles the labeling freedom. The distinctness conditions match, and the interval hypothesis matches exactly. The author's note acknowledges the reformulation, which is mathematically equivalent, not weaker or stronger.
+
+### putnam_2012_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+`[CommSemigroup S]` precisely encodes "a commutative and associative binary operation on the set S" (the Mathlib `CommSemigroup` class extends `Semigroup` and `CommMagma`, giving associativity and commutativity of `*`). The hypothesis `hS : ∀ x y : S, ∃ z : S, x * z = y` is a verbatim translation of the divisibility assumption. The conclusion `a * c = b * c → a = b` for arbitrary `a b c : S` matches the claim exactly. No extra hypotheses (e.g., Nonempty, Fintype) are imposed, and no needed hypotheses are omitted; the quantifier structure and typing are identical to the informal statement.
+
+### putnam_2012_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal Putnam 2012 A5 statement accurately. Key points: (1) Using an arbitrary field F of cardinality p with n > 0 and p prime correctly encodes F_p^n since any field of prime cardinality is isomorphic to F_p and the statement is invariant under isomorphism. (2) G is introduced as a parameter together with the defining equation `G M v x = v + mulVec M x`, which pins G down exactly to the informal definition. (3) `i, j : Finset.range (p^n)` coerces to naturals in {0,...,p^n-1}, so `i + 1` and `j + 1` range over {1,...,p^n}, matching the k = 1, 2, ..., p^n in the informal statement. (4) The negation `¬∃ i j, i ≠ j ∧ G^[i+1] 0 = G^[j+1] 0` correctly encodes "the p^n vectors are distinct." (5) The solution set is typed `Set (ℕ × ℕ)` with pairs (n, p); the solution `{q | n = 1} ∪ {(2,2)}` is consistent with this ordering. No hypotheses are dropped, added, or weakened relative to the informal claim.
+
+### putnam_2012_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The domain/codomain [0,∞) is captured by typing functions as `Set.Ici (0 : ℝ) → ℝ` combined with the `rngS` hypothesis forcing non-negative outputs. The functions f1 = e^x - 1 and f2 = ln(x+1) are stated correctly. `hsum` directly encodes closure under addition, and `hdiff` directly encodes closure under subtraction when f ≥ g pointwise. The `hcomp` hypothesis is a technically careful encoding of closure under composition: since g has codomain ℝ but f expects input in Set.Ici (0:ℝ), it introduces gnneg (a version of g with codomain Set.Ici (0:ℝ)) that equals g pointwise — logically equivalent to closure under f ∘ g given that g is non-negative (which rngS guarantees). The conclusion f·g ∈ S matches exactly. No hypotheses are silently added or dropped.
+
+### putnam_2012_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal Putnam 2012 B3 statement. The matchup structure is encoded as a fixed-point-free involution on each day (a perfect matching of 2n teams into n games), and the "every pair plays exactly once" condition is given as "at least once" (`nmatchupsall`), which combined with the perfect-matching structure over 2n-1 days is equivalent to "exactly once" by a simple counting argument: n(2n-1) = C(2n,2). The `wins d t = !(wins d (matchups d t))` condition correctly encodes "exactly one winner per game". The conclusion `nmatchupswinschoices` asks for an injective choice function selecting a winning team per day, matching the informal question. The `n ≥ 1` hypothesis is a natural domain premise needed to avoid degenerate Nat subtraction (and n=0 is vacuously true anyway). The answer being `True` correctly indicates the tournament-question has a positive answer.
+
+### putnam_2012_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal statement. The initial condition `a 0 = 1` matches $a_0 = 1$, and `a (n + 1) = a n + exp (-a n)` matches the recurrence $a_{n+1} = a_n + e^{-a_n}$. The question "Does $a_n - \log n$ have a finite limit as $n \to \infty$?" is correctly encoded as `∃ L : ℝ, Tendsto (fun n ↦ a n - Real.log n) atTop (𝓝 L)`, where the existential over a real number L captures "finite limit". The biconditional with `putnam_2012_b4_solution` (set to `True`) correctly expresses that the answer is yes. The Mathlib convention `Real.log 0 = 0` for the n=0 term doesn't affect limit behavior at infinity. The formalization is strictly faithful.
+
+### putnam_2012_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The hypotheses `Odd p`, `Nat.Prime p`, and `p ≡ 2 [MOD 3]` correspond directly to "odd prime with p ≡ 2 (mod 3)". The permutation π(x) ≡ x³ (mod p) is encoded as `P : Equiv.Perm (Fin p)` with `P i = i * i * i`, since multiplication in `Fin p` is done modulo p, so `i * i * i` equals i³ mod p. The hypothesis p ≡ 2 (mod 3) ensures the cube map is bijective on Fin p, so such P exists and is unique. For `Perm (Fin p)`, `signAux P` equals `Equiv.Perm.sign P` (both are multiplicative homomorphisms agreeing on generators: 1 on identity and -1 on swaps), so `signAux P = 1` is precisely the condition that P is an even permutation. The conclusion `p ≡ 3 [MOD 4]` matches p ≡ 3 (mod 4). All components align with the informal statement.
+
+### putnam_2013_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding captures the informal problem accurately: (1) `S` is defined as positive integers that are not perfect squares, matching the informal $S$. (2) `P n a` captures a valid choice list with `a.length > 0` (so $r \geq 1$), the first element greater than $n$ (`n < a[0]!`), the product $n \cdot a_1 \cdots a_r$ being a perfect square (`∃ m, m^2 = n * a.prod`), and strict increase (`a[i] < a[i+1]` for all valid $i$). (3) `T n` is the set of last elements of such lists, which matches $\{a_r : (a_1, \ldots, a_r) \text{ valid}\}$. (4) `hf` specifies `f n` to be the minimum of `T n` on `S` (it is in `T n` and ≤ every element of `T n`), matching "$f(n)$ is the minimum of $a_r$". (5) The conclusion `InjOn f S` is exactly "$f$ is one-to-one on $S$". The encoding takes `f` as a hypothesized minimum function — this is standard and logically equivalent to proving the specific such $f$ is injective. No hypothesis is dropped, added, or altered; no type mismatch; no weakening or strengthening.
+
+### putnam_2013_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The circle is represented as `Fin n → Fin 2` (digits 0 and 1), and arcs are represented as pairs `(start, length) : Fin n × Fin (n+1)` where lengths range 0 to n. The `hZ` and `hN` hypotheses correctly define Z(w) and N(w) by counting matching digits over the L consecutive circular positions starting at w.1 (using Fin n's modular addition). The `Zle1` hypothesis matches "arcs of the same length" via `w.2 = w'.2`. Declaring `Zsum Nsum : ℤ` with equations in ℝ correctly forces the averages to be integers (matching the informal's "both are integers"). The conclusion `∃ w, Z w = Zsum ∧ N w = Nsum` matches directly. Hypotheses `npos` and `kpos` make implicit premises (nonempty circle, nonempty arc list for averaging) explicit — these are needed for the statement to be sensible. Since each position contributes 1 to exactly one of Z or N, the informal condition on Z alone is equivalent to the one also applied to N.
+
+### putnam_2013_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal Putnam 2013 A5 statement. The area functions match the geometric area: `area2` uses 2D Lebesgue volume of the triangle's convex hull in ℝ²; `area3` uses μH[2] (2-dim Hausdorff measure) of the triangle in ℝ³, which by Mathlib's `hausdorffMeasure_pi_real` is normalized geometrically and, being isometry-invariant, gives the standard Euclidean area of a triangle in ℝ³. The sum `∑i∑j∑k if (i<j ∧ j<k) then ...` is equivalent to summing over 1≤i<j<k≤m. Although `a : Fin m → Fin m → Fin m → ℝ` is defined for all triples rather than only strictly increasing ones (as noted in the file comment), only i<j<k values enter the sum, so the quantification ∀a is equivalent to quantifying over lists indexed by i<j<k. The conclusion `∀ a, areadef2 a → areadef3 a` exactly matches "area definite for ℝ² implies area definite for ℝ³".
+
+### putnam_2013_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes every aspect of the informal problem. The 25 table entries are fully and correctly specified via hwn1/hwn2/hw2/hw4/hwn4/hw12 (4+8+4+4+4+1 entries matching all cells of the 5×5 table), and hw0 correctly captures "otherwise w=0" via |a|>2 ∨ |b|>2. The A function `∑ s ∈ S, ∑ s' ∈ S, w (s - s').1 (s - s').2` is the curried nested-sum form of $\sum_{(s,s')\in S\times S} w(s-s')$, matching the informal definition. "Finite nonempty subset" becomes `S : Finset (ℤ × ℤ)` with `Nonempty S`; by Mathlib's `nonempty_coe_sort`, `Nonempty S` (using the CoeSort from Finset to its subtype) is equivalent to `S.Nonempty`. The conclusion `A S > 0` matches. Verified with the worked example: the 16 computed terms match the list "12,12,12,12,4,4,0,0,0,0,-1,-1,-2,-2,-4,-4" given informally.
+
+### putnam_2013_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement closely: `c 1 = 1` is the base case, and the recurrences `c(2n) = c(n)` and `c(2n+1) = (-1)^n c(n)` are stated with `n > 0`, matching "for positive integers n". The sum `∑ n : Set.Icc 1 2013, c n * c (n.1 + 2)` iterates over the subtype with elements 1, ..., 2013 (via `instFintypeIcc`), with `c n` using subtype-to-ℕ coercion and `n.1 + 2` computing n+2 in ℕ, correctly encoding ∑_{n=1}^{2013} c(n)c(n+2). Although `c 0` is unconstrained, it is irrelevant to the sum, and the recurrences uniquely determine c on all positive integers appearing in the sum. The formalization captures exactly the mathematical claim.
+
+### putnam_2013_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The sum `∑ n ∈ Finset.Icc 1 N, a[n]! * cos(2πnx)` matches Σ_{n=1}^N a_n cos(2πnx); the non-negativity and the divisibility constraint on coefficients are correctly stated; the list-based encoding (length N+1) is used only through indices 1, ..., N in the sum, so even though the Lean constraint forces a[0]=0 (because 3∣0), this has no effect on which functions f lie in C_N. The union `⋃ N ∈ Ici 1, CN N` matches C = ⋃_{N=1}^∞ C_N. Crucially, `IsGreatest` (defined in Mathlib as `a ∈ s ∧ a ∈ upperBounds s`) captures both "maximum value" and "is attained", which exactly matches "determine the maximum and prove it is attained".
+
+### putnam_2013_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. P as `Finset (Finset (Fin n))` captures "collection of subsets of {1,...,n}" (any such collection is automatically finite). `P ≠ ⊥` matches nonemptiness via `bot_eq_empty`. Conditions (i) and (ii) are faithfully encoded, including `T ⊂ S` as strict subset and `card T + 1 = card S` for "exactly one fewer element". The function `f : Finset (Fin n) → ℝ` is extended to all finsets, but since all constraints and the conclusion only reference `f` on P (closed under ∪/∩ by (i)) and on `⊥` (which is forced to be in P by iterating (ii)), this is logically equivalent to having `f : P → ℝ`. The conclusion `∃ r : Fin n → ℝ, ∀ S ∈ P, f S = ∑ i ∈ S, r i` matches, and the whole being asserted iff `True` (the solution) correctly encodes the affirmative answer.
+
+### putnam_2013_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement introduces μ, Var, M as abstract ℝ-valued functions characterized by hypotheses that match the informal definitions exactly: (1) `hμ` gives μ f as ∫ x, f x, where the default MeasureSpace on ↥(Icc 0 1) — registered in Mathlib/MeasureTheory/Constructions/UnitInterval.lean as Measure.Subtype.measureSpace, which is a probability measure — yields ∫₀¹ f(x) dx; (2) `hVar` gives Var f = ∫ x, (f x - μ f)² as required; (3) `hM` uses IsGreatest on range (abs ∘ f), which on ℝ uniquely determines M f as max_{x ∈ [0,1]} |f(x)| (the max exists since f is continuous on a compact nonempty set). The final inequality Var(f*g) ≤ 2·Var f·(M g)² + 2·Var g·(M f)² matches the informal conclusion verbatim, using pointwise multiplication on C(Icc 0 1, ℝ). No hypotheses are added or dropped relative to the informal statement.
+
+### putnam_2013_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal problem. `Set.Icc 1 n` (as a subtype of ℕ) correctly encodes $X = \{1, \ldots, n\}$. The functions $f: X \to X$ are formalized as `Set.Icc 1 n → Set.Icc 1 n`, and `f^[j]` is Mathlib's iterate, which satisfies the same recursion as the informal $f^{(j)}$. The condition `∀ x, ∃ j : ℕ, f^[j] x ≤ k` matches the informal condition (since `j : ℕ` is automatically ≥ 0, and `≤` on the subtype is the underlying ℕ ordering). The count uses `encard`, which for this finite set gives the cardinality, and the RHS `k * n ^ (n - 1)` (with subtype coercion and promotion to ℕ∞) matches $k \cdot n^{n-1}$. The `fiter`/`hfiter` indirection is equivalent to inlining the condition. The extra hypothesis `hn : n ≥ 1` merely makes explicit the implicit premise that $X$ is non-empty (required by $k \in X$), so it is not a narrowing.
+
+### putnam_2014_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The function `f x = (1 - x + x^2) * Real.exp x` is correctly specified. `taylorCoeffWithin f k Set.univ 0` unfolds to `(k!)⁻¹ • iteratedDeriv k f 0 = f^(k)(0)/k!`, which is the standard k-th Taylor coefficient at 0. The `ContDiff ℝ ⊤ f` hypothesis is trivially true for this f, so it does not weaken or strengthen the claim. The rationality clause `∃ q : ℚ, c k = q` correctly asserts c k is rational (via the injective ℚ → ℝ coercion), and since Mathlib's `Rat` stores fractions in lowest terms, `q.num` is exactly the numerator in lowest terms. All nonzero coefficients of this particular function equal $(k-1)^2/k!$ (plus $c_0 = 1$), all positive, so `q.num ≥ 0` and `q.num.natAbs = q.num`; hence `q.num = 1 ∨ Prime q.num.natAbs` faithfully matches "numerator is 1 or prime". The conditions and quantification structure line up with the informal claim.
+
+### putnam_2014_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal problem: the matrix A over Fin n × Fin n has entries 1/min(i+1, j+1) (computed in ℚ and coerced to ℝ), which matches the informal 1/min(i,j) for 1 ≤ i,j ≤ n indexing (since i.1 ranges in {0,...,n-1}, so i.1+1 ranges in {1,...,n}). The solution `(-1)^(n-1) / ((n-1)! · n!)` is the correct Putnam 2014 A2 answer (verified at small cases n=1,2,3). The `npos : n > 0` hypothesis surfaces the standard implicit convention that "n × n matrix" means n ≥ 1, which is the natural reading of the informal statement. The conclusion `A.det = putnam_2014_a2_solution n` directly asks for the determinant computation as specified.
+
+### putnam_2014_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. The sequence `a : ℕ → ℝ` with `a 0 = 5/2` and `∀ k ≥ 1, a k = (a (k-1))^2 - 2` exactly matches the recursive definition. The conclusion `Tendsto (fun n => ∏ k ∈ Finset.range n, (1 - 1/a k)) atTop (𝓝 (3/7))` is the standard formalization of the infinite product $\prod_{k=0}^{\infty}(1 - 1/a_k) = 3/7$, since `Finset.range n = {0,...,n-1}` gives the partial product $\prod_{k=0}^{n-1}(1-1/a_k)$, whose limit defines the infinite product. The answer `3/7` is placed in `putnam_2014_a3_solution`, which is the standard Putnam formalization pattern for "compute in closed form". No hypotheses are silently added or dropped; types and quantifiers match.
+
+### putnam_2014_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes a ℕ-valued random variable via its PMF `X : ℕ → ℝ` where `X n = P(X=n)`. The `Xrandvar` predicate (`X n ∈ [0,1]` and sum = 1) captures "valid probability distribution on nonnegative integers" correctly — the upper bound X n ≤ 1 is redundant given nonnegativity and sum=1, so the predicate is equivalent to being a PMF. The expectation E[f(X)] = ∑' n, f(n)·X(n) matches the standard definition, and `fun x : ℕ => x`, `x^2`, `x^3` correctly coerce to give E[X], E[X²], E[X³]. The conclusion asks for `sInf {X 0 | ...}`, which equals the minimum P(X=0) since the minimum 1/3 is achieved (by the distribution with support {0,1,3} and probabilities 1/3, 1/2, 1/6). This is a strictly faithful formalization of the Putnam 2014 A4 problem.
+
+### putnam_2014_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The polynomial `∑ i ∈ Finset.Icc 1 n, i * X^(i-1)` correctly expands to `1 + 2X + 3X² + ... + nX^(n-1)` as specified. The hypotheses `j > 0 ∧ k > 0` correctly encode "positive integers", and `j ≠ k` matches "j ≠ k". The conclusion `IsCoprime (P j) (P k)` in `Polynomial ℂ` correctly captures "relatively prime polynomials": in the PID ℂ[X], `IsCoprime` (defined as ∃ a b, a·x + b·y = 1) is equivalent to the standard notion of relatively prime polynomials (having no common non-unit factor), and this is equivalent to being relatively prime in ℚ[X] for polynomials with rational coefficients. No hypotheses are dropped or added, and the quantifier structure matches exactly.
+
+### putnam_2014_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement precisely. The n×n real matrices are encoded as `Matrix (Fin n) (Fin n) ℝ`, positive n is captured by `npos : n > 0`, and the matrix product `M i * N j` correctly gives the matrix product (verified via Matrix.mul_apply: `(M * N) i k = ∑ j, M i j * N j k`). The condition "MᵢNⱼ has a zero entry somewhere on its diagonal iff i ≠ j" is faithfully encoded as `(∃ p : Fin n, (M i * N j) p p = 0) ↔ i ≠ j`. The "largest k" is correctly captured by the conjunction of achievability (`kex (solution)`) and upper bound (`∀ k ≥ 1, kex k → k ≤ solution`). The restriction `k ≥ 1` does not change the answer since the solution n^n ≥ 1 for n ≥ 1, and k=1 is always achievable (e.g., with identity matrices), so the largest-k over k ≥ 1 matches the informal "largest k".
+
+### putnam_2014_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding represents an over-expansion as a little-endian list `d` where `d.get i` is the coefficient of 10^i. The sum `∑ i : Fin d.length, d.get i * 10^i.1` correctly computes `d_0·10^0 + d_1·10^1 + ... + d_k·10^k`. The constraint `d.getLastI ≠ 0` corresponds to `d_k ≠ 0` (the leading coefficient condition), and `∀ a ∈ d, a ∈ Finset.range 11` correctly constrains each digit to `{0,1,...,10}`. There is a clean bijection between informal over-expansions (with specific k and coefficients) and valid Lean lists, so uniqueness in one matches uniqueness in the other. The set S is defined as positive integers with a unique over-expansion, matching the informal question. Testing N=10 confirms two valid lists ([10] and [0,1]), consistent with the informal example.
+
+### putnam_2014_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. While it uses `f : ℝ → ℝ` instead of restricting to `[1,3] → ℝ`, the bound `-1 ≤ f x ≤ 1` is only imposed on `x ∈ Set.Icc 1 3` and the integrals are only over `(1,3)`, so values outside `[1,3]` don't affect the set of attainable `t` values. The use of `Set.Ioo 1 3` vs `[1,3]` for integration differs only on a measure-zero set, so integrals coincide for measurable functions. `IsGreatest` correctly encodes "how large can it be" since the classical maximum log(4/3) is actually attained (by f=1 on [1,2] and f=-1 on [2,3]). The quantifier structure (∃ f satisfying the constraints such that the integral equals t) matches the informal intent that we consider all admissible f and ask for the maximum of the resulting integral values.
+
+### putnam_2014_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal claim: `Matrix (Fin m) (Fin n) ℚ` is an m×n rational matrix, the set `{p : ℕ | p.Prime ∧ ∃ i j, |A i j| = p}` with `encard ≥ m + n` captures "at least m+n distinct primes among absolute values of entries" (via ℕ→ℚ coercion, a prime p equals |A i j| iff |A i j| is that natural prime), and `A.rank ≥ 2` matches the conclusion. The `mnpos: 0 < m ∧ 0 < n` hypothesis surfaces an implicit premise: when m = n = 0, the set of primes is empty (encard = 0 ≥ m+n = 0), but the rank is 0, so the literal statement would be false without this assumption. The convention that "an m × n matrix" has m, n ≥ 1 is an implicit premise being made explicit, not a narrowing of the mathematical claim.
+
+### putnam_2014_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement contains ambiguous LaTeX "$2^k(n-k)$" which admits two readings: (1) literal multiplication $2^k \cdot (n-k)$, or (2) exponent $2^{k(n-k)}$ (with missing braces). Under reading (1), the statement is FALSE: for $n=3$ the polynomial would be $4x^2+4x+3$ with negative discriminant (complex roots). Under reading (2) — the well-known Putnam 2014 B4 — for $n=3$ we get $(x+1)(x^2+3x+1)$ with all real roots, and the general claim is true. The Lean encoding uses `P.coeff k = 2 ^ (k * (n - k))`, which is reading (2) — the unique interpretation under which the informal claim is true. Additionally, `P.degree = n` correctly fixes the leading coefficient (which equals $2^{n \cdot 0} = 1 \ne 0$), the complex polynomial with `r.im = 0` correctly encodes "all roots are real", and `npos` captures "positive integer n". Per the guidance on surfacing implicit premises needed for truth, this is a faithful formalization.
+
+### putnam_2014_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the Putnam 2014 B6 statement. The function `f : ℝ → ℝ` is effectively treated as a function on [0,1] since all hypotheses and the conclusion only concern that interval. The Lipschitz hypothesis (with K > 0) and the rational condition (with integers a, b such that f(r) = a + b*r, using automatic ℚ → ℝ coercion) match the informal statement. The conclusion uses `Finset (Interval ℝ)` where `Interval ℝ = WithBot (NonemptyInterval ℝ)` represents closed intervals, and `coeHom` coerces to the underlying `Set ℝ`. Affine linearity `f x = c + m * x` is the correct reading of "linear" in this context (consistent with the hypothesis form a + br), and the union condition `Icc 0 1 = ⋃ Ii ∈ I, coeHom Ii` correctly expresses that the intervals cover [0,1]. No hypothesis is silently added or dropped, and the quantifier structure matches.
+
+### putnam_2015_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the mathematical content of the informal statement. The hyperbola is restricted to the positive branch (p 0 > 0), which is a natural WLOG choice since the two branches of xy=1 are symmetric under (x,y) → (-x,-y); this symmetry is obvious mathematical context, and on this branch y=1/x is convex so the chord lies above the curve, making the integrand (PPline - 1/x) correctly represent the enclosed area (positive). The "P between A and B" is encoded as A_x < P_x < B_x; triangle area is encoded as MeasureTheory.volume of convexHull of the three points, which in ℝ² equals the triangle area. The maximization is correctly universally quantified over P' on the hyperbola between A and B. The conclusion equates the two integrals, each of which computes the area between a chord and the hyperbola. The PPline function is externally supplied but correctly constrained by hPPline for distinct x-coordinates, which applies to our A, P, B.
+
+### putnam_2015_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The sequence hypotheses `a 0 = 1 ∧ a 1 = 2` together with `∀ n ≥ 2, a n = 4 * a (n - 1) - a (n - 2)` uniquely determine the same integer sequence as described informally. The conclusion asserts three properties of `putnam_2015_a2_solution : ℕ`: it is `Odd`, it is `Nat.Prime`, and (cast to ℤ) divides `a 2015`. Together these mean "an odd prime factor of a_{2015}", exactly matching the informal request. The cast to ℤ is necessary because `a : ℕ → ℤ` and is a standard encoding. No extra hypotheses are silently added and none are dropped.
+
+### putnam_2015_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding correctly captures the informal statement: (1) `Fin 2015` with `a.1 + 1` and `b.1 + 1` gives indices 1 through 2015 matching the informal product ranges; (2) the expression `1 + Complex.exp (2 * Real.pi * Complex.I * (a.1 + 1) * (b.1 + 1) / 2015)` correctly represents $1 + e^{2\pi i(a+1)(b+1)/2015}$ in ℂ (Real.pi and natural numbers are coerced to ℂ correctly); (3) `Complex.log X / Complex.log 2` is the standard principal-branch complex base-2 logarithm, which agrees with the usual real log₂ when the argument is a positive real. Since 2015 is odd, the double product evaluates to $2^{13725}$ (a positive real), so the complex log gives a real result equal to $13725$. No factor is zero (would require $e^{2\pi iab/2015}=-1$, impossible for odd denominator). The answer `putnam_2015_a3_solution : ℂ = 13725` matches. Logically equivalent to the informal claim.
+
+### putnam_2015_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The set `S x = {n : ℤ | n > 0 ∧ Even ⌊n * x⌋}` matches "positive integers n with ⌊nx⌋ even" since n > 0 in ℤ selects exactly positive integers. The function `f(x) = ∑' n : S x, 1/2^(n:ℤ)` correctly captures the infinite sum via tsum (the series is bounded by 1, hence summable, so the tsum equals the conventional infinite sum). `Set.Ico 0 1` is [0,1). The predicate `p l ↔ ∀ x ∈ [0,1), f x ≥ l` is precisely "l is a lower bound for f on [0,1)", and `IsGreatest p putnam_2015_a4_solution` means the solution is the largest such l — exactly matching "the largest real number L such that f(x) ≥ L for all x ∈ [0,1)". The quantifier structure and ambient objects are preserved; no hypothesis is added or dropped.
+
+### putnam_2015_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypotheses `qodd : Odd q` and `qpos : q > 0` match "odd positive integer q". The set `{a : ℕ | 0 < a ∧ a < (q : ℝ) / 4 ∧ Nat.gcd a q = 1}` correctly encodes "integers a with 0 < a < q/4 and gcd(a,q) = 1" — using ℝ for the q/4 comparison handles the non-integer boundary properly, and using ℕ for a is fine because 0 < a forces positive integers. The hypothesis `Nq = {...}.encard` with Nq : ℕ coerces to ℕ∞ and asserts finiteness plus the count (which is automatic here since the set is bounded). The conclusion `∃ p k : ℕ, q = p ^ k ∧ k > 0 ∧ p.Prime ∧ (p % 8 = 5 ∨ p % 8 = 7)` exactly matches "q is of the form p^k with k a positive integer and p a prime congruent to 5 or 7 mod 8". Spot-checks (q = 1, 5, 9, 15) confirm the encoding behaves as intended.
+
+### putnam_2015_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement exactly. The positivity of n is captured by `npos : n > 0`. Matrices are encoded as `Matrix (Fin n) (Fin n) ℝ`, the standard n×n real matrix type. The hypothesis AM = MB becomes `A * M = M * B`. The condition that A and B have the same characteristic polynomial is captured by `Matrix.charpoly A = Matrix.charpoly B`, where `Matrix.charpoly` in Mathlib is defined as `(charmatrix M).det`, the standard characteristic polynomial. The conclusion is a universal statement over all n×n real matrices X that `det(A - M*X) = det(B - X*M)`, matching the informal claim exactly. No hypotheses are added or dropped and no types or quantifiers are changed.
+
+### putnam_2015_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean hypothesis `ContDiff ℝ 2 f ∧ Differentiable ℝ (iteratedDeriv 2 f)` is equivalent to "f is three times differentiable on ℝ": if f''' exists everywhere then f'' is differentiable (hence continuous), f' differentiable (hence continuous), f differentiable (hence continuous), so f is C² with differentiable f''; conversely C² + f'' differentiable gives f''' everywhere. The predicate `nzeros f n` is defined as `{x | f x = 0}.encard ≥ n`, which correctly captures "at least n distinct real zeros" since set cardinality only counts distinct elements. The expression `f + 6 * deriv f + 12 * iteratedDeriv 2 f + 8 * iteratedDeriv 3 f` is pointwise addition/multiplication on ℝ → ℝ, with `iteratedDeriv 2 f = f''` and `iteratedDeriv 3 f = f'''` via `iteratedDeriv_succ`, faithfully representing f + 6f' + 12f'' + 8f'''. The conclusion `nzeros (…) 2` matches "at least two distinct real zeros". All quantifier structure and ambient types match the informal statement.
+
+### putnam_2015_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal problem. (1) `sets 0 = Set.Ici 1` correctly represents the positive integers {1, 2, 3, ...}. (2) `Smin3` picks the three smallest elements via iterated `sInf`, which is well-defined on the always-infinite `sets n`. (3) `sums n` sums these three smallest, and `sets (n+1)` removes all four numbers (three smallest + their sum), exactly matching the crossing-off rule. Checking values: (1,2,3)→6, (4,5,7)→16, (8,9,10)→27, (11,12,13)→36, matching the informal sequence. (4) `Nat.digits 10` is little-endian, so `List.IsPrefix [5, 1, 0, 2] (Nat.digits 10 n)` correctly means the last four base-10 digits of n are "2015". (5) The `↔ putnam_2015_b2_solution` pattern correctly formalizes "prove or disprove" with the solution placeholder. All quantifiers, types, and semantics align with the informal statement.
+
+### putnam_2015_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization precisely captures the informal statement. The set S is encoded via the two consecutive-difference equalities (b-a = c-b and c-b = d-c), which is exactly the arithmetic progression condition on the entries read in order a, b, c, d. The exponent k ranges over ℕ (from `Monoid.npow` on matrices), and k > 1 matches "integer k > 1" since matrix powers are only naturally defined for nonnegative integers and positive values. The solution set encodes the two families: α·J (all entries equal α) and β·[[-3,-1],[1,3]] (β times the centered AP matrix). I verified mathematically using Cayley-Hamilton with M = μJ + fL that these are exactly the solutions: when f=0 all powers stay in S, when μ=0 odd powers stay in S, and when both are nonzero the recurrence a_n = (λ₁ⁿ-λ₂ⁿ)/(λ₁-λ₂) is never zero for n≥1. The iff correctly characterizes "Find all M" with the required conjunction M ∈ S ∧ ∃ k > 1, M^k ∈ S.
+
+### putnam_2015_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the sum: it ranges over `Fin 3 → ℤ` (equivalent to integer triples), filters to positive integers (`t n > 0`) satisfying all three strict triangle inequalities (`t 0 < t 1 + t 2`, etc.), and sums `2^(t 0)/(3^(t 1)*5^(t 2))` which matches $2^a/(3^b 5^c)$. The helper `quotientof q = (q.num, q.den)` extracts numerator and denominator in lowest terms (since Mathlib's ℚ stores values coprime with positive denominator by construction). The answer `(17, 21)` corresponds to 17/21 with gcd(17,21)=1, which is correct: direct computation gives $S = 4/3 - 2 \cdot 11/42 = 28/21 - 11/21 = 17/21$. Strict inequalities correctly capture non-degenerate triangles, the standard convention.
+
+### putnam_2015_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes permutations of {1,...,n} as `Bijective` maps from `Finset.Icc 1 n` to itself. `Nat.dist` on ℕ equals |i-j|, so `Nat.dist i j = 1` accurately captures |i-j|=1, and `Nat.dist (pi i) (pi j) ≤ 2` captures |π(i)-π(j)| ≤ 2. The quantification `∀ i j : Finset.Icc 1 n` matches "for all i,j in {1,...,n}". The `.ncard` gives the correct cardinality. The conclusion `∀ n ≥ 2, (sum) = putnam_2015_b5_solution` simultaneously captures both "does not depend on n" (it equals a fixed constant) and "find its value" (that constant is 4). The signs and indices in the alternating sum P(n+5) - P(n+4) - P(n+3) + P(n) match the informal statement exactly. Using ℤ for the arithmetic avoids truncation issues. No hypotheses are silently added or dropped.
+
+### putnam_2015_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Putnam 2015 B6 statement. (1) A(k) is encoded via the set {j : ℕ | Odd j ∧ j ∣ k ∧ j < Real.sqrt(2k)}.encard; the lower bound 1 is automatic since Odd j forces j ≥ 1 (and for k > 0 any divisor j satisfies j ≥ 1), and j < Real.sqrt(2k) correctly encodes the half-open upper bound. The hypothesis `∀ k > 0` only constrains A on positive k, which suffices since the sum starts at k = 1. (2) The expression `(-1 : ℝ) ^ ((k : ℝ) - 1)` uses Real.rpow; by rpow_def_of_neg, (-1)^y = exp(log(-1)·y)·cos(y·π) = cos(y·π), which for integer k-1 equals (-1)^(k-1). (3) A k / (k : ℝ) elaborates as real division with A k coerced to ℝ. (4) The infinite series is encoded as the limit of partial sums over Finset.Icc 1 K, which is the standard meaning of ∑_{k=1}^∞. (5) The solution π²/16 is the known correct answer. No hypotheses are added or dropped, and the types and quantifier structure match.
+
+### putnam_2016_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes exactly the informal problem. `IsLeast {j : ℕ | 0 < j ∧ ...} putnam_2016_a1_solution` captures "smallest positive integer j" (least element of the set of positive j satisfying the property). `∀ P : ℤ[X]` corresponds to "every polynomial with integer coefficients", `∀ k : ℤ` corresponds to "every integer k", `derivative^[j] P` is the j-th iterate of the polynomial derivative (the j-th formal derivative), `.eval k` evaluates at k, and `2016 ∣ ...` is "divisible by 2016". All quantifiers, types, and the divisibility conclusion match the informal statement precisely.
+
+### putnam_2016_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean set `{m | 0 < m ∧ (m - 1).choose n < m.choose (n - 1)}` correctly encodes $\binom{m}{n-1} > \binom{m-1}{n}$. The added `0 < m` condition is redundant for determining the maximum: for n ≥ 2, m = 0 yields `0.choose n = 0 < 0.choose (n-1) = 0`, which is false, so m = 0 is not in the informal set anyway; for n = 1, m = 0 is in the informal set but the maximum is m = 1 regardless. Thus `IsGreatest` picks out the same value M(n) as the informal definition for all n > 0. The coercion `M n / (n : ℝ)` elaborates as real division `(M n : ℝ) / n`, matching the informal limit. The solution $(3+\sqrt{5})/2 = \phi^2$ is the correct Putnam 2016 A2 answer.
+
+### putnam_2016_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The function type `f : ℝ → ℝ` matches. The hypothesis `hf : ∀ x : ℝ, x ≠ 0 → f x + f (1 - 1 / x) = arctan x` exactly transcribes the functional equation with the appropriate `x ≠ 0` restriction. Mathlib's `Real.arctan` is defined to produce values in `(-π/2, π/2)` with `tan(arctan x) = x`, matching the informal parenthetical definition. The conclusion `∫ x in (0)..1, f x = putnam_2016_a3_solution` with solution `3π/8` correctly captures the requested integral (and the value 3π/8 is mathematically correct, obtainable via the 3-cycle x → 1-1/x → 1/(1-x) → x and evaluating the resulting integrals). No hypotheses are added or dropped, and no types or quantifiers are changed.
+
+### putnam_2016_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. The predicate `p c` asserts that c is a valid bound for all degree-3 polynomials with a root in [0,1], using `P.degree = 3` (degree exactly 3), `∃ x ∈ Icc 0 1, P.eval x = 0` (root in [0,1]), `∫ x in (0)..1, |P.eval x|` (integral of |P| over [0,1]), and `sSup {y | ∃ x ∈ Icc 0 1, y = |P.eval x|}` (which equals max_{x ∈ [0,1]} |P(x)| since |P| is continuous on compact [0,1]). The conclusion `IsLeast p (5/6)` correctly encodes "smallest constant C": since the set of valid constants is upward-closed, `IsLeast` requires 5/6 to satisfy the inequality AND be a lower bound of all valid constants, which is exactly "smallest C such that the inequality holds for all such P".
+
+### putnam_2016_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The recurrence (hx0, hxn) matches x_0=1 and x_{n+1}=ln(e^{x_n}-x_n), with `log` being Real.log (ln) since `Real` is opened. The conclusion `∑' n, x n = exp 1 - 1` captures both convergence and the sum's value: Mathlib's tsum returns 0 when not summable, and since exp 1 - 1 ≠ 0, the equality forces the series to be Summable. The terms are nonnegative (e^x - x > 1 for x > 0), so unconditional summability equals convergence of partial sums, matching the informal notion of "converges". Thus the Lean statement is logically equivalent to "the series converges and its sum is e - 1".
+
+### putnam_2016_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement. The `squarish` predicate captures "n is a perfect square OR the distance from n to the nearest perfect square is a perfect square": the ∀ v : ℕ clause pins down w² as a minimizer (ℕ-squares cover all integer squares via w² = |w|²), and IsSquare |n - w²| says this minimum distance is a perfect square. S correctly counts squarish integers in [1,N]. The predicate p correctly states α,β > 0 with S(N)/N^α → β via Tendsto...atTop (𝓝 β) on ℤ, with (N:ℝ)^α using Real.rpow. The final disjunction "(3/4,4/3) is the unique p-solution, OR no solution exists" matches "find α,β or show none exist" — uniqueness of α in the asymptotic sense is mathematically automatic so no spurious strengthening. Verification against the informal examples (6 and 7 not squarish, 2 squarish) confirms the encoding works correctly.
+
+### putnam_2016_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the Putnam 2016 B3 problem. Points in the plane are represented as `Fin 2 → ℝ`, and `MeasureTheory.volume` on this space is the 2D Lebesgue measure, which gives the area of a planar region. The convex hull of three points `convexHull ℝ {A, B, C}` is precisely the closed triangle (including interior), matching "triangle together with its interior". The hypothesis encodes "area of △ABC ≤ 1 for all A, B, C ∈ S" correctly, and allowing degenerate cases (A = B or collinear points) is harmless since such degenerate convex hulls have volume 0. The conclusion `∃ A' B' C', volume = 4 ∧ convexHull ⊇ S` correctly states existence of a triangle of area 4 covering S. Note that `= 4` is equivalent to `≤ 4` here because any smaller enclosing triangle can be enlarged to exactly area 4, matching the informal claim.
+
+### putnam_2016_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the expected value of det(A - A^t) as (sum of det(A - A^t) over all 2n×2n 0/1 matrices) divided by the total count of such matrices, which correctly computes the expectation under the uniform distribution (each entry independently 0 or 1 with probability 1/2 gives each matrix equal probability). The set mats01 correctly captures 0/1 matrices of size 2n×2n; the determinant of A - A^t is formed correctly via subtype coercion; and the solution formula (2n)!/(4^n n!) matches the known Putnam answer (e.g., verified at n=1 giving 1/2). The `npos : n ≥ 1` hypothesis reflects the conventional reading that 2n×2n matrix problems implicitly require n ≥ 1 (a 0×0 matrix being a trivial degenerate case), which matches the standard competition-math interpretation of "as a function of n". No quantifier structure, types, or hypotheses are silently altered beyond this conventional premise.
+
+### putnam_2016_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes Putnam 2016 B5. The function type `Set.Ioi (1 : ℝ) → Set.Ioi (1 : ℝ)` correctly represents f: (1,∞) → (1,∞). The solution set `{f | ∃ c > 0, ∀ x, (f x : ℝ) = x ^ c}` correctly captures the answer f(x) = x^c for some c > 0, where `x ^ c` with real exponent is `Real.rpow`. The condition `(x : ℝ) ^ 2 ≤ y ∧ y ≤ (x : ℝ) ^ 3 → (f x : ℝ) ^ 2 ≤ f y ∧ f y ≤ (f x : ℝ) ^ 3` uses natural-number exponents (2, 3 as ℕ via Monoid.npow), which give genuine x² and x³. The subtype coercions between `Set.Ioi (1 : ℝ)` and ℝ are handled properly. The "Find all functions" phrasing is correctly formalized as an iff with the solution set, and quantifier structure matches exactly.
+
+### putnam_2016_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement re-indexes the outer sum from k ≥ 1 to k ≥ 0 by substituting k+1 everywhere: the sign `(-1)^((k+1:ℤ)-1)` simplifies to `(-1)^k` matching the informal `(-1)^(k'-1)` with k'=k+1; the factor `1/(k+1)` matches `1/k'`; and the denominator `(k+1)*(2^n)+1` matches `k'·2^n+1`. The inner `∑' n : ℕ` correctly starts at n=0 as in the informal statement. The double series is absolutely convergent (bounded by 2·Σ 1/k'² = π²/3), so `tsum` faithfully represents the iterated infinite sum. The `putnam_2016_b6_solution := 1` matches the asserted evaluation. The encoding is logically equivalent to the informal claim.
+
+### putnam_2017_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes Putnam 2017 A1. `IsLeast IsQualifying S` unfolds (using `Set`'s `LE` instance being `⊆`) to "S satisfies the rules AND S ⊆ T for every T satisfying them", which is exactly "smallest set satisfying the rules". The predicate `IsQualifying` encodes (a) positivity of elements, (b) `2 ∈ S`, (c) `∀ n > 0, n² ∈ S → n ∈ S`, and (d) `∀ n ∈ S, (n+5)² ∈ S`, matching the three informal conditions (with positivity made explicit). The restriction to `n > 0` in rule (b) is the correct reading — since S contains only positive integers, quantifying over all of ℤ would make the condition impossibly restrictive (both n and -n would need to be in S whenever n² ∈ S). The conclusion `Sᶜ ∩ {n | 0 < n}` correctly represents "positive integers not in S". No hypothesis is dropped or added beyond what the informal statement requires.
+
+### putnam_2017_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. `Q : ℕ → RatFunc ℚ` with the field `RatFunc ℚ` is the natural setting to make the division-based recurrence well-defined. `Q 0 = 1` and `Q 1 = (X : ℚ[X])` (using the `Polynomial K → RatFunc K` coercion defined in `Mathlib/FieldTheory/RatFunc/Basic.lean`) match the base cases $Q_0 = 1$ and $Q_1 = x$. The universally quantified `∀ n, Q (n + 2) = (Q (n + 1) ^ 2 - 1) / Q n` exactly captures the recurrence for all $m \geq 2$ (via $m = n+2$). The conclusion `∃ P : ℤ[X], Q n = P.map (Int.castRingHom ℚ)` asserts that $Q_n$ equals (the image in `RatFunc ℚ` of) some integer-coefficient polynomial — the precise meaning of "equal to a polynomial with integer coefficients." The hypothesis `0 < n` matches "positive integer $n$". No hypotheses are added or dropped, and the quantifier structure matches.
+
+### putnam_2017_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. Using `ℝ → ℝ` with `ContinuousOn f (Set.Icc a b)` and `f '' (Set.Icc a b) ⊆ Set.Ioi 0` is logically equivalent to "f : [a,b] → (0,∞) continuous" since values outside [a,b] don't appear in any hypothesis or conclusion. The integral over `Set.Ioo a b` equals the integral over `Set.Icc a b` for continuous functions (endpoints have measure zero), so `fgint` and `hI` correctly encode the required integral identities. The hypothesis `∃ x : Set.Icc a b, f x ≠ g x` correctly encodes "f ≠ g as functions on [a,b]". The conclusion `∀ n > 0, I (n+1) > I n` correctly states that $I_1 < I_2 < \cdots$ is strictly increasing, and `Tendsto I atTop atTop` is the standard Mathlib encoding of $\lim_{n\to\infty} I_n = \infty$ (independent of the unspecified value $I_0$). All components match.
+
+### putnam_2017_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes all the content of the informal problem: 2N students (`Fin (2*N)`), scores in {0,...,10} (`Fin 11`), each score occurring (`hsurj`), and total average 7.4 (`havg`). The conclusion asks for a Finset `s` of cardinality N (so its complement automatically has cardinality N, giving a partition into two groups of N) such that both the average over `s` and over `sᶜ` equal 7.4, matching "each group was exactly 7.4". The coercion `(score i : ℝ)` correctly passes through `Fin.val` to give the numerical score. The second average condition in the goal is slightly redundant (it follows from the first plus `havg`) but this preserves logical equivalence with the informal claim. No extra or missing hypotheses relative to the stated problem.
+
+### putnam_2017_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all components of the informal statement: (1) `lines` is defined as the set of parametric lines {v + t•w : t ∈ ℝ} with w ≠ 0, which is the standard characterization of lines in ℝ²; (2) L1, L2 being in `lines` with L1 ≠ L2 captures "distinct lines in the plane"; (3) "intersect" is correctly encoded as `L1 ∩ L2 ≠ ∅`; (4) the vector equation $\overrightarrow{PA_2} = \lambda\overrightarrow{PA_1}$ is correctly translated as `A2 - P = lambda • (A1 - P)` since $\overrightarrow{PA} = A - P$; (5) the quantifier structure (∀λ≠0, ∀P∉L1∪L2, ∃A1∈L1, ∃A2∈L2) and the iff are preserved exactly. No hypotheses are silently added or removed, and the ambient type ℝ² (as `Fin 2 → ℝ`) matches "the plane".
+
+### putnam_2017_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. `S a k` equals the sum $a + (a+1) + \cdots + (a+k-1)$ via `Finset.range k`. The predicate `p N k` means $N$ is expressible as a sum of $k$ consecutive positive integers (with $a > 0$), and `q N` means this works for $k=2017$ but no other $k > 1$. The goal asks for the least $a : ℤ$ such that $q(S a 2017)$ holds. Although the set is over $ℤ$ (while the informal says "positive integer $a$"), any $a ≤ 0$ cannot satisfy $q(S a 2017)$: it would require a positive $a' > 0$ with $S a' 2017 = S a 2017$, impossible since $S\cdot 2017$ is strictly increasing. Each valid $N$ has a unique $a$ (for $k=2017$), so the smallest $a$ over all valid expressions equals the smallest $a$ with $q(S a 2017)$. The answer `16 : ℕ` coerces to a positive integer in $ℤ$, matching the informal's requirement.
+
+### putnam_2017_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to evaluate the infinite sum ∑_{k=0}^∞ (3·ln(4k+2)/(4k+2) − ln(4k+3)/(4k+3) − ln(4k+4)/(4k+4) − ln(4k+5)/(4k+5)), and the intended answer is (ln 2)². The Lean formalization uses `∑' k : ℕ, ...` to express the sum starting from k=0, and the summand `3 * log (4 * k + 2) / (4 * k + 2) - log (4 * k + 3) / (4 * k + 3) - log (4 * k + 4) / (4 * k + 4) - log (4 * k + 5) / (4 * k + 5)` parses with correct precedence as (3·log(4k+2))/(4k+2) − log(4k+3)/(4k+3) − log(4k+4)/(4k+4) − log(4k+5)/(4k+5), matching the informal expression. The solution is declared as (log 2)^2, matching (ln 2)². The series is absolutely convergent (the summand is O(ln k / k²) by Taylor expansion), so `tsum` behaves correctly, and since (ln 2)² ≠ 0 the equation correctly asserts both summability and the value. This is a strictly faithful formalization.
+
+### putnam_2017_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the problem. The domain `Finset.range 64 → Finset.Icc 1 2017` captures 64-tuples with entries in {1,...,2017}. `Injective x` captures the "distinct" requirement. The piecewise sum correctly reproduces the coefficient pattern of $x_0 + x_1 + 2x_2 + 3x_3 + \cdots + 63 x_{63}$: the `if i ≤ ⟨1, _⟩` branch gives coefficient 1 for indices 0 and 1, and the `else` branch gives coefficient `i` for indices 2 through 63 (the Subtype ordering on `Finset.range 64` compares underlying naturals). Divisibility by 2017 is stated correctly via `2017 ∣ ...`. The hypothesis `hs` uniquely characterizes S as the set of tuples satisfying the condition, so `S.card` is the count being asked for.
+
+### putnam_2018_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement quantifies over integers `a b : ℤ` with the explicit hypothesis `0 < a ∧ 0 < b`, which correctly encodes "positive integers". The equation `(1 : ℚ)/a + (1 : ℚ)/b = (3 : ℚ)/2018` is the natural rational interpretation of `1/a + 1/b = 3/2018`. The `↔` between the equation and membership in `putnam_2018_a1_solution` correctly captures "find all ordered pairs". The six pairs listed in the solution set are exactly the solutions: rearranging gives (3a-2018)(3b-2018) = 2018² = 2²·1009², and the divisors of 2018² that are ≡ 1 mod 3 are {1, 4, 1009, 4036, 1018081, 4072324}, yielding exactly the pairs (673,1358114), (674,340033), (1009,2018), (2018,1009), (340033,674), (1358114,673). The formalization is logically equivalent to the informal statement.
+
+### putnam_2018_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The hypothesis `hS : Set.range S = (Set.Icc 1 n).powerset \ {∅}` correctly encodes "S_1,...,S_{2^n-1} are the nonempty subsets of {1,...,n} in some order" — since the domain Fin (2^n - 1) and target set both have cardinality 2^n - 1, the range equality forces S to be a bijection. The matrix definition `M i j = if (S i ∩ S j = ∅) = True then 0 else 1` is equivalent to the informal rule (via propext, `(P = True) ↔ P`, with classical decidability from Mathlib). The `npos : n ≥ 1` hypothesis surfaces an implicit premise — for n = 0, the empty matrix has det = 1 but the solution `if n = 1 then 1 else -1` gives -1, so n ≥ 1 is needed for truth and is the mathematically intended scope. The conclusion `M.det = putnam_2018_a2_solution n` is the standard encoding of "calculate det(M)".
+
+### putnam_2018_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement uses `IsGreatest` on the set of values $\sum_{i=1}^{10} \cos(3 x_i)$ where $x : \text{Fin } 10 \to \mathbb{R}$ satisfies $\sum_{i=1}^{10} \cos(x_i) = 0$. `IsGreatest s a` unfolds to `a ∈ s ∧ a ∈ upperBounds s`, which is exactly the standard meaning of "greatest possible value": the value is attained by some valid choice of $x$, and it upper-bounds all other attainable values. The encoding of the index set as `Fin 10`, the constraint, and the objective function all match the informal statement exactly. There is no added or dropped hypothesis, and the quantifier structure is correct. Hence the formalization is logically equivalent to the informal claim.
+
+### putnam_2018_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal Putnam 2018 A4 statement. It universally quantifies over a group G, has matching hypotheses (m,n positive with gcd=1), defines a_k via the floor formula ⌊mk/n⌋ - ⌊m(k-1)/n⌋ for k ∈ {1,...,n} (using Set.Icc 1 n subtype), and asserts the product (g·h^a_1)·(g·h^a_2)·...·(g·h^a_n) = 1 via List.Ico 1 (n+1) giving [1,...,n]. The conclusion g*h = h*g matches. The encoding choice of `a : ℕ → ℤ` (with only values at k=1,...,n constrained) is harmless since only those values are used in the product. The use of zpow for h^(a k) with a k : ℤ is consistent with natural powers since a_k are non-negative. This is a faithful formalization.
+
+### putnam_2018_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all components: (1) four points in the Euclidean plane via `EuclideanSpace ℝ (Fin 2)`; (2) pairwise distinctness (via the `P1 ≠ P2` conjunct inside PPprops, applied to all 6 pairs — sufficient for 4 distinct points); (3) "no three on a line" via the four non-collinearity conditions for all C(4,3) = 4 triples using Mathlib's standard `Collinear` predicate; (4) the squared-distance rationality condition for all 6 segments via `∃ q : ℚ, (dist P1 P2)^2 = q`; (5) triangle areas are encoded as the 2D Lebesgue volume of the convex hull of 3 points, which is the standard formalization of triangle area in ℝ²; and (6) the rational-quotient conclusion via `∃ q : ℚ, (…).toReal = q`. Since both triangles have positive finite area (non-collinear triples), the ENNReal division and `.toReal` give the ordinary real area ratio, so the conclusion correctly asserts rationality of the ratio. No hypothesis is silently dropped or added and the encoding is logically equivalent to the informal statement.
+
+### putnam_2018_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal Putnam 2018 B1 problem. P is defined as the Finset of vectors (a,b) with 0 ≤ a ≤ 2 and 0 ≤ b ≤ 100. Pvdiff = P \ {v}. The partition conditions Q ∪ R = Pvdiff and Q ∩ R = ∅ correctly encode a disjoint partition. Q.card = R.card captures "equal size", and the two sum equalities on components 0 and 1 correctly capture "equal sum" of vectors (vector sum is componentwise). The biconditional with the solution set is faithful: when v ∉ P, the LHS is false via the v ∈ P conjunct, and the solution set {v | ∃ b, 0 ≤ b ≤ 100, Even b, v = ![1,b]} is automatically contained in P, so the iff behaves correctly in all cases. No hypotheses are dropped or added relative to the informal statement.
+
+### putnam_2018_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding matches the informal statement exactly. The sum `∑ i ∈ Finset.range n, (n - i) * z^i` expands as $n + (n-1)z + \cdots + 1 \cdot z^{n-1}$ (since for $i < n$, the coerced subtraction `(n : ℂ) - (i : ℂ)` equals the natural-number difference). The hypothesis `n > 0` corresponds to "positive integer", and `‖z‖ ≤ 1` on `ℂ` is the standard modulus, matching the closed unit disk. The conclusion `f n z ≠ 0` captures "no roots". The encoding pattern where `f : ℕ → ℂ → ℂ` is given abstractly with `hf` only constraining `f n` is standard and logically equivalent to stating the claim directly about the defined polynomial.
+
+### putnam_2018_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures Putnam 2018 B3. The positivity hypothesis `0 < n` matches "positive integers", and `n < 10^100` matches the bound. The three divisibility conditions are cast to ℤ (via `(n - 1 : ℤ)` which elaborates as `(↑n - 1 : ℤ)` due to the type ascription, avoiding ℕ's truncated subtraction); this correctly encodes "n-1 divides 2^n-1" and "n-2 divides 2^n-2" as integer divisibility, including making n=1 and n=2 fail (since 0 ∣ 1 and 0 ∣ 2 are false in both Lean and the informal reading). The "find all" requirement is correctly encoded as a biconditional with membership in the solution set, and the commented solution `{2^2, 2^4, 2^16, 2^256}` matches the known answer. No hypotheses are added or dropped.
+
+### putnam_2018_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim exactly. The initial conditions (x 0 = 1, x 1 = a, x 2 = a) match. The recurrence `x (n + 3) = 2 * x (n + 2) * x (n + 1) - x n` is the same as the informal `x_{n+1} = 2x_n x_{n-1} - x_{n-2}` for n ≥ 2 (just an index shift — setting Lean's n to informal's n−2 gives the same equation). The conclusion `∃ c, c > 0 ∧ Function.Periodic x c` with `c : ℕ` unfolds to ∃ c ≥ 1, ∀ n, x(n+c) = x(n), which is the standard mathematical definition of a periodic sequence. The implication structure (zero value somewhere ⇒ periodic) matches the informal statement.
+
+### putnam_2018_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The domain/codomain (Fin 2 → ℝ) encodes ℝ². `ContDiff ℝ 1 f` encodes the "continuous partial derivatives" hypothesis (equivalent to C¹ in finite dimensions). In `h₂`, the quantifier `∀ x i j, 0 < fderiv ℝ f x (Pi.single i 1) j` correctly states that all four partial derivatives ∂f_j/∂x_i are positive everywhere (since Pi.single i 1 is the i-th standard basis vector). In `h₃`, `![1, 0]` = Pi.single 0 1 and `![0, 1]` = Pi.single 1 1 are the standard basis vectors, so `fderiv ℝ f x ![1,0] 0 * fderiv ℝ f x ![0,1] 1 - (1/4) * (fderiv ℝ f x ![1,0] 1 + fderiv ℝ f x ![0,1] 0)^2` computes exactly ∂f₁/∂x₁ · ∂f₂/∂x₂ − (1/4)(∂f₂/∂x₁ + ∂f₁/∂x₂)², matching the informal discriminant condition. `Injective f` matches "one-to-one".
+
+### putnam_2018_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes Putnam 2018 B6. Sequences of length 2018 with integer entries are represented as `Fin 2018 → ℤ`. The hypothesis `hS : S = {s | ...}` equates the Finset S (via Finset→Set coercion) with the Set of functions whose values lie in {1,2,3,4,5,6,10} and sum to 3860, which pins down S as exactly the finite collection described (finiteness is guaranteed since each entry is from a 7-element set). The conclusion `S.card ≤ 2 ^ 3860 * ((2018 : ℝ) / 2048) ^ 2018` elaborates in ℝ (due to the ℝ-cast on 2018), coercing S.card to ℝ, which matches the informal inequality |S| ≤ 2^3860 · (2018/2048)^2018 exactly. No hypotheses are silently added or dropped, and the quantifier structure is standard ("let S = ..." encoded via a parameter plus definitional hypothesis).
+
+### putnam_2019_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully formalizes the informal problem. "Nonnegative integers $A, B, C$" is correctly encoded as `A B C : ℤ` with `A ≥ 0 ∧ B ≥ 0 ∧ C ≥ 0` (equivalent to ℕ). The expression $A^3 + B^3 + C^3 - 3ABC$ is faithfully written in ℤ. "Determine all possible values" is properly formalized as an equality between the image set $\{n \mid \exists A,B,C \geq 0, A^3+B^3+C^3-3ABC = n\}$ and the answer set. The answer set uses `Int.ModEq 9 n 3`, which (per Mathlib's `Data/Int/ModEq.lean`) means `n % 9 = 3 % 9`, i.e., $n \equiv 3 \pmod 9$, matching the standard meaning. No hypotheses are added or dropped, and the quantifier structure and ambient types match the informal claim.
+
+### putnam_2019_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all the mathematical content of the informal statement. (1) The polynomial has degree exactly 2019 via `b.degree = 2019`, consistent with b_{2019} ≠ 0 and the ordering constraints. (2) The constraint `∀ i : Fin 2020, (b.coeff i).im = 0` ensures all 2020 coefficients b_0, ..., b_{2019} are real; higher coefficients are automatically zero given the degree constraint. (3) The crucial monotonicity `∀ i : Fin 2019, (b.coeff i).re < (b.coeff (i + 1)).re` — I verified via Mathlib source (Mathlib/Algebra/Group/Fin/Basic.lean lines 42-53) that Lean's `binop%` elaborator coerces `i : Fin 2019` to `ℕ` first (no `Nat → Fin` coercion exists globally to avoid wraparound), so `(i + 1)` is `(↑i + 1 : ℕ)` ranging over 1..2019, correctly giving b_0 < b_1 < ... < b_{2019}. (4) Combined with `1 ≤ (b.coeff 0).re` and `(b.coeff 2019).re ≤ 2019`, this matches `1 ≤ b_0 < ... < b_{2019} ≤ 2019`. (5) `μ` averages the norms of the roots (2019 of them by algebraic closedness of ℂ). (6) `IsGreatest {M | ∀ b, v b → μ b ≥ M} solution` correctly captures "largest M such that μ ≥ M for all valid b". The solution `2019^(-1/2019)` also matches.
+
+### putnam_2019_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes Putnam 2019 A4. The domain `EuclideanSpace ℝ (Fin 3)` is $\mathbb{R}^3$ with Euclidean structure, `Continuous f` matches continuity, and `sphere C 1` in Mathlib is `{y | dist y C = 1}` — the sphere surface (not a ball), matching "the surface of S". The 2-dimensional Hausdorff measure `μH[2]` on a 2-sphere in $\mathbb{R}^3$ gives the standard surface measure (up to a constant that does not affect the "integral = 0" condition). Quantifying over all centers `C` captures "every sphere of radius 1". The conclusion `f = 0` means pointwise zero (identically 0). Since the solution is `False`, the Lean statement asserts the negation of the question, matching the actual answer "No, f need not be identically 0".
+
+### putnam_2019_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal problem. The polynomial q is uniquely determined by hq combined with ha0 (coeff 0 = 0, coeff k = 0 for k > p-1) and haother (coeff k = k^((p-1)/2) mod p for k ∈ [1, p-1]), matching q(x) = Σ_{k=1}^{p-1} a_k x^k exactly. The coercion `((k : ℕ) ^ ((p-1)/2)) % p : ZMod p` is equal to `(k : ZMod p)^((p-1)/2)` since the ℕ→ZMod p cast factors through mod p. The hypotheses `podd : Odd p` and `pprime : p.Prime` together correctly capture "odd prime". The conclusion uses `IsGreatest {n | (X-1)^n ∣ q} ((p-1)/2)`, faithfully encoding "the greatest n such that (x-1)^n divides q(x)". The solution `(p-1)/2` matches the well-known Putnam 2019 A5 answer.
+
+### putnam_2019_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The continuity and differentiability hypotheses correctly encode "continuous on [0,1]" and "twice differentiable on (0,1)" (since `DifferentiableOn ℝ (deriv g) (Ioo 0 1)` makes g' continuous, ensuring C¹, so the conjunction is equivalent to twice differentiability on the open interval). The limit hypothesis `Tendsto (fun x => g x / x^r) (𝓝[>] 0) (𝓝 0)` directly matches lim_{x→0+} g(x)/x^r = 0. The first disjunct `Tendsto (deriv g) (𝓝[>] 0) (𝓝 0)` matches lim_{x→0+} g'(x) = 0. For the second disjunct: the sSup over (0,x] in WithTop ℝ equals ⊤ iff the real set {x'^r |g''(x')| : x' ∈ (0,x]} is unbounded; since this sup is monotone non-increasing as x → 0⁺, `Tendsto ... atTop` forces the sup to equal ⊤ for all small x > 0, which by monotonicity is equivalent to sup over (0,δ) being ∞ for all δ > 0, i.e., limsup_{x→0+} x^r |g''(x)| = ∞. The `iteratedDeriv 2 g` coincides with g'' on (0,1) where g is twice differentiable. All components are logically equivalent to the informal statement.
+
+### putnam_2019_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures Putnam 2019 B1. (1) Pn is defined as (0,0) together with integer points satisfying x²+y²=2^k for k ≤ n; using k : ℕ rather than k : ℤ loses no points since x²+y² ≥ 0 is an integer and 2^k is non-integer for k<0. (2) The square predicate requires a cyclic ordering p4 with 4 equal "side" distances and equal "diagonal" distances (|p0-p2|=|p1-p3|). Analysis via perpendicular bisectors shows this condition is equivalent to the 4 points being the vertices of a square: 4 equal cyclic sides force a rhombus (convex, since the degenerate case is excluded), and equal diagonals in a rhombus force a square. (3) Distances computed via EuclideanSpace ℝ (Fin 2) via the canonical ℤ→ℝ embedding correctly capture Euclidean distance. (4) The `.encard` counts four-point subsets of Pn that are square vertex sets. (5) The proposed answer 5n+1 matches the standard Putnam solution. All hypotheses and quantifier structures align with the informal statement.
+
+### putnam_2019_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal claim. The sum `∑ k : Icc (1 : ℤ) (n - 1), ...` uses integer subtraction (forced by `Icc (1 : ℤ) ...`), so for n = 0 or n = 1 it is the empty sum and for n ≥ 2 it ranges over 1, ..., n-1, matching the informal definition of a_n. The summand expression exactly mirrors sin((2k-1)π/(2n)) / (cos²((k-1)π/(2n)) · cos²(kπ/(2n))). The limit `Tendsto (fun n => (a n)/n^3) atTop (𝓝 (8/π^3))` captures lim_{n→∞} a_n/n^3 = 8/π³ — finitely many boundary values (n = 0 where 0/0 = 0) don't affect the `atTop` filter limit. The solution value 8/π³ matches the known Putnam 2019 B2 answer. No hypotheses are added, dropped, or weakened.
+
+### putnam_2019_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. Orthogonality of Q is encoded via dot products of both rows and columns (redundant for square matrices but mathematically equivalent to being orthogonal). The unit vector condition `uᵀ*u = 1` correctly encodes u^T u = 1 via the 1×1 identity matrix. P = 1 - 2*(u*uᵀ) exactly matches I - 2uu^T. The conclusion "det(Q-I) ≠ 0 → det(PQ-I) = 0" correctly encodes "1 is not an eigenvalue of Q implies 1 is an eigenvalue of PQ" since a matrix has 1 as an eigenvalue iff det(M-I)=0. The `n > 0` hypothesis is needed for the statement to be true (at n=0, the hypothesis holds vacuously but the conclusion fails since det of a 0×0 matrix is 1), and it's implicit in the phrases "n-by-n matrix" and "u ∈ ℝⁿ" — making an implicit premise explicit is faithful.
+
+### putnam_2019_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the informal Putnam 2019 B5 problem. The Fibonacci recurrence `∀ x ≥ 1, F(x+2) = F(x+1) + F(x)` with `F 1 = F 2 = 1` matches the informal definition (substituting m = x+2 gives the m ≥ 3 recurrence). The polynomial is specified with exact degree 1008 and interpolation at the 1009 odd values 2n+1 for n = 0,...,1008, matching the informal. The conclusion uses the standard Putnam "find-the-answer" idiom: an iff statement encoding that (2019, 1010) is the unique pair (j, k) with j, k ≥ 1 satisfying p(2019) = F_j - F_k. Uniqueness indeed holds here, as F_j - F_k = F_{2019} - F_{1010} forces j = 2019, k = 1010 by the strict monotonicity and growth of Fibonacci numbers. The 1 ≤ j, 1 ≤ k constraints properly exclude the unconstrained F(0) value. The ℕ choice is appropriate since the problem's Fibonacci indices are non-negative.
+
+### putnam_2019_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes all parts of the informal statement: (1) the neighbors relation matches "differ by exactly 1 in one coordinate, equal in all others"; (2) condition 1 "∀ p ∈ S, ∀ q, neighbors p q → q ∉ S" matches "no neighbor of p is in S"; (3) condition 2 uses `.encard = 1` which correctly encodes "exactly one neighbor in S"; (4) the n ≥ 1 restriction is embedded as `1 ≤ n ∧ ...` on the LHS of the iff, which is a standard encoding choice. For n = 0, both sides of the iff are false (automatically excluding n=0 as the informal does); for n ≥ 1, the LHS reduces to "∃ S with properties" and the RHS is true since Set.Ici 1 contains all n ≥ 1. The theorem thus asserts exactly that such S exists for all n ≥ 1, matching the informal claim and its answer. No hypotheses, conclusions, types, or quantifier structures are altered.
+
+### putnam_2020_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes all three conditions. (i) `2020 ∣ x` is exact. (ii) For positive x, `Nat.log 10 x + 1` equals the number of decimal digits, so `≤ 2020` matches "at most 2020 decimal digits". (iii) With k ≥ l, the sum `∑ i ∈ Finset.range (k-l+1), 10^(i+l) = 10^l + 10^(l+1) + ... + 10^k` produces exactly a number whose decimal representation is (k-l+1) consecutive 1s followed by l consecutive 0s, with k-l+1 ≥ 1. Positivity ("positive integer N") is implicit because condition (iii) forces x ≥ 10^l ≥ 1, so x=0 is automatically excluded. The computed answer 508536 = 504·1009 matches the standard combinatorial analysis (b≥2, a divisible by 4, a+b ≤ 2020), confirming the encoding is semantically correct.
+
+### putnam_2020_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. `k : ℕ` corresponds to "nonnegative integer"; `Finset.Icc 0 k` correctly encodes the summation range j=0 to k; `2 ^ (k - j)` is correct since j ≤ k means natural subtraction gives the intended value; `Nat.choose (k + j) j` correctly represents the binomial coefficient $\binom{k+j}{j}$. The solution function `fun k => 4^k` matches the actual value of the sum (verified for small k: k=0→1, k=1→4, k=2→16). The statement is an equality claim evaluating the sum, which is exactly what the informal statement asks.
+
+### putnam_2020_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization captures the informal statement precisely. The initial condition `a 0 = Real.pi / 2` matches $a_0 = \pi/2$. The recurrence `a (n+1) = Real.sin (a n)` is equivalent to $a_n = \sin(a_{n-1})$ for $n \geq 1$. The partial sum `∑ n ∈ Finset.Icc 1 m, (a n)^2` sums from n=1 to m, matching the sum $\sum_{n=1}^\infty a_n^2$ starting at index 1. The convergence predicate `∃ L, Tendsto (fun m => partial sum) atTop (𝓝 L)` is the standard definition of series convergence. The overall biconditional with `putnam_2020_a3_solution` correctly encodes the "determine whether it converges" question format.
+
+### putnam_2020_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures the informal content. `Nat.fib` in Mathlib satisfies fib 0 = 0, fib 1 = 1, fib 2 = 1, fib 3 = 2, fib 4 = 3, matching the informal Fibonacci indexing for k ≥ 1 (which is enforced by `k > 0`). Using `Finset ℕ` is the correct formalization of "sets of positive integers" since the sum must be finite (all F_k ≥ 1 for k ≥ 1 forces any S with finite sum to be finite). The expression `∑ k : S, Nat.fib k` sums over the attached subtype of S, equivalent to `∑ k ∈ S, Nat.fib k` by `Finset.sum_attach`. Extending the domain to ℤ is harmless since a_n = 0 for negative n. Finally, `IsGreatest {n | a n = 2020} putnam_2020_a5_solution` precisely asserts the solution is the maximum integer n with a_n = 2020. All components align with the informal statement.
+
+### putnam_2020_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal statement. The formula `(N + 1/2 - n)/((N + 1)*(2*n + 1)) * Real.sin ((2*n + 1)*x)` elaborates in ℝ (since Real.sin forces the context to ℝ), so `1/2` is correctly 0.5, not integer division. `Finset.Icc 0 N` for N : ℤ with N > 0 gives {0, 1, ..., N}, matching the sum bounds n=0 to N. The quantifier `∃ᵉ (N > 0) (x : ℝ)` restricts N to positive integers (matching "positive integer N") and x to all reals, and `sSup` of the range gives precisely the "smallest constant M such that f_N(x) ≤ M for all N and all real x" since the set is nonempty and bounded above (answer is π/4). The types match, the quantifier structure matches, and the supremum encoding faithfully captures "smallest upper bound".
+
+### putnam_2020_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature correctly encodes d(n) as the sum of the binary digits of n via `∑ i : Fin (Nat.digits 2 n).length, (Nat.digits 2 n)[i]!` — `Nat.digits 2 n` returns the little-endian binary digits of n, and summing them yields the digit sum (e.g., for n=13 = 1101₂, the list [1,0,1,1] sums to 3, matching the example). The sum S = `∑ k : Icc 1 2020, ((-1:ℤ)^(d k))*(k:ℤ)^3` iterates over the Fintype subtype of Set.Icc 1 2020 = {1,…,2020} with summand (-1)^{d(k)} * k^3, matching the informal expression. The conclusion `S % 2020 = putnam_2020_b1_solution` (= 1990) uses `Int.emod`, which returns the unique value in [0, 2020) congruent to S mod 2020 — the natural reading of "S modulo 2020". No extra or missing hypotheses.
+
+### putnam_2020_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes (2n+1)-tuples as functions ℕ → ℤ with s_j = 0 for j ≥ 2n (covering the informal s_{2n} = 0 and standardizing values at j > 2n so V n is finite). This standardization preserves the bijection with informal tuples, and these extra indices don't appear in q (which sums over j ∈ Icc 1 (2n-1)) or the walk constraint (j ∈ Icc 1 (2n)). The walk condition |s_j - s_{j-1}| = 1 is correctly captured, the definition of q(v) = 1 + Σ_{j=1}^{2n-1} 3^{s_j} matches exactly, and M n is computed as (∑' over V n of 1/q)/|V n| which equals the finite average since V n is finite (so tsum equals the finite sum, and ncard gives the true cardinality). The "n positive" hypothesis is not needed since we only evaluate at n = 2020. All mathematical content matches faithfully.
+
+### putnam_2020_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement quantifies over four complex numbers via `z : Fin 4 → ℂ`, matching "for j ∈ {1,2,3,4}". The hypothesis `‖z n‖ = 1` correctly captures |z_j| = 1 since the norm on ℂ in Mathlib (defined in `Mathlib/Analysis/Complex/Norm.lean` as `√(normSq z)`) is the standard complex absolute value. The hypothesis `z n ≠ 1` directly matches z_j ≠ 1. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0) * (z 1) * (z 2) * (z 3) ≠ 0` matches the informal conclusion exactly (with only a cosmetic 0-indexing vs 1-indexing). No hypotheses are added or dropped, and types (ℂ) match.
+
+### putnam_2020_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The hypothesis `n : ℕ` with `npos : n > 0` matches "positive integer n". `Finset.Icc 1 n` ranges over k = 1, ..., n, matching $\sum_{k=1}^n$. `Int.floor (k * (Real.sqrt 2 - 1))` correctly encodes $\lfloor k(\sqrt{2}-1) \rfloor$ using implicit coercion of k from ℕ to ℝ. The power `((-1) ^ Int.floor (...) : ℝ)` uses zpow with base (-1 : ℝ), which yields ±1 based on parity, correctly matching $(-1)^{\lfloor k(\sqrt{2}-1) \rfloor}$ (and since k ≥ 1 and √2 > 1, the floor is actually non-negative anyway). The final `≥ 0` matches the inequality. No hypotheses are added or dropped, and the types align with the intended meaning.
+
+### putnam_2021_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The formalization correctly captures: (1) grasshopper starts at origin via `(0,0) :: l`; (2) hop length 5 via squared distance 25 using Chain' on consecutive pairs; (3) integer coordinates via `ℤ × ℤ`; (4) reaches (2021, 2021) via `l.getLast! = (2021, 2021)`; (5) number of hops is `l.length` since the chain `[(0,0), l₁, ..., lₖ]` has exactly k transitions between k+1 positions; (6) "smallest number" via `IsLeast`. The empty list case is excluded because `getLast!` on an empty list of `ℤ × ℤ` returns the default (0,0) which doesn't equal (2021, 2021). Paths that pass through (2021, 2021) before ending elsewhere are excluded, but this doesn't affect the minimum since any such path can be truncated to a shorter/equal-length path ending at (2021, 2021). The formalization is logically equivalent to the informal statement.
+
+### putnam_2021_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement defines $g(x) = \lim_{r \to 0}((x+1)^{r+1} - x^{r+1})^{1/r}$ (two-sided) and asks for $\lim_{x \to \infty} g(x)/x$. The Lean formulation uses `𝓝[>] 0` (right-sided limit) in the hypothesis defining $g$. For this specific expression, expanding $(x+1)^{r+1} - x^{r+1} = 1 + rL + O(r^2)$ with $L = (x+1)\ln(x+1) - x\ln x$, both one-sided limits (and hence the two-sided limit) exist and equal $e^L$. So any $g$ satisfying the right-sided limit condition has the same values on $(0,\infty)$ as any $g$ satisfying the two-sided limit condition. The quantifier `∀ x > 0` matches "for every positive real number $x$", and the conclusion `Tendsto (g x / x) atTop (𝓝 (Real.exp 1))` matches the informal limit and answer $e$. The two theorems are therefore logically equivalent and faithful.
+
+### putnam_2021_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the informal statement. The sphere x²+y²+z²=N is captured by `Nsphere`. Integer coordinates are encoded via `p i = round (p i)`, which holds iff each coordinate is an integer (since Mathlib's `round : ℝ → ℤ` returns the same integer back upon re-coercion iff the input is an integer). The regular tetrahedron condition is encoded by 4 points with all 6 pairwise distances (AB, AC, AD, BC, BD, CD) equal to a common positive s — in ℝ³ this is equivalent to a (non-degenerate) regular tetrahedron. The `s > 0` ensures distinct vertices. Vertices on the sphere match "inscribed". The positivity constraint `0 < N` correctly restricts to positive integers, and for N = 0 both sides of the iff are false (since the solution set excludes 0). The iff with the solution set correctly characterizes the set of valid N.
+
+### putnam_2021_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The integration region uses `Metric.ball 0 R` (open ball) in `EuclideanSpace ℝ (Fin 2)`, while the informal uses the closed disk $x^2+y^2 \leq R^2$; these differ only by the boundary sphere, which has 2D Lebesgue measure zero, so the integrals are identical. The volume measure on `EuclideanSpace ℝ (Fin 2)` corresponds to the standard 2D Lebesgue measure (via `PiLp.volume_preserving_toLp`). The integrand `(1 + 2*(p 0)^2)/(1 + (p 0)^4 + 6*(p 0)^2*(p 1)^2 + (p 1)^4) - (1 + (p 1)^2)/(2 + (p 0)^4 + (p 1)^4)` matches the informal expression exactly with $x = p\,0$ and $y = p\,1$. The conclusion `Tendsto I atTop (𝓝 solution)` is the standard way to express $\lim_{R \to \infty} I(R) = $ solution, and the solution $\frac{\sqrt{2}}{2}\pi \ln 2$ matches. Stating a specific limit value correctly answers "find the limit, or show it doesn't exist" when the limit exists.
+
+### putnam_2021_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. The set A is formalized as a Finset ℕ equal to {n | 1 ≤ n ∧ n ≤ 2021 ∧ Nat.gcd n 2021 = 1}, matching the informal definition of A (the `1 ≤ n` condition is in both, and the bound n ≤ 2021 and coprimality condition match). The function S : ℕ → ℕ satisfies S(j') = ∑_{n ∈ A} n^{j'}, matching S(j) = Σ n^j. The conclusion "(2021 ∣ S j) ↔ j ∈ putnam_2021_a5_solution" correctly encodes the "determine all j" style problem as an iff characterization of the solution set. The universal quantification over j (as a free variable), A, and S combined with the defining hypotheses hA and hS is the standard faithful way to formalize such problems. No extra hypotheses are added or dropped, no types are changed incorrectly (Finset for a manifestly finite set is appropriate), and the quantifier structure matches the informal question.
+
+### putnam_2021_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes Putnam 2021 A6. P is forced to be `Polynomial ℤ` by the factorization `P = Q * R` with `Q R : Polynomial ℤ`. The condition `∀ n, P.coeff n = 0 ∨ P.coeff n = 1` correctly formalizes "coefficients are all 0 or 1". `Q.degree > 0` in Mathlib (where `degree : WithBot ℕ` returns ⊥ for the zero polynomial) correctly captures "nonconstant". The conclusion `P.eval 2 ≠ 0 ∧ P.eval 2 ≠ 1 ∧ ¬Prime (P.eval 2)` correctly captures "P(2) is composite" since P has nonnegative coefficients so P(2) ≥ 0, and ruling out 0, 1, and primes from a nonnegative integer is exactly the condition for being composite. The iff with `putnam_2021_a6_solution := True` correctly answers the question posed ("Does it follow...?") affirmatively.
+
+### putnam_2021_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes: (1) sequences indexed from 1 via `a : ℕ+ → ℝ`; (2) nonnegativity via `∀ k, 0 ≤ a k`; (3) the constraint `∑' k, a k = 1` over ℕ+, which equals $\sum_{k=1}^\infty a_k = 1$; (4) the sum $S = \sum_{n=1}^\infty \frac{n}{2^n}(a_1\cdots a_n)^{1/n}$ via `∑' n : ℕ+, n / 2^(n : ℕ) * (∏ k ∈ Finset.Icc 1 n, a k)^(1/n : ℝ)`, where `Finset.Icc 1 n` for `n : ℕ+` gives {1,...,n}, so the product is $a_1 a_2 \cdots a_n$, and `^(1/n : ℝ)` is `Real.rpow` giving the n-th root for nonnegatives. (5) "Maximum value" is `IsGreatest`, which asserts the value is both attained and an upper bound — correct for a maximum. No hypotheses are silently added or dropped, and all types match standard conventions.
+
+### putnam_2021_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the Putnam 2021 B3 problem. (1) ρ is correctly defined: `(p 1) * deriv (fun x' => h !₂[x', p 1]) (p 0)` is y·h_x(x,y) and `(p 0) * deriv (fun y' => h !₂[p 0, y']) (p 1)` is x·h_y(x,y), giving ρ = y·h_x − x·h_y. (2) `ContDiff ℝ 2 h` corresponds to "twice continuously differentiable throughout ℝ²". (3) The quantifier structure "∀ d>0, ∀ r>0, d>r → ∃ c, dist c 0 = d ∧ ..." exactly captures "for any positive constants d and r with d>r, there is a circle of radius r with center at distance d from the origin". (4) `Metric.ball c r` is the open disk, matching "interior of the circle". (5) The integral is over the disk as asked. The solution being `True` matches the "Prove or disprove" form. No hypotheses are added or dropped.
+
+### putnam_2021_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The "very odd" predicate is characterized by quantifying over all injective functions reind : Fin m → Fin n for m ∈ [1,n]; this is equivalent to quantifying over all nonempty subsets S of {1,...,n} because (a) each nonempty subset of size m corresponds to m! such injective functions, and (b) different orderings yield submatrices related by simultaneous row-column permutation B = PAP^{-1}, which have identical determinants (not merely up to sign). The submatrix A.submatrix reind reind correctly selects the principal submatrix (a_{ij})_{i,j∈S}. The conclusion ∀ A, veryodd A → ∀ k ≥ 1, veryodd (A^k) matches the informal claim. The hypothesis npos : n ≥ 1 is a reasonable implicit premise (n = 0 is trivial since there are no nonempty subsets).
+
+### putnam_2022_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for all pairs (a,b) such that the line y = ax+b intersects y = ln(1+x²) in exactly one point. Since both are functions of x, an intersection point is uniquely determined by its x-coordinate, so "exactly one intersection point" is equivalent to "there is a unique x with ax+b = ln(1+x²)". The Lean encoding `{(a, b) | ∃! x : ℝ, a * x + b = Real.log (1 + x^2)}` uses `∃!` (unique existence) which is the standard Mathlib encoding for "exactly one". The equation correctly identifies the x-coordinates of intersection points. The statement asserts this set equals the provided solution set, which is exactly the "determine all" formulation. The formalization is strictly faithful.
+
+### putnam_2022_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes Putnam 2022 A2. (1) `S = {P | natDegree P = n}` with n ≥ 2 correctly captures "real polynomials of degree exactly n" since natDegree P = n for n ≥ 2 implies P ≠ 0 and leading term at degree n. (2) The `negs` function, when applied to `P^2`, sums over `Finset.range ((P^2).natDegree + 1)` checking `(P^2).coeff i < 0`, which correctly counts negative coefficients of P^2 (indices beyond natDegree have coefficient 0, contributing nothing). (3) `sSup {negs (P^2) | P ∈ S}` gives the maximum since for n ≥ 2 the set is nonempty (e.g., P = X^n yields 0) and bounded above by 2n+1. (4) The solution `fun n => 2*n - 2` matches the known Putnam answer. The hypothesis n ≥ 2 matches the informal statement. Types (ℝ[X], ℕ) are correct.
+
+### putnam_2022_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The primality condition `Nat.Prime p ∧ p > 5` matches "prime p > 5". The sequence space uses `ℕ → ZMod p` with `a n ≠ 0`, which is in natural bijection (via reindexing b_k = a_{k+1}) with 1-indexed sequences taking values in {1,...,p-1}; under this bijection the recurrence "for all n ≥ 1, a_n·a_{n+2} ≡ 1+a_{n+1} (mod p)" corresponds exactly to "for all n : ℕ, a n * a (n+2) = 1 + a (n+1)" in ZMod p, so the two sets have the same cardinality. The count via `.ncard` and the conclusion `f ≡ 0 [MOD 5] ∨ f ≡ 2 [MOD 5]` directly match "f(p) is congruent to 0 or 2 (mod 5)". No hypotheses are added or dropped.
+
+### putnam_2022_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures Putnam 2022 A4. The sequence X : ℕ → Ω → ℝ is i.i.d. uniform on [0,1] via MeasureTheory.pdf.IsUniform and iIndepFun (which defaults to ℙ). The set-valued k(ω) = sSup{Set.Iic m : ∀ l < m, X l > X (l+1)} equals {0,...,M} where M is the position of the first ascent in 0-indexed terms, which corresponds exactly to k-1 in the informal 1-indexed setup. Correspondingly, S = ∑' i∈k(ω), X_i/2^(i+1) with exponent i+1 compensates exactly for the 0-indexing shift, yielding the same sum as the informal ∑_{i=1}^k X_i/2^i. The strict vs non-strict inequality difference (Lean uses X_l > X_{l+1} while the informal complement is X_l ≥ X_{l+1}) is irrelevant since continuous i.i.d. values have no ties a.s., and the k=∞ case is a null event. The answer 2·Real.exp(1/2) - 3 = 2√e - 3 matches the correct Putnam answer (verified by the standard computation ∑_{i=1}^∞ 2^{-i}/(i+1)!). The formalization is faithful.
+
+### putnam_2022_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the Putnam 2022 A5 game: (1) Fin 2022 models the 2022 squares; (2) IsValidMove correctly encodes both tile placements (∃ i < 2021 with i, i+1 uncovered) and the terminal no-op state (x = y with no two adjacent uncovered); (3) IsValidGame forces the initial state to be ∅ and consecutive moves to be valid; (4) ConformsToStrategy at even i (0, 2, ...) correctly models Alice going first; (5) the set captures the minimax: exists Alice strategy s such that against any Bob play, the last state's complement has ≥ n uncovered squares. Since the complement is monotonically non-increasing, the binding constraint is at terminal states, so this formulation correctly equals max over Alice's strategies of min over Bob's plays of |uncovered at terminal|. IsGreatest then returns the optimal value Alice can guarantee, which is exactly what the informal problem asks.
+
+### putnam_2022_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. Encoding the finite tuple (x_1, ..., x_{2n}) as a function ℕ → ℝ with `StrictMono x`, `-1 < x 1`, `x (2*n) < 1` is equivalent: given any x_1 < ... < x_{2n} in (-1, 1) one can extend to a strictly monotonic function on ℕ (the unused positions don't affect the sum), and conversely any such function restricts to a valid informal witness. The sum `∑ i ∈ Icc 1 n, (x (2*i))^(2*k-1) - (x (2*i-1))^(2*k-1)` correctly expresses the sum of interval lengths (odd power preserves order), and k ∈ Icc 1 m ensures 2k-1 ≥ 1 so the natural subtraction is fine. `IsGreatest` is defined as membership plus upperBound, which correctly encodes "the largest m with the property". The hypothesis `hn : 0 < n` matches "n is a positive integer".
+
+### putnam_2022_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal Putnam 2022 B1. `P : Polynomial ℤ` matches "polynomial with integer coefficients"; `Pconst : P.coeff 0 = 0` encodes the implicit "no constant term" since the informal P(x) = a₁x + a₂x² + ... + aₙxⁿ starts at x¹; `Podd : Odd (P.coeff 1)` encodes "a₁ is odd" since a₁ is precisely the coefficient of x¹; `hB` encodes "e^{P(x)} = b₀ + b₁x + b₂x² + ... for all x" as pointwise convergence of the series to Real.exp(aeval x P), where `aeval` correctly lifts the integer polynomial to ℝ via the algebra map; and the conclusion `∀ k : ℕ, b k ≠ 0` matches "b_k is nonzero for all k ≥ 0". No hypothesis or conclusion is strengthened or weakened relative to the informal statement.
+
+### putnam_2022_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal question. A `Finset (Fin 3 → ℝ)` with `S.card = n` correctly models "a set with exactly n elements in ℝ³" (finite by construction). The `0 < n` hypothesis matches "positive integer n" in the informal problem. The equation `S = {u | ∃ v w : S, u = crossProduct v w}` uses the standard Finset→Set coercion (from Mathlib's SetLike instance) with the subtype CoeSort `v w : S` ranging over elements of S, so this exactly expresses "S = {v × w : v, w ∈ S}" using Mathlib's standard `crossProduct` from `LinearAlgebra/CrossProduct.lean`. The iff characterizes the solution set as exactly the positive integers n for which such S exists, matching the informal question's scope. No hypotheses are added or dropped, and the conclusion is preserved.
+
+### putnam_2022_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature encodes the informal question faithfully. The `recolor` function is characterized by `recolor isred d ↔ ∃ p q > 0, p < q ∧ isred p = isred q ∧ q - p = d`, which exactly captures "d ∈ D" (there exist two positive same-colored points at distance d); `isred p = isred q` equals `isred p ↔ isred q` by propext, capturing "same color". The conclusion `∀ isred, ∃ k, ∀ p > 0, (recolor^[k] isred) p` matches "for every initial coloring, after finitely many iterations every positive real is red". Although `isred` is typed on all of ℝ rather than only positive reals (as the comment notes), this boost is harmless because `recolor` only inspects values at positive arguments, so values on non-positive reals never propagate and the final `∀ p > 0` restriction selects exactly the relevant conclusion. The iff with `putnam_2022_b3_solution` is the standard Putnam yes/no encoding.
+
+### putnam_2022_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean theorem correctly encodes the Putnam 2022 B4 question. The hypothesis n ≥ 4 matches the informal constraint. The ap3 predicate defines "3-term AP when sorted in increasing order" correctly: for distinct x0,x1,x2 (which is guaranteed here by the distinctness hypothesis combined with n ≥ 4 making i, (i+1) mod n, (i+2) mod n distinct), it asserts that the unique sorted triple satisfies the AP condition. The xprog predicate requires distinctness over Fin n indices and the AP condition on each cyclic triple (x_i, x_{i+1 mod n}, x_{i+2 mod n}); enumerating i=0..n-1 gives exactly the cyclic triples listed informally, including the wrap-around ones. Using ℕ → ℝ instead of Fin n → ℝ is logically equivalent for the existence statement since xprog only constrains values at Fin n indices. The "find all n" problem is standardly encoded as an iff with a solution set.
+
+### putnam_2022_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes the problem. Xset n is the sample space (outcomes in {-1,0,1}^n), Xprob n X is the joint probability as a product of marginals (p for ±1, 1-2p for 0), and P n b a is the probability the weighted sum equals b (via tsum over a finite set). The biconditional "(0 ≤ p ∧ p ≤ 1/2 ∧ ∀ n,b,a: P n 0 a ≥ P n b a) ↔ p ∈ [0,1/4]" correctly captures "for which p ∈ [0,1/2] does the inequality hold?" — the hypothesis 0 ≤ p ≤ 1/2 from the informal statement is surfaced as a conjunct on the left, and since [0,1/4] ⊆ [0,1/2] the biconditional is valid for all real p. Quantifier structure (∀ n > 0, ∀ b ∈ ℤ, ∀ a : Fin n → ℤ) matches the informal "for all positive integers n and all integers b, a_1,...,a_n". No drift in hypotheses, conclusion, or types.
+
+### putnam_2022_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean encoding uses `f : Set.Ioi 0 → Set.Ioi 0` with `Continuous f` to capture continuous $f:\mathbb{R}^+\to\mathbb{R}^+$. The functional equation is expressed via an auxiliary `fr : ℝ → ℝ` agreeing with `f` on positive reals — this is needed only to type-check expressions like `x * fr y`. Since for any $x, y > 0$ we have `fr y = f y > 0`, hence `x * fr y > 0`, `y * fr x > 0`, and `x + y > 0`, the values of `fr` used in the equation are all determined by `f`. Any `f` can be extended to some such `fr`, so `∃ fr …` is logically equivalent to the informal equation $f(xf(y))+f(yf(x))=1+f(x+y)$ for all $x,y>0$. The solution set `{f | ∃ c ≥ 0, ∀ x, f x = 1/(1+cx)}` matches the standard answer. The "find all" is correctly encoded as a biconditional.
+
+### putnam_2023_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization encodes the informal statement correctly. The function f_n(x) = cos(x)cos(2x)...cos(nx) is represented as ∏ i ∈ Finset.Icc 1 n, Real.cos (i * x), which enumerates i = 1, 2, ..., n exactly. The expression iteratedDeriv 2 (f n) 0 is the standard Mathlib encoding of f_n''(0) for smooth functions. The IsLeast predicate on the set {n | 0 < n ∧ |f_n''(0)| > 2023} correctly captures "the smallest positive n such that |f_n''(0)| > 2023", including both the membership (it is in the set) and lower bound (no smaller element satisfies the property). The positivity constraint on n is properly enforced both in the hypothesis on f and in the set definition. No drift in hypotheses, conclusion, quantifier structure, or types.
+
+### putnam_2023_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately encodes the informal statement. The hypotheses match: `n > 0 ∧ Even n` (even positive integer), `Monic p ∧ p.degree = 2*n` (monic polynomial of degree 2n), and `S` correctly denotes the real embeddings of integers $k$ with $1 \leq |k| \leq n$. The hypothesis `∀ k ∈ S, p.eval (1/k) = k^2` captures $p(1/k) = k^2$ for those integers. The conclusion uses set difference `\ S` to correctly encode "OTHER real numbers" (excluding the already-given integer solutions). The `x ≠ 0` constraint merely excludes Lean's junk value `1/0 = 0` — it makes explicit the implicit mathematical requirement that $1/x$ be defined, matching the informal intent. All components align without adding or dropping any meaningful hypotheses or conclusions.
+
+### putnam_2023_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement encodes the set {r > 0 : there exist differentiable f,g satisfying (a)-(e)} via Mathlib's binder predicate syntax (which desugars to {r : ℝ | r > 0 ∧ ∃ f g, ...}), and asserts its infimum equals π/2. All five conditions are faithfully transcribed: f(0)>0, g(0)=0, the two derivative bounds conjoined under ∀x, and f(r)=0. Differentiability of both f and g is captured via `Differentiable ℝ f ∧ Differentiable ℝ g`. Using `sInf` to encode "smallest" is the standard Mathlib/PutnamBench convention: when a minimum exists (which it does here, attained by f(x)=cos x, g(x)=-sin x at r=π/2), sInf equals the minimum, so asserting sInf = π/2 correctly captures the determination problem.
+
+### putnam_2023_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement captures the informal claim correctly. The hypothesis `hv` asserts that v is orthogonally equivalent to the canonical 12 unit-icosahedral vertices given by the standard (±1,±φ,0), (±φ,0,±1), (0,±1,±φ) presentation scaled by 1/√(1+φ²); since `LinearIsometryEquiv` over a real inner product space is precisely an orthogonal transformation, this is the correct notion of "unit vectors to the vertices of a regular icosahedron centered at the origin." The conclusion `∃ a : Fin 12 → ℤ, ‖∑ a(i) • v(i) - w‖ < ε` exactly matches the informal density claim, with the norm on `EuclideanSpace ℝ (Fin 3)` being the Euclidean norm. The one subtle point — that `hv` fixes an ordering modulo the icosahedral symmetry group rather than arbitrary orderings — is immaterial, because the conclusion is permutation-invariant in the v_i, so the Lean statement is logically equivalent to the order-agnostic informal claim.
+
+### putnam_2023_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully formalizes the informal statement. `num_ones (digits 3 k)` correctly computes f(k) = number of ones in the base-3 representation of k: `Nat.digits 3 k` returns the base-3 digits in little-endian order, and `num_ones` counts occurrences of 1. `Finset.Icc 0 (3^1010 - 1)` exactly matches the summation range from 0 to 3^1010 − 1 (inclusive). The factor `(-2)^(num_ones (digits 3 k))` matches (-2)^{f(k)}, the exponent 2023 is preserved, and `(z + k)^2023` correctly coerces the natural number k to ℂ. Finally, expressing "find all z" as the equality of the solution set to `putnam_2023_a5_solution` is the standard encoding. No hypotheses are added or dropped, and no quantifier structure or type is silently altered.
+
+### putnam_2023_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The 0-indexed encoding using ℕ → ℕ → Bool correctly represents the m-by-n grid: `initcoins` has coins at positions (i,j) with i ≤ m-2 ∧ j ≤ n-2 (corresponding to 1-indexed (1,1) to (m-1,n-1)). The legal move condition (i < m-1 ∧ j < n-1) and the empty-square requirements for the three target squares match the informal slide rule. `IsLegalSeq` properly requires the sequence to start at `initcoins` with legal consecutive moves, and the reachable set is defined as last elements of such sequences—which includes `initcoins` itself via length-1 sequences. The `mnpos : 1 < m ∧ 1 < n` hypothesis is an implicit premise required for the Nat-subtraction encoding to correctly represent the grid (without it, m-2 truncates to 0 for m=1, misplacing coins); this is a surfaced implicit premise, not a genuine weakening, since the informal problem's coin-placement description implicitly assumes m,n ≥ 2 for non-trivial content. The solution C(m+n-2, m-1) matches the known Putnam 2023 B1 answer.
+
+### putnam_2023_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly formalizes the informal question. `digits 2 (2023*n)` is the list of base-2 digits (each 0 or 1), so `.sum` counts the number of 1s in the binary representation of `2023*n`, matching `k(n)`. The type of `n` is inferred as `ℕ` (since `2023*n` must be a natural for `Nat.digits`), and `n > 0` correctly encodes "positive integer". The set `{(digits 2 (2023*n)).sum | n > 0}` is nonempty, and `sInf` on a nonempty subset of `ℕ` gives the minimum (ℕ is well-ordered), matching "minimum value of k(n)". The answer `3` equals the Putnam 2023 B2 solution. The formalization is logically equivalent to the informal statement.
+
+### putnam_2023_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The `IsZigZag` predicate encodes: differences are nonzero (first conjunct: `y(i+1) ≠ y(i)`) and alternate in sign (second conjunct `y(i+2) < y(i+1) ↔ y(i) < y(i+1)` equates `d_{i+1} < 0` with `d_i > 0`). The `Fin k` arithmetic: in `i + 1 < k`, Lean elaborates as Nat coercion `↑i + 1 < k`; under this hypothesis, modular addition in `y (i+1)` doesn't wrap, giving consistent semantics. The function `a` is characterized via `IsGreatest` as the largest k for which an order embedding `Fin k ↪o Fin n` (strictly increasing index sequence) yields a zigzag subsequence. The expectation `𝔼` is w.r.t. the canonical product measure on `Fin n → Icc 0 1`, where `MeasureSpace` on `Icc 0 1` via `Subtype.measureSpace` gives uniform probability, and `MeasureSpace.pi` gives the i.i.d. product—matching "chosen independently from uniform on [0,1]." The hypothesis `2 ≤ n` matches "for n ≥ 2." Sanity-checked against n=2 (expected 2) and n=3 (expected 8/3), both consistent with the (2n+2)/3 formula.
+
+### putnam_2023_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures all components of the informal statement: (a) `ContinuousOn f (Set.Ici (ts 0))` plus `ContDiffOn ℝ 1 f (tne n ts)` and `DifferentiableOn ℝ (derivWithin f (tne n ts)) (tne n ts)` encodes "continuous on [t_0,∞), twice differentiable on (t_0,∞)\{t_1,...,t_n}" — on an open set, C¹ with differentiable derivative is equivalent to twice-differentiable; (b) `f (ts 0) = 0.5` matches f(t_0)=1/2; (c) the `Tendsto … (𝓝[>] …)` condition for `k : Fin (n+1)` covers k = 0,...,n; (d) `iteratedDerivWithin 2` on the open sub-intervals and on (t_n,∞) correctly captures f''. The spacing constraint `ts (k.1+1) ≥ ts k.1 + 1` matches t_k ≥ t_{k-1}+1 and implies strict increase. The `IsLeast {T | 0 ≤ T ∧ …}` captures "least T", with `0 ≤ T` being an implicit premise (since f is only defined for t ≥ t_0). The encoding choices (ℕ → ℝ instead of Fin (n+1) → ℝ) are noted in the file comment and do not change semantics. The answer 29 matches the known Putnam 2023 B4 solution.
+
+### putnam_2023_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the informal problem. (1) The positivity "positive integers n" is captured by `0 < n` on the RHS of the iff; since the solution set {n | n=1 ∨ n≡2 [MOD 4]} already excludes 0, the iff correctly characterizes the positive integers with the property. (2) `IsRelPrime m n` over ℤ (with n coerced) is equivalent to gcd(m,n)=1, matching "relatively prime". (3) A permutation π:{1,...,n}→{1,...,n} is correctly encoded via `Equiv.Perm (Fin n)` with the explicit +1 shift: for k' ∈ Fin n corresponding to k=k'+1 ∈ {1,...,n}, the condition π(π(k))≡mk reduces exactly to `(p(p k')).1 + 1 ≡ m*(k'.1 + 1) [ZMOD n]`. (4) `[ZMOD n]` is `Int.ModEq n`, the correct notion of integer congruence. No hypotheses are dropped or added that change the mathematical content.
+
+### putnam_2023_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The positive integer $n$ is encoded via `n : ℕ` with `npos : n > 0`. The indices $i, j \in \{1,\ldots,n\}$ are encoded as `Fin n` with `i.1 + 1` and `j.1 + 1` giving the 1-indexed values. The count $s(i,j)$ is correctly formalized as a double tsum of an indicator: for fixed $a$, the inner tsum is 0 or 1 (since $b$ is uniquely determined), and the outer tsum has finite support (bounded $a$), so together they compute the number of nonnegative integer pairs $(a,b)$ with $a(i+1)+b(j+1)=n$. The types ℕ for $a, b$ correctly represent nonnegative integers, and the coercion to ℤ in the equation preserves the condition. The conclusion `S.det = putnam_2023_b6_solution n` correctly formalizes "compute the determinant".
+
+### putnam_2024_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks to determine all positive integers $n$ for which there exist positive integers $a$, $b$, $c$ satisfying $2a^n + 3b^n = 4c^n$. The Lean statement defines exactly this set: `{n : ℕ | 0 < n ∧ ∃ (a b c : ℕ), 0 < a ∧ 0 < b ∧ 0 < c ∧ 2*a^n + 3*b^n = 4*c^n}` and equates it to `putnam_2024_a1_solution`. Positive integers are encoded as `ℕ` with `0 < ...` hypotheses, which is the standard Lean/Mathlib convention. The quantifier structure, the equation, and the positivity constraints all match the informal statement exactly. This is a faithful "determine the set" formalization.
+
+### putnam_2024_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement characterizes the set of real polynomials p for which there exists a real polynomial q satisfying p(p(x)) - x = (p(x) - x)^2 q(x) for all real x, exactly as asked in the informal statement. The types (`Polynomial ℝ` for both p and q), the polynomial evaluation (`p.eval`), the universal quantifier over x : ℝ, the existential on q, and the equation form all match precisely. The natural "for which p" formalization as set equality (LHS set = solution set) is a standard and faithful encoding of a characterization question. No hypotheses are dropped or added relative to the informal statement.
+
+### putnam_2024_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully encodes the informal statement. The bijections T : {1,2,3} × {1,...,2024} → {1,...,6072} are modeled as functions ℕ × ℕ → ℕ with BijOn on the domain/codomain, combined with the canonical-extension condition (T x = 0 outside the domain) which produces a bijection with the original set of maps. The two StrictMonoOn conditions correctly express both the column-wise (T(1,j) < T(2,j) < T(3,j)) and row-wise (T(i,j) < T(i,j+1)) strict monotonicity — StrictMonoOn on finite integer intervals is equivalent to consecutive strict inequalities. The existential structure ∃ a,b,c,d matches "there exist a,c ∈ {1,2,3}, b,d ∈ {1,...,2024}". The fraction is correctly computed: the type ascription `: ℚ` forces the elaborator to coerce both `.ncard` values (ℕ) to ℚ before performing the division, yielding the correct rational fraction. The closed interval Set.Icc (1/3) (2/3) correctly captures "at least 1/3 and at most 2/3".
+
+### putnam_2024_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement matches the informal claim precisely. The primality, bound $p > 5$, integer types for $a$ and $r$, and bound $1 \le r \le p-1$ are all preserved. The "rearrangement of the sequence $1, a, a^2, \ldots, a^{p-5}$" is correctly encoded as a bijection $e$ on the index set $\{0, 1, \ldots, p-5\}$ (via `Set.BijOn e (Set.Icc 0 (p-5)) (Set.Icc 0 (p-5))`), with $b_n := a^{e(n)}$ so that $(a^{e(0)}, \ldots, a^{e(p-5)})$ is a permutation of $(a^0, \ldots, a^{p-5})$. The divisibility condition `(p : ℤ) ∣ a^(e n) - a^(e (n-1)) - r` for $1 \le n \le p-5$ matches exactly. The set comprehension equals the solution set, so finding "all primes" is correctly captured. Natural subtraction `p - 5` and `n - 1` are safe given the guarding inequalities. No hypotheses are silently added, dropped, or reshaped.
+
+### putnam_2024_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly captures the informal problem despite two apparent differences that are in fact equivalent given the geometry. (1) `line[ℝ, P, Q]` is the full affine line, not just the chord segment — but since P, Q lie on the circle of radius 9 and the disk of radius 1 centered at (r,0) with r ≤ 8 is contained in the disk of radius 9, the extension of the line beyond the segment PQ has |x| > 9 and thus cannot meet the small disk; so line ∩ disk = chord ∩ disk here. (2) `Metric.sphere` is the boundary circle, not the closed disk — but since P and Q are outside the small disk (as |P|=|Q|=9 > r+1 for r<8, with only measure-zero boundary cases at r=8), the line meets the disk iff it meets the boundary circle. The parametrization via (9cos(2πs), 9sin(2πs)) with s uniform on [0,1] yields the uniform distribution on Ω, and the Lebesgue volume of the intersecting (s,t)-set equals the probability. The minimizer set `{r ∈ Icc 0 8 | ProbIntersect r = ⨅ x ∈ Icc 0 8, ProbIntersect x}` is the correct "values of r minimizing the probability".
+
+### putnam_2024_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization faithfully captures the informal statement. The power series hypothesis `∀ᶠ x in 𝓝 0, HasSum (fun k => c k * x^k) ...` correctly encodes "for sufficiently small x, the series sums to the given expression", and since power series coefficients are unique, this implicitly determines c uniquely (matching the informal's "defined so that"). The matrix indexing correctly converts from the informal's 1-indexed $i,j \in \{1,...,n\}$ with entries $c_{i+j-1}$ to Lean's 0-indexed `Fin n` with entries `c (i + j + 1)`: via the `c : ℕ → ℝ` expected type, Lean's `binop%` elaborator uses Fin→ℕ coercions and natural number arithmetic (confirmed by the fact that `Fin.instAddMonoidWithOne` is explicitly NOT a global instance in Mathlib to avoid coercion loops). Both versions thus yield entries $c_1$ through $c_{2n-1}$. The `0 < n` hypothesis matches "positive integer n". The equality to `putnam_2024_a6_solution n` matches "find the determinant".
+
+### putnam_2024_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully encodes the Putnam 2024 B1 problem. The grid values `i.succ + j.succ - k` correctly realize the 1-indexed expression $i + j - k$ since `Fin.succ i` coerces to `i.val + 1` in ℤ. Positivity of both $n$ and $k$ is required via `0 < n ∧ 0 < k`, matching "positive integers." The "select $n$ squares, no two in same row or column" condition is encoded as an injective `f : Fin n → Fin n` (equivalent to a permutation on a finite set of equal size), and the requirement that selected values are "exactly $1, \ldots, n$" is captured by `Set.range (fun i => grid n k i (f i)) = Set.Icc (1 : ℤ) n`. The quantifier structure — finding the set of $(n, k)$ pairs for which such a selection exists — matches the informal "For which $n$ and $k$..." question.
+
+### putnam_2024_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The hypothesis `r_def` captures "$r_n$ is the $n$th smallest positive solution to $\tan x = x$" correctly: `StrictMono r` gives ordering, `∀ x ∈ Ioo 0 (r 1), tan x ≠ x` ensures $r_1$ is the smallest positive solution, and for each n: `0 < r n`, `tan (r n) = r n`, and no solution in `(r n, r (n+1))` together enumerate all positive solutions in order. The conclusion `r (n+1) - r n - π ∈ Set.Ioo 0 (1/((n²+n)π))` unfolds exactly to $0 < r_{n+1} - r_n - \pi < \frac{1}{(n^2+n)\pi}$. Using `n : ℕ+` matches "$n \geq 1$". All components match the informal statement precisely.
+
+### putnam_2024_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully encodes the informal problem. `pdf.IsUniform (m n k) (Set.Icc 1 n) ℙ (uniformOn (Set.Icc 1 n))` correctly states that m_{n,k} is uniformly distributed on {1,...,n} ⊂ ℤ (since conditioning `cond count S` on `S` again yields the same measure). The recursion in h₂ matches the three-case definition verbatim. The hypothesis `a n 0 = 1` (as functions Ω → ℤ) matches a_{n,0}=1. The conclusion `(∫ ω, a n n ω : ℝ)/n` with type ascription correctly computes E[a_{n,n}]/n as a real via coercion, and `Filter.Tendsto ... atTop` captures the n → ∞ limit. The `iIndepFun m.uncurry` assumes joint independence across all (n,k), which is stronger than needed per-n but does not change the value of E[a_{n,n}] (which depends only on the marginals for the specific n), so the limit is unchanged. The `0 < n` guards are natural since {1,...,0} is empty, and n=0 is irrelevant for the limit at infinity.
+
+### putnam_2024_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement faithfully captures the informal claim. The `IsQualifyingSeq` definition, combined with `Monotone w`, `1 ≤ w 0`, and `w (-1 : Fin q) ≤ z`, encodes exactly the chain `1 ≤ w_1 ≤ ... ≤ w_q ≤ z` — in Mathlib, `(-1 : Fin (n+1)) = n` gives the last index (`Fin.coe_neg_one`), so `w (-1)` is the last element. The `NeZero k` and `NeZero m` instances correctly encode that k, m are positive integers. The set being counted matches the informal count (the informal `z ≥ 1` is implied by monotonicity plus `1 ≤ x 0`). The conclusion `∃ P : ℚ[X]` with `∀ i, 0 ≤ P.coeff i` and `∀ n > 0, f n = P.eval n` correctly asserts existence of a polynomial (ℚ[X] is natural since f is integer-valued, so any real polynomial matching would have rational coefficients) with nonnegative coefficients agreeing with f on positive integers.
+
+### putnam_2024_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization accurately captures the Putnam 2024 B6 problem. The sum $\sum_{n\geq 1} n^a e^{2n} x^{n^2}$ is encoded via `HasSum` over `n : ℕ` with summand `(n+1)^a * rexp (2*(n+1)) * x^(n+1)^2`, correctly shifting to start at 1 (where `^` is right-associative so `x^(n+1)^2 = x^((n+1)^2)`). The domain `Set.Ico 0 1` matches $[0,1)$, and `𝓝[<] 1` matches $x \to 1^-$. The conclusion formulation "(conditions) ↔ $c = -1/2$" correctly captures "find the $c$" since only $c = -1/2$ can satisfy both conditions simultaneously (any other value creates a contradiction on an interval). The `rexp (-1/(1-x))` expression matches $e^{-1/(1-x)}$ in either parsing, and `Filter.atTop` correctly captures divergence to $+\infty$. The type coercions and quantifier structure are all faithful.
+
+### putnam_2025_a1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal claim. Positivity (`hm`, `hn`), distinctness (`h_distinct`), coprimality for positive k (`h_coprime`), and the rational-valued recurrence (`h_recurrence`) together uniquely determine m_k, n_k as the reduced form of (2m_{k-1}+1)/(2n_{k-1}+1), which matches "the relatively prime positive integers such that...". The ℚ equation is well-posed since n_{k+1} > 0 and 2n_k+1 > 0. Importantly, coprimality is required only for k > 0, matching the informal (which does not require m_0, n_0 coprime). The conclusion's set over ℕ differs from "positive integers" by at most the single element k=0, which does not affect finiteness. All quantifier structures and types align.
+
+### putnam_2025_a2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The informal statement asks for the largest `a` such that `ax(π-x) ≤ sin x` on `[0,π]` and the smallest `b` such that `sin x ≤ bx(π-x)` on `[0,π]`. The Lean statement encodes this as: `(a,b) = solution ↔ IsGreatest {a' | ∀ x ∈ [0,π], a'·x·(π-x) ≤ sin x} a ∧ IsLeast {b' | ∀ x ∈ [0,π], sin x ≤ b'·x·(π-x)} b`. `IsGreatest` means the element belongs to the set and is an upper bound (i.e., the maximum), and `IsLeast` means the element is the minimum — exactly the "largest/smallest" requirement. The sets are defined using the exact same inequalities and the same interval `Set.Icc 0 π = [0,π]`. The biconditional correctly characterizes the unique answer pair. The answer `(1/π, 4/π²)` is provided as the solution. This is the standard idiomatic Lean encoding of a "find the value" problem and matches the informal statement.
+
+### putnam_2025_a3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization carefully encodes all components of the game: (1) GameString n = Fin n → Fin 3 represents strings of n digits in {0,1,2}; (2) initialState is all zeros; (3) isValidMove requires exactly one differing position (via ∃!) where the digits differ by ±1 using val-based arithmetic, correctly forbidding 0↔2 jumps; (4) IsValidGamePlay uses List.Chain from initialState plus Nodup on the full trajectory (including initial state), matching "new string not appeared before"; (5) HasWinningStrategy is an inductive (least fixed point) definition that correctly captures "player-to-move can win" for finite games — vacuous when opponent has no reply (win), unprovable when the current player has no move (loss); (6) AliceHasWinningStrategy n = HasWinningStrategy n [] places Alice as first mover; (7) the hypothesis 1 ≤ n matches "For each n ≥ 1"; (8) the theorem asks putnam_2025_a3_solution n ↔ AliceHasWinningStrategy n, faithfully asking to characterize when Alice wins. All definitions align with standard game-theoretic meaning.
+
+### putnam_2025_a4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. The 2025 matrices are indexed by Fin 2025 (relabeling the informal indices 1..2025 to 0..2024, which preserves the set of differences {0,1,2024}). The Lean uses natural subtraction `j.val - i.val` with hypothesis `i ≤ j`, which equals |i-j|; restricting to i ≤ j is sufficient because both commutation (A_iA_j = A_jA_i) and the absolute difference are symmetric in i,j. `IsLeast` correctly encodes "the minimal value of k" as the minimum of the set of k for which such matrices exist. The types (k-by-k real matrices) match exactly.
+
+### putnam_2025_a5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization uses a 0-indexed reframing where Lean's `n` = informal `n-1` (so permutations are of `Fin (n+1)` and the sign sequence has length `n`). The hypothesis `1 ≤ n` in Lean corresponds exactly to the informal `n ≥ 2`. The condition `0 < (s i : ℤ) * ((σ i.succ : ℤ) - (σ i.castSucc : ℤ))` correctly encodes $s_i(a_{i+1} - a_i) > 0$ since `i.castSucc` and `i.succ` denote the embeddings of $i$ and $i+1$ into `Fin (n+1)`. Relabeling permutations from $\{1,\ldots,n\}$ to `Fin (n+1)` preserves the count because the condition only depends on differences. The maximality formulation as an iff with the solution set correctly captures "determine the sequences for which f(s) is maximal". The solution set describes the two alternating sign patterns, matching the expected answer.
+
+### putnam_2025_a6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean definition `b : ℕ → ℤ` matches the informal recurrence: `b 0 = 0` and `b (n+1) = 2*(b n)^2 + b n + 1`. The hypothesis `1 ≤ k` precisely encodes "$k \ge 1$". The conclusion is a conjunction: `2^(2k+2) ∣ (b(2^(k+1)) - 2*b(2^k))` and `¬(2^(2k+3) ∣ ...)`, which matches "divisible by $2^{2k+2}$ but not by $2^{2k+3}$". The indices $2^{k+1}$ and $2^k$ in $b$ are correctly translated, divisibility is expressed via the standard `∣` over ℤ, and the powers of 2 are explicitly cast to ℤ. No hypotheses are added or dropped, and the quantifier structure matches exactly.
+
+### putnam_2025_b1
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures the informal statement. `EuclideanSpace ℝ (Fin 2)` is the Euclidean plane, and `color : _ → Bool` encodes a two-color coloring. `Simplex ℝ (EuclideanSpace ℝ (Fin 2)) 2` is exactly three affinely independent points in the plane, which is equivalent to three noncollinear points. The hypothesis `∀ i j : Fin 3, color (s.points i) = color (s.points j)` correctly states that all three points have the same color, and `color s.circumcenter = color (s.points 0)` correctly says the circumcenter has that same color (since by hypothesis all three points share that color). The `s.circumcenter` in Mathlib is the center of the circumsphere through the simplex points, which in 2D is precisely the center of the circle through the three points. The conclusion `∃ c : Bool, ∀ P, color P = c` accurately formalizes "all points of the plane are the same color".
+
+### putnam_2025_b2
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean statement correctly encodes the informal problem. The x-coordinate of the centroid of the 2D region R bounded by x=0, x=1, y=0, y=f(x) is (∫ x·f(x) dx)/(∫ f(x) dx), and the x-coordinate of the centroid of the solid of revolution about the x-axis uses the disk weighting π·f(x)² which cancels in the quotient giving (∫ x·f(x)² dx)/(∫ f(x)² dx). These match the Lean expression precisely. The hypotheses also match: ContinuousOn and StrictMonoOn on Icc 0 1 correspond to "continuous and strictly increasing on [0,1]", and the codomain constraint "f : [0,1] → [0,∞)" is captured by the nonnegativity hypothesis. Under these hypotheses, the denominators are positive (f is strictly increasing with f(0) ≥ 0 forces f to be positive near 1 by continuity), so the division is well-defined. The strict inequality x₁ < x₂ is preserved exactly.
+
+### putnam_2025_b3
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean signature faithfully captures the informal statement. S is encoded as `Set ℕ` with the explicit hypothesis `∀ n ∈ S, 0 < n`, matching "set of positive integers". `S.Nonempty` matches "nonempty". The divisor closure `∀ n ∈ S, ∀ d, 0 < d → d ∣ (2025^n - 15^n) → d ∈ S` correctly expresses that every positive divisor of 2025^n - 15^n lies in S (ℕ subtraction is fine since 2025^n > 15^n for n ≥ 1). The conclusion `S = {n : ℕ | 0 < n}`, combined with the hypothesis that S ⊆ positives, is equivalent to "S contains all positive integers". The whole thing is wrapped in `putnam_2025_b3_solution ↔ ...`, correctly encoding the Yes/No answer.
+
+### putnam_2025_b4
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly captures every element of the informal statement. Setting n = m+2 (with m : ℕ) encodes n ≥ 2. Condition (a)'s 1-based "i+j ≤ n" becomes 0-based "i+j ≤ m" (shift of 2), matching `ha`. Conditions (b) and (c) quantify correctly: i : Fin (m+1) with Fin.castSucc/Fin.succ captures adjacent rows/columns at all valid positions (rows 0..m, columns 0..m+1), matching the informal ranges [1,n-1] × [1,n] after reindexing. The sum S matches, and N uses the standard `#{p | ...}` Finset-sep notation (as used in Mathlib's Hamming.lean for counting nonzero entries). The conclusion 3*S ≤ (m+4)*N is the clear-denominators form of S ≤ (n+2)N/3, avoiding loss from integer division since the multiplication form is logically equivalent over ℕ.
+
+### putnam_2025_b5
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization matches the informal statement. The hypotheses `hp_prime : p.Prime` and `hp_gt : 3 < p` capture "p is a prime greater than 3". `modInv p k = ZMod.val ((k : ZMod p)⁻¹)` faithfully encodes $I(k)$: since `ZMod p` is a field when p is prime, the multiplicative inverse of a nonzero `(k : ZMod p)` is nonzero, and `ZMod.val` returns its unique representative in `{1,...,p-1}`, which is exactly $I(k)$. `Finset.Icc 1 (p - 2)` is `{1,...,p-2}` (nonempty since `p ≥ 4`), and `descentCount p` counts `k` in this set with `modInv p (k+1) < modInv p k`, matching $I(k+1) < I(k)$. The conclusion `(p : ℚ) / 4 - 1 < descentCount p` is precisely the inequality "greater than $p/4 - 1$" with the natural number coerced to ℚ. No hypotheses are added or dropped, and the types/ranges align correctly.
+
+### putnam_2025_b6
+
+**Verdict:** `faithful`
+
+**Reasoning**
+
+The Lean formalization correctly encodes ℕ = {1,2,...} via the hypothesis `∀ n, 0 < n → 0 < g n`, which ensures g maps positive naturals to positive naturals. For any n > 0, we get g(n) > 0, hence (applying the hypothesis with g(n)) also g(g(n)) > 0, matching the informal typing. The inequality quantifier `∀ n, 0 < n → ...` precisely matches "for all n ∈ ℕ = {1,2,...}". The unconstrained value g(0) is never referenced in any constraint (since we only evaluate g at positive indices n, n+1 ≥ 1, and g(n) ≥ 1), so the two formulations are equivalent: a valid informal g extends to a Lean g by any choice at 0, and a valid Lean g restricts to a valid informal g. `IsGreatest` correctly captures "largest real constant r", and `(x : ℝ) ^ r` uses Real.rpow, which is the standard interpretation of a^r for positive real base.
+
+## weaker (19)
+
+### putnam_1962_a5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement asks for a closed form of ∑_{k=1}^n C(n,k)·k², valid for all positive integers n (where the sum is defined). The closed form n(n+1)·2^(n-2) works mathematically for all n ≥ 1 (e.g., for n=1: 1·2·(1/2) = 1 matches the sum). The Lean formalization encodes this over ℕ with truncated subtraction, causing `n*(n+1)*2^(n-2)` at n=1 to evaluate to 2 instead of 1. To compensate, it adds the hypothesis `n ≥ 2`, which excludes the valid n=1 case. This is not surfacing an implicit mathematical premise (since the claim for n=1 is mathematically true); it is a technical narrowing forced by the ℕ encoding choice. The Lean theorem is therefore strictly weaker than the informal claim.
+
+### putnam_1965_a3
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal's second limit has the sum going from k=1 to n of e^{i a_{k^2}} divided by n^2, while the Lean's second limit sums from k=1 to n^2 of e^{i a_k} divided by n^2. These are genuinely different formulas: the informal sums n terms at perfect-square indices, while the Lean sums n^2 terms at all indices. For a_k ≡ 0: informal RHS → 1/n → 0 but Lean RHS → 1, and LHS → 1 in both, so the informal iff fails at α=1 while the Lean iff holds. Since |e^{ia_k}|=1 bounds the summands, the informal's RHS always tends to 0, making the informal's iff equivalent to "(Cesàro mean = α) ↔ (α = 0)", which is false as a universal claim. The Lean statement (the well-known Putnam 1965 A3) is always true for bounded summands. The literal informal vacuously implies Lean (false → anything), but Lean does not imply the informal (concrete counterexample a_k=0, α=1). Thus Lean is logically weaker than the literal informal. The informal appears to contain a LaTeX typo where n^2 and k^2 were swapped, but taken literally the Lean is a different—and logically weaker—claim.
+
+### putnam_1965_a6
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement explicitly uses the non-strict inequalities "u ≥ 0 and v ≥ 0", while Lean uses strict "0 < u" and "0 < v". The boundary cases (u,v) = (1,0) and (0,1) are genuine, non-trivial instances of the informal iff: at (1,0) the curve x^m+y^m=1 has a vertical tangent x=1 (matching u=1, v=0), and the RHS 1^n + 0^n = 1 also holds with n = m/(m-1). Thus the informal iff truly holds in these boundary cases. The Lean formalization excludes them both via the strict hypotheses and via its tangency encoding, which requires the tangent point to satisfy x > 0, y > 0. This is a real narrowing of scope, not a surfacing of an implicit premise (the informal statement is not false at the boundary). Hence the Lean version is logically implied by but does not imply the informal statement.
+
+### putnam_1966_b2
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement says "for any ten consecutive integers" with no positivity constraint (integers = ℤ). The Lean formalization adds the hypothesis `n > 0`, which restricts the claim to ten consecutive integers starting from a positive integer (all elements ≥ 1). This is a genuine narrowing, not the surfacing of an implicit premise required for truth: the full claim over all n ∈ ℤ is provably true (for n ≤ -9, by symmetry via `IsCoprime (-a) (-b) ↔ IsCoprime a b`; for -9 < n ≤ 0, because 1 is in the set and is coprime to every integer). Since the informal claim implies the Lean claim (as a special case) but not vice versa, the Lean statement is strictly weaker. The rest of the encoding (the definition of `S n` as ten consecutive integers and `IsCoprime` on ℤ, which is equivalent to `Int.gcd = 1`) is faithful.
+
+### putnam_1967_a1
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement asks to prove $|a_1| + |2a_2| + \dots + |na_n| \leq 1$, i.e., the sum of absolute values $\sum_i |i \cdot a_i| \leq 1$. The Lean statement instead asserts `abs (∑ i, i * a i) ≤ 1`, i.e., the absolute value of the sum $|\sum_i i \cdot a_i| \leq 1$. By the triangle inequality, the informal claim implies the Lean claim but not conversely (e.g., $a_1=1, a_2=-1$ gives $\sum|i a_i|=3$ but $|\sum i a_i|=1$). The Lean version is actually a much easier statement — equivalent to $|f'(0)| \leq 1$ — whereas the original Putnam problem's substance lies in bounding the sum of the absolute values. Hence the Lean formalization is strictly logically weaker.
+
+### putnam_1973_a6
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The Lean formalization encodes each line as a slope-intercept pair `(ℝ × ℝ)` interpreted as `y = slope*x + intercept`. This parameterization cannot represent vertical lines (those with undefined slope). The informal statement, however, speaks of seven arbitrary distinct straight lines in the Euclidean plane, which absolutely includes vertical lines. Since the Lean statement is `¬ ∃ lines : Fin 7 → (ℝ × ℝ), ...`, it is a universally-negative claim restricted to configurations of non-vertical lines only. If the informal claim (impossibility among all 7-line configurations) holds, the Lean claim follows; but the Lean claim (impossibility among non-vertical configurations) does not imply impossibility for the general case. The counting formula via `∃! S : Set (Fin 7), S.ncard = n ∧ ...` correctly characterizes "exactly n lines through p" (since C(k,n)=1 iff k=n for n≥1), and the distinctness hypothesis correctly captures "distinct lines" in this parameterization. The restriction to non-vertical lines is the issue: this narrows the scope beyond what the informal problem asks, making the Lean statement strictly weaker.
+
+### putnam_1975_a5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The Lean formalization is strictly weaker than the informal statement along multiple dimensions. (1) The informal statement assumes y1, y2 are solutions of y''=f(x)y on the interval I, with f continuous on I. The Lean version instead assumes `Continuous f`, `ContDiff ℝ 2 y1`, `ContDiff ℝ 2 y2`, and the ODE `hy1sol`/`hy2sol` holding for ALL x : ℝ, not just on I — these are strictly stronger premises than the informal text requires. (2) Linear independence is encoded globally (`∀ c1 c2, (∀ x : ℝ, ...)` rather than on I), which is a stronger assumption (global linear combination equals 0 everywhere is harder to satisfy than just on I, making the premise stronger and hence the theorem weaker). (3) `I : Interval ℝ` in Mathlib is `WithBot (NonemptyInterval ℝ)`, i.e. a CLOSED interval `Icc a b` (or empty), so the Lean theorem only covers closed intervals, whereas the informal "some interval" allows open, half-open, or unbounded intervals. Since the informal statement's weaker hypotheses and broader class of intervals imply the Lean theorem's conclusion, but not vice versa, the Lean formalization is logically weaker.
+
+### putnam_1982_b5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+Due to Lean 4 precedence (∧ binds tighter than →, which is right-associative, and ∀ x ∈ T extends the implication all the way to the right), the conclusion parses as: "∀ x ∈ T, ((∃ L, Tendsto (S x) atTop (𝓝 L)) ∧ (∀ x' ∈ T, Tendsto (S x') atTop (𝓝 (g x')))) → ContinuousOn g T". This places the convergence of the sequence as a HYPOTHESIS of an implication rather than as a conclusion to prove. The informal statement requires proving two things: (a) that the sequence converges for every x > e^e, and (b) that the limit function is continuous. The Lean version entirely drops obligation (a): it says "IF g is already the pointwise limit, THEN g is continuous on T." If the sequence failed to converge, the Lean implication would hold vacuously while the informal claim would be false. Thus the Lean statement is implied by the informal claim but does not imply it.
+
+### putnam_1990_b4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The Lean formalization has two semantic issues. (1) The hypothesis `G = Subgroup.closure {a, b}` equates a `Type*` with a term of type `Subgroup G`. Via the `SetLike.CoeSort` instance, the RHS is coerced to the subtype `↥(Subgroup.closure {a, b}) = {x : G // x ∈ Subgroup.closure {a, b}}`, turning the hypothesis into a type-level equality `G = ↥(Subgroup.closure {a, b})`. This is essentially never satisfiable (a type is not literally equal to a subtype of itself), so the universal quantifier becomes vacuous — the entire outer statement reduces to `True ↔ putnam_1990_b4_solution`, making it provable regardless of the true combinatorial answer. Idiomatic nearby files (e.g., putnam_2016_a5) correctly use `Subgroup.closure {g, h} = ⊤` instead. (2) The extra clauses `G ≠ Subgroup.closure {a}` and `G ≠ Subgroup.closure {b}` further narrow the hypothesis (requiring minimal generation), which the informal "generated by a and b" does not demand. Because the vacuous hypothesis makes the Lean statement trivially provable without verifying the actual claim about the sequence, the formalization is logically weaker than the intended mathematical statement.
+
+### putnam_1991_a6
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The Lean encoding of `A(n)` is structurally broken by operator precedence. In Lean 4, `∧` has precedence 35 and `→` has precedence 25 (confirmed via Mathlib/Logic/Basic.lean uses like `{f : p ∧ q → Prop}` which requires `(p ∧ q) → Prop`). Thus the set-builder body `nabsum n a ∧ (∀ i : Fin (a.1-2), ...) ∧ 1 < a.1 → a.2 (a.1-2) > a.2 (a.1-1)` parses as `(nabsum n a ∧ ... ∧ 1 < a.1) → (a.2 (a.1-2) > a.2 (a.1-1))`, not as a conjunction of the three original conditions with the final `(1 < a.1 → ...)` clause. Every `a` with `a.1 = 0` trivially makes the antecedent false and so lies in the set, giving uncountably many elements; hence `{...}.encard = ⊤ : ℕ∞`. The hypothesis `hA : A n = ⊤` then forces `(A n : ℕ) = ⊤`, which is impossible since `ENat.coe_ne_top`. Therefore `hA` is unsatisfiable, so the Lean theorem is vacuously true for all `A, g, B`, while the informal statement is a substantive combinatorial identity A(n)=B(n). The Lean statement is implied by (anything, including) the informal one but does not imply the informal claim — strictly weaker.
+
+### putnam_1992_a4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement assumes $f$ is "infinitely differentiable" ($C^\infty$). In the Lean formalization, `ContDiff ℝ ⊤ f` with Mathlib v4.27.0 uses the new signature `ContDiff (n : WithTop ℕ∞)`. Here `⊤ : WithTop ℕ∞` is the analytic top (scoped notation `ω`), not the $C^\infty$ top (which would be `∞ = ((⊤ : ℕ∞) : WithTop ℕ∞)`). This is confirmed by `contDiff_omega_iff_analyticOnNhd : ContDiff 𝕜 ω f ↔ AnalyticOnNhd 𝕜 f univ` in `Mathlib/Analysis/Calculus/ContDiff/Defs.lean`. Thus the Lean hypothesis requires $f$ to be real-analytic on $\mathbb{R}$, which is strictly stronger than $C^\infty$ (e.g., $e^{-1/x^2}$ is $C^\infty$ but not analytic at 0). The informal claim ranges over all $C^\infty$ functions satisfying the interpolation condition, while the Lean version only covers the narrower class of real-analytic ones, so the Lean formalization is logically implied by — but does not imply — the informal statement.
+
+### putnam_2003_a5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement claims a one-to-one correspondence (bijection) between A := dyckpath n ∩ noevenreturn n and B := dyckpath(n-1). The Lean statement says: ∃ f : (Fin(2n)→ℤ) → (Fin(2(n-1))→ℤ), ∀ y ∈ B, ∃! x, x ∈ A ∧ f x = y. This only forces the preimage of each y ∈ B under f, restricted to A, to be a singleton — giving an injection B ↪ A (via y ↦ unique preimage). It does NOT require that f map A into B, so there could be elements of A that f sends outside dyckpath(n-1), which would be fine for the Lean statement but would mean |A| > |B| and no bijection exists. Concretely, with A = {1,2,3}, B = {a,b}, f(1)=a, f(2)=b, f(3)=c ∉ B, the Lean condition holds but there is no bijection A ↔ B. Thus the Lean statement is equivalent to "|A| ≥ |B|" rather than "|A| = |B|", making it strictly weaker than the informal one-to-one correspondence claim. The standard faithful encoding would use BijOn, Equiv, or additionally require f to map A into B.
+
+### putnam_2003_b4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal Putnam 2003 B4 statement factors $f(z) = a(z-r_1)(z-r_2)(z-r_3)(z-r_4)$ as the complete factorization of an integer-coefficient quartic, which by the fundamental theorem of algebra has complex roots in general (real being a special case). The Lean formalization types the roots as `r1 r2 r3 r4 : ℝ`, forcing all four roots to be real. This excludes polynomials with non-real complex roots entirely (e.g., $f(z) = (z^2+1)(z-2)(z-3)$ with $r_1=i, r_2=-i, r_3=2, r_4=3$, where $r_1+r_2=0 \in \mathbb{Q}$, $r_1+r_2 \neq r_3+r_4$, and $r_1r_2=1 \in \mathbb{Q}$ — a genuine instance of the informal claim not expressible in the Lean version). This is not merely surfacing an implicit premise for truth: the general complex-root version is provable (same algebraic manipulation with $s=r_1+r_2$, $p=r_1r_2$, Vieta's formulas, and solving a linear system works over $\mathbb{C}$). Hence the Lean version is logically implied by the informal statement but covers a strict subset of cases, making it weaker.
+
+### putnam_2004_a4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement requires the identity to hold "identically" in x, i.e., as a polynomial identity: ∃ N, c, a such that for ALL x_1,...,x_n the equation holds. In the Lean signature, `x : Fin n → ℝ` is bound as a theorem parameter OUTSIDE the existentials on N, c, a. This makes the Lean statement ∀x ∃N,c,a (equation holds at this specific x), which allows N, c, a to depend on x. This ∀∃ formulation is strictly weaker than the intended ∃∀ formulation — it only asserts pointwise decomposition at each specific tuple x, not the existence of a universal polynomial identity. All other aspects (types, constraints a_{ij} ∈ {-1,0,1}, c_i ∈ ℚ, sum/product structure) match correctly, but the quantifier order change is a genuine semantic weakening.
+
+### putnam_2012_a4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal conclusion "S is the intersection of A with some arithmetic progression" standardly means ∃ (infinite) AP P, S = A ∩ P. The Lean conclusion `IsFiniteAP S` only asserts S is itself a finite AP (∃ n a d, 0 < d, S = {a + i·d : i ∈ Fin n}). The informal claim implies the Lean one (A bounded ∩ infinite AP is always a finite AP), but not conversely: e.g., S = {5,10,15} ⊂ A = [0,100] is a finite AP, yet no infinite AP P has A ∩ P = {5,10,15} (any infinite AP with common difference dividing 5 contains 0 and 20, which lie in A). The structural content of the Putnam result — that S is determined by a single congruence class mod some d, so that the "gaps" before and after S leave A — is lost in the Lean formulation, making it strictly weaker.
+
+### putnam_2012_b5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement asserts `sup_s (g1(s)^x g2(s)) = max_t (x h1(t) + h2(t))`, where the RHS uses `max`, which is a substantive claim that the supremum on the RHS is *attained* by some t ∈ ℝ. The Lean formalization replaces the RHS `max` with `sSup`, so it only asserts that the two suprema are numerically equal, without requiring the RHS supremum to be attained. There exist scenarios where one could choose h1, h2 making the two suprema equal while the RHS sup is never attained — such a choice would satisfy the Lean statement but falsify the informal one. Hence the Lean statement is logically implied by the informal statement but does not imply it: it is strictly weaker.
+
+### putnam_2016_a5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The Lean formalization adds two extra hypotheses that do not appear in the informal statement: `¬Subgroup.closure {g} = ⊤` and `¬Subgroup.closure {h} = ⊤` (neither g nor h alone generates G). The informal statement only requires that G is generated by g and h (i.e., ⟨g,h⟩ = G), without any minimality condition. These extra hypotheses are not needed for the claim to be true — e.g., if G = ℤ/3 with g a generator and h = e, both ⟨g,h⟩ = G and the conclusion hold (every element is expressible as a product of elements of S = {g, g⁻¹}). Similarly, in the trivial group case, the informal claim holds but the Lean hypotheses exclude it. Since the Lean version proves the conclusion under strictly more restrictive premises, it is logically weaker than the informal statement. The rest of the formalization (the set S encoding {g^±¹h^±¹}, the list-product form, the bounds on r) correctly captures the informal content.
+
+### putnam_2018_a5
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement assumes f is "infinitely differentiable" (C^∞). In the current Mathlib, `ContDiff` takes `n : WithTop ℕ∞`, and `⊤ : WithTop ℕ∞` is the scoped notation `ω`, which denotes real-analyticity — NOT C^∞ (that would be `∞ = ((⊤ : ℕ∞) : WithTop ℕ∞)`). This is confirmed by `contDiff_omega_iff_analyticOnNhd : ContDiff 𝕜 ω f ↔ AnalyticOnNhd 𝕜 f univ` in `Mathlib/Analysis/Calculus/ContDiff/Defs.lean`. So the Lean hypothesis `ContDiff ℝ ⊤ f` requires f to be real-analytic on ℝ, a strictly stronger property than C^∞ (e.g. the bump function `exp(-1/x²)` is C^∞ but not analytic at 0). The Lean theorem therefore universally quantifies over a narrower class of functions than the informal statement; the informal claim implies the Lean claim (special case), but not conversely. All other components (f(0)=0, f(1)=1, f ≥ 0, ∃ n>0, ∃ x, iteratedDeriv n f x < 0) match faithfully.
+
+### putnam_2019_b4
+
+**Verdict:** `weaker`
+
+**Reasoning**
+
+The informal statement requires $f$ to be twice continuously differentiable only on the closed quadrant $\{x \geq 1, y \geq 1\}$. The Lean formalization uses `ContDiff ℝ 2 f` with `f : (Fin 2 → ℝ) → ℝ`, which requires $f$ to be $C^2$ on the entire $\mathbb{R}^2$ plane — a strictly stronger hypothesis. The file's own comment ("boosts the domain of f to the entire 2D plane") acknowledges this deviation. Adding this extra hypothesis narrows the class $\mathcal{F}$ to functions that extend to globally $C^2$ functions on $\mathbb{R}^2$, so the Lean statement asserts the result for a strict subset of the informally-intended functions. The informal claim implies the Lean claim (by restriction to the smaller class), but not directly vice versa, making the Lean statement logically weaker. Other aspects (partial derivatives via `deriv`/`iteratedDeriv`, the `sInf` vs `min` which coincide when the min is attained, and universal quantification over $f$ capturing "independent of $f$") are faithful.
+
+## stronger (6)
+
+### putnam_1969_b5
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement explicitly specifies that $a_1 < a_2 < \ldots$ is a sequence of positive **integers**. The Lean formalization uses `a : ℕ → ℝ` with only `StrictMono a ∧ (∀ x, a x > 0)`, which allows any strictly increasing sequence of positive reals (e.g., $a_n = n + 0.5$ or $a_n = \pi \cdot n$). The conclusion $k(x)/x \to 0$ still follows for such real sequences by the standard Abel-type argument (splitting the convergent tail of $\sum 1/a_n$), so the Lean statement is true in this more general setting. Since integer sequences form a strict subset of such real sequences, the Lean version implies the informal claim but not vice versa: the Lean version drops the integrality hypothesis and thereby asserts a strictly stronger theorem than the informal statement requests.
+
+### putnam_1978_a4
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+Part 1 of the Lean (the universal claim about bypass operations) correctly combines informal sub-items (1) and (2) into a single implication `a*b = c → (c*c = c ∧ ∀ d, a*d = c*d)`, which is logically equivalent to the informal. However, Part 2 of the Lean adds `(_ : Fintype S)` to the existential witness, requiring that the exhibited set S be finite. The informal statement merely says "Find a set S" with properties bypass, (A), (B), (C), without any finiteness requirement. Logically, `∃ S, ∃ Mul S, ∃ Fintype S, ...` implies `∃ S, ∃ Mul S, ...` but not conversely, so the Lean version is a strictly stronger existential claim. Since finiteness is not a premise needed for the informal statement to be true (it is an existence claim that is true regardless), this is a genuine strengthening rather than the surfacing of an implicit premise. Overall, the Lean statement implies the informal one but demands more.
+
+### putnam_1981_a5
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement assumes "P has n distinct real roots all greater than 1", which under standard mathematical reading means P's real roots are exactly these n roots, all > 1. The Lean formalization defines n(P) as simply the count of real roots in (1, ∞) and quantifies universally over ALL polynomials P, with no hypothesis requiring P's other real roots (if any) to also be > 1. Thus the Lean claim applies to polynomials like P(x) = (x-0.5)(x-2)(x-3) which have roots both ≤ 1 and > 1 — polynomials outside the scope of the informal statement. The Lean claim implies the informal one (by specialization), but the informal does not imply the Lean one, since it says nothing about polynomials with roots ≤ 1. This is a case of dropping a restrictive hypothesis (all roots > 1), making the Lean statement strictly stronger than what the informal asks.
+
+### putnam_2003_b3
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement explicitly says "for each positive integer n", restricting to n ≥ 1. The Lean statement takes `n : ℕ` with no positivity hypothesis, so it also claims the equality for n = 0. The encoding of the RHS is otherwise faithful: `List.range ⌊n/i⌋₊ |>.map succ` produces [1, 2, ..., ⌊n/i⌋], and `foldl Nat.lcm 1` correctly computes the lcm (with 1 as the identity). For n = 0, both sides equal 1 trivially (0! = 1 and the product over the empty Finset.Icc 1 0 is 1), so the n = 0 case is vacuously true — but the Lean statement still explicitly asserts it, making it logically strictly stronger than the informal claim (Lean ⇒ informal, but not conversely without separately verifying P(0)). Per the system prompt, "claims the result for extra cases" and "drops a hypothesis that the informal statement explicitly requires" qualify as stronger.
+
+### putnam_2007_b1
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement says "polynomial with positive integer coefficients," which in standard olympiad/Putnam usage means every coefficient from degree 0 to degree d is strictly positive (> 0), excluding polynomials like x^2 + 1, x^2, or x where some intermediate or constant coefficient is 0. However, the Lean hypothesis `∀ n : ℕ, f.coeff n ≥ 0` only requires non-negative coefficients, and `hfnconst` merely requires some positive coefficient at positive degree. The Lean hypothesis class is strictly larger (contains all polynomials the informal describes, plus polynomials with missing/zero coefficients like x^2 + 1). The conclusion happens to hold for this broader class, so Lean's theorem is provable and implies the informal theorem, but it is strictly stronger — it proves the claim for polynomials that the informal statement's literal hypothesis excludes. This is not an implicit premise being made explicit (the Lean weakens, not strengthens, the hypothesis), so it qualifies as "stronger" rather than "faithful".
+
+### putnam_2012_a6
+
+**Verdict:** `stronger`
+
+**Reasoning**
+
+The informal statement allows arbitrary rectangular regions (including rotated/tilted rectangles) of area 1, whereas the Lean formalization's predicate `p` only considers axis-aligned rectangles (determined by x1 < x2, y1 < y2, (x2-x1)(y2-y1) = 1). Since axis-aligned rectangles form a proper subset of all rectangles of area 1, the Lean hypothesis is strictly weaker, and therefore asserting that this weaker hypothesis forces f ≡ 0 is logically strictly stronger than the informal claim (which requires the hypothesis to hold for all rectangles, including rotated ones). The Lean claim implies the informal claim but not vice versa. The file's own header comment explicitly acknowledges this deviation: "this formalization differs from the original problem wording in only allowing axis-aligned rectangles." This is a self-documented strengthening of the theorem.
+
+## incomparable (7)
+
+### putnam_1974_b1
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The Lean solution predicate `∃ B > 0, ∃ o : Equiv.Perm (Fin 5), ∀ i, dist (p (o i)) (p (o (i + 1))) = B` does not correctly characterize "regular pentagon configurations on the unit circle". Counterexample: take p = (A, B, C, A, B) where A, B, C are vertices of an equilateral triangle inscribed in the unit circle. All 5 cyclic distances equal √3 under the identity permutation, so p satisfies the Lean predicate. But p is not a regular pentagon, and its pairwise distance sum (8√3 ≈ 13.86) is strictly less than the regular pentagon's sum (≈ 15.39). Thus the Lean iff asserts "maximizers = {equal-cyclic-distance configs}" while the informal asserts "maximizers = {regular pentagons}"; since regular pentagons ⊊ equal-cyclic-distance configs, these are genuinely different biconditional claims. Neither implies the other (informal is consistent with the triangle config not being optimal, but the Lean iff fails on that config), so the two statements are logically incomparable.
+
+### putnam_1983_b6
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The informal statement says α is a (2n+1)-th root of unity, i.e., α^(2n+1) = 1 (linear in n). The Lean hypothesis `α ^ (2 ^ n + 1) - 1 = 0` parses as α^(2^n + 1) = 1 (exponential in n), because `^` binds tighter than `+`. For n = 1 and n = 2 the two exponents coincide (3 and 5), but for n ≥ 3 they diverge: the informal requires α^7 = 1 while Lean requires α^9 = 1, etc. Since 2n+1 and 2^n+1 do not divide each other in general, the two hypotheses restrict α to different (incomparable) sets of roots of unity, so neither the informal nor the Lean claim logically implies the other. This is not merely a stricter or looser hypothesis — it is a different mathematical statement entirely.
+
+### putnam_2012_a3
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+Condition (iii) is incorrectly formalized. In Mathlib, `Function.leftLim f a : β` always returns a real number by design (using `f a` as a "garbage value" when the left limit doesn't exist or `a` is isolated on its left). Therefore `∃ y : ℝ, leftLim g 1 = y` is trivially true for any `g` (take `y := leftLim g 1`), so the Lean encoding of "the limit exists and is finite" is vacuous. The informal conditions C = {(i),(ii),(iii)} strictly imply the Lean conditions C' = {(i),(ii), trivial}, but not vice versa. Consequently the Lean existence conjunct `fsat(solution)` is weaker than the informal existence claim, while the Lean uniqueness conjunct `∀ f, fsat f → f = solution` is stronger than informal uniqueness (it constrains more functions). The conjunction of a weaker claim with a stronger claim is neither logically implied by nor implies the informal statement, so the two are incomparable.
+
+### putnam_2013_a3
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The informal hypothesis has denominators $(1-x)^{i+1}$ (one-minus-x raised to the power i+1, with explicit parentheses in the LaTeX), while the Lean code `1 - x ^ (i.1 + 1)` parses as $1 - x^{i+1}$ (since `^` binds tighter than `-`). These are mathematically distinct expressions. Concrete tuples show the hypothesis sets are neither contained in the other: e.g., for $n=1, x=1/2$, the tuple $(a_0,a_1)=(1,-1/2)$ satisfies the informal hypothesis but not the Lean one, while $(1,-3/2)$ satisfies the Lean hypothesis but not the informal one. Since the conclusions are identical but the hypothesis sets are incomparable, neither statement implies the other. (In fact, the informal statement as literally written with $(1-x)^{i+1}$ is false — a counterexample exists with $a_0=1,a_1=-1/2,x=1/2$ requiring $y=2\notin(0,1)$ — while the Lean encoding corresponds to the true Putnam 2013 A3 statement.)
+
+### putnam_2017_b3
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+In Lean 4, function application binds tighter than the division operator, so `Irrational (f 1/2)` parses as `Irrational ((f 1) / 2)`, not `Irrational (f (1/2))`. Note that the hypothesis side uses `f (2/3)` with explicit parentheses, but the conclusion does not, confirming the parsing as `(f 1)/2`. The informal statement asks to prove that `f(1/2) = ∑ cᵢ·(1/2)ⁱ` is irrational, while the Lean statement asserts that `f(1)/2 = (∑ cᵢ·1ⁱ)/2` is irrational — these concern different evaluation points of f. Moreover, since each cᵢ ∈ {0,1}, f(1) is either a natural number (if finitely many cᵢ are 1) making f(1)/2 rational, or the series diverges and Mathlib's tsum returns 0 (also rational), so the Lean claim is essentially always false. The Lean statement is therefore neither implied by nor implies the informal claim.
+
+### putnam_2021_b4
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The informal statement specifies the product $\prod_{k=1}^{F_{m-1}} k^k$ (upper limit $F_{m-1}$, the $(m-1)$-th Fibonacci number), but the Lean formalization writes `Set.Icc 1 (F m - 1)`, which is the range $\{1, \ldots, F_m - 1\}$ (upper limit $F_m - 1$, i.e., the $m$-th Fibonacci number minus 1). These differ starting at m=5: e.g., for m=5, $F_{m-1}=F_4=3$ while $F_m - 1 = F_5 - 1 = 4$; for m=7, $F_{m-1}=8$ while $F_m - 1 = 12$. The two products are therefore different quantities with different remainders mod $F_m$, so neither statement implies the other. This appears to be a parsing/encoding error (confusing $F_{m-1}$ with $F_m - 1$), resulting in a logically distinct, incomparable claim.
+
+### putnam_2023_a6
+
+**Verdict:** `incomparable`
+
+**Reasoning**
+
+The `IsValidStrategy` definition is semantically wrong: it states `s g ∈ g` (the strategy returns an element IN the list of moves played so far), whereas a real game strategy must return an element NOT already chosen. Because `ConformsToStrategy` requires `g[i] = s(g.take i)` for odd i, and `IsValidStrategy` forces `s(g.take i) ∈ g.take i`, any valid game of length ≥ 2 would need `g[1] ∈ [g[0]]`, contradicting `g.Nodup`. Thus for every n ≥ 2 the universal quantifier over conforming valid games is vacuous, so `IsWinningFor n s` holds for any valid `s` trivially, and the LHS equals {n | 0 < n} for non-mathematical reasons. The informal statement asks a genuine combinatorial question about strategies in the real game (to force a chosen parity); the Lean statement, due to this bug, is a vacuously satisfied claim that doesn't encode "Bob has a winning strategy" in any real sense. The two statements are not the same mathematical claim even though both end up true.

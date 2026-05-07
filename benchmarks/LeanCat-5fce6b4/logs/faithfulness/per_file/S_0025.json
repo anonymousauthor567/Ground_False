@@ -1,0 +1,8 @@
+{
+  "file": "S_0025.lean",
+  "stem": "S_0025",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires \"D admits coequalizers\" as one of its hypotheses. The Lean formalization omits this hypothesis entirely — there is no `HasCoequalizers D` or `HasReflexiveCoequalizers D` assumption. This is the hypothesis that drives the classical adjoint triangle theorem construction (cf. Mathlib's `isRightAdjoint_triangle_lift`, which requires `HasReflexiveCoequalizers A` on the domain). By dropping an explicitly stated hypothesis from the informal statement while keeping the same conclusion, the Lean statement makes a strictly stronger claim: if the Lean statement holds, it implies the informal one, but not conversely. This is not an implicit premise being surfaced — it is an explicit premise being removed.",
+  "duration_ms": 82287,
+  "cost_usd": 0.30903175
+}

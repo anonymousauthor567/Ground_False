@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is \"no group of order 224 is simple.\" The Lean statement universally quantifies over finite groups G with `card G = 224` and concludes `IsSimpleGroup G → false`. The `[Fintype G]` instance is mathematically necessary to state \"order 224\" (it enables `Fintype.card`), and the `card G = 224` hypothesis correctly captures \"order 224.\" The conclusion `IsSimpleGroup G → false` (where `false` must resolve to `False` for the theorem to elaborate) is logically equivalent to `¬ IsSimpleGroup G`, i.e., \"G is not simple.\" Combined, this says \"every group of order 224 is not simple,\" which is exactly the informal claim. Modulo the minor `false`/`False` cosmetic issue, the mathematical content matches faithfully.",
+  "duration_ms": 130630,
+  "cost_usd": 0.3811825
+}

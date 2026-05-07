@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. \"Three consecutive integers i\" is captured by ∃ n : ℤ with the three conditions stated for n, n+1, n+2. For each of these integers, the identity (ab)^i = a^i b^i is required to hold for all a, b ∈ G, which matches the informal reading. The conclusion ∀ a b : G, a*b = b*a is the standard definition of \"G is abelian\". The use of ℤ matches \"integers\" in the informal statement. The quantifier structure ∃ n, (∀ a b, ...) ∧ (∀ a b, ...) ∧ (∀ a b, ...) is logically equivalent to ∃ n, ∀ a b, (... ∧ ... ∧ ...), so there is no semantic mismatch.",
+  "duration_ms": 29841,
+  "cost_usd": 0.11437875
+}

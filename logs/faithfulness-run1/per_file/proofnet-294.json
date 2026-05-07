@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "theorem_name": "Munkres_exercise_16_1_corrected",
+  "informal": "Show that if $Y$ is a subspace of $X$, and $A$ is a subset of $Y$, then the topology $A$ inherits as a subspace of $Y$ is the same as the topology it inherits as a subspace of $X$.",
+  "lean": "theorem Munkres_exercise_16_1_corrected {X : Type*} [TopologicalSpace X]\n    (Y : Set X) (A : Set Y) :\n    IsInducing (fun a : A => (a : X))",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says: for A ⊆ Y ⊆ X, the subspace topology A gets from Y equals the subspace topology it gets from X. In Lean, A : Set Y carries by default the subspace topology induced from Y (which itself has the subspace topology from X). The statement `IsInducing (fun a : A => (a : X))` says the topology on A equals the topology pulled back along the inclusion A ↪ X, i.e. the subspace topology A gets directly from X. Equating A's default (Y-subspace) topology with the X-induced topology is exactly the informal claim. No extra hypotheses are added and no quantifiers are altered, so the encoding is logically equivalent.",
+  "duration_ms": 12708,
+  "cost_usd": 0.0563865
+}

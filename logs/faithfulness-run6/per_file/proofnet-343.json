@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The sequences are real-valued (`a b : ℕ → ℝ`), and their limsups are taken in `EReal`, which is the standard extended-real setting for limsup. The conclusion `limsup (a n + b n) ≤ limsup a + limsup b` matches the informal claim. The hypotheses `h1 : limsup a ≠ ⊥ ∨ limsup b ≠ ⊤` and `h2 : limsup a ≠ ⊤ ∨ limsup b ≠ ⊥` together precisely exclude the two \"∞ - ∞\" configurations (limsup a = ⊥ ∧ limsup b = ⊤, and limsup a = ⊤ ∧ limsup b = ⊥), which is exactly the \"provided the sum on the right is not of the form ∞ - ∞\" proviso. This mirrors Mathlib's own `limsup_add_le` in `Topology/Instances/EReal/Lemmas.lean`, which uses the identical hypothesis structure.",
+  "duration_ms": 46625,
+  "cost_usd": 0.21806224999999999
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-4.lean",
+  "stem": "proofnet-4",
+  "theorem_name": "Artin_exercise_3_5_6_corrected",
+  "informal": "Let $V$ be a vector space which is spanned by a countably infinite set. Prove that every linearly independent subset of $V$ is finite or countably infinite.",
+  "lean": "\n\ntheorem Artin_exercise_3_5_6_corrected {K V : Type*} [Field K] [AddCommGroup V]\n  [Module K V] {S : Set V} (hS : Set.Countable S) (hSinf : S.Infinite)\n  (hS1 : span K S = ⊤) {ι : Type*} (R : ι → V)\n  (hR : LinearIndependent K R) : Countable ι",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses match: `hS : Set.Countable S` together with `hSinf : S.Infinite` exactly captures \"countably infinite\", and `span K S = ⊤` says S spans V. The conclusion `Countable ι` for a linearly independent family `R : ι → V` is equivalent to saying the linearly independent subset (the image of R, which equals ι in cardinality since linear independence of a family forces injectivity) is at most countable, i.e., finite or countably infinite. The ambient setting (vector space over a field K) matches. So the Lean statement asserts the same claim as the informal one.",
+  "duration_ms": 12042,
+  "cost_usd": 0.13594449999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_b5.lean",
+  "stem": "putnam_2000_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the Putnam 2000 B5 problem. The sequence S : ℕ → Set ℤ with finiteness (hSfin) and positivity (hSpos) hypotheses matches \"$S_0$ is a finite set of positive integers\" — while these are stated for all n, they are automatically inherited from $S_0$ under the recursive definition (since $S_{n+1} \\subseteq S_n \\cup (S_n+1)$ preserves finiteness, and positivity is preserved since elements require $a \\in S_n$ or $a-1 \\in S_n \\geq 1$). The recursive definition uses `Xor'` which encodes \"exactly one of\" exactly as `(A ∧ ¬B) ∨ (B ∧ ¬A)`. The \"infinitely many N\" phrasing is correctly encoded as `∀ n, ∃ N ≥ n, P(N)`, which for $\\mathbb{N}$ is equivalent to unboundedness, hence to the set being infinite. The set $\\{M : \\mathbb{Z} \\mid M - N \\in S_0\\}$ equals $\\{N + a : a \\in S_0\\}$. All quantifiers, types, and conclusions match.",
+  "duration_ms": 174282,
+  "cost_usd": 0.5065255
+}

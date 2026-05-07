@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a1.lean",
+  "stem": "putnam_1966_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition of f(n) sums over Finset.Icc 0 n, which includes m=0. Since a_0 = 0/2 = 0 (0 is even), the extra term contributes nothing, so Lean's f(n) equals the informal f(n) = a_1 + ... + a_n for all n ≥ 0 (where the informal a_n uses 1-indexing to produce \"0, 1, 1, 2, 2, 3, ...\"). The integer divisions match since we evaluate at non-negative arguments (x+y > 0 and x-y > 0 under the hypotheses). The conclusion ∀ x y : ℤ, x > 0 ∧ y > 0 ∧ x > y → x*y = f(x+y) - f(x-y) precisely encodes \"all positive integers x and y with x > y satisfy xy = f(x+y) - f(x-y)\". Spot-check: x=3, y=2 gives xy=6 and f(5)-f(1)=6-0=6 ✓. The formalization is strictly faithful.",
+  "duration_ms": 96800,
+  "cost_usd": 0.3493785
+}

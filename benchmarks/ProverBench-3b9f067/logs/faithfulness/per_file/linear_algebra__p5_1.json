@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p5_1.lean",
+  "stem": "linear_algebra__p5_1",
+  "verdict": "incomparable",
+  "reasoning": "The custom `swapRows` definition in the Lean file is buggy and does NOT actually swap rows. Reading the definition `fun (k l : n) => if k = i then A k j else if k = j then A k i else A k l`: when `k = i`, it returns `A i j` (a specific element independent of `l`), so row `i` becomes a constant row of value `A[i][j]`; similarly row `j` becomes a constant row of value `A[j][i]`. A correct row-swap would use `A j l` and `A i l`. For instance, with A = [[1,2],[3,4]] and i=0, j=1, the Lean `swapRows` produces [[2,2],[3,3]] with determinant 0, while the actual row swap produces [[3,4],[1,2]] with determinant -2 = -det(A). Thus under the Lean encoding the theorem becomes a generally false claim about a different operation (replacing two rows with constant rows), while the informal statement is a true claim about genuine row interchange. The two statements are about semantically different operations, so the Lean formalization is incomparable with the informal claim.",
+  "duration_ms": 314158,
+  "cost_usd": 0.731669
+}

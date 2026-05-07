@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_b4.lean",
+  "stem": "putnam_2001_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. S = univ \\ {-1, 0, 1} in ℚ matches the set definition. The function f : S → S is uniquely determined by the hypothesis `f x = x - 1 / (x : ℚ)` (the equation holds in ℚ via coercion), and f is indeed well-defined since for rational x ∉ {-1,0,1}, x - 1/x is never in {-1,0,1} (x²=1 gives ±1; x²±x-1=0 has irrational roots). The expression `f^[n] '' univ` where `univ : Set ↥S` computes exactly f^(n)(S) in the informal notation, since `f^[n]` is `Nat.iterate f n`. The index set `Ici 1 = {n ∈ ℕ | 1 ≤ n}` matches ∩_{n=1}^∞. The biconditional with `putnam_2001_b4_solution := True` is the standard Putnam \"prove or disprove\" encoding asking to show the intersection is empty.",
+  "duration_ms": 149063,
+  "cost_usd": 0.43954174999999995
+}

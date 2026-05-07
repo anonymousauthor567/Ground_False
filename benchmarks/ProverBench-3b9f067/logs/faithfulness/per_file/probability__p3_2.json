@@ -1,0 +1,8 @@
+{
+  "file": "probability__p3_2.lean",
+  "stem": "probability__p3_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts an equality P(A) = 15/29. The Lean file contains two declarations: prob_A_first_hit_value is an `axiom` (assumed, not a theorem to be proven) that matches the informal equality, while A_hits_first_more_likely is the actual `theorem` (with `sorry`) and it only claims `prob_A_first_hit μ A B > 1 / 2`. Since 15/29 ≈ 0.517, the equality from the informal statement implies this inequality, but the inequality is strictly weaker — it does not pin down the exact value 15/29. Therefore the theorem being formalized is logically weaker than the informal claim.",
+  "duration_ms": 79091,
+  "cost_usd": 0.12731175
+}

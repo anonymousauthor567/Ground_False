@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures: (1) `U` open in ℝ, (2) \"at most countable\" via `ℕ → Set ℝ` (standard encoding, with empty sets permitted for finite collections), (3) disjointness `n ≠ m → f n ∩ f m = ∅`, and (4) union equals U. The one non-trivial choice is encoding \"segments\" as `{x | a < x ∧ x < b}` with `a b : EReal` rather than real bounds. This permits unbounded intervals like (-∞, b), (a, +∞), and ℝ itself. This is necessary for the statement to hold — e.g., U = ℝ cannot be written as a countable disjoint union of bounded open intervals — so allowing EReal bounds surfaces the implicit premise needed for provability, matching the standard proof via connected components of open sets in ℝ.",
+  "duration_ms": 223044,
+  "cost_usd": 0.5517544999999999
+}

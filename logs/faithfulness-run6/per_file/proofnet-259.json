@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ H : Subgroup G, H = ⊤ ∨ H = ⊥` is the standard encoding of \"G has no proper subgroups\" (meaning no subgroups strictly between {e} and G). The added `h_nontrivial` hypothesis surfaces an implicit premise: without it, the trivial group {e} vacuously satisfies the subgroup condition but has order 1, which is not prime — so the informal claim would be literally false. Any reader understands from the conclusion \"cyclic of order p, where p is prime\" that G must be nontrivial. The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` precisely expresses \"G is cyclic of order p where p is a prime number,\" using Mathlib's standard `IsCyclic` predicate and `Nat.card` for group order. This is a correct surfacing of an implicit premise, not a scope-narrowing assumption.",
+  "duration_ms": 199963,
+  "cost_usd": 0.67007775
+}

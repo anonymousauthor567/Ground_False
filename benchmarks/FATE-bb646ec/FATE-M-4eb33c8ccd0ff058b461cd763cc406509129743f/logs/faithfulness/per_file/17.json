@@ -1,0 +1,8 @@
+{
+  "file": "17.lean",
+  "stem": "17",
+  "verdict": "faithful",
+  "reasoning": "The informal claim describes Span(S) as the set of all finite R-linear combinations Σ_{s ∈ S'} r_s · s for S' a finite subset of S and r_s ∈ R. The Lean RHS uses a multiset T of pairs (r, s) with s ∈ S and takes Σ_{(r,s) ∈ T} r · s. These two set constructions describe exactly the same subset of R: any finite-subset-indexed linear combination can be encoded as a multiset of pairs with distinct second components, and any multiset-indexed sum can be regrouped by its second-coordinate image (a finite subset of S) with coefficients given by the summed first coordinates. The empty cases match (giving 0). The ambient setup (CommRing R with identity, subset S, Ideal.span S) is also correctly preserved, and the equality of the ideal (as a Set via coercion) with the RHS set precisely captures the claim \"Span(S) = (finite linear combinations)\".",
+  "duration_ms": 107368,
+  "cost_usd": 0.361689
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Pugh's claim correctly. `ClusterPt x (𝓟 Uᶜ)` is equivalent to \"every neighborhood of x meets Uᶜ\"; restricted to x ∈ U (so x ∉ Uᶜ), this is exactly the classical notion of x being a limit/accumulation point of the complement. Thus `∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` faithfully renders \"no point of U is a limit of its complement,\" and the iff with `IsOpen U` is precisely the standard characterization. The generalization from Pugh's metric-space ambient setting to `TopologicalSpace M` is the natural Mathlib rendering and the equivalence holds identically in both settings without changing the meaning of \"limit point.\"",
+  "duration_ms": 144503,
+  "cost_usd": 0.41996550000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly mirrors Mathlib's `tendsto_pi_nhds` instantiated at `u = atTop` on `ℕ`. The sequence `x : ℕ → Πa, f a` corresponds to the informal sequence in the product space; `y : Πi, f i` is the limit point; the `TopologicalSpace` instance on each factor encodes the ambient topology (the product topology on `Πa, f a` in Mathlib is exactly the standard product/Tychonoff topology Munkres uses). The coordinate projection $\\pi_\\alpha(\\mathbf{x}_i)$ is faithfully rendered as `(x j) i`, and `Tendsto ... atTop (𝓝 ...)` is the standard encoding of sequential convergence. The biconditional with universal quantifier over coordinates matches the informal \"if and only if ... for each α\". No hypotheses are added or dropped beyond what is already implicit in the informal statement.",
+  "duration_ms": 52560,
+  "cost_usd": 0.18854449999999995
+}

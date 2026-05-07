@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "informal": "Let $G$ be a group with subgroups $H$ and $K$ with $H \\leq K$. Prove that if $H$ is characteristic in $K$ and $K$ is normal in $G$ then $H$ is normal in $G$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_4_8a {G : Type*} [Group G] (H K : Subgroup G)\n  (hHK : H ≤ K) [hHK1 : (H.subgroupOf K).Characteristic] [hK : K.Normal] :\n  H.Normal",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal claim: G is an arbitrary group, H and K are subgroups with H ≤ K, H viewed as a subgroup of K (`H.subgroupOf K`) is characteristic, K is normal in G, and the conclusion is that H is normal in G. The use of `H.subgroupOf K` is the standard Mathlib idiom for \"H as a subgroup of K,\" and `.Characteristic` on it correctly captures \"H is characteristic in K.\" The hypotheses and conclusion align with the informal statement, with no extra assumptions (no finiteness, no decidability) and no weakening.",
+  "duration_ms": 8529,
+  "cost_usd": 0.047578
+}

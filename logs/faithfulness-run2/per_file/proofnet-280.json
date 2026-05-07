@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the standard mathematical content of Ireland-Rosen exercise 2.4: gcd = 2 when a is odd (both a^(2^n)+1 and a^(2^m)+1 are even) and gcd = 1 when a is even (both are odd). The hypotheses match (a ≠ 0, n > m), the conclusion is quantified correctly over n, m (via implicit binders), and the pairing Odd→2, Even→1 agrees with the correct mathematical statement. The use of `f_a` as an auto-bound variable with `hf` pinning it to the gcd function is a valid encoding equivalent to stating the conclusion directly. `Int.gcd` returning ℕ is fine for comparison with 1 and 2.",
+  "duration_ms": 353329,
+  "cost_usd": 0.30475149999999995
+}

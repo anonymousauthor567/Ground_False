@@ -1,0 +1,8 @@
+{
+  "file": "probability__p1_2.lean",
+  "stem": "probability__p1_2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean formalization drifts from the informal statement in multiple serious ways. First, the informal statement asserts three conclusions (a) λ=1, (b) P{X≤1}=2e^(-1), (c) cov(X,X²)=3 under the hypothesis P{X>0}=1-e^(-1), but the Lean theorem `P_X_leq_1` only attempts (b), completely omitting (c), and relegates (a) to an unproven axiom. Second, the theorem itself drops the hypothesis entirely: since `lambda` is a free `variable`, the statement is a universal claim ∀λ∈NNReal, (1+λ)·exp(-λ) = 2·exp(-λ), which is actually false for λ≠1. Third, the RHS uses `2*exp(-λ)` rather than the informal's specific `2*exp(-1)`. The informal conditional claim about λ=1 does not imply the (false) universal Lean claim, and the Lean theorem does not imply parts (a) and (c) of the informal statement, so the two are incomparable.",
+  "duration_ms": 479707,
+  "cost_usd": 0.9309407499999999
+}

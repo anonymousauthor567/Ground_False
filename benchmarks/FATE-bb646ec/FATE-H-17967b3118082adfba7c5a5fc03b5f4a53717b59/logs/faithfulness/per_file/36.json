@@ -1,0 +1,8 @@
+{
+  "file": "36.lean",
+  "stem": "36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly and precisely formalizes the informal claim. The polynomial `(X ^ 4 - X ^ 2 - 1 : ℚ[X])` matches $f(X) = X^4 - X^2 - 1 \\in \\mathbb{Q}[X]$. The `.SplittingField` construction is Mathlib's standard splitting field of a polynomial over the base field. `Nat.card (IntermediateField ℚ _)` counts the number of intermediate fields between $\\mathbb{Q}$ and the splitting field (with Mathlib's `IntermediateField` structure, which includes both $\\mathbb{Q}$ and the full field as the trivial cases). The equality to 10 matches the informal conclusion. There are no missing hypotheses, no extra hypotheses, no quantifier changes, and no type drift. Mathematically this matches the Galois correspondence with $D_4$ (which has 10 subgroups).",
+  "duration_ms": 362675,
+  "cost_usd": 0.4791087499999999
+}

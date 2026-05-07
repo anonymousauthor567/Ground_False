@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "theorem_name": "Rudin_exercise_1_8_corrected",
+  "informal": "Prove that no order can be defined in the complex field that turns it into an ordered field.",
+  "lean": "theorem Rudin_exercise_1_8_corrected : ¬ complexHasStrictOrderedRing",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that no ordering can be defined on ℂ making it an ordered field. The Lean signature negates `complexHasStrictOrderedRing`, which presumably asserts the existence of a StrictOrderedRing (equivalently, ordered field) structure on ℂ. Negating this gives \"there is no such structure\", matching the informal statement. Since ℂ is already a field, a StrictOrderedRing structure on it is equivalent to an ordered field structure. Assuming `complexHasStrictOrderedRing` is the standard \"∃ order making ℂ a strict ordered ring/field\" predicate, the formalization is faithful. There is mild uncertainty since the definition is not shown, but the naming strongly suggests the intended meaning.",
+  "duration_ms": 10329,
+  "cost_usd": 0.0510535
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b1.lean",
+  "stem": "putnam_2010_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim \"∃ sequence with $\\sum a_i^m = m$ for every positive integer $m$\" as an iff with `putnam_2010_b1_solution` (= False). The quantifier `∀ m : ℕ, m > 0` correctly matches \"every positive integer m\". The use of `∑' i : ℕ, (a i)^m = m` employs Mathlib's `tsum` (unconditional sum), which is the standard way to formalize infinite series in Mathlib. The ℕ-indexing (starting at 0) vs. the informal indexing (starting at 1) is a trivial reindexing — any function `a : ℕ → ℝ` can represent the informal sequence, and vice versa. While there's a subtle distinction between unconditional and conditional convergence, for this problem the mathematical content is preserved (for m ≥ 2, the terms a_i^m either both converge or both diverge, since convergence forces a_i → 0). This is a standard, faithful Mathlib encoding.",
+  "duration_ms": 338103,
+  "cost_usd": 0.989039
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b2.lean",
+  "stem": "putnam_2006_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: for a Finset X of n real numbers (encoded via X.card = n, which matches the set notation {x_1,...,x_n} since Finsets have no duplicates), there exists a non-empty subset S ⊆ X and an integer m such that |m + ∑_{s ∈ S} s| ≤ 1/(n+1). The RHS 1/(n+1) correctly elaborates in ℝ via coercion, and m : ℤ is coerced to ℝ for the sum. The `npos : n > 0` hypothesis is an implicit premise needed for truth — when n = 0, X is empty and no non-empty subset exists, making the claim false. Surfacing this implicit premise (which is clearly intended by the notation {x_1,...,x_n}) is a faithful reading, not a weakening.",
+  "duration_ms": 168322,
+  "cost_usd": 0.49773750000000005
+}

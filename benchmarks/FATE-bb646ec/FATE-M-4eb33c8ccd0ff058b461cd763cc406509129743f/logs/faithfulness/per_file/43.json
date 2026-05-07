@@ -1,0 +1,8 @@
+{
+  "file": "43.lean",
+  "stem": "43",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that in a ring with unity, if $a$ is nilpotent then $a+1$ and $a-1$ are both invertible. The Lean theorem uses `[Ring R]` (which in Mathlib includes a multiplicative identity and extends `AddCommGroup`), `IsNilpotent a` as the hypothesis, and concludes `IsUnit (1 + a) ∧ IsUnit (1 - a)`. Since addition is commutative in a Ring, `1 + a = a + 1`, so the first conjunct matches. For the second, `1 - a = -(a - 1)`, and in any Ring `IsUnit (-x) ↔ IsUnit x` (verified via `IsUnit.neg_iff`/`IsUnit.sub_iff` in `Mathlib/Algebra/Ring/Units.lean`), so `IsUnit (1 - a) ↔ IsUnit (a - 1)`. The conjunction faithfully captures \"both are invertible\". No hypotheses are added or dropped, and the types match.",
+  "duration_ms": 72809,
+  "cost_usd": 0.25426675
+}

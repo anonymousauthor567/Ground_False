@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a5.lean",
+  "stem": "putnam_2022_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the Putnam 2022 A5 game: (1) Fin 2022 models the 2022 squares; (2) IsValidMove correctly encodes both tile placements (∃ i < 2021 with i, i+1 uncovered) and the terminal no-op state (x = y with no two adjacent uncovered); (3) IsValidGame forces the initial state to be ∅ and consecutive moves to be valid; (4) ConformsToStrategy at even i (0, 2, ...) correctly models Alice going first; (5) the set captures the minimax: exists Alice strategy s such that against any Bob play, the last state's complement has ≥ n uncovered squares. Since the complement is monotonically non-increasing, the binding constraint is at terminal states, so this formulation correctly equals max over Alice's strategies of min over Bob's plays of |uncovered at terminal|. IsGreatest then returns the optimal value Alice can guarantee, which is exactly what the informal problem asks.",
+  "duration_ms": 1780029,
+  "cost_usd": 2.38450075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_a2.lean",
+  "stem": "putnam_1972_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a conjunction of two parts matching the informal claim exactly. The first conjunct universally quantifies over any type S with a `Mul` instance (which is just a binary operation with no laws) satisfying both axioms x*(x*y)=y and (y*x)*x=y, and concludes commutativity — faithful to \"is commutative\". The second conjunct existentially asserts the existence of a structure satisfying both axioms that is not associative — faithful to \"not necessarily associative\" (the standard reading that a non-associative example exists). The combined axiom `∀ x y, A ∧ B` is logically equivalent to two separate universal axioms. Types are used for sets, which is the standard Mathlib convention. No hypotheses are added or dropped.",
+  "duration_ms": 42457,
+  "cost_usd": 0.130967
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the mathematical content of the informal claim. It quantifies over an arbitrary index type ι and family X : ι → Type* of topological spaces, explicitly assumes each factor is nonempty (matching \"Assume that each X_α is nonempty\"), assumes the product space Π i, X i is normal (matching \"if ∏ X_α is normal\"), and concludes ∀ i, NormalSpace (X i) (matching \"then so is X_α\", which is naturally a universal over the factors). The hypothesis, conclusion, quantifier structure, and types all correspond directly. There is no added or dropped hypothesis, and the encoding via NormalSpace and Π-types is the standard Mathlib formalization of \"normal product → normal factors\".",
+  "duration_ms": 27329,
+  "cost_usd": 0.11351549999999999
+}

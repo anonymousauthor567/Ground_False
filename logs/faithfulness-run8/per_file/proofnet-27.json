@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Axler 7.14. `[RCLike 𝕜]` captures 𝐅 ∈ {ℝ, ℂ}; `[InnerProductSpace 𝕜 V]` with `[FiniteDimensional 𝕜 V]` captures the implicit finite-dimensional inner product space context in Axler's chapter 7 (needed so the adjoint/self-adjoint notion is well-defined in Mathlib). `IsSelfAdjoint T` on `Module.End 𝕜 V` is exactly `T.adjoint = T` via the `Star` instance defined by adjoint in `Adjoint.lean`. The hypothesis `∃ v, ‖v‖ = 1 ∧ ‖T v - l • v‖ < ε` precisely matches the informal assumption, and `∃ l' : T.Eigenvalues, ‖l - l'‖ < ε` matches the conclusion: `T.Eigenvalues = {μ // T.HasEigenvalue μ}` coerces to `𝕜` via `CoeOut`, and the norm on an `RCLike` field equals `|·|`. The implication direction, quantifiers, types, and norms all match the informal statement.",
+  "duration_ms": 217608,
+  "cost_usd": 0.83164175
+}

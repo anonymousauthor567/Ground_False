@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes Cantor's intersection theorem for a decreasing sequence of nonempty compact sets: `hcomp` (each set compact), `hne` (each nonempty), `hmono : s i ⊇ s (i+1)` (nested decreasing), and the conclusion `(⋂ i, s i).Nonempty`. The only hypothesis that goes beyond the literal informal text is `T2Space α`. However, this is a necessary implicit premise: without some separation axiom the statement is literally false (e.g., in the cofinite topology on ℕ, each `{i, i+1, …}` is compact, decreasing, nonempty, yet their intersection is empty). In a T2 space, compact sets are automatically closed (`IsCompact.isClosed`), which is precisely what Mathlib's `IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed` uses. Per the guidelines, making an implicit premise needed for truth explicit is faithful, not weaker.",
+  "duration_ms": 215944,
+  "cost_usd": 0.6366204999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. V is a module over a field F, which is equivalent to a vector space, and T is a linear operator on V. The family U_1,...,U_m is encoded as `U : Fin n → Submodule F V`, which is a standard faithful encoding of a finite sequence of subspaces. The invariance hypothesis `Submodule.map T (U i) ≤ U i` correctly states T(U_i) ⊆ U_i. The conclusion `Submodule.map T (∑ i, U i) ≤ ∑ i, U i` correctly states that T maps the sum into itself, i.e., the sum is invariant under T. The case n = 0 gives the trivial sum {0} which is still invariant, so no semantic drift occurs. All the quantifier structure, hypotheses, and conclusion match the informal statement.",
+  "duration_ms": 20388,
+  "cost_usd": 0.06764325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `P n = ∑ i : Fin n, (↑i + 1) * X^i` enumerates i over {0,...,n-1} yielding coefficients 1,2,...,n with powers X^0,...,X^(n-1), exactly matching $P_n(x) = 1 + 2x + 3x^2 + \\cdots + nx^{n-1}$. The hypotheses `0 < j`, `0 < k`, `j ≠ k` match \"positive integers j and k with j ≠ k\". In ℚ[X] (a PID), `IsCoprime` (existence of a Bezout identity) is equivalent to the gcd being a unit — precisely the standard notion of \"relatively prime polynomials\". The use of `P` as a function constrained by hypothesis `hP` is logically equivalent to \"Let P_n(x) = ...\". No hypothesis, conclusion, type, or quantifier structure has been altered.",
+  "duration_ms": 39046,
+  "cost_usd": 0.11834800000000001
+}

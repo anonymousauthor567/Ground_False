@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"T has no eigenvalues\" as ∀ c : ℝ, eigenspace T c = ⊥ (Mathlib's hasEigenvalue_iff confirms HasEigenvalue f μ ↔ eigenspace f μ ≠ ⊥). The FiniteDimensional hypothesis is an implicit premise from Axler's Chapter 5 context (needed to make finrank meaningful and to state the result). The only potentially subtle point is that Lean uses `Submodule.map T U = U` (T(U) = U) rather than the standard T-invariant condition T(U) ⊆ U; however, under the stated hypotheses these are equivalent: \"no eigenvalues\" means 0 is not an eigenvalue so T is injective on V, and in finite dimension injective implies bijective; restricted to a T-invariant finite-dim U, T|_U is injective hence bijective, so T(U) ⊆ U iff T(U) = U. Thus the two formulations quantify over the same set of subspaces and assert the same claim.",
+  "duration_ms": 232081,
+  "cost_usd": 0.604443
+}

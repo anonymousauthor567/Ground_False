@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes R is a ring satisfying x^3 = x for all x ∈ R, and concludes that R is commutative. The Lean signature takes R with the `[Ring R]` typeclass (matching \"ring\"), uses the hypothesis `∀ x : R, x ^ 3 = x` (exactly the informal hypothesis), and concludes `∀ x y : R, x * y = y * x`, which is precisely the definition of commutativity of multiplication in a ring. No hypotheses are added or dropped, and the type and quantifier structure match. This is a faithful formalization.",
+  "duration_ms": 12194,
+  "cost_usd": 0.03422225
+}

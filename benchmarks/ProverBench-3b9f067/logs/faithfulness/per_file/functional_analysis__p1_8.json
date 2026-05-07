@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_8.lean",
+  "stem": "functional_analysis__p1_8",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove three substantive results: (a) that ∂g/∂x = (4x-2y)e^{-y}, (b) that f(u,v) = (u²+v²)e^{-(u+v)} (derived from the given PDE and initial condition), and (c) that f has a unique global minimum at (0,0) with value 0. However, the Lean file defines f explicitly as (u²+v²)exp(-(u+v)) (baking in the answer to (b)) and introduces all substantive claims — the partial derivative condition, the ∂g/∂x formula, the g expression, the critical points characterization, the global minimum, and uniqueness — as axioms rather than theorems. The only actual theorem to prove is `f_min_value : f 0 0 = 0`, which is a trivial substitution into the definition (0 * exp(0) = 0). This is dramatically weaker than the informal statement, which requires proving (a), (b), and (c) as non-trivial results from the given hypotheses.",
+  "duration_ms": 31749,
+  "cost_usd": 0.08836224999999999
+}

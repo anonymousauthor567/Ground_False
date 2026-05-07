@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `IsQuotientMap p` in Mathlib includes surjectivity, matching Munkres' definition. `ConnectedSpace Y` and `ConnectedSpace X` correspond to Y and X being connected. For the fibers, `IsConnected (p ⁻¹' {y})` asserts nonempty + preconnected; the nonempty part is automatic from surjectivity of p, so this is equivalent to \"each fiber is connected as a subspace\". The universal quantification over y : Y and the conclusion both match the informal claim. No hypotheses are silently added or dropped.",
+  "duration_ms": 39017,
+  "cost_usd": 0.10815975000000001
+}

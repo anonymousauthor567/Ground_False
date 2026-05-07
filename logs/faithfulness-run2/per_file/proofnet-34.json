@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim faithfully. `orderOf x = 0` in Mathlib is precisely the standard expression for \"x has infinite order\" (the convention is that orderOf returns 0 when the order is infinite). The conclusion \"the elements $x^n$, $n\\in\\mathbb{Z}$ are all distinct\" is equivalent to \"for all distinct integers $n, m$, $x^n \\neq x^m$\", which is exactly what the Lean statement asserts via the universally quantified `n m : ℤ` with `n ≠ m`. The group structure is given generically via `{G : Type*} [Group G]`, matching the informal \"in $G$\".",
+  "duration_ms": 12028,
+  "cost_usd": 0.044496
+}

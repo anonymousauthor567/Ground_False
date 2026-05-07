@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely. Nonabelian is faithfully expressed as `∃ x y : G, x * y ≠ y * x`, which is exactly the negation of the abelian property. The hypotheses `hp : Nat.Prime p`, `hq : Nat.Prime q`, `h : p > q`, `h1 : q ∣ p - 1` match the informal premises exactly (natural subtraction p - 1 is fine since p ≥ 2 as a prime). Both `card G = p*q` and `card H = p*q` fix the order. The universal \"any two\" is handled by taking G and H as arbitrary types with the stated structure, and the conclusion `Nonempty (G ≃* H)` is the standard Mathlib encoding of \"G and H are isomorphic as groups.\" No hypotheses are added or dropped.",
+  "duration_ms": 31019,
+  "cost_usd": 0.10531125
+}

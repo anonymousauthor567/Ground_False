@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_b5.lean",
+  "stem": "putnam_1997_b5",
+  "verdict": "faithful",
+  "reasoning": "The `tetration` definition correctly encodes a tower of b's with m entries: `tetration 2 1 = 2`, `tetration 2 2 = 2^2 = 4`, `tetration 2 3 = 2^(2^2) = 16`, matching the informal \"n terms\" tower. The `Nat.ModEq n a b` notation (`a ≡ b [MOD n]`) means `a % n = b % n`, the standard modular congruence. The hypothesis `n ≥ 2` matches \"for n ≥ 2\", and natural subtraction `n-1` is well-defined here (gives exactly n-1 since n ≥ 2 ≥ 1). The claim `tetration 2 n ≡ tetration 2 (n-1) [MOD n]` is precisely the informal assertion. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 63605,
+  "cost_usd": 0.17199775
+}

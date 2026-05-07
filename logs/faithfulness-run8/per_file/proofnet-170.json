@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The IVP hypothesis `hf` is equivalent to the informal IVP condition: the Lean version requires `a < b` and uses a disjunction `(f a < c ∧ c < f b) ∨ (f b < c ∧ c < f a)`, which together cover exactly the same cases as the symmetric informal condition \"if f(a) < c < f(b), then ∃x between a and b with f(x)=c\" (the case a=b makes the informal hypothesis contradictory, and a>b is covered by swapping to the second disjunct). The closed-set hypothesis `hg : ∀ r : ℚ, IsClosed {x | f x = r}` matches \"for every rational r, the set of all x with f(x)=r is closed\" via the standard ℚ→ℝ coercion. The conclusion `Continuous f` is the standard Mathlib notion of continuity on ℝ. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 172131,
+  "cost_usd": 0.5900665000000002
+}

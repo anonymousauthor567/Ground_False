@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `orderOf x = 0` is the standard Mathlib encoding of \"x has infinite order\" (confirmed by `orderOf_eq_zero_iff : orderOf x = 0 ↔ ¬IsOfFinOrder x` in Mathlib/GroupTheory/OrderOfElement.lean). The conclusion `∀ n m : ℤ, n ≠ m → x^n ≠ x^m` is logically equivalent to the informal claim that the elements `x^n, n ∈ ℤ` are all distinct (i.e., the map `n ↦ x^n` is injective on ℤ). The group is general, the exponents are integers (matching `n ∈ ℤ`), and no extra hypotheses are added or dropped. This is a faithful formalization.",
+  "duration_ms": 22631,
+  "cost_usd": 0.10654550000000002
+}

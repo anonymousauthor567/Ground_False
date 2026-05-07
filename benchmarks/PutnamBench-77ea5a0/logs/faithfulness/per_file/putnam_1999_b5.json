@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_b5.lean",
+  "stem": "putnam_1999_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) The hypothesis `n ≥ 3` matches the informal \"integer n ≥ 3\". (2) `theta = 2 * Real.pi / n` matches \"θ = 2π/n\". (3) `(1 + A)` correctly represents I + A since `1` on square matrices gives the identity matrix. (4) The matrix entries use `(j.1 + 1) * theta + (k.1 + 1) * theta`, i.e., indices ranging over {1,...,n}, matching the standard 1-indexed mathematical convention for an n×n matrix. Even if the informal intended 0-indexed entries, the determinant would be identical by permutation-invariance: B_{jk} = cos((j+1+k+1)θ) equals S^T A S where A_{jk} = cos((j+k)θ) and S is the cyclic shift permutation, giving det(I+B) = det(I+A). (5) The solution `1 - n^2/4` is the correct value of the determinant. All components align without adding or dropping any hypotheses or changing the mathematical claim.",
+  "duration_ms": 341916,
+  "cost_usd": 1.077202
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p43_3.lean",
+  "stem": "calculus__p43_3",
+  "verdict": "faithful",
+  "reasoning": "The Lean `heightFunction` is defined as `40 * t - 16 * t^2`, matching the informal $y(t) = 40t - 16t^2$. The theorem statement `(heightFunction 2.5 - heightFunction 2) / (2.5 - 2) = -32` is exactly the average velocity equation from the informal statement. The two `axiom` declarations (`heightAtTwo` and `heightAtTwoPointFive`) are auxiliary — they are free-standing facts that are actually true consequences of the definition, not hypotheses of the theorem. They don't alter the theorem's logical content. Thus the Lean signature faithfully encodes the informal claim.",
+  "duration_ms": 25628,
+  "cost_usd": 0.0691455
+}

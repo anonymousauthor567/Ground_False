@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025i_p8.lean",
+  "stem": "aime_2025i_p8",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal problem. The two equations $|25+20i-z|=5$ and $|z-4-k|=|z-3i-k|$ are literally translated using Complex.abs, with k : ℝ properly coerced to ℂ. The \"exactly one complex solution\" is encoded as ∃! z : ℂ. The Finset S captures the set of valid k values (finiteness is justified by the problem stating a finite sum exists). The hypothesis `ans = (∑ k in S, k)` elaborates with ℚ→ℝ coercion, requiring the real sum to equal the rational ans. Since Lean's Rat canonical form guarantees num and den are coprime with den > 0 and num > 0 for positive rationals, `ans.num + ans.den` correctly represents m+n for the positive rational sum m/n. The conclusion `↑ans.den + ans.num = 77` faithfully matches the informal answer.",
+  "duration_ms": 503691,
+  "cost_usd": 1.2487264999999999
+}

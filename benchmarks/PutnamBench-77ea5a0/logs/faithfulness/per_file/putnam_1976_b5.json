@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_b5.lean",
+  "stem": "putnam_1976_b5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to find the closed form of $\\sum_{k=0}^{n} (-1)^k \\binom{n}{k} (x-k)^n$, and the well-known answer is $n!$ (this is the $n$-th finite difference of $x^n$). The Lean formalization encodes this as a polynomial identity in $\\mathbb{Z}[X]$: the sum $\\sum_{k \\in \\text{range}(n+1)} C((-1)^k \\binom{n}{k}) \\cdot (X - C(k))^n$ equals the constant polynomial `C (Nat.factorial n) = n!`. The coefficient $(-1)^k \\binom{n}{k}$, the base $(X-k)^n$, the summation range $\\{0, \\ldots, n\\}$, and the solution $n!$ all match. The universal quantifier over $n : \\mathbb{N}$ is the natural formalization of the free variable $n$ in the informal statement. Since $\\mathbb{Z}$ is an infinite integral domain, the polynomial identity in $\\mathbb{Z}[X]$ is equivalent to the pointwise identity for all integer (or real) values of $x$.",
+  "duration_ms": 117152,
+  "cost_usd": 0.33566450000000003
+}

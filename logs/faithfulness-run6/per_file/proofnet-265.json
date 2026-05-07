@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim directly. It takes two finite groups G and H of order p*q where p > q are primes with q ∣ p-1, both nonabelian (expressed correctly as ∃ x y, x * y ≠ y * x, the standard negation of commutativity), and concludes G ≃* H. Every hypothesis in the informal statement is present: primality of p and q, p > q, divisibility q ∣ p-1, order pq for both groups, and nonabelianness of both. The conclusion \"isomorphic\" is faithfully rendered as Nonempty (G ≃* H). Since Fintype is opened, `card G` means `Fintype.card G`, which is the standard cardinality. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 39757,
+  "cost_usd": 0.11332775
+}

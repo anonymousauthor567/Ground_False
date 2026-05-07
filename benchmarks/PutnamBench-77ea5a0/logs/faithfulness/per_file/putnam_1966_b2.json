@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b2.lean",
+  "stem": "putnam_1966_b2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement says \"for any ten consecutive integers\" with no positivity constraint (integers = ℤ). The Lean formalization adds the hypothesis `n > 0`, which restricts the claim to ten consecutive integers starting from a positive integer (all elements ≥ 1). This is a genuine narrowing, not the surfacing of an implicit premise required for truth: the full claim over all n ∈ ℤ is provably true (for n ≤ -9, by symmetry via `IsCoprime (-a) (-b) ↔ IsCoprime a b`; for -9 < n ≤ 0, because 1 is in the set and is coprime to every integer). Since the informal claim implies the Lean claim (as a special case) but not vice versa, the Lean statement is strictly weaker. The rest of the encoding (the definition of `S n` as ten consecutive integers and `IsCoprime` on ℤ, which is equivalent to `Int.gcd = 1`) is faithful.",
+  "duration_ms": 168295,
+  "cost_usd": 0.5295219999999999
+}

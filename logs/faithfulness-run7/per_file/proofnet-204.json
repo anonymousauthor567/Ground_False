@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal claim precisely. T is a linear endomorphism (Module.End F V) on a finite-dimensional vector space over a field F. The hypothesis `∀ U : Submodule F V, finrank F U = finrank F V - 1 → Submodule.map T U ≤ U` correctly expresses that every codimension-1 subspace is T-invariant (Submodule.map T U ≤ U is the standard encoding of T(U) ⊆ U). The conclusion `∃ c : F, T = c • LinearMap.id` exactly matches \"T is a scalar multiple of the identity operator.\" The natural-subtraction `finrank F V - 1` is harmless: when dim V = 0 or 1, the conclusion holds trivially regardless of the hypothesis, and for dim V ≥ 2 the subtraction behaves as expected. No extra or missing hypotheses.",
+  "duration_ms": 95975,
+  "cost_usd": 0.30956375
+}

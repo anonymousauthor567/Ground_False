@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove $x^2+1$ is irreducible in $\\mathbb{F}_7$. The Lean statement generalizes to any finite field $F$ with cardinality 7, but since all finite fields of the same cardinality are (uniquely) isomorphic, this is logically equivalent to the specific claim about $\\mathbb{F}_7$: irreducibility of $X^2+1$ in $F[X]$ is preserved under ring isomorphism with $\\mathbb{F}_7[X]$. This is a standard and faithful encoding of \"the field with 7 elements\" in Mathlib, and the conclusion `Irreducible (X^2 + 1 : Polynomial F)` matches the informal conclusion exactly. No hypotheses are added or dropped in a way that changes the mathematical content.",
+  "duration_ms": 26238,
+  "cost_usd": 0.14678975
+}

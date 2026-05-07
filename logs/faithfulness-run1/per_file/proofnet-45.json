@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "informal": "Prove that subgroups of a solvable group are solvable.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_4_5a {G : Type*} [Group G]\n  (H : Subgroup G) [IsSolvable G] : IsSolvable H",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: any subgroup of a solvable group is solvable. The Lean signature takes an arbitrary type G with a Group instance, an arbitrary subgroup H, and the hypothesis [IsSolvable G], and concludes IsSolvable H. The implicit universal quantification over G and H matches the informal \"subgroups of a solvable group are solvable.\" The hypotheses and conclusion correspond exactly, with no extra assumptions like finiteness or commutativity. This is a faithful formalization.",
+  "duration_ms": 5472,
+  "cost_usd": 0.041099
+}

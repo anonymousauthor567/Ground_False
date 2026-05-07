@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures each component: G is solvable (`[IsSolvable G]`), H is a nontrivial normal subgroup of G (`H ≠ ⊥`, `[H.Normal]`), and the conclusion asserts the existence of a subgroup A of G contained in H (`∃ A ≤ H`, where A inherits type `Subgroup G`), which is nontrivial (`A ≠ ⊥`), normal in G (`A.Normal`, which for `A : Subgroup G` means normal in the ambient group G, matching `A ⊴ G`), and abelian (`∀ a b : A, a*b = b*a`, the standard group-theoretic commutativity condition on A's elements). The quantifier structure matches, and the subgroup-containment encoding via `≤` correctly expresses \"A is a subgroup of H\". No hypotheses are added or dropped.",
+  "duration_ms": 54953,
+  "cost_usd": 0.23759475
+}

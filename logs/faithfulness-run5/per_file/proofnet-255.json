@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. \"Finite group\" is rendered as `[Group G] [Fintype G]`; \"even order\" is rendered as `Even (card G)` where `card` resolves to `Fintype.card` via the `open Fintype` at the top; and \"there exists an element a ≠ e with a = a⁻¹\" is rendered as `∃ (a : G), a ≠ 1 ∧ a = a⁻¹`. The quantifier structure, hypotheses, and conclusion all match exactly with no strengthening or weakening.",
+  "duration_ms": 17057,
+  "cost_usd": 0.07327875000000002
+}

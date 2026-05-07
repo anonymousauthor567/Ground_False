@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes a retraction exactly as Munkres defines it: A is a `Set X` (which automatically carries the subspace topology via Mathlib's subtype instance), r : X → A is continuous (hypothesis `hr`), and r fixes A pointwise (`∀ x : A, r x = x`, where `r x = x` is an equality in the subtype A, correctly expressing r(a) = a for a ∈ A). The conclusion `IsQuotientMap r` uses Mathlib's structure from `Topology/Defs/Induced.lean`, which requires surjectivity plus that the codomain topology equals the coinduced one — the standard quotient-map definition. No hypotheses are dropped or added beyond what \"retraction\" entails, quantifier structure matches, and A's topology is the natural subspace topology intended in the informal statement.",
+  "duration_ms": 58124,
+  "cost_usd": 0.2160395
+}

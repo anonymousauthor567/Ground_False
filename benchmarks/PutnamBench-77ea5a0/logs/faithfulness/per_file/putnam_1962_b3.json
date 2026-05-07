@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_b3.lean",
+  "stem": "putnam_1962_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures every aspect of the informal claim. S is a set in EuclideanSpace ℝ (Fin 2) (the Euclidean plane), and convexity with 0 ∈ S is correctly asserted. The topological alternative \"0 ∈ interior S ∨ IsClosed S\" matches \"either the origin is an interior point or S is closed\". The ray condition \"∀ P ≠ 0, ∃ Q, SameRay ℝ P Q ∧ Q ∉ S\" correctly encodes \"every ray from origin has a point outside S\": when P ≠ 0, SameRay ℝ P Q means Q = 0 or Q is a positive multiple of P — i.e., Q lies on the ray from the origin in direction P. Since 0 ∈ S, the witness Q must actually be a nonzero point on the ray that's outside S. The conclusion Bornology.IsBounded S matches \"S is bounded\".",
+  "duration_ms": 397332,
+  "cost_usd": 0.4245614999999999
+}

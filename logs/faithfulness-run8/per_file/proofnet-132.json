@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over a topological space `X` with hypotheses `LocallyCompactSpace X` and `T2Space X`, matching the informal \"locally compact Hausdorff space\". The conclusion `RegularSpace X` in Mathlib is the disjoint-neighborhoods axiom (point and disjoint closed set have disjoint neighborhoods). While Munkres' definition of \"regular\" additionally requires T1, this is trivially supplied by the `T2Space X` hypothesis (Hausdorff implies T1), so the combined content of the Lean statement is equivalent to Munkres' \"regular\". No hypothesis is added or dropped, no type is altered, and the quantifier structure is preserved. Hence the Lean theorem is logically equivalent to the informal statement.",
+  "duration_ms": 71630,
+  "cost_usd": 0.25964899999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_b6.lean",
+  "stem": "putnam_1975_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes both parts of the informal claim. The harmonic-like sum `s n = ∑ i ∈ Finset.Icc 1 n, 1/(i : ℝ)` equals 1 + 1/2 + ... + 1/n. The first conjunct `n * (n+1 : ℝ)^(1/(n : ℝ)) < n + s n` for n > 1 matches n·(n+1)^(1/n) < n + s_n. The second conjunct `((n : ℝ) - 1)*((n : ℝ)^(-1/(n-1 : ℝ))) < n - s n` for n > 2 matches (n-1)·n^(-1/(n-1)) < n - s_n; the `(n-1 : ℝ)` elaborates to `(n : ℝ) - 1` (and is unambiguous for n > 2 in either elaboration). All coercions, exponents (rpow), and quantifier conditions (n > 1 and n > 2 on ℕ) match the informal statement exactly without adding or omitting hypotheses.",
+  "duration_ms": 85479,
+  "cost_usd": 0.29659174999999993
+}

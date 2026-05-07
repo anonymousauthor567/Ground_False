@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for a finite group G and an element a ∈ G, there exists a positive integer n such that a^n = e. The Lean statement encodes \"finite group\" as `[Group G] [Fintype G]`, which matches the informal notion of a finite group. The element a : G is given, and the conclusion `∃ (n : ℕ), n > 0 ∧ a ^ n = 1` precisely captures \"there is a positive integer n such that a^n = e\" (with 1 being the standard Mathlib notation for the group identity). The quantifier structure matches exactly, and no extra hypotheses or conclusions are introduced. This is a straightforward, logically equivalent formalization.",
+  "duration_ms": 14794,
+  "cost_usd": 0.038811
+}

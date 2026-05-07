@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Rudin Exercise 4.24. `ContinuousOn f (Set.Ioo a b)` matches \"continuous on (a,b)\"; the hypothesis `h` with bounds `a < x`, `x < b`, `a < y`, `y < b` is equivalent to \"for all x,y ∈ (a,b)\" and encodes the midpoint inequality exactly. The conclusion `ConvexOn ℝ (Set.Ioo a b) f` unfolds (per Mathlib) to Convex ℝ (Ioo a b) ∧ the standard convex combination inequality, which is precisely \"f is convex on (a,b)\". The additional `hab : a < b` surfaces the implicit convention that the notation \"(a,b)\" denotes a proper open interval — a standard implicit premise that does not meaningfully narrow the claim (the a ≥ b case gives an empty set where ConvexOn holds trivially anyway).",
+  "duration_ms": 52956,
+  "cost_usd": 0.20350025000000002
+}

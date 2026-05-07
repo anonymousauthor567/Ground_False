@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes Munkres Exercise 28.5 (Theorem 28.2). The `countably_compact` definition captures the standard notion: every countable open cover has a finite subcover. The RHS of the iff encodes exactly the informal claim: for every sequence of closed (`IsClosed (C n)`) nonempty (`C n ≠ ∅`) nested (`C (n+1) ⊆ C n`, matching $C_n \\supset C_{n+1}$) sets, there is a point `x` in every `C n` (nonempty intersection). The iff direction matches \"if and only if\", the quantifier structure is correct, and no hypothesis is silently added or removed. The indexing from ℕ (starting at 0 vs 1) is an irrelevant reindexing that does not affect the mathematical content.",
+  "duration_ms": 100194,
+  "cost_usd": 0.36034700000000003
+}

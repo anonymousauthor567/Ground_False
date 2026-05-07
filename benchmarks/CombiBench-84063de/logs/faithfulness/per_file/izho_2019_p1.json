@@ -1,0 +1,8 @@
+{
+  "file": "izho_2019_p1.lean",
+  "stem": "izho_2019_p1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Nat.Partition (100!)` (via `100!.Partition` dot notation and the `open Nat` factorial notation), which by Mathlib's definition is a multiset of positive integers summing to 100! — this exactly captures \"partitions where order doesn't matter and parts can repeat.\" The filter `∀ i ∈ p.parts, ∃ k ∈ Finset.Icc 1 99, i = Nat.factorial k` says every part equals k! for some k with 1 ≤ k ≤ 99, which precisely matches \"summands from {1!, 2!, …, 99!}\". The conclusion `.card ≥ 100!` matches \"at least 100! ways\". The positivity requirement in `Nat.Partition` is automatically satisfied since k! ≥ 1 for k ≥ 1. All quantifier structure, types, and counts align with the informal statement.",
+  "duration_ms": 98145,
+  "cost_usd": 0.46107400000000004
+}

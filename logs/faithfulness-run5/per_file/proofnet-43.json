@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-43.lean",
+  "stem": "proofnet-43",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. In Mathlib, `AddSubgroup.index` is defined as `Nat.card (G ⧸ H)`, which equals `0` exactly when the quotient is infinite (confirmed by `index_eq_zero_iff_infinite`). Thus `H.index = 0` means H has infinite index, equivalently H does not have finite index. The statement \"ℚ has no proper subgroups of finite index\" is logically equivalent to \"every proper subgroup of ℚ has infinite index\", which is exactly what the Lean theorem says: for every H : AddSubgroup ℚ, if H ≠ ⊤ (proper), then H.index = 0 (infinite index). The additive group structure of ℚ is correctly used, and the quantification over all proper subgroups is captured by the universal introduction of H.",
+  "duration_ms": 68319,
+  "cost_usd": 0.17289875
+}

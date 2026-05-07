@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a6.lean",
+  "stem": "putnam_2010_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `f : ℝ → ℝ` instead of `Ici 0 → ℝ`, but the hypotheses (`StrictAntiOn f (Ici 0)`, `ContinuousOn f (Ici 0)`, `Tendsto f atTop (𝓝 0)`) restrict all relevant behavior to `[0, ∞)`, matching the informal setup exactly. Since `f` is strictly decreasing on `[0,∞)` with limit 0, `f > 0` everywhere on `[0,∞)`, making the integrand positive; thus \"the improper integral diverges\" is equivalent to \"there is no finite `y` such that the partial integrals converge to `y`,\" which is precisely the Lean conclusion `¬∃ y, Tendsto (∫ on Ico 0 z) atTop (𝓝 y)`. The choice of `Ico 0 z` vs `Icc 0 z` is Lebesgue-equivalent. All quantifiers, types, and conditions match; this is a faithful formalization.",
+  "duration_ms": 176937,
+  "cost_usd": 0.5732182499999999
+}

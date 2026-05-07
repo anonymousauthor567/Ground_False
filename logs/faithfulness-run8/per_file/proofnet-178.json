@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes an arbitrary z ∈ ℂ with ‖z‖ = 1 (i.e., z on the unit circle), defines s(n) = ∑_{i=0}^{n-1} z^(i+1)/(i+1)^2 = ∑_{k=1}^{n} z^k/k^2 (the standard interpretation of ∑ z^n/n^2 starting at n=1, since n=0 would give division by zero), and concludes there exists y with s → y, which is exactly convergence of the series. The type coercion in (i+1)^2 naturally elaborates to ((i+1 : ℂ))^2 because the numerator z^(i+1) is complex. The universal quantification over unit-circle points is correctly captured by the free variable z together with the hypothesis ‖z‖ = 1. The use of an auxiliary variable s with a defining equality is a harmless syntactic wrapper. This is a logically equivalent, strictly faithful formalization.",
+  "duration_ms": 92657,
+  "cost_usd": 0.33716375
+}

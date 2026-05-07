@@ -1,0 +1,8 @@
+{
+  "file": "60.lean",
+  "stem": "60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim. The hypothesis `∀ (h : H), ∀ (g : G), g * h * g⁻¹ ∈ H` (normality via conjugation) is logically equivalent to the informal \"$g^{-1}hg \\in H$ for all $g \\in G, h \\in H$\": substituting $g \\mapsto g^{-1}$ in either universally-quantified statement yields the other. The conclusion `∀ (g : G), g • (H : Set G) = op g • (H : Set G)` is the standard Mathlib encoding of $gH = Hg$ for all $g$, per `Mathlib/GroupTheory/Coset/Basic.lean` where `a • s` denotes the left coset and `op a • s` denotes the right coset. The ambient setting (arbitrary group $G$, arbitrary subgroup $H$) and the universal quantification over $g$ both match the informal statement.",
+  "duration_ms": 142947,
+  "cost_usd": 0.44120174999999995
+}

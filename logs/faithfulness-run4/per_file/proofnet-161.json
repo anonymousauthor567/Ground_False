@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Rudin's Exercise 3.8 precisely. \"Σa_n converges\" is encoded as the existence of a limit of partial sums via `∃ y, Tendsto (fun n => ∑ i ∈ range n, a i) atTop (𝓝 y)`. \"{b_n} is monotonic\" — which in standard analysis means either monotonically increasing or monotonically decreasing — is correctly encoded as `Monotone b ∨ Antitone b`. \"Bounded\" for a real-valued sequence is standardly `Bornology.IsBounded (Set.range b)`, i.e., the set of values is bounded. The conclusion \"Σa_n b_n converges\" matches the partial-sum limit formulation. No hypotheses are added or dropped, and the types (`ℕ → ℝ`) are the natural ones. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 69876,
+  "cost_usd": 0.23037649999999998
+}

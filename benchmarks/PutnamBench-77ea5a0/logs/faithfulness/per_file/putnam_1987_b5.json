@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b5.lean",
+  "stem": "putnam_1987_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: (1) M as a 2n×n complex matrix, (2) the hypothesis that any nonzero row vector z with zM = 0 has at least one non-real entry — expressed as ∃ i, (z 0 i).im ≠ 0, which correctly captures \"z_i is not real\" since a complex number is real iff its imaginary part is zero, (3) the conclusion that for any real 2n-vector r (encoded as a 2n×1 matrix), there exists a complex n-vector w such that the real parts of Mw equal r componentwise. Matrix multiplication semantics match (z*M is 1×n, M*w is 2n×1). The ¬∀ i, z 0 i = 0 hypothesis is classically equivalent to \"not all z_i are zero\". The added `npos : n > 0` hypothesis only surfaces an implicit assumption from the informal statement (which writes r_1,…,r_{2n} and w_1,…,w_n, implying n ≥ 1); since n = 0 makes both statements vacuously true, this does not narrow the mathematical content.",
+  "duration_ms": 198255,
+  "cost_usd": 0.6087905
+}

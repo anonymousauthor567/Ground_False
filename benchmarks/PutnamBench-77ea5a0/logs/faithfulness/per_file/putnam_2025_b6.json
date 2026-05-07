@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b6.lean",
+  "stem": "putnam_2025_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes ℕ = {1,2,...} via the hypothesis `∀ n, 0 < n → 0 < g n`, which ensures g maps positive naturals to positive naturals. For any n > 0, we get g(n) > 0, hence (applying the hypothesis with g(n)) also g(g(n)) > 0, matching the informal typing. The inequality quantifier `∀ n, 0 < n → ...` precisely matches \"for all n ∈ ℕ = {1,2,...}\". The unconstrained value g(0) is never referenced in any constraint (since we only evaluate g at positive indices n, n+1 ≥ 1, and g(n) ≥ 1), so the two formulations are equivalent: a valid informal g extends to a Lean g by any choice at 0, and a valid Lean g restricts to a valid informal g. `IsGreatest` correctly captures \"largest real constant r\", and `(x : ℝ) ^ r` uses Real.rpow, which is the standard interpretation of a^r for positive real base.",
+  "duration_ms": 109078,
+  "cost_usd": 0.27491475
+}

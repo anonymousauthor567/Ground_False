@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p21.lean",
+  "stem": "elementary_algebra__p21",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for all real numbers a, b, c, the inequality a² + b² + c² ≥ ab + bc + ca holds. The Lean signature universally quantifies over (a b c : ℝ) and states a^2 + b^2 + c^2 ≥ a*b + b*c + c*a, which matches exactly. The types (ℝ), the quantifier structure (∀), and the inequality (≥) are all preserved faithfully. There are no hidden hypotheses or changes to the mathematical content.",
+  "duration_ms": 12827,
+  "cost_usd": 0.031590499999999994
+}

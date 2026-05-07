@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "informal": "Prove that any two nonabelian groups of order 21 are isomorphic.",
+  "lean": "\ntheorem Herstein_exercise_2_8_12 {G H : Type*} [Fintype G] [Fintype H]\n  [Group G] [Group H] (hG : card G = 21) (_hH : card H = 21)\n  (hG1 : IsEmpty (CommGroup G)) (_hH1 : IsEmpty (CommGroup H)) :\n  Nonempty (G ≃* H)",
+  "verdict": "different",
+  "reasoning": "The Lean signature encodes \"G is nonabelian\" as `IsEmpty (CommGroup G)`, which asserts that the type `G` admits no commutative group structure at all — not that the given `Group G` instance is noncommutative. For any type `G` of cardinality 21, one can transport the abelian group structure of `ℤ/21` onto `G`, so `CommGroup G` is inhabited; hence `IsEmpty (CommGroup G)` is false for every type of size 21, and the hypothesis is vacuous. The intended hypothesis should be something like `¬ ∀ a b : G, a * b = b * a` referring to the given group structure. Because the Lean theorem is vacuously true regardless of the actual mathematical content, it does not capture the informal claim about nonabelian groups of order 21, and it is not logically equivalent to it.",
+  "duration_ms": 25972,
+  "cost_usd": 0.08551724999999999
+}

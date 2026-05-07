@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines $f_n : [0,1] \\to \\mathbb{R}$ by $f_n(x) = x^n$ and asks to prove that the sequence $(f_n(x))$ converges for each $x \\in [0,1]$. The Lean statement encodes the domain using the subtype `I := Icc 0 1`, defines `f n x = ↑x ^ n` (with the coercion to ℝ), and concludes `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)`, which is exactly the classical \"convergent sequence in ℝ\" statement (convergence ⇔ having some limit). The quantifier structure, types, hypothesis, and conclusion all match the informal statement, so this is a faithful formalization.",
+  "duration_ms": 21614,
+  "cost_usd": 0.06037675
+}

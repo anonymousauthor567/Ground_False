@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim faithfully. `RCLike F` corresponds to Axler's ℝ/ℂ setting; `FiniteDimensional F V` with `finrank F V ≥ 2` encodes dim V ≥ 2; `End F V` (= V →ₗ[F] V) is L(V); `Submodule F (End F V)` is a subspace of L(V) over F. The set `{T | T * adjoint T = adjoint T * T}` is exactly the set of normal operators (multiplication in End is composition, and `LinearMap.adjoint` is in scope via the opened `LinearMap` namespace). The formula \"∀ U : Submodule, U.carrier ≠ S\" is logically equivalent to \"S is not a subspace\" since a set is a subspace iff some submodule has it as carrier. No extra hypotheses are added or removed.",
+  "duration_ms": 196719,
+  "cost_usd": 0.6506869999999999
+}

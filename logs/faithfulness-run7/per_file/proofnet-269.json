@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Nonempty (Equiv.Perm (Fin 3) ≃* Matrix.GeneralLinearGroup (Fin 2) (ZMod 2))` faithfully encodes the informal claim. `Equiv.Perm (Fin 3)` is exactly S_3. `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)` is defined (in `Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean`) as `(Matrix (Fin 2) (Fin 2) (ZMod 2))ˣ`, the units in the matrix ring; since Z_2 is a field, invertibility is equivalent to nonzero determinant, which is precisely the group T defined in the informal statement. `≃*` is a multiplicative (group) isomorphism, and `Nonempty (· ≃* ·)` asserts the existence of such an isomorphism — exactly the meaning of \"is isomorphic to\". Direction of the equivalence is irrelevant since `MulEquiv` is symmetric.",
+  "duration_ms": 67546,
+  "cost_usd": 0.39266324999999996
+}

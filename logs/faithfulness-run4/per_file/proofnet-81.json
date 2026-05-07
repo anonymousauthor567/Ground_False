@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement requires $G_1$ and $G_2$ to be cyclic groups of (finite) orders $m$ and $n$; the Lean signature captures finiteness via `[Fintype G] [Fintype H]` and cyclicity via `IsCyclic G`, `IsCyclic H`. The conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` correctly encodes \"G × H is cyclic iff m and n are relatively prime\": `Fintype.card` gives the group order and `Nat.Coprime` is `Nat.gcd = 1`, which is the standard definition of relatively prime. Hypotheses, types, quantifier structure (universally quantified over any such G and H), and conclusion all match the informal claim with no added or dropped content.",
+  "duration_ms": 57061,
+  "cost_usd": 0.23490774999999997
+}

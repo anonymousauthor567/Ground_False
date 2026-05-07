@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. \"Finite group G\" is encoded via `[Group G] [Fintype G]`; \"given a ∈ G\" is `(a : G)`; \"there is a positive integer n\" is `∃ (n : ℕ), n > 0`; \"a^n = e\" is `a ^ n = 1` (where `1` is the group identity in multiplicative notation). The quantifier structure matches (the \"depending on a\" phrasing is captured naturally since `n` is bound inside the scope where `a` is already fixed). No hypotheses are added or dropped, and no conclusion is changed.",
+  "duration_ms": 8158,
+  "cost_usd": 0.038061
+}

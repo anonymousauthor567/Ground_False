@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-318.lean",
+  "stem": "proofnet-318",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. `UniformContinuousOn f A` encodes \"f is uniformly continuous on A\" (f having type X → Y is standard Lean idiom since only behavior on A matters). `CompleteSpace Y` matches \"Y complete\". The conclusion `∃! g : closure A → Y, Continuous g ∧ UniformContinuous g ∧ (∀ x : A, g ⟨x, subset_closure x.property⟩ = f x)` asserts both existence of a continuous, uniformly continuous extension and uniqueness. Although the informal uniqueness is stated over continuous extensions while Lean's ∃! is over (continuous ∧ uniformly continuous) extensions, these sets coincide: density of A in closure A plus Hausdorff Y forces any continuous extension to be unique, and the unique continuous extension of a uniformly continuous map into a complete metric space is itself uniformly continuous. The `Continuous g` conjunct is redundant (implied by `UniformContinuous g`) but harmless. All hypotheses and conclusions match.",
+  "duration_ms": 218715,
+  "cost_usd": 0.73281875
+}

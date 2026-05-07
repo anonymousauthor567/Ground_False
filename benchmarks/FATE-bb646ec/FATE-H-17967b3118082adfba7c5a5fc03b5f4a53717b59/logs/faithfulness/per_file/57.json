@@ -1,0 +1,8 @@
+{
+  "file": "57.lean",
+  "stem": "57",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal claim. `¬ PerfectField F` matches \"F is not perfect\" (Mathlib's PerfectField class says every irreducible polynomial is separable, the standard definition). The existential `∃ E : IntermediateField F (AlgebraicClosure F), IsPurelyInseparable F E ∧ ⊥ < E` encodes \"nontrivial purely inseparable extension\": `⊥` is the image of F in the algebraic closure (Set.range of algebraMap), so `⊥ < E` means E strictly contains F (nontrivial), and `IsPurelyInseparable F E` matches \"purely inseparable\". Using the algebraic closure as the ambient space is not a restriction because every purely inseparable extension is algebraic (by the integrality condition in IsPurelyInseparable) and therefore embeds into the algebraic closure — so this is logically equivalent to the informal \"some nontrivial purely inseparable extension exists\". No hypotheses are silently added or removed.",
+  "duration_ms": 181102,
+  "cost_usd": 0.44316875
+}

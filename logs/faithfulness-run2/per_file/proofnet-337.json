@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "When k=1, R^k = R^1 is naturally identified with R, and the dot product x·y becomes ordinary multiplication x*y. The informal claim states: given a nonzero x in R^1, no nonzero y in R^1 satisfies x·y = 0. The Lean statement universally quantifies over x in R (which is harmless — proving it for all such x is the same as proving it for an arbitrary given x), assumes x ≠ 0, and then negates the existence of a nonzero y with x*y = 0. The types, hypotheses, conclusion, and quantifier structure all correspond faithfully to the k=1 special case.",
+  "duration_ms": 14215,
+  "cost_usd": 0.048392500000000005
+}

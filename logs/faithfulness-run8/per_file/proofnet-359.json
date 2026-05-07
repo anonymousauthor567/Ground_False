@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin Exercise 5.17. The \"three times differentiable on [-1,1]\" is encoded by `DifferentiableOn` of f, deriv f, and deriv (deriv f) on Icc (-1) 1 — a standard Mathlib encoding. The four boundary/interior conditions f(-1)=0, f(0)=0, f(1)=1, f'(0)=0 are directly captured by hf0, hf1, hf2, hf3 respectively. For hf3, since 0 is an interior point, `deriv f 0` agrees with the usual derivative (Icc is a neighborhood of 0 in ℝ so DifferentiableWithinAt implies DifferentiableAt). The conclusion ∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3 correctly expresses \"f'''(x) ≥ 3 for some x ∈ (-1,1)\" over the open interval, and at interior points all three iterated `deriv`s agree with the usual third derivative. The statement matches the ground truth, which has a completed proof.",
+  "duration_ms": 409917,
+  "cost_usd": 1.4208557499999999
+}

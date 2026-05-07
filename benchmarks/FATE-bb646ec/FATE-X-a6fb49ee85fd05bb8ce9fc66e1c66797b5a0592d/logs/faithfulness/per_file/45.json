@@ -1,0 +1,8 @@
+{
+  "file": "45.lean",
+  "stem": "45",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Hilbert's syzygy theorem. The exact sequence $0 \\to K \\to L_{r-1} \\to \\cdots \\to L_0 \\to M \\to 0$ is encoded as an ℕ-indexed chain complex with $C_0 = M$, $C_1, \\ldots, C_r$ corresponding to $L_0, \\ldots, L_{r-1}$, $C_{r+1} = K$, and $C_n = 0$ for $n > r+1$ (via `hC`). `C.Acyclic` combined with the tail-vanishing correctly captures all required exactness: surjectivity at $M$ (exactness at 0 in ℕ-chain complex gives surjectivity of $L_0 \\to M$), internal exactness, and injectivity of $K \\to L_{r-1}$ (exactness at $r+1$ with $C_{r+2}=0$). The grading by ℕ matches the \"$\\mathbb{Z}_{\\geq 0}$\"; `DirectSum.Decomposition` plus `SetLike.GradedSMul` with `MvPolynomial.homogeneousSubmodule` correctly makes each module a graded module over the graded ring $k[x_1, \\ldots, x_r]$. `IsGradedHom` is the standard degree-preserving condition matching \"graded homomorphism\". The `h_free` hypothesis covers exactly $n \\in \\{1, \\ldots, r\\}$ (i.e., $L_0, \\ldots, L_{r-1}$), and the conclusion asserts freeness of $C_{r+1} = K$. The notion of \"free\" (Module.Free) matches consistently between hypothesis and conclusion.",
+  "duration_ms": 1401538,
+  "cost_usd": 2.761709
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_a3.lean",
+  "stem": "putnam_1963_a3",
+  "verdict": "faithful",
+  "reasoning": "The operator P is correctly defined: by induction P n y = δ(δ-1)(δ-2)...(δ-(n-1))y, matching the informal δ operator product. The initial conditions ∀ i < n, deriv^[i] y 1 = 0 match y(1)=y'(1)=...=y^(n-1)(1)=0. The kernel (x-t)^(n-1)·f(t)/((n-1)!·t^n) is the correct Volterra kernel since δ(δ-1)...(δ-n+1)y = x^n y^(n)(x). The hypothesis 0 < n makes explicit the implicit premise that n ≥ 1 (needed for the ODE/factorial/power to make sense). The regularity hypotheses (ContDiffOn on [1,∞), ContDiffAt at 1) are standard technical needs for Mathlib's deriv to compute correctly. The iff structure is a natural characterization of \"the formula gives the (unique) solution\" — both directions follow from the ODE having a unique solution with these ICs.",
+  "duration_ms": 1530642,
+  "cost_usd": 0.993309
+}

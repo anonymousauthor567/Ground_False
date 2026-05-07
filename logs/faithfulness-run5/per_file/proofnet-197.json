@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `[Field K]` together with `[Fintype Kˣ]` is equivalent to \"K is a finite field\" since in a field K = Kˣ ⊔ {0}, so K is finite iff Kˣ is finite — this is the standard Mathlib encoding (cf. `prod_univ_units_id_eq_neg_one` in `Mathlib/FieldTheory/Finite/Basic.lean`, which uses the same hypothesis form). The nonzero elements of a field are exactly its units, so `∏ x : Kˣ, x` is the product of nonzero elements, and the equality `= -1` in Kˣ is equivalent to the product being -1 in K via the canonical unit embedding. No hypothesis is dropped or added that changes the mathematical content.",
+  "duration_ms": 80603,
+  "cost_usd": 0.28898375
+}

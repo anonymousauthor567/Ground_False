@@ -1,0 +1,8 @@
+{
+  "file": "114.lean",
+  "stem": "114",
+  "verdict": "stronger",
+  "reasoning": "The informal statement \"H ∪ K cannot be a subgroup unless H ⊆ K or K ⊆ H\" is a one-directional implication: (H ∪ K is a subgroup) → (H ⊆ K ∨ K ⊆ H). The phrase \"cannot be Y unless Z\" asserts only that Z is necessary for Y, not that Z is sufficient. The Lean formalization uses an iff, which additionally claims the reverse direction: if A ≤ B ∨ B ≤ A, then A ∪ B is (the underlying set of) a subgroup. This reverse direction is trivially true (A ∪ B = B when A ≤ B), but it is still extra logical content not present in the informal statement. Per the system prompt's criteria, \"proves both directions when only one was asked\" is explicitly a \"stronger\" case.",
+  "duration_ms": 128075,
+  "cost_usd": 0.37288649999999995
+}

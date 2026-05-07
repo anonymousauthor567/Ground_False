@@ -1,0 +1,8 @@
+{
+  "file": "80.lean",
+  "stem": "80",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"r-cycle\" as `σ.IsCycle` together with `σ.support.card = r`, which is the standard definition. \"Even permutation\" is correctly encoded as `Equiv.Perm.sign σ = 1`, and `Odd r` correctly captures \"r is odd\". Mathematically the claim is correct: by Mathlib's `IsCycle.sign`, `sign σ = -(-1)^(#σ.support)`, so for an r-cycle, sign = 1 iff r is odd. The Fintype and DecidableEq instances are necessary bookkeeping for working with supports and signs, not extra restrictions on the mathematical content. Quantifier structure matches (universal over α and σ, biconditional conclusion). This is a strictly faithful formalization.",
+  "duration_ms": 120642,
+  "cost_usd": 0.1995495
+}

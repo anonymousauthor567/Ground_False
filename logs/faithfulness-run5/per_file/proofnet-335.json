@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"$z_1, \\ldots, z_n$ are complex\" as a universally quantified `n : ℕ` and `f : ℕ → ℂ`, which is a standard and correct way to formalize an arbitrary finite list of complex numbers. For `z : ℂ`, `‖z‖` in Mathlib coincides with the complex absolute value `|z|`, so the norm notation matches the informal bars exactly. The sums `∑ i ∈ range n, f i` and `∑ i ∈ range n, ‖f i‖` correctly represent $z_1 + \\cdots + z_n$ and $|z_1| + \\cdots + |z_n|$. The n = 0 case gives `0 ≤ 0`, trivially true and not a deviation. No hypotheses are added or dropped. This is logically equivalent to the informal triangle inequality claim.",
+  "duration_ms": 29355,
+  "cost_usd": 0.10307675
+}

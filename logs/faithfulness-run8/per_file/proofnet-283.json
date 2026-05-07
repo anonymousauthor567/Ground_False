@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"show (n-1)! ≡ 0 (mod n), except when n=4\" under the hypothesis that n is not prime naturally encodes both directions: the congruence holds for non-prime n ≠ 4, AND n=4 is a genuine exception where it fails (otherwise mentioning the exception would be redundant). The Lean iff `Nat.factorial (n-1) ≡ 0 [MOD n] ↔ n ≠ 4` captures exactly this content. The type ℕ+ matches \"positive integer n\", and `¬ n.Prime` correctly encodes \"n is not prime\" (with n=1 handled trivially: factorial(0)=1 ≡ 0 mod 1, and 1 ≠ 4). For n=4, 3!=6 ≢ 0 mod 4, giving False on both sides; for other composite n, both sides are True. The iff is the natural reading of the \"except\"-style exception clause, not an additional strengthening.",
+  "duration_ms": 1073594,
+  "cost_usd": 1.5892512499999998
+}

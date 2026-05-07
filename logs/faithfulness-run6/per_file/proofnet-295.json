@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The inner `⋃ (a : ℚ) (b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` is exactly the set of open intervals `(a,b)` in ℝ with rational endpoints and `a < b`. Applying `Set.image2 (fun s t => s ×ˢ t)` to this with itself produces precisely `{(a,b) ×ˢ (c,d) | a<b, c<d, a,b,c,d ∈ ℚ}`, matching the informal collection. `IsTopologicalBasis` in Mathlib is the standard definition of a topological basis (pairwise intersection property, covers the whole space, generates the topology). The ambient type is inferred as `ℝ × ℝ`, which carries the product topology—this is precisely the Euclidean topology on ℝ². So the Lean statement asserts exactly that this collection is a basis for the topology on ℝ², faithful to the informal statement.",
+  "duration_ms": 131578,
+  "cost_usd": 0.428961
+}

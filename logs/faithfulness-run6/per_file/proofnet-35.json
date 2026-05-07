@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsEmpty (ℝˣ ≃* ℂˣ)` asserts that no multiplicative equivalence exists between the units of ℝ and the units of ℂ. Since ℝ and ℂ are fields, `ℝˣ` is exactly ℝ∖{0} and `ℂˣ` is exactly ℂ∖{0} as multiplicative groups (verified via `postfix:1024 \"ˣ\" => Units` in Mathlib). The notation `≃*` is `MulEquiv`, which is group isomorphism for multiplicative groups (verified via `infixl:25 \" ≃* \" => MulEquiv`). `IsEmpty T` means `T` has no inhabitants, i.e., no such isomorphism exists. This matches the informal claim that these multiplicative groups are not isomorphic, with no added or missing hypotheses.",
+  "duration_ms": 129049,
+  "cost_usd": 0.2542915
+}

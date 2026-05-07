@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p37.lean",
+  "stem": "calculus__p37",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts an indefinite integral (antiderivative) relationship: -2cos(√x) is an antiderivative of sin(√x)/√x. The Lean statement `∫ (x : ℝ), sin (sqrt x) / sqrt x` uses Mathlib's Bochner integral notation (MeasureTheory/Integral/Bochner.lean), which denotes a definite integral over all of ℝ with respect to Lebesgue measure — producing a single number, not an antiderivative. Moreover, the integration's bound variable `x` shadows the outer `x`, so the LHS is a constant while the RHS `-2 * cos (sqrt x) + C` depends on the outer parameter `x`; universally quantifying over `x, C` makes the statement false (e.g., varying C alone breaks it). This is a fundamentally different mathematical claim that neither implies nor is implied by the informal antiderivative statement, so the two are incomparable.",
+  "duration_ms": 72232,
+  "cost_usd": 0.18337175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"if |G|=1365 then G is not simple\" is a universally quantified statement over finite groups of order 1365. The Lean signature takes an arbitrary type `G` with `[Fintype G] [Group G]`, assumes `card G = 1365`, and concludes `¬ IsSimpleGroup G`, faithfully capturing that universal quantification. Mathlib's `IsSimpleGroup` is defined (in `Mathlib/GroupTheory/Subgroup/Simple.lean`) as `Nontrivial G` together with \"every normal subgroup is `⊥` or `⊤`\", which is the standard definition of a simple group. There is no drift in hypotheses, conclusion, type, or quantifier structure.",
+  "duration_ms": 47479,
+  "cost_usd": 0.19954049999999998
+}

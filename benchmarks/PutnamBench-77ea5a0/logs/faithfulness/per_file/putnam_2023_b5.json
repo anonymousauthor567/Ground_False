@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b5.lean",
+  "stem": "putnam_2023_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. (1) The positivity \"positive integers n\" is captured by `0 < n` on the RHS of the iff; since the solution set {n | n=1 ∨ n≡2 [MOD 4]} already excludes 0, the iff correctly characterizes the positive integers with the property. (2) `IsRelPrime m n` over ℤ (with n coerced) is equivalent to gcd(m,n)=1, matching \"relatively prime\". (3) A permutation π:{1,...,n}→{1,...,n} is correctly encoded via `Equiv.Perm (Fin n)` with the explicit +1 shift: for k' ∈ Fin n corresponding to k=k'+1 ∈ {1,...,n}, the condition π(π(k))≡mk reduces exactly to `(p(p k')).1 + 1 ≡ m*(k'.1 + 1) [ZMOD n]`. (4) `[ZMOD n]` is `Int.ModEq n`, the correct notion of integer congruence. No hypotheses are dropped or added that change the mathematical content.",
+  "duration_ms": 222829,
+  "cost_usd": 0.49273524999999996
+}

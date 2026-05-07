@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "informal": "Let $G$ be a group of order 105. Prove that if a Sylow 3-subgroup of $G$ is normal then $G$ is abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_28 {G : Type*} [Group G] [Fintype G]\n  (hG : card G = 105) (P : Sylow 3 G) [hP : P.Normal] :\n  ∀ a b : G, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if G has order 105 and a Sylow 3-subgroup is normal, then G is abelian. The Lean signature assumes G is a finite group with card 105, takes a Sylow 3-subgroup P with P.Normal, and concludes ∀ a b : G, a*b = b*a, which is exactly the definition of G being abelian. The hypothesis \"P : Sylow 3 G\" with [hP : P.Normal] correctly encodes \"a Sylow 3-subgroup of G is normal\" (existence of a normal Sylow 3-subgroup; since all Sylow 3-subgroups are conjugate, one being normal is equivalent to the unique one being normal). This matches the informal statement faithfully.",
+  "duration_ms": 5966,
+  "cost_usd": 0.04380675
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Rudin Exercise 5.7. The hypotheses match exactly: `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` capture \"f'(x), g'(x) exist\"; `deriv g x ≠ 0` matches \"g'(x) ≠ 0\"; and `f x = 0`, `g x = 0` match \"f(x) = g(x) = 0\". The conclusion uses `𝓝[≠] x` (punctured neighborhood filter), which exactly matches Rudin's convention (Definition 4.1) of limits via 0 < d(t,p) < δ — this is appropriate here since f/g is undefined at x (as g(x) = 0). The types ℝ → ℝ and the universal quantification via implicit binders are also correct. No hypotheses are added or dropped, and the conclusion is equivalent.",
+  "duration_ms": 50248,
+  "cost_usd": 0.16421725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely. X is an arbitrary topological space (`[TopologicalSpace X]`), A is an arbitrary subset (`A : Set X`), the hypothesis `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A` is a direct transliteration of \"for each x ∈ A there is an open set U containing x such that U ⊆ A\", and the conclusion `IsOpen A` matches \"A is open in X\". This is exactly (up to trivial reordering of conjuncts) Mathlib's `isOpen_iff_forall_mem_open : IsOpen s ↔ ∀ x ∈ s, ∃ t, t ⊆ s ∧ IsOpen t ∧ x ∈ t`. No hypotheses are added or dropped and no types are changed.",
+  "duration_ms": 75020,
+  "cost_usd": 0.09268775000000001
+}

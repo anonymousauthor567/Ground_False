@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p45.lean",
+  "stem": "calculus__p45",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is an antiderivative claim: F(x) = ln|tan x - 2| - ln|tan x + 1| - 2 ln|cos x| + C is an antiderivative of the integrand, i.e., F'(x) = integralFunction(x). The Lean statement uses `∫ x, integralFunction x`, which by Mathlib's notation (Bochner.lean line 804) denotes `MeasureTheory.integral volume integralFunction` — the Bochner integral over all of ℝ, yielding a single real number, not an antiderivative. The inner `x` in `∫ x, ...` also shadows the outer ∀-bound `x`, so the LHS is a constant independent of the outer x. Since the precedence of `=` (50) is lower than `r:60`, the equation parses as (integral) = F(x) + C. The resulting statement \"∀ x, ∃ C, (constant) = F(x) + C\" is trivially true for any F and constant (pick C := constant - F(x)), so it is logically implied by the informal statement but captures none of its antiderivative content. A faithful formalization would use `HasDerivAt` or an interval integral.",
+  "duration_ms": 250841,
+  "cost_usd": 0.6560082500000001
+}

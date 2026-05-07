@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b4.lean",
+  "stem": "putnam_2023_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement: (a) `ContinuousOn f (Set.Ici (ts 0))` plus `ContDiffOn ℝ 1 f (tne n ts)` and `DifferentiableOn ℝ (derivWithin f (tne n ts)) (tne n ts)` encodes \"continuous on [t_0,∞), twice differentiable on (t_0,∞)\\{t_1,...,t_n}\" — on an open set, C¹ with differentiable derivative is equivalent to twice-differentiable; (b) `f (ts 0) = 0.5` matches f(t_0)=1/2; (c) the `Tendsto … (𝓝[>] …)` condition for `k : Fin (n+1)` covers k = 0,...,n; (d) `iteratedDerivWithin 2` on the open sub-intervals and on (t_n,∞) correctly captures f''. The spacing constraint `ts (k.1+1) ≥ ts k.1 + 1` matches t_k ≥ t_{k-1}+1 and implies strict increase. The `IsLeast {T | 0 ≤ T ∧ …}` captures \"least T\", with `0 ≤ T` being an implicit premise (since f is only defined for t ≥ t_0). The encoding choices (ℕ → ℝ instead of Fin (n+1) → ℝ) are noted in the file comment and do not change semantics. The answer 29 matches the known Putnam 2023 B4 solution.",
+  "duration_ms": 994394,
+  "cost_usd": 1.5473725
+}

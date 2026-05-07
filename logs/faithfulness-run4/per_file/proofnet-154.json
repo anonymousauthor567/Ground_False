@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `n > 1` on ℕ is equivalent to \"k ≥ 2\". `EuclideanSpace ℝ (Fin n)` is the standard Mathlib encoding of R^n, and its inner product `⟪x, y⟫_ℝ` is exactly the dot product ∑ᵢ xᵢ·yᵢ, matching \"x · y\". The conclusion asserts the existence of a nonzero y orthogonal to x, which is precisely what the informal statement asks. The variable x is implicitly universally quantified via the hypothesis binding, matching \"for any x ∈ R^k\". No hypothesis is added or dropped and types are correct.",
+  "duration_ms": 46874,
+  "cost_usd": 0.12969375000000002
+}

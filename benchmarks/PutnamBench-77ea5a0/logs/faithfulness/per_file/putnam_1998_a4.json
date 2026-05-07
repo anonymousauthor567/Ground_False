@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_a4.lean",
+  "stem": "putnam_1998_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly captures the informal problem. The list representation with `A (n + 2) = A (n + 1) ++ A n` for n > 0 is exactly the rule `A_n = A_{n-1} A_{n-2}` for n ≥ 3. The base cases match (A 1 = [0], A 2 = [1]). To interpret the digit list as a decimal number, reversing before `Nat.ofDigits 10` (which is little-endian) gives the correct natural number: e.g. A 3 = [1,0] with reverse [0,1] and ofDigits = 10, matching A_3 = 10. The `1 ≤ n` guard simply reflects that A_n is only defined for n ≥ 1 in the informal problem; this is an implicit premise being made explicit, not a narrowing of scope (and since `n ≡ 1 [MOD 6]` excludes 0 anyway, it doesn't alter the answer set). The conclusion format (set of n with 11 ∣ A_n equals the solution set) precisely matches \"Determine all n such that 11 divides A_n\".",
+  "duration_ms": 344347,
+  "cost_usd": 0.920203
+}

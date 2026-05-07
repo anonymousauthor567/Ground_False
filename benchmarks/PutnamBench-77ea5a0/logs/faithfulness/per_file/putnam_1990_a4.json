@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_a4.lean",
+  "stem": "putnam_1990_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem. The plane is encoded as `EuclideanSpace ℝ (Fin 2)`, a punch's action is modeled via `Irrational (dist P Q)` matching \"distance is irrational\", and `S.encard = n` with n : ℕ forces S to be a finite set of exactly n points (since the coerced value in ℕ∞ is finite). The condition `∀ Q, ∃ P ∈ S, Irrational (dist P Q)` faithfully expresses \"every point in the plane is removed by at least one punch\". Taking `sInf` over ℕ gives the minimum such n (the set is nonempty since n = 3 works, and larger n also work by extension, so sInf = minimum). This is a clean, faithful encoding of the Putnam 1990 A4 problem.",
+  "duration_ms": 115133,
+  "cost_usd": 0.36735575000000004
+}

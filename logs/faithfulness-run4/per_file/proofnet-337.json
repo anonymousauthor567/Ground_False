@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "The informal statement fixes k = 1, so ℝ^k reduces to ℝ, and the dot product on ℝ^1 is just ordinary multiplication. The Lean signature universally quantifies over x : ℝ with x ≠ 0 and denies the existence of y : ℝ with y ≠ 0 and x * y = 0. This matches the informal claim exactly: the ambient type (ℝ), the nonzero hypothesis, the existential with nonzero y, and the dot-product-as-multiplication conclusion are all preserved. No extra hypotheses are introduced and none are dropped. This is a faithful encoding.",
+  "duration_ms": 9301,
+  "cost_usd": 0.041468250000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "S_0090.lean",
+  "stem": "S_0090",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `IsNormalMonoCategory` exactly encodes \"each mono is a kernel\" (normal), and `IsNormalEpiCategory` encodes \"each epi is a cokernel\" (conormal); together they give binormality. The mono-simplicity condition `∀ y (f : y ⟶ x) [Mono f], f = 0 ∨ IsIso f` correctly captures \"no proper subobjects\" (the standard algebraic meaning, matching Mathlib's `Simple` class: every mono is either the zero subobject or represents the whole object), and dually for epi-simplicity. The iff quantifier structure matches. The extra `HasKernels`/`HasCokernels` hypotheses are implicit structural premises that any mathematician would understand as part of working with binormal categories in practice — they are needed to make the proof go through (e.g., to form kernels of arbitrary epis and apply epi-mono factorization) and don't narrow the theorem beyond its intended scope.",
+  "duration_ms": 1553624,
+  "cost_usd": 4.2583385
+}

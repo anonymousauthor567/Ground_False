@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the same claim: in a completely regular space, disjoint closed sets A (compact) and B can be separated by a continuous [0,1]-valued function sending A to 0 and B to 1. The target type `X → I` (with `I = Icc 0 1`) correctly encodes `f : X → [0,1]`, and `f '' A = {0}` corresponds to the informal image equality `f(A) = {0}`. The added `A.Nonempty` and `B.Nonempty` hypotheses make explicit what is already required by the informal conclusion: `f(A) = {0}` as image equality forces A to be nonempty, so the informal statement implicitly presupposes this. Under either the strict reading (where empty A would falsify the conclusion) or the loose reading (where empty A makes things vacuous), the quantified statements are logically equivalent. No hypothesis drift, no type mismatch, no weakening or strengthening of the mathematical claim.",
+  "duration_ms": 92551,
+  "cost_usd": 0.28769400000000006
+}

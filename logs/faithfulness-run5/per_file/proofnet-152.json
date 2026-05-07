@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"||x|-|y|| ≤ |x-y|\" for complex x, y uses the complex modulus for the inner |·| (applied to complex numbers) and the real absolute value for the outer |·| (applied to the real difference of moduli). In the Lean formalization, `‖x‖` for `x : ℂ` is the complex norm, which is exactly the complex modulus. Since `‖x‖ - ‖y‖` is a real number, `|‖x‖ - ‖y‖|` denotes the real absolute value. Thus `|‖x‖ - ‖y‖| ≤ ‖x-y‖` is logically equivalent to the informal reverse triangle inequality, with no added or dropped hypotheses and no type mismatch.",
+  "duration_ms": 36874,
+  "cost_usd": 0.1668025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The assumptions `[Group G]` + `[Fintype G]` exactly capture \"finite group G\". The hypothesis `Even (card G)` (where `card = Fintype.card` via `open Fintype`) is precisely \"even order\". The conclusion `∃ (a : G), a ≠ 1 ∧ a = a⁻¹` directly expresses \"there is an element a ≠ e with a = a⁻¹\". Quantifier structure, types, hypotheses, and conclusion all align with the informal claim; no hypotheses are added, dropped, or altered.",
+  "duration_ms": 32488,
+  "cost_usd": 0.12403075000000001
+}

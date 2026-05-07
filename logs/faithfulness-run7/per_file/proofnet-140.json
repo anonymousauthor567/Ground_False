@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly says \"the real function √(n+1) - √n tends to 0 as n → ∞\". The phrase \"real function\" (as opposed to \"real sequence\") most naturally refers to a function of a real variable, which matches the Lean formalization's use of `n : ℝ`. The Lean statement `Tendsto (fun n : ℝ => sqrt (n + 1) - sqrt n) atTop (𝓝 0)` correctly formalizes \"the real-variable function √(n+1) - √n tends to 0 as n → ∞\" using Mathlib's standard `Tendsto ... atTop (𝓝 0)` idiom. `Real.sqrt` is the correct function (since `Real` is opened), and for large real n the expression is well-defined regardless of Real.sqrt's convention on negatives. No hypotheses are added or dropped, and the conclusion matches the claim.",
+  "duration_ms": 32921,
+  "cost_usd": 0.08902975
+}

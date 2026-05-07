@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_b6.lean",
+  "stem": "putnam_1978_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all key components: the constraint $a_{ij} \\in [0,1]$ via `Icc 0 1`, the double sum structure via `Finset.Icc 1 n` and `Finset.Icc 1 (m * i)` matching $\\sum_{i=1}^n$ and $\\sum_{j=1}^{mi}$, the division `a i j / i` (with `ℕ → ℝ` coercion), and the RHS factor `2 * m`. The hypothesis `m > 0 ∧ n > 0` makes explicit the implicit premise — standard in Putnam notation using $\\sum_{i=1}^n$ — that $m$ and $n$ are positive integers. While the inequality trivially holds when $m = 0$ or $n = 0$ (both sides equal 0), these degenerate cases are not the substance of the problem, and making this assumption explicit is a faithful reading of the intended mathematical content. The function `a : ℕ → ℕ → ℝ` being defined on all naturals with the bound applied universally is a harmless extension, since any collection of $a_{ij}$ with bounded indices can be extended.",
+  "duration_ms": 832614,
+  "cost_usd": 0.41159124999999996
+}

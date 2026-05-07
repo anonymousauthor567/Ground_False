@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p18_2.lean",
+  "stem": "linear_algebra__p18_2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement deviates from the informal one in two opposing ways. First, it restricts A to SQUARE matrices (`Matrix n n R` with the same index type for rows and columns), whereas the informal \"Let A be a matrix\" imposes no squareness — a general homogeneous system Ax=0 is m×n. This restriction makes Lean cover fewer cases than the informal. Second, the informal explicitly says \"k ∈ ℝ\" and implicitly treats entries as real numbers, but the Lean generalizes R to an arbitrary field, covering more cases than the informal. Since one deviation narrows the scope (matrix shape) and the other broadens it (field), neither statement implies the other: the informal (about any-shape matrices over ℝ) does not imply the Lean (about square matrices over any field), and the Lean does not imply the informal. Hence they are incomparable.",
+  "duration_ms": 417080,
+  "cost_usd": 0.88647425
+}

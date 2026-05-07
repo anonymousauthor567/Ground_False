@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "theorem_name": "Munkres_exercise_29_4_corrected",
+  "informal": "Show that $[0, 1]^\\omega$ is not locally compact in the uniform topology.",
+  "lean": "\ntheorem Munkres_exercise_29_4_corrected :\n    ¬ LocallyCompactSpace (ℕ →ᵇ I)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the countable product [0,1]^ω with the uniform topology is not locally compact. In Lean, `ℕ →ᵇ I` denotes bounded continuous functions from ℕ (with discrete topology) to I = [0,1]. Since ℕ is discrete, every function ℕ → I is continuous, and since I is bounded, every such function is bounded. The bounded function space carries the sup-metric topology, which is exactly the uniform topology on I^ℕ = [0,1]^ω. The conclusion `¬ LocallyCompactSpace` matches \"not locally compact\". Thus the Lean statement captures the same claim.",
+  "duration_ms": 10072,
+  "cost_usd": 0.048981000000000004
+}

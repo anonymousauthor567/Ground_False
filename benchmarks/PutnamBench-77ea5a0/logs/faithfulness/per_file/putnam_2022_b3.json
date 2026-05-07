@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b3.lean",
+  "stem": "putnam_2022_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the informal question faithfully. The `recolor` function is characterized by `recolor isred d ↔ ∃ p q > 0, p < q ∧ isred p = isred q ∧ q - p = d`, which exactly captures \"d ∈ D\" (there exist two positive same-colored points at distance d); `isred p = isred q` equals `isred p ↔ isred q` by propext, capturing \"same color\". The conclusion `∀ isred, ∃ k, ∀ p > 0, (recolor^[k] isred) p` matches \"for every initial coloring, after finitely many iterations every positive real is red\". Although `isred` is typed on all of ℝ rather than only positive reals (as the comment notes), this boost is harmless because `recolor` only inspects values at positive arguments, so values on non-positive reals never propagate and the final `∀ p > 0` restriction selects exactly the relevant conclusion. The iff with `putnam_2022_b3_solution` is the standard Putnam yes/no encoding.",
+  "duration_ms": 202178,
+  "cost_usd": 0.47389875000000004
+}

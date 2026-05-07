@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p24.lean",
+  "stem": "linear_algebra__p24",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the three vectors as length-3 Arrays matching the informal column vectors exactly. `smul` correctly implements scalar multiplication (preserving length 3), and `add_vec` via `zip` then `map` performs componentwise addition on arrays of equal length 3. The hypothesis `add_vec (smul α v2) (smul β v3) = v1` thus asserts precisely the three linear equations -2α+6β=52, 4α-7β=-49, 7α+8β=137, which is exactly the informal claim that α, β express the target vector as a linear combination. With α,β universally quantified as real numbers and the conclusion α+β=18 matching the informal claim, the formalization is logically equivalent. The unique solution α=7, β=11 indeed gives α+β=18, so the theorem is true and faithful.",
+  "duration_ms": 204322,
+  "cost_usd": 0.38861125
+}

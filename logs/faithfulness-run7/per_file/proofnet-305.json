@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any continuous map $f: [0,1] \\to [0,1]$ has a fixed point. The Lean definition `I : Set ℝ := Icc 0 1` is exactly $[0,1]$, and using `I` as a type coerces to the subtype `{x : ℝ // x ∈ Icc 0 1}`, which carries the subspace topology. Thus `f : I → I` with `Continuous f` precisely encodes a continuous self-map of $[0,1]$, and `∃ (x : I), f x = x` is exactly the fixed-point conclusion. No hypotheses are added or removed, the types match, and the quantifier structure is preserved.",
+  "duration_ms": 10406,
+  "cost_usd": 0.042242999999999996
+}

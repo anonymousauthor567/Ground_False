@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal claim. The sum `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` elaborates to 1^k + 2^k + ... + (p-1)^k because `n : Fin (p-1)` ranges over 0..p-2 and the type ascription `: ℕ` forces coercion of n to ℕ before adding 1 (confirmed by the ground truth's `simp [hs, Nat.cast_sum, Nat.cast_pow]` step). The conjunction of two implications (`(¬ p-1 ∣ k) → s ≡ 0 [MOD p]` and `p-1 ∣ k → s ≡ -1 [ZMOD p]`) matches the informal case split. Using `[MOD p]` (Nat.ModEq) for the 0 case and `[ZMOD p]` (Int.ModEq) for the -1 case is natural: -1 cannot be expressed in ℕ, so ℤ is appropriate, and s coerces to ℤ. The hypothesis `hp : p.Prime` ensures p ≥ 2, so p-1 ≥ 1 and the sum is well-defined. No hypotheses are added or dropped beyond what the informal statement assumes.",
+  "duration_ms": 326881,
+  "cost_usd": 1.08231625
+}

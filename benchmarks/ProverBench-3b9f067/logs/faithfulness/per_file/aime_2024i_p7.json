@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024i_p7.lean",
+  "stem": "aime_2024i_p7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses IsGreatest (defined in Mathlib as `a ∈ s ∧ a ∈ upperBounds s`) on the set of real numbers realized as (f z).re for z with |z|=4, asserting the value is 540. This means both (a) 540 is achieved by some z with |z|=4 and (b) no z with |z|=4 produces a larger real part. That matches \"the largest possible real part ... is 540.\" The function f is introduced as a parameter with a defining equation, which is a standard equivalent encoding of \"let f(z) = (75+117i)z + (96+144i)/z\". The constraint |z|=4, the expression, and taking the real part are all represented correctly.",
+  "duration_ms": 39273,
+  "cost_usd": 0.13401900000000003
+}

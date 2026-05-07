@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_a1.lean",
+  "stem": "putnam_2001_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization mirrors the informal statement exactly. The set $S$ is encoded as `Type*`, and the binary operation $*$ is provided by the `[Mul S]` typeclass, which gives a total function `* : S → S → S` — matching the closure property \"$a*b \\in S$\" stated informally. The hypothesis `∀ a b : S, (a * b) * a = b` is literally the informal hypothesis. The conclusion `∀ a b : S, a * (b * a) = b` is literally the informal conclusion. Quantifier structure, types, hypothesis, and conclusion all match; no additional typeclass structure (like associativity or identity) is assumed. This is a faithful formalization.",
+  "duration_ms": 11403,
+  "cost_usd": 0.04983575
+}

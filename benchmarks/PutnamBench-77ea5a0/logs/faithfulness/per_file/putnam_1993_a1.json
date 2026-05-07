@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_a1.lean",
+  "stem": "putnam_1993_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal problem. The curve y=2x-3x³ in the first quadrant rises from (0,0) to its maximum (√2/3, 4√2/9), then descends to (√6/3, 0). The bounds 0 < c < 4√2/9 are implicit premises making the two-region geometric setup well-defined (needed for the line to create two intersections with the curve as in the figure). The first integral over (0, √2/3) of max(c - (2x-3x³), 0) correctly computes Region 1's area (bounded by y-axis, line y=c, and curve), since the max is nonzero exactly on (0, x₁) where the line is above the curve. The second integral over (0, √6/3) of max((2x-3x³) - c, 0) correctly computes Region 2's area, since the max is nonzero exactly on (x₁, x₂) where the curve is above the line. Since the solution is unique in this range (areas are monotone in c), asserting that c=4/9 satisfies these conditions is equivalent to \"find c making the areas equal.\"",
+  "duration_ms": 104283,
+  "cost_usd": 0.33480425
+}

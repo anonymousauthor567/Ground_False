@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every quotient group of a solvable group is solvable. The Lean formalization universally quantifies over a group `G` with `[IsSolvable G]`, a subgroup `H` with `[Normal H]`, and concludes `IsSolvable (G ⧸ H)`. The normality of `H` is needed for the quotient `G ⧸ H` to be a group — this is an implicit premise built into the meaning of \"quotient group\". Mathlib's `QuotientGroup` construction `G ⧸ H` requires `H.Normal` for the group structure, and the Lean statement aligns exactly with Mathlib's `solvable_quotient_of_solvable` instance. The universal quantification over G and H is preserved through the parameter structure. This is a precise, logically equivalent rendering of the informal claim.",
+  "duration_ms": 25048,
+  "cost_usd": 0.09548075000000002
+}

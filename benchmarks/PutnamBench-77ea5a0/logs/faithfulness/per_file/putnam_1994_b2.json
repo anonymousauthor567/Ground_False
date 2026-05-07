@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b2.lean",
+  "stem": "putnam_1994_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal question. A \"straight line\" is encoded as y = mx + b, which only excludes vertical lines; vertical lines can intersect the graph of a polynomial function in at most one point, so this restriction cannot change the answer. The set {x : mx + b = polynomial(x)} counts x-coordinates of intersection points, and since each intersection point's x-coordinate uniquely determines it, this matches counting distinct intersection points. Using Set.encard = 4 (verified from Mathlib's Data/Set/Card.lean as cardinality in ℕ∞) expresses \"exactly 4 intersection points\", which for a degree-4 polynomial (which has at most 4 real roots) coincides with \"at least 4 distinct intersection points\" — the natural reading of the informal claim. The formalization is therefore strictly faithful.",
+  "duration_ms": 92577,
+  "cost_usd": 0.24402300000000002
+}

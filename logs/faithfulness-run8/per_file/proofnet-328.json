@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"unique positive integers a, n with a^(n+1) - (a+1)^n = 2001\" as unique existence of a pair p : ℕ × ℕ with p.1 > 0 ∧ p.2 > 0 and the equation. The positivity conditions correctly capture \"positive integers\" since in ℕ, > 0 means ≥ 1. Although ℕ uses truncated subtraction, this is harmless here: the target value 2001 is positive, so any valid solution must satisfy a^(n+1) ≥ (a+1)^n, where ℕ subtraction agrees with integer subtraction. Conversely, if a^(n+1) < (a+1)^n then ℕ subtraction yields 0 ≠ 2001, so no spurious solutions are introduced. The known unique solution (13, 2) satisfies 13^3 - 14^2 = 2001 with a positive integer difference. Therefore the Lean formulation is logically equivalent to the informal claim.",
+  "duration_ms": 66284,
+  "cost_usd": 0.23430374999999998
+}

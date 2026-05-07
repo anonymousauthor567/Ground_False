@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∑ i ∈ range (n+1), C i / (i+1) = 0` correctly encodes C₀ + C₁/2 + ⋯ + Cₙ/(n+1) = 0, with the natural number i+1 coerced to ℝ in the division. The conclusion `∃ x ∈ Set.Ioo 0 1, ∑ i ∈ range (n+1), (C i) * x^i = 0` correctly encodes the existence of a root strictly between 0 and 1 for the polynomial C₀ + C₁x + ⋯ + Cₙxⁿ. Representing the finitely many coefficients as a function `C : ℕ → ℝ` is a standard harmless encoding (extra values are not referenced). The quantifier structure, hypotheses, and conclusion all match the informal claim.",
+  "duration_ms": 30371,
+  "cost_usd": 0.08411174999999999
+}

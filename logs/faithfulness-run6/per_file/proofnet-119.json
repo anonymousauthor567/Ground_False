@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if X is infinite, then X with the finite complement (cofinite) topology is connected. The Lean signature uses `[Infinite X]` to encode \"X is infinite\", `CofiniteTopology X` (defined in `Mathlib/Topology/Constructions.lean` as the type synonym carrying the topology whose open sets are ∅ and sets with finite complement) to encode \"finite complement topology\", and `IsConnected (Set.univ : Set (CofiniteTopology X))` to encode \"the whole space is connected\" (nonempty + preconnected). Asserting connectedness of `univ` in the ambient topological space is the standard Mathlib idiom equivalent to `ConnectedSpace (CofiniteTopology X)`. No hypotheses are added or dropped, and the conclusion matches exactly. Hence the formalization is strictly faithful.",
+  "duration_ms": 66850,
+  "cost_usd": 0.26721025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"every locally compact Hausdorff space is completely regular\" as the implication `LocallyCompactSpace X → T2Space X → CompletelyRegularSpace X`. In Mathlib, `LocallyCompactSpace` (every neighborhood contains a compact neighborhood) and `WeaklyLocallyCompactSpace` (each point has a compact neighborhood, which is Munkres's definition) are equivalent in the presence of T2, so no meaningful strengthening/weakening occurs in the hypothesis. Mathlib's `CompletelyRegularSpace` captures the function-separation property (continuous [0,1]-valued separation of a point from a closed set), which is the content of \"completely regular\". If one reads \"completely regular\" in the Munkres sense (including T1), then since T2 implies T0, the conclusion together with the hypothesis automatically yields `T35Space`, making the two readings logically equivalent under the given hypotheses. Thus the Lean statement faithfully captures the informal claim.",
+  "duration_ms": 116983,
+  "cost_usd": 0.43305425000000003
+}

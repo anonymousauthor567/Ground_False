@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_3.lean",
+  "stem": "number_theory__p18_3",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts a specific fact: \"the greatest negative element of B is -4.\" The only non-axiom Lean theorem signature (`characterize_B`) instead proves a full characterization: `∀ b, b ∈ B ↔ ∃ k, b = -44 + 5k`. This characterization is logically stronger than the informal claim — from it one can derive that B = {..., -9, -4, 1, ...} and hence that -4 is the greatest negative element, but it also yields much more information about the structure of B. The Lean signature does not directly assert the \"greatest negative element is -4\" claim at all; it proves a parametrization from which that claim would follow. Since the Lean statement implies the informal claim but says strictly more (and does not actually state the conclusion about the greatest negative element), it is stronger than what was asked.",
+  "duration_ms": 101067,
+  "cost_usd": 0.2353525
+}

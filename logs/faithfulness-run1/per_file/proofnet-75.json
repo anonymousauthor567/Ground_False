@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "informal": "If $a > 1$ is an integer, show that $n \\mid \\varphi(a^n - 1)$, where $\\phi$ is the Euler $\\varphi$-function.",
+  "lean": "\ntheorem Herstein_exercise_2_4_36 {a n : ℕ} (h : a > 1) :\n  n ∣ (a ^ n - 1).totient",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: for integer a > 1 and positive integer n, n divides φ(a^n − 1). The Lean version uses a, n : ℕ with hypothesis a > 1, and concludes n ∣ (a^n − 1).totient. Using ℕ for a is fine since a > 1 forces a positive. The case n = 0 is not excluded in Lean, but it is vacuously true (0 ∣ φ(0) = 0), so including it does not weaken or strengthen the claim. Mathlib's Nat.totient on a^n − 1 matches Euler's φ. The natural-subtraction a^n − 1 equals the intended value since a ≥ 2 implies a^n ≥ 1. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 9442,
+  "cost_usd": 0.05043075
+}

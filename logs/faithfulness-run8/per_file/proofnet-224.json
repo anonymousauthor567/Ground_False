@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any group G and any two normal subgroups H, K of G, the intersection H ∩ K is a normal subgroup of G. The Lean theorem takes `G : Type*` with `[Group G]`, two subgroups `H K : Subgroup G`, and typeclass assumptions `[Normal H] [Normal K]`, concluding `Normal (H ⊓ K)`. In Mathlib, `H ⊓ K` in `Subgroup G` has underlying set exactly `H ∩ K` (see `Subgroup.coe_inf` in `Mathlib/Algebra/Group/Subgroup/Lattice.lean`), so `H ⊓ K` is literally the intersection subgroup. The `Normal` typeclass matches the standard definition. No hypotheses are added or dropped, and the quantification over G, H, K is preserved. This is a direct, faithful formalization.",
+  "duration_ms": 31286,
+  "cost_usd": 0.08865125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. EuclideanSpace ℝ (Fin n) is the standard Mathlib encoding of ℝ^n with the Euclidean norm, so ‖x - y‖ captures |x - y|. All hypotheses correspond precisely: n ≥ 3 ↔ k ≥ 3, ‖x - y‖ = d, d > 0, r > 0, and 2*r > d. The conclusion Set.Infinite {z | ‖z - x‖ = r ∧ ‖z - y‖ = r} directly asserts that there are infinitely many z with |z-x| = |z-y| = r. The theorem has an extraneous free parameter z that is shadowed by the bound variable in the set comprehension and therefore unused, but this does not alter the logical content — universally quantifying over an unused variable is equivalent to the statement without it.",
+  "duration_ms": 50414,
+  "cost_usd": 0.20324175
+}

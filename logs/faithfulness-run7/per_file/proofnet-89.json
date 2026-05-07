@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. The hypothesis `Nat.Prime p` matches \"p is a prime\". The polynomial `∑ i ∈ Finset.range p, X ^ i : Polynomial ℚ` expands to `X^0 + X^1 + ... + X^(p-1) = 1 + X + X² + ... + X^(p-1)` in `ℚ[X]`, matching the informal polynomial. Mathlib's `Irreducible` predicate (defined in `Mathlib/Algebra/Group/Irreducible/Defs.lean` as non-unit plus only-units factorizations) is the standard ring-theoretic irreducibility, which for a polynomial ring over a field coincides with the usual notion of irreducibility in $\\mathbb{Q}[x]$. No hypotheses are added or dropped and no quantifier structure is changed.",
+  "duration_ms": 56168,
+  "cost_usd": 0.25551300000000005
+}

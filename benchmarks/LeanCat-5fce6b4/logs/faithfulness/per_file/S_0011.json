@@ -1,0 +1,8 @@
+{
+  "file": "S_0011.lean",
+  "stem": "S_0011",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization carefully encodes all the AHS definitions. `ConcreteCat` requires a faithful functor `U : C ⥤ X`, matching \"concrete category over B\". `IsInitialHom` correctly encodes \"g is a C-morphism whenever f∘g is a C-morphism\" as \"(∃ h, U(h) = g ≫ U(f)) → (∃ k, U(k) = g)\", with the composition convention g ≫ U(f) correctly corresponding to U(f) ∘ g in math notation. `IsEmbedding` is initial plus U(f) monic in the base category. `IsInjectiveObj` correctly has `m ≫ g = f` which is `g ∘ m = f`. `HasEnoughInj` states every object has an embedding into an injective, matching \"initial subobject of an injective\". `CompHausConcrete` uses `forget CompHaus : CompHaus ⥤ Type u`, which is automatically faithful via Mathlib's `HasForget` for CompHaus, correctly instantiating compact Hausdorff spaces as a concrete category over Set. The theorem asserts exactly what the informal statement claims.",
+  "duration_ms": 331685,
+  "cost_usd": 1.0231685
+}

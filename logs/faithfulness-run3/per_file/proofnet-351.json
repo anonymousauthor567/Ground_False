@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. E : Set ℝ and f : ℝ → ℝ correspond to \"E in R^1\" and \"real function\". The hypothesis `UniformContinuousOn f E` captures \"uniformly continuous on E\", and `Bornology.IsBounded E` captures \"bounded set E\". The conclusion `Bornology.IsBounded (Set.image f E)` is the standard way to express \"f is bounded on E\" — the image of E under f is a bounded set of reals, equivalent to saying there exists M with |f(x)| ≤ M for all x ∈ E. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 11542,
+  "cost_usd": 0.05161625
+}

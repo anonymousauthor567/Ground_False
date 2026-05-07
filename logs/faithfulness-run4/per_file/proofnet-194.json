@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over any field F with Fintype instance and cardinality 2, which characterizes F_2 up to isomorphism (all fields of cardinality 2 are isomorphic to ℤ/2ℤ). This is a standard and faithful way to encode \"in the field F_2\". The polynomial `X^2 + X + 1 : Polynomial F` matches x^2+x+1 in F[x], and Mathlib's `Irreducible` is the expected commutative-ring irreducibility predicate, which over a field gives the usual notion of an irreducible polynomial. No extra hypotheses narrow the claim, and no hypotheses from the informal statement are dropped, so the Lean theorem is logically equivalent to the informal claim.",
+  "duration_ms": 42292,
+  "cost_usd": 0.13891
+}

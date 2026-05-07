@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if R is a ring with x^3 = x for all x, then R is commutative. The Lean signature takes `[Ring R]` (matching \"R is a ring\"), hypothesis `∀ x : R, x ^ 3 = x` (matching \"x^3 = x for every x ∈ R\"), and concludes `∀ x y : R, x * y = y * x`, which is precisely the definition of commutativity for a ring. No extra hypotheses (such as `Nontrivial`, `Fintype`, or characteristic constraints) are added, and no hypotheses are dropped. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 24590,
+  "cost_usd": 0.07228600000000002
+}

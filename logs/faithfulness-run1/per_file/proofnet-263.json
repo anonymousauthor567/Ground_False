@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "theorem_name": "Herstein_exercise_2_5_52_corrected",
+  "informal": "Let $G$ be a finite group and $\\varphi$ an automorphism of $G$ such that $\\varphi(x) = x^{-1}$ for more than three-fourths of the elements of $G$. Prove that $\\varphi(y) = y^{-1}$ for all $y \\in G$, and so $G$ is abelian.",
+  "lean": "theorem Herstein_exercise_2_5_52_corrected {G : Type*} [Group G] [Fintype G]\n    (φ : G ≃* G) {I : Finset G} (hI : ∀ x ∈ I, φ x = x⁻¹)\n    (hI1 : (0.75 : ℚ) * card G < card I) :\n    (∀ x : G, φ x = x⁻¹) ∧ ∀ x y : G, x * y = y * x",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures a finite group `G` with an automorphism `φ : G ≃* G` (a `MulEquiv` from `G` to itself, which is exactly an automorphism). The hypothesis encodes \"more than three-fourths of elements satisfy φ(x) = x⁻¹\" by exhibiting a Finset `I` of such elements with `|I| > 0.75 · |G|`; since every member of `I` satisfies the inversion property, this is equivalent to saying that the set of elements with φ(x) = x⁻¹ has cardinality > 3|G|/4. The conclusion `(∀ x, φ x = x⁻¹) ∧ ∀ x y, x*y = y*x` matches both parts of the informal claim (φ is inversion on all of G, and G is abelian). No extra or missing hypotheses (like decidability or commutativity) alter the math, so the formalization is faithful.",
+  "duration_ms": 13171,
+  "cost_usd": 0.05969175
+}

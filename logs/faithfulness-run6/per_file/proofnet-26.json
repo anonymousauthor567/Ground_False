@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `End ℂ V` matches L(V); the condition `T * adjoint T = adjoint T * T` is exactly the definition of a normal operator (multiplication in `End` is composition); `T^9 = T^8` and the conjunction `IsSelfAdjoint T ∧ T^2 = T` match the hypothesis and conclusion verbatim. The `[FiniteDimensional ℂ V]` hypothesis surfaces an implicit premise: `LinearMap.adjoint` in Mathlib is only defined for finite-dimensional spaces (see `Mathlib/Analysis/InnerProductSpace/Adjoint.lean` line 463), and the informal statement implicitly requires the adjoint to exist for T to be called \"normal\". This is surfacing an implicit premise rather than narrowing the claim.",
+  "duration_ms": 180550,
+  "cost_usd": 0.57553125
+}

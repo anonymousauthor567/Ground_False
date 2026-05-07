@@ -1,0 +1,8 @@
+{
+  "file": "S_0028.lean",
+  "stem": "S_0028",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures each piece of the informal statement: (1) ℕ as a category uses the automatic `Preorder.smallCategory` instance, so `ℕ ⥤ ℕ` is functors of the poset category; (2) `Function.Injective G` correctly encodes \"distinct functors\" (pairwise distinct across the sequence); (3) `(G 0).obj x = x + 1` matches G_0(x) = x+1 using the functor's object map; (4) `Nonempty (G (n + 1) ⊣ G n)` matches \"G_{n+1} ⊣ G_n\" — since `Adjunction` is a structure (data), `Nonempty` is the standard way to assert its existence as a proposition, and moreover in a thin/poset category adjunctions are unique when they exist, so this is semantically equivalent to \"there is an adjunction\". The direction of the adjunction matches the informal claim. No hypotheses are added or dropped, and the quantifier structure (over n ∈ ℕ) is preserved.",
+  "duration_ms": 146209,
+  "cost_usd": 0.49675325
+}

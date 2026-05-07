@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"p has degree m\" via `hm : m = p.degree` (with `m : ℕ` coerced into `WithBot ℕ`, forcing the degree to be the natural number m, which also implies p ≠ 0). The `hp : p ≠ 0` hypothesis is redundant given `hm` but doesn't alter the statement. `@card (p.rootSet ℂ) (rootSetFintype p ℂ) = m` correctly expresses \"p has m distinct roots\" since `rootSet` in Mathlib is `(p.aroots S).toFinset`, i.e., the set of distinct roots. The `Disjoint` condition on the root sets of p and its derivative correctly expresses \"p and p' have no roots in common\". The iff direction and quantifier structure match the informal statement exactly.",
+  "duration_ms": 102430,
+  "cost_usd": 0.34606775
+}

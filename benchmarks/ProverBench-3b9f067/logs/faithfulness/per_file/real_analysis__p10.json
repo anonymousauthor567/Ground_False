@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p10.lean",
+  "stem": "real_analysis__p10",
+  "verdict": "weaker",
+  "reasoning": "The informal statement explicitly says \"$f$ is defined in a punctured neighborhood of $x_0$\" and uses the standard convention $\\lim_{x \\to x_0} f(x) = A$, which is the PUNCTURED limit (excluding $x_0$ itself). In Mathlib this corresponds to `Tendsto f (𝓝[≠] x₀) (𝓝 A)`. The Lean formalization instead uses `Tendsto f (𝓝 x₀) (𝓝 A)`, which is the UNPUNCTURED limit and (in a metric/T1 space) additionally forces $f(x_0) = A$. This is a strictly stronger hypothesis: e.g., $f$ with $f(x)=1$ for $x\\neq 0$ and $f(0)=-1$ satisfies the informal hypothesis (punctured limit = 1 > 0) but fails the Lean hypothesis. Therefore the Lean theorem is logically implied by — but does not imply — the informal theorem, making it a weaker (special-case) version. This is not a case of surfacing an implicit premise needed for truth, since the informal claim is already true with the weaker punctured-limit hypothesis.",
+  "duration_ms": 791568,
+  "cost_usd": 1.15515225
+}

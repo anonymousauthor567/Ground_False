@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a5.lean",
+  "stem": "putnam_2003_a5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims a one-to-one correspondence (bijection) between A := dyckpath n ∩ noevenreturn n and B := dyckpath(n-1). The Lean statement says: ∃ f : (Fin(2n)→ℤ) → (Fin(2(n-1))→ℤ), ∀ y ∈ B, ∃! x, x ∈ A ∧ f x = y. This only forces the preimage of each y ∈ B under f, restricted to A, to be a singleton — giving an injection B ↪ A (via y ↦ unique preimage). It does NOT require that f map A into B, so there could be elements of A that f sends outside dyckpath(n-1), which would be fine for the Lean statement but would mean |A| > |B| and no bijection exists. Concretely, with A = {1,2,3}, B = {a,b}, f(1)=a, f(2)=b, f(3)=c ∉ B, the Lean condition holds but there is no bijection A ↔ B. Thus the Lean statement is equivalent to \"|A| ≥ |B|\" rather than \"|A| = |B|\", making it strictly weaker than the informal one-to-one correspondence claim. The standard faithful encoding would use BijOn, Equiv, or additionally require f to map A into B.",
+  "duration_ms": 682845,
+  "cost_usd": 1.8364637500000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a6.lean",
+  "stem": "putnam_1988_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. The n-dimensional vector space is captured by `n = Module.finrank F V` together with `FiniteDimensional F V`. The \"n+1 eigenvectors\" is encoded as a set `evecs` with `encard = n + 1` whose elements all satisfy `A.HasEigenvector f v` for some eigenvalue f (Mathlib's `HasEigenvector` correctly requires nonzero, matching convention). The \"any n of them are linearly independent\" condition quantifies over `sevecs : Fin n → V` whose range is a size-n subset of evecs; the size constraint forces injectivity, so this correctly asserts that any n-element subset of the n+1 eigenvectors forms a linearly independent family. The conclusion `∃ c : F, A = c • LinearMap.id` faithfully encodes \"A is a scalar multiple of identity.\" The biconditional with `putnam_1988_a6_solution = True` asserts the universal claim holds, matching the informal yes/no question whose answer is affirmative. Universal quantification over fields is the natural reading of the unspecified field in the informal statement.",
+  "duration_ms": 254776,
+  "cost_usd": 0.657981
+}

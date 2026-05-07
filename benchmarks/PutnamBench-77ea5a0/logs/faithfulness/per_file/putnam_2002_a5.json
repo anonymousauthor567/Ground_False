@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_a5.lean",
+  "stem": "putnam_2002_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal statement: (1) the hypothesis `ha` encodes the three recurrence conditions `a 0 = 1`, `a (2n+1) = a n`, and `a (2n+2) = a n + a (n+1)` for all n ≥ 0 (matching \"n ≥ 0\" since n : ℕ); (2) these conditions uniquely determine the sequence since every natural number ≥ 1 is either of the form 2k+1 or 2k+2 for some smaller k; (3) `Ici 1 : Set ℕ` (inferred from `a : ℕ → ℚ` context) gives `{n : ℕ | n ≥ 1}` matching \"n ≥ 1\"; (4) for n ≥ 1, `n - 1` in natural subtraction gives the correct index; (5) the set-builder notation `{a (n - 1) / a n | n ∈ Ici 1}` expands to the intended set of ratios; (6) the conclusion `∀ q : ℚ, q > 0 → q ∈ S` is exactly \"every positive rational appears in S\". The computed values 1/1, 1/2, 2/1, 1/3, 3/2 match the informal enumeration.",
+  "duration_ms": 94187,
+  "cost_usd": 0.34054925
+}

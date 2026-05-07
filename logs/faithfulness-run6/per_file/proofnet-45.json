@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over any group G and any subgroup H of G, assumes G is solvable (via [IsSolvable G]), and concludes H is solvable (IsSolvable H). Mathlib's IsSolvable class is defined as the derived series being eventually trivial, the standard definition. This exactly matches the informal claim \"subgroups of a solvable group are solvable.\" No hypotheses are added or dropped, no quantifier structure is changed, and the conclusion is precisely what was asked. Mathlib itself formalizes this very fact as the instance `subgroup_solvable_of_solvable` in GroupTheory/Solvable.lean.",
+  "duration_ms": 21581,
+  "cost_usd": 0.12329325000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "57.lean",
+  "stem": "57",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization defines `IsAlmostIntegral` and `IsCompletelyIntegrallyClosed` in a way that closely mirrors the informal text. For x : FractionRing A, the condition `r • (x^n) = algebraMap A (FractionRing A) y` in an A-algebra is equivalent to `algebraMap(r) * x^n ∈ range(algebraMap)`, which captures precisely \"rx^n ∈ A\" under the standard identification of A with its image in K. The hypothesis `r ≠ 0` matches \"r ≠ 0\" and, since A is a domain, also matches Mathlib's standard convention (r ∈ A⁰). `∀ n : ℕ` captures \"n ≥ 0\". The conclusion `IsCompletelyIntegrallyClosed (Polynomial A)` is well-typed since Mathlib automatically provides `IsDomain (Polynomial A)` from `IsDomain A` (see `Polynomial/Basic.lean:1160`). The statement \"if A is completely integrally closed, so is A[X]\" is captured exactly.",
+  "duration_ms": 203800,
+  "cost_usd": 0.463285
+}

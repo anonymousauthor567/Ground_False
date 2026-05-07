@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses Tendsto with filter atTop on ℝ and target 𝓝 (1/2), which exactly captures 'limit as n → ∞ equals 1/2'. The informal statement explicitly calls f(n) = √(n² + n) - n a 'real function', so using n : ℝ (rather than ℕ) matches the informal wording. The lambda sqrt (n^2 + n) - n is identical to the informal f(n), with sqrt resolving to Real.sqrt under the open Real namespace. No hypotheses are added or dropped; no types or quantifiers are changed. This is a logically equivalent formalization.",
+  "duration_ms": 98959,
+  "cost_usd": 0.38732975000000003
+}

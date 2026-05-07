@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"at most countable collection\" as a family ℕ → Set ℝ (using empty segments as padding), disjointness as pairwise disjoint indices, and segments as {x : ℝ | a < x ∧ x < b} with a, b : EReal. The EReal endpoints allow segments to include open intervals, rays (-∞, b), (a, +∞), and ℝ itself, which is necessary for the theorem to be true (the theorem fails for U = ℝ if only finite endpoints are allowed). This is a standard way to surface the implicit premise that \"segment\" must include unbounded open intervals, matching the intended mathematical content. The `∀ n, f n ⊆ U` condition is redundant given `U = ⋃ n, f n` but does not change the claim. Empty sets arising from a ≥ b act as fillers and do not affect disjointness. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 116230,
+  "cost_usd": 0.342233
+}

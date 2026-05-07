@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_a2.lean",
+  "stem": "putnam_1998_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the Putnam 1998 A2 problem. `quadrant P` captures \"P on the unit circle in the first quadrant\" via `P 0 > 0 ∧ P 1 > 0 ∧ dist 0 P = 1`. `arc P Q` defines the open arc between P and Q. The region for A = `{S | ∃ R ∈ arc, R 0 = S 0 ∧ R 1 > S 1 ∧ S 1 > 0}` is exactly the area below the arc and above the x-axis (endpoints contribute measure zero), and B is analogously the region left of arc, right of y-axis. For unit vectors P,Q, `InnerProductGeometry.angle P Q = arccos(⟨P,Q⟩)` equals the central angle, which equals the arc length on the unit circle. The conclusion `∃ f, ∀ P Q, isarc P Q → A P Q + B P Q = f (angle P Q)` is the standard logical form of \"A+B depends only on arc length\". The strict inequalities excluding boundary points of the first quadrant and degenerate single-point arcs are minor conventions that don't change the mathematical content.",
+  "duration_ms": 301962,
+  "cost_usd": 0.8005132500000001
+}

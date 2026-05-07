@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over f, g : Polynomial ℚ (via implicit arguments) and over coefficient indices i, j : ℕ (via theorem parameters), matching the informal \"for any polynomials with rational coefficients\" and \"any coefficient of f with any coefficient of g\". The hypothesis `∀ n : ℕ, ∃ a : ℤ, (f * g).coeff n = a` correctly encodes \"f*g has integer coefficients\" using the standard Mathlib idiom of existence of an integer equal (via coercion to ℚ) to the rational coefficient. The conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` similarly encodes that the product of arbitrary coefficients is an integer. Types and quantifier structure align precisely with the informal statement.",
+  "duration_ms": 77821,
+  "cost_usd": 0.265324
+}

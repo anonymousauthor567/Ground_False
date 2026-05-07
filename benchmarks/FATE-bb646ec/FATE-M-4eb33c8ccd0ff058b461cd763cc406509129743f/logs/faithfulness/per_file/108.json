@@ -1,0 +1,8 @@
+{
+  "file": "108.lean",
+  "stem": "108",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Perm (Fin n)` for Sₙ and `IsSwap` (defined as `∃ x y, x ≠ y ∧ f = swap x y` in Mathlib/GroupTheory/Perm/Support.lean) for transposition, both matching the informal meaning precisely. The conclusion `τ₁ * τ₂ * τ₃ ≠ 1` matches \"τ₁ τ₂ τ₃ ≠ e\". Universal quantification over n : ℕ does not narrow or extend the claim: when n < 2 there are no swaps so the hypotheses are vacuously unsatisfiable, and for n ≥ 2 it states exactly the claim. No extra hypotheses are added and none are dropped. This is a strictly faithful formalization.",
+  "duration_ms": 86288,
+  "cost_usd": 0.215943
+}

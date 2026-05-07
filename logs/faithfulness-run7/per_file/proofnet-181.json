@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $\\int_{-\\infty}^{\\infty} \\cos(x)/(x^2+a^2)\\,dx = \\pi e^{-a}/a$ for $a > 0$. The Lean signature encodes this as the limit as $y \\to \\infty$ of $\\int_{-y}^{y} \\cos(x)/(x^2+a^2)\\,dx$ equal to $\\pi e^{-a}/a$. Since $|\\cos(x)/(x^2+a^2)| \\le 1/(x^2+a^2)$ is absolutely integrable on $\\mathbb{R}$, the symmetric truncated integrals converge to the Lebesgue integral over $\\mathbb{R}$, and the two formulations are equivalent for this integrand. The hypothesis $a > 0$ is preserved and the right-hand side $\\pi \\cdot (e^{-a}/a)$ matches the informal expression. This is a standard and faithful encoding of an improper integral statement.",
+  "duration_ms": 120114,
+  "cost_usd": 0.429641
+}

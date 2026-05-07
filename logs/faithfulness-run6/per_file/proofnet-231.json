@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypothesis `hp : p.Prime` matches \"p is a prime\"; `[Group G] [Fintype G]` with `hG : card G = p ^ α` together encode \"G is a group of order p^α\" (Fintype is necessary to speak of `card G` and is implicit in the informal claim about finite order); `ha : α > 0` on `α : ℕ` correctly encodes α ∈ ℤ⁺. The conclusion `∀ H : Subgroup G, H.index = p → H.Normal` exactly matches \"every subgroup of index p is normal in G\". No hypothesis is added or dropped, and the quantifier structure and mathematical content are preserved.",
+  "duration_ms": 26263,
+  "cost_usd": 0.09116475000000002
+}

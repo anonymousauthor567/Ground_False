@@ -1,0 +1,8 @@
+{
+  "file": "imo_2018_p4.lean",
+  "stem": "imo_2018_p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization carefully encodes the IMO 2018 P4 game: Site = Fin 20 × Fin 20 with asPoint shifting to coordinates 1..20, valid_Amy_move requires unoccupied site and distance ≠ √5 to all existing red stones, valid_Ben_move requires only unoccupied. updateOneTurn applies Amy's move then Ben's (Amy first), and CanPlaceKRedStones a b k correctly states that k-1 complete rounds finished and Amy can make her k-th move (without requiring Ben to respond). The two clauses ∃a∀b(≥K) and ∀a∃b(¬≥K+1) correctly characterize the greatest K that Amy can guarantee. If Ben cannot move before K+1 is reached, updateGame returns None and CanPlaceKRedStones is correctly false, matching the informal \"they stop as soon as a player cannot place a stone.\" Distance is standard Euclidean in EuclideanSpace ℝ (Fin 2), so dist = √5 captures the intended constraint. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 859362,
+  "cost_usd": 2.3435795
+}

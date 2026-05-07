@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p15.lean",
+  "stem": "calculus__p15",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement has a `¬` in front of the Tendsto claim, asserting that the function does NOT tend to 1/2 as x → 0. The informal statement asserts the OPPOSITE: that the limit IS 1/2. Since the piecewise function matches (1-cos x)/x² for x ≠ 0 (the only values that matter for the limit under 𝓝 0 in Mathlib), the Tendsto statement is true, and so the Lean theorem (its negation) is false — directly contradicting the informal claim. This makes the Lean statement incomparable with (indeed, contradictory to) the informal one: it neither implies nor is implied by the informal statement, it is the logical negation.",
+  "duration_ms": 31996,
+  "cost_usd": 0.08171225
+}

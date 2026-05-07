@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "informal": "Show that if $\\prod X_\\alpha$ is normal, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.",
+  "lean": "\ntheorem Munkres_exercise_32_2c\n  {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]\n  (h : ∀ i, Nonempty (X i)) (h2 : NormalSpace (Π i, X i)) :\n  ∀ i, NormalSpace (X i)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the product ∏ X_α is normal and each X_α is nonempty, then each X_α is normal. The Lean signature takes an index type ι, a family X : ι → Type* of topological spaces, hypotheses that each X i is nonempty and that the product Π i, X i is a NormalSpace, and concludes that each X i is a NormalSpace. This matches the informal claim exactly: hypotheses (nonemptiness of each factor, normality of product) and conclusion (normality of each factor) align, with proper universal quantification over i.",
+  "duration_ms": 6984,
+  "cost_usd": 0.043904000000000006
+}

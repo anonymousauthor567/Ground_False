@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p34.lean",
+  "stem": "calculus__p34",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement is a trivial tautology: since `integrand t` is defined to be `Real.sqrt (1 + (4 + 4 * Real.pi ^ 2) * t ^ 2)`, the theorem asserts ∫f = ∫f for the same f. It makes no reference to any curve, paint nozzle, paraboloid, rotation, arclength, or curve length. The informal statement claims that a specific geometric curve length equals this integral — a substantive mathematical claim. The Lean formalization fails to encode any of that content (it doesn't even define the curve), so it is strictly weaker than the informal statement (implied by it vacuously, but does not imply it).",
+  "duration_ms": 30038,
+  "cost_usd": 0.0813485
+}

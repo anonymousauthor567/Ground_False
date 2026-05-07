@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes exactly what Munkres asks: given a family of nonempty topological spaces X_i whose product Π i, X i is normal (using Mathlib's `NormalSpace`), each X_i is normal. The hypothesis `h : ∀ i, Nonempty (X i)` corresponds to \"assume each X_α is nonempty\", `h2 : NormalSpace (Π i, X i)` corresponds to the product being normal, and the conclusion `∀ i, NormalSpace (X i)` corresponds to \"each X_α is normal\". The quantifier structure, types, and mathematical content match the informal statement precisely, with no dropped or added hypotheses beyond those stated.",
+  "duration_ms": 53954,
+  "cost_usd": 0.18323325
+}

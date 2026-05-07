@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b4.lean",
+  "stem": "putnam_1967_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly models the locker problem: `lockers 0 i = false` encodes all lockers initially locked (false = locked, true = unlocked per the convention fixed by the recurrence), and the recurrence `lockers k i = if k ∣ i then !(lockers (k-1) i) else (lockers (k-1) i)` correctly models operation T_k toggling multiples of k. The conclusion `lockers n i ↔ (∃ j : ℤ, j^2 = i)` uses Lean's Bool→Prop coercion (b ≡ b = true) to assert \"locker i unlocked ⇔ i is a perfect square\", matching \"open if and only if perfect square\". Since i ∈ [1,n], `∃ j : ℤ, j^2 = i` is equivalent to i being a natural perfect square. The `npos : n ≥ 1` is needed for the Set.Icc 1 n to be nonempty and is an implicit premise of the informal problem. Extending the domain of `lockers` to ℕ (rather than Icc 0 n) is irrelevant since only values at k ∈ [0,n] are constrained and only `lockers n i` appears in the conclusion.",
+  "duration_ms": 253117,
+  "cost_usd": 0.7964142500000001
+}

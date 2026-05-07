@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_b3.lean",
+  "stem": "putnam_1999_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all components of Putnam 1999 B3: (1) The set A matches the standard reading of \"0 ≤ x, y < 1\" as four inequalities. (2) The sum S(x,y) uses iterated tsums with an indicator that restricts to positive integers m, n > 0 with 1/2 ≤ m/n ≤ 2, where the division is over ℝ via coercion — since all terms x^m y^n are nonnegative on A, the iterated tsum equals the unordered double sum. (3) The filter `𝓝[A] ⟨1,1⟩ = 𝓝 ⟨1,1⟩ ⊓ 𝓟 A` precisely captures the informal \"limit as (x,y) → (1,1) with (x,y) ∈ A\". (4) The expression (1 - xy²)(1 - x²y)S(x,y) and the solution value 3 match the informal statement. No hypothesis is added or dropped.",
+  "duration_ms": 208636,
+  "cost_usd": 0.68427725
+}

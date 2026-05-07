@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p52.lean",
+  "stem": "calculus__p52",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is an indefinite-integral / antiderivative identity: \"ln|sec x + tan x| is an antiderivative of sec x\", where \"+C\" denotes the integration constant. The Lean formalization instead states a *definite* integral `∫ t in Set.Icc 0 x, 1/cos t` equal to `Real.log |sec x + tan x| + C`, where `C` is an unbound variable that auto-binds as a universally-quantified implicit ℝ argument. This produces a claim ∀ C, (definite integral) = (log expression) + C, which is false (the LHS does not depend on C while the RHS does), and at x = 0 the LHS is 0 while the RHS is C. The Lean does not express the antiderivative claim and is not a natural weakening or strengthening of it — it is a different mathematical statement involving a different object (bounded definite integral) with an anomalous free parameter, rather than the derivative/antiderivative relation the informal describes.",
+  "duration_ms": 254054,
+  "cost_usd": 0.6260654999999999
+}

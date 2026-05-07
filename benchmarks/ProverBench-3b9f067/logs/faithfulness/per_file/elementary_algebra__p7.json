@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p7.lean",
+  "stem": "elementary_algebra__p7",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is f(g(5,7), h(4,5)) = 125 with f(x,y)=3x-2y, g(x,y)=4x+5y, h(x,y)=x·y. In Lean, `g_at_7 = 4*X + 5*C 7` evaluated at 5 yields 4·5 + 5·7 = 55, matching g(5,7); `h_at_5 = X*C 5` evaluated at 4 yields 4·5 = 20, matching h(4,5); and `f_at x y = 3*x - 2*y` directly encodes f. So the theorem states f(55, 20) = 125 on ℤ, which is exactly the informal claim. Although the encoding uses `Polynomial ℤ` (partial application by fixing y via `C`) rather than plain two-argument functions, the evaluated values are provably equal to g(5,7) and h(4,5), so the statement is logically equivalent to the informal one.",
+  "duration_ms": 151723,
+  "cost_usd": 0.29652525
+}

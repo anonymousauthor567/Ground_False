@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim. The three differentiability hypotheses (`DifferentiableOn ℝ f`, `DifferentiableOn ℝ (deriv f)`, `DifferentiableOn ℝ (deriv (deriv f))` on `Icc (-1) 1`) are a standard Lean encoding of \"three times differentiable on [-1,1]\". The value hypotheses f(-1)=0, f(0)=0, f(1)=1 match directly, and `deriv f 0 = 0` correctly captures f'(0)=0 since 0 is in the interior (where `deriv` agrees with the true derivative). The conclusion `∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3` matches \"f^(3)(x) ≥ 3 for some x ∈ (-1,1)\": the open interval matches, and at interior points `deriv (deriv (deriv f))` equals the third derivative. This is a faithful formalization.",
+  "duration_ms": 166143,
+  "cost_usd": 0.51264475
+}

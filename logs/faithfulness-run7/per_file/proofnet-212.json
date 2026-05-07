@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for associativity of multiplication in ℤ/nℤ. The Lean statement uses `ZMod n`, which is Mathlib's standard formalization of ℤ/nℤ (with a `CommRing` instance defined in `Mathlib/Data/ZMod/Defs.lean`). It universally quantifies over n : ℕ and over a, b, c : ZMod n, asserting `(a * b) * c = a * (b * c)` — precisely multiplication associativity in the residue ring. The inclusion of n = 0 (where `ZMod 0 ≃ ℤ`) is the standard Mathlib convention and a natural reading; associativity holds uniformly for all n. No hypotheses are silently added or dropped, and the conclusion matches the informal claim exactly.",
+  "duration_ms": 47444,
+  "cost_usd": 0.154579
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "informal": "If $\\Sigma a_{n}$ converges, and if $\\left\\{b_{n}\\right\\}$ is monotonic and bounded, prove that $\\Sigma a_{n} b_{n}$ converges.",
+  "lean": "\ntheorem Rudin_exercise_3_8\n  (a b : ℕ → ℝ)\n  (h1 : ∃ y, (Tendsto (λ n => (∑ i ∈ (range n), a i)) atTop (𝓝 y)))\n  (h2 : Monotone b)\n  (h3 : Bornology.IsBounded (Set.range b)) :\n  ∃ y, Tendsto (λ n => (∑ i ∈ (range n), (a i) * (b i))) atTop (𝓝 y)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement requires {b_n} to be monotonic, which in standard mathematical usage means either monotonically increasing or monotonically decreasing. The Lean signature uses `Monotone b`, which in Mathlib means only monotonically non-decreasing. This omits the decreasing case, so the Lean theorem covers strictly fewer instances than the informal claim. Since the informal statement implies the Lean one (it covers both directions), but the Lean one does not imply the informal claim (it doesn't handle decreasing sequences), the Lean formalization is logically weaker.",
+  "duration_ms": 13575,
+  "cost_usd": 0.05297125000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a3.lean",
+  "stem": "putnam_2022_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The primality condition `Nat.Prime p ∧ p > 5` matches \"prime p > 5\". The sequence space uses `ℕ → ZMod p` with `a n ≠ 0`, which is in natural bijection (via reindexing b_k = a_{k+1}) with 1-indexed sequences taking values in {1,...,p-1}; under this bijection the recurrence \"for all n ≥ 1, a_n·a_{n+2} ≡ 1+a_{n+1} (mod p)\" corresponds exactly to \"for all n : ℕ, a n * a (n+2) = 1 + a (n+1)\" in ZMod p, so the two sets have the same cardinality. The count via `.ncard` and the conclusion `f ≡ 0 [MOD 5] ∨ f ≡ 2 [MOD 5]` directly match \"f(p) is congruent to 0 or 2 (mod 5)\". No hypotheses are added or dropped.",
+  "duration_ms": 252017,
+  "cost_usd": 0.47167400000000004
+}

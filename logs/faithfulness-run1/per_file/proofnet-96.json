@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "theorem_name": "Ireland_Rosen_exercise_2_21_corrected",
+  "informal": "Define $\\wedge(n)=\\log p$ if $n$ is a power of $p$ and zero otherwise. Prove that $\\sum_{A \\mid n} \\mu(n / d) \\log d$ $=\\wedge(n)$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_2_21_corrected {l : ℕ → ℝ}\n  (hl : ∀ p n : ℕ, p.Prime → 0 < n → l (p ^ n) = Real.log p)\n  (hl1 : ∀ m : ℕ, ¬ IsPrimePow m → l m = 0) :\n  l = fun n ↦ (∑ d ∈ Nat.divisors n, ((ArithmeticFunction.moebius (n / d) : ℤ) : ℝ) * log d)",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses on `l` exactly characterize the von Mangoldt function Λ: `hl` gives l(p^n) = log p for prime p and n ≥ 1 (matching \"power of p\" with positive exponent), and `hl1` gives l(m) = 0 whenever m is not a prime power (using Mathlib's `IsPrimePow`, which means m = p^k with k ≥ 1). Edge cases align: l(1) = 0 (since 1 is not a prime power), and l(0) = 0, with the divisor sum at n=0 being empty (=0) and at n=1 being μ(1)·log 1 = 0. The conclusion `l = fun n ↦ ∑ d ∈ divisors n, μ(n/d) · log d` is function equality, i.e. for all n the identity Λ(n) = Σ_{d|n} μ(n/d) log d holds — exactly the informal claim. The reindexing in the sum (μ(n/d) log d vs. μ(d) log(n/d)) matches the informal statement directly. This is a faithful formalization.",
+  "duration_ms": 25355,
+  "cost_usd": 0.08469475
+}

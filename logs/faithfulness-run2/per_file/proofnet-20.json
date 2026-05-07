@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ v : V, ∃ c : F, v ∈ eigenspace S c` captures \"every (nonzero) vector is an eigenvector\": for v = 0 it's trivially satisfied, and for v ≠ 0 it says v is an eigenvector with eigenvalue c (since `eigenspace S c = ker(S - c•id)`). This matches Axler's convention where eigenvectors are nonzero. The conclusion `∃ c : F, S = c • LinearMap.id` directly expresses \"T is a scalar multiple of the identity.\" The Lean version does not impose finite-dimensionality, but the informal statement as quoted also doesn't mention it and the result holds in general, so this is a faithful reading. No quantifier, hypothesis, or type mismatch is introduced.",
+  "duration_ms": 48660,
+  "cost_usd": 0.15857324999999997
+}

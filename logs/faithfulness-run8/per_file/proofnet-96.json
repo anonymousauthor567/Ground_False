@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `hl` (l(p^n) = log p for prime p and n > 0) and `hl1` (l(m) = 0 if m is not a prime power) together completely and correctly characterize the von Mangoldt function Λ as defined in the informal statement. `IsPrimePow` in Mathlib requires exponent ≥ 1, correctly excluding 0 and 1. The conclusion `l = fun n ↦ ∑ d ∈ Nat.divisors n, μ(n/d) * log d` is equivalent (by funext) to ∀n, Λ(n) = ∑_{d|n} μ(n/d) log d, which is exactly the informal claim. Edge cases (n=0 with empty divisor set, n=1 with the only term being μ(1)·log(1)=0) correctly evaluate to 0 on both sides. Since l is uniquely determined by the hypotheses, the universal quantification over l is equivalent to proving the identity for the specific Λ. This is a faithful \"abstract characterization\" formalization equivalent to using Mathlib's `vonMangoldt`.",
+  "duration_ms": 184288,
+  "cost_usd": 0.707445
+}

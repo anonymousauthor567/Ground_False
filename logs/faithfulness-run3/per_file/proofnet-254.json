@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any positive integer n, ℝ^n is isomorphic to ℝ as ℚ-vector spaces. The Lean formalization uses `{n : ℕ+}` which faithfully captures \"positive integer\" (ℤ^+ for positive integer counts is equivalent to positive naturals), `Fin n → ℝ` is the standard Mathlib representation of ℝ^n, `≃ₗ[ℚ]` is the ℚ-linear equivalence (isomorphism of ℚ-vector spaces), and `Nonempty` correctly expresses the existence of such an isomorphism (i.e., that the two spaces are isomorphic). The quantifier structure, objects, and conclusion all match the informal claim with no added or missing hypotheses.",
+  "duration_ms": 11263,
+  "cost_usd": 0.042251750000000005
+}

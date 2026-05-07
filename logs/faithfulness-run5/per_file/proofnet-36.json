@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary group G, defines f to be the inversion map via hf, and states the biconditional between f being a homomorphism (f x * f y = f (x*y), equivalent by symmetry of equality to the standard f(xy) = f(x)f(y)) and G being abelian (∀ x y, x*y = y*x). Both directions match the informal claim: f is a homomorphism iff x⁻¹y⁻¹ = (xy)⁻¹ = y⁻¹x⁻¹ for all x,y, which (by substituting x⁻¹,y⁻¹) is equivalent to commutativity. The universal quantification over groups is handled via the type-class binder, and the indirection via f with hypothesis hf is logically equivalent to writing the statement directly with g⁻¹. No hypotheses added or dropped, quantifier structure preserved.",
+  "duration_ms": 21628,
+  "cost_usd": 0.078283
+}

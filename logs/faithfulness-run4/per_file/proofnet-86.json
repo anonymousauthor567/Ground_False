@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses `hp : Nat.Prime p` and `hp1 : Odd p` correctly encode \"odd prime\". The sum `∑ i ∈ Finset.range (p-1), 1/(i+1)` expands to 1/1 + 1/2 + ... + 1/(p-1), matching the informal harmonic sum exactly. The conclusion `∀ a b : ℤ, (a/b : ℚ) = S → p ∣ a` is equivalent to the informal \"if S = a/b then p | a\": writing S = c/d in lowest terms, any integer representation is (a,b) = (kc, kd) with k ≠ 0 (the b = 0 case is vacuous since S > 0), so \"p | a for all such a\" is equivalent to \"p | c\", which is the standard meaning of the informal claim regardless of whether one reads \"a,b\" as lowest terms or an arbitrary representation. No hypotheses are silently added or dropped.",
+  "duration_ms": 499503,
+  "cost_usd": 0.5690095000000001
+}

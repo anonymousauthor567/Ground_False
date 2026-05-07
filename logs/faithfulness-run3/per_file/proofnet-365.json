@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is an improper integral that must be interpreted as a limit (the integrand is not Lebesgue integrable over ℝ since |x sin(x)/(x²+a²)| ~ 1/|x| at infinity). The Lean formulation encodes this as the limit of symmetric interval integrals ∫_{-y}^{y} as y → ∞. Since the integrand is even (x·sin(x) is even, x²+a² is even), the principal value equals the standard improper integral, so this encoding faithfully captures the informal meaning. The hypothesis a > 0 matches exactly, the integrand is transcribed correctly, and the value π·e^(-a) matches the classical residue calculus result. This is the standard and correct Mathlib-style encoding of such a conditionally convergent integral.",
+  "duration_ms": 46374,
+  "cost_usd": 0.11663400000000002
+}

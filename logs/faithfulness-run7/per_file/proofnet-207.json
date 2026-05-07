@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. `Orthonormal F e` for `e : Fin n → V` matches \"orthonormal list $(e_1,\\ldots,e_m)$\". The LHS `‖v‖^2 = ∑ i, ‖⟪v, e i⟫_F‖^2` matches $\\|v\\|^2 = \\sum |\\langle v,e_i\\rangle|^2$ because for RCLike F the norm of a scalar equals its absolute value. The RHS `v ∈ Submodule.span F (e '' Set.univ)` equals `Submodule.span F (Set.range e)`, which is the F-linear span of $\\{e_1,\\ldots,e_m\\}$ — matching Axler's \"span\". Using `[RCLike F]` is Mathlib's standard abstraction for Axler's \"F = ℝ or ℂ\" and does not introduce generality beyond the intended setting. The biconditional, hypotheses, and quantifier structure are preserved exactly.",
+  "duration_ms": 155610,
+  "cost_usd": 0.522678
+}

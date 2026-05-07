@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly describes $f(n) = \\sqrt{n^2+n} - n$ as a \"real function\" and asks for $\\lim_{n \\to \\infty} f(n) = 1/2$. The Lean formalization uses `λ (n : ℝ) => sqrt (n^2 + n) - n` with domain ℝ, and `Tendsto ... atTop (𝓝 (1/2))`, which is exactly the limit of a real-valued function as the real variable tends to infinity. The target value 1/2 matches (indeed $\\sqrt{n^2+n} - n = n/(\\sqrt{n^2+n}+n) \\to 1/2$). The phrasing \"real function\" in the informal text supports using ℝ (rather than ℕ) as the domain, so the quantifier structure and types match. No hypotheses are dropped or added.",
+  "duration_ms": 46255,
+  "cost_usd": 0.1258785
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all key hypotheses (completely regular space, disjoint closed subsets, A compact) and conclusion (continuous f : X → [0,1] with f(A) = {0} and f(B) = {1}). The `X → I` with `I := Icc 0 1` correctly encodes the codomain via Set-to-Subtype coercion. The added `A.Nonempty` and `B.Nonempty` hypotheses are not a weakening: they surface an implicit premise needed for the literal set-equality reading of f(A) = {0} and f(B) = {1} to hold (since f '' ∅ = ∅ ≠ {0}), analogous to the worked example. Mathlib's `CompletelyRegularSpace` (without T1) versus some textbooks' convention (with T1) is a well-known naming convention difference in the literature, and given the instruction to judge without external textbook context, using Mathlib's canonical class is a reasonable interpretation of \"completely regular\".",
+  "duration_ms": 647399,
+  "cost_usd": 2.02072325
+}

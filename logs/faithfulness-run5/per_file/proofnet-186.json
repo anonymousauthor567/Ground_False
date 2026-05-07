@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over arbitrary fields F and G (via implicit type variables with Field instances) and an arbitrary ring homomorphism φ : F →+* G, concluding φ is injective. In Mathlib, F →+* G (RingHom, defined in Mathlib/Algebra/Ring/Hom/Defs.lean) denotes a unital ring homomorphism preserving 0, 1, +, and *, which is the standard meaning of 'homomorphism of fields'. The conclusion Injective φ exactly matches 'is injective'. No hypotheses are added or omitted relative to the informal claim, and the universal quantification over fields is faithfully captured by the implicit type variables.",
+  "duration_ms": 69556,
+  "cost_usd": 0.1651995
+}

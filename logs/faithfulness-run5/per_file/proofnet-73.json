@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-73.lean",
+  "stem": "proofnet-73",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes an arbitrary group `G : Type*` with `[Group G]`, matching \"Let G be a group\". The hypothesis `∀ a b, (a*b)^3 = a^3 * b^3 ∧ (a*b)^5 = a^5 * b^5` is logically equivalent to the informal \"for all a, b ∈ G, (ab)^3 = a^3 b^3 and (ab)^5 = a^5 b^5\" because `∀ a b, (P ∧ Q)` is equivalent to `(∀ a b, P) ∧ (∀ a b, Q)`. The conclusion `∀ a b : G, a*b = b*a` is the standard definition of \"G is abelian\". No extra hypotheses are assumed and none are dropped, so this is a strictly faithful formalization.",
+  "duration_ms": 21254,
+  "cost_usd": 0.094535
+}

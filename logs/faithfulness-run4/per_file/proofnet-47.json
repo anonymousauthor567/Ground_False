@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately encodes all components of the informal claim. \"Composite order n\" is encoded as `¬ (card G).Prime ∧ card G ≠ 1`, which for a Fintype group (where card G ≥ 1 automatically) is equivalent to composite (≥ 2 and not prime). \"Subgroup of order k for each positive integer k dividing n\" is encoded as `∀ k, k ∣ card G → ∃ H, card H = k`; since 0 ∤ card G when card G ≥ 1, the quantifier ranges exactly over positive divisors. The extra `∃ fH : Fintype H` is trivially satisfiable since any subgroup of a Fintype group is finite, so it doesn't change the meaning. The conclusion `¬ IsSimpleGroup G` uses Mathlib's standard definition (Nontrivial + only ⊥ and ⊤ are normal), matching \"not simple\". No hypotheses are added or dropped.",
+  "duration_ms": 118087,
+  "cost_usd": 0.40989575000000006
+}

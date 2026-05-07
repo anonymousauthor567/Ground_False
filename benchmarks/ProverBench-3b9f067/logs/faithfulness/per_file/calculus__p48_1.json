@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p48_1.lean",
+  "stem": "calculus__p48_1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `HasSum (λ n => ((-1)^n / (2n)!) * x^(2n)) (cos x)` asserts that the partial sums of the series converge to `cos x`, which captures both claims in the informal statement: (i) the series converges for all real x, and (ii) its sum equals cos(x). The lemma takes `(x : ℝ)` as an argument, so it is universally quantified over all real x. The term `((-1)^n / (2n)!) * x^(2n)` is algebraically the same as Mathlib's canonical `(-1)^n * x^(2n) / (2n)!` (cf. `Real.hasSum_cos`). The summation index `n : ℕ` starts at 0 as in the informal sum. No hypotheses are dropped or added, and the types match.",
+  "duration_ms": 50590,
+  "cost_usd": 0.19105424999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-339.lean",
+  "stem": "proofnet-339",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies (via typeclasses) over compact metric spaces K and asserts the existence of a set B of subsets of K with `Set.Countable B ∧ IsTopologicalBasis B`. This exactly matches \"K has a countable base\": `Set.Countable` is the standard Mathlib notion of countability (allowing finite or countably infinite), and `IsTopologicalBasis` (from `Mathlib.Topology.Bases`) is the standard notion of a topological basis for the ambient topology, which here is the metric topology induced by `[MetricSpace K]`. The conclusion is equivalent to `SecondCountableTopology K`. No hypotheses are added or removed relative to the informal claim.",
+  "duration_ms": 68124,
+  "cost_usd": 0.18524625
+}

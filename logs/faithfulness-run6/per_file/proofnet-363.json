@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the classical Dirichlet integral $\\int_0^\\infty \\frac{\\sin x}{x}\\,dx = \\frac{\\pi}{2}$. Because $|\\sin x/x|$ is not Lebesgue integrable on $[0,\\infty)$, the only meaningful reading is the improper Riemann integral as an upper-limit limit: $\\lim_{y\\to\\infty} \\int_0^y \\sin(x)/x\\,dx = \\pi/2$. The Lean statement encodes exactly this: `Tendsto (fun y => ∫ x in (0:ℝ)..y, Real.sin x / x) atTop (𝓝 (Real.pi / 2))`, using Mathlib's `intervalIntegral` from 0 to y and taking the limit as y → ∞. The lower bound 0, upper bound → ∞, integrand `Real.sin x / x`, and target `Real.pi / 2` all match. The removable singularity at 0 (Lean's `sin 0 / 0 = 0`) does not affect the integral. This is the standard faithful formalization.",
+  "duration_ms": 57113,
+  "cost_usd": 0.235261
+}

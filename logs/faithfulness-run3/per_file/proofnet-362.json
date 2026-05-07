@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement restricts z to the unit circle via ‖z‖ = 1, and defines the partial sum s_n = ∑_{i ∈ range n} z^(i+1)/(i+1) = ∑_{k=1}^{n} z^k/k, which is precisely the partial sum of the series ∑_{n≥1} z^n/n (the natural starting index given the z^n/n term). The conclusion (∃ z₀, Tendsto s atTop (𝓝 z₀)) ↔ z ≠ 1 correctly captures \"converges iff z ≠ 1\", which matches \"converges at every point of the unit circle except z = 1\" (since at z = 1 the series becomes the divergent harmonic series). The indexing, the type (ℂ), and the iff structure all correctly encode the informal claim.",
+  "duration_ms": 30762,
+  "cost_usd": 0.08834124999999998
+}

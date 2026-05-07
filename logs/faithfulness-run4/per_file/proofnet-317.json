@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each element of the informal statement exactly: `CompactSpace X` + `T2Space X` encodes \"compact Hausdorff\"; `IsClosed X1`, `IsClosed X2`, and `X1 ∪ X2 = univ` encode \"X is the union of the closed subspaces X₁ and X₂\"; `MetrizableSpace X1` and `MetrizableSpace X2` (with `X1 X2 : Set X` coerced to subtypes carrying the subspace topology) encode \"X₁ and X₂ are metrizable\"; and `MetrizableSpace X` is the conclusion \"X is metrizable\". Mathlib's `MetrizableSpace` class (Topology/Metrizable/Basic.lean:118) is exactly the standard \"topology comes from a metric\" notion, and `MetrizableSpace.subtype` confirms the subtype coercion uses the subspace topology. No hypotheses are added or dropped, the quantifier structure matches, and there are no type mismatches.",
+  "duration_ms": 42092,
+  "cost_usd": 0.15390600000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b3.lean",
+  "stem": "putnam_2025_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. S is encoded as `Set ℕ` with the explicit hypothesis `∀ n ∈ S, 0 < n`, matching \"set of positive integers\". `S.Nonempty` matches \"nonempty\". The divisor closure `∀ n ∈ S, ∀ d, 0 < d → d ∣ (2025^n - 15^n) → d ∈ S` correctly expresses that every positive divisor of 2025^n - 15^n lies in S (ℕ subtraction is fine since 2025^n > 15^n for n ≥ 1). The conclusion `S = {n : ℕ | 0 < n}`, combined with the hypothesis that S ⊆ positives, is equivalent to \"S contains all positive integers\". The whole thing is wrapped in `putnam_2025_b3_solution ↔ ...`, correctly encoding the Yes/No answer.",
+  "duration_ms": 106801,
+  "cost_usd": 0.24176849999999997
+}

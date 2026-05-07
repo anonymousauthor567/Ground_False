@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal claim. The coefficient constraint `c n = 0 ∨ c n = 1` matches \"each c_i is 0 or 1\". The definition `f = λ x => ∑' i, c i * x^i` via `tsum` agrees with the power series sum at |x| < 1, and since both 2/3 and 1/2 lie within the radius of convergence (coefficients bounded by 1), the `tsum` yields the actual mathematical sum at these points. The hypothesis f(2/3)=3/2 and conclusion Irrational(f(1/2)) directly mirror the informal statement. The implicit universal quantification over f and c gives the desired \"for all such power series\" reading.",
+  "duration_ms": 30733,
+  "cost_usd": 0.10391325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-303.lean",
+  "stem": "proofnet-303",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one exactly. \"A ⊂ X\" becomes `A : Set X`; \"C a connected subspace of X\" becomes `IsConnected C` (which is nonempty + preconnected, matching the subspace-topology notion of connectedness, and nonemptiness is anyway implied by `C ∩ A ≠ ∅`); \"C intersects A\" and \"C intersects X - A\" become `C ∩ A ≠ ∅` and `C ∩ Aᶜ ≠ ∅`; and \"C intersects Bd A\" becomes `C ∩ frontier A ≠ ∅`. Mathlib's `frontier A = closure A \\ interior A` coincides with Munkres's $\\operatorname{Bd} A = \\overline A \\cap \\overline{X\\setminus A}$. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 102900,
+  "cost_usd": 0.19854249999999998
+}

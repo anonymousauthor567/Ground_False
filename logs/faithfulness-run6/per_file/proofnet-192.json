@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every nonzero ideal in ℤ[i] contains a nonzero (rational) integer. In Mathlib, `GaussianInt := Zsqrtd (-1)` with `re, im : ℤ` fields, and a Gaussian integer represents a rational integer iff its `im` component is 0 (confirmed by `im_ofInt` and the ring embedding ℤ ↪ ℤ[i]). The Lean statement's conclusion `∃ z : I, z ≠ 0 ∧ (z : GaussianInt).im = 0` precisely captures \"I contains a nonzero rational integer\". The hypothesis `I ≠ ⊥` correctly encodes \"nonzero ideal\". The quantifier structure and the ambient objects (ideal, Gaussian integers) match exactly, so this is a faithful formalization.",
+  "duration_ms": 85490,
+  "cost_usd": 0.28088199999999997
+}

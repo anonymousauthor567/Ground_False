@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly uses `Zsqrtd (-n)` to represent ℤ[√(-n)] (since `Zsqrtd d` adjoins √d to ℤ). The three irreducibility claims match: `(2 : Zsqrtd (-n))` is 2; `(⟨0, 1⟩ : Zsqrtd (-n))` is the element with re=0, im=1, which by Mathlib's definition `def sqrtd : ℤ√d := ⟨0, 1⟩` equals √(-n); and `1 + ⟨0, 1⟩` is 1 + √(-n). The hypotheses `n > 3` and `Squarefree n` with `n : ℤ` exactly encode \"squarefree integer greater than 3\". The conjunction of three `Irreducible` assertions faithfully captures the informal claim that all three elements are irreducible.",
+  "duration_ms": 165831,
+  "cost_usd": 0.59348525
+}

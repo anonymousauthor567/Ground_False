@@ -1,0 +1,8 @@
+{
+  "file": "14.lean",
+  "stem": "14",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says \"integral domain R\", which by standard convention (Dummit/Foote, Hungerford, Wikipedia, and Mathlib's own documentation) means a commutative ring with no zero divisors and 1 ≠ 0. The Lean formalization uses `[Ring R] [IsDomain R]`, which in Mathlib is a (possibly non-commutative) domain — Mathlib's own comment on `IsDomain` explicitly states \"To obtain an integral domain use `[CommRing α] [IsDomain α]`\". Non-commutative domains exist (e.g., the quaternions ℍ), so the Lean class `[Ring R] [IsDomain R]` strictly contains integral domains. The Lean statement therefore proves the claim for a larger class than the informal statement requires: it logically implies the informal claim (by specialization to commutative domains) but is not implied by it. This matches the guideline example of \"dropping... commutativity... that the informal statement does [implicitly] require\". Omitting `CommRing` is a genuine generalization (not merely surfacing a premise needed for truth), making the Lean formalization strictly stronger.",
+  "duration_ms": 483844,
+  "cost_usd": 1.1922405
+}

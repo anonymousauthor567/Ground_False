@@ -1,0 +1,8 @@
+{
+  "file": "imo_2024_p3.lean",
+  "stem": "imo_2024_p3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes IMO 2024 P3 under a standard 0-indexed re-encoding, which is explicitly documented in the file's comment. Under the correspondence Lean `a i` ↔ informal $a_{i+1}$: (a) positivity `∀ i, 0 < a i` matches; (b) the Lean recursion `a n = #{i ∈ Finset.range n | a i = a (n-1)}` for Lean `n > N` is equivalent to the informal recursion for informal index $n+1 > N+1$, and since $N$ is universally quantified, Lean's range `N : ℕ` (≥0) biject with informal \"positive $N$\" (≥1); (c) the conclusion's `a (2*i)` and `a (2*i+1)` correspond precisely to the informal odd- and even-indexed subsequences $a_1, a_3, \\ldots$ and $a_2, a_4, \\ldots$; (d) `EventuallyPeriodic` matches the informal definition (the existential quantifier on $M$ makes the $M \\geq 1$ vs $M \\geq 0$ distinction irrelevant). The `#` notation is `Finset.card` and the filter syntax correctly counts indices where $a_i = a_{n-1}$, matching \"number of times $a_{n-1}$ appears\". No hypothesis or conclusion is weakened, strengthened, or substituted.",
+  "duration_ms": 395876,
+  "cost_usd": 1.2031537499999998
+}

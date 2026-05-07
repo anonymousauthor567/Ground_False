@@ -1,0 +1,8 @@
+{
+  "file": "imo_2006_p2.lean",
+  "stem": "imo_2006_p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures IMO 2006 P2. The `Diagonal N` type includes both sides and diagonals of the polygon, making 2*N-3 = 4009 the correct count (2006 sides + 2003 diagonals). The maximum non-crossing chord family in a convex N-gon has exactly 2N-3 elements and must include all sides, so the encoding implicitly enforces triangulation. `Good` using `Odd (a+b)` is equivalent to \"both boundary arcs have odd length\" precisely because N = 2006 is even (arc length |b-a| has same parity as a+b). The `Intersect` relation via SBtw₄ correctly detects chord crossing as \"alternating endpoints in cyclic order\". The isosceles condition checks all three pairwise arc equalities, which is equivalent to two equal chord lengths since the arcs sum to N and cannot produce sin-symmetry matches. The \"two good sides\" condition encoded as the disjunction of all three pairs matches \"at least 2 of the 3 sides are good\". Each unordered triangle is counted exactly once via the a < b < c ordering. The `IsGreatest` formulation correctly asks for the maximum over all valid dissections.",
+  "duration_ms": 968656,
+  "cost_usd": 2.7119315
+}

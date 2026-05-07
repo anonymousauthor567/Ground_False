@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "This exercise matches the worked example explicitly described in the system prompt. The informal statement says \"prime integer p of the form 2^r+1 has the form 2^{2^k}+1\". Without a lower bound on r, this is literally false (e.g., r=0 gives p=2, which is prime but not of the form 2^{2^k}+1). The Lean formalization adds `1 ≤ r`, which is a surfacing of the implicit premise needed for the claim to be true, and per the system prompt's own guidance this should be judged faithful rather than weaker. The use of ℕ for p is unproblematic since 2^r + 1 ≥ 2 > 0 anyway. The quantifier structure (∃ r with hypothesis, conclude ∃ k) also matches the informal statement exactly.",
+  "duration_ms": 29943,
+  "cost_usd": 0.056059
+}

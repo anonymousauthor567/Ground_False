@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"region Ω\" as open + connected, primitives as holomorphic functions (DifferentiableOn ℂ) with derivative equal to f, and \"differ by a constant\" as ∃ c, F₁ x = F₂ x + c on Ω. The extra `Nonempty Ω` hypothesis is logically redundant with `IsConnected Ω` (since Mathlib's `IsConnected` definition already requires nonemptiness via `IsConnected.nonempty`), so it neither weakens nor strengthens the statement. Since Ω is open, `deriv F₁` coincides with `derivWithin F₁ Ω` at points of Ω, so using the unrestricted `deriv` is equivalent to the appropriate notion of derivative here. The continuity hypothesis on f matches the informal statement, and the quantifier structure (universal over f, F₁, F₂, Ω) correctly captures \"any two primitives\".",
+  "duration_ms": 118805,
+  "cost_usd": 0.3722385000000001
+}

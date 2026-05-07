@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p23.lean",
+  "stem": "elementary_algebra__p23",
+  "verdict": "weaker",
+  "reasoning": "The informal statement uses the definite article \"The cubic polynomial Q such that Q(i)=2^i for i=0,1,2,3 is Q(x)=(x^3+5x+6)/6\", asserting an identity between the (unique) interpolating cubic polynomial and the given formula. This contains the content that (x^3+5x+6)/6 IS the cubic polynomial characterized by those interpolation conditions — i.e., existence, uniqueness (implicit in \"the\"), and identity. The Lean statement only verifies the pointwise conditions 2^i = Q(i) at i ∈ {0,1,2,3} for the specific formula Q(x) = (x^3+5x+6)/6. It does not formalize the uniqueness/identity content: it doesn't prove that this is THE cubic polynomial with those properties, nor does it verify that Q is cubic (although that is manifest from the formula). The informal statement logically implies the Lean statement (if Q equals the given cubic, then evaluation at 0,1,2,3 gives 2^i), but the Lean statement does not imply the informal identity claim without the external uniqueness-of-interpolation theorem. Hence the Lean is strictly weaker.",
+  "duration_ms": 421321,
+  "cost_usd": 0.70432375
+}

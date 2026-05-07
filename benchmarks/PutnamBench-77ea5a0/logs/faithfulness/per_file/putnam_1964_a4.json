@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_a4.lean",
+  "stem": "putnam_1964_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all the informal content: an integer-valued sequence `u : ℕ → ℤ`, boundedness (there exist upper and lower integer bounds), the recurrence holding for all n ≥ 4 (the correct starting index given the indices n-1 through n-4), and the conclusion of eventual periodicity (∃ N, ∃ c > 0, ∀ n ≥ N, u(n+c) = u n). The recurrence is stated as an equality in ℝ, which correctly captures the intended meaning given that both sides must be integers. The added hypothesis that the denominator is nonzero is an implicit premise needed for the division expression in the informal statement to be mathematically meaningful — without it, Lean's convention a/0 = 0 would silently impose spurious constraints. Surfacing this implicit premise is a correct and faithful formalization, not a scope-narrowing addition.",
+  "duration_ms": 112491,
+  "cost_usd": 0.36899774999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p64_1.lean",
+  "stem": "calculus__p64_1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement claims that cos(2x) - √3 sin(2x) = √2 has exactly four solutions in [0, 2π), explicitly listing them as x = 0, π/3, π, 4π/3. The Lean lemma `simplified_equation`, however, asserts an algebraic identity: `equation x = 2*cos(2x + π/3) - √2` for all x. This is not a statement about solution counts at all — it quantifies universally over ℝ and claims an equality of expressions, with no mention of the interval [0, 2π), \"exactly four\", or the specific solution values. Moreover, the claimed identity is mathematically incorrect (the correct identity is cos(2x) - √3 sin(2x) = 2·cos(2x + π/3), without the `- √2` term). Neither the informal solution-counting claim nor the Lean algebraic identity implies the other, so they are incomparable.",
+  "duration_ms": 70389,
+  "cost_usd": 0.22357675000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_a3.lean",
+  "stem": "putnam_2004_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The base cases `u 0 = u 1 = u 2 = 1` match directly. The matrix `fun i j : Fin 2 => u (n + i * 2 + j)` evaluates to [[u(n), u(n+1)], [u(n+2), u(n+3)]] (since (0,0)→n, (0,1)→n+1, (1,0)→n+2, (1,1)→n+3), matching the informal matrix exactly. The determinant equaling `(n)!` uses the scoped Nat.factorial notation, coerced to ℝ — this matches the informal `n!` with the 0!=1 convention. The conclusion `∀ n, ∃ m : ℤ, u n = m` is the standard way to say \"u_n is an integer\" for a real-valued sequence. Typing u as ℕ → ℝ is the natural choice since the recursion involves division (the determinant condition determines u_{n+3} in terms of u_n, u_{n+1}, u_{n+2}); the Lean statement correctly asserts integrality as a conclusion to be proved rather than assuming it.",
+  "duration_ms": 261128,
+  "cost_usd": 0.7070460000000001
+}

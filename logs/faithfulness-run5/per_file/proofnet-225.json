@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `G` is an arbitrary group, `H K : Subgroup G` are subgroups with `[Fintype H] [Fintype K]` ensuring finiteness. With `open Fintype`, `card H` and `card K` are `Fintype.card`, which for a finite subgroup equals its order. `Nat.Coprime (card H) (card K)` precisely captures \"orders are relatively prime\". The conclusion `H ⊓ K = ⊥` in the subgroup lattice means the intersection equals the trivial subgroup `{1}`, matching \"$H \\cap K = 1$\". No hypothesis is dropped, added, or altered, and the quantifier structure is preserved.",
+  "duration_ms": 30818,
+  "cost_usd": 0.12787875
+}

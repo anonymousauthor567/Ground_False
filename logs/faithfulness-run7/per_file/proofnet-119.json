@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes Munkres 23.4. `CofiniteTopology X` is Mathlib's type synonym for X equipped with the finite complement topology (open sets = empty set or sets with finite complement), exactly matching \"finite complement topology\". `IsConnected (Set.univ : Set (CofiniteTopology X))` asserts that the whole space is nonempty and preconnected, which is equivalent to saying the topological space is connected. `[Infinite X]` is the standard encoding of \"X is an infinite set\". The hypothesis, conclusion, quantifier structure (universal over types X), and topological content all align precisely with the informal claim.",
+  "duration_ms": 95491,
+  "cost_usd": 0.46153700000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_b3.lean",
+  "stem": "putnam_1965_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement counts triples (a,b,c) of integers with a > 0, a ≤ b, c > 0, satisfying the Pythagorean equation a²+b² = c² and the area/perimeter condition ab/2 = 2(a+b+c) (computed in ℚ to handle the division properly). The constraint a ≤ b canonicalizes the ordering of legs (capturing \"up to orientation\"), and since c > 0 combined with a²+b²=c² uniquely determines c from (a,b), each congruence class of integer right triangles corresponds to exactly one triple. Translation is irrelevant for side-length/area/perimeter data. The positivity of b follows automatically from a > 0 and a ≤ b. The three solutions (9,40,41), (10,24,26), (12,16,20) are indeed the complete solution set (verified via (a-8)(b-8)=32). The formalization captures exactly the mathematical content of the informal claim.",
+  "duration_ms": 119765,
+  "cost_usd": 0.38597525000000005
+}

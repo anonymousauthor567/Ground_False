@@ -1,0 +1,8 @@
+{
+  "file": "82.lean",
+  "stem": "82",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal statement of (a corollary of) the Cohen structure theorem for mixed characteristic complete Noetherian local rings. All hypotheses translate correctly: `[IsNoetherianRing A]`, `[IsLocalRing A]`, `[IsAdicComplete (maximalIdeal A) A]`, `ringKrullDim A = d`, `[CharZero A]` and `[CharP (ResidueField A) p]` for mixed characteristic, and `(Ideal.span {(p : A)}).height = 1` for ht(pA) = 1. The extra hypothesis `hp : p.Prime` makes explicit an implicit premise: in a mixed characteristic setting with char(A) = 0, the characteristic p of the residue field (a field) must be a prime — this is exactly the kind of implicit-premise-made-explicit case that qualifies as faithful. The conclusion `∃ B : Subring A, Module.Finite B A ∧ ∃ C ..., IsDiscreteValuationRing C ∧ Nonempty (B ≃+* MvPowerSeries (Fin (d-1)) C)` faithfully encodes \"A is a finitely generated B-module for some subring B ≅ C[[x_1,...,x_{d-1}]] with C a DVR\". Note that `d - 1` uses ℕ truncated subtraction, but the hypothesis ht(pA) = 1 forces dim A ≥ 1, so no degenerate case arises.",
+  "duration_ms": 780347,
+  "cost_usd": 1.46591975
+}

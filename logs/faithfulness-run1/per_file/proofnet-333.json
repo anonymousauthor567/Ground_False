@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "informal": "Let $E$ be a nonempty subset of an ordered set; suppose $\\alpha$ is a lower bound of $E$ and $\\beta$ is an upper bound of $E$. Prove that $\\alpha \\leq \\beta$.",
+  "lean": "\ntheorem Rudin_exercise_1_4\n(α : Type*) [PartialOrder α]\n(s : Set α)\n(x y : α)\n(h₀ : Set.Nonempty s)\n(h₁ : x ∈ lowerBounds s)\n(h₂ : y ∈ upperBounds s)\n: x ≤ y",
+  "verdict": "stronger",
+  "reasoning": "In Rudin, an \"ordered set\" means a linearly (totally) ordered set, whereas the Lean signature only assumes `[PartialOrder α]`. Since every linear order is a partial order, the Lean theorem implies the informal claim, but it actually proves more: it establishes the same conclusion under the weaker hypothesis of a partial order. The hypotheses about `lowerBounds`, `upperBounds`, and nonemptiness of `s` correctly mirror the informal statement, and the conclusion `x ≤ y` matches. The only deviation is the strengthening from linear order to partial order, making the Lean version logically stronger than what was asked.",
+  "duration_ms": 13286,
+  "cost_usd": 0.05814025
+}

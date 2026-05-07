@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"every homomorphism of fields is injective\" is expressed in Lean by universally quantifying over two fields F and G (via `{F : Type*} [Field F] {G : Type*} [Field G]`) and a ring homomorphism `φ : F →+* G`, and concluding `Injective φ`. Mathlib's `→+*` (RingHom) is the standard notion of a field homomorphism in this context: it preserves `+`, `*`, `0`, and `1`; the preservation of `1` ensures φ is nonzero (since 1 ≠ 0 in the target field), which is exactly the standard convention that makes the theorem true. Inversion is automatically preserved for ring homs between fields. The quantifier structure, objects, hypotheses, and conclusion all match the informal statement.",
+  "duration_ms": 35582,
+  "cost_usd": 0.13279175000000001
+}

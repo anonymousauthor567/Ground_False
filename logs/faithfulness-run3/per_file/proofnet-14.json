@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim: if a prime p equals 2^r + 1 for some r, then p = 2^(2^k) + 1 for some k. The added hypothesis `1 ≤ r` makes explicit an implicit premise needed for the statement to be true — without it, p = 2 with r = 0 would be a counterexample (2 is prime and equals 2^0 + 1, but cannot be written as 2^(2^k) + 1 for any natural k, since 2^(2^k) + 1 ≥ 3). This exactly matches the worked example in the system prompt, which explicitly states that adding `1 ≤ r` in this context should be judged \"faithful\". The types (p : ℕ, r : ℕ, k : ℕ), the existential structure, and the conclusion all match the informal statement.",
+  "duration_ms": 11900,
+  "cost_usd": 0.04632
+}

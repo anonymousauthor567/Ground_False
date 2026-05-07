@@ -1,0 +1,8 @@
+{
+  "file": "99.lean",
+  "stem": "99",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypotheses `[CommRing A] [IsDomain A] [Algebra ℂ A] [Algebra.FiniteType ℂ A]` correctly encode \"finite-type ℂ-algebra domain\". The constraint `hn : n ≥ 1` matches the explicit informal condition \"n ≥ 1\". The automorphism group `A ≃ₐ[ℂ] A` carries the standard `Group` instance (`AlgEquiv.aut` in Mathlib), so `≃*` correctly expresses the group isomorphism between the ℂ-automorphism groups. `MvPolynomial (Fin n) ℂ` is the standard encoding of ℂ[x_1,...,x_n], and `Nonempty (A ≃ₐ[ℂ] MvPolynomial (Fin n) ℂ)` correctly encodes \"A is isomorphic to ℂ[x_1,...,x_n] as ℂ-algebras\". No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 141156,
+  "cost_usd": 0.34864875
+}

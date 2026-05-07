@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "informal": "Let $\\left\\{A_{\\alpha}\\right\\}$ be a collection of connected subspaces of $X$; let $A$ be a connected subset of $X$. Show that if $A \\cap A_{\\alpha} \\neq \\varnothing$ for all $\\alpha$, then $A \\cup\\left(\\bigcup A_{\\alpha}\\right)$ is connected.",
+  "lean": "\ntheorem Munkres_exercise_23_3 {X α : Type*} [TopologicalSpace X]\n  {A : α → Set X}\n  (hAa : ∀ a, IsConnected (A a))\n  (A₀ : Set X)\n  (hA : IsConnected A₀)\n  (h : ∀ a, A₀ ∩ A a ≠ ∅) :\n  IsConnected (A₀ ∪ (⋃ a, A a))",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `IsConnected` means \"nonempty and preconnected\". The informal statement assumes each $A_\\alpha$ is connected and $A$ is connected, and the hypothesis $A \\cap A_\\alpha \\neq \\emptyset$ forces both $A$ and each $A_\\alpha$ to be nonempty, so the extra nonemptyness baked into `IsConnected` is automatic and doesn't add a real assumption. The hypotheses (`hAa`, `hA`, `h`) and the conclusion (`IsConnected (A₀ ∪ ⋃ a, A a)`) line up exactly with the informal claim — connectedness of all pieces, pairwise nonempty intersection with $A_0$, and connectedness of the union (which is automatically nonempty since $A_0$ is). The indexed family is encoded as `A : α → Set X`, which corresponds to $\\{A_\\alpha\\}$. No hidden hypotheses (finiteness, decidability, etc.) are added. Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 17374,
+  "cost_usd": 0.07676275
+}

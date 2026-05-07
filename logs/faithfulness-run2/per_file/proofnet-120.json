@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement reframes \"connected spaces X, Y with proper subsets A, B\" as \"arbitrary topological spaces X, Y with connected subsets A₂, B₂ and proper subsets A₁ ⊊ A₂, B₁ ⊊ B₂\", with conclusion on (A₂ ×ˢ B₂) \\ (A₁ ×ˢ B₁). These are logically equivalent: taking A₂ = univ, B₂ = univ recovers the informal statement (since IsConnected univ ↔ ConnectedSpace), and conversely the Lean statement follows from the informal one by applying it to the subspace topologies on A₂ and B₂ (since subspace topology commutes with products). The set-builder {x | ∃ a b, x = (a,b) ∧ a ∈ A₂ ∧ b ∈ B₂} is exactly A₂ ×ˢ B₂, and ⊂ in Mathlib is proper subset. No hypotheses are silently added or dropped.",
+  "duration_ms": 117666,
+  "cost_usd": 0.40645875
+}

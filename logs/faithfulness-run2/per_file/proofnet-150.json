@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses match the informal ones: A is nonempty (hA) and bounded below (hA_bdd_below). The set minus_A is defined as {x | -x ∈ A}, which is exactly the set {-x : x ∈ A} (y is in this set iff -y ∈ A iff y = -x for some x ∈ A). The conclusion sInf A = - sSup minus_A matches inf A = -sup(-A). Since A is nonempty and bounded below, -A is nonempty and bounded above, so sInf and sSup yield the genuine infimum and supremum. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 16816,
+  "cost_usd": 0.075851
+}

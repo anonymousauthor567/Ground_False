@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-223.lean",
+  "stem": "proofnet-223",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. Hypotheses `orderOf x = n` with `n : ℕ+` and `closure {x} = ⊤` correctly express \"G is cyclic of order n ≥ 1\". The right-hand side of the iff (`H ≠ ⊤ ∧ ∀ K, H ≤ K → K = H ∨ K = ⊤`) is the standard unfolded definition of \"H is a maximal subgroup\". The left-hand side (`∃ p : ℕ, Prime p ∧ p ∣ n ∧ H = Subgroup.closure {x ^ p}`) matches \"H = ⟨x^p⟩ for some prime p dividing n\" — `Prime p` for naturals is equivalent to `Nat.Prime p`. The direction of the iff is reversed from the English phrasing, but iff is symmetric. The n = 1 edge case works vacuously (both sides false). No hidden hypotheses are added or dropped.",
+  "duration_ms": 34880,
+  "cost_usd": 0.1291605
+}

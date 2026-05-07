@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p51.lean",
+  "stem": "calculus__p51",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the informal claim. The domain `Set.Icc 0 (π/4)` represents [0, π/4], and since Lebesgue measure has no atoms, the set integral over Icc equals the standard interval integral from 0 to π/4. The integrand `(3 * sin x + 2 * cos x) / (4 * sin x + 3 * cos x)` matches precisely. The RHS `(1/50) * log 2 - (1/25) * log (7/3) + (9*π)/50` matches (1/50)ln 2 − (1/25)ln(7/3) + 9π/50. With `open Real`, `sin`, `cos`, `log`, and `π` refer to the real versions. The unused outer `variable (x : ℝ)` does not affect the statement since `x` is rebound by the integral binder. Numerical/analytic verification (partial fractions: 3sin x + 2cos x = (18/25)(4sin x + 3cos x) − (1/25)(4cos x − 3sin x)) confirms the claimed value, so no hidden hypotheses are needed.",
+  "duration_ms": 166249,
+  "cost_usd": 0.4258430000000001
+}

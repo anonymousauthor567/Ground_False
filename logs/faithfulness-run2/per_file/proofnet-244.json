@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a standard formalization of McCoy's theorem. The informal \"p(x) is a zero divisor in R[x]\" is encoded as `∃ q ≠ 0, p * q = 0`, and \"there is a nonzero b ∈ R with bp(x) = 0\" is encoded as `∃ b ≠ 0, b • p = 0`, where `b • p` over a commutative ring equals multiplication by the constant polynomial. The `CommRing R` hypothesis matches the D&F context. The edge case p = 0 is handled consistently (both sides are true in a nontrivial R, both false in the trivial ring), preserving the iff. No hypotheses are added or dropped and the quantifier structure matches exactly.",
+  "duration_ms": 89088,
+  "cost_usd": 0.29637375
+}

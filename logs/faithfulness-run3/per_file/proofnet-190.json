@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any ring R and any nilpotent x ∈ R, 1 + x is a unit. The Lean signature universally quantifies over R with `[Ring R]`, takes x : R with hypothesis `IsNilpotent x`, and concludes `IsUnit (1 + x)`. Mathlib's `IsNilpotent x` unfolds to `∃ n : ℕ, x ^ n = 0`, which is precisely \"some power of x is zero.\" `IsUnit (1 + x)` is exactly \"1 + x is a unit.\" The quantifier structure (∀ R, ∀ x, nilpotent → unit) matches the informal statement. The only minor point is that Mathlib's `Ring` allows noncommutativity while Artin's text typically uses commutative rings, but the statement holds equally in either setting and the formalization uses the natural Mathlib generality; this is standard practice and does not alter the mathematical content of the claim.",
+  "duration_ms": 114612,
+  "cost_usd": 0.28055275
+}

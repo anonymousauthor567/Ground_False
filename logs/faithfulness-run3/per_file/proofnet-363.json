@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement expresses `lim_{y → ∞} ∫₀^y sin(x)/x dx = π/2`, which is the standard meaning of the improper integral `∫₀^∞ sin(x)/x dx = π/2`. Since sin(x)/x is only conditionally (not absolutely) integrable on [0, ∞), the Lebesgue integral does not exist, and the improper-integral-as-limit formulation is the mathematically correct and standard interpretation. The `intervalIntegral` on [0, y] is well-defined for each finite y (sin(x)/x is continuous on (0, y], and the singularity at 0 is a measure-zero set where Lean's division convention gives 0). Thus the Lean statement captures exactly the informal claim without adding or omitting hypotheses.",
+  "duration_ms": 26984,
+  "cost_usd": 0.06347825
+}

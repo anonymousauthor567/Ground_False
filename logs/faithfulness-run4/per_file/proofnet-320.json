@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-320.lean",
+  "stem": "proofnet-320",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over every `A : Set ℕ` and asserts `IsClopen A`, which is exactly the informal claim 'every subset of ℕ is clopen'. In Mathlib, ℕ is given the metric topology induced from ℝ (see Mathlib/Topology/Instances/Nat.lean), which is the discrete topology since `Nat.pairwise_one_le_dist` shows distinct naturals are at least distance 1 apart. `IsClopen` is Mathlib's standard 'closed and open' notion. No hypotheses are added or dropped, the type `Set ℕ` matches 'subset of ℕ', and the universal quantifier over `A` matches 'every'. This is a strictly faithful formalization.",
+  "duration_ms": 56678,
+  "cost_usd": 0.250703
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the rotation subgroup as `Subgroup.closure {DihedralGroup.r 1}`: by Mathlib's `r_one_pow` (`(r 1)^k = r k`), this closure is exactly the cyclic subgroup of all rotations `{r i}`. The conclusion `R ≠ ⊤ ∧ ∀ K, R ≤ K → K = R ∨ K = ⊤` is precisely the standard definition of a maximal subgroup (proper subgroup admitting no proper overgroup). The hypothesis `n ≠ 0` makes explicit the standard textbook convention that \"a dihedral group\" refers to a finite dihedral group (since Mathlib's `DihedralGroup 0` specifically represents the infinite dihedral group). This is surfacing an implicit premise rather than weakening the statement, which is consistent with Dummit & Foote's conventions. The quantifier structure (universal over n and subgroups R matching the closure) faithfully captures the informal claim.",
+  "duration_ms": 606172,
+  "cost_usd": 0.6140800000000001
+}

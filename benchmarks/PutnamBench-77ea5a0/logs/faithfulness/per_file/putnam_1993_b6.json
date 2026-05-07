@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_b6.lean",
+  "stem": "putnam_1993_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures Putnam 1993 B6 faithfully. `S : Fin 3 → ℕ` with `Spos : ∀ i, S i > 0` represents 3 positive integers (not necessarily distinct), and `hf` correctly specifies the rule: when `S' i ≤ S' j`, position i becomes 2·S' i, position j becomes S' j - S' i, third position is unchanged. The conclusion asserts the existence of a finite sequence reaching a state containing 0. Although the Lean formalization allows \"no-op\" transitions (when i, j are picked with S' i > S' j, giving identity), this doesn't affect logical equivalence: we can always drop no-ops to recover a pure rule-application sequence, and a pure rule-application sequence trivially satisfies the Lean condition. The symmetry of picking (i,j) vs (j,i) means any valid rule application is witnessable. The encoding via `ℕ → (Fin 3 → ℕ)` with `Fin N` restricted transitions is an equivalent way to represent a finite sequence of length N+1.",
+  "duration_ms": 235050,
+  "cost_usd": 0.58241875
+}

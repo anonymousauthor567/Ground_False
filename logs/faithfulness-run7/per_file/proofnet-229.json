@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a group G with `[IsSolvable G]` and a normal subgroup `H : Subgroup G` with `[Normal H]`, and concludes `IsSolvable (G ⧸ H)`. This matches exactly the informal claim \"quotient groups of a solvable group are solvable\": forming a quotient group requires a normal subgroup, and the Lean signature covers precisely these quotients. `G ⧸ H` is the standard Mathlib notation for the quotient group. No hypotheses are added or dropped (e.g., no unwarranted finiteness/commutativity assumptions), and the conclusion is an equality of solvability, not a weakened or strengthened variant. Indeed Mathlib itself encodes this exact fact as `solvable_quotient_of_solvable` with the same hypotheses.",
+  "duration_ms": 36668,
+  "cost_usd": 0.1002405
+}

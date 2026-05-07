@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"no group of order 224 is simple\" is correctly captured: the Lean theorem universally quantifies over all finite groups G with `card G = 224` and concludes `IsSimpleGroup G → false`. Via Lean 4's coercion from `Bool` to `Prop` (`false` becomes `false = true`, which is False), this is semantically equivalent to `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is the standard definition (nontrivial group with only ⊥ and ⊤ as normal subgroups), and since 224 > 1, groups of order 224 are automatically nontrivial, so the nontriviality clause introduces no discrepancy. The quantifier structure, hypothesis, and conclusion all match the informal claim.",
+  "duration_ms": 86872,
+  "cost_usd": 0.28944174999999994
+}

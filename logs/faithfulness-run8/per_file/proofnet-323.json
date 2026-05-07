@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes the informal claim. The hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` matches \"for all t, x, |f(t) - f(x)| ≤ |t - x|²\" (variable renaming is immaterial since the condition is symmetric). The conclusion `∃ c, f = λ _x => c` is the standard Lean encoding of \"f is constant\": there exists a real c such that f equals the constant function returning c. The function type ℝ → ℝ matches. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 19041,
+  "cost_usd": 0.08022875
+}

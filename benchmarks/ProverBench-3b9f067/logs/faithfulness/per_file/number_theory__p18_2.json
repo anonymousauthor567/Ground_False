@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_2.lean",
+  "stem": "number_theory__p18_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts a specific conclusion: the greatest negative element of B is -4. The Lean file, however, contains no theorem formalizing this claim. It only provides definitions of A and B, an axiom stating that 7m + 12n = 22 has some integer solution (trivially true), and a lemma giving a parametric form of solutions (with `sorry`). These auxiliary statements are all implied by the informal claim but are strictly weaker — none of them expresses that -4 is in B, that -4 < 0, or that every negative element of B is ≤ -4. The key quantitative assertion about the greatest negative element is entirely missing from the formalization.",
+  "duration_ms": 75255,
+  "cost_usd": 0.14252749999999997
+}

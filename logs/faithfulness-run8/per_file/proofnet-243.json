@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `Subring F` already requires the underlying subset to contain `1` (it extends `Subsemiring`), so the hypothesis `(1 : F) ∈ K` is always true and thus logically redundant. A redundant hypothesis does not make a statement weaker or stronger — it is equivalent to the same statement without it. Consequently the Lean statement asserts: for every field F and every subring K of F (which by Mathlib definition contains 1, 0, is closed under +, -, *), K is an integral domain (`IsDomain K`). This matches the informal claim \"any subring of a field which contains the identity is an integral domain\" — the Dummit–Foote convention allows subrings without 1, so the informal text adds \"contains the identity\" explicitly, which Mathlib's `Subring` encodes by definition. The types, quantification, and conclusion all line up.",
+  "duration_ms": 123680,
+  "cost_usd": 0.43553825
+}

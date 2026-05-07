@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement component-by-component: the family `{A_α}` is encoded as `A : α → Set X` with `∀ a, IsConnected (A a)`; the \"connected subset A\" is `A₀ : Set X` with `IsConnected A₀`; the nonempty-intersection hypothesis `A ∩ A_α ≠ ∅` is `∀ a, A₀ ∩ A a ≠ ∅`; and the conclusion that `A ∪ (⋃ A_α)` is connected is `IsConnected (A₀ ∪ (⋃ a, A a))`. Mathlib's `IsConnected` (nonempty + preconnected) corresponds to the standard usage of \"connected\" in Munkres-style textbook exercises. Quantifier structure, types, and logical shape all match without adding or dropping hypotheses.",
+  "duration_ms": 106258,
+  "cost_usd": 0.34444749999999996
+}

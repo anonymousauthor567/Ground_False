@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem matches the informal statement exactly. The domain and codomain `ℝ → ℝ` capture $R^1$ into $R^1$. The hypotheses `Continuous f` and `IsOpenMap f` (image of open set is open) faithfully encode \"continuous open mapping\". The conclusion `Monotone f ∨ Antitone f` captures Rudin's definition of \"monotonic\" (Def. 4.28), which is the disjunction of monotonically increasing (weakly order-preserving, i.e., Mathlib's `Monotone`) and monotonically decreasing (weakly order-reversing, i.e., Mathlib's `Antitone`). No hypotheses are added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 151342,
+  "cost_usd": 0.30748024999999995
+}

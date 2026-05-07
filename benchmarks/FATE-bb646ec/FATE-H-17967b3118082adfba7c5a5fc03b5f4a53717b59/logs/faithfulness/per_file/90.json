@@ -1,0 +1,8 @@
+{
+  "file": "90.lean",
+  "stem": "90",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim. The hypotheses `[CommRing R] [IsLocalRing R] [IsNoetherianRing R]` match \"R Noetherian local ring\". `IsLocalRing.CotangentSpace R` is defined in Mathlib as `(maximalIdeal R).Cotangent`, i.e., m/m², and `Module.finrank (ResidueField R) (CotangentSpace R)` computes dim_κ m/m² (a natural number, since Noetherianness gives FiniteDimensional). The key equivalence `n ≤ projectiveDimension X ↔ ¬ HasProjectiveDimensionLT X n` is precisely the Mathlib lemma `projectiveDimension_ge_iff` in Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean. Thus `¬ HasProjectiveDimensionLT (ModuleCat.of R κ) (finrank κ m/m²)` is logically equivalent to \"projective dimension of κ ≥ dim_κ m/m²\", matching the informal statement exactly.",
+  "duration_ms": 129037,
+  "cost_usd": 0.28535449999999996
+}

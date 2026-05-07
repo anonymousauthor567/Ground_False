@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "informal": "Let $I, J$ be ideals of a ring $R$ such that $I+J=R$. Prove that $I J=I \\cap J$.",
+  "lean": "\ntheorem Artin_exercise_10_4_7a {R : Type*} [CommRing R]\n  (I J : Ideal R) (hIJ : I + J = ⊤) : I * J = I ⊓ J",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes a commutative ring R (Artin's \"ring\" in this exercise context is commutative), two ideals I and J, the hypothesis I + J = ⊤ (which is the Mathlib encoding of I + J = R), and concludes I * J = I ⊓ J, which is exactly the product equals intersection statement IJ = I ∩ J. The quantifier structure (∀ I J, hypothesis → conclusion) matches the informal \"let I, J ... such that ... prove\". No extra hypotheses are added beyond commutativity, which is standard in this context, and no hypotheses are dropped. This is a faithful formalization.",
+  "duration_ms": 8478,
+  "cost_usd": 0.045934249999999996
+}

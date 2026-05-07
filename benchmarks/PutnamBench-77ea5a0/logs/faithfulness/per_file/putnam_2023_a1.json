@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_a1.lean",
+  "stem": "putnam_2023_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes the informal statement correctly. The function f_n(x) = cos(x)cos(2x)...cos(nx) is represented as ∏ i ∈ Finset.Icc 1 n, Real.cos (i * x), which enumerates i = 1, 2, ..., n exactly. The expression iteratedDeriv 2 (f n) 0 is the standard Mathlib encoding of f_n''(0) for smooth functions. The IsLeast predicate on the set {n | 0 < n ∧ |f_n''(0)| > 2023} correctly captures \"the smallest positive n such that |f_n''(0)| > 2023\", including both the membership (it is in the set) and lower bound (no smaller element satisfies the property). The positivity constraint on n is properly enforced both in the hypothesis on f and in the set definition. No drift in hypotheses, conclusion, quantifier structure, or types.",
+  "duration_ms": 101794,
+  "cost_usd": 0.17886324999999997
+}

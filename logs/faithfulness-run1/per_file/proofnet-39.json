@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "informal": "Show that the subgroup of all rotations in a dihedral group is a maximal subgroup.",
+  "lean": "\ntheorem Dummit_Foote_exercise_2_4_16b {n : ℕ} {hn : n ≠ 0}\n  {R : Subgroup (DihedralGroup n)}\n  (hR : R = Subgroup.closure {DihedralGroup.r 1}) :\n  R ≠ ⊤ ∧\n  ∀ K : Subgroup (DihedralGroup n), R ≤ K → K = R ∨ K = ⊤",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that the rotation subgroup of D_n is maximal. In Mathlib, `DihedralGroup.r 1` generates all rotations (since `(r 1)^k = r k`), so `Subgroup.closure {DihedralGroup.r 1}` is precisely the rotation subgroup. The conclusion `R ≠ ⊤ ∧ ∀ K, R ≤ K → K = R ∨ K = ⊤` is exactly the definition of `R` being a maximal subgroup (proper, with no subgroup strictly between it and the whole group). The added hypothesis `n ≠ 0` matches the standard reading of D_n as a finite dihedral group. The implicit-binder style for `hn` is a minor stylistic oddity but does not change the mathematical content. Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 18144,
+  "cost_usd": 0.0727055
+}

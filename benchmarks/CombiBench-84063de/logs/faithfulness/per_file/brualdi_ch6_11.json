@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch6_11.lean",
+  "stem": "brualdi_ch6_11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal counting problem. `Equiv.Perm (Finset.Icc 1 8)` coerces via `CoeSort` to permutations of the subtype `{x // x ∈ Finset.Icc 1 8}`, which is exactly the 8-element set {1,...,8}. The hypothesis `∀ σ, σ ∈ sols ↔ (∀ i, Even i.1 → σ i ≠ i)` uniquely determines `sols` as the set of permutations such that no even-valued element is fixed (i.e., in its natural position). Since the underlying type has decidable equality and is finite, this iff uniquely determines the Finset, so `sols.card` is well-defined. The condition `σ i ≠ i` captures \"not in natural position\" exactly, and `Even i.1` correctly extracts the underlying ℕ and tests parity. The formulation correctly leaves odd positions unconstrained, matching the informal statement which only restricts even integers.",
+  "duration_ms": 85370,
+  "cost_usd": 0.30307525
+}

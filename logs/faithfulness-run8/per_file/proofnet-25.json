@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The operator space `End F V` corresponds to $\\mathcal{L}(V)$, normality is correctly encoded as `T * adjoint T = adjoint T * T` (where multiplication in `End F V` is composition, matching $TT^* = T^*T$), and the conclusion `range T = range (adjoint T)` directly mirrors $\\operatorname{range} T = \\operatorname{range} T^*$. The scalar field uses `RCLike F` for ℝ or ℂ, matching the standard inner-product-space context. The `FiniteDimensional F V` hypothesis is a necessary implicit premise: Mathlib's `LinearMap.adjoint` (which is what `adjoint T` resolves to for `T : End F V`) is only defined under `FiniteDimensional`, so without it the expression would not typecheck, and the informal use of $T^*$ presumes the adjoint exists. Surfacing this implicit premise is a faithful reading.",
+  "duration_ms": 410407,
+  "cost_usd": 1.37183375
+}

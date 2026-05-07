@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a1.lean",
+  "stem": "putnam_2025_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. Positivity (`hm`, `hn`), distinctness (`h_distinct`), coprimality for positive k (`h_coprime`), and the rational-valued recurrence (`h_recurrence`) together uniquely determine m_k, n_k as the reduced form of (2m_{k-1}+1)/(2n_{k-1}+1), which matches \"the relatively prime positive integers such that...\". The ℚ equation is well-posed since n_{k+1} > 0 and 2n_k+1 > 0. Importantly, coprimality is required only for k > 0, matching the informal (which does not require m_0, n_0 coprime). The conclusion's set over ℕ differs from \"positive integers\" by at most the single element k=0, which does not affect finiteness. All quantifier structures and types align.",
+  "duration_ms": 145636,
+  "cost_usd": 0.48171974999999995
+}

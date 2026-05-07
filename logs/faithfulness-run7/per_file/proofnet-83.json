@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypotheses `Nat.Prime p`, `card G = p ^ n`, and `card K = p ^ (n-1)` correspond exactly to \"p prime\", \"G of order p^n\", and \"K of order p^{n-1}\". The conclusion `K.Normal` uses Mathlib's `Subgroup.Normal` structure, which encodes closure under conjugation — the standard definition of a normal subgroup. The redundant `[Fintype K]` instance is derivable from `Fintype G` and does not narrow scope. Edge cases created by natural-number truncation (n = 0 or n = 1) force K to be the trivial subgroup, which is vacuously normal, so they do not introduce any unfaithful content. The universal quantification over K is correctly rendered via an implicit binder.",
+  "duration_ms": 107561,
+  "cost_usd": 0.3269675
+}

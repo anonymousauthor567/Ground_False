@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that the multiplicative groups ℝ∖{0} and ℂ∖{0} are not isomorphic. In Mathlib, `ℝˣ` (resp. `ℂˣ`) is `Units ℝ` (resp. `Units ℂ`), which for a field is exactly ℝ∖{0} (resp. ℂ∖{0}) equipped with its multiplicative group structure. The type `ℝˣ ≃* ℂˣ` is the type of multiplicative group isomorphisms (`MulEquiv`), and `IsEmpty` on that type says no such isomorphism exists — exactly the claim that the two multiplicative groups are not isomorphic. There are no added or dropped hypotheses and no change of quantifier structure, so the Lean encoding is logically equivalent to the informal statement.",
+  "duration_ms": 87576,
+  "cost_usd": 0.25272
+}

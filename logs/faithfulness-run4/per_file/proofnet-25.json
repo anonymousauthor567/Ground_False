@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Axler Exercise 7.6. `T : End F V` with `[RCLike F] [InnerProductSpace F V] [FiniteDimensional F V]` matches the standard Axler setup for $\\mathcal{L}(V)$ on a finite-dimensional inner product space over ℝ or ℂ (finite-dimensionality is implicit in Axler's chapter 7 and required by Mathlib's `LinearMap.adjoint`). The hypothesis `T * adjoint T = adjoint T * T` expresses normality $TT^* = T^*T$ exactly, since multiplication in `Module.End` is composition (verified via `Module.End.mul_apply`). The conclusion `range T = range (adjoint T)` literally states $\\operatorname{range} T = \\operatorname{range} T^*$. No hypothesis or conclusion is weakened or strengthened.",
+  "duration_ms": 63305,
+  "cost_usd": 0.2970595
+}

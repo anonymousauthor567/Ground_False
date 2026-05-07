@@ -1,0 +1,8 @@
+{
+  "file": "126.lean",
+  "stem": "126",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal claim. `N.Normal` with `(N : Subgroup G)` encodes $N \\triangleleft G$; `N ⊓ (commutator G) = ⊥` encodes $N \\cap [G,G] = \\{1\\}$ since Mathlib defines `commutator G := ⁅⊤, ⊤⁆` which is exactly $[G,G]$, and `⊓`/`⊥` on `Subgroup G` are intersection and the trivial subgroup. The conclusion `N ≤ Subgroup.center G` is exactly $N \\leq Z(G)$. No hypotheses are added or dropped, no quantifiers changed, and no types altered. The encoding is logically equivalent to the informal statement.",
+  "duration_ms": 50502,
+  "cost_usd": 0.137266
+}

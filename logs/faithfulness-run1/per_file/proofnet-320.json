@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-320.lean",
+  "stem": "proofnet-320",
+  "informal": "Show that every subset of $\\mathbb{N}$ is clopen.",
+  "lean": "\ntheorem Pugh_exercise_2_32a (A : Set ℕ) : IsClopen A",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every subset of ℕ is clopen (with respect to the standard discrete topology on ℕ). The Lean signature universally quantifies over `A : Set ℕ` and concludes `IsClopen A`. In Mathlib, ℕ carries the discrete topology by default (via the standard `TopologicalSpace ℕ` instance), so `IsClopen A` here matches the informal claim. The quantifier structure (∀ A) and conclusion (clopen) align exactly, with no extra or missing hypotheses.",
+  "duration_ms": 6771,
+  "cost_usd": 0.044386249999999995
+}

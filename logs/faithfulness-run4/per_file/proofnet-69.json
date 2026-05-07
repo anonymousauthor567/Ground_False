@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `p.Prime ∧ p > 2` exactly encodes \"odd prime\". Expanding $f = (X+2)^p = \\sum_{n=0}^{p} \\binom{p}{n} 2^{p-n} X^n$, all coefficients are positive, so `f.support \\ {0} = {1, ..., p}`. The sum $\\sum_{n=1}^{p} \\binom{p}{n} 2^{p-n} X^{n-1}$ is exactly $\\frac{(X+2)^p - 2^p}{X}$, since $(X+2)^p - 2^p = \\sum_{n=1}^{p} \\binom{p}{n} 2^{p-n} X^n$ and dividing each term by $X$ gives the claimed sum. The coercion `(f.coeff n : Polynomial ℤ)` embeds the integer coefficient as a constant polynomial, which is the correct encoding. `Irreducible` on `Polynomial ℤ` is the standard notion of irreducibility in $\\mathbb{Z}[x]$. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 156900,
+  "cost_usd": 0.5562680000000001
+}

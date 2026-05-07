@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully matches the informal statement. The hypotheses correctly encode: (1) p is prime via `Nat.Prime p`, (2) q is a polynomial over ZMod p = F, (3) q is irreducible via Mathlib's standard `Irreducible`, and (4) q has degree exactly n via `q.degree = n` (with coercion from ℕ to WithBot ℕ, which forces q ≠ 0 and degree exactly n). The conclusion is a conjunction of: (a) the quotient `Polynomial (ZMod p) ⧸ span {q}` (with `open Ideal`, `span {q}` is `Ideal.span {q} = (q)`) admits a Fintype instance whose cardinality is p^n, and (b) it is a field (`IsField`). The `∃ is_fin : Fintype ..., @card ... is_fin = p^n` pattern is the standard way to express \"finite with exactly p^n elements\" since Fintype is data. No extra hypotheses are silently added and none are dropped; the statement neither weakens nor strengthens the informal claim.",
+  "duration_ms": 180786,
+  "cost_usd": 0.60584
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes \"a group of order 56 has a normal Sylow p-subgroup for some prime p dividing its order.\" The hypothesis `card G = 56` with `[Fintype G]` encodes \"group of order 56\". The existential `∃ (p : ℕ) (P : Sylow p G), p.Prime ∧ (p ∣ card G) ∧ P.Normal` matches \"for some prime p dividing the order, there exists a normal Sylow p-subgroup\" — the nested existentials with conjoined conditions are logically equivalent to the informal quantifier structure. Mathlib's `Sylow p G` (maximal p-subgroup) combined with `p.Prime` and `p ∣ card G` gives the standard Sylow p-subgroup notion, and `P.Normal` correctly expresses normality in G. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 94255,
+  "cost_usd": 0.30993075000000003
+}

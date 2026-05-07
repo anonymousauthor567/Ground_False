@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The domain `I = Icc 0 1` matches $[0,1]$; `f : ℕ → I → ℝ` with `h : ∀ x n, f n x = ↑x ^ n` correctly specifies $f_n(x) = x^n$ via the subtype coercion `↑x : ℝ`. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` is the standard meaning of \"the sequence does not converge uniformly\": no limit function exists under uniform convergence as $n \\to \\infty$. Mathlib's `TendstoUniformly` matches the textbook definition. No hypothesis is added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 63995,
+  "cost_usd": 0.277173
+}

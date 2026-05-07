@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim correctly: `T * adjoint T = adjoint T * T` expresses normality (using `LinearMap.adjoint` from the opened namespace), `IsSelfAdjoint T` unfolds to `star T = T = adjoint T` via Mathlib's `Star (E →ₗ[𝕜] E) := ⟨adjoint⟩` instance, `T.Eigenvalues` is the subtype of complex numbers that are eigenvalues of T, and `(e : ℂ).im = 0` correctly encodes \"eigenvalue is real\". The only addition is `[FiniteDimensional ℂ V]`. Without finite-dimensionality, the literal claim is actually false (e.g., multiplication by `x + i` on L²([0,1]) is normal with no eigenvalues, so the RHS is vacuously true, but it is not self-adjoint), and `LinearMap.adjoint` requires finite-dimensionality to be defined in the standard Mathlib way. Hence this is surfacing an implicit premise needed for truth, not narrowing scope.",
+  "duration_ms": 230227,
+  "cost_usd": 0.882387
+}

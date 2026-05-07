@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. Polynomials are over ℚ matching \"rational coefficients\". The hypothesis `∀ n, ∃ a : ℤ, (f*g).coeff n = a` (with implicit coercion ℤ → ℚ) is the standard Mathlib idiom for \"every coefficient of f·g is an integer\", matching \"f(x)g(x) has integer coefficients\". The free variables i, j : ℕ are universally quantified at the theorem level, correctly capturing \"any coefficient ... any coefficient\". The conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` likewise says the product is an integer. The hypothesis and conclusion are logically equivalent to the informal statement — no hypotheses are dropped, added, or altered.",
+  "duration_ms": 74664,
+  "cost_usd": 0.17882149999999997
+}

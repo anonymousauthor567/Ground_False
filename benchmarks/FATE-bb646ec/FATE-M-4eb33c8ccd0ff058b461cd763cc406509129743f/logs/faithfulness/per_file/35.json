@@ -1,0 +1,8 @@
+{
+  "file": "35.lean",
+  "stem": "35",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the set of complex numbers fixed by conjugation equals the set of real numbers. The Lean formalization expresses this as the set equality `{z : ℂ | conj z = z} = {z : ℂ | ∃ (x : ℝ), z = x}`. The left side captures \"fixed points of conjugation\" exactly. The right side `{z : ℂ | ∃ (x : ℝ), z = x}` is the standard encoding of \"real numbers viewed as complex numbers\" via the coercion ℝ → ℂ, which is precisely the set-theoretic version of Mathlib's `Complex.conj_eq_iff_real : conj z = z ↔ ∃ r : ℝ, z = r`. No hypotheses are added or dropped, the quantifier structure matches, and the sets are exactly the standard formalizations of the two sides of the informal claim. This is a faithful formalization.",
+  "duration_ms": 46764,
+  "cost_usd": 0.13036099999999998
+}

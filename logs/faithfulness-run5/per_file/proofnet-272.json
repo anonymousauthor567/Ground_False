@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal one. The informal claim \"exactly (p-1)/2 of {1,...,p-1} are QRs and (p-1)/2 are QNRs\" is equivalent to the existence of two Finsets S₁, S₂ ⊆ ZMod p \\ {0} of size (p-1)/2 consisting entirely of squares and non-squares respectively: since the total number of nonzero elements is p-1 and (p-1)/2 + (p-1)/2 = p-1 (using p odd), having at least (p-1)/2 of each forces exactly (p-1)/2 of each. The hypothesis `hodd : p % 2 = 1` surfaces the implicit premise that p is an odd prime, which is needed for the statement to be true (e.g., for p=2 the claim fails), and per the rubric this is a faithful reading. The encoding `∃ x : ZMod p, x^2 = q` correctly captures \"q is a quadratic residue\", and excluding 0 matches {1,...,p-1}.",
+  "duration_ms": 134493,
+  "cost_usd": 0.39631600000000006
+}

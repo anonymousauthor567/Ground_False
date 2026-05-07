@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. \"Total ordered set\" is encoded as `[LinearOrder α]`, which in Mathlib provides a linear (total) order. `s : Set α` with `Set.Nonempty s` encodes \"nonempty subset\". Mathlib defines `upperBounds s = { x | ∀ a ∈ s, a ≤ x }` and `lowerBounds s` dually, so `x ∈ lowerBounds s` and `y ∈ upperBounds s` correspond exactly to \"α is a lower bound of E\" and \"β is an upper bound of E\". The conclusion `x ≤ y` matches \"α ≤ β\". No hypotheses are added or omitted, and the types/quantifier structure match.",
+  "duration_ms": 45007,
+  "cost_usd": 0.197533
+}

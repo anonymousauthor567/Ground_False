@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely. `{G : Type*} [Group G]` matches \"G is a group\"; `(H K : Subgroup G)` matches \"H and K are subgroups of G\"; `[Fintype H] [Fintype K]` matches \"finite subgroups\"; `Nat.Coprime (card H) (card K)` (with `open Fintype` in scope, so `card` is `Fintype.card`, i.e., the order of each subgroup) matches \"whose orders are relatively prime\"; and `H ⊓ K = ⊥` matches \"H ∩ K = 1\" (the trivial subgroup in Mathlib is ⊥, and subgroup intersection is ⊓). No extra hypotheses are introduced and none are dropped. This matches the existing Mathlib lemma `Subgroup.inf_eq_bot_of_coprime`.",
+  "duration_ms": 71183,
+  "cost_usd": 0.1526215
+}

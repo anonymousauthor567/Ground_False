@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_a3.lean",
+  "stem": "putnam_2020_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The initial condition `a 0 = Real.pi / 2` matches $a_0 = \\pi/2$. The recurrence `a (n+1) = Real.sin (a n)` is equivalent to $a_n = \\sin(a_{n-1})$ for $n \\geq 1$. The partial sum `∑ n ∈ Finset.Icc 1 m, (a n)^2` sums from n=1 to m, matching the sum $\\sum_{n=1}^\\infty a_n^2$ starting at index 1. The convergence predicate `∃ L, Tendsto (fun m => partial sum) atTop (𝓝 L)` is the standard definition of series convergence. The overall biconditional with `putnam_2020_a3_solution` correctly encodes the \"determine whether it converges\" question format.",
+  "duration_ms": 47037,
+  "cost_usd": 0.166305
+}

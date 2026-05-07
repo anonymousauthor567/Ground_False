@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if a complex sequence {s_n} converges, then {|s_n|} converges. The Lean formalization takes f : ℕ → ℂ, hypothesizes that f tends to some a : ℂ (convergence in ℂ), and concludes that ‖f n‖ tends to some a : ℝ. Since the norm on ℂ coincides with the complex absolute value and takes values in ℝ, saying \"∃ a : ℝ, Tendsto (‖f n‖) atTop (𝓝 a)\" is exactly \"the real-valued sequence |s_n| converges\". The hypothesis, conclusion, quantifier structure, and types all match the informal statement precisely.",
+  "duration_ms": 20604,
+  "cost_usd": 0.08855324999999999
+}

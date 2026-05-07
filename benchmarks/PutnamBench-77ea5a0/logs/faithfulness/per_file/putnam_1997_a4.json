@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_a4.lean",
+  "stem": "putnam_1997_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal problem precisely. (1) The ambient structure is a general group `G`, matching \"Let G be a group\". (2) `φ : G → G` matches the informal function. (3) The hypothesis `hφ` encodes exactly \"φ(g1)φ(g2)φ(g3) = φ(h1)φ(h2)φ(h3) whenever g1g2g3 = e = h1h2h3\" with `1` being the Lean name for the group identity. (4) The conclusion asserts the existence of an element `a : G` such that `ψ(g) := a * φ(g)` satisfies the multiplicativity condition `ψ(xy) = ψ(x)ψ(y)` for all x, y. This is precisely the informal conclusion, since for group maps multiplicativity automatically implies preservation of the identity and inverses. No hypotheses are added, dropped, or strengthened.",
+  "duration_ms": 15726,
+  "cost_usd": 0.058875500000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_b6.lean",
+  "stem": "putnam_1980_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the recursion G(1,n) = 1/n and G(d,n) = (d/n)·∑_{i=d}^{n} G(d-1, i-1) correctly via the hG hypothesis. Natural number coercions to ℤ handle the domain correctly, Finset.Icc d n gives the correct summation range, and G is uniquely determined on the required domain {(d,n) : 1 ≤ d ≤ n}. The d = 0 case being unconstrained is harmless since both conjuncts are vacuous. The conclusion uses `Rat.den`, which returns the denominator in reduced form (Mathlib's Rat always stores fractions in lowest terms), matching \"reduced denominator\". `Prime p` for p : ℕ is equivalent to `Nat.Prime p`, capturing \"prime integer p\". The quantifier structure and conclusion `¬p ∣ (G(d,p)).den` precisely matches the informal claim.",
+  "duration_ms": 375259,
+  "cost_usd": 1.1034342499999998
+}

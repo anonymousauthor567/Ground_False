@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `∃! p : ℕ × ℕ` to encode \"unique positive integers $a, n$\" as a unique pair with both components positive, matching the standard competition reading. The equation `p.1^(p.2 + 1) - (p.1 + 1)^(p.2) = 2001` uses natural number truncated subtraction, but this is equivalent to the integer equation in this context: since 2001 > 0, any satisfying pair must have $a^{n+1} \\geq (a+1)^n$ (otherwise nat-sub truncates to 0, not 2001), so the nat-sub equaling 2001 is equivalent to the true integer equation $a^{n+1} - (a+1)^n = 2001$. The types (ℕ), positivity hypotheses, and the quantifier structure all faithfully capture the informal claim. The solution $(13, 2)$ indeed satisfies $13^3 - 14^2 = 2001$.",
+  "duration_ms": 55194,
+  "cost_usd": 0.1549615
+}

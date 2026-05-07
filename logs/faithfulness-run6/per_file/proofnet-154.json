@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-154.lean",
+  "stem": "proofnet-154",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for k ≥ 2 and x ∈ ℝ^k, there exists a nonzero y ∈ ℝ^k with x·y = 0. The Lean statement takes n : ℕ with n > 1 (equivalent to n ≥ 2), x : EuclideanSpace ℝ (Fin n) (which is an abbreviation for PiLp 2 (fun _ : Fin n => ℝ), i.e., ℝ^n with the standard Euclidean inner product), and concludes the existence of y : EuclideanSpace ℝ (Fin n) with y ≠ 0 and ⟪x, y⟫_ℝ = 0. The inner product on EuclideanSpace ℝ (Fin n) is precisely the standard dot product. The hypotheses, types, quantifier structure, and conclusion all match exactly.",
+  "duration_ms": 34364,
+  "cost_usd": 0.12095375
+}

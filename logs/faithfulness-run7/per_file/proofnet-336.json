@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram identity in $\\mathbb{R}^k$: $|x+y|^2 + |x-y|^2 = 2|x|^2 + 2|y|^2$ for $x, y \\in \\mathbb{R}^k$. The Lean statement universally quantifies over `n : ℕ` and vectors `x y : EuclideanSpace ℝ (Fin n)`, which is exactly Mathlib's formalization of $\\mathbb{R}^n$ with its standard Euclidean norm. The conclusion `‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2` uses the norm `‖·‖` on `EuclideanSpace ℝ (Fin n)`, which corresponds precisely to the $|\\cdot|$ in the informal statement. No hypotheses are added or dropped and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 25538,
+  "cost_usd": 0.13616275
+}

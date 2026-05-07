@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies universally over finite groups G with `card G = 200` and asserts the existence of a Sylow 5-subgroup N with N.Normal. This matches the informal claim \"a group of order 200 has a normal Sylow 5-subgroup\" exactly: the order hypothesis is encoded by `card G = 200`, and \"has a normal Sylow 5-subgroup\" is directly rendered as `∃ N : Sylow 5 G, N.Normal`. The `Sylow 5 G` type is Mathlib's standard notion of Sylow 5-subgroup, and `N.Normal` is the standard normality predicate. No extra hypotheses (like solvability, abelian, etc.) are imposed, and no weakening occurs.",
+  "duration_ms": 11935,
+  "cost_usd": 0.049915749999999995
+}

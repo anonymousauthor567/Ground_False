@@ -1,0 +1,8 @@
+{
+  "file": "121.lean",
+  "stem": "121",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. `α : G ≃* G` is exactly an automorphism of G (Mathlib defines `MulAut G := G ≃* G`). The hypothesis `∀ g, g⁻¹ * α g ∈ Subgroup.center G` is literally \"for any g ∈ G, g⁻¹α(g) ∈ Z(G)\". The conclusion `∀ a ∈ commutator G, α a = a` matches \"for any a ∈ G', α(a) = a\" since `commutator G` in Mathlib is defined as `⁅(⊤ : Subgroup G), ⊤⁆`, which is precisely the commutator subgroup G'. There is no drift in hypotheses, types, quantifier structure, or conclusion.",
+  "duration_ms": 201415,
+  "cost_usd": 0.32859475
+}

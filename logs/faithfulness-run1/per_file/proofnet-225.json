@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "informal": "Prove that if $H$ and $K$ are finite subgroups of $G$ whose orders are relatively prime then $H \\cap K=1$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_2_8 {G : Type*} [Group G] (H K : Subgroup G)\n  [Fintype H] [Fintype K]\n  (hHK : Nat.Coprime (card H) (card K)) :\n  H ⊓ K = ⊥",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes two subgroups H, K of an arbitrary group G, equips each with a Fintype instance (matching \"finite subgroups\"), assumes Nat.Coprime (card H) (card K) (matching \"orders are relatively prime\"), and concludes H ⊓ K = ⊥. In Mathlib, the infimum of subgroups is their set-theoretic intersection, and ⊥ is the trivial subgroup {1}, so H ⊓ K = ⊥ is exactly the assertion H ∩ K = 1. The quantifier structure (universal over G, H, K) and hypotheses match the informal statement precisely.",
+  "duration_ms": 7244,
+  "cost_usd": 0.0457195
+}

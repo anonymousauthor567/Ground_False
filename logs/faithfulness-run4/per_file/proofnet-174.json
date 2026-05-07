@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "verdict": "faithful",
+  "reasoning": "Each hypothesis and the conclusion match the informal statement exactly. (a) \"f continuous for x≥0\" → `ContinuousOn f (Set.Ici 0)`; (b) \"f'(x) exists for x>0\" → `DifferentiableOn ℝ f (Set.Ioi 0)`; (c) \"f(0)=0\" → `f 0 = 0`; (d) \"f' monotonically increasing\" → `MonotoneOn (deriv f) (Set.Ioi 0)`. Since (0,∞) is open, `deriv f` on `Set.Ioi 0` agrees with the usual derivative, and Rudin's \"monotonically increasing\" is non-strict (a ≤ b ⇒ f(a) ≤ f(b)), which `MonotoneOn` encodes. The conclusion \"g(x)=f(x)/x monotone on x>0\" is correctly rendered as `MonotoneOn (λ x => f x / x) (Set.Ioi 0)`. No hypotheses are added or dropped.",
+  "duration_ms": 143687,
+  "cost_usd": 0.389213
+}

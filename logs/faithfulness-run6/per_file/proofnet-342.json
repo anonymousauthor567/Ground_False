@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly says \"for the real function f(n) = √(n²+n) − n\" and asks for the limit as n → ∞. The Lean formalization uses `λ (n : ℝ) => sqrt (n^2 + n) - n` with domain ℝ (matching \"real function\"), `atTop` (matching n → ∞ on ℝ), and `𝓝 (1/2)` (matching the target limit 1/2). The use of `Real.sqrt` is standard and returns 0 on negative inputs, but this is irrelevant here since `atTop` only considers eventually-large n where n² + n ≥ 0. The quantifier structure, domain, function, and target value all match the informal statement exactly.",
+  "duration_ms": 34584,
+  "cost_usd": 0.12695625
+}

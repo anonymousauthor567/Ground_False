@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a5.lean",
+  "stem": "putnam_1979_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal claim. (1) The sequence S is defined as `⌊n*x⌋` with n : ℕ, matching ⌊0⌋, ⌊x⌋, ⌊2x⌋, … (2) P x asserts x is a real root of x³ - 10x² + 29x - 25, and the ∃ α β with α ≠ β captures \"distinct real roots\". (3) The condition `∀ n : ℕ, ∃ m : ℤ, m > n ∧ ∃ c d, S α c = m ∧ S β d = m` says the set of common values in the two sequences is unbounded above; since n ≥ 0 forces m ≥ 1 (m is a positive integer), this is exactly equivalent to \"infinitely many positive integers appear in both S(α) and S(β)\" (a subset of positive integers is infinite iff unbounded above). No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 103061,
+  "cost_usd": 0.28209275
+}

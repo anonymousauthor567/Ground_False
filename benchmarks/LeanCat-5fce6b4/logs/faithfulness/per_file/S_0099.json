@@ -1,0 +1,8 @@
+{
+  "file": "S_0099.lean",
+  "stem": "S_0099",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the monad on Set induced by the forgetful functor Top → Set is idempotent. In Mathlib, `TopCat.adj₁ : discrete ⊣ forget TopCat` is exactly this adjunction, with `discrete` as the left adjoint of `forget`. Then `TopCat.adj₁.toMonad` is the monad on `Type` whose underlying endofunctor is `discrete ⋙ forget` (verified in `Mathlib/CategoryTheory/Monad/Adjunction.lean` where `toMonad` is defined with `toFunctor := L ⋙ R` and `μ := whiskerRight (whiskerLeft L h.counit) R`). The standard category-theoretic definition of an idempotent monad is that the multiplication `μ : T ⋙ T ⟶ T` is a natural isomorphism; `IsIso` applied to this natural transformation expresses precisely this (Mathlib itself uses this formulation in `μ_iso_of_reflective`). Hence the Lean statement correctly captures the informal claim with no hidden assumptions or strengthening/weakening.",
+  "duration_ms": 327202,
+  "cost_usd": 1.04658025
+}

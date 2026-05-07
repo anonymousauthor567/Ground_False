@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the claim of the informal statement. The informal \"real continuous function defined on a closed set E\" is encoded via `f : ℝ → ℝ` together with `ContinuousOn f E` and `IsClosed E` — this is a standard faithful encoding, because `ContinuousOn f E` depends only on `f`'s values on `E`, and the conclusion `∀ x ∈ E, f x = g x` only constrains agreement on `E`. Passing from an informal function on `E` to a total function with `ContinuousOn` and back is a bijective reformulation at the level of provability. The existential conclusion with `Continuous g` matches \"continuous g on ℝ extending f\". Equality is symmetric so `f x = g x` matches `g(x) = f(x)`. No hypothesis is added or dropped relative to the informal claim.",
+  "duration_ms": 41907,
+  "cost_usd": 0.1415015
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-73.lean",
+  "stem": "proofnet-73",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The group G is universally quantified via `{G : Type*} [Group G]`, matching \"Let G be a group\". The hypothesis `∀ (a b : G), (a*b)^3 = a^3 * b^3 ∧ (a*b)^5 = a^5 * b^5` is logically equivalent to the informal conjunction of \"(ab)³ = a³b³ and (ab)⁵ = a⁵b⁵ for all a, b ∈ G\" (since `∀ a b, P ∧ Q ↔ (∀ a b, P) ∧ (∀ a b, Q)`). The conclusion `∀ a b : G, a*b = b*a` is exactly the standard definition of \"G is abelian\". No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 33477,
+  "cost_usd": 0.12931225000000002
+}

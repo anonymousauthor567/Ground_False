@@ -1,0 +1,8 @@
+{
+  "file": "5.lean",
+  "stem": "5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The hypotheses correctly encode \"H is a maximal normal abelian subgroup\": H is normal (h_normal), H is abelian (h_comm, using Mathlib's IsMulCommutative which expresses commutativity of multiplication), and H is maximal among normal abelian subgroups (h_maximal_normal_abelian: any normal abelian K with H ≤ K equals H). The conclusion encodes \"H is a maximal abelian subgroup\": any abelian subgroup K with H ≤ K equals H (with H itself already known abelian via h_comm). The ambient hypotheses (p prime, G finite group, G is a p-group via IsPGroup) faithfully encode the setup. The encoding of \"maximal X\" as \"any X-subgroup containing H equals H\" is the standard and faithful way to express maximality.",
+  "duration_ms": 95569,
+  "cost_usd": 0.26585000000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal claim: for any z : ℂ, there exist r : ℝ with r ≥ 0 and w : ℂ with ‖w‖ = 1 such that z = r * w. In Mathlib, the norm ‖·‖ on ℂ coincides with the complex absolute value, so ‖w‖ = 1 matches |w| = 1. The product `r * w` with r : ℝ and w : ℂ elaborates via coercion to (↑r : ℂ) * w, which is the standard meaning of \"rw\" in the informal statement. Quantifier structure (∃ r, ∃ w, three conjuncts) matches exactly. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 85739,
+  "cost_usd": 0.27756575
+}

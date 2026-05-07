@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if an integer n is the sum of two rational squares, then n is the sum of two integer squares. The Lean statement takes arbitrary n : ℤ and r, s : ℚ with r^2 + s^2 = n as hypotheses, and concludes there exist a, b : ℤ with a^2 + b^2 = n. This universal-over-(n,r,s) formulation is logically equivalent to the ∀n. (∃r,s. r²+s²=n) → (∃a,b. a²+b²=n) form, because proving it for an arbitrary fixed witness r,s is the same as proving it under existential assumption. The coercion ℤ→ℚ in r^2 + s^2 = n and the integer equation a^2 + b^2 = n capture the intended meaning precisely. No hypotheses are added or dropped, and the types (ℤ for the integer, ℚ for the rationals) match exactly.",
+  "duration_ms": 12186,
+  "cost_usd": 0.051962749999999995
+}

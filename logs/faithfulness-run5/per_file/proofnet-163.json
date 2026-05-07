@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely matches the informal statement of Baire's theorem. The hypotheses `[MetricSpace X] [CompleteSpace X] [Nonempty X]` directly correspond to \"nonempty complete metric space\". The function `G : ℕ → Set X` with `∀ n, IsOpen (G n) ∧ Dense (G n)` matches \"sequence of dense open sets\". The conclusion `∃ x, ∀ n, x ∈ G n` is exactly equivalent to \"⋂ G_n is nonempty\". The informal indexing from 1 vs. Lean's ℕ starting from 0 is an immaterial relabeling of the same countable sequence.",
+  "duration_ms": 11359,
+  "cost_usd": 0.05476325
+}

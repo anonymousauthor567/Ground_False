@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_b3.lean",
+  "stem": "putnam_1973_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The hypothesis `∀ x ∈ Set.Ico 0 p, Nat.Prime (x^2 - x + p)` uses the range [0, p) instead of the informal (0, p), but this makes no logical difference: at both x = 0 and x = 1, the expression x^2 - x + p evaluates to p, so the extra endpoint x = 0 contributes no new constraint beyond what x = 1 already requires. The conclusion `∃! triple : ℤ × ℤ × ℤ` with conditions `b^2 - 4*a*c = 1 - 4*p ∧ 0 < a ∧ a ≤ c ∧ -a ≤ b ∧ b < a` exactly mirrors the informal \"exactly one triple of integers a, b, c satisfying b² - 4ac = 1 - 4p, 0 < a ≤ c, -a ≤ b < a\". The use of `p : ℕ` rather than ℤ is immaterial given `p > 1`, and the expression `1 - 4*p` is correctly coerced to ℤ via unification with `b^2 - 4*a*c : ℤ`.",
+  "duration_ms": 242459,
+  "cost_usd": 0.682031
+}

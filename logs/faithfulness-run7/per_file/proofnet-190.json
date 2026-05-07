@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if x is nilpotent in a ring R (meaning some power of x is zero), then 1+x is a unit. The Lean signature uses `[Ring R]` (Mathlib's general, possibly non-commutative ring), `IsNilpotent x` which is defined in `Mathlib/Algebra/GroupWithZero/Basic.lean` as `∃ n : ℕ, x^n = 0` (exactly \"some power of x is zero\"), and concludes `IsUnit (1 + x)` (the standard notion of being a unit). The universal quantification over R and x is captured by the implicit type/element binders. The theorem is true over any ring (commutative or not) since the inverse `1 - x + x^2 - ... + (-x)^{n-1}` works in any ring, so `Ring` is the correct typeclass — neither adding nor dropping hypotheses versus the informal statement. This is a strictly faithful formalization.",
+  "duration_ms": 35167,
+  "cost_usd": 0.1750175
+}

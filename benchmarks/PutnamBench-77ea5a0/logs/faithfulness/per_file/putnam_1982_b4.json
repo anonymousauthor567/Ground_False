@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_b4.lean",
+  "stem": "putnam_1982_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal problem. Distinctness is handled by using `Finset ℤ`. The divisibility premise `∀ k, ∏ i ∈ n, i ∣ ∏ i ∈ n, (i + k)` matches the informal divisibility condition. Claim 1's `1 ∈ n ∨ -1 ∈ n` correctly corresponds to \"for some i, |n_i| = 1\" (since |n_i| = 1 iff n_i ∈ {1, -1}). Claim 2's `n = Finset.Icc (1 : ℤ) n.card` correctly encodes \"{n_1, ..., n_s} = {1, 2, ..., s}\" where s = |n|. The `n.Nonempty` assumption surfaces the implicit premise that s ≥ 1 (standard interpretation of \"n_1, ..., n_s\"), without which claim 1 would vacuously fail for the empty set. The solution slot using Prop × Prop properly encodes \"prove or counterexample\" for each claim.",
+  "duration_ms": 211351,
+  "cost_usd": 0.63031375
+}

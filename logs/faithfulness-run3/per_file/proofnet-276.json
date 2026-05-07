@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a subfield F of K and a ∈ K, if a² is algebraic over F then a is algebraic over F. The Lean signature universally quantifies over any field K, any subfield F, and any element a ∈ K, assumes `IsAlgebraic F (a^2)`, and concludes `IsAlgebraic F a`. Mathlib's `IsAlgebraic R x` means `x` is a root of a nonzero polynomial with coefficients in R, which is the standard meaning of \"algebraic over F\" when F acts on K via its canonical inclusion (Subfield K automatically gives an Algebra F K instance). No spurious finiteness, characteristic, or separability hypotheses are added, and no hypotheses are dropped. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 35538,
+  "cost_usd": 0.17828525000000003
+}

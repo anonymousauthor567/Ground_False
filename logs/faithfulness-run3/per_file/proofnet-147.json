@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the Putnam 2020 B5 problem precisely. The four complex numbers z_1,...,z_4 are encoded as `z : Fin 4 → ℂ` (indices 0-3, a cosmetic shift). The hypothesis `‖z n‖ = 1` is the standard Mathlib encoding of |z_n| = 1 (the norm on ℂ is the complex modulus). The hypothesis `z n ≠ 1` matches z_j ≠ 1. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0)*(z 1)*(z 2)*(z 3) ≠ 0` is literally the expression 3 - z_1 - z_2 - z_3 - z_4 + z_1 z_2 z_3 z_4 ≠ 0. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 45509,
+  "cost_usd": 0.09504475000000001
+}

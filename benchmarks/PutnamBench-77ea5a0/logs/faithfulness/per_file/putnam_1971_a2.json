@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a2.lean",
+  "stem": "putnam_1971_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The functional equation P(x²+1) = (P(x))² + 1 is rendered as `∀ x : ℝ, P.eval (x^2 + 1) = (P.eval x)^2 + 1` and the initial condition P(0) = 0 as `P.eval 0 = 0`. The \"determine all\" phrasing is standardly encoded as an iff with a solution set, and the purported solution `{Polynomial.X}` corresponds to P(x) = x, which is the correct answer. The choice of `Polynomial ℝ` is a natural reading for a Putnam polynomial problem; moreover, the functional equation forces P to agree with the identity on infinitely many values (1, 2, 5, 26, ...), so the answer P(x) = x holds whether one works over ℤ, ℚ, ℝ, or ℂ. No hypothesis is silently added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 63105,
+  "cost_usd": 0.20458125000000002
+}

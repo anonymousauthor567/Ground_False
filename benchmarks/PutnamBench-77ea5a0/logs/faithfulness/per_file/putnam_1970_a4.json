@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_a4.lean",
+  "stem": "putnam_1970_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement reindexes the informal claim by shifting indices but is logically equivalent. The hypothesis `Tendsto (fun n => x (n+2) - x n) atTop (𝓝 0)` is equivalent to $\\lim_{m \\to \\infty}(x_m - x_{m-2}) = 0$ under the substitution $m = n+2$. The conclusion `Tendsto (fun n => (x (n+1) - x n)/(n+1)) atTop (𝓝 0)` is equivalent to $\\lim_{m \\to \\infty}(x_m - x_{m-1})/m = 0$ under $m = n+1$. The `+1` in the denominator avoids division by zero, matching that the informal conclusion is meaningful only for $n \\geq 1$. The sequence type $\\mathbb{N} \\to \\mathbb{R}$ is the standard encoding. No hypotheses are added, dropped, or altered in strength.",
+  "duration_ms": 33225,
+  "cost_usd": 0.10959450000000001
+}

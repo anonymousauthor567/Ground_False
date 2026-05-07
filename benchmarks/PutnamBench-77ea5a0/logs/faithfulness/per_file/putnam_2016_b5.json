@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b5.lean",
+  "stem": "putnam_2016_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Putnam 2016 B5. The function type `Set.Ioi (1 : ℝ) → Set.Ioi (1 : ℝ)` correctly represents f: (1,∞) → (1,∞). The solution set `{f | ∃ c > 0, ∀ x, (f x : ℝ) = x ^ c}` correctly captures the answer f(x) = x^c for some c > 0, where `x ^ c` with real exponent is `Real.rpow`. The condition `(x : ℝ) ^ 2 ≤ y ∧ y ≤ (x : ℝ) ^ 3 → (f x : ℝ) ^ 2 ≤ f y ∧ f y ≤ (f x : ℝ) ^ 3` uses natural-number exponents (2, 3 as ℕ via Monoid.npow), which give genuine x² and x³. The subtype coercions between `Set.Ioi (1 : ℝ)` and ℝ are handled properly. The \"Find all functions\" phrasing is correctly formalized as an iff with the solution set, and quantifier structure matches exactly.",
+  "duration_ms": 151242,
+  "cost_usd": 0.32291825
+}

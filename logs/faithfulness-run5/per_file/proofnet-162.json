@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `p : ℕ → X` with `[MetricSpace X]` and `hp : CauchySeq p` models the Cauchy sequence in a metric space. A subsequence is encoded in the standard Mathlib way as `p ∘ φ` with `hφ : StrictMono φ`, which is the canonical formal rendering of \"{p_{n_l}}\". The convergence hypothesis `Tendsto (p ∘ φ) atTop (𝓝 r)` matches \"converges to p ∈ X\", and the conclusion `Tendsto p atTop (𝓝 r)` matches \"the full sequence converges to p\". No hypotheses are added or dropped, and no quantifier structure is altered (p, φ, r are universally quantified as in the informal statement).",
+  "duration_ms": 42797,
+  "cost_usd": 0.17598399999999997
+}

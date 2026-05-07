@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "informal": "Let $G$ be any group. Prove that the map from $G$ to itself defined by $g \\mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_6_17 {G : Type*} [Group G] (f : G → G)\n  (hf : f = λ g => g⁻¹) :\n  (∀ x y : G, f x * f y = f (x*y)) ↔ ∀ x y : G, x*y = y*x",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says g ↦ g⁻¹ is a homomorphism iff G is abelian. A homomorphism means f(xy) = f(x)f(y), equivalently (xy)⁻¹ = x⁻¹y⁻¹ for all x,y, which holds iff G is abelian. The Lean signature fixes f via the hypothesis hf : f = λ g => g⁻¹, then states (∀ x y, f x * f y = f(x*y)) ↔ (∀ x y, x*y = y*x). The equation f x * f y = f(x*y) is just the symmetric form of the homomorphism condition. The universal quantification over groups G is captured by the {G : Type*} [Group G] binder. No extra hypotheses (like Fintype, commutativity, etc.) are added or removed. This is a faithful formalization.",
+  "duration_ms": 9292,
+  "cost_usd": 0.05279275
+}

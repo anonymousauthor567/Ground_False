@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}[x]$. The Lean statement writes the polynomial as `12 + 6 * X + X ^ 3 : Polynomial ℚ`, which is the same polynomial $x^3 + 6x + 12$ in $\\mathbb{Q}[x]$. The `Irreducible` predicate in Mathlib (defined as non-unit + any factorization has a unit factor) is the standard ring-theoretic notion of irreducibility, and over the field $\\mathbb{Q}$ this coincides exactly with the classical notion of an irreducible polynomial (non-constant with no non-trivial factorization). The polynomial, the ambient ring, and the irreducibility notion all match precisely, with no added or dropped hypotheses.",
+  "duration_ms": 39613,
+  "cost_usd": 0.17058825
+}

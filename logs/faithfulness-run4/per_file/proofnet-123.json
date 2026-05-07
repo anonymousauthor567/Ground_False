@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. Compact Hausdorff is captured by `CompactSpace X` + `T2Space X`. The chain condition `∀ a b ∈ A, a ⊆ b ∨ b ⊆ a` is equivalent to \"simply ordered by proper inclusion\" on a set of distinct elements. The closedness and connectedness hypotheses are correctly given, and the conclusion `IsConnected (⋂₀ A)` matches \"$Y$ is connected\". The added hypothesis `hAne : A.Nonempty` is surfacing an implicit premise necessary for truth: if $\\mathcal{A}$ were empty, then $\\bigcap_{A \\in \\emptyset} A = X$, and the statement would claim that every compact Hausdorff space is connected, which is false. Similarly, Mathlib's `IsConnected` includes nonemptiness, matching standard topological practice and ensuring the intersection is nonempty (which holds by the finite intersection property under the given hypotheses).",
+  "duration_ms": 115654,
+  "cost_usd": 0.39446924999999994
+}

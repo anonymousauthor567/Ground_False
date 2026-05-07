@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes G₁ and G₂ are cyclic groups of orders m and n, which requires them to be finite. The Lean statement captures this with [Fintype G], [Fintype H], [Group G], [Group H], IsCyclic G, IsCyclic H. The orders m and n correspond to `card G` and `card H`. The conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` directly encodes \"G₁ × G₂ is cyclic if and only if m and n are relatively prime\". The universal quantification over all such cyclic groups is preserved via the type variables. This is a logically equivalent formalization.",
+  "duration_ms": 29597,
+  "cost_usd": 0.05435675
+}

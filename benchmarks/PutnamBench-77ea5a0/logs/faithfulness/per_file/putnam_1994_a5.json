@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_a5.lean",
+  "stem": "putnam_1994_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal Putnam 1994 A5 claim precisely. The hypotheses `rpos` and `rlim` formalize \"positive sequence with limit 0\". The set S uses `∃ i : Fin 1994 → ℕ` with a strict-increase condition `∀ j k, j < k → i j < i k`, which exactly captures \"indices $i_1 < i_2 < \\cdots < i_{1994}$\" and the sum $r_{i_1} + \\cdots + r_{i_{1994}}$. The conclusion `∃ c d, a ≤ c ∧ c < d ∧ d ≤ b ∧ Ioo c d ∩ S = ∅` is logically equivalent to \"there exists a nonempty open subinterval $(c,d) \\subseteq (a,b)$ disjoint from S\": nonemptiness follows from `c < d`, and `a ≤ c` with `d ≤ b` is equivalent to `(c,d) ⊆ (a,b)` (allowing endpoint equality doesn't weaken this since open intervals don't include endpoints). No hypotheses are dropped or added, and the quantifier structure matches.",
+  "duration_ms": 84103,
+  "cost_usd": 0.26060975000000003
+}

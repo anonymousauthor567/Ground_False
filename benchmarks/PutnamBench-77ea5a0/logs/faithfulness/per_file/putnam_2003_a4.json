@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a4.lean",
+  "stem": "putnam_2003_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a direct translation of the informal statement. Variables a, b, c, A, B, C are typed as real numbers (ℝ), matching the informal \"real numbers\". The hypothesis `aAne0 : a ≠ 0 ∧ A ≠ 0` matches \"a ≠ 0 and A ≠ 0\". The hypothesis `hle : ∀ x : ℝ, |a * x ^ 2 + b * x + c| ≤ |A * x ^ 2 + B * x + C|` exactly encodes the polynomial inequality holding for all real x. The conclusion `|b ^ 2 - 4 * a * c| ≤ |B ^ 2 - 4 * A * C|` matches the discriminant inequality to be shown. No hypotheses are silently added or dropped, no types are changed, and the quantifier structure is preserved.",
+  "duration_ms": 16174,
+  "cost_usd": 0.0448015
+}

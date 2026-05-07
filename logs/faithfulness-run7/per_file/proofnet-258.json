@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The group G is arbitrary, hn : n > 1 matches \"some fixed integer n > 1\" (using ℕ is fine here since n > 1 ensures positivity, and natural-number powers in a group equal integer powers for positive exponents). The hypothesis `∀ (a b : G), (a * b) ^ n = a ^ n * b ^ n` matches \"(ab)^n = a^n b^n for all a,b ∈ G\" exactly. The conclusion `(a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1` matches \"(aba⁻¹b⁻¹)^(n(n-1)) = e\" — left-associativity gives the commutator, and since n > 1, `n - 1` in ℕ does not underflow. No hypothesis is added or dropped; the universal quantification over a, b is preserved in both places.",
+  "duration_ms": 31761,
+  "cost_usd": 0.10744925
+}

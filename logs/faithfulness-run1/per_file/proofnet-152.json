@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "informal": "If $x, y$ are complex, prove that $||x|-|y|| \\leq |x-y|$.",
+  "lean": "\ntheorem Rudin_exercise_1_13 (x y : ℂ) :\n  |‖x‖ - ‖y‖| ≤ ‖x-y‖",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts ||x|-|y|| ≤ |x-y| for complex x, y. The Lean signature takes x y : ℂ, uses ‖·‖ (the norm on ℂ, which coincides with the complex modulus |·|) for the moduli of x, y, and x-y, and uses |·| (real absolute value) for the outer absolute value of the real difference ‖x‖ - ‖y‖. This matches the informal claim exactly in quantifier structure, types, and conclusion.",
+  "duration_ms": 6210,
+  "cost_usd": 0.043606
+}

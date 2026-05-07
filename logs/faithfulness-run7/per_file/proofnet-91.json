@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-91.lean",
+  "stem": "proofnet-91",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. F is required infinite and a field; V is an additive commutative group with a module structure over F (equivalent to a vector space since F is a field); ι is Finite (matching \"finite number\"); u : ι → Submodule F V with hu stating each u i ≠ ⊤ encodes \"finite family of proper subspaces\"; and the conclusion `(⋃ i, (u i : Set V)) ≠ ⊤` states that the set-theoretic union (⊤ in Set V is Set.univ, i.e., all of V) is not all of V. The universal quantification over all such families matches the informal \"cannot be\". No hypothesis is dropped or added beyond what the informal requires; edge cases (empty ι) are handled consistently since V contains 0 so the empty union ≠ univ.",
+  "duration_ms": 113754,
+  "cost_usd": 0.3761217499999999
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-43.lean",
+  "stem": "proofnet-43",
+  "theorem_name": "Dummit_Foote_exercise_3_2_21a",
+  "informal": "Prove that $\\mathbb{Q}$ has no proper subgroups of finite index.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_2_21a (H : AddSubgroup ℚ) (hH : H ≠ ⊤) : H.index = 0",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `AddSubgroup.index` is defined to be 0 when the index is infinite, otherwise the actual (positive) index. The hypothesis `H ≠ ⊤` says H is a proper subgroup of ℚ. The conclusion `H.index = 0` precisely says that the index is not finite. So the Lean statement asserts: every proper additive subgroup of ℚ has infinite index, which is exactly the informal claim that ℚ has no proper subgroups of finite index. The quantifier structure (universal over H), the type (AddSubgroup ℚ matching the additive group ℚ), and the hypothesis/conclusion match the informal statement.",
+  "duration_ms": 9773,
+  "cost_usd": 0.130253
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a3.lean",
+  "stem": "putnam_1967_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal problem accurately. The set consists of integers `a` such that there exists an integer polynomial `P` of degree exactly 2 with leading coefficient `a > 0` having two distinct zeros in the open interval (0, 1). The form \"ax² - bx + c\" in the informal statement is just naming convention — any integer quadratic with positive leading coefficient and two distinct roots in (0,1) automatically has the sign pattern (by Vieta's: positive sum and product of roots force the \"-b\" and \"+c\" signs), so no constraint is lost. `P.degree = 2` correctly ensures the polynomial is a genuine quadratic so that `P.coeff 2` is its leading coefficient. `IsLeast` correctly encodes \"least positive integer value of a\". The existence of two distinct zeros in (0,1) is equivalent (for degree-2 polynomials) to exactly two, matching the informal claim.",
+  "duration_ms": 142132,
+  "cost_usd": 0.48199075
+}

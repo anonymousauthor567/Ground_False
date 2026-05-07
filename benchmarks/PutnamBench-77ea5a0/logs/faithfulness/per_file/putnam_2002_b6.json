@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_b6.lean",
+  "stem": "putnam_2002_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all key components: (1) M is the Moore matrix with rows (x,y,z), (x^p, y^p, z^p), (x^{p²}, y^{p²}, z^{p²}) via M r c = (X c)^(p^r); (2) the cong relation matches \"two integer polynomials are congruent mod p iff corresponding coefficients are\"; (3) each factor s has form (C a)*(X 0) + (C b)*(X 1) + (C c)*(X 2) with a,b,c : ℤ, matching \"ax+by+cz where a,b,c are integers\"; (4) the claim is det M ≡ ∏ s mod p. The Finset (rather than multiset) encoding does not weaken the statement: any multiset factorization can be converted to a Finset one by replacing repeated L with L, L+pX₀, L+2pX₀, ..., which remain of the form ax+by+cz and have the same product mod p. For this problem's standard Moore factorization, the p²+p+1 linear factors are already distinct. The statements are logically equivalent.",
+  "duration_ms": 526317,
+  "cost_usd": 1.3883397499999999
+}

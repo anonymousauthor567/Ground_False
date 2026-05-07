@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the union of a family of topologies on X need not be a topology on X — a non-universality claim standardly proved by counterexample. The Lean statement ∃ X, I, T, (∀ i, is_topology X (T i)) ∧ ¬ is_topology X (⋃ i, T i) encodes exactly this: the existence of a family of topologies whose union fails to be a topology. The local `is_topology` definition (univ ∈ T, binary intersection, arbitrary sUnion closure) matches the standard definition (∅ ∈ T follows from sUnion ∅). Types are correct: T : I → Set (Set X) is a family of collections of subsets of X, and the union is taken set-theoretically via ⋃ i : I, T i. This is a faithful formalization of \"does not need to be a topology\".",
+  "duration_ms": 30058,
+  "cost_usd": 0.071754
+}

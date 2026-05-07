@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_b1.lean",
+  "stem": "putnam_2012_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The domain/codomain [0,∞) is captured by typing functions as `Set.Ici (0 : ℝ) → ℝ` combined with the `rngS` hypothesis forcing non-negative outputs. The functions f1 = e^x - 1 and f2 = ln(x+1) are stated correctly. `hsum` directly encodes closure under addition, and `hdiff` directly encodes closure under subtraction when f ≥ g pointwise. The `hcomp` hypothesis is a technically careful encoding of closure under composition: since g has codomain ℝ but f expects input in Set.Ici (0:ℝ), it introduces gnneg (a version of g with codomain Set.Ici (0:ℝ)) that equals g pointwise — logically equivalent to closure under f ∘ g given that g is non-negative (which rngS guarantees). The conclusion f·g ∈ S matches exactly. No hypotheses are silently added or dropped.",
+  "duration_ms": 252590,
+  "cost_usd": 0.6042055
+}

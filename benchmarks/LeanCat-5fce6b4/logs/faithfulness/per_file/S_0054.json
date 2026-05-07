@@ -1,0 +1,8 @@
+{
+  "file": "S_0054.lean",
+  "stem": "S_0054",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures Freyd's Initial Object Theorem. `HasLimits B` is Mathlib's notion of completeness (`HasLimitsOfSize.{v,v} B`, i.e., having all small limits relative to the hom universe). `HasInitial B` is the existence of an initial object. The weakly initial set condition `∃ (I : Type v) (x : I → B), ∀ (s : B), ∃ (i : I), Nonempty (x i ⟶ s)` precisely matches Mathlib's standard formalization in `CategoryTheory/Limits/Constructions/WeaklyInitial.lean` (compare `∀ A : C, ∃ i, Nonempty (B i ⟶ A)` with `{ι : Type v}`). Using `Type v` for the indexing type is the natural rendering of \"small\" in a category with hom-universe `v`, matching the universe convention throughout Mathlib's category theory. The iff statement corresponds to the standard equivalence: forward direction is trivial (use the initial object as a singleton weakly initial set), and backward follows from combining `has_weakly_initial_of_weakly_initial_set_and_hasProducts` with `hasInitial_of_weakly_initial_and_hasWideEqualizers`. Hypothesis, conclusion, and quantifier structure all align.",
+  "duration_ms": 105845,
+  "cost_usd": 0.38031975000000007
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the uniqueness of continuous extensions: given Hausdorff Y and a continuous extension g of f to the closure of A, any other g' that is continuous on closure A and agrees with f on A must equal g on closure A. This is logically equivalent to \"g is uniquely determined by f\". The Mathlib convention of representing g, g' : X → Y with a ContinuousOn hypothesis faithfully encodes the informal \"g : \\bar A → Y\" since the conclusion only asserts equality on closure A, exactly where both functions are constrained. T2Space Y is the standard Mathlib Hausdorff notion. Quantifier structure (∀ g') and conclusion (pointwise equality on closure A) match the informal claim.",
+  "duration_ms": 50036,
+  "cost_usd": 0.17944449999999998
+}

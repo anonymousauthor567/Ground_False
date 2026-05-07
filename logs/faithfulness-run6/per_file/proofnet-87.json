@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for R = M_2(ℝ), every ideal is either (0) or R. In Herstein's textbook (and standard ring theory convention for noncommutative rings), \"ideal\" means two-sided ideal—this is the only interpretation under which the claim is true, since M_2(ℝ) does have nontrivial one-sided ideals. The Lean formalization uses `TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)`, which is precisely the Mathlib type for two-sided ideals. The conclusion `I = ⊥ ∨ I = ⊤` matches \"I = (0) or I = R\", since in Mathlib `⊥` is the zero ideal (coe = {0}) and `⊤` is the whole ring (coe = univ), as confirmed in `Mathlib/RingTheory/TwoSidedIdeal/Lattice.lean`. No hypothesis is added or dropped, and the universal quantification over I is preserved. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 70571,
+  "cost_usd": 0.22931549999999998
+}

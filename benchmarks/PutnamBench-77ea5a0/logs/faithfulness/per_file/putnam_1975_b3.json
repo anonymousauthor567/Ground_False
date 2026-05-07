@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_b3.lean",
+  "stem": "putnam_1975_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `Multiset.esymm s k = ((s.powersetCard k).map Multiset.prod).sum` matches the informal definition of the k-th elementary symmetric function, and `esymm a 1` equals the sum of elements as required. The supremum claim is faithfully encoded as the conjunction of (a) `ratio ≤ sol k` for every valid multiset, and (b) for every `M < sol k` there exists a valid multiset with `ratio > M` — this is precisely the least-upper-bound property. The hypotheses \"positive real entries\" and `card a ≥ k` correctly model \"positive reals\" and \"n ≥ k\" (multisets suffice since esymm is symmetric). The added `k > 0` is a surfacing of an implicit premise: at k=0 the ratio is always 1 = 1/0!, which is attained, contradicting the informal \"never attained\" clause, so k=0 is implicitly excluded. Per the guidelines, surfacing such an implicit premise does not make the formalization weaker.",
+  "duration_ms": 499360,
+  "cost_usd": 1.4990207500000003
+}

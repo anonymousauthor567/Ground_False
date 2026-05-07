@@ -1,0 +1,8 @@
+{
+  "file": "S_0079.lean",
+  "stem": "S_0079",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that composition in an additive category is bilinear in each argument. The Lean formalization uses `[Preadditive C]`, which is Mathlib's formalization of an Ab-enriched category (abelian group hom-sets with bilinear composition). Although \"additive category\" in strict modern convention includes finite biproducts, the bilinearity claim here is purely about the hom-set abelian-group structure, which is exactly what `Preadditive` captures — the biproduct structure is completely irrelevant to bilinearity. Mathlib's own documentation uses \"additive, preadditive, Ab-category, Ab-enriched\" interchangeably as tags for `Preadditive`, so this is the natural formalization. The `IsBilinear` structure encodes standard bilinearity (additivity and zero-preservation in each argument), and the theorem `f ↦ (g ↦ g ≫ f)` being bilinear is precisely the Preadditive axioms `add_comp`/`comp_add` plus zero-composition laws. The Lean signature captures the mathematical content of the informal statement exactly.",
+  "duration_ms": 903134,
+  "cost_usd": 2.4705875000000006
+}

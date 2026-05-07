@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely. In Lean 4, `^` is right-associative, so `10^10^10^n` parses as `10^(10^(10^n))` matching $10^{10^{10^n}}$, and `10^10^n` matches $10^{10^n}$. The hypothesis `hn : n > 0` encodes \"positive integer $n$\". The conclusion `¬ Nat.Prime (...)` encodes \"not prime\". The use of `Nat` truncated subtraction is harmless here because $n > 0$ implies $10^n \\geq 10$, so the sum is at least 11 and truncated subtraction coincides with true subtraction. No hypotheses are added or dropped beyond what is stated.",
+  "duration_ms": 34411,
+  "cost_usd": 0.1006235
+}

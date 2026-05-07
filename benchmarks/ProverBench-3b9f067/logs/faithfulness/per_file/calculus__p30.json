@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p30.lean",
+  "stem": "calculus__p30",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asks about f_y(7,1), i.e., the partial derivative of f with respect to y evaluated at (7,1), which equals 2·7·1 + 7² = 63. The Lean theorem instead states f(7,1) = 56, which is the value of f itself (7·1² + 7²·1 = 56), not its partial derivative. The Lean signature does not mention differentiation at all and formalizes an entirely different quantity. Neither claim implies the other: the value of f at a point and the value of ∂f/∂y at a point are independent assertions. This is a semantic mismatch, not merely a logical weakening or strengthening.",
+  "duration_ms": 15857,
+  "cost_usd": 0.05881775
+}

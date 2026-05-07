@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p13_2.lean",
+  "stem": "linear_algebra__p13_2",
+  "verdict": "weaker",
+  "reasoning": "The theorem signature `T_value : T (x, y) = 3 * x - 5 * y` itself matches the informal conclusion, and using `AddMonoidHom` for linearity over ℤ is correct. Axioms `T10` and `T01` correctly encode the two informal hypotheses. However, the file additionally declares `axiom T_expression : ∀ (x y : ℤ), T (x, y) = 3 * x - 5 * y`, which is literally the conclusion of the theorem. This extra global axiom is in scope when stating `T_value`, so the Lean statement effectively becomes \"given T(1,0)=3, T(0,1)=-5, AND ∀ x y, T(x,y)=3x-5y, prove T(x,y)=3x-5y\" — a tautology trivially discharged by `exact T_expression x y`. Adding a hypothesis that coincides with the conclusion makes the Lean statement strictly weaker than the informal claim (implied by it but not implying it, since a tautology cannot imply the non-trivial informal theorem).",
+  "duration_ms": 163749,
+  "cost_usd": 0.40682975000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses a : ℕ → ℝ starting at index 0 with denominator (i+1) to avoid division by zero. This is logically equivalent to Rudin's statement (which implicitly starts at n=1). As a universally-quantified claim over nonnegative sequences: given a Lean sequence (b_i)_{i≥0}, define the Rudin sequence a_n = b_{n-1} for n≥1, and the sums ∑b_i = ∑a_n and ∑√(b_i)/(i+1) = ∑√(a_n)/n correspond exactly; the converse reindexing works symmetrically. The nonnegativity hypothesis, the convergence formulation via Tendsto of partial sums to a limit (wrapped in ∃ y), and the implication structure all match the informal statement. The shift by 1 in the denominator is a standard indexing adaptation, not a semantic change.",
+  "duration_ms": 181017,
+  "cost_usd": 0.6074522499999999
+}

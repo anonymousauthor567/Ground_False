@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: metric spaces X and Y are introduced via `[MetricSpace X]` and `[MetricSpace Y]`; `f : X → Y` is assumed uniformly continuous via `hf : UniformContinuous f`; an arbitrary Cauchy sequence `x : ℕ → X` with `hx : CauchySeq x` is taken; and the conclusion `CauchySeq (λ n => f (x n))` states exactly that the image sequence is Cauchy in Y. The \"for every Cauchy sequence\" universal is correctly encoded by having `x` and `hx` as free hypotheses. This matches the standard Mathlib lemma `UniformContinuous.comp_cauchySeq`. No hypothesis is added, dropped, or altered.",
+  "duration_ms": 30130,
+  "cost_usd": 0.14337975
+}

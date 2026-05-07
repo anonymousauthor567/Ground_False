@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "verdict": "faithful",
+  "reasoning": "The Mathlib `IsOpenMap f` unfolds to `∀ U, IsOpen U → IsOpen (f '' U)`, matching the informal definition verbatim. The Lean statement introduces π₁ and π₂ as function parameters together with equality hypotheses `π₁ = Prod.fst` and `π₂ = Prod.snd`, which fully pin them down as the standard projections on `X × Y`. The conclusion `IsOpenMap π₁ ∧ IsOpenMap π₂` is therefore logically equivalent to `IsOpenMap (Prod.fst : X × Y → X) ∧ IsOpenMap (Prod.snd : X × Y → Y)` for arbitrary topological spaces X and Y, exactly matching the exercise. The \"for all X, Y topological spaces\" universality is captured by the type variable binders with TopologicalSpace instances. No hidden hypotheses are added or dropped.",
+  "duration_ms": 22917,
+  "cost_usd": 0.11333900000000001
+}

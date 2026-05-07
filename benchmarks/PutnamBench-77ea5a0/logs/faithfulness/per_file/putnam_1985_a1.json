@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_a1.lean",
+  "stem": "putnam_1985_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal Putnam problem. The informal statement counts ordered triples of sets whose union equals $\\{1,...,10\\}$ and whose intersection is empty. The Lean statement uses `Set ℤ` as the ambient type, with `Icc 1 10` representing $\\{1,...,10\\}$ (since for ℤ, `Icc 1 10 = {x | 1 ≤ x ∧ x ≤ 10}` equals the 10-element set). The choice of ambient universe is immaterial to the count: the union constraint forces each $A_i \\subseteq \\{1,...,10\\}$, so the number of valid triples is $6^{10}$ regardless of whether the ambient type is ℤ, ℕ, or any superset of $\\{1,...,10\\}$ — for each of the 10 elements there are $2^3-2 = 6$ valid membership patterns, while elements outside $\\{1,...,10\\}$ have exactly 1 pattern (absent from all $A_i$). The expected answer $(10,10,0,0)$ gives $2^{10}\\cdot 3^{10} = 6^{10}$, which matches. The conditions, quantifier structure, and answer form all align faithfully.",
+  "duration_ms": 156338,
+  "cost_usd": 0.39392374999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely captures each element of the informal statement. \"Σaₙ converges\" is expressed as convergence of partial sums to some limit y. \"Monotonic\" correctly encompasses both increasing and decreasing cases via `Monotone b ∨ Antitone b`, matching the standard mathematical meaning. \"Bounded\" is faithfully expressed using `Bornology.IsBounded (Set.range b)`, which on ℝ is equivalent to the sequence being bounded. The conclusion \"Σaₙbₙ converges\" is expressed identically to the hypothesis on Σaₙ but with the product sequence. The quantifier structure and types (ℕ → ℝ sequences) match the informal statement exactly. No hypotheses are added or dropped beyond what the informal statement requires.",
+  "duration_ms": 32961,
+  "cost_usd": 0.15038125000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_b2.lean",
+  "stem": "putnam_2017_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `S a k` equals the sum $a + (a+1) + \\cdots + (a+k-1)$ via `Finset.range k`. The predicate `p N k` means $N$ is expressible as a sum of $k$ consecutive positive integers (with $a > 0$), and `q N` means this works for $k=2017$ but no other $k > 1$. The goal asks for the least $a : ℤ$ such that $q(S a 2017)$ holds. Although the set is over $ℤ$ (while the informal says \"positive integer $a$\"), any $a ≤ 0$ cannot satisfy $q(S a 2017)$: it would require a positive $a' > 0$ with $S a' 2017 = S a 2017$, impossible since $S\\cdot 2017$ is strictly increasing. Each valid $N$ has a unique $a$ (for $k=2017$), so the smallest $a$ over all valid expressions equals the smallest $a$ with $q(S a 2017)$. The answer `16 : ℕ` coerces to a positive integer in $ℤ$, matching the informal's requirement.",
+  "duration_ms": 171643,
+  "cost_usd": 0.45589050000000003
+}

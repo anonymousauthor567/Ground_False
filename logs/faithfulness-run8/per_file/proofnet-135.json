@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: given an injection f : ℕ → ℕ, if p tends to a, then the rearrangement n ↦ p(f(n)) also tends to a. The hypothesis `Injective f` matches \"f is an injection\", the expression `λ n => p (f n)` matches the rearrangement $q_k = p_{f(k)}$, and the Tendsto conclusion matches \"the limit is unaffected\" (i.e., the rearrangement has the same limit a). The use of an arbitrary topological space α rather than ℝ is a natural generalization — the informal statement only says \"a sequence\" without specifying the codomain, and the same proof works in any topological space. The standard reading of \"the limit is unaffected by rearrangement\" is the one-directional \"if p converges to a, then so does the rearrangement\", which is exactly what the Lean statement proves.",
+  "duration_ms": 89157,
+  "cost_usd": 0.262889
+}

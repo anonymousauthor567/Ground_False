@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_a3.lean",
+  "stem": "putnam_1965_a3",
+  "verdict": "weaker",
+  "reasoning": "The informal's second limit has the sum going from k=1 to n of e^{i a_{k^2}} divided by n^2, while the Lean's second limit sums from k=1 to n^2 of e^{i a_k} divided by n^2. These are genuinely different formulas: the informal sums n terms at perfect-square indices, while the Lean sums n^2 terms at all indices. For a_k ≡ 0: informal RHS → 1/n → 0 but Lean RHS → 1, and LHS → 1 in both, so the informal iff fails at α=1 while the Lean iff holds. Since |e^{ia_k}|=1 bounds the summands, the informal's RHS always tends to 0, making the informal's iff equivalent to \"(Cesàro mean = α) ↔ (α = 0)\", which is false as a universal claim. The Lean statement (the well-known Putnam 1965 A3) is always true for bounded summands. The literal informal vacuously implies Lean (false → anything), but Lean does not imply the informal (concrete counterexample a_k=0, α=1). Thus Lean is logically weaker than the literal informal. The informal appears to contain a LaTeX typo where n^2 and k^2 were swapped, but taken literally the Lean is a different—and logically weaker—claim.",
+  "duration_ms": 1024330,
+  "cost_usd": 2.993837749999999
+}

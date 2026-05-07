@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `RegularSpace` is defined purely as the separation property (disjoint neighborhoods of a closed set and a point not in it), without T₁ — which exactly matches the informal statement's parenthetical \"(separation property only)\". The Lean signature captures all three components: (1) each factor is nonempty via `∀ i, Nonempty (X i)`, (2) the product with the standard `Pi.topologicalSpace` is `RegularSpace`, and (3) the conclusion is that each factor `X i` is `RegularSpace`. The quantifier structure over the family indexed by `ι` is faithfully preserved, and no extra hypotheses (like Fintype, decidability, or T₁) are imposed. This is a strictly faithful formalization.",
+  "duration_ms": 82457,
+  "cost_usd": 0.29479425
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all components: `[Group G]` with `[Fintype G]` and `card G = 6` encodes \"group of order 6\"; `∃ a b : G, a * b ≠ b * a` is exactly the definition of nonabelian (negation of commutativity); and `Nonempty (G ≃* Equiv.Perm (Fin 3))` asserts existence of a group isomorphism between G and S_3, since `Equiv.Perm (Fin 3)` is the standard Mathlib encoding of the symmetric group on 3 letters and `≃*` (MulEquiv) is group isomorphism. No hypotheses are silently added or dropped, and the conclusion matches the informal claim exactly.",
+  "duration_ms": 40482,
+  "cost_usd": 0.05968324999999999
+}

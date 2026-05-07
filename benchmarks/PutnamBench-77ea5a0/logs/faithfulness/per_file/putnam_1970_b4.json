@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_b4.lean",
+  "stem": "putnam_1970_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `DifferentiableOn ℝ x (Set.Icc 0 1) ∧ DifferentiableOn ℝ (deriv x) (Set.Icc 0 1)` encodes \"twice differentiable on [0, 1]\". The conditions `x 1 - x 0 = 1`, `deriv x 0 = 0 ∧ deriv x 1 = 0`, and `|deriv x t| ≤ 3/2 for t ∈ Ioo 0 1` directly mirror the informal hypotheses, and on the open interval (0,1), `deriv x` agrees with the classical derivative. At the endpoints, the second-derivative hypothesis forces `deriv x` to be within-continuous there, which under natural interpretation corresponds to the informal one-sided derivative conditions. The conclusion `∃ t ∈ Set.Icc 0 1, |deriv (deriv x) t| ≥ 9/2` matches `∃ t ∈ [0, 1], |x''(t)| ≥ 9/2`. The use of `deriv` rather than `derivWithin` is the standard PutnamBench convention and does not cause a meaningful semantic drift.",
+  "duration_ms": 802214,
+  "cost_usd": 2.3386050000000003
+}

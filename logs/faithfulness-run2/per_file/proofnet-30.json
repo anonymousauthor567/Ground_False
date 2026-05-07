@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for an element $x$ of a group $G$, $x^2 = 1$ iff $|x| \\in \\{1, 2\\}$. The Lean theorem quantifies over an arbitrary group `G` and element `x : G`, and states `x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)`, where `orderOf` is Mathlib's `|x|`. Although Mathlib's `orderOf` returns 0 for elements of infinite order, this does not break equivalence: if `x^2 = 1` then `x` has finite order 1 or 2, and conversely `orderOf x = 1 ∨ orderOf x = 2` implies `x^2 = 1` directly. The quantifier structure, hypotheses (just Group), and conclusion all match the informal statement exactly.",
+  "duration_ms": 11339,
+  "cost_usd": 0.04484025
+}

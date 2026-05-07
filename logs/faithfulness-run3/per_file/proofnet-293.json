@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-293.lean",
+  "stem": "proofnet-293",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the collection of open intervals (a,b) with rational endpoints a < b is a basis that generates the standard topology on ℝ. The Lean signature uses `IsTopologicalBasis` on ℝ (which carries its canonical standard topology). By the Mathlib definition, `IsTopologicalBasis s` asserts precisely that (i) the family is closed under the basis-intersection property, (ii) covers the space, and (iii) the ambient topology equals `generateFrom s` — i.e., that s is a basis generating the given topology. The set `{S | ∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b}` encodes exactly open intervals with rational endpoints where a < b, since `a < b` in ℚ is equivalent to `↑a < ↑b` in ℝ. This is a direct and logically equivalent formalization.",
+  "duration_ms": 79637,
+  "cost_usd": 0.16507324999999998
+}

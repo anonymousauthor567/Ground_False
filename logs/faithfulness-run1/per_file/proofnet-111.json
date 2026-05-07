@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "informal": "A map $f: X \\rightarrow Y$ is said to be an open map if for every open set $U$ of $X$, the set $f(U)$ is open in $Y$. Show that $\\pi_{1}: X \\times Y \\rightarrow X$ and $\\pi_{2}: X \\times Y \\rightarrow Y$ are open maps.",
+  "lean": "\ntheorem Munkres_exercise_16_4 {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]\n  (π₁ : X × Y → X)\n  (π₂ : X × Y → Y)\n  (h₁ : π₁ = Prod.fst)\n  (h₂ : π₂ = Prod.snd) :\n  IsOpenMap π₁ ∧ IsOpenMap π₂",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the two projections from a product space X × Y are open maps. The Lean signature takes arbitrary topological spaces X and Y, introduces π₁ and π₂ as functions equal to Prod.fst and Prod.snd respectively, and concludes IsOpenMap π₁ ∧ IsOpenMap π₂. Since the hypotheses pin down π₁ and π₂ as exactly the standard projections, this is logically equivalent to asserting that Prod.fst and Prod.snd are open maps. The Mathlib definition IsOpenMap matches the informal definition (image of every open set is open). No extra hypotheses (like finiteness, Hausdorff, etc.) are imposed, and nothing is dropped. Hence the formalization is faithful.",
+  "duration_ms": 9376,
+  "cost_usd": 0.05408
+}

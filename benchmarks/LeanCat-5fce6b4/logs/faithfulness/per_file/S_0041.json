@@ -1,0 +1,8 @@
+{
+  "file": "S_0041.lean",
+  "stem": "S_0041",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The category `CompleteLat` in Mathlib is the category of complete lattices with morphisms `CompleteLatticeHom` that preserve arbitrary suprema (sSup) and arbitrary infima (sInf) — this precisely matches the informal \"non-full subcategory of suplattices with meet- and join-preserving maps\" (where in the context of complete lattices, \"meet/join-preserving\" naturally means preserving arbitrary meets/joins). The `FreeObject` structure correctly encodes the universal arrow definition: `emb` is the map u: x → U(c), and `uniq` encodes \"for each f: x → U(b), there exists a unique f': c → b with U(f') ∘ u = f\" using `∃!` and the composition `emb ≫ (forget C).map g = f`, which in the Type category means U(g) ∘ emb = f. `Nonempty (FreeObject ...) ↔ Cardinal.mk X ≤ 2` matches \"free object exists iff |X| ≤ 2\" — this is the classical Whitman-Hales-Gaifman result that free complete lattices exist on ≤ 2 generators but not on ≥ 3 generators. The universe levels align correctly: `CompleteLat.{u}` has HasForget.{u}, so X: Type u matches FreeObject's requirement.",
+  "duration_ms": 966725,
+  "cost_usd": 2.8632307500000005
+}

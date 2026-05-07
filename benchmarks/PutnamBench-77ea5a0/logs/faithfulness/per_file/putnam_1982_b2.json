@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_b2.lean",
+  "stem": "putnam_1982_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. (1) `A` is defined as `.ncard` of `{(m,n) : ℤ×ℤ | m^2+n^2 ≤ x^2+y^2}`, matching \"number of integer points with m²+n²≤x²+y²\" (the set is finite for each (x,y), so ncard gives the correct count). (2) `g = ∑' k : ℕ, Real.exp (-k^2)` correctly encodes $\\sum_{k=0}^\\infty e^{-k^2}$ since `ℕ` starts at 0. (3) The iterated integral `∫ y, ∫ x, A(x,y) * Real.exp(-x^2-y^2)` matches the informal double integral (with natural coercion of A from ℕ to ℝ). (4) The conclusion `I = putnam_1982_b2_solution.eval g` expresses I as a polynomial evaluated at g, as the problem requests. The types, quantifier structure, and domains all match precisely with no extra or missing hypotheses.",
+  "duration_ms": 170512,
+  "cost_usd": 0.536052
+}

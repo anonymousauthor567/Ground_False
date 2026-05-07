@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary metric space M and introduces `O` and `C` as `Set (Set M)` constrained by hypotheses to equal `{s | IsOpen s}` and `{s | IsClosed s}` respectively — exactly the collections 𝒯 and 𝒦 of open and closed subsets. Via `Set.CoeSort` (Mathlib/Data/Set/CoeSort.lean), `O` and `C` coerce to the subtypes `{s : Set M // IsOpen s}` and `{s : Set M // IsClosed s}`, so `f : O → C` is a function between these subtypes. `Function.Bijective` is defined as `Injective ∧ Surjective`, which is the standard notion of bijection. Thus `∃ f : O → C, Bijective f` asserts precisely that there exists a bijection between the open and closed subsets of M, matching the informal claim. The encoding with `O`/`C` as parameters plus equality hypotheses is equivalent to inlining the definitions.",
+  "duration_ms": 86384,
+  "cost_usd": 0.28641525
+}

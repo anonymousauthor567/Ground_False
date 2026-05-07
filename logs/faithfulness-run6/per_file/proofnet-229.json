@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"quotient groups of a solvable group are solvable.\" The Lean signature takes an arbitrary group `G` with `[IsSolvable G]`, a subgroup `H` with `[Normal H]`, and concludes `IsSolvable (G ⧸ H)`. The `[Normal H]` hypothesis is not an extra restriction — it is required for `G ⧸ H` to be a quotient *group* at all, which is implicit in the informal phrase \"quotient group\". The Mathlib notions used (`IsSolvable`, `G ⧸ H` for the quotient group) are standard and match the informal meaning. This corresponds exactly to Mathlib's own `solvable_quotient_of_solvable` instance in `Mathlib/GroupTheory/Solvable.lean`. No hypotheses or conclusions are dropped, added, strengthened, or weakened.",
+  "duration_ms": 38010,
+  "cost_usd": 0.13062575
+}

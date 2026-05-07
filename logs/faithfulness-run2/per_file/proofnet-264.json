@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if φ: G → G' is a surjective group homomorphism and N is normal in G, then φ(N) is normal in G'. The Lean signature captures exactly this: G and G' are arbitrary groups, φ is a group homomorphism (G →* G'), hφ asserts surjectivity (matching \"onto\"), N is a subgroup of G with the [N.Normal] instance (matching N ◁ G), and the conclusion is that Subgroup.map φ N (the image φ(N)) is Normal. The hypotheses, quantifier structure, and conclusion align precisely with the informal claim.",
+  "duration_ms": 7613,
+  "cost_usd": 0.0360205
+}

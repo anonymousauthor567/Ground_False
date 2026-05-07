@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes \"prime integer p\" as `p : ℕ` with `Prime p`, which matches the standard convention (Artin's \"prime integer p\" means a positive prime). The conclusion `Irreducible (X^n - (p : Polynomial ℚ))` over `Polynomial ℚ` matches \"irreducible in ℚ[x]\". The additional hypothesis `n > 0` surfaces an implicit premise: the informal statement mentions x^n without explicitly requiring n ≥ 1, but without this assumption the claim is false (e.g., for n = 0 and p = 2, x^0 - 2 = -1 is a unit in ℚ[x] and not irreducible). Per the worked-example guidance, making this implicit premise explicit is faithful, not weaker. The statement is true for n ≥ 1 (n=1 gives a linear polynomial; n ≥ 2 follows by Eisenstein's criterion).",
+  "duration_ms": 120014,
+  "cost_usd": 0.39654924999999996
+}

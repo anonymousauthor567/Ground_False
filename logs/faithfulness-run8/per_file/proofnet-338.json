@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "Rudin's definition (Def. 2.45) of \"separated\" sets is: A and B are separated iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅. The Lean conclusion `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅` is exactly this definition unfolded. The hypotheses faithfully capture the informal premises: `[MetricSpace X]` for \"some metric space X\", `IsClosed A` and `IsClosed B` for \"closed sets\", and `Disjoint A B` for \"disjoint\". The universal quantification over X, A, B matches the informal \"if A and B are disjoint closed sets\". No hypothesis is added or dropped, and the conclusion matches Rudin's definition of separation precisely.",
+  "duration_ms": 47134,
+  "cost_usd": 0.21607250000000003
+}

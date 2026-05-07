@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-339.lean",
+  "stem": "proofnet-339",
+  "informal": "Prove that every compact metric space $K$ has a countable base.",
+  "lean": "\ntheorem Rudin_exercise_2_25 {K : Type*} [MetricSpace K] [CompactSpace K] :\n  ∃ (B : Set (Set K)), Set.Countable B ∧ IsTopologicalBasis B",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every compact metric space has a countable base. The Lean signature universally quantifies over types K equipped with a MetricSpace and CompactSpace instance (the standard way to express \"every compact metric space\"), and asserts the existence of a set B of subsets of K that is both countable (Set.Countable) and a topological basis (IsTopologicalBasis). This matches \"K has a countable base\" exactly. No extra hypotheses are added and none are dropped; the conclusion is the existence of a countable topological basis, which is precisely what the informal claim demands.",
+  "duration_ms": 6171,
+  "cost_usd": 0.043771250000000005
+}

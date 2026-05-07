@@ -1,0 +1,8 @@
+{
+  "file": "S_0016.lean",
+  "stem": "S_0016",
+  "verdict": "faithful",
+  "reasoning": "The Lean file defines `IsInitialHom`, `IsEmbedding`, and `IsInjectiveObj` exactly along the lines of the AHS definitions: initial says that if $U(f) \\circ g$ lifts through $U$ then so does $g$; embedding adds $\\mathrm{Mono}(U(f))$; injective object $I$ says every map from the domain of an embedding extends along it. The concrete category `AddCommGrpConcrete` is `AddCommGrp.{u}` with forgetful functor to `Type u`, which is the categorical setup of $\\mathcal{A}b$ over $\\mathbf{Set}$. The right-hand side of the iff, $\\forall n \\neq 0, \\forall a, \\exists b, n \\bullet b = a$ with $n : \\mathbb{N}$, is the standard divisibility condition for an abelian group (equivalent to the integer version by group inversion and triviality of $n=0$). The informal statement contains a harmless typo ($f: A \\to C$ rather than $f: A \\to I$), which the Lean reading correctly resolves. No hypotheses are silently added or dropped, and the quantifier structure matches. Hence the formalization is logically equivalent to the intended informal claim.",
+  "duration_ms": 230311,
+  "cost_usd": 0.7296485
+}

@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p14_2.lean",
+  "stem": "elementary_algebra__p14_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove the single equality q^3·r^2·(2p^2q^2r^3)^2 / (2p^3) = 2q^7r^8p. The Lean lemma `simplify_fraction` instead states (4·p^4·q^7·r^8) / (2p^3) = 2·p·q^7·r^8, which is a simplified sub-step: it already assumes the numerator has been expanded and combined. The crucial step q^3·r^2·(2p^2q^2r^3)^2 = 4p^4q^7r^8 is separated out into `combine_numerator`, which is declared as an axiom rather than proved. Thus `simplify_fraction` only formalizes the final fraction-simplification portion of the informal identity, not the full claim stated informally. Proving the Lean lemma does not, on its own, establish the informal equality — one would still need the (unproven) axiom to bridge the gap. This is a partial, strictly narrower claim than the informal one.",
+  "duration_ms": 736598,
+  "cost_usd": 1.8700255
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Axler Exercise 5.24: over a finite-dimensional real V, if T has no eigenvalues, then every T-invariant subspace has even dimension. FiniteDimensional is implicit in Axler's Chapter 5 context — making it explicit is a faithful reading. The hypothesis `∀ c : ℝ, eigenspace T c = ⊥` faithfully encodes \"T has no eigenvalues\" (Mathlib's `eigenspace T c` is trivial iff c is not an eigenvalue). The only subtle point is that `Submodule.map T U = U` (image equals U) is a priori stronger than the usual notion of invariance (T(U) ⊆ U). However, under the hypotheses: T has no eigenvalue 0 ⟹ T is injective ⟹ T|_U is injective on finite-dim U ⟹ T|_U is surjective ⟹ T(U) = U. So the two conditions pick out exactly the same set of subspaces, making the universal statement logically equivalent to the informal one. The conclusion `Even (finrank ℝ U)` correctly encodes even dimension.",
+  "duration_ms": 170524,
+  "cost_usd": 0.58122125
+}

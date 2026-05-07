@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "`ClusterPt x (𝓟 Uᶜ)` means every neighborhood of x meets Uᶜ, which is precisely \"x is a limit of (i.e., is in the closure of) Uᶜ\". Since x ∈ U implies x ∉ Uᶜ, the distinction between `ClusterPt` and `AccPt` is immaterial here, so the Lean version matches \"x is a limit point of Uᶜ\" regardless of which convention \"limit\" uses. The quantifier ∀ x ∈ U correctly renders \"none of its points\", and the outer iff matches \"open iff ...\". Generalizing from Pugh's metric-space setting to an arbitrary `TopologicalSpace` is appropriate because the filter-based cluster-point formulation is the standard topological analogue and the biconditional holds in any topological space. Thus the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 57171,
+  "cost_usd": 0.18714475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal integral $\\int_{-\\infty}^{\\infty} \\frac{x\\sin x}{x^2+a^2}\\,dx$ is only conditionally convergent (the integrand decays like $\\sin x / x$), so the Lebesgue integral over $\\mathbb{R}$ does not exist in the strict sense. The standard reading of $\\int_{-\\infty}^{\\infty}$ in classical analysis (which is the setting of Shakarchi's textbook exercises on contour integrals) is the symmetric improper integral $\\lim_{y\\to\\infty}\\int_{-y}^{y}$. The Lean statement encodes exactly this: `Tendsto (λ y => ∫ x in -y..y, ...) atTop (𝓝 (π·e^{-a}))`, which is the symmetric-limit form. The hypothesis `0 < a` matches `a > 0`, the integrand `x * sin x / (x^2 + a^2)` matches, and the limit value `π · e^{-a}` matches. This is a faithful formalization.",
+  "duration_ms": 139775,
+  "cost_usd": 0.27965575000000004
+}

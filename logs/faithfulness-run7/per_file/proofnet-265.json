@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The universal \"any two\" is captured by the universally-quantified Types G and H. \"Nonabelian\" is correctly expressed as ∃ x y, x*y ≠ y*x (the logical negation of the commutativity axiom ∀ x y, x*y = y*x). The hypotheses p > q, Nat.Prime p, Nat.Prime q, q ∣ p - 1, and card G = card H = p*q all match the informal premises literally. The conclusion Nonempty (G ≃* H) is the standard Mathlib formulation of \"G and H are isomorphic as groups\". The Fintype instances are not extra narrowing hypotheses but are natural prerequisites for asserting finite cardinality p*q.",
+  "duration_ms": 38204,
+  "cost_usd": 0.11513024999999999
+}

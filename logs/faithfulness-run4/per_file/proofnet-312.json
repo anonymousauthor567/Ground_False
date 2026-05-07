@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "Munkres's definition of \"regular\" (§31) explicitly includes the T1 axiom (\"Suppose that one-point sets are closed in X. Then X is said to be regular if...\"), whereas Mathlib's `RegularSpace` does not include T1. Adding `[T1Space X]` alongside `[RegularSpace X]` recovers exactly Munkres's notion of \"regular\" — this is surfacing an implicit premise, not strengthening. Without T1, the claim is literally false (e.g., the indiscrete two-point space is a `RegularSpace` but any two distinct points have closure X, so their closures cannot be disjoint). Similarly, \"every pair of points\" naturally means distinct points (otherwise the conclusion is vacuously false when x = y), so `x ≠ y` is also an implicit premise made explicit. In Munkres, a \"neighborhood\" of a point is an open set containing it, matching `IsOpen U ∧ x ∈ U`. The conclusion `closure U ∩ closure V = ∅` is a direct translation of \"closures are disjoint\". The Lean statement faithfully captures the intended mathematical content.",
+  "duration_ms": 109120,
+  "cost_usd": 0.3344925
+}

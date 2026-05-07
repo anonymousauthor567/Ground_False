@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a direct specialization of Mathlib's `tendsto_pi_nhds` with filter `u = atTop`, which precisely captures sequential convergence in a product space. The dependent product `Πa, f a` with `[Πa, TopologicalSpace (f a)]` automatically gets the product topology (Mathlib's default `Pi.topologicalSpace`), matching the informal $\\prod X_\\alpha$. The sequence is correctly indexed by ℕ, `Tendsto x atTop (𝓝 y)` expresses convergence to y, and `∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))` expresses that each coordinate projection $\\pi_\\alpha(x_i)$ converges to $\\pi_\\alpha(y)$. The iff matches \"if and only if\". No hypotheses are added or dropped, and quantifier structure is preserved.",
+  "duration_ms": 52957,
+  "cost_usd": 0.173908
+}

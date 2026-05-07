@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_b2.lean",
+  "stem": "putnam_1968_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `[Group G]` with `hG : Finite G` matches \"finite group (with multiplicative operation)\". `A : Set G` is \"a subset of G\". The cardinality condition `A.ncard > (Nat.card G : ℚ)/2` uses rational division to properly express \"more than half\": since G is finite, A ⊆ G is also finite, so A.ncard gives the correct size, and this is equivalent to 2·|A| > |G|. The conclusion `∀ g : G, ∃ x ∈ A, ∃ y ∈ A, g = x * y` matches \"every element of G can be expressed as the product of two elements of A\". No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 74218,
+  "cost_usd": 0.25485874999999997
+}

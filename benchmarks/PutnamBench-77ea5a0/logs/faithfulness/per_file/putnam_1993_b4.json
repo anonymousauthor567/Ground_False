@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_b4.lean",
+  "stem": "putnam_1993_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. K: ℝ×ℝ→ℝ and f,g: ℝ→ℝ with conditions restricted to [0,1] via subtype quantifiers matches the informal setup. Kpos, Kcont, fgpos, fgcont encode positivity and continuity on [0,1]×[0,1] and [0,1] respectively. The integral uses Set.Ioo 0 1 rather than Set.Icc 0 1, but these produce equal Lebesgue integrals (confirmed by Mathlib's integral_Icc_eq_integral_Ioo, since {0} and {1} have measure zero), so the hypothesis ∫₀¹ f(y)K(x,y) dy = g(x) is preserved. The conclusion ∀ x ∈ [0,1], f(x) = g(x) matches. Coercions from Set.Icc subtypes to ℝ work standardly. No hypothesis is added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 153492,
+  "cost_usd": 0.23801724999999999
+}

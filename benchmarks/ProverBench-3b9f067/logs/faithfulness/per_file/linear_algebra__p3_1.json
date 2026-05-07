@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p3_1.lean",
+  "stem": "linear_algebra__p3_1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts: for an n×n invertible matrix A (over ℝ), det(A⁻¹) = 1/det(A). The Lean signature instead asserts `det (1 : Matrix n n ℝ) = 1`, i.e. the determinant of the identity matrix is 1. These are semantically unrelated claims: the Lean version has no invertible matrix A, no inverse A⁻¹, and no reciprocal of a determinant. Neither direction of implication holds — det(I) = 1 does not entail the inverse-determinant formula, and the inverse-determinant formula does not entail det(I) = 1 as stated (the Lean statement's conclusion is about a completely different matrix). Hence the formalization is incomparable to the informal claim.",
+  "duration_ms": 50448,
+  "cost_usd": 0.096108
+}

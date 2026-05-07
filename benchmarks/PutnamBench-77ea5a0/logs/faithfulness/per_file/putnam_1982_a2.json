@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_a2.lean",
+  "stem": "putnam_1982_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `B n x = ∑ k ∈ Finset.Icc 1 n, (k : ℝ) ^ x` correctly encodes $B_n(x) = 1^x + 2^x + \\cdots + n^x$. The definition `f n = B n (logb n 2) / (n * logb 2 n) ^ 2` correctly encodes $f(n) = B_n(\\log_n 2)/(n \\log_2 n)^2$ since Mathlib's `logb b x = log x / log b` gives `logb n 2 = log_n 2` and `logb 2 n = log_2 n`. The convergence `∃ L, Tendsto (fun N ↦ ∑ j ∈ Finset.Icc 2 N, f j) atTop (𝓝 L)` precisely captures convergence of the series $f(2) + f(3) + \\cdots$ starting from index 2. The iff with `putnam_1982_a2_solution` follows the standard Putnam format where the solution Prop (intended to be `True`) supplies the yes/no answer.",
+  "duration_ms": 87908,
+  "cost_usd": 0.3005815
+}

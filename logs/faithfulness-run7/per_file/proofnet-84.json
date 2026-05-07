@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that there are infinitely many solutions to x^2 = -1 in the quaternions. The Lean statement `Infinite {x : Quaternion ℝ | x^2 = -1}` expresses exactly this: the set of quaternions x (over ℝ, the standard real quaternions ℍ) satisfying x^2 = -1 is infinite. The `Infinite` typeclass applied to a set's coercion to a type is the standard Mathlib way to say the set has infinitely many elements. The ambient ring is `Quaternion ℝ`, which is the standard meaning of \"the quaternions\". No hypotheses are added or dropped, and the conclusion matches precisely.",
+  "duration_ms": 35741,
+  "cost_usd": 0.13168225
+}

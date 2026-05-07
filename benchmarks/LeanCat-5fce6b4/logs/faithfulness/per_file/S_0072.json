@@ -1,0 +1,8 @@
+{
+  "file": "S_0072.lean",
+  "stem": "S_0072",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. A \"full subcategory of CompHaus\" is encoded as a category D with a fully faithful functor i : D ⥤ CompHaus (the standard Mathlib encoding). `Nonempty (Reflective i)` correctly captures \"is reflective\": `Reflective` is a class with data fields (a left adjoint L and adjunction L ⊣ i), and since `Full i`/`Faithful i` are already in scope, its existence is exactly \"i has a left adjoint\". `Nonempty (HasColimits D)` is logically equivalent to `HasColimits D` (since it's a Prop), matching \"cocomplete\". `∃ X : D, Nonempty (i.obj X)` uses the `CoeSort` on `CompHaus` to state that some object's underlying space is nonempty, matching \"contains at least one non-empty space\". Universes are consistent. No hypotheses are silently dropped or added, and both directions of the iff are preserved.",
+  "duration_ms": 261548,
+  "cost_usd": 0.7094395000000001
+}

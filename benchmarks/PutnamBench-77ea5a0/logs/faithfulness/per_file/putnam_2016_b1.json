@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b1.lean",
+  "stem": "putnam_2016_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The recurrence (hx0, hxn) matches x_0=1 and x_{n+1}=ln(e^{x_n}-x_n), with `log` being Real.log (ln) since `Real` is opened. The conclusion `∑' n, x n = exp 1 - 1` captures both convergence and the sum's value: Mathlib's tsum returns 0 when not summable, and since exp 1 - 1 ≠ 0, the equality forces the series to be Summable. The terms are nonnegative (e^x - x > 1 for x > 0), so unconditional summability equals convergence of partial sums, matching the informal notion of \"converges\". Thus the Lean statement is logically equivalent to \"the series converges and its sum is e - 1\".",
+  "duration_ms": 237008,
+  "cost_usd": 0.56713475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all pieces of the informal claim. `E P : Set (EuclideanSpace ℝ (Fin k))` faithfully represents subsets of $\\mathbb{R}^k$. The hypothesis `hE : ¬ Set.Countable E` matches \"$E$ is uncountable.\" The definition `hP : P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}` captures the standard Rudin definition of condensation point: every neighborhood of $x$ contains uncountably many points of $E$ (using the neighborhood filter is equivalent to \"every open ball / every neighborhood\" since $\\mathbb{R}^k$ is a metric space). The conclusion `Set.Countable (E \\ P)` is exactly \"at most countably many points of $E$ are not in $P$.\" No hypothesis is silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 86679,
+  "cost_usd": 0.26168874999999997
+}

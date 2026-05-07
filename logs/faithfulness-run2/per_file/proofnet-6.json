@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over finite groups G and primes p, q : ℕ, asserts |G| = p^2*q via card G, and concludes ¬IsSimpleGroup G (encoded as IsSimpleGroup G → False). This matches the informal claim \"no group of order p^2q (p,q prime) is simple\" exactly: same hypotheses (finite group, p and q prime, order equal to p^2q), same conclusion (not simple), same quantifier structure (universal over all such groups). The informal phrasing does not explicitly require p ≠ q, and even the degenerate case p = q (order p^3) satisfies the claim, so no hidden drift in hypotheses occurs. Prime on ℕ correctly captures primality. Thus the Lean statement is logically equivalent to the informal statement.",
+  "duration_ms": 35288,
+  "cost_usd": 0.11595624999999998
+}

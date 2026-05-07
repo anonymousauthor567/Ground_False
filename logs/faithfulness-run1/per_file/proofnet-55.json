@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "informal": "Prove that if $|G|=1365$ then $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_20 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 1365) : ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if a group G has order 1365, then G is not simple. The Lean signature takes a finite group G with `card G = 1365` and concludes `¬ IsSimpleGroup G`. The Fintype assumption is implicit in stating |G| = 1365 (a finite cardinality), and Mathlib's `IsSimpleGroup` matches the standard notion of a simple group. The universal quantification over G is captured by the `{G : Type*}` binder. This is a faithful encoding.",
+  "duration_ms": 4626,
+  "cost_usd": 0.0410885
+}

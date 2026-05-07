@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the operation a⋆b = a−b on ℤ is not commutative. \"Not commutative\" is the negation of ∀ a b, a⋆b = b⋆a, which is classically equivalent to ∃ a b, a⋆b ≠ b⋆a. The Lean statement ∃ a b : ℤ, a - b ≠ b - a is exactly this existential witness of non-commutativity, using the correct operation (subtraction) on the correct type (ℤ). No hypotheses are added or dropped, and the quantifier structure matches the standard reading.",
+  "duration_ms": 7456,
+  "cost_usd": 0.03347925
+}

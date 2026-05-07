@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a6.lean",
+  "stem": "putnam_2011_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all components of the Putnam 2011 A6 statement. G is a finite abelian group via `[CommGroup G] [Fintype G]`, n = |G| via `hn`, gset is a set of distinct elements (Set G has distinct elements inherently) with cardinality k via `hk`, the proper subset condition ⊊ is encoded via `k < n`, identity inclusion via `hgset1 : 1 ∈ gset`, and the generating condition via `Subgroup.closure gset = ⊤`. The probability `mgprob` correctly counts sequences f : Fin m → gset whose product equals x, divided by k^m (the total number of such sequences), matching the uniform die over k elements. The conclusion `∃ b ∈ (0,1), ∃ C > 0, Tendsto ... (𝓝 C)` is logically equivalent to \"the limit is positive and finite\" since C being a real number ensures finiteness and C > 0 ensures positivity. No hypotheses are silently added or dropped.",
+  "duration_ms": 174251,
+  "cost_usd": 0.5411527500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_a3.lean",
+  "stem": "putnam_1988_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim. The summand `((1/n)/Real.sin(1/n) - 1) ^ x` matches `((1/n) csc(1/n) - 1)^x` since csc = 1/sin; the power `^` resolves to `Real.rpow` (via Mathlib's `instance : Pow ℝ ℝ := ⟨rpow⟩`) which is the standard real exponentiation. The base (1/n)/sin(1/n) - 1 is positive for all n ≥ 1 (since sin(1/n) < 1/n for 1/n ∈ (0,1]), so rpow behaves as expected. The indexing `Finset.Icc (1 : ℕ) t` with `atTop` yields partial sums $\\sum_{n=1}^t$ with t → ∞, matching $\\sum_{n=1}^\\infty$. The existential `∃ L : ℝ, Tendsto ... (𝓝 L)` is the standard definition of series convergence. The statement `{x | series converges at x} = solution` faithfully represents \"Determine the set of x for which the series converges.\"",
+  "duration_ms": 153654,
+  "cost_usd": 0.46788025
+}

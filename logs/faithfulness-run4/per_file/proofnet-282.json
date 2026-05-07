@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-282.lean",
+  "stem": "proofnet-282",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ ∃ x y : ℤ, 3*x^2 + 2 = y^2` is a direct and exact formalization of \"the equation 3x² + 2 = y² has no solution in integers.\" Both variables are quantified over ℤ (integers), the equation is stated exactly as in the informal version, and the negation of existence precisely captures \"no solution.\" There are no extra or missing hypotheses, and no type mismatch.",
+  "duration_ms": 8566,
+  "cost_usd": 0.04074900000000001
+}

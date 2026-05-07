@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses and conclusion match the informal statement: `h` encodes \"X has a countable dense subset,\" `hU` encodes pairwise disjointness via the standard `x ≠ y → x ∩ y = ∅` formulation, `hUopen` says each member is open, and the conclusion `Countable U` says the collection is countable. The universal quantification over collections U is correctly captured by making U a parameter. `Countable` on a `Set` (whether resolved to `Set.Countable` or the typeclass on the subtype) gives the same standard notion of at-most-countable. No extra or missing hypotheses appear, and the types (topological space X, sets, open sets) match the informal reading.",
+  "duration_ms": 40675,
+  "cost_usd": 0.1300885
+}

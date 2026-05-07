@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "informal": "Let $F = \\mathbb{Z}_p$ be the field of integers $\\mod p$, where $p$ is a prime, and let $q(x) \\in F[x]$ be irreducible of degree $n$. Show that $F[x]/(q(x))$ is a field having at exactly $p^n$ elements.",
+  "lean": "\ntheorem Herstein_exercise_4_5_16 {p n: ℕ} (hp : Nat.Prime p)\n  {q : Polynomial (ZMod p)} (hq : Irreducible q) (hn : q.degree = n) :\n  (∃ is_fin : Fintype $ Polynomial (ZMod p) ⧸ span ({q}),\n  @card (Polynomial (ZMod p) ⧸ span {q}) is_fin = p ^ n) ∧\n  IsField (Polynomial (ZMod p) ⧸ span {q})",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses F = ZMod p with p prime, q an irreducible polynomial of degree n, and concludes both that the quotient Polynomial (ZMod p) / span {q} has a Fintype instance with cardinality p^n and that it IsField. The hypothesis q.degree = n correctly pins down the degree (with n coerced into WithBot ℕ). The ideal span {q} is the principal ideal (q), so the quotient is F[x]/(q(x)). Both claimed conclusions — being a field and having exactly p^n elements — match the informal statement, with no extra or missing hypotheses.",
+  "duration_ms": 9988,
+  "cost_usd": 0.052031749999999995
+}

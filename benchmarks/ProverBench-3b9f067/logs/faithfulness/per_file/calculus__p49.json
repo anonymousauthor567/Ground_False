@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p49.lean",
+  "stem": "calculus__p49",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `∫ x in Set.Icc (-1) 1, (x^2 / (1 + x^2)) = 2 - π / 2` exactly captures the informal integral $\\int_{-1}^1 \\frac{x^2}{1+x^2}\\,dx = 2 - \\frac{\\pi}{2}$. The type inference forces `x : ℝ` (since the RHS is real), making `Set.Icc (-1) 1` the real interval $[-1,1]$ with the default volume measure. The set integral over `Icc` equals the interval integral (singleton endpoints have measure zero), the integrand `x^2 / (1 + x^2)` matches $\\frac{x^2}{1+x^2}$, and the RHS `2 - π / 2` matches $2 - \\frac{\\pi}{2}$. No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 40049,
+  "cost_usd": 0.12799575
+}

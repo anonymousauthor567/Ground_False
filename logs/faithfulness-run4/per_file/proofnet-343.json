@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses h1 and h2 precisely encode the informal proviso \"the sum on the right is not of the form ∞ − ∞\". In EReal, ⊥ = -∞ and ⊤ = +∞, so h1 excludes the (-∞) + (+∞) case and h2 excludes the (+∞) + (-∞) case — exactly the two undefined EReal sums. These are the same hypotheses Mathlib's own `limsup_add_le` uses (Topology/Instances/EReal/Lemmas.lean:265). The conclusion matches the informal inequality, with real sequences correctly coerced to EReal and the sum taken in ℝ before coercion on the LHS (which is fine because ℝ-addition agrees with EReal-addition on finite values). No hypotheses are added or dropped beyond what the informal proviso requires.",
+  "duration_ms": 467179,
+  "cost_usd": 0.258676
+}

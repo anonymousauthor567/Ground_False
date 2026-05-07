@@ -1,0 +1,8 @@
+{
+  "file": "50.lean",
+  "stem": "50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly what the informal claim does. `MvPolynomial (Fin n) ℤ` is the standard $\\mathbb{Z}[x_1,\\dots,x_n]$, `Ideal.IsMaximal` is the usual maximal ideal notion, and the quotient type `MvPolynomial (Fin n) ℤ ⧸ m` yields the quotient ring $F$. Since a maximal ideal's quotient is a field (an `AddGroupWithOne`), Mathlib's `CharZero` is equivalent to the usual notion of characteristic zero via `charP_zero_iff_charZero`. The universal quantification over `n : ℕ` matches the informal \"let $n$...\"; including $n=0$ doesn't affect truth (quotients of $\\mathbb{Z}$ by maximal ideals are $\\mathbb{F}_p$). No hypotheses are added or dropped, and the conclusion `¬ CharZero` correctly matches \"cannot have characteristic 0\".",
+  "duration_ms": 183067,
+  "cost_usd": 0.46007925000000005
+}

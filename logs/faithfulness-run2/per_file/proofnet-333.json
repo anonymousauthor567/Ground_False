@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each piece of the informal statement exactly: `LinearOrder α` is Mathlib's notion of a totally ordered type (it includes the totality axiom `le_total`), `s : Set α` with `Set.Nonempty s` provides the nonempty subset $E$, `x ∈ lowerBounds s` and `y ∈ upperBounds s` state that $x$ (= $\\alpha$) is a lower bound and $y$ (= $\\beta$) is an upper bound of $E$, and the conclusion `x ≤ y` is exactly $\\alpha \\le \\beta$. No hypotheses are added or omitted, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 9133,
+  "cost_usd": 0.039551
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a universal claim that any characteristic subgroup of any group is normal. The Lean theorem quantifies over an arbitrary group `G` and an arbitrary subgroup `H`, takes `[Characteristic H]` (Mathlib's typeclass for being fixed by all automorphisms, per `Mathlib/Algebra/Group/Subgroup/Basic.lean` line 236) as hypothesis, and concludes `Normal H`. The types and quantifier structure match the informal statement exactly: no extra hypotheses (no finiteness, decidability, etc.) and no missing ones. The conclusion `Normal H` corresponds precisely to the usual notion of a normal subgroup. This is in fact the statement of `Subgroup.normal_of_characteristic` in Mathlib itself.",
+  "duration_ms": 56438,
+  "cost_usd": 0.2849685
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes |G| = 105 via `[Fintype G] [Group G]` together with `card G = 105` (where `card` is `Fintype.card` thanks to `open Fintype`), matching the informal hypothesis. The conclusion `(∃ P : Sylow 5 G, P.Normal) ∧ (∃ P : Sylow 7 G, P.Normal)` says there exists a normal Sylow 5-subgroup and a normal Sylow 7-subgroup, which is exactly the standard reading of \"G has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup.\" By Sylow's theorems, having one normal Sylow p-subgroup is equivalent to all Sylow p-subgroups being normal (they are all conjugate), so the ∃-encoding carries the same content. No hypotheses are added or dropped; no types are changed. This is a faithful formalization.",
+  "duration_ms": 56616,
+  "cost_usd": 0.18605025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Rudin Exercise 4.8a. The types `E : Set ℝ` and `f : ℝ → ℝ` match \"bounded set E in R^1\" and \"real function\". `Bornology.IsBounded E` on ℝ is the standard notion of a bounded real set (i.e., contained in a ball of finite radius), and `UniformContinuousOn f E` is Mathlib's definition of uniform continuity on a set. The conclusion `Bornology.IsBounded (Set.image f E)` is precisely \"f is bounded on E\" — i.e., f(E) is a bounded subset of ℝ. No hypotheses are added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 28679,
+  "cost_usd": 0.131182
+}

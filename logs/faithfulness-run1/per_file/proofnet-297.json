@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "informal": "Let $A \\subset X$; let $f: A \\rightarrow Y$ be continuous; let $Y$ be Hausdorff. Show that if $f$ may be extended to a continuous function $g: \\bar{A} \\rightarrow Y$, then $g$ is uniquely determined by $f$.",
+  "lean": "\ntheorem Munkres_exercise_18_13\n  {X : Type*} [TopologicalSpace X] {Y : Type*} [TopologicalSpace Y] [T2Space Y]\n  {A : Set X} {f : X → Y} (hf : ContinuousOn f A)\n  (g : X → Y) (g_con : ContinuousOn g (closure A))\n  (gExt : ∀ x : A, g x = f x) :\n  ∀ (g' : X → Y), (ContinuousOn g' (closure A) ∧ (∀ x : A, g' x = f x)) → (∀ x : closure A, g x = g' x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the uniqueness claim correctly: it fixes one continuous extension g of f to closure A, then asserts that any other continuous extension g' of f agrees with g on closure A. The Hausdorff hypothesis [T2Space Y] is present, the continuity hypotheses on f, g, g' (via ContinuousOn on A and closure A) match the informal setup, and the agreement-on-A condition (∀ x : A, g' x = f x) captures \"g' extends f\". Encoding f : A → Y as f : X → Y with ContinuousOn f A is the standard Mathlib idiom and is equivalent. The conclusion ∀ x : closure A, g x = g' x is exactly the desired uniqueness on the closure. No extraneous or missing hypotheses.",
+  "duration_ms": 12881,
+  "cost_usd": 0.05846699999999999
+}

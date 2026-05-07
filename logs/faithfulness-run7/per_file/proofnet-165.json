@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Rudin 4.4a. `MetricSpace α/β` matches the metric spaces X and Y; `Continuous f` and `Dense s` match the hypotheses on f and E. Mathlib's `Dense s` is defined as `∀ x, x ∈ closure s`, matching \"E is dense in X\". The conclusion `f '' Set.univ ⊆ closure (f '' s)` says every point of f(X) = range f lies in the closure of f(E), which is exactly the meaning of \"f(E) is dense in f(X)\" (since f(E) ⊆ f(X), subspace density is equivalent to f(X) ⊆ closure(f(E))). The informal statement also mentions g, but g does not appear in the conclusion of this part — it is only relevant to later parts of the exercise. Omitting an unused auxiliary continuous map does not alter the mathematical content here.",
+  "duration_ms": 45917,
+  "cost_usd": 0.186907
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p43_4.lean",
+  "stem": "calculus__p43_4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims (y(2.5) - y(2))/(2.5 - 2) = -32 where y(t) = 40t - 16t^2. The Lean theorem states (2.5 - 2) * -32 = heightFunction 2.5 - heightFunction 2, which uses the same heightFunction definition and is the algebraically equivalent multiplied-out form of the informal equation (since 2.5 - 2 = 0.5 ≠ 0, dividing both sides by (2.5-2) yields the original informal equation). The quantifier-free equality makes the same mathematical assertion. The surrounding axioms don't alter the theorem signature itself — they merely provide supporting facts used in a (trivial) proof. Therefore the Lean theorem is a faithful formalization of the informal claim.",
+  "duration_ms": 71133,
+  "cost_usd": 0.21759225000000001
+}

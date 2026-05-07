@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_b5.lean",
+  "stem": "putnam_1990_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The sum `∑ i ∈ Finset.Iic n, a i • X^i` correctly expresses `p_n(x) = a_0 + a_1 x + ... + a_n x^n` since `Finset.Iic n = {0, 1, ..., n}` over ℕ and `a i • X^i = C (a i) * X^i` by `Polynomial.smul_eq_C_mul`. The condition `a.roots.toFinset.card = n` correctly captures \"exactly n distinct real roots\" (since `roots` is a multiset of real roots and `.toFinset.card` counts distinct ones). The hypothesis `∀ i, a i ≠ 0` captures \"nonzero real numbers\"; `∀ n ≥ 1` matches \"for n=1,2,3,...\". The encoding as `(∃ ...) ↔ putnam_1990_b5_solution` with solution `True` properly encodes the yes/no question. All types, quantifiers, and mathematical content align with the informal statement.",
+  "duration_ms": 153630,
+  "cost_usd": 0.46436925000000007
+}

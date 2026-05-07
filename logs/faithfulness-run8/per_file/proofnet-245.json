@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: given a surjective ring homomorphism φ: R → S, the image of the center of R is contained in the center of S. The Lean signature takes arbitrary types R, S with [Ring R], [Ring S], a bundled ring homomorphism φ : R →+* S, a surjectivity hypothesis `Function.Surjective φ`, and concludes `φ '' (center R) ⊆ center S`. Since `open Set` is active, `center R` resolves to `Set.center R = {z | ∀ g, g * z = z * g}`, which is exactly the ring center. All components — hypotheses (rings, ring hom, surjectivity) and conclusion (image of center ⊆ center) — match the informal claim precisely, with no added or dropped assumptions.",
+  "duration_ms": 152187,
+  "cost_usd": 0.64767175
+}

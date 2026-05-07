@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_a2.lean",
+  "stem": "putnam_2024_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement characterizes the set of real polynomials p for which there exists a real polynomial q satisfying p(p(x)) - x = (p(x) - x)^2 q(x) for all real x, exactly as asked in the informal statement. The types (`Polynomial ℝ` for both p and q), the polynomial evaluation (`p.eval`), the universal quantifier over x : ℝ, the existential on q, and the equation form all match precisely. The natural \"for which p\" formalization as set equality (LHS set = solution set) is a standard and faithful encoding of a characterization question. No hypotheses are dropped or added relative to the informal statement.",
+  "duration_ms": 78781,
+  "cost_usd": 0.2140555
+}

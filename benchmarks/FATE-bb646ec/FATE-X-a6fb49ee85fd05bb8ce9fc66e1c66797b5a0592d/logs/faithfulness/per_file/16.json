@@ -1,0 +1,8 @@
+{
+  "file": "16.lean",
+  "stem": "16",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The `IsPExtension` class is defined as \"Galois extension with Module.rank = p^n for some n\", which for prime p (as required by `hp : p.Prime`) precisely matches the informal definition of a p-extension (finite Galois with degree a power of p). The intermediate field tower F ⊆ K ⊆ L ⊆ E is correctly set up via `L : IntermediateField F E` and `K : IntermediateField F L`. The hypothesis `IsNormalClosure F L E` correctly expresses that E is the normal closure of L over F; since L/F is separable (by transitivity of separability, as both K/F and L/K are Galois hence separable), this coincides with the Galois closure. The conclusion `IsPExtension F E p` asserts that E is a p-extension of F, matching the informal conclusion. The redundant `[IsGalois K L]` (already implied by `IsPExtension K L p`) does not affect faithfulness. Module.rank = p^n forces finite-dimensionality for prime p, correctly capturing the \"finite\" qualifier.",
+  "duration_ms": 688686,
+  "cost_usd": 1.5670350000000002
+}

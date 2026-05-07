@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch9_8.lean",
+  "stem": "brualdi_ch9_8",
+  "verdict": "faithful",
+  "reasoning": "The `SDR` structure matches the standard definition of a System of Distinct Representatives (a choice function with `toFun i ∈ A i` and pairwise distinctness). The family `A : Fin 6 → Finset ℕ` is defined by pattern matching on numeric literals: since `Fin 6`'s `OfNat` mod-reduces, pattern `6` matches index `0`, giving `A 0 = {6,1}, A 1 = {1,2}, ..., A 5 = {5,6}`. This is a cyclic reindexing of the informal $A_1, \\ldots, A_6$, but SDR counts are invariant under permutations of the index set, so `Fintype.card (SDR A)` equals the number of SDRs of the informal family. Structure instances are equal iff their `toFun` fields agree (the two proof fields are propositionally equal), so `Fintype.card` correctly counts distinct SDRs. The \"determine\" question is formalized in the standard way via a placeholder `brualdi_ch9_8_solution : ℕ`. This is a faithful formalization.",
+  "duration_ms": 358583,
+  "cost_usd": 1.2867282500000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that $x^2+x+1$ is irreducible in $\\mathbb{F}_2$. The Lean encoding abstracts over any field $F$ with `Fintype F` and `card F = 2`. Since all fields of cardinality 2 are (uniquely) isomorphic to $\\mathbb{F}_2$, and polynomial irreducibility is preserved under field isomorphism, proving the claim for all such $F$ is logically equivalent to proving it for $\\mathbb{F}_2$ specifically. The conclusion `Irreducible (X^2 + X + 1 : Polynomial F)` matches exactly the informal claim. No hypothesis is added or removed relative to the informal content.",
+  "duration_ms": 8676,
+  "cost_usd": 0.04644150000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the polynomial $x^2 - \\sqrt{2}$ is irreducible over $\\mathbb{Z}[\\sqrt{2}]$. In Mathlib, `Zsqrtd 2` is the type `ℤ√2` representing $\\mathbb{Z}[\\sqrt{2}]$, and `Zsqrtd.sqrtd` is the element $\\sqrt{2}$ (with re=0, im=1, satisfying `sqrtd * sqrtd = 2` via `dmuld`). Thus `(X^2 - C Zsqrtd.sqrtd : Polynomial (Zsqrtd 2))` is exactly the polynomial $x^2 - \\sqrt{2}$ in $\\mathbb{Z}[\\sqrt{2}][x]$. The `Irreducible` predicate is the standard notion of irreducibility in a commutative monoid (not a unit, and any factorization has a unit factor), which matches the informal claim. The hint \"You may assume that $\\mathbb{Z}[\\sqrt{2}]$ is a U.F.D.\" is a proof aid, not part of the theorem statement, so its absence in the signature is fine. The Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 82053,
+  "cost_usd": 0.255692
+}

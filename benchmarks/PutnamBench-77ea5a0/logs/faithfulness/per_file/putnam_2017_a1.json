@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_a1.lean",
+  "stem": "putnam_2017_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes Putnam 2017 A1. `IsLeast IsQualifying S` unfolds (using `Set`'s `LE` instance being `⊆`) to \"S satisfies the rules AND S ⊆ T for every T satisfying them\", which is exactly \"smallest set satisfying the rules\". The predicate `IsQualifying` encodes (a) positivity of elements, (b) `2 ∈ S`, (c) `∀ n > 0, n² ∈ S → n ∈ S`, and (d) `∀ n ∈ S, (n+5)² ∈ S`, matching the three informal conditions (with positivity made explicit). The restriction to `n > 0` in rule (b) is the correct reading — since S contains only positive integers, quantifying over all of ℤ would make the condition impossibly restrictive (both n and -n would need to be in S whenever n² ∈ S). The conclusion `Sᶜ ∩ {n | 0 < n}` correctly represents \"positive integers not in S\". No hypothesis is dropped or added beyond what the informal statement requires.",
+  "duration_ms": 539890,
+  "cost_usd": 1.2774217500000002
+}

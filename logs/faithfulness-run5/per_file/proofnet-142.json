@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. `f : ℝ → ℝ` matches \"real function on the real line\". `ContDiff ℝ 3 f` is Mathlib's standard notion of C³, meaning f admits continuous derivatives up to order 3, which corresponds precisely to \"continuous third derivative\". The conclusion uses `deriv f a` for f'(a), `iteratedDeriv 2 f a` for f''(a), and `iteratedDeriv 3 f a` for f'''(a), so the product f(a) · f'(a) · f''(a) · f'''(a) ≥ 0 is stated as an existential over ℝ, matching the informal conclusion. No hypotheses have been added or removed, and no quantifier or type has been altered.",
+  "duration_ms": 66152,
+  "cost_usd": 0.27932250000000003
+}

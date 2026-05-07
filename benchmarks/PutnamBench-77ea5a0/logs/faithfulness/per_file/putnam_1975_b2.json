@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_b2.lean",
+  "stem": "putnam_1975_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes a slab as {x | offset < n·x < offset + thickness} with the constraint ‖n‖=1. Although Mathlib's default norm on Fin 3 → ℝ is the sup norm (not Euclidean), this does not break equivalence: for any vector with ‖n‖_∞ = 1, we have 1 ≤ ‖n‖_2 ≤ √3, so the Euclidean thickness d_i = t_i/‖n_i‖_2 satisfies d_i ≤ t_i ≤ √3·d_i. Hence (t_i) is summable iff (d_i) is summable, and every sequence of geometric slabs with summable Euclidean thicknesses can be reparameterized in Lean's form (and vice versa). The positivity and convergence hypotheses, open-slab definition, and conclusion (univ ≠ ⋃ slabs, i.e., some point lies outside all slabs) all match the informal statement. The two are logically equivalent.",
+  "duration_ms": 289501,
+  "cost_usd": 0.9049742499999999
+}

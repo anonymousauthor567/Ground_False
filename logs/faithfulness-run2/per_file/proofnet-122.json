@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: X is `LocPathConnectedSpace` (locally path connected), U is an open (`IsOpen U`) connected (`IsConnected U`) subset, and the conclusion is `IsPathConnected U`. The universal quantifier over connected open sets in X is faithfully expressed by taking an arbitrary U with the stated hypotheses. Mathlib's `IsConnected` (nonempty + preconnected) and `IsPathConnected` (nonempty + path-connected via joins) are consistent with each other, so the nonemptiness convention aligns on both sides, matching the standard textbook reading in Munkres. No hypotheses are added or dropped, and the types are correct.",
+  "duration_ms": 17615,
+  "cost_usd": 0.061613249999999994
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. X is any topological space, A : Set X gets the subspace topology (as a subtype) which is the natural reading of \"A ⊂ X\". The map r : X → A being Continuous with r x = x for all x : A encodes \"continuous retraction r: X → A with r(a) = a for a ∈ A\" (equality in the subtype coincides with equality of the underlying elements). Surjectivity onto A follows automatically from the fixed-point condition. IsQuotientMap r is exactly the conclusion \"r is a quotient map\" (surjective plus codomain topology coinduced by r). No hidden hypotheses or strengthening/weakening is introduced.",
+  "duration_ms": 25921,
+  "cost_usd": 0.09708225
+}

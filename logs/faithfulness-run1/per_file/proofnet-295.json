@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "theorem_name": "Munkres_exercise_16_6_corrected",
+  "informal": "Show that the countable collection \\[\\{(a, b) \\times (c, d) \\mid a < b \\text{ and } c < d, \\text{ and } a, b, c, d \\text{ are rational}\\}\\] is a basis for $\\mathbb{R}^2$.",
+  "lean": "\ntheorem Munkres_exercise_16_6_corrected :\n    IsTopologicalBasis rationalRectangleFamily",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show the collection of products of open intervals with rational endpoints forms a topological basis for ℝ². The Lean signature asserts `IsTopologicalBasis rationalRectangleFamily`, which (assuming `rationalRectangleFamily` is defined as the family `{(a,b) × (c,d) | a<b, c<d, a,b,c,d ∈ ℚ}` of subsets of ℝ × ℝ with its standard topology) directly states exactly this. `IsTopologicalBasis` in Mathlib expresses \"is a basis for the topology on the ambient type\", which matches \"is a basis for ℝ²\". No extra hypotheses are added and no part of the conclusion is weakened. Conditional on the definition of `rationalRectangleFamily` being the obvious one, this is a faithful encoding.",
+  "duration_ms": 11961,
+  "cost_usd": 0.05541300000000001
+}

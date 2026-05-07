@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The informal statement posits a function f : ℝ → ℝ satisfying |f(x) - f(y)| ≤ (x - y)² for all real x, y, and concludes that f is constant. The Lean signature takes exactly f : ℝ → ℝ, assumes the identical inequality hypothesis via `∀ x y : ℝ, |(f x - f y)| ≤ (x - y) ^ 2`, and concludes `∃ c, f = λ _x => c`, which is the standard encoding of \"f is constant\" (there exists c such that f equals the constant function returning c). The types, hypothesis, and conclusion all match the informal claim exactly.",
+  "duration_ms": 19438,
+  "cost_usd": 0.0363905
+}

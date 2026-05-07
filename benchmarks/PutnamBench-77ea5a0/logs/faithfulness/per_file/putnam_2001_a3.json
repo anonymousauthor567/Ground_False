@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_a3.lean",
+  "stem": "putnam_2001_a3",
+  "verdict": "faithful",
+  "reasoning": "The polynomial definition `X^4 - C(2m+4)·X^2 + C((m-2)^2)` matches $P_m(x) = x^4 - (2m+4)x^2 + (m-2)^2$ exactly. The coefficients live in ℤ, matching \"integer coefficients\". The condition `∃ n ∈ Ici 1, a.coeff n ≠ 0` (where `coeff : ℤ[X] → ℕ → ℤ`, so `Ici 1 ⊆ ℕ`) says there is some degree ≥ 1 with nonzero coefficient, which is equivalent to `natDegree a ≥ 1` — the standard meaning of \"non-constant polynomial\" (correctly excluding both the zero polynomial and constant polynomials). Both factors a and b are required to be non-constant, matching \"product of two non-constant polynomials\". The set-equality formulation answers \"for what values of m\" faithfully.",
+  "duration_ms": 125720,
+  "cost_usd": 0.40007550000000003
+}

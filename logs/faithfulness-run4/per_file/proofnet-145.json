@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The coefficient constraint `c n = 0 ∨ c n = 1` captures \"each c_i is 0 or 1\". The power series is encoded via `∑' i, c i * x^i` (tsum), and at x = 2/3 and x = 1/2 the series converges absolutely (bounded by the geometric series), so tsum gives the actual sum. The hypothesis `f(2/3) = 3/2` and conclusion `Irrational (f (1/2))` directly correspond to the informal claim. Mathlib's `Irrational` is defined as \"not in the range of ℚ → ℝ\", which is the standard meaning. The parametrization of f and c as arguments with these properties matches the informal universality over all such power series.",
+  "duration_ms": 65832,
+  "cost_usd": 0.22822349999999997
+}

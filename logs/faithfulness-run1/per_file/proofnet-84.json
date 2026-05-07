@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "informal": "Show that there is an infinite number of solutions to $x^2 = -1$ in the quaternions.",
+  "lean": "\ntheorem Herstein_exercise_4_1_19 : Infinite {x : Quaternion ℝ | x^2 = -1}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show there are infinitely many solutions to x^2 = -1 in the quaternions (over ℝ). The Lean signature states that the set {x : Quaternion ℝ | x^2 = -1} is Infinite, which is exactly the assertion that there are infinitely many such solutions. The type Quaternion ℝ matches the standard quaternions, and Infinite on a set is the standard way to express \"infinitely many\". This is a faithful formalization.",
+  "duration_ms": 17424,
+  "cost_usd": 0.040597
+}

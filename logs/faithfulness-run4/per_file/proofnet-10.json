@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim accurately: `hM` is exactly \"every element not in M is a unit\", and the conclusion `IsMaximal M ∧ ∀ N, IsMaximal N → N = M` is exactly \"M is maximal and the unique maximal ideal\". The extra hypothesis `hProper : ∃ x, x ∉ M` (equivalent to M ≠ ⊤) makes an implicit premise explicit — without it the statement is literally false since M = R would satisfy hM vacuously but not be maximal (Mathlib's `IsMaximal` requires a proper coatom via `IsCoatom`). Any mathematician reading Artin's exercise understands M is a proper ideal. This matches the worked-example pattern in the instructions, so the formalization should be judged faithful rather than weaker.",
+  "duration_ms": 144743,
+  "cost_usd": 0.44412625
+}

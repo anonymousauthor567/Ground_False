@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature includes all the hypotheses of the informal statement: surjectivity (`h`), continuity (`hc`), closedness (`IsClosedMap p`), compact fibers (`∀ y, IsCompact (p ⁻¹' {y})`), and compactness of Y (`CompactSpace Y`). The conclusion `CompactSpace X` matches \"X is compact\". Although there is a duplicate hypothesis name `hp` (the first `IsClosedMap p` gets shadowed by the compact-fibers hypothesis), both hypotheses are logically still present in the theorem's type signature since Lean 4 allows shadowed bound variables. This is only a stylistic/accessibility issue, not a semantic one. The logical content of the statement is exactly the informal claim.",
+  "duration_ms": 43457,
+  "cost_usd": 0.07821724999999999
+}

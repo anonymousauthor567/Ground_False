@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts an identification between the center of G×H and the product center(G) × center(H). The Lean statement expresses this as `Nonempty (center (G × H) ≃* (center G) × (center H))`, i.e., the two groups are isomorphic as groups — the standard way to formalize such an identification in Lean. No extra hypotheses are imposed (G and H are arbitrary groups), and the types on each side correspond directly to the two sides of the informal claim. Mathlib's `center_prod` gives a stronger subgroup equality, but the MulEquiv formulation is a standard and faithful reading of \"is the product of their centers\" in group-theoretic language. This captures exactly the mathematical content of the informal statement without weakening or strengthening.",
+  "duration_ms": 191920,
+  "cost_usd": 0.493349
+}

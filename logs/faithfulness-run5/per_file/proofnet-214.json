@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `{n : ℕ+}` encodes \"positive integer n\", `orderOf x = n` encodes $|x|=n$ (with ℕ+ coercing to ℕ since `orderOf x : ℕ`), and `x⁻¹ = x ^ (n - 1 : ℕ)` encodes $x^{-1}=x^{n-1}$. The type ascription `(n - 1 : ℕ)` forces elaboration at ℕ, so n coerces to ℕ and Nat subtraction is used; this handles the n=1 edge case correctly (x would be the identity, x⁻¹ = x^0 = 1). The universal quantification over G (as a typeclass Group) and x matches \"Let x be an element of G\". No hypotheses are added or dropped beyond what the informal statement requires.",
+  "duration_ms": 120669,
+  "cost_usd": 0.2918055
+}

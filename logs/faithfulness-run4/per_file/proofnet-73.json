@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-73.lean",
+  "stem": "proofnet-73",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in a group G where (ab)^3 = a^3 b^3 and (ab)^5 = a^5 b^5 hold for all a,b, G is abelian. The Lean signature introduces an arbitrary `Group G`, takes a hypothesis `∀ a b, (a*b)^3 = a^3*b^3 ∧ (a*b)^5 = a^5*b^5`, and concludes `∀ a b, a*b = b*a`. The combination `∀ a b, P a b ∧ Q a b` is logically equivalent to `(∀ a b, P a b) ∧ (∀ a b, Q a b)`, so the hypothesis matches the informal premise exactly. The conclusion `∀ a b, a*b = b*a` is the standard definition of abelian. No extra or missing hypotheses, no type changes, and no quantifier structure alteration.",
+  "duration_ms": 19368,
+  "cost_usd": 0.04577775
+}

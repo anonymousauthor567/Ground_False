@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p64_3.lean",
+  "stem": "calculus__p64_3",
+  "verdict": "incomparable",
+  "reasoning": "The Lean theorem `solutions_satisfy_equation` states `∀ x ∈ solution_set, equation x = 0`, where `equation x := cos(2x) - √3 sin(2x)`. This asserts `cos(2x) - √3 sin(2x) = 0` for each of the four listed x-values. However, the informal statement claims these x-values satisfy `cos(2x) - √3 sin(2x) = √2`, not `= 0`. These are different equations entirely — the Lean theorem has the wrong RHS (0 instead of √2), so it makes a semantically different claim that neither implies nor is implied by the informal one. Additionally, the informal statement asserts uniqueness (\"exactly four solutions\" in [0, 2π)), which the Lean theorem does not capture at all — it only claims forward inclusion for the listed values. Because the RHS mismatch makes the claims incomparable rather than a simple weakening/strengthening, the correct verdict is \"incomparable\".",
+  "duration_ms": 241493,
+  "cost_usd": 0.68982925
+}

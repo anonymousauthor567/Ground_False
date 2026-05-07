@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement clause-by-clause. The hypothesis `∃ s : Set X, Countable s ∧ Dense s` captures \"X has a countable dense subset\" — when `Countable` (the typeclass on Sort) is applied to `s : Set X`, Lean coerces s to its subtype, giving the standard `Set.Countable s`. The collection U is a `Set (Set X)` with `hU` expressing pairwise disjointness (`x ≠ y → x ∩ y = ∅`) and `hUopen` requiring each member to be open. The conclusion `Countable U` asserts that U is a countable collection, via the same subtype coercion. The standard reading of \"disjoint open sets\" as pairwise disjoint open sets matches Lean's encoding, and no extra hypotheses (like second-countability or separability formalized differently) are added or omitted.",
+  "duration_ms": 119093,
+  "cost_usd": 0.42907175000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures: f is holomorphic on an open set Ω (DifferentiableOn ℂ f Ω, IsOpen Ω), Re(f) is a single real constant on Ω (∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c), and concludes f a = f b for arbitrary a, b ∈ Ω, which is equivalent to \"f is constant on Ω\". The only addition is `IsPreconnected Ω`, but this is a necessary implicit premise: without connectedness the claim is literally false (e.g., Ω = two disjoint disks with f = i on one and f = 2i on the other gives Re(f) ≡ 0 but f nonconstant). In complex analysis, \"an open set Ω\" in such exercises conventionally means a domain. Per the guidelines, making such an implicit premise explicit is faithful, not weaker.",
+  "duration_ms": 64235,
+  "cost_usd": 0.19177275000000002
+}

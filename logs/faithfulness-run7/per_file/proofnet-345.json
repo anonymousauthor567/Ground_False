@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Cauchy product theorem. Hypotheses `ha` and `hb` state absolute convergence of ∑ aₙ and ∑ bₙ by requiring the partial sums of |aᵢ| and |bᵢ| to have limits. The conclusion states absolute convergence of the Cauchy product ∑ cᵢ where cᵢ = ∑_{j=0}^{i} aⱼ · b_{i-j}, encoded as `∑ j ∈ range (i + 1), a j * b (i - j)` — this exactly matches the standard Cauchy product formula (and Mathlib's `tsum_mul_tsum_eq_tsum_sum_range_of_summable_norm`). The outer partial sum `∑ i ∈ range n, |cᵢ|` tending to some limit correctly captures \"converges absolutely\". No hypotheses are added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 70805,
+  "cost_usd": 0.30109074999999996
+}

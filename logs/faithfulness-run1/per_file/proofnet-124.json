@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "informal": "Show that a connected metric space having more than one point is uncountable.",
+  "lean": "\ntheorem Munkres_exercise_27_4\n  {X : Type*} [MetricSpace X] [ConnectedSpace X] (hX : ∃ x y : X, x ≠ y) :\n  ¬ Countable (univ : Set X)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `MetricSpace X` and `ConnectedSpace X`, matching \"connected metric space\". The hypothesis `∃ x y : X, x ≠ y` correctly captures \"more than one point\". The conclusion `¬ Countable (univ : Set X)` says the underlying set is uncountable, which is equivalent to saying the type X is uncountable. This matches the informal statement exactly with no extra or missing hypotheses.",
+  "duration_ms": 5825,
+  "cost_usd": 0.04350275
+}

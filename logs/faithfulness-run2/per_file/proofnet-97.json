@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Infinite {p : Nat.Primes // p ≡ -1 [ZMOD 6]}` expresses exactly the informal claim: the subtype consists of primes p (via `Nat.Primes`) such that p ≡ -1 (mod 6) (via `Int.ModEq 6`), and `Infinite` asserts that this collection is infinite. The notation `[ZMOD 6]` gives integer congruence modulo 6 (equivalently p ≡ 5 mod 6), which is what \"congruent to -1 modulo 6\" means. No extra hypotheses are added and no hypothesis is dropped; quantifier structure and conclusion match the informal statement.",
+  "duration_ms": 15973,
+  "cost_usd": 0.078508
+}

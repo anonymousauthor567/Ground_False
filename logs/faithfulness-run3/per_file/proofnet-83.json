@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that any subgroup of order p^(n-1) in a group G of order p^n is normal. The Lean signature captures all the essentials: p is prime (hp), G is a finite group with |G| = p^n (hG), K is an arbitrary subgroup with |K| = p^(n-1) (hK), and the conclusion is K.Normal. The quantification over \"any subgroup\" is correctly encoded by taking K as an implicit parameter with the cardinality hypothesis. Edge cases with ℕ truncated subtraction (n = 0 or n = 1) still yield true statements (K trivial ⇒ normal), so no implicit premise is being silently added or dropped. The types and conclusion match exactly.",
+  "duration_ms": 16080,
+  "cost_usd": 0.055693
+}

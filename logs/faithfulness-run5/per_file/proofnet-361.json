@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The hypothesis `‖z‖ = 1` captures \"any point of the unit circle\". The function `s n = ∑ i ∈ range n, i * z^i` gives the partial sums of the power series $\\sum n z^n$ (with the $i=0$ term being zero, consistent with the informal notation). The conclusion `¬ ∃ y, Tendsto s atTop (𝓝 y)` states that the partial sums have no limit in ℂ, which is the standard definition of non-convergence of a series. The natural number coercion in `i * z^i` is automatic and matches $n z^n$. No extra or missing hypotheses are introduced, and the universal quantification over z on the unit circle is preserved.",
+  "duration_ms": 67585,
+  "cost_usd": 0.23869674999999999
+}

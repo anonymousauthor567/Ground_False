@@ -1,0 +1,8 @@
+{
+  "file": "89.lean",
+  "stem": "89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over groups G (via `G : Type` with `[Group G]`), assumes `Nat.card G = 336`, and concludes `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` (a group with exactly two normal subgroups, extending `Nontrivial`) is the standard definition of a simple group; nontriviality is automatic since |G| = 336 > 1. The extra `[Finite G]` hypothesis is logically redundant: `Nat.card G = 336 ≠ 0` already implies `Finite G` (an infinite type has `Nat.card = 0` per `Nat.card_eq_zero_of_infinite`/`finite_of_card_ne_zero`). Thus the Lean statement is logically equivalent to the informal claim, neither weaker nor stronger.",
+  "duration_ms": 189962,
+  "cost_usd": 0.35416125
+}

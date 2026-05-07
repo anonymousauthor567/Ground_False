@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The group structure, hypothesis `(a*b)^n = a^n * b^n` for all a, b, and conclusion `(aba⁻¹b⁻¹)^(n(n-1)) = 1` for all a, b all match. Using `n : ℕ` with `n > 1` is equivalent to the informal \"integer n > 1\" since only n ≥ 2 is relevant (and the informal is a positive condition on n). Natural number subtraction `n - 1` is correct when `n > 1`, so `n * (n - 1)` matches the mathematical `n(n-1)`. The expression `a * b * a⁻¹ * b⁻¹` correctly encodes the commutator $aba^{-1}b^{-1}$ by left-associativity. Both quantifier structures match (universal over a, b). The accompanying proof file confirms the statement is provable under these exact hypotheses.",
+  "duration_ms": 47935,
+  "cost_usd": 0.266695
+}

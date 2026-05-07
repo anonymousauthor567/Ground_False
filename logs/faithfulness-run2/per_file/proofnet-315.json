@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: given an arbitrary index type ι and a family of topological spaces X : ι → Type*, the hypothesis `∀ i, Nonempty (X i)` matches \"each X_α is nonempty\", the hypothesis `NormalSpace (Π i, X i)` matches \"∏ X_α is normal\", and the conclusion `∀ i, NormalSpace (X i)` matches \"each X_α is normal\". The quantifier structure (universally over all factors), the types, and the use of the product topology `Π i, X i` all align with the informal statement. The notion of normality is used consistently on both sides, so the formalization is neither stronger nor weaker.",
+  "duration_ms": 26781,
+  "cost_usd": 0.0642695
+}

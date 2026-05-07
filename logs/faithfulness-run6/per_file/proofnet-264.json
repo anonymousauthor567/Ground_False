@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. \"φ is a homomorphism of G onto G'\" is correctly encoded as a monoid homomorphism `φ : G →* G'` together with `Function.Surjective φ` (the \"onto\" condition). \"N ◁ G\" is captured by `(N : Subgroup G) [N.Normal]`, and the conclusion \"φ(N) ◁ G'\" is encoded as `(Subgroup.map φ N).Normal`, where `Subgroup.map φ N` is defined to have carrier `φ '' N` (the image of N under φ). The universal quantification over arbitrary groups G, G' is expressed via the implicit type variables. Hypotheses, conclusion, and types all match exactly.",
+  "duration_ms": 25097,
+  "cost_usd": 0.13580575
+}

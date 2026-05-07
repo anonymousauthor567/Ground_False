@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the Tietze extension theorem for closed sets in ℝ. The Lean encoding uses the standard Mathlib idiom of representing \"a continuous function on E\" as a total function `f : ℝ → ℝ` together with the hypothesis `ContinuousOn f E`; only the values of f on E are constrained, which matches \"f defined on the closed set E\" since f's values outside E play no role in either hypothesis or conclusion. `IsClosed E` matches \"closed set E ⊂ ℝ\", and the conclusion `∃ g, Continuous g ∧ ∀ x ∈ E, f x = g x` exactly captures \"there exists continuous g on ℝ with g(x) = f(x) for all x ∈ E\" (the direction of the equation is logically equivalent). The quantifier structure and all typing are correct, with no extra or missing hypotheses.",
+  "duration_ms": 53675,
+  "cost_usd": 0.23715025
+}

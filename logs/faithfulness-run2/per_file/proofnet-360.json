@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds the hypothesis `IsPreconnected Ω`, which is not stated in the informal problem (which only says \"an open set Ω\"). With this extra hypothesis, the Lean theorem is a special case of the informal claim: it is implied by the informal statement (which quantifies over all open sets) but does not imply it, since on a disconnected open set a holomorphic function with constant imaginary part can still fail to be globally constant (different constant values on different components). Apart from this extra hypothesis, the rest of the formalization is reasonable: `DifferentiableOn ℂ f Ω` matches \"f holomorphic in Ω\", the constancy of Im(f) is correctly encoded, and `∀ a b : Ω, f a = f b` correctly encodes \"f is constant on Ω\". So the only drift is the added connectedness assumption, making the Lean statement strictly weaker.",
+  "duration_ms": 42069,
+  "cost_usd": 0.14821875
+}

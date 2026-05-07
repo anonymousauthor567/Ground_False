@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `¬ ∃ m : ℤ, Real.sqrt (P n) = m` unwinds (using Mathlib's convention `Real.sqrt x = 0` for `x ≤ 0`) to: P(n) > 0 AND P(n) is not a perfect square. This matches the standard real-valued reading of \"√P(n) is not an integer\": for the expression to be a real number at all we need P(n) ≥ 0, and it's an integer exactly when P(n) is a perfect square (including 0). So the Lean condition is equivalent to requiring that the real square root exists and is not an integer. The existential over positive n matches \"there exists a positive integer n\". Types (ℤ for a, b, c, n, m; ℝ for the sqrt) and the polynomial expression match exactly. The ground-truth formalization in proofnet_verified_gt uses the identical signature, and the proof finds an n with P(n) > 0 that is not a perfect square — consistent with the Putnam 1998 B6 intent.",
+  "duration_ms": 405365,
+  "cost_usd": 1.327955
+}

@@ -1,0 +1,8 @@
+{
+  "file": "36.lean",
+  "stem": "36",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds an unnecessary hypothesis `[Nontrivial P]`, which (via `Submodule.nontrivial_iff_ne_bot` since `Ideal R = Submodule R R`) is equivalent to `P ≠ ⊥`. The informal statement does not require P to be nonzero: in standard modern usage (Dummit-Foote, Atiyah-Macdonald, Mathlib), a prime ideal can be (0), and \"P contains no zero divisors\" is trivially satisfied when P = (0). The theorem is still TRUE without `[Nontrivial P]`: the proof works because if ab = 0, then ab ∈ P, so a ∈ P or b ∈ P by primality, and hz then gives a = 0 ∨ b = 0; nontriviality of R follows from `P.IsPrime` giving `1 ∉ P`. Since this extra hypothesis is not needed for truth and merely narrows the scope, it is not a case of surfacing an implicit premise — it is a genuine weakening.",
+  "duration_ms": 772516,
+  "cost_usd": 1.8287224999999998
+}

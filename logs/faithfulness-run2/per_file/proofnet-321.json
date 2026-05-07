@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. The hypotheses \"compact, disjoint, nonempty subsets\" are encoded as `IsCompact A`, `IsCompact B`, `Disjoint A B`, and `A ≠ ∅`, `B ≠ ∅` (which is equivalent to nonemptiness). The conclusion's quantifier structure (∃ a₀ ∈ A, ∃ b₀ ∈ B, ∀ a ∈ A, ∀ b ∈ B, d(a₀, b₀) ≤ d(a, b)) is correctly encoded using ∃ with conjunctions for membership and ∀ with implications. The types are inferred as M, matching the ambient metric space. No hypotheses are added or dropped, and the conclusion is identical.",
+  "duration_ms": 17008,
+  "cost_usd": 0.06640724999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-73.lean",
+  "stem": "proofnet-73",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. G is a universally quantified arbitrary group via `{G : Type*} [Group G]`. The hypothesis `∀ (a b : G), (a*b)^3 = a^3*b^3 ∧ (a*b)^5 = a^5*b^5` is logically equivalent to the informal conjunction of \"(ab)³=a³b³ for all a,b\" and \"(ab)⁵=a⁵b⁵ for all a,b\" — distributing the ∀ over ∧ preserves meaning. The conclusion `∀ a b : G, a*b = b*a` is the standard expression of \"G is abelian\" (commutativity of the group operation). No extra hypotheses are added, no hypotheses are dropped, and the types are correct.",
+  "duration_ms": 28218,
+  "cost_usd": 0.12053974999999999
+}

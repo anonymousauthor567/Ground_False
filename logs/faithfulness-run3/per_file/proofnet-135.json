@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the claim: given an injection f : ℕ → ℕ, if p converges to a, then the rearrangement k ↦ p(f(k)) also converges to a. Since f is only required to be injective (not bijective), the rearrangement may omit terms, so the informal \"limit is unaffected by rearrangement\" must mean the forward direction (convergent sequences remain convergent to the same limit) — not an iff — because the converse fails for strict subsequences. The Lean statement uses a general topological space rather than ℝ or a metric space, but this is a faithful generalization: the result holds in this generality (injectivity forces f(k) → ∞, so convergence transfers via the filter pushforward) and does not change the mathematical content being asked. Hypotheses (Injective f, Tendsto p atTop (𝓝 a)) and conclusion (Tendsto (p ∘ f) atTop (𝓝 a)) match the informal statement exactly.",
+  "duration_ms": 120148,
+  "cost_usd": 0.30763125
+}

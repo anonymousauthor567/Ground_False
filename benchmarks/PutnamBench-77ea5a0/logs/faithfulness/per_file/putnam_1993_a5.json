@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_a5.lean",
+  "stem": "putnam_1993_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean `¬Irrational x` is definitionally equivalent to \"x is in the range of ℚ → ℝ\", i.e., \"x is a rational number\", matching the informal conclusion. The integrand `((x^2 - x) / (x^3 - 3*x + 1))^2` transcribes the informal integrand faithfully, and all numerals (including `1/101`, `1/11`, `101/100`, `11/10`) elaborate as real division since the ambient type is ℝ. The Lean version uses `Set.Ioo` rather than closed intervals, but for Bochner/Lebesgue integration these yield identical values (Mathlib's `integral_Icc_eq_integral_Ioo`). The denominator x³−3x+1 has no roots in any of the three intervals, so the integrals are well-defined and match the informal values. No hypotheses are dropped or added that change the mathematical content.",
+  "duration_ms": 108541,
+  "cost_usd": 0.32053174999999995
+}

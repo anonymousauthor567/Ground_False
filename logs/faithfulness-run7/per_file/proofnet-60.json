@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a type `R` with a `Ring R` instance (Mathlib's `Ring` is an associative ring with 1), takes the hypothesis `∀ a : R, a^2 = a` — which unfolds to `a * a = a`, precisely the Boolean ring condition — and concludes `∀ a b : R, a*b = b*a`, which is exactly commutativity. The quantifier structure \"for every ring R satisfying the Boolean condition, multiplication is commutative\" matches the informal \"every Boolean ring is commutative\". No hypotheses are added or dropped, and the types and conclusion match exactly.",
+  "duration_ms": 93331,
+  "cost_usd": 0.3030745
+}

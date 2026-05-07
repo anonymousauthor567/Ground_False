@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that a function f: ℝ → ℝ satisfying lim_{h→0} (f(x+h) - f(x-h)) = 0 for every x need not be continuous. This is properly formalized as an existence claim: ∃ f such that (the symmetric limit condition holds at every x) ∧ (f is not continuous). The Lean encoding uses `Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)` which is exactly the standard Mathlib way to express lim_{y→0} (f(x+y) - f(x-y)) = 0, quantified over all x. The conclusion `¬ Continuous f` correctly captures \"not continuous\" (not continuous as a function, i.e., fails continuity somewhere). The quantifier structure (∃ f, ∀ x, ¬Continuous) matches \"does not need to be continuous.\"",
+  "duration_ms": 10047,
+  "cost_usd": 0.046531
+}

@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_2.lean",
+  "stem": "hackmath_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding uses `f : Fin 8 → Fin 4` where values 0, 1, 2 represent the three rankings (1st, 2nd, 3rd) and value 3 represents \"not ranked\". Since `List.ofFn f` has length 8 and the hypotheses force exactly one occurrence each of 0, 1, and 2, the remaining 5 entries are forced to be 3 (the only other element of Fin 4). This correctly characterizes assignments where exactly one athlete is 1st, one is 2nd, and one is 3rd. The cardinality of this set is 8·7·6 = 336 = P(8,3), which is exactly what the informal statement asks to count. The `sols`/`h_sols` framing simply defines the set via its characteristic predicate, and the theorem asserts its cardinality equals the to-be-filled-in numeric answer. This is a faithful formalization.",
+  "duration_ms": 85610,
+  "cost_usd": 0.22025775000000003
+}

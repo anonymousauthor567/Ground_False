@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"if a > 1 is an integer, then n ∣ φ(a^n − 1)\". The Lean signature takes a, n : ℕ with a > 1 and concludes n ∣ (a^n - 1).totient. While the informal says \"integer\", the constraint a > 1 makes a a positive integer, so encoding as ℕ is equivalent. Mathlib's Nat.totient corresponds to the Euler φ-function, and Nat.sub on a^n - 1 with a ≥ 2 behaves correctly. The case n = 0 works trivially (both sides become 0 ∣ 0, which holds). No hypotheses are added or dropped relative to the informal claim, so the formalization is faithful.",
+  "duration_ms": 18550,
+  "cost_usd": 0.07234025
+}

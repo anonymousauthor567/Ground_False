@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_a4.lean",
+  "stem": "putnam_1974_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean sum over Finset.Icc 0 ⌊n/2⌋₊ is numerically equivalent to the informal sum over \"k < n/2\": for odd n, both ranges coincide; for even n, the Lean range has one extra term at k = n/2, but (n - 2·(n/2)) = 0 makes that term vanish, so the sums are equal in ℚ. The subtraction n - 2k occurs with k ≤ ⌊n/2⌋, so 2k ≤ n and ℕ/ℚ subtraction give the same result. The summand type is ℚ (needed for the outer 1/2^(n-1) multiplication), and n.choose k coerces correctly. The hypothesis `0 < n` surfaces the implicit combinatorial convention that n is a positive integer (also avoiding the ℕ-subtraction artifact 2^(0-1) = 1 in the coefficient). This is faithful in the spirit of the worked example about making implicit premises explicit.",
+  "duration_ms": 303227,
+  "cost_usd": 0.7595365
+}

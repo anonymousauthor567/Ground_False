@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes R is a ring satisfying x^3 = x for all x, and asks to prove R is commutative. The Lean formalization uses `[Ring R]` (matching \"ring\"), hypothesis `∀ x : R, x ^ 3 = x` (matching the given condition), and concludes `∀ x y : R, x * y = y * x`, which is precisely the definition of commutativity. No hypotheses are added or dropped, the types match, and the quantifier structure is preserved. This is a logically equivalent formalization of the informal claim.",
+  "duration_ms": 25248,
+  "cost_usd": 0.035115999999999994
+}

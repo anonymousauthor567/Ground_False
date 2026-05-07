@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b1.lean",
+  "stem": "putnam_1986_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formulation captures all the geometric constraints correctly. The hypothesis `b^2 + h^2 = 2^2` correctly encodes the rectangle's inscription in a unit circle (its diagonal equals the diameter 2). The area equation `b * h = 0.5 * b * (1 - h / 2)` correctly equates the rectangle area ($bh$) with the triangle area ($\\frac{1}{2} b (1-h/2)$), where the triangle height $1 - h/2$ is derived from the apex at $(0,1)$ on the unit circle and the base on the line $y = h/2$ (the \"other direction\" from the rectangle). The positivity constraints $b, h > 0$ are implicit non-degeneracy conditions. Given $b > 0$, the area equation algebraically yields $h = 2/5$, which matches the solution. Despite the author's own \"Note\" hedging, the formulas faithfully represent the intended geometric setup.",
+  "duration_ms": 109316,
+  "cost_usd": 0.30018725
+}

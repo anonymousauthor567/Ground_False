@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_b2.lean",
+  "stem": "putnam_2000_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. The quantifier `∀ m n : ℕ, m ≥ 1 → n ≥ m` matches \"all pairs of integers n ≥ m ≥ 1\" (since m ≥ 1 and n ≥ m forces both to be positive integers). The divisibility statement `n ∣ Nat.gcd m n * Nat.choose n m` is logically equivalent to \"gcd(m,n)/n · C(n,m) is an integer\" because n ≥ 1 (so n ≠ 0), and an integer value gcd(m,n)·C(n,m)/n is an integer iff n divides gcd(m,n)·C(n,m). The argument orderings match: `Nat.gcd m n` = gcd(m,n) and `Nat.choose n m` = C(n,m) = n!/(m!(n-m)!).",
+  "duration_ms": 61303,
+  "cost_usd": 0.18287649999999997
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "informal": "Let $\\mathcal{T}_\\alpha$ be a family of topologies on $X$. Show that there is a unique smallest topology on $X$ containing all the collections $\\mathcal{T}_\\alpha$.",
+  "lean": "\ntheorem Munkres_exercise_13_4b1 (X I : Type*) (T : I → Set (Set X)) (h : ∀ i, is_topology X (T i)) :\n  ∃! T', is_topology X T' ∧ (∀ i, T i ⊆ T') ∧\n  ∀ T'', is_topology X T'' → (∀ i, T i ⊆ T'') → T' ⊆ T''",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts the existence of a unique T' on X that (a) is a topology, (b) contains every T_i, and (c) is contained in every other topology T'' that contains all T_i. This is precisely the definition of \"the unique smallest topology containing all the T_α\". The use of ∃! captures uniqueness, the inclusion conditions encode \"smallest\", and the universal quantification over the family I matches the informal \"family T_α\". The hypothesis `is_topology X (T i)` for every i matches the assumption that each T_α is a topology. No extra hypotheses (e.g. finiteness, nonemptiness of I) are imposed, and the conclusion matches exactly.",
+  "duration_ms": 13509,
+  "cost_usd": 0.04639850000000001
+}

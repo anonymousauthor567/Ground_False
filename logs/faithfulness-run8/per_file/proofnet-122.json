@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `LocPathConnectedSpace X` which is Mathlib's standard class for \"locally path connected\" (path-connected neighborhoods form a neighborhood basis). It hypothesizes `IsOpen U` and `IsConnected U` (which is `U.Nonempty ∧ IsPreconnected U` in Mathlib) and concludes `IsPathConnected U` (nonempty and any two points joined by a path in U). Both `IsConnected` and `IsPathConnected` in Mathlib include nonemptiness, matching standard topology conventions used by Munkres. This is exactly the forward direction of the Mathlib lemma `IsOpen.isConnected_iff_isPathConnected`, and exactly matches the informal claim \"every connected open set in X is path connected\" under the assumption of local path connectedness. No hypotheses are added or dropped.",
+  "duration_ms": 59537,
+  "cost_usd": 0.22686275
+}

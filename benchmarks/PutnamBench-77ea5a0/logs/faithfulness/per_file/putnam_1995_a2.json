@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a2.lean",
+  "stem": "putnam_1995_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal question. The improper integral convergence is formalized as the existence of a real limit of the partial integrals `∫ x in Set.Icc b t, f(x)` as `t → ∞`, which is the standard definition. The hypothesis `ab.1 > 0 ∧ ab.2 > 0` matches \"pairs of positive real numbers\". The bi-conditional `habconv ab ↔ ab ∈ putnam_1995_a2_solution` provides a characterization of the set of pairs for which the integral converges, matching what the informal question asks. Using `Set.Icc b t` (Bochner integral over a closed interval) is equivalent to the interval integral for the continuous integrand in question, so the limit exists iff the improper integral converges in the usual sense. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 105680,
+  "cost_usd": 0.34738549999999996
+}

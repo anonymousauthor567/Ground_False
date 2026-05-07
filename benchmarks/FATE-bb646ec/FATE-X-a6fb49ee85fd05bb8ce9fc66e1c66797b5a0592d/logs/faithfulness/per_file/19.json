@@ -1,0 +1,8 @@
+{
+  "file": "19.lean",
+  "stem": "19",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that Gal(E/ℚ) ≅ Q_8 where E = ℚ(α) and α = √((2+√2)(3+√3)). In Lean: (1) `QuaternionGroup 2` has order 4·2 = 8 (per `QuaternionGroup.card`), which is the standard quaternion group Q_8; (2) `Algebra.adjoin ℚ {α}` coincides with the field ℚ(α) since α is algebraic over ℚ, so the type `E` correctly represents the subfield; (3) `E ≃ₐ[ℚ] E` is the group of ℚ-algebra automorphisms of E. An isomorphism to Q_8 (order 8) forces |Aut_ℚ(E)| = 8, which combined with [E:ℚ] ≤ 8 means E/ℚ is Galois with Galois group isomorphic to Q_8 — equivalent to the informal claim. (4) `Nonempty (G ≃* H)` is the standard encoding of \"G is isomorphic to H\". The formalization captures the exact mathematical content.",
+  "duration_ms": 300118,
+  "cost_usd": 0.73939175
+}

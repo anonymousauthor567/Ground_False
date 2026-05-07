@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim using Mathlib's `Subgroup.index` convention (where index = 0 means infinite index). The hypothesis `hn : n > 0 ∧ hH : H.index = n` correctly captures \"H has finite index n\". The conclusion `∃ K ≤ H, K.Normal ∧ 0 < K.index ∧ K.index ≤ n.factorial` matches \"normal subgroup K ≤ H with |G:K| ≤ n!\". The `0 < K.index` conjunct is not an extra strengthening — it makes explicit the implicit meaning of \"|G:K| ≤ n!\" in standard mathematical reading (that |G:K| is a finite number), which is necessary because otherwise Mathlib's convention `K.index = 0` for infinite index would trivially satisfy `K.index ≤ n!`. Both the hypothesis and conclusion correctly surface implicit premises required for the statement to have its intended meaning.",
+  "duration_ms": 110293,
+  "cost_usd": 0.31853365000000006
+}

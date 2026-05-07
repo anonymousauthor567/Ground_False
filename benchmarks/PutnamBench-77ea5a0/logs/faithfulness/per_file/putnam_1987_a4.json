@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_a4.lean",
+  "stem": "putnam_1987_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures each element of the informal statement: (1) P is encoded as MvPolynomial (Fin 3) ℂ with hPreal asserting all coefficients have imaginary part zero, which is equivalent to P having real coefficients; (2) F : ℝ → ℝ → ℝ is correct since the functional equation is only asserted on real inputs and forces F to be real-valued there; (3) the functional equation is quantified over real x,y,z,u matching the informal statement; (4) the boundary values P(1,0,0)=4, P(0,1,0)=5, P(0,0,1)=6 are correctly encoded via vars which maps coordinates 0,1,2 to the three arguments; (5) A, B, C : ℂ with P(A,B,C)=0 and ‖B-A‖=10 match; (6) the conclusion ‖C-A‖ = (5/3)√30 (via ℝ→ℂ coercion) is the correct answer. No hypotheses are added or dropped beyond standard encoding conventions.",
+  "duration_ms": 212571,
+  "cost_usd": 0.6354257500000001
+}

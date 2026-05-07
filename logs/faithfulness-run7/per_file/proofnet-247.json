@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes informal condition (i) via the combination of `[GCDMonoid R]` (asserting a gcd function exists with the universal divisibility properties from Mathlib) and `h1` (the Bezout-style identity `gcd a b = r*a + s*b` for nonzero a, b). In an integral domain, the existence-of-GCDs part of (i) is logically equivalent to admitting a GCDMonoid structure, since any GCD can be extended to a total function (gcd(0,a)=a, etc.) and gcds are unique up to units — so `gcd a b = r*a + s*b` for the canonical gcd is equivalent to \"some gcd equals ra+sb\". Condition `h2` precisely encodes the descending divisibility chain stabilization up to units as in (ii). The conclusion `IsPrincipalIdealRing R` matches \"R is a PID\". Quantifier structure, types (general CommRing integral domain, ℕ-indexed sequences), and hypotheses all align with the informal claim.",
+  "duration_ms": 188236,
+  "cost_usd": 0.5873984999999999
+}

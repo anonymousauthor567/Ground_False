@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_b6.lean",
+  "stem": "putnam_1963_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal content precisely. S(A) is defined as the union of `segment ℝ p q` over all pairs (p,q) ∈ A × A, which matches the closed-segment definition and automatically includes the degenerate case `segment ℝ p p = {p}` (by `segment_same`), honoring the note that one-point sets count as closed segments. The recursion `A n = S(A (n-1))` for n ≥ 1 matches, `Nonempty (A 0)` is equivalent to `(A 0).Nonempty`, and the conclusion `∀ n ≥ 2, A n = A (n+1)` is equivalent to `A₂ = A₃ = ⋯`. The hypothesis `1 ≤ d ∧ d ≤ 3` surfaces the implicit premise that \"Euclidean space of at most three dimensions\" refers to a genuine (positive-dimensional) Euclidean space; this is a standard surfacing of implicit context, not a narrowing of scope, especially since d = 0 would be a trivial singleton case.",
+  "duration_ms": 248682,
+  "cost_usd": 0.76521825
+}

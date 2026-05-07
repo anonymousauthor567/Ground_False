@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for a finite group G, there exists an integer m > 0 such that a^m = e for all a ∈ G. The Lean signature quantifies over an arbitrary group type G with `[Group G] [Fintype G]` (capturing \"finite group\"), and asserts `∃ m : ℕ, m > 0 ∧ ∀ a : G, a ^ m = 1`. Here `1` is the identity element (written multiplicatively) which corresponds to e. Using ℕ with the constraint m > 0 is equivalent to a positive integer. The quantifier structure (exists m, for all a) matches the informal statement exactly. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 7944,
+  "cost_usd": 0.038891
+}

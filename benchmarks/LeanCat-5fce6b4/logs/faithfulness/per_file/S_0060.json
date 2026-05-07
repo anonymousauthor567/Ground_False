@@ -1,0 +1,8 @@
+{
+  "file": "S_0060.lean",
+  "stem": "S_0060",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes each of the four informal hypotheses: `LocallySmall.{w} ℬ` (locally small), `HasLimitsOfSize.{w, w} ℬ` (complete), `{S : Set ℬ} [Small.{w} S] (hS : IsCoseparating S)` (small coseparating set S), and the explicit condition `∀ A s, ∃ f, IsGLB s f` (every family of subobjects has an intersection — an `IsGLB` in the `Subobject A` poset is exactly a meet/intersection). The conclusion `HasInitial ℬ` matches \"has an initial object\". The universe `w` is used consistently for all the \"small\" constraints. Note: the standard Mathlib theorem `hasInitial_of_isCoseparating` uses `WellPowered` rather than the intersection hypothesis, but the Lean here directly mirrors the informal statement's literal fourth hypothesis (the classical Freyd SAFT formulation) rather than substituting a related Mathlib notion.",
+  "duration_ms": 216184,
+  "cost_usd": 0.7461375
+}

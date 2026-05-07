@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. A \"region\" in Shakarchi means an open connected subset of ℂ, which is encoded by `IsOpen Ω ∧ IsConnected Ω`. Note that Mathlib's `IsConnected s := s.Nonempty ∧ IsPreconnected s` (Topology/Connected/Basic.lean line 55-56) already requires nonemptiness, so the extra `Nonempty Ω` hypothesis is redundant but harmless and does not narrow the scope. `DifferentiableOn ℂ F_i Ω` with `deriv F_i x = f x` on the open set Ω correctly formalizes \"F_i is a primitive of f\" (holomorphic with derivative f). The conclusion `∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c` correctly expresses \"differ by a constant\". The universal quantification over f, F₁, F₂, Ω is the natural formalization of the informal \"any two primitives\".",
+  "duration_ms": 180473,
+  "cost_usd": 0.5469462500000001
+}

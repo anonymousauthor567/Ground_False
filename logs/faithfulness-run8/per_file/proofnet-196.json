@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"there are infinitely many primes congruent to -1 mod 4\". The Lean statement uses the standard encoding of \"infinitely many\" as: ∀ N, ∃ p ≥ N with the property (this is equivalent to the set being infinite/unbounded in ℕ). The condition \"p ≡ -1 (mod 4)\" cannot be written literally in ℕ, but `p + 1 ≡ 0 [MOD 4]` (i.e., `Nat.ModEq 4 (p+1) 0`, meaning `(p+1) % 4 = 0`) is precisely equivalent to `p ≡ -1 (mod 4)` (i.e., `p ≡ 3 (mod 4)`). `Nat.Prime p` correctly captures primality. The formalization is a faithful, standard translation.",
+  "duration_ms": 48233,
+  "cost_usd": 0.17610099999999998
+}

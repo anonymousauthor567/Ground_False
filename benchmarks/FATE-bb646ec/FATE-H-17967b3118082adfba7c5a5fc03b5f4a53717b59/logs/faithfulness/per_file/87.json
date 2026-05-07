@@ -1,0 +1,8 @@
+{
+  "file": "87.lean",
+  "stem": "87",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal claim. `Subalgebra R K` precisely represents subrings of K containing (the image of) R, which matches \"rings intermediate between R and K\"; `⊥` is the range of `algebraMap R K` (≈ R) and `⊤` is all of K, so `S = ⊥ ∨ S = ⊤` is equivalent to \"no strictly intermediate ring exists\". The hypotheses `CommRing R`, `IsDomain R`, `Field K`, `Algebra R K`, `IsFractionRing R K`, `ValuationRing R` together encode \"R is a valuation ring with field of fractions K\" (IsDomain is required by Mathlib's `ValuationRing` class and does not add extra constraints beyond the informal reading). `ringKrullDim R = 1` correctly encodes \"Krull dimension 1\". The conclusion's quantifier structure (∀ S) matches \"there do not exist any\". No hypothesis is dropped, added, or altered beyond what is implicit in the informal statement.",
+  "duration_ms": 216457,
+  "cost_usd": 0.4504885
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that characteristic subgroups are normal. The Lean statement universally quantifies over an arbitrary group G and arbitrary subgroup H, assumes `[Characteristic H]` (Mathlib's class asserting H is fixed by all automorphisms of G, the standard definition of a characteristic subgroup from Dummit-Foote), and concludes `Normal H`. This is a direct, literal formalization with no added or dropped hypotheses, no changes to quantifier structure, and uses Mathlib's standard notions of `Characteristic` and `Normal` subgroups. The statement exactly matches the claim \"characteristic ⟹ normal\" for all groups G and all subgroups H of G.",
+  "duration_ms": 75060,
+  "cost_usd": 0.22261475
+}

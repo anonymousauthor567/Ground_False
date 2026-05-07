@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if a group contains exactly one element of order 2, then that element is in the center. The Lean formalization introduces `x : G` with `hx : orderOf x = 2` (x has order 2) and `hx1 : ∀ y, orderOf y = 2 → y = x` (any element of order 2 equals x), which together precisely encode \"x is the unique element of order 2 in G\". The conclusion `x ∈ center G` matches \"that element is in the center\". The use of `Subgroup.center G` (as defined in Mathlib/GroupTheory/Subgroup/Center.lean, characterized by `g * z = z * g` for all g) correctly captures the group-theoretic center. No extra or missing hypotheses, and the quantifier structure correctly encodes the uniqueness statement.",
+  "duration_ms": 43984,
+  "cost_usd": 0.19413800000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a6.lean",
+  "stem": "putnam_1979_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the same claim: for p_i ∈ [0,1], there exists x ∈ [0,1] with ∑ 1/|x - p_i| ≤ 8n · ∑ 1/(2i+1). The only apparent addition is the hypothesis `∀ i ∈ Finset.range n, x ≠ p i`, but this makes explicit an implicit premise of the informal statement: the expression 1/|x - p_i| is mathematically undefined when x = p_i, so any natural reading of the informal claim requires x to avoid the p_i so that the sum is well-defined. In Lean, without this condition the `1/0 = 0` convention would change the meaning of the expression from the intended analytic one. All other elements (types, ranges, quantifier structure, coercions of n and i to ℝ, and the Icc encoding of [0,1]) match directly.",
+  "duration_ms": 80261,
+  "cost_usd": 0.25080025
+}

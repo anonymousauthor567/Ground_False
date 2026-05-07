@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p3_2.lean",
+  "stem": "complex_analysis__p3_2",
+  "verdict": "stronger",
+  "reasoning": "The Lean lemma `liouville_theorem` (the target with `sorry`) states the general Liouville's theorem: \"if g is entire and bounded above by some C, then g is constant.\" The informal statement is the specific corollary: \"if f is entire and |f(z)| ≥ 1 for all z, then f is constant.\" These have fundamentally different hypotheses — the informal has a lower bound `1 ≤ |f(z)|` while the Lean has an upper bound `|g(z)| ≤ C`. The file even provides an auxiliary `axiom bounded_reciprocal_function` as a bridge, confirming that `liouville_theorem` was intended as a more general helper lemma, not as a direct translation of the informal claim. Liouville's theorem implies the informal statement (via the bridge — 1/f is entire with |1/f|≤1), so the Lean target is logically stronger: it claims constancy for all bounded entire functions rather than just those satisfying |f|≥1. This matches the rubric's \"claims the result for extra cases / drops a hypothesis that the informal statement explicitly requires.\"",
+  "duration_ms": 763559,
+  "cost_usd": 2.01102975
+}

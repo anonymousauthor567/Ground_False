@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Fermat's Little Theorem: for prime $p$ and integer $a$, $a^p \\equiv a \\pmod{p}$. The Lean signature takes `p : ℕ` with hypothesis `hp : Nat.Prime p`, `a : ℤ`, and concludes `a ^ p ≡ a [ZMOD p]`, which is notation for `Int.ModEq p (a^p) a`, i.e., $a^p \\equiv a \\pmod p$ over the integers. The types (prime natural $p$, integer $a$), the hypothesis (primality), and the conclusion (the exact congruence) all match the informal statement. The instruction \"use Lagrange's Theorem\" is a proof-method suggestion, not part of the logical content, so omitting it in the statement does not affect faithfulness.",
+  "duration_ms": 29731,
+  "cost_usd": 0.042174
+}

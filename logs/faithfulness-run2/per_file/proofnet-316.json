@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim: the hypotheses `LocallyCompactSpace X` and `T2Space X` encode \"locally compact Hausdorff\", and the conclusion `CompletelyRegularSpace X` encodes \"completely regular\". Mathlib's `CompletelyRegularSpace` does not include T1 (unlike Munkres' convention, where completely regular includes T1/Tychonoff), but since the hypothesis `T2Space` already implies `T1Space`, the overall implication \"LCH → completely regular\" is logically equivalent whether one uses `CompletelyRegularSpace` or `T35Space` as the conclusion. No extra hypotheses are smuggled in and nothing is dropped. Thus the statement is logically equivalent to the informal one.",
+  "duration_ms": 39900,
+  "cost_usd": 0.12873674999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Munkres Exercise 23.3. The indexed collection `A : α → Set X` with `∀ a, IsConnected (A a)` matches \"a collection of connected subspaces\"; `A₀` with `IsConnected A₀` matches \"A is a connected subset\"; `∀ a, A₀ ∩ A a ≠ ∅` matches \"A ∩ A_α ≠ ∅ for all α\" (since `≠ ∅` is equivalent to `.Nonempty` in Mathlib); and the conclusion `IsConnected (A₀ ∪ (⋃ a, A a))` matches \"A ∪ (⋃ A_α) is connected\". Mathlib's `IsConnected` requires non-emptiness, which aligns with the standard reading of \"connected subspace/subset\" (and in any case, non-emptiness of A and each A_α follows from `A ∩ A_α ≠ ∅`). The empty-index-set case is handled correctly (reduces to `IsConnected A₀`). No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 180789,
+  "cost_usd": 0.35391225000000004
+}

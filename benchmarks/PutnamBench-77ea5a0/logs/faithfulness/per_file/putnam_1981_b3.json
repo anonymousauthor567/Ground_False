@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_b3.lean",
+  "stem": "putnam_1981_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all components of the informal statement. \"Infinitely many positive integers n\" is expressed via the standard unboundedness idiom `∀ n:ℕ, ∃ m:ℕ, m > n ∧ P m`, which guarantees infinitely many m, all positive (since m > n ≥ 0 implies m ≥ 1). The inner predicate P correctly captures \"all primes p dividing n²+3 also divide k²+3 for some k with k²<n\". The informal says \"some integer k\" while Lean uses k:ℕ, but since k²=(−k)² for any integer, and both the divisibility condition p ∣ k²+3 and the inequality k²<n depend only on k², quantifying over ℕ versus ℤ yields equivalent statements. The types and divisibility encoding (casting to ℤ for the divisibility relation) are standard and semantically equivalent.",
+  "duration_ms": 125207,
+  "cost_usd": 0.3687055
+}

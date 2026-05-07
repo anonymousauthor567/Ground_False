@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-223.lean",
+  "stem": "proofnet-223",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `n : ℕ+` encodes \"n ≥ 1\". (2) `orderOf x = n` and `closure {x} = ⊤` together express \"G = ⟨x⟩ is cyclic of order n\". (3) The LHS of the iff, `∃ p : ℕ, Prime p ∧ p ∣ n ∧ H = Subgroup.closure {x^p}`, matches \"H = ⟨x^p⟩ for some prime p dividing n\" (`Prime` on ℕ coincides with `Nat.Prime`, and ℕ+ coerces to ℕ for divisibility). (4) The RHS, `H ≠ ⊤ ∧ ∀ K, H ≤ K → K = H ∨ K = ⊤`, is a correct standard characterization of a maximal subgroup (equivalent to `IsCoatom H`). The iff direction matches the informal \"maximal iff H = ⟨x^p⟩ for some prime p dividing n\". No hypotheses are added or dropped inappropriately.",
+  "duration_ms": 240530,
+  "cost_usd": 0.8349785
+}

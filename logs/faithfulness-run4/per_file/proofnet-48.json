@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "Every component maps correctly: `[Fintype α]` plus `Fintype.card α > 1` captures \"finite set A with |A|>1\"; `G : Subgroup (Equiv.Perm α)` is exactly a permutation group on A (subgroup of the symmetric group); `h_tran : ∀ a b : α, ∃ σ : G, (σ : Equiv.Perm α) a = b` is the standard definition of transitivity matching Mathlib's `MulAction.IsPretransitive`; and the conclusion `∃ σ : G, ∀ a : α, (σ : Equiv.Perm α) a ≠ a` is exactly \"there is some σ ∈ G with σ(a) ≠ a for all a ∈ A\" (a derangement). The quantifier structure, types, and hypotheses all correspond one-to-one with the informal statement, with no added or dropped hypotheses.",
+  "duration_ms": 35396,
+  "cost_usd": 0.17198124999999997
+}

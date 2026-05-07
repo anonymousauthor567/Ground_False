@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_b4.lean",
+  "stem": "putnam_2017_b4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to evaluate the infinite sum ∑_{k=0}^∞ (3·ln(4k+2)/(4k+2) − ln(4k+3)/(4k+3) − ln(4k+4)/(4k+4) − ln(4k+5)/(4k+5)), and the intended answer is (ln 2)². The Lean formalization uses `∑' k : ℕ, ...` to express the sum starting from k=0, and the summand `3 * log (4 * k + 2) / (4 * k + 2) - log (4 * k + 3) / (4 * k + 3) - log (4 * k + 4) / (4 * k + 4) - log (4 * k + 5) / (4 * k + 5)` parses with correct precedence as (3·log(4k+2))/(4k+2) − log(4k+3)/(4k+3) − log(4k+4)/(4k+4) − log(4k+5)/(4k+5), matching the informal expression. The solution is declared as (log 2)^2, matching (ln 2)². The series is absolutely convergent (the summand is O(ln k / k²) by Taylor expansion), so `tsum` behaves correctly, and since (ln 2)² ≠ 0 the equation correctly asserts both summability and the value. This is a strictly faithful formalization.",
+  "duration_ms": 48897,
+  "cost_usd": 0.125116
+}

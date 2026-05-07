@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. The setup uses a metric space X with two sets K, F : Set X, with the hypotheses IsCompact K, IsClosed F, and Disjoint K F — exactly the three conditions stated informally. The conclusion ∃ δ > 0, ∀ p q, p ∈ K → q ∈ F → dist p q > δ is a direct transcription of \"there exists δ > 0 such that d(p, q) > δ for p ∈ K, q ∈ F\". No hypotheses are added or dropped, and the quantifier structure matches. This is the standard Rudin exercise 4.21(a) formalization.",
+  "duration_ms": 36110,
+  "cost_usd": 0.0557705
+}

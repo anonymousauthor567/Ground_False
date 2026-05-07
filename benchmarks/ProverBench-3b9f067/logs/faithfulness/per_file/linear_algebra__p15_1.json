@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p15_1.lean",
+  "stem": "linear_algebra__p15_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement explicitly asserts three things: (1) existence of a decomposition v = a + b with a parallel to u and b orthogonal to u, (2) UNIQUENESS of this decomposition, and (3) the explicit formulas for a and b. The Lean theorem proves (1) and (3) by exhibiting the formula and verifying the parallel/orthogonal conditions, but it entirely omits the uniqueness claim. No part of the Lean conclusion states \"for any other decomposition v = a' + b' satisfying these properties, a' = a and b' = b.\" The u ≠ 0 hypothesis is a legitimate surfacing of the implicit premise needed for the formula and uniqueness to make sense, and the generalization from ℝ³ to arbitrary InnerProductSpace ℝ E is a standard Lean convention. The dominant drift is the missing uniqueness, which makes the Lean claim strictly weaker than the informal one.",
+  "duration_ms": 205838,
+  "cost_usd": 0.5255325000000001
+}

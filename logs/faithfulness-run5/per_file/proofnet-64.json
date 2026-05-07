@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: for every integer n, if n is a sum of two rational squares then it is a sum of two integer squares. The Lean statement universally quantifies r, s : ℚ and n : ℤ and assumes r² + s² = n, concluding ∃ a, b : ℤ, a² + b² = n. By the standard equivalence (∃ x, P x) → Q ≡ ∀ x, P x → Q (when Q is independent of x), the \"∀ r, s, r² + s² = n → ...\" form is logically equivalent to \"(∃ r, s, r² + s² = n) → ...\". The types match: r² + s² = n uses the ℤ→ℚ coercion on n, and a² + b² = n is in ℤ. No extra or missing hypotheses, so the formalization is faithful.",
+  "duration_ms": 41425,
+  "cost_usd": 0.09607325
+}

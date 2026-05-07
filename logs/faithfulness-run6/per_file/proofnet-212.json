@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of multiplication in ℤ/nℤ. In Mathlib, `ZMod n` is precisely the type representing ℤ/nℤ (with `ZMod 0 = ℤ`, which corresponds to ℤ/0ℤ ≅ ℤ, and `ZMod n` for n ≥ 1 being the finite quotient ring). The Lean statement universally quantifies over n : ℕ and asserts (a * b) * c = a * (b * c) for a, b, c : ZMod n, which is exactly the statement of associativity of multiplication in the residue class. The types and the equation correspond directly to the informal claim, with no hypotheses added or dropped.",
+  "duration_ms": 24789,
+  "cost_usd": 0.11185275
+}

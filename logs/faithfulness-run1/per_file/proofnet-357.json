@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "informal": "Suppose $f$ is defined and differentiable for every $x>0$, and $f^{\\prime}(x) \\rightarrow 0$ as $x \\rightarrow+\\infty$. Put $g(x)=f(x+1)-f(x)$. Prove that $g(x) \\rightarrow 0$ as $x \\rightarrow+\\infty$.",
+  "lean": "\ntheorem Rudin_exercise_5_5\n  {f : ℝ → ℝ}\n  (hfd : DifferentiableOn ℝ f (Ioi 0))\n  (hf : Tendsto (deriv f) atTop (𝓝 0)) :\n  Tendsto (λ x => f (x + 1) - f x) atTop (𝓝 0)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the informal hypotheses and the conclusion. `DifferentiableOn ℝ f (Ioi 0)` matches \"f is defined and differentiable for every x > 0\". Since `Ioi 0` is open, `DifferentiableOn` on it implies `DifferentiableAt` at every x > 0, so `deriv f x` agrees with the true derivative for x > 0; `Tendsto (deriv f) atTop (𝓝 0)` therefore correctly encodes f'(x) → 0 as x → ∞ (only the tail behavior matters). The conclusion `Tendsto (λ x => f (x+1) - f x) atTop (𝓝 0)` is exactly g(x) → 0 as x → ∞. No extra hypotheses are imposed and none are dropped.",
+  "duration_ms": 15660,
+  "cost_usd": 0.0649905
+}

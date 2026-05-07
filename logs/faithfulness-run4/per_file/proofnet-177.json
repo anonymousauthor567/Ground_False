@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement correctly. The hypotheses `IsOpen Ω`, `DifferentiableOn ℂ f Ω`, and `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c` encode \"holomorphic on open Ω with |f| constant\". The conclusion `f a = f b` for arbitrary `a b : Ω` is the standard way to express \"f is constant on Ω\". The extra hypothesis `IsPreconnected Ω` surfaces an implicit premise: in Shakarchi's complex analysis, \"open set Ω\" in this exercise context means a region/domain (connected), and without connectedness the statement is literally false (one can take a locally-constant function valued 1 on one component and -1 on another, as the GT file's counterexample demonstrates). Making this implicit premise explicit is a faithful reading per the system prompt's guidance, and matches the GT's \"corrected\" formalization exactly.",
+  "duration_ms": 109944,
+  "cost_usd": 0.36482499999999995
+}

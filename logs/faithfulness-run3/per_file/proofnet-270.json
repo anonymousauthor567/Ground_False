@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. \"ax + xa commutes with a\" is precisely encoded as `a * (a * x + x * a) = (a * x + x * a) * a`. The ambient structure `Ring R` matches \"in R\" (a general, possibly non-commutative ring). The hypothesis `a^2 = 0` matches directly, and both `a` and `x` are universally quantified elements of R, matching the informal reading where x is an arbitrary element. No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal one.",
+  "duration_ms": 43049,
+  "cost_usd": 0.047787
+}

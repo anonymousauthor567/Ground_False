@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement adds `IsPreconnected Ω`, which is a necessary implicit premise in the informal claim. Without connectedness, the statement is literally false — as demonstrated by the explicit counterexample in the ground-truth file (a holomorphic function on {z | z.im ≠ 0} with constant real part 0, but taking different values on the two components). In Stein-Shakarchi's textbook and complex analysis convention, \"Ω\" typically denotes a domain (open connected set), so preconnectedness is an implicit premise that any mathematician would understand from context. Per the instructions' guidance (and the worked example about 2^r + 1), surfacing an implicit premise needed for truth should be judged faithful, not weaker. All other components match precisely: `DifferentiableOn ℂ f Ω` captures holomorphy, `∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c` captures \"Re(f) is constant\", and `∀ a b ∈ Ω, f a = f b` is the standard encoding of \"f is constant on Ω\".",
+  "duration_ms": 115652,
+  "cost_usd": 0.31093925
+}

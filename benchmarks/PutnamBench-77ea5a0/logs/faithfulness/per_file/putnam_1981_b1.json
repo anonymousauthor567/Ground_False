@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_b1.lean",
+  "stem": "putnam_1981_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement defines `f n = (1/n^5) * ∑_{h=1}^n ∑_{k=1}^n (5h^4 - 18h^2k^2 + 5k^4)` using `Finset.Icc 1 n` (which gives {1,...,n}) with real coercions, and asserts `Tendsto f atTop (𝓝 (-1))`. This directly mirrors the informal limit expression. The answer −1 is mathematically correct: expanding gives 10n·∑h^4 − 18(∑h^2)^2 = −n^5 + O(n^4), which divided by n^5 tends to −1. The Finset.Icc 1 n notation correctly captures the index range h,k from 1 to n, and the inner double sum and outer scaling exactly match the informal formula. The behavior at n=0 (where 1/0^5 = 0) is irrelevant to the limit as n → ∞. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 75772,
+  "cost_usd": 0.29177949999999997
+}

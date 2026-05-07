@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_b5.lean",
+  "stem": "putnam_2024_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The `IsQualifyingSeq` definition, combined with `Monotone w`, `1 ≤ w 0`, and `w (-1 : Fin q) ≤ z`, encodes exactly the chain `1 ≤ w_1 ≤ ... ≤ w_q ≤ z` — in Mathlib, `(-1 : Fin (n+1)) = n` gives the last index (`Fin.coe_neg_one`), so `w (-1)` is the last element. The `NeZero k` and `NeZero m` instances correctly encode that k, m are positive integers. The set being counted matches the informal count (the informal `z ≥ 1` is implied by monotonicity plus `1 ≤ x 0`). The conclusion `∃ P : ℚ[X]` with `∀ i, 0 ≤ P.coeff i` and `∀ n > 0, f n = P.eval n` correctly asserts existence of a polynomial (ℚ[X] is natural since f is integer-valued, so any real polynomial matching would have rational coefficients) with nonnegative coefficients agreeing with f on positive integers.",
+  "duration_ms": 418471,
+  "cost_usd": 0.8907654999999999
+}

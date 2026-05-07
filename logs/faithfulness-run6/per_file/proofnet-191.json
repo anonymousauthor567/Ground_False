@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"I+J=R\" as `I + J = ⊤` and \"IJ = I ∩ J\" as `I * J = I ⊓ J`, which matches Mathlib's standard notation for ideal sum, product, and intersection. The only notable point is the use of `CommRing R` rather than a general ring. In non-commutative rings, IJ = I ∩ J can fail when I+J=R (one only gets IJ + JI = I ∩ J in general), so commutativity is an implicit premise needed for the statement to be true — Mathlib's analogous lemma `Ideal.mul_eq_inf_of_coprime` is likewise stated in a `CommSemiring` context. Making this implicit premise explicit is a faithful formalization per the task guidelines, not a narrowing. Hence the Lean signature is strictly faithful.",
+  "duration_ms": 496550,
+  "cost_usd": 0.6605770000000001
+}

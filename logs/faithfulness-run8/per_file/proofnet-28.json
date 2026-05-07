@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove addition in ℤ/nℤ is associative. The Lean version states `(x + y) + z = x + (y + z)` for all `x y z : ZMod n` and all `n : ℕ`. In Mathlib, `ZMod n` is the canonical implementation of ℤ/nℤ (defined as `ℤ` when n = 0, `Fin n` otherwise), with addition corresponding exactly to residue-class addition. The universal quantification over n : ℕ matches the natural reading of the informal claim, which speaks of ℤ/nℤ generally. No hypotheses are added or dropped, and the conclusion matches the associativity law precisely.",
+  "duration_ms": 48429,
+  "cost_usd": 0.16542125000000002
+}

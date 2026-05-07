@@ -1,0 +1,8 @@
+{
+  "file": "96.lean",
+  "stem": "96",
+  "verdict": "weaker",
+  "reasoning": "The Lean adds the hypothesis `h : ∀ n : ℕ, (f.eval (RingHom.id ℚ))^[n] a ≠ 0`, which is strictly stronger than any implicit premise of the informal statement. Since Mathlib's `RatFunc.eval` returns 0 both when the numerator evaluates to 0 (genuine zero) AND when the denominator evaluates to 0 (pole), this hypothesis excludes both. The informal statement only implicitly requires that iterates don't hit poles (so that the orbit is well-defined); it does not exclude iterates being 0 as a genuine value. For example, $f(x) = x^2 + 1$ with $\\alpha = 0$ satisfies the informal hypotheses (polynomial of degree 2, orbit = {0, 1, 2, 5, 26, ...} has infinitely many integers) and conclusion ($f^2$ is a polynomial), but the Lean hypothesis `h` fails at n = 0 since the 0-th iterate equals $a = 0$. The Lean thus covers strictly fewer cases than the informal statement and is logically implied by (but does not imply) the informal claim.",
+  "duration_ms": 1577732,
+  "cost_usd": 2.896918
+}

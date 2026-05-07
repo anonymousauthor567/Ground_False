@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `centralizer {x⁻¹ * a * x}` is the centralizer of the single element $x^{-1}ax$ (matching $C(x^{-1}ax)$), and `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is precisely $\\{x^{-1}gx : g \\in C(a)\\}$, which is the standard interpretation of $x^{-1}C(a)x$. The universal quantification over groups $G$ and elements $a, x$ is handled by the implicit type variable and explicit arguments. Both sides are sets (via `Set.centralizer` and `Set.image`), making the equality type-correct and semantically equivalent to the informal claim.",
+  "duration_ms": 31894,
+  "cost_usd": 0.09334250000000001
+}

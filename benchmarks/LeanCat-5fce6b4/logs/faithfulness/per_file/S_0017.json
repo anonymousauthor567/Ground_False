@@ -1,0 +1,8 @@
+{
+  "file": "S_0017.lean",
+  "stem": "S_0017",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `ConcreteCat` with a faithful functor matches AHS-style concrete categories. (2) `IsInitialHom` correctly encodes: \"g lifts (is `U k` for some `k`) whenever f∘g lifts (is `U h` for some `h`)\". (3) `IsEmbedding` = initial + Mono on U(f). (4) `IsInjectiveObj` matches \"for any embedding m, any f: A→I extends along m\". (5) `S` uses `generateFrom {({0,1} : Set (Fin 3))}`, which generates exactly the open sets {∅, {0,1}, {0,1,2}} as specified; the `letI` is a local instance that takes precedence in instance search, and `ULift` only wraps without changing topological structure. (6) `piObj (fun _ : I => S)` is the categorical product in TopCat (= Tychonoff power $C^I$), and `Nonempty (Retract Y _)` captures \"Y is a retract of\". The ∃ over `Type u` is a standard universe-polymorphic encoding of \"some index set\". The iff correctly matches \"are precisely\".",
+  "duration_ms": 615570,
+  "cost_usd": 1.88149025
+}

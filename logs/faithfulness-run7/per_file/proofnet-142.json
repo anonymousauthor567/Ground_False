@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization exactly mirrors the informal statement. `ContDiff ℝ 3 f` is Mathlib's standard encoding of \"f is C^3\", which is equivalent to \"f has continuous third derivative\" (f, f', f'', f''' all exist and f''' is continuous). The conclusion uses `deriv f a`, `iteratedDeriv 2 f a`, and `iteratedDeriv 3 f a` — these are precisely f'(a), f''(a), f'''(a) for a real-valued function on ℝ. The product and the inequality ≥ 0 match the informal statement exactly. No hypotheses are added or dropped, and no type changes occur.",
+  "duration_ms": 47331,
+  "cost_usd": 0.21830699999999997
+}

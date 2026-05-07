@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-111.lean",
+  "stem": "proofnet-111",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the two canonical projections from a product space X × Y to X and Y are open maps. The Lean statement uses a slightly indirect encoding: it introduces generic functions π₁, π₂ with hypotheses h₁ : π₁ = Prod.fst and h₂ : π₂ = Prod.snd, then concludes IsOpenMap π₁ ∧ IsOpenMap π₂. This is logically equivalent to directly stating IsOpenMap (Prod.fst : X × Y → X) ∧ IsOpenMap (Prod.snd : X × Y → Y). Mathlib's IsOpenMap f is defined as ∀ U, IsOpen U → IsOpen (f '' U), matching the informal definition. X and Y remain arbitrary topological spaces, and the product topology on X × Y is supplied by the standard instance. No hypotheses are added or dropped beyond surface-level reformulation, so the formalization is faithful.",
+  "duration_ms": 38917,
+  "cost_usd": 0.10631325
+}

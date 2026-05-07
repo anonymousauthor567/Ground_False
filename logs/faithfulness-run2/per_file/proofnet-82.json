@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim: P is a Sylow p-subgroup (`P : Sylow p G`), p is prime (`hp : Nat.Prime p`), P is normal in G (`hP : P.Normal`), and the conclusion that P is the unique Sylow p-subgroup is expressed as `∀ (Q : Sylow p G), P = Q`. Equality of `Sylow p G` terms in Mathlib corresponds to equality as subgroups, so this correctly states uniqueness. No extra hypotheses (like finiteness) are assumed that would not already be implicit in the informal statement, and no hypotheses are dropped.",
+  "duration_ms": 25298,
+  "cost_usd": 0.0627505
+}

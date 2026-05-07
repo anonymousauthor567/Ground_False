@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a4.lean",
+  "stem": "putnam_2014_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes a ℕ-valued random variable via its PMF `X : ℕ → ℝ` where `X n = P(X=n)`. The `Xrandvar` predicate (`X n ∈ [0,1]` and sum = 1) captures \"valid probability distribution on nonnegative integers\" correctly — the upper bound X n ≤ 1 is redundant given nonnegativity and sum=1, so the predicate is equivalent to being a PMF. The expectation E[f(X)] = ∑' n, f(n)·X(n) matches the standard definition, and `fun x : ℕ => x`, `x^2`, `x^3` correctly coerce to give E[X], E[X²], E[X³]. The conclusion asks for `sInf {X 0 | ...}`, which equals the minimum P(X=0) since the minimum 1/3 is achieved (by the distribution with support {0,1,3} and probabilities 1/3, 1/2, 1/6). This is a strictly faithful formalization of the Putnam 2014 A4 problem.",
+  "duration_ms": 139580,
+  "cost_usd": 0.400632
+}

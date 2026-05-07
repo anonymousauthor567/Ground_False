@@ -1,0 +1,8 @@
+{
+  "file": "probability__p1_1.lean",
+  "stem": "probability__p1_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove three conclusions under the hypothesis P{X>0} = 1-e^(-1): (a) λ = 1, (b) P{X ≤ 1} = 2e^(-1), and (c) cov(X, X²) = 3. The Lean formalization only addresses conclusion (a). The hypothesis `1 - exp(-1) = 1 - exp(-λ)` correctly encodes the probability condition for a Poisson distribution (since P{X>0} = 1 - P{X=0} = 1 - e^(-λ)), and concluding λ = 1 from this is correct. However, parts (b) and (c) are entirely omitted from the Lean statement, making it logically weaker than the full informal claim which asserts all three conclusions.",
+  "duration_ms": 138148,
+  "cost_usd": 0.2485675
+}

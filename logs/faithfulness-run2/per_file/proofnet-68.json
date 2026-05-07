@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-68.lean",
+  "stem": "proofnet-68",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $x^6+30x^5-15x^3+6x-120$ is irreducible in $\\mathbb{Z}[x]$. The Lean signature asserts `Irreducible (X^6 + 30*X^5 - 15*X^3 + 6*X - 120 : Polynomial ℤ)`, which is exactly the same polynomial in the same ring ℤ[x], with the same conclusion of irreducibility. The coefficients (1, 30, 0, -15, 0, 6, -120) and degrees match the informal polynomial precisely, and `Irreducible` in `Polynomial ℤ` is the standard notion of irreducibility in $\\mathbb{Z}[x]$. No hypotheses or conclusions have been added or dropped.",
+  "duration_ms": 7026,
+  "cost_usd": 0.0356995
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that a finite group G with |G| = n > 2 has no subgroup H with |H| = n - 1. The Lean statement captures exactly this: G is a finite group via `[Fintype G]`, the hypothesis `card G > 2` matches \"n > 2\", and the conclusion `card H ≠ card G - 1` asserts that no subgroup has order n - 1 (universally quantified via the parameter `H : Subgroup G`, which is equivalent to \"G cannot have a subgroup H with |H| = n-1\"). Since `card G > 2`, the natural-number subtraction `card G - 1` poses no issue. The `[Fintype H]` instance is automatic given Fintype G, not an added assumption. This is a faithful formalization.",
+  "duration_ms": 156046,
+  "cost_usd": 0.226517
+}

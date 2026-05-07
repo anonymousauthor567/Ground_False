@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean formulation captures the Munkres exercise correctly. X being compact Hausdorff is encoded via CompactSpace and T2Space. The hypothesis `A.Nonempty` surfaces an implicit premise (the exercise's \"a collection\" is conventionally nonempty, and without it ⋂₀ ∅ = univ could be disconnected). The chain condition `∀ a b ∈ A, a ⊆ b ∨ b ⊆ a` is equivalent to \"simply ordered by proper inclusion\" for sets. Closed and connected are faithfully encoded with `IsClosed` and `IsConnected` (where `IsConnected` requires nonemptiness, which is automatically satisfied for the intersection in this setup via FIP, so it matches Munkres's conclusion). No hypothesis is silently dropped or strengthened.",
+  "duration_ms": 258277,
+  "cost_usd": 0.33206925
+}

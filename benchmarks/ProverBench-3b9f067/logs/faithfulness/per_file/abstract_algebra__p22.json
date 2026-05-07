@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p22.lean",
+  "stem": "abstract_algebra__p22",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a CYCLIC inequality on n variables x₁,...,xₙ ∈ [-π/6, π/6]: the LHS has n terms cos(2x_i - x_{i+1}) with the wraparound term cos(2xₙ - x₁), and the RHS has n terms cos(x_i). The Lean formalization uses n+1 variables (x : Fin (n+1) → ℝ) and sums: LHS = Σ_{i : Fin n} cos(2·x_i - x_{i.succ}) which is a NON-CYCLIC chain with n terms cos(2x_i - x_{i+1}) for i=0..n-1 (no wraparound), and RHS = Σ_{i : Fin (n+1)} cos(x_i) which has n+1 terms. The Lean statement is logically implied by the informal one (apply the informal cyclic bound to n+1 variables x₀,...,xₙ; the extra cyclic term cos(2xₙ - x₀) ≥ 0 since |2xₙ - x₀| ≤ π/2, so dropping it preserves the inequality), but the Lean version does NOT imply the informal: if we try to reduce the cyclic case to the Lean chain, we pick up an extra +cos(y₁) term on the RHS which cannot be discarded. Thus the Lean encoding is a strictly weaker claim — the cyclic wraparound term is missing and an extra cos-term on the RHS makes it easier.",
+  "duration_ms": 1113473,
+  "cost_usd": 3.8305559999999996
+}

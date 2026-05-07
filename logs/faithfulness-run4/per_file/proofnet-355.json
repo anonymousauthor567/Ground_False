@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∀ x y : ℝ, |f x - f y| ≤ (x - y)^2` is exactly the informal condition. The conclusion `∃ c, f = λ _x => c` expresses \"there is a real c such that f is the constant function c\", which is the standard meaning of \"f is constant\". The type ℝ → ℝ matches \"defined for all real x\" with real values. No extra hypotheses are added, none are dropped, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 16649,
+  "cost_usd": 0.07380874999999999
+}

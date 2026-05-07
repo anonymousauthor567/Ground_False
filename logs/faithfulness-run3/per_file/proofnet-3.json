@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a group of even order contains an element of order 2. The Lean statement requires G to be a group (`[Group G]`) that is finite (`[Fintype G]`, needed to talk about its order) with even cardinality (`Even (card G)`), and concludes `∃ x : G, orderOf x = 2`. The Fintype instance is not an extra mathematical hypothesis — it is required to even state \"even order\" since `card G` needs Fintype. The conclusion `orderOf x = 2` precisely matches \"element of order 2\". All quantifiers, types, and hypotheses align with the informal claim.",
+  "duration_ms": 16860,
+  "cost_usd": 0.03852575
+}

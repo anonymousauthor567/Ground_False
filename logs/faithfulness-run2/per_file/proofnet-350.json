@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal claim. Although in the informal statement f is \"defined on E\" while in Lean f is given as ℝ → ℝ, the only constraint on f is `ContinuousOn f E`, and only values of f on E are compared with g — values of f off E are irrelevant. This is equivalent to giving a continuous function on E: any continuous f : E → ℝ extends to some ℝ → ℝ that is ContinuousOn E, and any ℝ → ℝ satisfying ContinuousOn f E restricts to a continuous function on E. The non-existence clause correctly captures \"no continuous extension g on all of ℝ agreeing with f on E.\" Edge cases like E = ∅ or E = ℝ are admissible under the existential but do not weaken/strengthen the statement because the existential just needs one witness. Thus the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 20877,
+  "cost_usd": 0.07135875
+}

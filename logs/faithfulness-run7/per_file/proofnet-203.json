@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures Axler's exercise precisely. `S * T` on `Module.End F V` is composition (matching Axler's juxtaposition). `Eigenvalues` in Mathlib is the subtype `{μ // HasEigenvalue f μ}`, and type equality between two such subtypes is propositionally equivalent to \"for all μ, μ is an eigenvalue of S∘T iff μ is an eigenvalue of T∘S\" — exactly \"same eigenvalues\". The `FiniteDimensional F V` hypothesis is an implicit premise necessary for truth: in infinite dimensions, a right-shift/left-shift counterexample shows 0 can be an eigenvalue of ST but not TS. Axler's Chapter 5 operates under a standing finite-dimensionality assumption, so making this explicit in Lean is surfacing an implicit premise, which the rubric treats as faithful rather than weaker.",
+  "duration_ms": 210867,
+  "cost_usd": 0.7509565
+}

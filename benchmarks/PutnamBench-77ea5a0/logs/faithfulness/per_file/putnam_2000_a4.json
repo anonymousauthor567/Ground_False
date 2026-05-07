@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_a4.lean",
+  "stem": "putnam_2000_a4",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"the improper integral $\\lim_{B\\to\\infty}\\int_0^B \\sin(x)\\sin(x^2)\\,dx$ converges\" is standardly formalized as the existence of a real number $y$ such that the function $B \\mapsto \\int_0^B \\sin(x)\\sin(x^2)\\,dx$ tends to $y$ as $B \\to \\infty$. The Lean statement asserts exactly this using `∃ y : ℝ, Tendsto (fun B => ...) atTop (𝓝 y)`. Using `Set.Ioo 0 B` instead of `[0,B]` is irrelevant since endpoints have Lebesgue measure zero. The integrand `Real.sin x * Real.sin (x ^ 2)` matches $\\sin(x)\\sin(x^2)$, and no extraneous hypotheses are added or required ones dropped. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 32010,
+  "cost_usd": 0.11488825
+}

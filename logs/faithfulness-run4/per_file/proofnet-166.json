@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly Rudin 4.5(a) (a version of Tietze's extension theorem for ℝ). The informal \"f is a real continuous function defined on a closed set E\" is encoded as `f : ℝ → ℝ` together with `ContinuousOn f E`; the behavior of f outside E is immaterial both in the informal and Lean statements. Mathlib's `ContinuousOn f E` is `∀ x ∈ E, ContinuousWithinAt f E x`, the standard continuity-on-subset notion. The hypothesis `IsClosed E` matches \"closed set\", and the conclusion `∃ g : ℝ → ℝ, Continuous g ∧ ∀ x ∈ E, f x = g x` matches \"there exists a continuous g on ℝ with g(x) = f(x) on E\". The quantifier structure, types, hypotheses, and conclusion all line up faithfully.",
+  "duration_ms": 83498,
+  "cost_usd": 0.24749000000000002
+}

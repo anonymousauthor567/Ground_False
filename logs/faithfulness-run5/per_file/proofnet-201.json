@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes all parts of the informal statement. `[FiniteDimensional F V]` captures \"V is finite dimensional\"; `L : V →ₗ[F] W` captures \"T ∈ L(V, W)\"; `∃ U : Submodule F V` captures the existence of the subspace; `U ⊓ (ker L) = ⊥` captures \"U ∩ null T = {0}\"; and `range L = range (domRestrict L U)` captures \"range T = {Tu : u ∈ U}\", since by Mathlib's `range_domRestrict` lemma, `range (domRestrict L U) = U.map L = {L u : u ∈ U}`. The use of an arbitrary field F is consistent with the informal statement (which does not specify the field). No hypotheses are dropped, added, or altered.",
+  "duration_ms": 103592,
+  "cost_usd": 0.31780949999999997
+}

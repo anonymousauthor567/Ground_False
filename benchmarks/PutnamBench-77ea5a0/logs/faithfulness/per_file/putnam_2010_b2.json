@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b2.lean",
+  "stem": "putnam_2010_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all parts of the informal problem. Integer coordinates are captured by `A i = round (A i)` (which, after the standard ℤ→ℝ coercion, is equivalent to \"A i is an integer\") across i : Fin 2 for all three points. Integer distances are similarly encoded via `dist A B = round (dist A B)`, etc. Noncollinearity uses Mathlib's standard `¬Collinear ℝ {A, B, C}`. The conclusion `IsLeast {y | ∃ A B C, ABCall A B C ∧ y = dist A B} putnam_2010_b2_solution` unfolds to: 3 is achieved by some valid triple AND every valid triple has dist A B ≥ 3, which is exactly \"the smallest possible value of AB is 3\". The ambient space `EuclideanSpace ℝ (Fin 2)` with its standard `dist` is the correct model of the plane. No hypothesis is added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 219269,
+  "cost_usd": 0.60555025
+}

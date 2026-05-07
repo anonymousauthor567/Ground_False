@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `[Field F] [AddCommGroup V] [Module F V]`, which is Mathlib's standard encoding of \"V is a vector space over the field F\" — matching Axler's setup where V is a vector space over F. The universally quantified type variables and the explicit `(v : V) (a : F)` correspond to the \"if $a \\in \\mathbf F$, $v \\in V$\" in the informal statement. The conclusion `a • v = 0 → a = 0 ∨ v = 0` is exactly the informal claim. No extra hypotheses (e.g., Fintype, finite-dimensionality, Nonempty) are introduced, and nothing is dropped or weakened. Therefore the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 122774,
+  "cost_usd": 0.32821475000000006
+}

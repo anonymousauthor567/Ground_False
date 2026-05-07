@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `IsConnected (A n)` matches \"connected subspace\" (Mathlib defines `IsConnected s := s.Nonempty ∧ IsPreconnected s`, and the overlap hypothesis forces nonemptiness anyway). `A n ∩ A (n + 1) ≠ ∅` is equivalent to `(A n ∩ A (n+1)).Nonempty`, matching $A_n \\cap A_{n+1} \\neq \\varnothing$. The conclusion `IsConnected (⋃ n, A n)` matches \"$\\bigcup A_n$ is connected\" — the union is automatically nonempty given the overlap condition. The ℕ indexing faithfully represents the sequence $\\{A_n\\}$. This is precisely the statement of `IsConnected.iUnion_of_chain` in `Mathlib.Topology.Connected.Basic`.",
+  "duration_ms": 85429,
+  "cost_usd": 0.28301250000000006
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "informal": "Suppose $f$ is a real function defined on $\\mathbb{R}$ which satisfies $\\lim_{h \\rightarrow 0} f(x + h) - f(x - h) = 0$ for every $x \\in \\mathbb{R}$. Show that $f$ does not need to be continuous.",
+  "lean": "\ntheorem Rudin_exercise_4_1a\n  : ∃ (f : ℝ → ℝ), (∀ (x : ℝ), Tendsto (λ y => f (x + y) - f (x - y)) (𝓝 0) (𝓝 0)) ∧ ¬ Continuous f",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the property \"lim_{h→0}(f(x+h)-f(x-h))=0 for every x\" does not force f to be continuous, i.e. to exhibit some f : ℝ → ℝ satisfying the limit condition but not continuous. The Lean signature asserts ∃ f : ℝ → ℝ such that for every x the function y ↦ f(x+y) − f(x−y) tends to 0 as y → 0, and f is not continuous. The quantifier structure (∃ f, ∀ x), the limit encoding via Tendsto with 𝓝 0 → 𝓝 0, and the negation of Continuous f all directly correspond to the informal claim. No extra hypotheses (e.g. measurability, boundedness) are added and none are dropped.",
+  "duration_ms": 10064,
+  "cost_usd": 0.0527685
+}

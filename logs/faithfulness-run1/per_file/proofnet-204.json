@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "theorem_name": "Axler_exercise_5_13_corrected",
+  "informal": "Suppose $T \\in \\mathcal{L}(V)$ is such that every subspace of $V$ with dimension $\\operatorname{dim} V-1$ is invariant under $T$. Prove that $T$ is a scalar multiple of the identity operator.",
+  "lean": "\n\ntheorem Axler_exercise_5_13_corrected {F V : Type*} [AddCommGroup V] [Field F]\n    [Module F V] [FiniteDimensional F V] {T : End F V}\n    (hS : ∀ U : Submodule F V, finrank F U = finrank F V - 1 →\n      Submodule.map T U ≤ U) : ∃ c : F, T = c • LinearMap.id",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement accurately: V is a finite-dimensional vector space over a field F, T is an endomorphism of V, and the hypothesis quantifies over all submodules U with finrank U = finrank V - 1 and asserts T-invariance via `Submodule.map T U ≤ U`, which is the standard \"T(U) ⊆ U\" definition of invariant subspace. The conclusion `∃ c : F, T = c • LinearMap.id` is exactly \"T is a scalar multiple of the identity.\" Edge cases from natural-number subtraction (dim V = 0 or 1) do not break faithfulness: in both cases the conclusion holds trivially and matches the informal claim. No extra hypotheses (like algebraic closure or characteristic) are added, and none are missing.",
+  "duration_ms": 14688,
+  "cost_usd": 0.06892375
+}

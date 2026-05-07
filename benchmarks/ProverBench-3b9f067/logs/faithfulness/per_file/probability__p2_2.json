@@ -1,0 +1,8 @@
+{
+  "file": "probability__p2_2.lean",
+  "stem": "probability__p2_2",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks for a single scalar claim: the second component of X₃ = A³X₀ equals 0.18. The Lean lemma `A_cubed` instead asserts the full 3×3 matrix equality A·(A·A) = [specific 9-entry matrix], and never references the defined X0 at all. The matrix equality logically implies the informal claim (since X₀ = e₁, the second component of A³X₀ equals entry (1,1) of A³, one of the 9 claimed values = 0.18), but the converse does not hold — knowing one scalar entry of A³X₀ does not determine all 9 entries of A³. The Lean theorem thus proves strictly more than the informal statement asked, making it stronger rather than faithful.",
+  "duration_ms": 171003,
+  "cost_usd": 0.27548775000000003
+}

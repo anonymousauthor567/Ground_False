@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p7.lean",
+  "stem": "linear_algebra__p7",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires BOTH α₁ and α₂ to be non-zero (\"Let α₁ and α₂ be two non-zero vectors\"), but the Lean formalization drops these hypotheses entirely. The Lean adds a disjunct `(α₁ = 0 ∧ α₂ = 0)` to the conclusion to try to handle zero cases, but this is a genuine weakening only of the conclusion, not equivalent to adding back the hypotheses. Computing the implications: Lean → Informal holds (given α₁≠0, α₂≠0, the disjunct (α₁=0 ∧ α₂=0) is false, so Lean's conclusion collapses to α₂=k·α₁), but Informal → Lean fails (counterexample V=ℝ, α₁=0, α₂=1: linearly dependent, Informal is vacuous, yet Lean's conclusion is false since neither 1=k·0 nor (0=0 ∧ 1=0) can hold). Per the rubric, \"drops a hypothesis that the informal statement explicitly requires\" is the textbook case of a stronger formalization. Note: the Lean statement is not merely stronger but actually false, since the case where exactly one vector is zero is not covered by the added disjunct.",
+  "duration_ms": 308166,
+  "cost_usd": 0.87562125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all conditions of the informal definition: μ positive on (0,∞) (encoded via μ : ℝ → ℝ with `∀ x > 0, μ x > 0`, which is equivalent since values outside (0,∞) don't affect the condition on |s-t|), ContinuousOn and StrictMonoOn on Ioi 0 matching \"continuous, strictly increasing on (0,∞)\", Tendsto μ (𝓝[>] 0) (𝓝 0) capturing μ(s) → 0 as s → 0⁺, and the modulus inequality quantified over s, t ∈ [a, b]. The hypothesis `hab : a ≤ b` makes explicit the implicit premise needed for [a,b] to be a non-degenerate interval, which is standard. The biconditional matches \"if and only if\". The encoding of the modulus function on all of ℝ (rather than just (0,∞)) is a standard Mathlib-style equivalent reformulation. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 297404,
+  "cost_usd": 0.790053
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "informal": "Prove that there exists a normal subgroup that is not characteristic.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_4_6b :\n  ∃ (G : Type*) (hG : Group G) (H : @Subgroup G hG), @Normal G hG H ∧ ¬ @Characteristic G hG H",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to exhibit some group containing a normal subgroup that is not characteristic. The Lean signature existentially quantifies over a type G, a Group instance, and a subgroup H, asserting H is Normal and not Characteristic. This matches the informal claim exactly: existence of (G, H) with H normal and not characteristic. No extra hypotheses are imposed and no weaker conclusion is drawn.",
+  "duration_ms": 5591,
+  "cost_usd": 0.04297775
+}

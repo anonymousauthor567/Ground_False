@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p9_3.lean",
+  "stem": "linear_algebra__p9_3",
+  "verdict": "weaker",
+  "reasoning": "The Lean file defines `IsQuadraticForm f` to be literally `∃ A, A.IsSymm ∧ ∀ x, f x = dotProduct x (A.mulVec x)` — exactly the RHS of the iff in the theorem. Hence `quadratic_form_iff` is a tautology `P ↔ P`, provable by `Iff.rfl`. The informal statement, by contrast, asserts a substantive equivalence between the standard notion of a quadratic form (e.g. Mathlib's `QuadraticForm` structure: a function with f(ax) = a²f(x) and bilinear polarization) and existence of a symmetric matrix representation — a nontrivial result that typically requires characteristic ≠ 2. The Lean version vacuously follows from the informal claim but provides none of its mathematical content. Also, the informal statement is about ℝ while the Lean uses an arbitrary field K, but that is immaterial since the Lean claim is vacuous either way.",
+  "duration_ms": 744819,
+  "cost_usd": 1.4819467499999999
+}

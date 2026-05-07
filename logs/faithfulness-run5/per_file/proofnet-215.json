@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for an element x in a group G, x and x⁻¹ have the same order. The Lean signature takes an arbitrary group G (via `{G : Type*} [Group G]`) and an arbitrary element `x : G`, and asserts `orderOf x = orderOf x⁻¹`. This is precisely the claim of equal orders in the group-theoretic sense (Mathlib's `orderOf` handles both finite and infinite orders uniformly, returning 0 for infinite-order elements). No hypotheses are dropped or added, the quantifier structure matches, and the conclusion is a direct equality of orders. This is equivalent to Mathlib's `orderOf_inv`.",
+  "duration_ms": 20499,
+  "cost_usd": 0.10903825000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses directly mirror \"holomorphic in the unit disc\" (`DifferentiableOn ℂ f (ball 0 1)`), \"bounded\" (`Bornology.IsBounded (f '' ball 0 1)`), and \"not identically zero\" (`¬ Set.EqOn f 0 (ball 0 1)`). The conclusion sums over distinct zeros weighted by `(analyticOrderAt f z).toNat`, which is the vanishing multiplicity — this is the standard multiplicity-counted form of the Blaschke condition that is the conventional reading of \"its zeros $z_1, z_2, \\ldots$\" in Stein–Shakarchi and is equivalent to listing zeros as a sequence with repetition. Because `h0` rules out `f` vanishing on any neighborhood (identity principle on the connected ball), `analyticOrderAt f z ≠ ⊤`, so `.toNat` gives the genuine multiplicity. `Summable` over this (at most countable) subtype is equivalent to the informal $\\sum_n(1-|z_n|) < \\infty$.",
+  "duration_ms": 145982,
+  "cost_usd": 0.4980589999999999
+}

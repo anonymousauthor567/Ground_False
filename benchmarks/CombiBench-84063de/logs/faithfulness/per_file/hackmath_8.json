@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_8.lean",
+  "stem": "hackmath_8",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding represents each arrangement as an assignment of 13 men and 7 women to one of 2 trips (Fin 2). It enforces (a) all women on trip 0 (first group), and (b) each trip has exactly 10 people. Given 20 total people and capacity 10 per trip, \"at most 10 per trip in 2 trips\" necessarily means \"exactly 10 per trip\", so this is the natural reading. The count then equals C(13,3) = 286, which is the standard answer to this hackmath problem. The assumptions of \"2 trips\" and \"each trip at capacity\" are the standard implicit premises needed for the problem to have a clean combinatorial answer — this is surfacing standard implicit premises rather than narrowing the claim. The men and women are treated as distinguishable, which is the conventional combinatorial reading.",
+  "duration_ms": 311095,
+  "cost_usd": 0.662328
+}

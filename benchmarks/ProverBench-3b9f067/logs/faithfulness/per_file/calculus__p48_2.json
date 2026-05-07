@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p48_2.lean",
+  "stem": "calculus__p48_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem `cos x = ∑' (n : ℕ), ((-1)^n / (2n)!) * x^(2n)` (with `x : ℝ`) is the standard Mathlib-idiomatic formalization of the informal claim \"cos(x) equals its Taylor series for all real x\", matching exactly the form of `Real.cos_eq_tsum` in `Mathlib/Analysis/SpecialFunctions/Trigonometric/Series.lean`. The summand `((-1)^n / (2n)!) * x^(2n)` is algebraically equal to Mathlib's `(-1)^n * x^(2n) / (2n)!`. The universal quantifier `∀ x : ℝ` captures the informal \"for all x in (-∞, +∞)\" domain claim. While `tsum` returns 0 for non-summable series (so `cos x = ∑' ...` technically doesn't by itself force convergence), this is the established Mathlib convention for expressing power-series identities, and any mathematician would read the equation as asserting the same content as the informal statement. Nothing in the quantifier structure, types, or hypotheses is changed.",
+  "duration_ms": 339086,
+  "cost_usd": 0.74276075
+}

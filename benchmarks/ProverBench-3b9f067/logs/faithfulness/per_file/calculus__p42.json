@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p42.lean",
+  "stem": "calculus__p42",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is an indefinite integral (antiderivative) claim: d/dx[-cos⁹x/9 + cos¹¹x/11] = sin³x·cos⁶x. The Lean notation `∫ (x : ℝ), f x` (per Mathlib's Bochner.lean line 804) denotes the definite Bochner integral of f over all of ℝ w.r.t. volume measure — a completely different concept from an antiderivative. In the Lean statement, the `x` inside `∫ (x : ℝ), sin x ^ 3 * cos x ^ 6` is bound, so the LHS is a constant (in fact 0, since sin³·cos⁶ is not Lebesgue-integrable on ℝ and Mathlib's convention sets non-integrable integrals to 0), while the RHS depends on the outer parameter x. Also, `C` is not defined by `open Real`; it becomes an auto-bound implicit universal variable, making the claim `∀ C, 0 = -cos⁹x/9 + cos¹¹x/11 + C`, which is false. The informal antiderivative claim and the Lean definite-integral equation are about different mathematical objects and neither implies the other.",
+  "duration_ms": 303099,
+  "cost_usd": 0.7634392499999999
+}

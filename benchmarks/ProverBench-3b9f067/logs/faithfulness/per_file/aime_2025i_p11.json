@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025i_p11.lean",
+  "stem": "aime_2025i_p11",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says \"a, b, and d has greatest common divisor equal to 1\", which is the three-way condition gcd(a, b, d) = 1. The Lean formalization instead encodes this as pairwise coprimality: `Nat.Coprime a b ∧ Nat.Coprime a d ∧ Nat.Coprime b d`, meaning gcd(a,b) = gcd(a,d) = gcd(b,d) = 1. Pairwise coprimality is strictly stronger than three-way gcd equal to 1 (e.g., gcd(6, 10, 15) = 1 but no two are coprime). The Lean version's existence of witnesses satisfying pairwise coprimality implies the informal's existence with only three-way gcd = 1, but not the converse. All other components (the piecewise f, periodicity, definition of S as x-coordinates where x = 34·f(x)², squarefree c, sum equals (a + b√c)/d, and a+b+c+d = 259) match the informal statement. The sole but consequential mismatch is the coprimality encoding, which makes the Lean theorem a strictly stronger claim.",
+  "duration_ms": 875152,
+  "cost_usd": 2.08432625
+}

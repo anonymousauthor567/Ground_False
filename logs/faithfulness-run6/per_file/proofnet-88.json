@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `hp : Nat.Prime p` encodes that p is prime, `q : Polynomial (ZMod p)` with `hq : Irreducible q` and `hn : q.degree = n` encodes that q is an irreducible polynomial over F = ℤ_p of degree n. The conclusion has two parts joined by conjunction: (i) `∃ is_fin : Fintype (Polynomial (ZMod p) ⧸ span {q}), @card ... is_fin = p ^ n` asserts the quotient is a finite type with exactly p^n elements (Fintype.card is canonical so the existential witness is merely the standard way to express finiteness + cardinality); (ii) `IsField (Polynomial (ZMod p) ⧸ span {q})` asserts the quotient is a field. With `Ideal` opened, `span {q}` is `Ideal.span {q}`, giving the quotient F[x]/(q(x)). Both conclusions together match \"is a field having exactly p^n elements\" exactly, with no extra or missing hypotheses.",
+  "duration_ms": 109443,
+  "cost_usd": 0.32610675000000006
+}

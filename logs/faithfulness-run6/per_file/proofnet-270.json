@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal claim. \"$ax+xa$ commutes with $a$\" means $a(ax+xa) = (ax+xa)a$, which is exactly the equation in the Lean conclusion `a * (a*x + x*a) = (a*x + x*a) * a`. The ring structure `[Ring R]` is the natural ambient setting, the hypothesis `a ^ 2 = 0` matches \"$a^2 = 0$\", and the implicit universal quantification over $a, x \\in R$ is captured by the free variables in the signature. No hypotheses are added or dropped, and the types align correctly.",
+  "duration_ms": 11459,
+  "cost_usd": 0.04962225000000001
+}

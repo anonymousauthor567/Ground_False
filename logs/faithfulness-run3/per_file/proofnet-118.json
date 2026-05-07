@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. A sequence of connected subspaces is captured by `A : ℕ → Set X` with `∀ n, IsConnected (A n)` (Mathlib's `IsConnected` means nonempty and preconnected, which is equivalent to being connected as a subspace). The hypothesis `A n ∩ A (n + 1) ≠ ∅` is logically equivalent to `(A n ∩ A (n+1)).Nonempty` for sets. The conclusion `IsConnected (⋃ n, A n)` corresponds to \"⋃ Aₙ is connected\". This is precisely Mathlib's `IsConnected.iUnion_of_chain` (Munkres exercise 23.2).",
+  "duration_ms": 123055,
+  "cost_usd": 0.24738974999999996
+}

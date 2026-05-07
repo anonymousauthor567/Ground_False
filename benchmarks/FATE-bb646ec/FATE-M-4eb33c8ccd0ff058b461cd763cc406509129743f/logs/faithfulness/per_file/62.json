@@ -1,0 +1,8 @@
+{
+  "file": "62.lean",
+  "stem": "62",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `N ⊓ K = ⊥` correctly encodes $H \\cap K = \\{e\\}$ since `⊓` is subgroup intersection (Mathlib's `Subgroup.mem_inf`) and `⊥` is the trivial subgroup. Both subgroups are declared normal via `N.Normal` and `K.Normal`. The conclusion `n * k = k * n` for arbitrary `n ∈ N` and `k ∈ K` captures the universal \"for all $h \\in H$ and $k \\in K$\". The only cosmetic change is renaming $H$ to $N$, which is semantically irrelevant. No hypotheses are added or dropped.",
+  "duration_ms": 31487,
+  "cost_usd": 0.09630650000000002
+}

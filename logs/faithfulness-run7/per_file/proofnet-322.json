@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Cantor's intersection theorem for a decreasing sequence of nonempty compact sets. The Lean formalization encodes this directly: `hne` gives nonemptiness, `hcomp` gives compactness, `hmono : s i ⊇ s (i+1)` gives the decreasing nesting, and the conclusion `(⋂ i, s i).Nonempty` matches exactly. The only added hypothesis is `[T2Space α]`, which is necessary for the theorem to be true — without closedness (or equivalently T2, since in Hausdorff spaces compact sets are closed via `IsCompact.isClosed`), the statement fails in general topological spaces. Mathlib's own `IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed` requires closedness as a separate hypothesis. Surfacing this implicit premise (which is standard in Pugh's analysis context where spaces are metric/Hausdorff) is faithful formalization, not a weakening.",
+  "duration_ms": 290974,
+  "cost_usd": 0.835536
+}

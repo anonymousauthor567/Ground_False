@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b1.lean",
+  "stem": "putnam_1988_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for all integers a ≥ 2 and b ≥ 2, there exist positive integers x, y, z with ab = xy + xz + yz + 1. The types of a, b are inferred as ℤ because x, y, z : ℤ and the equation has no coercions. This is logically equivalent to the informal claim that every composite number (defined as a product ab with a, b ∈ {2,3,4,...}) can be written as xy + xz + yz + 1 with x, y, z positive integers — quantifying over factorizations (a,b) instead of composite values n is equivalent since every composite has at least one such factorization. The positivity constraints x > 0, y > 0, z > 0 on integer-valued x, y, z correctly capture \"positive integers\". No hypotheses are silently added or dropped.",
+  "duration_ms": 171057,
+  "cost_usd": 0.4762397499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each element of the informal claim: a sequence indexed by ℕ (nested), each set compact (hcomp), nonempty (hne), decreasing via s i ⊇ s (i+1) (hmono), with conclusion that the intersection is nonempty. The only addition is the [T2Space α] hypothesis. This is an implicit premise needed for truth: in a non-Hausdorff space, e.g., ℕ with the indiscrete topology where every subset is compact, a decreasing sequence s_i = {k : k ≥ i} of nonempty compact sets has empty intersection. In a T2 space, compact sets are closed, enabling Cantor's intersection theorem (Mathlib's `IsCompact.nonempty_iInter_of_sequence_nonempty_isCompact_isClosed`). Since real-analysis-style exercises about \"nested compact sets\" implicitly assume a Hausdorff ambient, making this explicit is faithful, not weakening.",
+  "duration_ms": 108264,
+  "cost_usd": 0.30462
+}

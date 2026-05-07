@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_b5.lean",
+  "stem": "putnam_1963_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal content. The sequence is indexed by ℤ instead of ℕ, but values at negative indices are unconstrained and don't appear in any hypothesis or the conclusion (the series sums `∑ n : Fin N, a n` covers n = 0, 1, ..., N-1 via Fin N → ℕ → ℤ coercion; `atTop` on ℤ means n → +∞). The inequality hypothesis `haineq` faithfully encodes \"0 ≤ a_k ≤ 100a_n for n ≤ k ≤ 2n, n ≥ 1\". The series convergence hypothesis `haseries` encodes convergence of partial sums starting from index 0, matching \"∑_{n=0}^∞ a_n converges\". The conclusion `Tendsto (fun n : ℤ => n * a n) atTop (𝓝 0)` is equivalent to lim_{n→∞} n·a_n = 0 since eventually n ≥ 0 under atTop on ℤ. The use of ℤ is slightly unusual but does not alter the mathematical content.",
+  "duration_ms": 211849,
+  "cost_usd": 0.65539525
+}

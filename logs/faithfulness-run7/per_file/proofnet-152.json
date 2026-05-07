@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over x, y : ℂ and asserts |‖x‖ - ‖y‖| ≤ ‖x-y‖. For complex numbers, ‖·‖ in Mathlib is definitionally/propositionally equal to Complex.abs, which is exactly the modulus |·| in the informal statement. The outer |·| on the left is the real absolute value on the real number ‖x‖ - ‖y‖, matching ||x|-|y|| in the informal text. This is precisely the reverse triangle inequality (Mathlib's `abs_norm_sub_norm_le`) specialized to ℂ. No hypotheses are added, removed, or altered, and the quantifier structure and conclusion match exactly.",
+  "duration_ms": 32776,
+  "cost_usd": 0.1935515
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "theorem_name": "Artin_exercise_13_4_10_corrected",
+  "informal": "Prove that if a prime integer $p$ has the form $2^r+1$, then it actually has the form $2^{2^k}+1$.",
+  "lean": "\ntheorem Artin_exercise_13_4_10_corrected\n    {p : ℕ} (hp : Nat.Prime p)\n    (h : ∃ r : ℕ, 1 ≤ r ∧ p = 2 ^ r + 1) :\n    ∃ k : ℕ, p = 2 ^ (2 ^ k) + 1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement says \"if a prime p has the form 2^r + 1, then p = 2^(2^k) + 1,\" with no lower bound on r. The Lean signature adds the extra hypothesis `1 ≤ r`, restricting the claim to r ≥ 1. This makes the Lean statement strictly weaker: the informal version (as literally written) would also need to cover r = 0, where p = 2^0 + 1 = 2 is prime — a case the Lean theorem excludes (and which is in fact a counterexample to the literal informal statement, since 2 cannot be written as 2^(2^k) + 1). The \"_corrected\" suffix in the theorem name signals that the author intentionally strengthened the hypothesis to repair the informal claim, so the Lean version proves less than what was asked.",
+  "duration_ms": 14089,
+  "cost_usd": 0.06370300000000001
+}

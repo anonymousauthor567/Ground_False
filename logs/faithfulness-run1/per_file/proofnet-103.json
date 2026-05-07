@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "informal": "Show that if $a$ is negative then $p \\equiv q(4 a)$ together with $p\\not | a$ imply $(a / p)=(a / q)$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_5_37 {p q : ℕ} [Fact (p.Prime)] [Fact (q.Prime)] {a : ℤ}\n  (ha : a < 0) (h0 : p ≡ q [ZMOD 4*a]) (h1 : ¬ ((p : ℤ) ∣ a)) :\n  legendreSym p a = legendreSym q a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the same claim: a < 0, p ≡ q mod 4a, p ∤ a, conclude legendreSym p a = legendreSym q a. The apparent absence of an \"odd prime\" hypothesis is harmless because p ≡ q mod 4a with |4a| ≥ 4 forces p = 2 ↔ q = 2, in which case the conclusion is trivial; legendreSym is well-defined in Mathlib for p = 2 as well. The seemingly missing q ∤ a hypothesis follows from the given ones: if q | a, then since a | 4a we get a | p, forcing a ∈ {±1,±p}, contradicting either a < 0 with q prime or p ∤ a. The modular condition `[ZMOD 4*a]` is the correct integer congruence mod 4a, and types/coercions match. So the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 38661,
+  "cost_usd": 0.12926625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses `MetricSpace X` with `SeparableSpace X` correctly encode \"separable metric space\", and `IsClosed A` encodes \"closed set\". Mathlib's `Perfect` structure in `Mathlib/Topology/Perfect.lean` explicitly documents that it does NOT require the set to be nonempty, which matches \"(possibly empty) perfect set\". Mathlib's `Set.Countable` accommodates finite and empty sets (it means \"at most countable\"), matching \"a set which is at most countable\". The existential `∃ P₁ P₂ : Set X, A = P₁ ∪ P₂ ∧ Perfect P₁ ∧ Set.Countable P₂` exactly captures the decomposition being asserted. This is the standard Cantor-Bendixson theorem statement.",
+  "duration_ms": 45300,
+  "cost_usd": 0.18751799999999996
+}

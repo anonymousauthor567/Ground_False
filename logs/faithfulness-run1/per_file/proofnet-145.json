@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "theorem_name": "Putnam_exercise_2017_b3",
+  "informal": "Suppose that $f(x)=\\sum_{i=0}^{\\infty} c_{i} x^{i}$ is a power series for which each coefficient $c_{i}$ is 0 or 1 . Show that if $f(2 / 3)=3 / 2$, then $f(1 / 2)$ must be irrational.",
+  "lean": "\ntheorem Putnam_exercise_2017_b3 (f : ℝ → ℝ) (c : ℕ → ℝ)\n  (hf : f = λ x => (∑' (i : ℕ), (c i) * x^i))\n  (hc : ∀ n, c n = 0 ∨ c n = 1)\n  (hf1 : f (2/3) = 3/2) :\n  Irrational (f (1/2))",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes f as the tsum of c_i * x^i over ℕ, requires each c_i ∈ {0,1}, hypothesizes f(2/3) = 3/2, and concludes Irrational (f(1/2)) — exactly matching the informal statement. The use of `tsum` is appropriate: with 0/1 coefficients and convergence at x = 2/3, the series also converges absolutely at x = 1/2, so `tsum` agrees with the usual sum and `f(1/2)` denotes the genuine value of the power series at 1/2. Quantifier structure (universal over all such f and c) and types (real coefficients/values) are correct. No extra hypotheses or weakened conclusions are introduced.",
+  "duration_ms": 11203,
+  "cost_usd": 0.048304
+}

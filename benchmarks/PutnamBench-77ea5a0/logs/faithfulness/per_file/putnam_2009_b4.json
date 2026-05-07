@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b4.lean",
+  "stem": "putnam_2009_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. Polynomials in two real variables are encoded as `MvPolynomial (Fin 2) ℝ`. The \"balanced\" condition (average = 0 on each circle) is correctly expressed: although the integrand is divided by 2πr instead of 2π (the true arc-length average normalization), the condition \"= 0\" is unchanged since 2πr ≠ 0 for r > 0, so this is equivalent to the mean integral vanishing. The degree constraint uses `totalDegree ≤ 2009`, which matches \"degree at most 2009\" for bivariate polynomials. The vector space V is a `Submodule ℝ` (equivalent to subspace since ℝ is a field), correctly defined as the set satisfying both predicates. The dimension is asserted via `Module.rank ℝ V`, which equals the vector space dimension for a module over a field, matching \"dimension of V\". The answer 2020050 matches the standard computation (sum of d+1 for odd d from 1 to 2009 plus sum of d for even d from 0 to 2008).",
+  "duration_ms": 360127,
+  "cost_usd": 0.93357175
+}

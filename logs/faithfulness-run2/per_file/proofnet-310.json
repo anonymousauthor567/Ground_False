@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says $[0,1]^\\omega$ is not locally compact in the uniform topology. In Lean, `ℕ →ᵇ I` with `I = Icc 0 1` is the space of bounded continuous functions from ℕ (discrete) to [0,1]; since ℕ is discrete and [0,1] is bounded, this type is in bijection with `ℕ → [0,1] = [0,1]^ω`. The topology on `BoundedContinuousFunction` is the sup-metric topology, which on $[0,1]^\\omega$ coincides with Munkres' uniform metric (the `min` with 1 is redundant because all coordinates lie in [0,1]). Thus `¬ LocallyCompactSpace (ℕ →ᵇ I)` asserts exactly that $[0,1]^\\omega$ with the uniform topology is not locally compact, matching the informal claim.",
+  "duration_ms": 21915,
+  "cost_usd": 0.09492124999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b6.lean",
+  "stem": "putnam_2022_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding uses `f : Set.Ioi 0 → Set.Ioi 0` with `Continuous f` to capture continuous $f:\\mathbb{R}^+\\to\\mathbb{R}^+$. The functional equation is expressed via an auxiliary `fr : ℝ → ℝ` agreeing with `f` on positive reals — this is needed only to type-check expressions like `x * fr y`. Since for any $x, y > 0$ we have `fr y = f y > 0`, hence `x * fr y > 0`, `y * fr x > 0`, and `x + y > 0`, the values of `fr` used in the equation are all determined by `f`. Any `f` can be extended to some such `fr`, so `∃ fr …` is logically equivalent to the informal equation $f(xf(y))+f(yf(x))=1+f(x+y)$ for all $x,y>0$. The solution set `{f | ∃ c ≥ 0, ∀ x, f x = 1/(1+cx)}` matches the standard answer. The \"find all\" is correctly encoded as a biconditional.",
+  "duration_ms": 276485,
+  "cost_usd": 0.42945875000000006
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "informal": "Prove that $\\lim_{n \\rightarrow \\infty}\\sqrt{n^2 + n} -n = 1/2$.",
+  "lean": "\ntheorem Rudin_exercise_3_2a\n  : Tendsto (λ (n : ℝ) => (sqrt (n^2 + n) - n)) atTop (𝓝 (1/2))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that sqrt(n²+n) - n tends to 1/2 as n → ∞. The Lean version expresses this as a limit of a real-valued function with n : ℝ tending to atTop in ℝ, with the limit being 1/2 in the standard topology. While the informal \"n\" is often read as a natural number, the function sqrt(n²+n) - n is real-analytic and the limit value and behavior are identical; the real-variable version implies the natural-variable version and is the standard Mathlib encoding. The square root, subtraction, and target value 1/2 all match. No extra hypotheses are introduced and the conclusion is the exact equality of the limit. This is the standard faithful formalization.",
+  "duration_ms": 13169,
+  "cost_usd": 0.05354275
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim. `[CommGroup G]` corresponds to \"abelian group\"; `[Fintype G]` together with `hG : card G = p^n*m` captures \"of order p^n m\"; `hp : Nat.Prime p` and `hp1 : ¬ p ∣ m` capture \"p is a prime with p ∤ m\"; `{H : Subgroup G}` with `hH : card H = p^n` captures \"H is a subgroup of G of order p^n\". The conclusion `Subgroup.Characteristic H` is Mathlib's definition of a characteristic subgroup (fixed by all automorphisms), matching the standard mathematical notion. No hypothesis is added or removed, and no quantifier/type has been altered.",
+  "duration_ms": 48070,
+  "cost_usd": 0.20211125
+}

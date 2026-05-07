@@ -1,0 +1,8 @@
+{
+  "file": "66.lean",
+  "stem": "66",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. The polynomial $X^{2^n} + X + C\\,1$ in $(\\mathbb{Z}/2\\mathbb{Z})[X]$ correctly encodes $x^{2^n}+x+1$ over $\\mathbb{F}_2$ (with `^` being right-associative so `X ^ 2 ^ n` parses as `X^(2^n)`). The hypothesis `n ≥ 3` matches. For this polynomial, which has degree $2^n \\geq 8$, it is neither zero nor a unit in $\\mathbb{F}_2[X]$, so Mathlib's `¬ Irreducible` is equivalent to the standard mathematical notion of \"reducible\" (a nontrivial factorization into non-units exists). No hypotheses are silently added or dropped; the quantifier structure matches, and the mathematical content (which is true since roots live in $\\mathbb{F}_{2^{2n}}$, and $2^n \\nmid 2n$ for $n\\geq 3$) matches exactly.",
+  "duration_ms": 199318,
+  "cost_usd": 0.57630375
+}

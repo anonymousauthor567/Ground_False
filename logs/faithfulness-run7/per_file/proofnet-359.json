@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. \"Three times differentiable on [-1,1]\" is encoded by the three DifferentiableOn hypotheses (on f, on deriv f, on deriv (deriv f)) over Icc (-1) 1, which is the standard Mathlib pattern for iterated differentiability on a closed interval. The point conditions f(-1)=0, f(0)=0, f(1)=1, f'(0)=0 correspond exactly to hf0, hf1, hf2, hf3. The conclusion ∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3 faithfully encodes \"f^(3)(x) ≥ 3 for some x ∈ (-1,1)\"; note that x lies in the open interval, so DifferentiableOn implies DifferentiableAt at x, making `deriv` agree with the true derivative. No hypotheses are silently added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 203045,
+  "cost_usd": 0.74833425
+}

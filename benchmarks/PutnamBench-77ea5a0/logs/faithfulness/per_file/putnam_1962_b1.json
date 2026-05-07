@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_b1.lean",
+  "stem": "putnam_1962_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully formalizes the informal statement. The function `p : ℕ → ℝ → ℝ` is pinned down by two hypotheses: `p 0 = fun x => 1` encodes $x^{(0)} = 1$, and `p n = fun x => ∏ i ∈ Finset.range n, (x - i)` for $n > 0$ encodes $x^{(n)} = x(x-1)\\cdots(x-n+1)$ (product over $i = 0, \\ldots, n-1$). The conclusion `p n (x+y) = ∑ k ∈ Finset.range (n+1), Nat.choose n k * (p k x) * (p (n - k) y)` exactly matches $(x+y)^{(n)} = \\sum_{k=0}^n \\binom{n}{k} x^{(k)} y^{(n-k)}$: `Finset.range (n+1)` iterates $k \\in \\{0, \\ldots, n\\}$, and natural subtraction `n - k` is well-defined in that range. Taking $x, y \\in \\mathbb{R}$ is the natural reading of the Putnam identity. The case $n = 0$ is correctly handled in both sides.",
+  "duration_ms": 165166,
+  "cost_usd": 0.48298550000000007
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The Lean expression `(12 + 6 * X + X ^ 3 : Polynomial ℚ)` is literally the polynomial `X^3 + 6X + 12` over ℚ (terms merely written in ascending order). Mathlib's `Irreducible` predicate (Algebra/Group/Irreducible/Defs.lean) states exactly that the element is not a unit and any factorization has a unit factor — which, for polynomials over a field like ℚ, coincides with the standard mathematical notion of irreducibility in ℚ[X]. No hypotheses are added or dropped and the conclusion matches the informal claim \"irreducible in ℚ\" under the standard reading (irreducible in the polynomial ring ℚ[X]). Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 56697,
+  "cost_usd": 0.1718055
+}

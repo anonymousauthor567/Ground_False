@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. `IsQuotientMap p` encodes \"quotient map\" (including surjectivity). `ConnectedSpace Y` and `ConnectedSpace X` correctly encode the connectedness of Y and X respectively. The hypothesis `∀ y : Y, IsConnected (p ⁻¹' {y})` matches \"each p⁻¹({y}) is connected\"; though `IsConnected` requires nonemptiness, this is automatically satisfied because quotient maps are surjective, so the fibers are always nonempty. The quantifier structure and types all align with the informal claim.",
+  "duration_ms": 18943,
+  "cost_usd": 0.08675975000000001
+}

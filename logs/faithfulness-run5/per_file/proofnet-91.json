@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-91.lean",
+  "stem": "proofnet-91",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. `[Infinite F] [Field F]` captures \"infinite field F\"; `[AddCommGroup V] [Module F V]` captures \"vector space over F\"; `[Finite ι]` with `u : ι → Submodule F V` captures \"finite number of subspaces\"; `hu : ∀ i, u i ≠ ⊤` captures \"proper subspaces\" (not equal to the whole space). The conclusion `(⋃ i, (u i : Set V)) ≠ ⊤` states that the set-theoretic union of the submodules (coerced to sets) is not equal to `Set.univ = V`, which is exactly \"V is not the union of these proper subspaces\". Edge cases (empty ι, V = 0) behave correctly and consistently with the informal claim. No extra or missing hypotheses alter the mathematical content.",
+  "duration_ms": 86228,
+  "cost_usd": 0.270155
+}

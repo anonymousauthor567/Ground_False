@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that if u is a unit in a ring R, then -u is also a unit. The Lean signature universally quantifies over a ring R (via `[Ring R]`, which is a ring with 1 and additive inverses — matching the standard textbook notion of a ring used in Dummit & Foote), takes `hu : IsUnit u`, and concludes `IsUnit (-u)`. The hypothesis, conclusion, and ambient structure all correspond exactly to the informal claim. This is a standard Mathlib fact (`IsUnit.neg` in `Mathlib/Algebra/Ring/Units.lean`), and the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 60645,
+  "cost_usd": 0.20184750000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes the informal claim. `as.prod⁻¹` is $(a_1 a_2 \\cdots a_n)^{-1}$, and `(as.reverse.map (·⁻¹)).prod` first reverses to $[a_n, \\dots, a_1]$, inverts each element to $[a_n^{-1}, \\dots, a_1^{-1}]$, then takes the product, yielding $a_n^{-1} a_{n-1}^{-1} \\cdots a_1^{-1}$. The group `G` is arbitrary (`{G : Type*} [Group G]`), matching \"for all $a_i \\in G$\". The only extension is that the empty list case is included, but this is the trivial $1^{-1} = 1$ and matches the standard convention for empty products, not a semantic strengthening of the claim.",
+  "duration_ms": 18833,
+  "cost_usd": 0.07800574999999998
+}

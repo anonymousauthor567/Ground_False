@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `∀ x : R, x ^ 3 = x` is a direct translation of \"x³ = x for every x ∈ R\". The conclusion `∀ x y : R, x * y = y * x` is exactly the definition of R being commutative. Mathlib's `Ring` typeclass represents the standard unital associative ring, matching the conventional modern reading of \"ring\". No hypotheses are added or dropped, the quantifier structure is preserved, and the types match exactly.",
+  "duration_ms": 78256,
+  "cost_usd": 0.27626575
+}

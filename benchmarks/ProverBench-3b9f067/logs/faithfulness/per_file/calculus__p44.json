@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p44.lean",
+  "stem": "calculus__p44",
+  "verdict": "stronger",
+  "reasoning": "The informal statement \"$\\lim_{x\\to 0} f(x) = 1/2$\" is, by standard mathematical convention, the punctured limit (x → 0 with x ≠ 0), which would be formalized as `Tendsto f (𝓝[≠] 0) (𝓝 (1/2))`. The Lean statement uses the non-punctured filter `𝓝 0`, which additionally requires the function to be close to 1/2 at x = 0 itself. Since `𝓝[≠] 0 ≤ 𝓝 0` (confirmed in `Mathlib/Topology/ContinuousOn.lean`), the Lean statement `Tendsto f (𝓝 0) (𝓝 (1/2))` logically implies the punctured version, but is strictly stronger. In fact, in Lean `f(0) = (1 - 1^0)/0^3 = (1-1)/0 = 0/0 = 0 ≠ 1/2`, which means the Lean statement is actually false (whereas the informal statement is true), confirming that the extra requirement at x = 0 is genuinely additional content. Other problems in this same benchmark (e.g., `calculus__p61.lean`) correctly use `𝓝[≠] 0` for this kind of limit, showing the convention is available. Thus the Lean signature is a strictly stronger formalization.",
+  "duration_ms": 1604509,
+  "cost_usd": 2.081404
+}

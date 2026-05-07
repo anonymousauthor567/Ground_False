@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for a finite group G with |G| = n > 2, there is no subgroup H with |H| = n - 1. The Lean signature takes G as a finite group with card G > 2 and, for any subgroup H (with Fintype instance), concludes card H ≠ card G - 1. Taking H as a parameter with a universal conclusion is equivalent to \"G cannot have such a subgroup.\" The hypothesis |G| > 2 and the conclusion |H| ≠ |G| - 1 directly mirror the informal claim, and no extraneous hypotheses or weakenings are introduced. This is a faithful encoding.",
+  "duration_ms": 24904,
+  "cost_usd": 0.05060075
+}

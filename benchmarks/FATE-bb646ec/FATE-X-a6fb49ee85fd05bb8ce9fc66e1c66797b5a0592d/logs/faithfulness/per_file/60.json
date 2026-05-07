@@ -1,0 +1,8 @@
+{
+  "file": "60.lean",
+  "stem": "60",
+  "verdict": "incomparable",
+  "reasoning": "The formalization has two critical errors. First, associatedPrimes R I computes the associated primes of I viewed as an R-module (Ass_R(I)), whereas the informal statement refers to associated primes of the ideal I, which means Ass_R(R/I). In a Noetherian domain, Ass_R(I) = {(0)} for any nonzero ideal (since I is torsion-free), making the RHS degenerate. Second, ringKrullDim (R / p.1) = 1 computes the coheight of p (dimension of R/p, longest chain above p), not the height/codimension (longest chain below p). The correct encoding would use Ideal.primeHeight or height. These two independent errors make the formalized statement assert a fundamentally different claim.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

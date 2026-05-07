@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_4.lean",
+  "stem": "functional_analysis__p1_4",
+  "verdict": "weaker",
+  "reasoning": "The Lean file does not faithfully formalize any of the three claims (a), (b), (c) in the informal statement. It DEFINES `f` as `(u²+v²)e^{-(u+v)}` (so part (b) is a definitional choice, not proved), takes part (a) (`partial_g_x`) as an axiom rather than proving it, and omits part (c) (unique global minimum) entirely. The only `sorry`-marked statement to prove is `g_expression : g x y = (x²+(y-x)²)e^{-y}`, which is merely a trivial unfolding of the definitions of g and f. This lemma is implied by claim (b) (and hence by the informal statement as a whole) but is vastly less than what the informal statement asks to prove. The formalization is therefore logically weaker: the informal statement implies it, but it does not imply the three substantive claims.",
+  "duration_ms": 174442,
+  "cost_usd": 0.38475975000000007
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-298.lean",
+  "stem": "proofnet-298",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show ℝ × ℝ in the dictionary order topology is metrizable. In Lean, `ℝ ×ₗ ℝ` is `Lex (ℝ × ℝ)`, which has the lexicographic (= dictionary) order `(a,b) < (c,d) ↔ a < c ∨ (a = c ∧ b < d)` — matching the informal order. The two typeclass hypotheses `[TopologicalSpace (ℝ ×ₗ ℝ)] [OrderTopology (ℝ ×ₗ ℝ)]` are the standard Mathlib idiom for equipping a space with its order topology: `OrderTopology` is a Prop that fixes the topology to be `generateFrom {s | ∃ a, s = Ioi a ∨ s = Iio a}`, which uniquely determines the topology, so together they say \"the order topology on ℝ ×ₗ ℝ\". The conclusion `MetrizableSpace (ℝ ×ₗ ℝ)` directly captures \"metrizable\". No extra hypotheses narrow the scope and nothing is strengthened beyond the informal claim.",
+  "duration_ms": 234838,
+  "cost_usd": 0.7339939999999999
+}

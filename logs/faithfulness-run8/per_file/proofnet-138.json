@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for a counterexample: a connected set whose interior is disconnected. The Lean formalization asserts the existence of such S ⊆ ℝ × ℝ using Mathlib's standard IsConnected (nonempty + preconnected) and interior (largest open subset) definitions. The choice of ℝ × ℝ as the ambient space is the natural concretization — in ℝ (1D), every connected set is an interval with connected interior, so any counterexample requires dimension ≥ 2, and ℝ² is the canonical setting with the standard counterexample (e.g., two closed disks meeting at a single point). Since the informal statement needs some ambient topological space to even make sense, and ℝ² is the minimal/natural choice for this well-known counterexample, this is a faithful concretization rather than an unwarranted strengthening. The existential quantifier structure and the conjunction (connected ∧ ¬connected interior) match the informal claim exactly.",
+  "duration_ms": 167764,
+  "cost_usd": 0.4862270000000001
+}

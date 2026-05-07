@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p25.lean",
+  "stem": "calculus__p25",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims both that f(x) = cos(3x+x²) is differentiable on ℝ and that its derivative equals -sin(3x+x²)·(3+2x). The Lean statement uses the standard Mathlib convention `deriv (fun x => cos (3*x + x^2)) x = -sin (3*x + x^2) * (3 + 2*x)` universally quantified over x : ℝ. The formula matches exactly (chain rule on u = 3x+x²). While Mathlib's `deriv` returns 0 for non-differentiable points, this is the standard way derivative formulas are stated in Mathlib (cf. `deriv_cos`), and since cos(3x+x²) is smooth everywhere, the Lean statement expresses the same mathematical content as the informal claim. The types (x : ℝ), the quantifier, and the formula all correspond correctly.",
+  "duration_ms": 487286,
+  "cost_usd": 1.0682705
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-4.lean",
+  "stem": "proofnet-4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"V is a K-vector space\" via `Field K`, `AddCommGroup V`, `Module K V`. The spanning-by-countably-infinite-set hypothesis is captured precisely by `Set.Countable S ∧ S.Infinite ∧ span K S = ⊤` (Mathlib's `Set.Countable` means at-most-countable, so combined with `S.Infinite` this gives countably infinite). The conclusion `Countable ι` (from Mathlib's `Data.Countable.Defs`) means \"at most countable\", exactly matching \"finite or countably infinite\". The encoding of \"every linearly independent subset\" via universally-quantified families `R : ι → V` with `LinearIndependent K R` is equivalent: any linearly independent set T gives rise to the family indexed by T (subtype), and conversely, since `Field K` implies `Nontrivial K`, linear independence of R forces R injective, so ι is in bijection with its linearly-independent image in V. No hypotheses are silently added or dropped.",
+  "duration_ms": 163259,
+  "cost_usd": 0.550601
+}

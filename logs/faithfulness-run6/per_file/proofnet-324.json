@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-324.lean",
+  "stem": "proofnet-324",
+  "verdict": "faithful",
+  "reasoning": "The informal statement $\\sum 1/k(\\log k)^p$ is the classical Bertrand series, which is implicitly understood to start at $k=2$ (since $\\log 1 = 0$ causes division by zero). The Lean formalization uses the index shift `k+2` over `k : ℕ`, so the terms are $\\frac{1}{(k+2)(\\log(k+2))^p}$ for $k \\geq 0$, which by substitution $n=k+2$ equals $\\sum_{n=2}^\\infty \\frac{1}{n(\\log n)^p}$ — exactly the intended sum. The hypothesis `p > 1` matches, the parsing of the fraction as $\\frac{1}{k(\\log k)^p}$ matches, and `Summable` on `ℕ` correctly expresses convergence. Making the starting index explicit via `k+2` is a faithful surfacing of the implicit premise that the series begins where the terms are well-defined.",
+  "duration_ms": 34105,
+  "cost_usd": 0.08725775
+}

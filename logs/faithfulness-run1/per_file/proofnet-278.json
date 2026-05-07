@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "informal": "If $F$ is of characteristic $p \\neq 0$, show that all the roots of $x^m - x$, where $m = p^n$, are distinct.",
+  "lean": "\ntheorem Herstein_exercise_5_6_14 {p m n: ℕ} (hp : p ≠ 0) (hn : n > 0)\n  {F : Type*} [Field F] [CharP F p] (hm : m = p ^ n) :\n  (X ^ m - X : Polynomial F).Separable",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in a field F of characteristic p ≠ 0, the polynomial x^m - x with m = p^n has distinct roots. The Lean signature captures this via `(X^m - X).Separable`, which over a field is equivalent to having no repeated roots (i.e. all roots in any extension are distinct). The hypotheses `Field F`, `CharP F p`, and `p ≠ 0` correctly encode \"F is of characteristic p ≠ 0\" (and force p to be prime since F is a field). The added `n > 0` is implicit in Herstein's exercise (so m = p^n is the relevant Frobenius power); without it m=1 makes X^m - X = 0, which would be trivially non-separable, so requiring n > 0 is a reasonable disambiguation rather than a real strengthening. The conclusion (Separable) matches \"all roots distinct\" for a nonzero polynomial over a field.",
+  "duration_ms": 13126,
+  "cost_usd": 0.059972750000000005
+}

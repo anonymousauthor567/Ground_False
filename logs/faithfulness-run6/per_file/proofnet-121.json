@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes $S^1$ as `Metric.sphere (0 : ℂ) 1`, the unit circle in ℂ, which is a standard equivalent encoding. The negation `-x` on `Metric.sphere (0 : ℂ) 1` comes from the `InvolutiveNeg` instance in `Mathlib/Analysis/Normed/Group/BallSphere.lean` (`neg := Subtype.map Neg.neg ...`), which is precisely the antipodal map on the sphere. The hypothesis `Continuous f` matches \"continuous map\", and the conclusion `∃ x, f x = f (-x)` directly matches \"there exists $x \\in S^1$ with $f(x) = f(-x)$\". No hypotheses are added or dropped, and the ambient object and the antipodal map are faithfully captured.",
+  "duration_ms": 64512,
+  "cost_usd": 0.24088750000000003
+}

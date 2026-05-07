@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines a Boolean ring as a ring R where a² = a for all a, and asks to prove it is commutative. The Lean formalization uses `[Ring R]` (matching \"ring\"), adds the hypothesis `∀ a : R, a^2 = a` (matching the Boolean ring condition), and concludes `∀ a b : R, a*b = b*a` (which is exactly the definition of commutativity). The quantifier structure, hypotheses, and conclusion all align with the informal statement. No extra assumptions are added and none are dropped.",
+  "duration_ms": 18455,
+  "cost_usd": 0.037318250000000004
+}

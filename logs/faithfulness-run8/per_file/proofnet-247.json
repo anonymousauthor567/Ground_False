@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures both conditions: h1 encodes the Bezout-like property for gcds (condition (i)), and h2 encodes the chain condition (condition (ii)). The `[GCDMonoid R]` instance surfaces the gcd operation needed to state h1 — this is justified because condition (i) itself implies the existence of gcds for nonzero pairs (and gcds for pairs involving 0 are trivially defined), so any integral domain satisfying informal (i) can be endowed with a GCDMonoid structure. Since gcds are associates in an integral domain, requiring `gcd a b = r*a + s*b` for the specific GCDMonoid gcd is equivalent to \"some gcd is expressible as ra+sb.\" The quantifier over N in h2 (`N : ℕ` vs \"positive integer N\") is equivalent since N=0 working implies N=1 works by composing unit factors. The conclusion `IsPrincipalIdealRing R` matches \"R is a PID\". No hypothesis is dropped or strengthened beyond what the informal intends.",
+  "duration_ms": 172069,
+  "cost_usd": 0.5194215
+}

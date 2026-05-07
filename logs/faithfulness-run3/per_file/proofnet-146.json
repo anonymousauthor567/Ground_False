@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `hn : n > 0` matches \"positive integer n\". The polynomial `f n z = ∑ i : Fin n, (n-i) * z^i` expands to n·z^0 + (n-1)·z^1 + ... + 1·z^(n-1), exactly the informal definition f_n(z) = n + (n-1)z + ... + z^(n-1). Since `i : Fin n` guarantees i < n, the subtraction n-i is unambiguous (truncated ℕ subtraction coincides with the true difference). The conclusion `¬ ∃ z, ‖z‖ ≤ 1 ∧ f n z = 0` correctly says f_n has no roots in the closed unit disk, since ‖z‖ = |z| for z : ℂ. The style of introducing f as a function variable with a defining hypothesis is logically equivalent to directly stating the result about the polynomial.",
+  "duration_ms": 111330,
+  "cost_usd": 0.29656375
+}

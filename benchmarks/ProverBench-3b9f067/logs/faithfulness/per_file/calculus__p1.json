@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p1.lean",
+  "stem": "calculus__p1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is standard calculus notation asserting that F(x) = x⁴/4 − 3 sin x is an antiderivative of f(x) = x³ − 3 cos x (i.e., F'(x) = f(x), with +C capturing the family of antiderivatives). The Lean statement uses `∫ x, f x`, which by Mathlib's Bochner.lean notation (line 804) expands to `integral volume f` — the Bochner integral of f over all of ℝ with respect to Lebesgue measure, a single real number (and in fact 0 here, since f is not Lebesgue integrable on ℝ). The outer `x : ℝ` is shadowed by the bound variable in the integral, so the LHS is a constant while the RHS `integralf x + C` varies with x and C; the ∀-claim is thus provably false. The Lean statement changes the meaning entirely from an antiderivative relationship to a definite Bochner integral over ℝ — a categorically different mathematical object, not a mere weakening or strengthening. A faithful formalization would use e.g. `HasDerivAt integralf (f x) x` or `deriv integralf x = f x`.",
+  "duration_ms": 265667,
+  "cost_usd": 0.57014275
+}

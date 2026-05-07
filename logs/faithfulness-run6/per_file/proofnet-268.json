@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding captures all components of the informal statement precisely. `h1 : ∀ a, ¬(σ a ≠ a ∧ τ a ≠ a)` correctly formalizes \"disturb no common element\" (no element is moved by both). `h2 : τ * σ = 1` formalizes στ = e: in Mathlib `(f*g) x = f (g x)`, so `τ * σ = 1` means τ(σ(x)) = x, which matches Herstein's convention where στ = e means applying σ then τ gives identity. Moreover, since `σ * τ = 1 ↔ τ * σ = 1` for permutations (both equivalent to τ = σ⁻¹), the convention choice does not affect the content. The conclusion `σ = 1 ∧ τ = 1` matches \"σ = τ = e\" exactly. No extraneous hypotheses (e.g., Fintype) are added, and α is left as an arbitrary type, consistent with the informal scope.",
+  "duration_ms": 112064,
+  "cost_usd": 0.43190025000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_b6.lean",
+  "stem": "putnam_2007_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes f(n) as the count of multisets of natural numbers (unordered coin collections) whose sum equals n! and whose elements are all factorials k! with k ∈ [1,n], matching the informal definition. The bounds n^(n²/2 ± Cn) · e^(-n²/4) are encoded correctly, with n coerced to ℝ (since C : ℝ forces the exponent to be real). The only apparent drift is the restriction to n ≥ 2 rather than all positive integers, but this surfaces an implicit premise: at n = 1, f(1) = 1 while the upper bound 1^(1/2+C) · e^(-1/4) = e^(-1/4) ≈ 0.779, so the literal informal inequality fails at n = 1 regardless of C. Hence the n ≥ 2 hypothesis is needed for truth and constitutes a faithful reading (matching the system prompt's worked example about implicit premises).",
+  "duration_ms": 378088,
+  "cost_usd": 1.132108
+}

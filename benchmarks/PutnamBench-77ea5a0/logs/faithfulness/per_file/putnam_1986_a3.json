@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a3.lean",
+  "stem": "putnam_1986_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. cot is defined as cos/sin. arccot is characterized via a hypothesis that for t ≥ 0, arccot t ∈ Set.Ioc 0 (π/2) (i.e., (0, π/2]) and cot(arccot t) = t. Since cot is a bijection from (0, π/2] to [0, +∞), this uniquely pins down arccot on nonneg inputs — which is exactly the informal definition. The sum ∑' n : ℕ, arccot(n²+n+1) uses only nonneg arguments (n²+n+1 ≥ 1), so the arccot values are uniquely determined by the hypothesis. With tsum notation at precedence 67 and `=` at 50, the expression parses as `(∑' n, arccot(n²+n+1)) = π/2` as intended. The solution π/2 matches. Universal quantification over cot and arccot with these specifying hypotheses is a standard faithful encoding of \"where Arccot denotes...\"",
+  "duration_ms": 167805,
+  "cost_usd": 0.4614035000000001
+}

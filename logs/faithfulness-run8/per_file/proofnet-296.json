@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-296.lean",
+  "stem": "proofnet-296",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement exactly. Munkres' \"ordered set\" means a linearly (simply) ordered set, formalized by `LinearOrder Y`; \"in the order topology\" is `OrderTopology Y` (which requires `TopologicalSpace Y`, also provided). The continuity hypotheses on `f` and `g` match, and the conclusion `IsClosed {x | f x ≤ g x}` is the exact set-theoretic claim. Mathlib's own `isClosed_le` proves this conclusion under the same hypothesis structure (via `OrderTopology.to_orderClosedTopology`). No hypotheses are added or dropped, and no types or quantifiers are altered.",
+  "duration_ms": 38811,
+  "cost_usd": 0.17831975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_a1.lean",
+  "stem": "putnam_1983_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement counts `{n : ℤ | n > 0 ∧ (n ∣ 10^40 ∨ n ∣ 20^30)}.encard`, which exactly encodes \"positive integers n that are exact divisors of at least one of 10^40, 20^30\". Using ℤ with the hypothesis `n > 0` is equivalent to using positive naturals, since for positive n ∈ ℤ, divisibility of positive integers 10^40 and 20^30 coincides with divisibility in ℕ. The disjunction `∨` correctly captures \"at least one of\". The `.encard = (solution : ℕ)` formulation via coercion ℕ → ℕ∞ asserts finiteness and the specific count. The solution 2301 checks out: 1681 + 1891 - 1271 = 2301 by inclusion-exclusion. No hypotheses are added or dropped, and no meaning is changed.",
+  "duration_ms": 54277,
+  "cost_usd": 0.19236825
+}

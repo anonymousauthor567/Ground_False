@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_a3.lean",
+  "stem": "putnam_1974_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the Putnam 1974 A3 problem. The solution sets match the classical answer: primes ≡ 1 (mod 8) for form x²+16y² and primes ≡ 5 (mod 8) for form 4x²+4xy+5y². The biconditional correctly characterizes which primes p > 2 admit each representation (with x, y ∈ ℤ as specified in the informal statement). The hypothesis `assmption` encodes the \"well-known theorem\" explicitly mentioned in the informal statement as background; since this hypothesis is a true theorem of mathematics, the conditional statement is logically equivalent to the unconditional version, and encoding the mentioned background as a hypothesis is a reasonable reading of the problem. The p>2 condition on the LHS is consistent with primes ≡ 1 or 5 (mod 8), which are all automatically >2.",
+  "duration_ms": 220625,
+  "cost_usd": 0.62733875
+}

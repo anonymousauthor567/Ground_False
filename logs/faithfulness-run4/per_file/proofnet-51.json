@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement's conclusion `IsPGroup p (P.subgroupOf H) ∧ ∀ Q : Subgroup H, IsPGroup p Q → P.subgroupOf H ≤ Q → Q = P.subgroupOf H` is exactly the unfolded definition of being a Sylow p-subgroup of H: Mathlib's `Sylow` structure demands `isPGroup'` plus the maximality condition `is_maximal'`, which are precisely these two conjuncts. The object `P.subgroupOf H` (defined as `P.comap H.subtype`) is the standard Mathlib encoding of \"P viewed as a subgroup of H,\" which for P ≤ H is isomorphic to P via `subgroupOfEquivOfLe`. The hypothesis `hH : P ≤ H` matches \"H contains P\". Hence the Lean statement is logically equivalent to \"P ∈ Syl_p(H)\" as claimed informally.",
+  "duration_ms": 108421,
+  "cost_usd": 0.4328687500000001
+}

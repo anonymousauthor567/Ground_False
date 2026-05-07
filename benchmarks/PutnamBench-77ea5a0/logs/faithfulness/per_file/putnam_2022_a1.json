@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a1.lean",
+  "stem": "putnam_2022_a1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for all pairs (a,b) such that the line y = ax+b intersects y = ln(1+x²) in exactly one point. Since both are functions of x, an intersection point is uniquely determined by its x-coordinate, so \"exactly one intersection point\" is equivalent to \"there is a unique x with ax+b = ln(1+x²)\". The Lean encoding `{(a, b) | ∃! x : ℝ, a * x + b = Real.log (1 + x^2)}` uses `∃!` (unique existence) which is the standard Mathlib encoding for \"exactly one\". The equation correctly identifies the x-coordinates of intersection points. The statement asserts this set equals the provided solution set, which is exactly the \"determine all\" formulation. The formalization is strictly faithful.",
+  "duration_ms": 26929,
+  "cost_usd": 0.10219349999999999
+}

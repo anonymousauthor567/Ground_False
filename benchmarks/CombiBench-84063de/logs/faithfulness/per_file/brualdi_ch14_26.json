@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch14_26.lean",
+  "stem": "brualdi_ch14_26",
+  "verdict": "incomparable",
+  "reasoning": "The `color` condition in `PreNecklaces` is `∃ S : Finset (Fin 7), S.card = 4 ∧ ∀ i ∈ S, c i = 0`, which asserts only that there exists some 4-element subset of positions that are all red (value 0). This is equivalent to \"at least 4 red beads\", not \"exactly 4 red beads\". For instance, the all-red sequence (7 red, 0 blue) satisfies this condition by taking S = {0,1,2,3}. The informal statement specifies necklaces with \"four red and three blue beads\", meaning exactly 4 red and exactly 3 blue. Computing both counts under the D_7 action via Burnside: the informal answer is 4 (counting only 4R/3B necklaces), but `Fintype.card Necklaces` as defined equals 9 (including all necklaces with ≥ 4 reds: the 4R/3B ones plus 5R/2B, 6R/1B, and 7R/0B classes). The Lean counts a strictly larger set, so the two assertions refer to different cardinalities and neither implies the other.",
+  "duration_ms": 406404,
+  "cost_usd": 1.0280120000000001
+}

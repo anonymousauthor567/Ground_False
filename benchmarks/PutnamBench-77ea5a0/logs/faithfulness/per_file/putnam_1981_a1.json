@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_a1.lean",
+  "stem": "putnam_1981_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal problem. `P n k ↔ 5^k ∣ ∏ m ∈ Finset.Icc 1 n, (m^m : ℤ)` captures \"$5^k$ divides $1^1 2^2 \\cdots n^n$\". The condition `hE : ∀ n ∈ Ici 1, P n (E n) ∧ ∀ k, P n k → k ≤ E n` exactly says $E(n)$ is the greatest $k$ with the divisibility property, for $n \\geq 1$ (the only relevant range since the product over an empty range is 1 and $E(0)$ doesn't affect the limit at infinity). The limit `Tendsto (fun n => (E n : ℝ)/n^2) atTop (𝓝 (1/8))` directly matches $\\lim_{n \\to \\infty} E(n)/n^2$. The universal quantification over $P$ and $E$ satisfying their defining properties is a standard Putnam formalization pattern and is logically equivalent to the informal statement.",
+  "duration_ms": 85725,
+  "cost_usd": 0.25871825000000004
+}

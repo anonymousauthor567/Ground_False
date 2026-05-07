@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully matches the informal statement. The positive integer n is encoded as n : ℕ+, which exactly captures \"positive integer\". The hypothesis `orderOf x = n` (with the implicit ℕ+ → ℕ coercion) correctly encodes \"|x| = n\", and since orderOf x = 0 in Mathlib represents infinite order, requiring equality with a positive n correctly asserts x has finite order n. The conclusion `x⁻¹ = x ^ (n - 1 : ℕ)` uses the ascription to ℕ so subtraction is Nat subtraction on the coerced value, yielding the expected n-1. The group G is universally quantified (implicit), matching \"an element of G\". No extra hypotheses are added and none are dropped.",
+  "duration_ms": 197775,
+  "cost_usd": 0.5613742500000001
+}

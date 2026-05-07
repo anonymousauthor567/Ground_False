@@ -1,0 +1,8 @@
+{
+  "file": "S_0020.lean",
+  "stem": "S_0020",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal one. `adj : F ⊣ G` captures \"F has right adjoint G\". `F.Full ∧ F.Faithful` (Mathlib's propositional typeclasses for the map on hom-sets being surjective and injective) is equivalent to \"F is fully faithful\". `adj.unit` in Mathlib is the natural transformation `𝟭 C ⟶ F ⋙ G`, which in standard math notation is Id_C → G∘F (Lean's `F ⋙ G` reads as \"F then G\" = mathematical G∘F), matching the informal u. `IsIso adj.unit` means the unit is an isomorphism of natural transformations. The biconditional matches the informal iff exactly, and indeed Mathlib proves both directions in `CategoryTheory/Adjunction/FullyFaithful.lean`.",
+  "duration_ms": 64829,
+  "cost_usd": 0.3043305
+}

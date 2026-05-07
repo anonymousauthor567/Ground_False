@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-198.lean",
+  "stem": "proofnet-198",
+  "verdict": "faithful",
+  "reasoning": "The Complex structure in Mathlib is defined with fields `re : ℝ` and `im : ℝ`, so the anonymous constructor `⟨-1/2, Real.sqrt 3 / 2⟩ : ℂ` represents the complex number `-1/2 + (√3/2)·i`, which is exactly `(-1 + √3·i)/2`. The Lean conclusion `... ^ 3 = 1` states that the cube of this number is 1, which is precisely what the informal statement asks (\"its cube equals 1\"). There are no extra or missing hypotheses, and the quantifier structure is trivial (a closed proposition). The formalization is therefore strictly faithful.",
+  "duration_ms": 21131,
+  "cost_usd": 0.10098975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is about ideals of the ring of 2×2 real matrices, a non-commutative ring; by standard convention in ring theory textbooks (such as Herstein's), \"ideal\" here means two-sided ideal, since the claim is false for one-sided ideals (M_2(ℝ) has non-trivial left/right ideals). The Lean statement uses `TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)`, matching this intended meaning. According to Mathlib's `TwoSidedIdeal.Lattice`, `⊥` corresponds to the set `{0}` (the zero ideal) and `⊤` corresponds to `Set.univ` (the whole ring), so `I = ⊥ ∨ I = ⊤` faithfully encodes \"I = (0) or I = R\". The universal quantification over I is captured by taking I as a hypothesis, and the ambient type (`Matrix (Fin 2) (Fin 2) ℝ`) matches. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 71612,
+  "cost_usd": 0.29087175
+}

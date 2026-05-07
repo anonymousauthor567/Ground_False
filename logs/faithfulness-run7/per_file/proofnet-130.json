@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"a closed subspace of a normal space is normal\" is captured exactly: the hypotheses `[TopologicalSpace X]`, `hX : NormalSpace X`, `A : Set X`, `hA : IsClosed A` encode \"closed subspace A of a normal space X\", and the conclusion `NormalSpace {x // x ∈ A}` asserts that the subspace (with the inherited subspace topology via `instTopologicalSpaceSubtype`) is normal. Mathlib's `NormalSpace` class matches the standard separation-axiom definition (disjoint closed sets have disjoint open neighborhoods), and this statement is provable via `ClosedEmbedding.normalSpace` using the closed inclusion map. Passing `NormalSpace X` as an explicit argument rather than an instance is a cosmetic encoding difference with no logical impact. There is no drift in hypotheses, conclusion, types, or quantifier structure.",
+  "duration_ms": 114178,
+  "cost_usd": 0.34563775
+}

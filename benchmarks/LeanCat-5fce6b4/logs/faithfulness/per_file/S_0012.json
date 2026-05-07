@@ -1,0 +1,8 @@
+{
+  "file": "S_0012.lean",
+  "stem": "S_0012",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal iff statement. The key correspondences are: (1) \"f is a monomorphism\" ↔ `Mono f`; (2) \"faithful functor I\" ↔ `Faithful I` (Mathlib's definition is exactly: injective on morphisms); (3) \"f is a section in D\" ↔ `IsSplitMono (I.map f)`. In category theory, a morphism is called a \"section\" precisely when it has a left inverse (a retraction), which is exactly Mathlib's `SplitMono` / `IsSplitMono`: `f ≫ retraction = 𝟙 X`. The universe choice `D : Type (max u v)` with `Category.{v} D` is a standard Mathlib convention for existential statements over categories — large enough to admit the classical construction (e.g., a Yoneda-style embedding or retraction completion) that witnesses the forward direction, while the reverse direction (split mono reflected under faithful functor yields mono) holds for any D. The pinning of the morphism universe to v matches C's, which is the natural choice. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 973160,
+  "cost_usd": 1.5038092500000002
+}

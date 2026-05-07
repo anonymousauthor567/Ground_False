@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The polynomial f_n(z) = n + (n-1)z + ... + z^(n-1) corresponds exactly to ∑ i : Fin n, (n-i) * z^i, because as i.val ranges over {0, 1, ..., n-1}, the coefficient n-i ranges over {n, n-1, ..., 1} matching the informal sum (and since i.val < n, natural vs. complex subtraction agree). The hypothesis hn : n > 0 captures \"positive integer.\" The conclusion ¬ ∃ z, ‖z‖ ≤ 1 ∧ f n z = 0 states precisely that f_n has no root in the closed unit disk (since ‖z‖ on ℂ equals |z|). The function f is introduced via a universally quantified hypothesis but is used only at the fixed n, which is logically equivalent to a direct definition.",
+  "duration_ms": 70641,
+  "cost_usd": 0.2349555
+}

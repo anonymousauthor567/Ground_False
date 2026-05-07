@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ H : Subgroup G, H = ⊤ ∨ H = ⊥` correctly encodes \"G has no proper (nontrivial) subgroups\" — i.e., every subgroup is {e} or G — which is the standard Herstein reading (under any other reading, the claim is false or vacuous). The extra `h_nontrivial` hypothesis surfaces an implicit premise: without it, the trivial group satisfies hG vacuously but has order 1, contradicting the conclusion of prime order; any mathematician reading \"G is cyclic of prime order\" understands G must be nontrivial. This matches the worked-example pattern in the prompt. The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` faithfully encodes \"cyclic of order p with p prime\", and `Nat.card G = p` with p prime implicitly forces finiteness (since Nat.card is 0 for infinite types). No hypothesis, conclusion, or type is altered beyond surfacing the implicit nontriviality assumption.",
+  "duration_ms": 210703,
+  "cost_usd": 0.6361095
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $x^2+1$ is irreducible over $\\mathbb{F}_7$. The Lean statement formalizes $\\mathbb{F}_7$ as any field `F` with `Fintype F` and `card F = 7`. Since all finite fields of cardinality 7 are isomorphic (to $\\mathbb{Z}/7\\mathbb{Z}$), and polynomial irreducibility is preserved under field isomorphism, this is a standard and faithful encoding of \"$\\mathbb{F}_7$\". The conclusion `Irreducible (X^2 + 1 : Polynomial F)` matches exactly the informal claim. The statement is neither weaker nor stronger than the informal one.",
+  "duration_ms": 37158,
+  "cost_usd": 0.18312850000000003
+}

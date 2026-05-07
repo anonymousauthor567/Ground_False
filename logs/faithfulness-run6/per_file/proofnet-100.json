@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `IsPrimitiveRoot ζ k` in Mathlib is defined as `ζ^k = 1 ∧ ∀ l, ζ^l = 1 → k ∣ l`, which is exactly \"the order of ζ is k\". So `IsPrimitiveRoot (a : ZMod p) (p-1)` correctly encodes \"a is a primitive root mod p\" and `IsPrimitiveRoot (-a) ((p-1)/2)` correctly encodes \"-a has order (p-1)/2\". The hypothesis `p = 4 * t + 3` with an implicitly existentially-quantified t faithfully captures \"p is of the form 4t+3\" (t is determined by p). Using `a : (ZMod p)ˣ` makes explicit the implicit premise that a must be coprime to p, which is required for a to possibly be a primitive root. All quantifier structure, types, and conclusions match.",
+  "duration_ms": 120256,
+  "cost_usd": 0.35852825
+}

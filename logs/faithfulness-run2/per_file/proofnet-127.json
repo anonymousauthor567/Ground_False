@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Munkres Exercise 29.10. Hausdorff is captured via T2Space. The local compactness at x hypothesis (∃ U open containing x, with U ⊆ K for some compact K) matches Munkres' definition of \"locally compact at x\" (a compact subspace containing a neighborhood of x). The \"neighborhood U of x\" hypothesis uses IsOpen U ∧ x ∈ U, which is Munkres' convention for neighborhood. The conclusion requires V open, x ∈ V, closure V compact, and closure V ⊆ U, which matches exactly. No drift in hypotheses, conclusion, quantifier structure, or types.",
+  "duration_ms": 32781,
+  "cost_usd": 0.10880375000000002
+}

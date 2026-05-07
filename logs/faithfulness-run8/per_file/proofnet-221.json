@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the informal claim. `H : AddSubgroup ℚ` matches \"subgroup of the additive group of rational numbers\". The hypothesis `∀ ⦃x : ℚ⦄, x ∈ H → x ≠ 0 → (1 / x) ∈ H` is exactly \"for every nonzero element x of H, 1/x ∈ H\" (the instance-implicit brackets are purely elaboration metadata and do not change the proposition). The conclusion `H = ⊥ ∨ H = ⊤` corresponds directly to \"H = 0 or H = ℚ\", since in Mathlib `⊥ : AddSubgroup ℚ` is the trivial subgroup {0} and `⊤` is all of ℚ. No hypotheses are added or dropped, and no types or quantifier structure are altered.",
+  "duration_ms": 96639,
+  "cost_usd": 0.37201575
+}

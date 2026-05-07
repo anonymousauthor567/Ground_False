@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p32.lean",
+  "stem": "number_theory__p32",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts the iff only for prime p. In the Lean file, `variable {p : ℕ} (hp : Nat.Prime p)` is declared, but in Lean 4 (v4.9.0-rc2) `variable` bindings are only auto-included when referenced in the declaration's statement or body. Since `hp` appears nowhere in either the theorem statement or the `sorry` proof, it is NOT auto-included. Thus the actual signature is `∀ {p : ℕ}, (∃ x y : ℤ, x^2 - p*y^2 = -1) ↔ p = 2 ∨ p % 4 = 1`, which quantifies over all naturals rather than just primes. This strictly implies the informal claim (by specialization to primes) but is more than what was asked, and in fact fails for p = 9 (a perfect square, so x² - 9y² = (x-3y)(x+3y) = -1 has no integer solutions, while 9 % 4 = 1 makes the RHS true). So the Lean formalization is logically stronger than the informal statement.",
+  "duration_ms": 1064543,
+  "cost_usd": 2.8513447500000004
+}

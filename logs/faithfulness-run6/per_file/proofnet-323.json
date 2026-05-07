@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal claim. The function type `f : ℝ → ℝ` matches the informal `f: ℝ → ℝ`. The hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` is a direct transcription of `|f(t) - f(x)| ≤ |t - x|²` for all t, x (only variable names differ). The conclusion `∃ c, f = λ _x => c` is the standard encoding of \"f is constant\" — there exists a value c such that f is the constant function returning c, which is logically equivalent to the informal conclusion. No hypotheses are added or dropped, and no quantifier or type drift occurs.",
+  "duration_ms": 17797,
+  "cost_usd": 0.08005975
+}

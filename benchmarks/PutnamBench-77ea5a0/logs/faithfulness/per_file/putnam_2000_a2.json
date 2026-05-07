@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_a2.lean",
+  "stem": "putnam_2000_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `∀ n : ℕ, ∃ N : ℤ, N > n ∧ ...` is the standard Lean idiom for \"unbounded above in ℕ\", which is equivalent to \"infinitely many\" here because the set of valid N is bounded below by 0 (sums of squares are non-negative), and for any bounded-below set of integers, infinite ↔ unbounded above. The use of `i : Fin 6 → ℕ` to encode \"sum of two squares of integers\" is equivalent since for any integer k, k² = (|k|)², so sums of two integer squares and sums of two natural-number squares are the same set of integers. The types (N : ℤ matching \"integer n\" in the informal) and the three conditions on N, N+1, N+2 match precisely. No hypotheses are silently added or dropped.",
+  "duration_ms": 208000,
+  "cost_usd": 0.34934374999999995
+}

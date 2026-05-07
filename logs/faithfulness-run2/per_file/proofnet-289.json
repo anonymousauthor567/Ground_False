@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asks to show that $\\mathcal{T}_\\infty$ need not be a topology, which means at least one of the three topology axioms (contains ∅ and X, closed under arbitrary unions, closed under finite intersections) fails for some X. The Lean statement only formalizes the failure of the arbitrary-union axiom: it asserts there exist X and a collection s ⊆ $\\mathcal{T}_\\infty$ whose union is not in $\\mathcal{T}_\\infty$. This directly implies \"not a topology\" (so Lean ⇒ informal), but the informal claim does not in general entail that the specific failing axiom is the union axiom (the other axioms could also fail for a generic collection). Thus the Lean signature commits to a more specific conclusion than \"is not a topology\" — it picks a particular proof route rather than formalizing \"IsTopologicalSpace\" and negating it. Even though for this particular collection the axioms (1) and (3) happen to always hold (making the two statements mathematically equivalent via extra reasoning), the Lean statement as written is strictly stronger than the informal one.",
+  "duration_ms": 122154,
+  "cost_usd": 0.38198950000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that if P is a Sylow p-subgroup of G and H is a subgroup containing P, then P is a Sylow p-subgroup of H. In Mathlib, the definition of `Sylow p H` (via its underlying subgroup) is exactly: being a p-group AND being maximal among p-subgroups. The Lean conclusion unpacks these two conditions explicitly for `P.subgroupOf H` (which is P viewed as a subgroup of H, and coincides with P since P ≤ H). Thus the conjunction `IsPGroup p (P.subgroupOf H) ∧ ∀ Q, IsPGroup p Q → P.subgroupOf H ≤ Q → Q = P.subgroupOf H` is logically equivalent to \"P.subgroupOf H ∈ Syl_p(H)\". The hypotheses (P : Sylow p G and P ≤ H) also match the informal ones, so the encoding is faithful.",
+  "duration_ms": 29744,
+  "cost_usd": 0.11547525
+}

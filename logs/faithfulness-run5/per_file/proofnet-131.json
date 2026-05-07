@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `RegularSpace` is defined purely as the separation property (for any closed `s` and `a ∉ s`, `𝓝ˢ s` and `𝓝 a` are disjoint), without bundling T0/T1 — exactly matching Munkres' \"regular (separation property only)\". The Lean signature faithfully encodes: (a) the indexed family `X : ι → Type*` with their topologies, (b) the hypothesis that each factor is nonempty (`h : ∀ i, Nonempty (X i)`), (c) the hypothesis that the product is regular (`h2 : RegularSpace (Π i, X i)`), and (d) the conclusion that each factor is regular (`∀ i, RegularSpace (X i)`). The quantifier structure and types match the informal statement precisely, with no silent strengthening or weakening.",
+  "duration_ms": 83854,
+  "cost_usd": 0.23356225000000003
+}

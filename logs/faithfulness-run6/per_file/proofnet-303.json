@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-303.lean",
+  "stem": "proofnet-303",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement in all key respects: `A C : Set X` captures \"A ⊂ X\" and C being a subset of X; `IsConnected C` encodes \"connected subspace\"; `C ∩ A ≠ ∅` and `C ∩ Aᶜ ≠ ∅` capture \"intersects both A and X−A\"; and `C ∩ frontier A ≠ ∅` captures \"intersects Bd A\", since Mathlib's `frontier A = closure A \\ interior A = closure A ∩ closure Aᶜ`, which is exactly Munkres's definition of the boundary. The only minor asymmetry is that Mathlib's `IsConnected` adds nonemptiness on top of `IsPreconnected`, but nonemptiness of C is already implied by the hypothesis `C ∩ A ≠ ∅`, so this is logically equivalent. The quantifier structure (implicit universal over X, A, C) is preserved.",
+  "duration_ms": 110679,
+  "cost_usd": 0.3192425
+}

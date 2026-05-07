@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a2.lean",
+  "stem": "putnam_1967_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal statement. (1) S₀ = 1 is directly encoded. (2) For n ≥ 1, S_n is defined as the ncard of matrices over ℕ (nonneg integers) that are symmetric (∀ i j, A i j = A j i) with column sums equal to 1 (∀ j, ∑ i, A i j = 1), which exactly matches the informal conditions. (3) Part (a) is stated with the natural hypothesis n ≥ 1 (necessary since ℕ-subtraction would otherwise be nonsensical and the recurrence uses S_{n-1}). (4) Part (b) is encoded as a pointwise real identity via `tsum`, which equals the ordinary series since x + x²/2 has infinite radius of convergence. The codomain ℤ (vs. ℕ) for S is a harmless widening via the natural coercion of ncard. Both conjuncts of the conclusion match parts (a) and (b) of the informal exercise.",
+  "duration_ms": 229542,
+  "cost_usd": 0.6680285
+}

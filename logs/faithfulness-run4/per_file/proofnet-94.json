@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over odd natural numbers n (via Mathlib's `Odd n := ∃ k, n = 2k+1`) and concludes `8 ∣ (n^2 - 1)`. The informal statement says \"for all odd n, 8 ∣ n²−1\". While Ireland-Rosen would typically state this over ℤ, the claim over odd integers is mathematically equivalent to the claim over odd natural numbers (since n² = (−n)² and |n| ranges over odd naturals). Because `Odd n` forces n ≥ 1, we have n² ≥ 1, so ℕ-subtraction coincides with genuine subtraction and `8 ∣ (n^2 - 1)` matches the intended claim. No hypotheses have been added or removed and the conclusion matches, so the formalization is faithful.",
+  "duration_ms": 53535,
+  "cost_usd": 0.18748900000000002
+}

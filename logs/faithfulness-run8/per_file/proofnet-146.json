@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-146.lean",
+  "stem": "proofnet-146",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the polynomial $f_n(z) = n + (n-1)z + (n-2)z^2 + \\cdots + z^{n-1}$ as $\\sum_{i \\in \\text{Fin } n} (n-i) z^i$: at $i=0$ the coefficient is $n$, at $i=n-1$ the coefficient is $n-(n-1)=1$, and $z$ is raised to powers $0, 1, \\ldots, n-1$. The hypothesis $n > 0$ matches \"positive integer\". The conclusion $\\neg \\exists z, \\|z\\| \\leq 1 \\wedge f_n(z) = 0$ precisely captures \"no roots in the closed unit disk\" since $\\|z\\|$ is the complex norm $|z|$. The `hf` defines `f` via a universal quantifier over all natural numbers, but this is logically equivalent to defining $f_n$ for the specific $n$ in question. The types and quantifier structure all match.",
+  "duration_ms": 85836,
+  "cost_usd": 0.3002055
+}

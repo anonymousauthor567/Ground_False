@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if x has infinite order in G, then {x^n : n ∈ ℤ} are all distinct. The Lean formalization encodes \"infinite order\" as `orderOf x = 0`, which by Mathlib's `orderOf_eq_zero_iff` is definitionally equivalent to `¬IsOfFinOrder x` (the standard Mathlib rendering of \"infinite order\"). The claim that the powers are all distinct is correctly formulated as: for all n, m : ℤ with n ≠ m, x^n ≠ x^m — this is exactly the meaning of \"all distinct\" for the indexed family. G is an arbitrary group, matching the informal universal reading. The quantifier structure, types (ℤ for exponents), and conclusion all match. No hidden extra hypotheses or weakenings.",
+  "duration_ms": 33284,
+  "cost_usd": 0.11218525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that every continuous open map f : ℝ → ℝ is monotonic. In Rudin (Definition 4.28), \"monotonic\" means either monotonically increasing or monotonically decreasing (non-strict). The Lean signature takes `hf : Continuous f` and `hof : IsOpenMap f` for `f : ℝ → ℝ`, and concludes `Monotone f ∨ Antitone f`, which is exactly the standard Mathlib encoding of \"non-decreasing or non-increasing\", i.e. monotonic. The hypotheses, the ambient space (ℝ → ℝ), and the conclusion match precisely, so this is a faithful formalization.",
+  "duration_ms": 13190,
+  "cost_usd": 0.053801
+}

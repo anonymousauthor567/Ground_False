@@ -1,0 +1,8 @@
+{
+  "file": "31.lean",
+  "stem": "31",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `CyclotomicField n ℚ` (with `n : ℕ+` coerced to ℕ) is Mathlib's cyclotomic field; `primitiveRoots n (CyclotomicField n ℚ)` is the Finset of primitive n-th roots in that field, which coerces to the subtype of primitive roots. The basis `Basis (primitiveRoots n ...) ℚ (CyclotomicField n ℚ)` with the extra condition `(b : _ → _) = (↑)` enforces that the basis function equals the subtype coercion, i.e., the basis vectors are literally the primitive roots themselves — this is essential, since without it existence of a basis indexed by a set of cardinality φ(n) would be trivial. `Squarefree n` for `n : ℕ+` is well-defined via the `CommMonoid ℕ+` instance and agrees with squarefreeness as a natural number. Thus the iff faithfully encodes \"the primitive n-th roots form a ℚ-basis of the n-th cyclotomic field iff n is squarefree.\"",
+  "duration_ms": 848480,
+  "cost_usd": 2.0851505
+}

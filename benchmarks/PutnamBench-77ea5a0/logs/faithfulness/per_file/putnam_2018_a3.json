@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_a3.lean",
+  "stem": "putnam_2018_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `IsGreatest` on the set of values $\\sum_{i=1}^{10} \\cos(3 x_i)$ where $x : \\text{Fin } 10 \\to \\mathbb{R}$ satisfies $\\sum_{i=1}^{10} \\cos(x_i) = 0$. `IsGreatest s a` unfolds to `a ∈ s ∧ a ∈ upperBounds s`, which is exactly the standard meaning of \"greatest possible value\": the value is attained by some valid choice of $x$, and it upper-bounds all other attainable values. The encoding of the index set as `Fin 10`, the constraint, and the objective function all match the informal statement exactly. There is no added or dropped hypothesis, and the quantifier structure is correct. Hence the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 74845,
+  "cost_usd": 0.27437625000000004
+}

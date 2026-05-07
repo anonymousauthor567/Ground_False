@@ -1,0 +1,8 @@
+{
+  "file": "83.lean",
+  "stem": "83",
+  "verdict": "faithful",
+  "reasoning": "The `IsRegularLocalRing` class is defined correctly: a commutative local Noetherian ring satisfying dim_{R/m}(m/m²) = dim(R), where `CotangentSpace R` is m/m². The theorem statement faithfully captures all hypotheses: A is a regular local ring (which entails CommRing, IsLocalRing, IsNoetherianRing); B is a commutative local Noetherian ring (explicit instances); f : A →+* B is a local homomorphism (`IsLocalHom f`) and flat (`f.Flat` = Module.Flat A B via f.toAlgebra); and B/mA·B is regular (where `(maximalIdeal A).map f` is Ideal.span (f '' maximalIdeal A) = mA·B, the extension ideal). The conclusion `IsRegularLocalRing B` exactly matches \"B is regular\". Making B's local/Noetherian structure explicit is necessary for the informal phrase \"maximal ideals mA and mB respectively\" and \"Noetherian rings\" to make sense — these are implicit premises of the informal statement made explicit in Lean, not extra hypotheses narrowing the scope.",
+  "duration_ms": 517923,
+  "cost_usd": 1.178463
+}

@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p2.lean",
+  "stem": "elementary_algebra__p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `variable (a b c d : ℝ)` to universally quantify over the reals, and asserts the implication: if a²+b²+c²+d² = a(b+c+d), then a = b = c = d = 0. This is precisely the content of the informal claim \"the only real numbers satisfying the equation are zero\". The types (ℝ), the hypothesis (the equation), and the conclusion (all four variables equal zero) all match. No extra hypotheses are added and none are dropped; the quantifier structure is the standard reading of \"the only solutions are...\". The claim is mathematically true (e.g., via 4·LHS - 4·RHS = a² + (a-2b)² + (a-2c)² + (a-2d)²).",
+  "duration_ms": 23879,
+  "cost_usd": 0.0627235
+}

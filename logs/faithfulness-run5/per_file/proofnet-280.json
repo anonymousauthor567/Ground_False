@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The hypotheses `a ≠ 0` and `n > m` match the informal premises. The conclusion is split into two implications: `Odd a → gcd = 2` and `Even a → gcd = 1`, which is the mathematically correct pairing (when a is odd, both a^(2^n)+1 and a^(2^m)+1 are even so gcd=2; when a is even, both are odd so gcd=1). The `f_a` auto-bound variable with defining hypothesis `hf` is an unusual encoding, but since `f_a` is universally quantified and equated to the explicit lambda, the statement is logically equivalent to directly writing the gcd expression in the conclusion. `Int.gcd` returns ℕ, compatible with the comparisons to 1 and 2.",
+  "duration_ms": 123373,
+  "cost_usd": 0.3701432499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "47.lean",
+  "stem": "47",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"α (any cube root of 3) is not a cube in ℚ(ζ) where ζ is a primitive 9th root of unity in ℂ\". Specifically: `ℚ⟮ζ⟯` is the intermediate field ℚ(ζ) ⊆ ℂ (scoped macro from `Mathlib.FieldTheory.IntermediateField.Adjoin.Defs`), the hypothesis `IsPrimitiveRoot ζ 9` matches \"ζ is a primitive 9-th root of unity\", `α ^ 3 = 3` matches \"α³ = 3\", and `¬ ∃ β : ℚ⟮ζ⟯, α = β ^ 3` (using the natural coercion from the subfield into ℂ) is exactly \"α is not a cube in ℚ(ζ)\". The informal mention that \"ω = ζ^3 is a primitive 3rd root of unity\" is only a redundant observation — it is automatically true once ζ is a primitive 9th root of unity — so omitting it as an explicit hypothesis does not change the claim. No extra hypotheses are added and none are dropped; the quantifier structure matches.",
+  "duration_ms": 232556,
+  "cost_usd": 0.5932919999999999
+}

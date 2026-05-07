@@ -1,0 +1,8 @@
+{
+  "file": "79.lean",
+  "stem": "79",
+  "verdict": "weaker",
+  "reasoning": "The informal conclusion \"R is a PID\" (Principal Ideal Domain) asserts that R is both an integral domain AND every ideal is principal. Mathlib confirms this: the PrincipalIdealDomain.lean file explicitly states \"for principal ideal domains, one should use [IsDomain R] [IsPrincipalIdealRing R]\". The Lean statement concludes only `IsPrincipalIdealRing R`, which asserts merely that every ideal is principal, dropping the integral-domain requirement. Non-domain examples like ZMod 6 satisfy IsPrincipalIdealRing but are not PIDs, confirming these are genuinely distinct notions. Although the hypothesis `h` mathematically does force R to be a domain (since for a zero-divisor a, the ideal (a) would be a non-free submodule of R), the Lean theorem's conclusion as written does not express this — proving the Lean signature gives only PIR, not PID. This is a strict weakening of the conclusion, not merely surfacing an implicit premise needed for truth.",
+  "duration_ms": 866395,
+  "cost_usd": 1.65840425
+}

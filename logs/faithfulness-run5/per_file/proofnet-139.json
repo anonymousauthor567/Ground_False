@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every uncountable subset E ⊆ ℝ has a condensation point, where \"E condenses at p\" means every neighborhood of p meets E in an uncountable set. The Lean signature takes `hE : ¬ Set.Countable E` (i.e., E is uncountable — uncountability in classical math standardly means \"not countable\") and concludes `∃ p : ℝ, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E)`, which directly expresses \"there exists p ∈ ℝ such that every neighborhood U of p satisfies U ∩ E is uncountable.\" The use of the neighborhood filter `𝓝 p` with the quantifier `∀ U ∈ 𝓝 p` is the standard Mathlib encoding of \"for every neighborhood U of p,\" and `Set.Countable` matches the standard countability notion. The hypothesis and conclusion types and quantifier structure match the informal statement exactly.",
+  "duration_ms": 53320,
+  "cost_usd": 0.22606524999999997
+}

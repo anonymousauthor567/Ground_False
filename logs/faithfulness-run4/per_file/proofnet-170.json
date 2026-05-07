@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin 4.19. The hypothesis `hf` encodes the intermediate value property: requiring a < b and a disjunction (f a < c < f b ∨ f b < c < f a) is logically equivalent to the informal \"if f(a) < c < f(b), then ∃x between a and b with f(x)=c\" — the informal version covers both orderings of a,b (since \"between a and b\" is symmetric), and Lean's formulation normalizes to a < b plus both disjuncts. The strict x ∈ (a,b) matches since f(a) ≠ c and f(b) ≠ c. The hypothesis `hg` directly encodes \"for every rational r, {x : f(x) = r} is closed\", and the conclusion `Continuous f` matches. No extra or missing hypotheses.",
+  "duration_ms": 28897,
+  "cost_usd": 0.13002375
+}

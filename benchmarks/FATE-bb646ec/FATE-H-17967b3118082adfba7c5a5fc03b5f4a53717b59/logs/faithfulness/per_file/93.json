@@ -1,0 +1,8 @@
+{
+  "file": "93.lean",
+  "stem": "93",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the classical theorem. `[CommRing O] [IsDomain O]` matches \"integral domain\". `eif` formalizes existence of a prime factorization for every nonzero ideal (as a multiset of prime ideals whose product equals the ideal), and `uif` formalizes uniqueness of such factorization. The restriction `f.prod ≠ ⊥` in `uif` is not a weakening: since Mathlib's `Ideal.IsPrime` allows `⊥` as a prime ideal in a domain, uniqueness over arbitrary multisets of prime ideals would fail trivially (e.g., `{⊥}` vs `{⊥, ⊥}` both have product `⊥`); the restriction to nonzero products precisely captures \"unique factorization of nonzero ideals\". Together, `eif` and `uif` are logically equivalent to \"every nonzero ideal has a unique factorization into prime ideals\" (the ⊥-free restriction is automatic because any prime factorization of a nonzero ideal cannot include `⊥` in an integral domain). The conclusion `IsDedekindDomain O` matches Mathlib's standard definition (Noetherian, dimension ≤ 1, integrally closed domain).",
+  "duration_ms": 440853,
+  "cost_usd": 0.9769285000000002
+}

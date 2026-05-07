@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the content of the informal statement. \"Region\" in complex analysis (Shakarchi) means an open, connected, (nonempty) set; the Lean hypotheses `IsOpen Ω`, `IsConnected Ω`, `Nonempty Ω` encode this (the `Nonempty Ω` is redundant since Mathlib's `IsConnected` already requires nonemptiness, per `Mathlib/Topology/Connected/Basic.lean`, but redundancy doesn't change logical strength). \"Primitive of f\" is faithfully encoded as `DifferentiableOn ℂ F Ω` together with `∀ x ∈ Ω, deriv F x = f x`; since Ω is open, `deriv F x` at x ∈ Ω gives the complex derivative. The conclusion `∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c` is the standard \"differ by a constant\" statement. Connectedness is a genuinely needed premise for truth, and surfacing it explicitly is the correct reading of \"region\", not a weakening.",
+  "duration_ms": 102009,
+  "cost_usd": 0.3777365
+}

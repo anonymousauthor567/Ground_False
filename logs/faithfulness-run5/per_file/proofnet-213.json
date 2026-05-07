@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly expresses the informal claim. `as.prod` for `[a_1, ..., a_n]` is `a_1 * ... * a_n`, so `as.prod⁻¹` is `(a_1 ... a_n)⁻¹`. Then `as.reverse.map (fun x => x⁻¹)` produces `[a_n⁻¹, ..., a_1⁻¹]`, whose `.prod` is `a_n⁻¹ * a_{n-1}⁻¹ * ... * a_1⁻¹` — precisely the RHS in the informal statement. Universally quantifying over `G : Type*` with `[Group G]` and over `as : List G` matches the informal \"for all $a_1, ..., a_n \\in G$\". The trivial empty-list case (n = 0) is an innocuous extension that holds since `1⁻¹ = 1`. No hypotheses are added or dropped.",
+  "duration_ms": 54721,
+  "cost_usd": 0.14752674999999996
+}

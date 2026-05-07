@@ -1,0 +1,8 @@
+{
+  "file": "S_0074.lean",
+  "stem": "S_0074",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement reproduces the informal claim piece-by-piece. `IsProCompletion ι` encodes \"L is a pro-completion of C (containing C as full subcategory via ι)\" by requiring an equivalence `L ≌ Pro C := (Ind Cᵒᵖ)ᵒᵖ` under which ι corresponds to the standard `proYoneda` embedding; the full/faithful hypotheses on ι capture \"C as a full subcategory\". `HasCofilteredColimits L` matches condition (1) verbatim. `IsCofilteredColimitOf ι X` (existence of a small cofiltered J and F: J → C with colim(F ⋙ ι) ≅ X) matches condition (2) verbatim — including the informal statement's literal \"colimit of a cofiltered diagram\". `IsFinitelyCopresentable X := IsFinitelyPresentable (op X)` in Lᵒᵖ is the standard op-dual of Mathlib's `IsFinitelyPresentable`, matching condition (3). The universe-polymorphic parameter `w` is a standard Lean generality, not a semantic restriction. No hypothesis is silently added or dropped, no quantifier structure is altered, and the biconditional is preserved.",
+  "duration_ms": 586253,
+  "cost_usd": 1.485765
+}

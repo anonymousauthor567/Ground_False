@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all components. (1) `countably_compact X` encodes \"every countable open cover has a finite subcover\" by quantifying over `ℕ → Set X` — this is the standard encoding equivalent to countable collections (repetition doesn't change unions/finite subcovers). (2) `limit_point_compact_strong X` uses `ClusterPt x (𝓟 (U \\ {x}))`, which by Mathlib's `accPt_principal_iff_clusterPt` lemma is literally equivalent to `AccPt x (𝓟 U)` — exactly Munkres' definition of \"x is a limit point of U\" (every neighborhood of x contains a point of U different from x). (3) `Infinite U` for `U : Set X` (via subtype coercion) correctly means U is an infinite set. (4) `T1Space X` matches \"T_1 space\", and the `↔` matches \"equivalent\". No hypotheses are added or dropped, and the quantifier structure matches the informal statement.",
+  "duration_ms": 174583,
+  "cost_usd": 0.6044950000000001
+}

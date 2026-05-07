@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-236.lean",
+  "stem": "proofnet-236",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that a group of order 351 has a normal Sylow p-subgroup for some prime p dividing its order. The Lean signature asserts ∃ p : ℕ and P : Sylow p G with p.Prime ∧ p ∣ card G ∧ P.Normal, which matches exactly: a prime p dividing |G|, and a normal Sylow p-subgroup P for that prime. In Mathlib, `Sylow p G` is defined as a maximal IsPGroup p subgroup (Sylow.lean line 53) without requiring p to be prime, so the explicit `p.Prime` hypothesis correctly captures the informal \"prime p\". The `p ∣ card G` condition matches \"dividing its order\" and is needed to rule out the trivial case where p doesn't divide |G| (in which case ⊥ would be a trivially normal Sylow p-subgroup). The `P.Normal` assertion is the standard subgroup-normality inherited through the coercion. The quantifier structure (∃ p, ∃ P, ...) correctly matches the informal \"for some prime p\" phrasing, and `Fintype G` with `card G = 351` correctly encodes \"group of order 351\".",
+  "duration_ms": 139303,
+  "cost_usd": 0.50205825
+}

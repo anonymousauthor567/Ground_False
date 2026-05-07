@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the transitivity of the subspace topology: for A ⊆ Y ⊆ X, the subspace topology on A inherited from Y coincides with the subspace topology on A inherited from X. In Lean, `A : Set Y` automatically carries the subspace topology from Y (since Y : Set X carries its own subspace topology from X, and `Set Y` means A is a set of the subtype). The map `fun a : A => (a : X)` is the composite inclusion ↥A → ↥Y → X. `IsInducing` (from `Mathlib.Topology.Defs.Induced`) says the topology on the domain equals the topology induced via f from the codomain, so `IsInducing (fun a : A => (a : X))` is exactly \"A's current topology (as subspace of Y) = topology induced from X via the inclusion\" — i.e., the two subspace topologies agree. No extra hypotheses are imposed and no hypotheses are dropped, so this is logically equivalent to the Munkres statement.",
+  "duration_ms": 83610,
+  "cost_usd": 0.311121
+}

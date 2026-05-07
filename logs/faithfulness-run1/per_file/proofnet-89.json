@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "informal": "If $p$ is a prime, show that $q(x) = 1 + x + x^2 + \\cdots x^{p - 1}$ is irreducible in $Q[x]$.",
+  "lean": "\ntheorem Herstein_exercise_4_5_25 {p : ℕ} (hp : Nat.Prime p) :\n  Irreducible (∑ i ∈ Finset.range p, X ^ i : Polynomial ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says q(x) = 1 + x + ... + x^(p-1) is irreducible in ℚ[x] when p is prime. The Lean signature assumes p is a Nat prime and asserts that ∑ i ∈ Finset.range p, X^i is irreducible as a polynomial in ℚ[X]. The sum ∑_{i=0}^{p-1} X^i exactly equals 1 + X + X^2 + ... + X^(p-1), and Irreducible in Polynomial ℚ matches irreducibility in ℚ[x]. The hypothesis and conclusion correspond exactly.",
+  "duration_ms": 5974,
+  "cost_usd": 0.04266574999999999
+}

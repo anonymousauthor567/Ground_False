@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_b6.lean",
+  "stem": "putnam_2020_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `n : ℕ` with `npos : n > 0` matches \"positive integer n\". `Finset.Icc 1 n` ranges over k = 1, ..., n, matching $\\sum_{k=1}^n$. `Int.floor (k * (Real.sqrt 2 - 1))` correctly encodes $\\lfloor k(\\sqrt{2}-1) \\rfloor$ using implicit coercion of k from ℕ to ℝ. The power `((-1) ^ Int.floor (...) : ℝ)` uses zpow with base (-1 : ℝ), which yields ±1 based on parity, correctly matching $(-1)^{\\lfloor k(\\sqrt{2}-1) \\rfloor}$ (and since k ≥ 1 and √2 > 1, the floor is actually non-negative anyway). The final `≥ 0` matches the inequality. No hypotheses are added or dropped, and the types align with the intended meaning.",
+  "duration_ms": 160793,
+  "cost_usd": 0.26179675
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a6.lean",
+  "stem": "putnam_2015_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. The positivity of n is captured by `npos : n > 0`. Matrices are encoded as `Matrix (Fin n) (Fin n) ℝ`, the standard n×n real matrix type. The hypothesis AM = MB becomes `A * M = M * B`. The condition that A and B have the same characteristic polynomial is captured by `Matrix.charpoly A = Matrix.charpoly B`, where `Matrix.charpoly` in Mathlib is defined as `(charmatrix M).det`, the standard characteristic polynomial. The conclusion is a universal statement over all n×n real matrices X that `det(A - M*X) = det(B - X*M)`, matching the informal claim exactly. No hypotheses are added or dropped and no types or quantifiers are changed.",
+  "duration_ms": 41683,
+  "cost_usd": 0.1128425
+}

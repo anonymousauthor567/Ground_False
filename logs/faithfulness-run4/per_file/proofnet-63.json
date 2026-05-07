@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the same mathematical claim. Using d : ℕ instead of d : ℤ is equivalent under the hypotheses, since M^d mod N depends only on d mod φ(N) when gcd(M,N)=1 (Euler), and every integer coprime to φ(N) has a natural-number representative mod φ(N). The ∃ d' : ℕ formulation with d'*d ≡ 1 [ZMOD φ(N)] is equivalent to the informal \"d' is THE inverse of d mod φ(N)\" because: (a) such d' exists by gcd(d,φ(N))=1, (b) any two such inverses differ by a multiple of φ(N), and (c) since gcd(M,N)=1 implies gcd(M',N)=1, M'^{d'} mod N only depends on d' mod φ(N). The gcd encodings (`M.gcd N` for M : ℤ, N : ℕ, and `d.gcd N.totient`) correctly represent gcd(M,N)=1 and gcd(d,φ(N))=1 respectively. Commutativity makes d'*d vs d*d' irrelevant. Renaming M₁ to M' is cosmetic.",
+  "duration_ms": 320150,
+  "cost_usd": 1.0174857499999999
+}

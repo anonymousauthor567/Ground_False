@@ -1,0 +1,8 @@
+{
+  "file": "92.lean",
+  "stem": "92",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all elements of the informal statement. The Dedekind domain assumption matches `IsDedekindDomain R`. The primes P_i are encoded as `p : Fin n → PrimeSpectrum R` (primality baked into PrimeSpectrum), with `h_nonzero` asserting non-zeroness and `h_inj` (Function.Injective on the extensional PrimeSpectrum type) asserting pairwise distinctness. The exponents `e : Fin n → ℕ` match non-negative integers. The conclusion (a) = P_1^{e_1} ⋯ P_n^{e_n} · J is encoded as `Ideal.span {a} = J * ∏ (p i).1 ^ (e i)` (ideal multiplication is commutative). Finally, \"J's factorization contains no P_i\" is encoded as `∀ i, ¬ ∃ K, J = K * (p i).1`, which is precisely `P_i ∤ J` (since ∃ K, J = K * P_i is the definition of divisibility in the ideal monoid); in a Dedekind domain, P_i ∤ J is equivalent to P_i not appearing in the factorization of the (necessarily non-zero, since a ≠ 0) ideal J. No extra hypotheses are added or dropped.",
+  "duration_ms": 385880,
+  "cost_usd": 0.9044679999999999
+}

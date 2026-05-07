@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f` is precisely C^∞ (infinitely differentiable) per Mathlib's notation `∞` in ContDiff/FTaylorSeries.lean — not C^ω (analytic). (2) The hypotheses `f 0 = 0`, `f 1 = 1`, and `∀ x, f x ≥ 0` directly mirror the informal hypotheses. (3) The conclusion `∃ (n : ℕ+) (x : ℝ), iteratedDeriv n f x < 0` correctly encodes \"positive integer n\" via `ℕ+` (PNat := {n : ℕ // 0 < n}), which coerces to ℕ for iteratedDeriv, giving f^{(n)}(x) for n ≥ 1. The quantifier structure and conclusion match exactly. No hypotheses are added or dropped, and no conditions are strengthened or weakened.",
+  "duration_ms": 1334239,
+  "cost_usd": 0.6623977499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The hypothesis `p.Prime ∧ p > 2` is equivalent to \"p is an odd prime\" since 2 is the only even prime. Setting `f = (X+2)^p`, all binomial coefficients `C(p,k) * 2^(p-k)` are positive, so `f.support = {0,1,...,p}` and `f.support \\ {0} = {1,...,p}`. The sum `∑ n ∈ f.support \\ {0}, f.coeff n * X^(n-1)` therefore equals `∑_{k=1}^p C(p,k) 2^(p-k) X^(k-1)`, which is exactly `((X+2)^p - 2^p)/X` — removing the constant term 2^p and shifting down by X. Since n ≥ 1 in all summands, ℕ-subtraction `n-1` is well-defined. `Irreducible` in `Polynomial ℤ` matches irreducibility in ℤ[x]. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 36209,
+  "cost_usd": 0.1583975
+}

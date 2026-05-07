@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b2.lean",
+  "stem": "putnam_2025_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal problem. The x-coordinate of the centroid of the 2D region R bounded by x=0, x=1, y=0, y=f(x) is (∫ x·f(x) dx)/(∫ f(x) dx), and the x-coordinate of the centroid of the solid of revolution about the x-axis uses the disk weighting π·f(x)² which cancels in the quotient giving (∫ x·f(x)² dx)/(∫ f(x)² dx). These match the Lean expression precisely. The hypotheses also match: ContinuousOn and StrictMonoOn on Icc 0 1 correspond to \"continuous and strictly increasing on [0,1]\", and the codomain constraint \"f : [0,1] → [0,∞)\" is captured by the nonnegativity hypothesis. Under these hypotheses, the denominators are positive (f is strictly increasing with f(0) ≥ 0 forces f to be positive near 1 by continuity), so the division is well-defined. The strict inequality x₁ < x₂ is preserved exactly.",
+  "duration_ms": 125287,
+  "cost_usd": 0.23810749999999997
+}

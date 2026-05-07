@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement: `CompactSpace X` + `T2Space X` encode \"compact Hausdorff\", `hClosed` and `hConn` encode \"closed connected subsets\", and `hChain : a ⊆ b ∨ b ⊆ a` is equivalent to A being totally ordered by proper inclusion (for distinct a, b, `⊆ ∨ ⊇` matches `⊂ ∨ ⊃`, and for equal elements the disjunction is trivial). The conclusion `IsConnected (⋂₀ A)` matches \"Y = ⋂ A is connected\". The extra hypothesis `A.Nonempty` surfaces an implicit premise: without it, A = ∅ gives ⋂₀ A = univ, which is not connected for a general compact Hausdorff space (e.g., a two-point discrete space), and Mathlib's `IsConnected` requires nonemptyness anyway. Any mathematician reading \"a collection 𝒜 of subsets... intersect them\" understands 𝒜 to be nonempty. Per the guidelines, surfacing a premise needed for truth is faithful, not a strengthening.",
+  "duration_ms": 153389,
+  "cost_usd": 0.4634809999999999
+}

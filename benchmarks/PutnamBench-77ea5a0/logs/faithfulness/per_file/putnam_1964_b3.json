@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b3.lean",
+  "stem": "putnam_1964_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `f : ℝ → ℝ` and `Continuous f` correspond directly to the informal hypotheses. The hypothesis `∀ α > 0, Tendsto (fun n : ℕ ↦ f (n * α)) atTop (𝓝 0)` expresses \"for every positive real α, the sequence f(nα) indexed by natural numbers tends to 0\" — matching the informal statement (using ℕ for the index is standard; n = 0 doesn't affect the limit). The conclusion `Tendsto f atTop (𝓝 0)` is the standard Mathlib encoding of lim_{x→∞} f(x) = 0 for real x. No hypotheses are added or omitted, and types align exactly.",
+  "duration_ms": 68572,
+  "cost_usd": 0.25280475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "27.lean",
+  "stem": "27",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses `[CommRing D] [IsDomain D]` and `¬ IsField D` exactly encode \"D is an integral domain but not a field.\" For the conclusion, a PID is by definition an integral domain that is also a principal ideal ring. Since D is an integral domain, D[X] is automatically an integral domain (via `Polynomial.instIsDomain` in Mathlib), so \"D[X] is not a PID\" is equivalent to \"D[X] is not a principal ideal ring,\" i.e., `¬ IsPrincipalIdealRing D[X]`. Mathlib's `IsPrincipalIdealRing` class asserts every ideal is principal, matching the PIR/PID conclusion precisely in this domain context. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 55828,
+  "cost_usd": 0.1305225
+}

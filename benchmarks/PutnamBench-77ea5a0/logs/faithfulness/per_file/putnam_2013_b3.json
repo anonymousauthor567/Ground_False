@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_b3.lean",
+  "stem": "putnam_2013_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. P as `Finset (Finset (Fin n))` captures \"collection of subsets of {1,...,n}\" (any such collection is automatically finite). `P ≠ ⊥` matches nonemptiness via `bot_eq_empty`. Conditions (i) and (ii) are faithfully encoded, including `T ⊂ S` as strict subset and `card T + 1 = card S` for \"exactly one fewer element\". The function `f : Finset (Fin n) → ℝ` is extended to all finsets, but since all constraints and the conclusion only reference `f` on P (closed under ∪/∩ by (i)) and on `⊥` (which is forced to be in P by iterating (ii)), this is logically equivalent to having `f : P → ℝ`. The conclusion `∃ r : Fin n → ℝ, ∀ S ∈ P, f S = ∑ i ∈ S, r i` matches, and the whole being asserted iff `True` (the solution) correctly encodes the affirmative answer.",
+  "duration_ms": 187349,
+  "cost_usd": 0.5896049999999999
+}

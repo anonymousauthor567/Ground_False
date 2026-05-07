@@ -1,0 +1,8 @@
+{
+  "file": "45.lean",
+  "stem": "45",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes A ⊆ B via `A : Subring B`, which gives the same 1 and inherited ring operations. With `[CommRing B] [IsDomain B]`, Mathlib automatically provides an `IsDomain` instance on the subring A (via `Mathlib/Algebra/Ring/Subring/Defs.lean`), so both A and B are commutative integral domains, matching the informal setup. The conclusion `(ringChar B = p) ↔ (ringChar A = p)` with auto-bound `p : ℕ` is universally quantified over p, which is logically equivalent to `ringChar A = ringChar B` — exactly the content of \"A has characteristic p iff B has characteristic p\". Even if \"p\" is intended to mean a prime, the equivalence still holds since characteristics of integral domains are 0 or prime. No hypotheses are dropped or added beyond what is implicit in the informal statement.",
+  "duration_ms": 220246,
+  "cost_usd": 0.5783784999999999
+}

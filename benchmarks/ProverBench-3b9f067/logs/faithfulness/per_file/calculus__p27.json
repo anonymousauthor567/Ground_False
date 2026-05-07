@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p27.lean",
+  "stem": "calculus__p27",
+  "verdict": "faithful",
+  "reasoning": "The Lean definitions of f, x, y, z match the informal formulas exactly (including z depending only on s, which is consistent with the informal z(s,t) = s²). The composite g(s,t) = f(x(s,t), y(s,t), z(s)) is correctly assembled. The partial derivative with respect to t is encoded as `deriv (fun τ => g s τ) t`, which is the standard Mathlib idiom for a partial derivative: fix s and take the single-variable derivative in τ at t. The final claim `partial_t 2 π = 24 * π^2` matches \"∂g/∂t at (2,π) equals 24π²\" verbatim. Mathematical check: ∂g/∂t = -2s²cos(t)sin(t) + 3s³t², and at (2,π) this gives 0 + 24π² = 24π², consistent with the stated answer. No hypotheses are added or dropped, and quantifier structure is preserved.",
+  "duration_ms": 75043,
+  "cost_usd": 0.171925
+}

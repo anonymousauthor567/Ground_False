@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a1.lean",
+  "stem": "putnam_1995_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures every aspect of the informal statement. S being closed under multiplication is encoded by hS; T and U being disjoint subsets of S with union S is encoded by hsub, hunion, and hdisj; the three-element closure properties are encoded by hT3 and hU3 using unrestricted universal quantifiers (correctly allowing \"not necessarily distinct\" elements); and the conclusion \"at least one of T, U is closed under multiplication\" is encoded as a disjunction of the two two-element closure properties. Types (Set ℝ) and quantifier structures match exactly. No hidden strengthening or weakening.",
+  "duration_ms": 14299,
+  "cost_usd": 0.06516
+}

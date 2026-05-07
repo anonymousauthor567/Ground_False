@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch8_9.lean",
+  "stem": "brualdi_ch8_9",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses Mathlib's `fwdDiff 1` which is defined as `fun n ↦ f (n + 1) - f n`, i.e., exactly the forward difference operator Δ with step 1. The k-th iterate `(fwdDiff 1)^[k]` corresponds to Δ^k. The RHS `∑ j ∈ Finset.range (k + 1), (-1)^(k-j) * Nat.choose k j * h (n + j)` matches the informal `∑_{j=0}^{k}(-1)^{k-j}\\binom{k}{j} h_{n+j}` component-for-component: range (k+1) encodes j=0..k, the signs, binomial coefficients, and shifted sequence values all align. This also mirrors Mathlib's existing `fwdDiff_iter_eq_sum_shift` theorem. The sequence is typed as `ℕ → ℤ`, which is the standard and natural interpretation for a \"sequence\" in combinatorial difference calculus, and the statement is universally quantified over h, k, n as expected.",
+  "duration_ms": 62519,
+  "cost_usd": 0.2408815
+}

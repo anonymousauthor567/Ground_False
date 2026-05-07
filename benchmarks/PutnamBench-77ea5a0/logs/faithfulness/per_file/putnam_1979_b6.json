@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_b6.lean",
+  "stem": "putnam_1979_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Complex.cpow` (via `x ^ ((1 : ℂ)/2)`) which gives the principal square root, while the informal `(...)^{1/2}` denotes \"a\" square root. Since any complex number w satisfies |Re(w)| = |Re(-w)|, and these are the only two square roots, the inequality holds for one branch iff it holds for both — so the choice of branch is immaterial to the truth of the statement. All other components match directly: `n : ℕ`, `z : Fin n → ℂ` gives n complex numbers; `∑ i : Fin n, (z i)^2` is the sum of squares; `.re` is the real part; `|·|` is the real absolute value; and `∑ i : Fin n, |(z i).re|` is the sum of |Re(z_i)|. Edge cases (n=0 or sum=0) are handled correctly since Mathlib defines `0 ^ (1/2) = 0`. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 130873,
+  "cost_usd": 0.43776249999999994
+}

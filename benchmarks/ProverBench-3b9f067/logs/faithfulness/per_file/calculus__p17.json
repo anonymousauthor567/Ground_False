@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p17.lean",
+  "stem": "calculus__p17",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement \"∫ 1/cos²x dx = tan x + C\" is the standard mathematical shorthand for an antiderivative relation — that tan(x) + C is an antiderivative of 1/cos²(x), formalized in Mathlib as e.g. `HasDerivAt Real.tan (1 / Real.cos x ^ 2) x` (requiring cos x ≠ 0). The Lean statement, however, uses Mathlib's `∫ (x : ℝ), ...` notation, which (per `Bochner.lean`) denotes the Bochner DEFINITE integral of the function over all of ℝ with the Lebesgue measure — a single real number, not an antiderivative. Moreover, the bound variable `x` inside the integral shadows the outer theorem parameter `x`, so the LHS is a constant while the RHS `Real.tan x + C` varies with the outer `x`. Since 1/cos² is not integrable over ℝ, the LHS is actually 0, making the Lean claim false for generic `x, C`. The Lean formalization thus describes a fundamentally different (and false) mathematical claim than the true antiderivative statement — it neither implies nor is implied by the intended informal content in any meaningful sense.",
+  "duration_ms": 218197,
+  "cost_usd": 0.5234625
+}

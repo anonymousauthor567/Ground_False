@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a6.lean",
+  "stem": "putnam_2012_a6",
+  "verdict": "stronger",
+  "reasoning": "The informal statement allows arbitrary rectangular regions (including rotated/tilted rectangles) of area 1, whereas the Lean formalization's predicate `p` only considers axis-aligned rectangles (determined by x1 < x2, y1 < y2, (x2-x1)(y2-y1) = 1). Since axis-aligned rectangles form a proper subset of all rectangles of area 1, the Lean hypothesis is strictly weaker, and therefore asserting that this weaker hypothesis forces f ≡ 0 is logically strictly stronger than the informal claim (which requires the hypothesis to hold for all rectangles, including rotated ones). The Lean claim implies the informal claim but not vice versa. The file's own header comment explicitly acknowledges this deviation: \"this formalization differs from the original problem wording in only allowing axis-aligned rectangles.\" This is a self-documented strengthening of the theorem.",
+  "duration_ms": 94499,
+  "cost_usd": 0.23744049999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a5.lean",
+  "stem": "putnam_2012_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal Putnam 2012 A5 statement accurately. Key points: (1) Using an arbitrary field F of cardinality p with n > 0 and p prime correctly encodes F_p^n since any field of prime cardinality is isomorphic to F_p and the statement is invariant under isomorphism. (2) G is introduced as a parameter together with the defining equation `G M v x = v + mulVec M x`, which pins G down exactly to the informal definition. (3) `i, j : Finset.range (p^n)` coerces to naturals in {0,...,p^n-1}, so `i + 1` and `j + 1` range over {1,...,p^n}, matching the k = 1, 2, ..., p^n in the informal statement. (4) The negation `¬∃ i j, i ≠ j ∧ G^[i+1] 0 = G^[j+1] 0` correctly encodes \"the p^n vectors are distinct.\" (5) The solution set is typed `Set (ℕ × ℕ)` with pairs (n, p); the solution `{q | n = 1} ∪ {(2,2)}` is consistent with this ordering. No hypotheses are dropped, added, or weakened relative to the informal claim.",
+  "duration_ms": 342871,
+  "cost_usd": 1.01014925
+}

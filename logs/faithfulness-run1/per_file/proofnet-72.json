@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "informal": "If $G$ is a finite group, prove that there is an integer $m > 0$ such that $a^m = e$ for all $a \\in G$.",
+  "lean": "\ntheorem Herstein_exercise_2_1_27 {G : Type*} [Group G]\n  [Fintype G] : ∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for a positive integer m such that a^m = e for every element a of a finite group G. The Lean signature takes G as a Group with Fintype instance (encoding finiteness), and asserts the existence of a natural number m > 0 such that for all a in G, a^m = 1. The quantifier structure (∃ m, m > 0 ∧ ∀ a, a^m = 1) matches exactly. Using ℕ with m > 0 is equivalent to a positive integer. The identity element is written as 1 in multiplicative group notation, matching e. This is a faithful formalization.",
+  "duration_ms": 5750,
+  "cost_usd": 0.042195
+}

@@ -1,0 +1,8 @@
+{
+  "file": "21.lean",
+  "stem": "21",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the order of Aut(Z_3 × Z_9), the automorphism group of the abelian group Z_3 × Z_9. In Mathlib, `AddAut M := M ≃+ M` is exactly the group of additive automorphisms, which for an abelian group (written additively) coincides with its group automorphism group. `ZMod 3 × ZMod 9` is the standard encoding of Z_3 × Z_9. `Nat.card` gives the cardinality, which matches \"order\" for a finite group. The value 108 is mathematically correct: counting endomorphism \"matrices\" (a, b ∈ Z_3; c ∈ 3Z_9; d ∈ Z_9) with invertibility on G/3G gives 2·3·3·6 = 108. The Lean statement captures the informal claim exactly.",
+  "duration_ms": 246917,
+  "cost_usd": 0.5732427499999999
+}

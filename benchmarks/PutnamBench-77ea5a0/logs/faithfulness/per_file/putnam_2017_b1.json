@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_b1.lean",
+  "stem": "putnam_2017_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement: (1) `lines` is defined as the set of parametric lines {v + t•w : t ∈ ℝ} with w ≠ 0, which is the standard characterization of lines in ℝ²; (2) L1, L2 being in `lines` with L1 ≠ L2 captures \"distinct lines in the plane\"; (3) \"intersect\" is correctly encoded as `L1 ∩ L2 ≠ ∅`; (4) the vector equation $\\overrightarrow{PA_2} = \\lambda\\overrightarrow{PA_1}$ is correctly translated as `A2 - P = lambda • (A1 - P)` since $\\overrightarrow{PA} = A - P$; (5) the quantifier structure (∀λ≠0, ∀P∉L1∪L2, ∃A1∈L1, ∃A2∈L2) and the iff are preserved exactly. No hypotheses are silently added or removed, and the ambient type ℝ² (as `Fin 2 → ℝ`) matches \"the plane\".",
+  "duration_ms": 114664,
+  "cost_usd": 0.28138224999999994
+}

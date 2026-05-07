@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal claim. \"Every point of the unit circle\" is captured by `z : ℂ` with `‖z‖ = 1`. The partial sum `∑ i ∈ range n, z^(i+1)/(i+1)^2` yields terms `z^1/1² + z^2/2² + ... + z^n/n²`, which is exactly the n-th partial sum of $\\sum_{k=1}^\\infty z^k/k^2$ — the only sensible reading of the informal series since k=0 would divide by zero. Convergence is expressed as `∃ y, Tendsto s atTop (𝓝 y)`, which is the standard definition of series convergence to some limit. The universal quantification over z is implicit in the theorem statement's argument. The introduction of `s` via a hypothesis `h : s = ...` is logically equivalent to defining s directly. No hypotheses are added or omitted relative to the informal statement.",
+  "duration_ms": 30096,
+  "cost_usd": 0.1340525
+}

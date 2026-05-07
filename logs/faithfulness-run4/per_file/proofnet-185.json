@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"the center of the product of two groups is the product of their centers\" asserts that Z(G × H) ≅ Z(G) × Z(H) for arbitrary groups G and H. The Lean statement `Nonempty (center (G × H) ≃* (center G) × (center H))` expresses precisely this as the existence of a group isomorphism (multiplicative equivalence). Because `center (G × H)` (a subtype of G × H) and `center G × center H` (a product of subtypes) are genuinely different Lean types, an isomorphism is the natural way to encode the informal \"is\". The quantification matches: both G and H are arbitrary groups (`{G H : Type*} [Group G] [Group H]`). No extra hypotheses (finiteness, abelianness, decidability, etc.) are added or dropped. This is a standard, faithful Mathlib-style encoding of this classical Artin exercise.",
+  "duration_ms": 465641,
+  "cost_usd": 1.33437975
+}

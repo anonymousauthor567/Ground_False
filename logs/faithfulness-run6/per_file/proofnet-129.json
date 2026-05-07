@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the Munkres claim correctly: `[NormalSpace X]` (verified in Mathlib/Topology/Separation/Regular.lean) captures \"X is normal\"; the hypotheses `IsClosed A`, `IsClosed B`, `Disjoint A B` capture \"pair of disjoint closed sets\"; the existential `∃ U V, IsOpen U ∧ IsOpen V ∧ A ⊆ U ∧ B ⊆ V` captures \"neighborhoods\" of A and B (open neighborhoods, which is equivalent to general neighborhoods here since any neighborhood contains an open one with the same or smaller closure); and `closure U ∩ closure V = ∅` captures \"closures are disjoint\". No hypotheses are added or dropped and the quantifier structure matches. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 51218,
+  "cost_usd": 0.20710725000000002
+}

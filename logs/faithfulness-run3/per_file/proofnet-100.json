@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `IsPrimitiveRoot ζ k`, which in Mathlib is equivalent to `orderOf ζ = k` (confirmed via `IsPrimitiveRoot.iff_orderOf` in `Mathlib/RingTheory/RootsOfUnity/PrimitiveRoots.lean`). Thus the LHS says `a` has order `p-1` (primitive root mod p), and the RHS says `-a` has order `(p-1)/2` — matching the informal statement exactly. The hypothesis `p = 4*t + 3` with `t : ℕ` implicit captures precisely \"primes of the form 4t+3\" (i.e., p ≡ 3 mod 4). Taking `a : (ZMod p)ˣ` rather than arbitrary integers/residues is the natural reading: \"primitive root mod p\" already presupposes coprimality to p, and for non-units both sides of the iff are trivially false, so the restriction is inert. The conclusion is a genuine iff, preserving the biconditional structure. No hypotheses are dropped or added beyond what the informal statement implicitly requires.",
+  "duration_ms": 198602,
+  "cost_usd": 0.5453055
+}

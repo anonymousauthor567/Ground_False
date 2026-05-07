@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch10_60.lean",
+  "stem": "brualdi_ch10_60",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The `LatinSquare n` structure correctly encodes a Latin square (n×n array with distinct entries in each row/column, entries in ZMod n which is {0,...,n-1}). `IsIdempotent` correctly says L(i,i) = i (via the standard Fin n → ZMod n coercion), matching Brualdi's definition. `L.1.IsSymm` uses Mathlib's `Matrix.IsSymm` (Aᵀ = A), which is the standard matrix symmetry. `Odd n` correctly expresses \"odd order\". The added hypothesis `hn : n > 0` is an implicit premise made explicit: without it, n = 0 is a counterexample (the empty 0×0 array vacuously satisfies both predicates but `Odd 0` is false in Mathlib), so the literal informal statement is false without this assumption. Any mathematician reading about Latin squares implicitly assumes n ≥ 1, so per the system prompt's guidance this is faithful, not weaker.",
+  "duration_ms": 194884,
+  "cost_usd": 0.5259195000000001
+}

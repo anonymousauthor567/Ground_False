@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each part of the informal claim: the biconditional between uniform continuity of f : [a,b] → ℝ and the existence of a modulus of continuity. The conditions `∀ x > 0, μ x > 0`, `ContinuousOn μ (Ioi 0)`, `StrictMonoOn μ (Ioi 0)`, and `Tendsto μ (𝓝[>] 0) (𝓝 0)` correctly encode \"continuous, strictly increasing μ : (0,∞) → (0,∞) with μ(s) → 0 as s → 0⁺\". Although μ is typed as ℝ → ℝ rather than (0,∞) → (0,∞), all constraints apply only on Ioi 0, so the existence statement is equivalent (informal modulus extends to ℝ; Lean modulus restricts to (0,∞)). The inequality `∀ s t : Icc a b, |f s - f t| ≤ μ(|s - t|)` precisely matches the modulus-of-continuity condition (the s=t corner case 0 ≤ μ(0) is trivially compatible with the canonical extension μ(0)=0). No hypotheses are added or dropped relative to the informal meaning.",
+  "duration_ms": 256548,
+  "cost_usd": 0.81703475
+}

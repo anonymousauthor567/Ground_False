@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the Munkres 33.8 informal statement: completely regular X, A and B disjoint closed with A compact, and the conclusion is existence of a continuous f : X → I (the unit interval [0,1]) with f '' A = {0} and f '' B = {1}. The Mathlib `CompletelyRegularSpace` class (verified in Mathlib/Topology/Separation/CompletelyRegular.lean) matches the standard Munkres notion. The only added hypotheses are `A.Nonempty` and `B.Nonempty`; these are needed to make the literal set-equalities `f '' A = {0}` and `f '' B = {1}` true — if A were empty, `f '' A = ∅ ≠ {0}`, so the existential would be vacuously false. This is precisely the \"surfacing implicit premises\" pattern described in the system prompt, not a narrowing of scope, and should be judged faithful.",
+  "duration_ms": 70490,
+  "cost_usd": 0.3460625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-331.lean",
+  "stem": "proofnet-331",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The initial conditions x₀=1, x₁=x₂=a are correctly encoded. The recurrence hxn with the n ≥ 2 guard correctly captures x_{n+1} = 2x_n x_{n-1} - x_{n-2} (natural subtraction works correctly since n ≥ 2). The hypothesis `∃ n, x n = 0` matches \"x_n=0 for some n\". The conclusion `∃ c ≠ 0, Periodic x c` uses Mathlib's Function.Periodic definition (∀ n, x(n+c) = x n) with c : ℕ, and the `c ≠ 0` constraint is necessary to rule out the trivial 0-period — this is exactly the standard mathematical meaning of \"the sequence is periodic\".",
+  "duration_ms": 80227,
+  "cost_usd": 0.31729625
+}

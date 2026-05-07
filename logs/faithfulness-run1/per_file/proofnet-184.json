@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "informal": "Prove that the products $a b$ and $b a$ are conjugate elements in a group.",
+  "lean": "\ntheorem Artin_exercise_2_3_2 {G : Type*} [Group G] (a b : G) :\n  ∃ g : G, b* a = g * a * b * g⁻¹",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says ab and ba are conjugate in a group, i.e., there exists g with ba = g(ab)g⁻¹. The Lean signature asserts ∃ g : G, b*a = g * a * b * g⁻¹, which is exactly the conjugacy of ab and ba (with g*(a*b)*g⁻¹ written without explicit parentheses). The quantifier structure (universal over a, b in an arbitrary group, existential over g) and the conclusion match precisely. No extra hypotheses (e.g., finiteness, abelianness) are imposed, and no hypotheses are dropped.",
+  "duration_ms": 7642,
+  "cost_usd": 0.04614675
+}

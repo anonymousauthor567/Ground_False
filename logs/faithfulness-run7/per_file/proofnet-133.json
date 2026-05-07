@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding uses `f '' A = {0}` and `f '' B = {1}`, which directly matches Munkres' set-equation notation \"f(A) = {0}\" and \"f(B) = {1}\". Under this image-based interpretation, A = ∅ would make `f '' A = ∅ ≠ {0}`, and similarly for B, so the nonemptiness hypotheses `hAn` and `hBn` are surfacing implicit premises needed for the literal statement to be true — not narrowing the scope. The use of Mathlib's `CompletelyRegularSpace` (confirmed via `CompletelyRegular.lean`: \"each closed set K and point x ∉ K has continuous f : X → I with f x = 0 and f ≡ 1 on K\") matches Munkres' definition exactly. The hypotheses `IsClosed A`, `IsClosed B`, `Disjoint A B`, `IsCompact A` correspond precisely to \"disjoint closed subsets\" and \"A is compact\", and `X → I` with `I := Icc 0 1` correctly formalizes \"f : X → [0,1]\". This is analogous to the worked example where surfacing an implicit premise needed for truth counts as faithful.",
+  "duration_ms": 101499,
+  "cost_usd": 0.38341375
+}

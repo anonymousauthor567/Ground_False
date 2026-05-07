@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "theorem_name": "Munkres_exercise_31_3_corrected",
+  "informal": "Show that every order topology is regular.",
+  "lean": "theorem Munkres_exercise_31_3_corrected {α : Type*} [LinearOrder α] [TopologicalSpace α]\n    [OrderTopology α] : RegularSpace α",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that every order topology is regular. The Lean signature takes an arbitrary type α with a LinearOrder, a TopologicalSpace, and the OrderTopology typeclass (asserting that the topology agrees with the order topology), and concludes RegularSpace α. This matches the informal claim exactly: for any linearly ordered set with its order topology, the space is regular. The quantification over \"every order topology\" is captured by the universally quantified type variable α with the relevant instances. No extra hypotheses (like Fintype or Nonempty) are added, and no hypotheses are dropped.",
+  "duration_ms": 6296,
+  "cost_usd": 0.04193375
+}

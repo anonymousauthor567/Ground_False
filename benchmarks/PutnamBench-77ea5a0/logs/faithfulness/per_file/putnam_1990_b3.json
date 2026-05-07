@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_b3.lean",
+  "stem": "putnam_1990_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. Using `Matrix (Fin 2) (Fin 2) ℕ` is equivalent to integer matrices with square entries since perfect squares of integers are non-negative, and commutation under matrix multiplication is preserved by the ℕ → ℤ embedding. The hypothesis `∀ A ∈ S, ∀ i j, (∃ x : ℤ, A i j = x^2) ∧ A i j ≤ 200` correctly encodes that every entry is both a perfect square of an integer and ≤ 200. The threshold 50387 matches the given value (15^4 − 15^2 − 15 + 2 = 50387). The conclusion `∃ A ∈ S, ∃ B ∈ S, A ≠ B ∧ A * B = B * A` correctly encodes \"two (distinct) elements that commute\", which is the intended reading since any element trivially commutes with itself. `S.encard > 50387` correctly encodes \"more than 50387 elements\".",
+  "duration_ms": 107313,
+  "cost_usd": 0.33531500000000003
+}

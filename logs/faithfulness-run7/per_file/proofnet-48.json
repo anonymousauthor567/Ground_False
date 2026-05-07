@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement component by component. The finite set A is encoded via `[Fintype α]`, the cardinality condition |A|>1 via `Fintype.card α > 1`, and \"permutation group on A\" via `G : Subgroup (Equiv.Perm α)`. The transitivity hypothesis `∀ a b : α, ∃ σ : G, (σ : Equiv.Perm α) a = b` directly expresses the standard definition of a transitive action (equivalent to Mathlib's `MulAction.IsPretransitive`). The conclusion `∃ σ : G, ∀ a : α, (σ : Equiv.Perm α) a ≠ a` precisely captures \"some σ ∈ G such that σ(a) ≠ a for all a ∈ A\" (a fixed-point-free element). The quantifier structure and types are preserved exactly, so the formalization is strictly faithful.",
+  "duration_ms": 29255,
+  "cost_usd": 0.15689425
+}

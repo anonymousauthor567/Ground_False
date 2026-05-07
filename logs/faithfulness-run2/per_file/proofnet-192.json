@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every nonzero ideal in ℤ[i] contains a nonzero rational integer. The Lean statement quantifies over ideals I with the correct hypothesis I ≠ ⊥, and asserts the existence of z ∈ I with z ≠ 0 and imaginary part zero. An element of GaussianInt with im = 0 is exactly a rational integer inside ℤ[i], and z ≠ 0 in the subtype I is equivalent to the underlying Gaussian integer being nonzero. Thus the Lean statement captures precisely the informal claim with no added or missing hypotheses.",
+  "duration_ms": 26971,
+  "cost_usd": 0.0734245
+}

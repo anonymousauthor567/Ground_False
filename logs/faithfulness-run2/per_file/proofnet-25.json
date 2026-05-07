@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes Axler Exercise 7.6. Normality is expressed as `T * adjoint T = adjoint T * T`, which in the endomorphism ring is exactly T∘T* = T*∘T. The conclusion `range T = range (adjoint T)` matches the informal equality of ranges. The ambient assumptions (finite-dimensional inner product space over RCLike F) align with Axler's standing Chapter 7 conventions, where V is finite-dimensional over ℝ or ℂ. No hypotheses are silently added or dropped, and the types used (LinearMap.range on End F V) match the intended mathematical objects.",
+  "duration_ms": 18354,
+  "cost_usd": 0.08280775
+}

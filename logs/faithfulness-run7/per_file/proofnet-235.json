@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-235.lean",
+  "stem": "proofnet-235",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"a group of order 56 has a normal Sylow p-subgroup for some prime p dividing its order\" as `∃ p, ∃ P : Sylow p G, p.Prime ∧ p ∣ card G ∧ P.Normal`. The hypothesis `hG : card G = 56` fixes the group order. The conjuncts `p.Prime` and `p ∣ card G` capture \"for some prime p dividing its order\", while `∃ (P : Sylow p G), P.Normal` captures \"has a normal Sylow p-subgroup\". Including `p ∣ card G` is necessary because Mathlib's `Sylow p G` type is defined for any natural number p (as a maximal p-subgroup), and for primes p not dividing |G| the trivial subgroup is trivially a normal Sylow p-subgroup — so this constraint matches the informal quantifier. The quantifier structure and all ambient objects match the informal claim.",
+  "duration_ms": 115762,
+  "cost_usd": 0.31209224999999996
+}

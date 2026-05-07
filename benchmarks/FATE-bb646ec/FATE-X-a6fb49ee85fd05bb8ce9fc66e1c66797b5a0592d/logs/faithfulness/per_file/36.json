@@ -1,0 +1,8 @@
+{
+  "file": "36.lean",
+  "stem": "36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `associatedPrimes R (M →ₗ[R] N)` is Ass Hom_R(M,N). The RHS `{p | p ∈ associatedPrimes R N ∧ Module.annihilator R M ≤ p}` encodes Ass N ∩ Supp M using the informal statement's own explicit definition of Supp M as \"primes containing the annihilator of M\". Since elements of `associatedPrimes R N` are automatically prime ideals (by `IsAssociatedPrime.isPrime`), the set comprehension correctly captures primes `p` that lie in Ass N and contain Ann(M). The hypotheses R Noetherian (`IsNoetherianRing`), M and N f.g. R-modules (`Module.Finite R M/N`), and commutative ring all align with the informal setup. The types are correct (Set (Ideal R) on both sides). This is a faithful formalization.",
+  "duration_ms": 172946,
+  "cost_usd": 0.48740125
+}

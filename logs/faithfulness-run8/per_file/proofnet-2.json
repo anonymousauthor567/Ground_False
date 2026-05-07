@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"contains exactly one element of order 2\" by combining existence (`orderOf x = 2`) with uniqueness (`∀ y, orderOf y = 2 → y = x`). The conclusion `x ∈ center G` matches Mathlib's `Subgroup.center`, whose membership is `∀ g, g * x = x * g` — the standard group-theoretic center. The implicit universal quantifications over the group G and the element x correctly capture the informal \"a group... that element\". No extra hypotheses are added and no hypotheses are dropped, so this is a logically equivalent formalization.",
+  "duration_ms": 45488,
+  "cost_usd": 0.1813465
+}

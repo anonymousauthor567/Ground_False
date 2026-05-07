@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any complex numbers x, y, ||x| - |y|| ≤ |x - y|. In Lean/Mathlib, for `x : ℂ`, the norm `‖x‖` is definitionally equal to the complex absolute value `Complex.abs x`, so `‖x‖` corresponds to `|x|` in the informal notation. The expression `‖x‖ - ‖y‖` is a real number, so the outer `|·|` in the Lean statement is the real absolute value, matching the outer bars in the informal statement. The right-hand side `‖x - y‖` is the complex norm of the difference, matching `|x - y|`. The quantification over arbitrary `x y : ℂ` matches \"If x, y are complex\". The Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 18965,
+  "cost_usd": 0.05618975
+}

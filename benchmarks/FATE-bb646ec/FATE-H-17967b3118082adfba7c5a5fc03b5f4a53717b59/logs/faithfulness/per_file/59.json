@@ -1,0 +1,8 @@
+{
+  "file": "59.lean",
+  "stem": "59",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that `Polynomial.rootSet` of `X^7 - 11 ∈ ℚ[X]` in the splitting field of `X^7 - 12` over ℚ equals `⊥`. For `Set S`, `⊥ = ∅` (`Set.bot_eq_empty`), and `rootSet` is the set of distinct roots of the polynomial in the given algebra. By `mem_rootSet'`, membership in `rootSet` is equivalent to the polynomial being nonzero after mapping (which holds since `X^7 - 11 ≠ 0` in ℚ[X] and ℚ → SplittingField is injective) together with `aeval a p = 0`. Therefore `rootSet = ⊥` iff no element of the splitting field is a root of `X^7 - 11`, which exactly matches \"x^7 - 11 has no root in the splitting field of x^7 - 12 over ℚ\". The base field ℚ, the polynomial, and the splitting field construction all align with the informal statement.",
+  "duration_ms": 139274,
+  "cost_usd": 0.3354825
+}

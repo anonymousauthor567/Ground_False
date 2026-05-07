@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch4_35.lean",
+  "stem": "brualdi_ch4_35",
+  "verdict": "incomparable",
+  "reasoning": "The Lean formalization uses `List.Lex (fun x1 x2 => x1 ≤ x2)` instead of the standard `List.Lex (· < ·)`. This is semantically broken: `List.Lex`'s `rel` constructor fires whenever `r a b` holds, so with `r = (· ≤ ·)` and equal heads (`a ≤ a`), the relation holds in both directions. For strictly-increasing sorted lists of the same length, `List.Lex (· ≤ ·) L M` degenerates to `L[0] ≤ M[0]`, which is not a lex order. Concrete counterexample: n=3, r=2, A_i = {0,2}, A_j = {0,1}. The premise `List.Lex (· ≤ ·) [0,2] [0,1]` holds via `rel` with `0 ≤ 0`, but the conclusion `List.Lex (· ≤ ·) [2] [1]` fails (2 ≤ 1 is false). Thus the Lean statement is FALSE as a proposition, while the informal statement is TRUE. The informal uses strict lex order on subsets; replacing `<` by `≤` inside `List.Lex` produces a genuinely different (and broken) relation — neither the premise-weakened version implies the informal, nor does the informal imply the Lean claim.",
+  "duration_ms": 664388,
+  "cost_usd": 2.177587
+}

@@ -1,0 +1,8 @@
+{
+  "file": "71.lean",
+  "stem": "71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that k[x,y] is not a Dedekind ring. `MvPolynomial (Fin 2) k` with `[Field k]` is precisely the polynomial ring in two variables over a field, i.e., k[x,y]. Mathlib's `IsDedekindRing` class (defined in `RingTheory/DedekindDomain/Basic.lean` line 103) captures exactly the standard notion of Dedekind ring: Noetherian, DimensionLEOne, integrally closed in its fraction ring. The Lean statement `¬ IsDedekindRing (MvPolynomial (Fin 2) k)` with `k` an arbitrary field matches the informal claim exactly — same ring, same conclusion, no added or dropped hypotheses.",
+  "duration_ms": 87487,
+  "cost_usd": 0.202406
+}

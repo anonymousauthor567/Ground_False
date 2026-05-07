@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group G of order 132 is not simple. The Lean signature takes an arbitrary type G with [Fintype G] and [Group G], assumes card G = 132, and concludes ¬ IsSimpleGroup G. The Fintype assumption is implicit in having finite cardinality 132, so it doesn't add extra content. IsSimpleGroup in Mathlib is the standard notion of simple group (nontrivial with no proper normal subgroups), which matches the informal meaning, and a group of order 132 is automatically nontrivial. The quantifier structure (universal over G) and conclusion match exactly.",
+  "duration_ms": 7306,
+  "cost_usd": 0.03526975
+}

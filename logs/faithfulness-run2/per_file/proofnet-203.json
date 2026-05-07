@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches Axler Exercise 5.11 faithfully. S, T ∈ L(V) is encoded as `End F V`. The [FiniteDimensional F V] assumption corresponds to Axler's standing assumption that V is finite-dimensional (and this hypothesis is mathematically necessary — the result fails in infinite dimensions where 0 can be an eigenvalue of ST but not TS). Generalizing F from ℝ/ℂ to an arbitrary field is a standard Mathlib convention and the theorem still holds over any field. The conclusion `(S * T).Eigenvalues = (T * S).Eigenvalues` uses Mathlib's subtype `{μ // HasEigenvalue f μ}`; under propext/funext this type equality is equivalent to the two operators having the same eigenvalue predicate, i.e., the same set of eigenvalues.",
+  "duration_ms": 62681,
+  "cost_usd": 0.20308075
+}

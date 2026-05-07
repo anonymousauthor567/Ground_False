@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_a3.lean",
+  "stem": "putnam_1994_a3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"the points of an isosceles right triangle of side length 1 are each colored\" — this literally refers to all points of the triangle, which under the natural reading is the closed filled triangular region. The Lean formalization uses `T = convexHull ℝ {!₂[0,0], !₂[1,0], !₂[0,1]}`, the filled isosceles right triangle with legs of length 1 (and hypotenuse √2), matching the \"side length 1\" specification. The 4-coloring is encoded as `Tcolors : T → Fin 4`, and the conclusion `∃ p q : T, Tcolors p = Tcolors q ∧ dist p.1 q.1 ≥ 2 - √2` exactly captures \"two points of the same color at distance ≥ 2-√2\" (since 2-√2 > 0, this forces p ≠ q). The formalizer's preamble notes this differs from some original problem version about just the sides, but the informal text as provided in the comment block is about \"the points of the triangle,\" which the filled-triangle encoding faithfully represents.",
+  "duration_ms": 818908,
+  "cost_usd": 1.027646
+}

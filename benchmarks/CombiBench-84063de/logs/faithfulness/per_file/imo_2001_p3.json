@@ -1,0 +1,8 @@
+{
+  "file": "imo_2001_p3.lean",
+  "stem": "imo_2001_p3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the IMO 2001 P3 statement. The types (`Fin 21 → Finset ℕ`) correctly model 21 girls/boys each with their set of solved problems. The hypotheses correctly encode \"at most 6 problems\" (via `.card ≤ 6`) and \"each girl-boy pair shares a problem\" (via nonempty intersection, equivalent to `≠ ∅` for Finsets). The helper `solved_by_at_least_three` uses three existentially-quantified indices with pairwise distinctness (a≠b, b≠c, a≠c), which correctly encodes \"three distinct contestants,\" and membership in the triple intersection correctly asserts the problem is solved by all three. The conclusion's conjunction asserts the same problem is solved by at least three girls and at least three boys, matching the informal conclusion exactly.",
+  "duration_ms": 52541,
+  "cost_usd": 0.1680865
+}

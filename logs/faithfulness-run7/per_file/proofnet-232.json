@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. \"Abelian group\" maps to `[CommGroup G]`, \"order pq\" maps to `[Fintype G]` together with `card G = p*q` (for finite groups `Fintype.card` equals the group order), \"p and q are distinct primes\" maps to `{p q : Nat.Primes}` (which is Mathlib's subtype of prime naturals) with `hpq : p ≠ q`, and the conclusion `IsCyclic G` matches \"G is cyclic\". The `p * q` expression elaborates via the `Coe Nat.Primes ℕ` instance to `(p : ℕ) * (q : ℕ)`, matching the numerical product in the informal statement. No hypothesis is added that narrows the scope, and nothing required by the informal statement is dropped.",
+  "duration_ms": 76873,
+  "cost_usd": 0.2867675
+}

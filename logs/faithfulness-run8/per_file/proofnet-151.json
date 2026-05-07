@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely matches the informal statement. The quantifier structure (∃ r ≥ 0, ∃ w with |w|=1) is preserved exactly: `r : ℝ` with `r ≥ 0` captures the real non-negative scalar, `w : ℂ` captures the complex number, and `‖w‖ = 1` captures `|w| = 1` because Mathlib's norm on ℂ (from `Complex.instNorm`) coincides with the complex modulus. The expression `r * w` with `r : ℝ` and `w : ℂ` elaborates (given the expected type ℂ from `z : ℂ`) by coercing `r` to ℂ via `Complex.ofReal`, so `z = r * w` exactly encodes \"z = rw\". No extra hypotheses are added and none are dropped.",
+  "duration_ms": 81119,
+  "cost_usd": 0.3612715
+}

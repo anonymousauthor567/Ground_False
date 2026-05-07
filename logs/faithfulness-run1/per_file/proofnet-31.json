@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "informal": "Let $x$ and $y$ be elements of $G$. Prove that $xy=yx$ if and only if $y^{-1}xy=x$ if and only if $x^{-1}y^{-1}xy=1$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_18 {G : Type*} [Group G]\n  (x y : G) : (x * y = y * x ↔ y⁻¹ * x * y = x) ∧ (y⁻¹ * x * y = x ↔ x⁻¹ * y⁻¹ * x * y = 1)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a three-way equivalence: xy=yx ↔ y⁻¹xy=x ↔ x⁻¹y⁻¹xy=1. The Lean statement asserts the conjunction of two iffs: (xy=yx ↔ y⁻¹xy=x) and (y⁻¹xy=x ↔ x⁻¹y⁻¹xy=1). By transitivity these two iffs together are logically equivalent to the three-way equivalence. The group is an arbitrary group G, x and y are arbitrary elements, matching the informal statement. No extra hypotheses are added or removed.",
+  "duration_ms": 6675,
+  "cost_usd": 0.04511675
+}

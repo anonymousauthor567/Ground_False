@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures uniqueness of continuous extensions into a Hausdorff space. `ContinuousOn f A` with `f : X → Y` is the standard Mathlib encoding of \"f : A → Y is continuous\" when working with total functions. The hypothesis that `g` is a continuous extension (`ContinuousOn g (closure A)` plus `∀ x : A, g x = f x`) matches \"f may be extended to a continuous function g : Ā → Y\". The Hausdorff hypothesis is encoded as `T2Space Y`. The conclusion — that any other continuous extension `g'` of `f` on `closure A` must equal `g` on `closure A` — is logically equivalent to \"g is uniquely determined by f\" (via transitivity, any two extensions agree on Ā). Though the formulation fixes one extension g and compares to another g' rather than directly quantifying over two, this is the same claim.",
+  "duration_ms": 83034,
+  "cost_usd": 0.2897700000000001
+}

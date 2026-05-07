@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the existence of a bijection between the collection of open subsets and the collection of closed subsets of a metric space M. The Lean statement introduces `O` and `C` as `Set (Set M)` equal to `{s | IsOpen s}` and `{s | IsClosed s}` respectively, and asserts the existence of a bijective function `f : O → C`. Via Mathlib's `CoeSort` instance (`Set.Elem`), `O → C` is interpreted as `{s : Set M // s ∈ O} → {s : Set M // s ∈ C}`, i.e., a function from the subtype of open sets to the subtype of closed sets. `Function.Bijective` means `Injective ∧ Surjective`, which is exactly the standard notion of bijection. The parameterization via `O, C` variables with equality hypotheses is logically equivalent to directly stating the claim. This is a faithful encoding.",
+  "duration_ms": 107165,
+  "cost_usd": 0.36747549999999995
+}

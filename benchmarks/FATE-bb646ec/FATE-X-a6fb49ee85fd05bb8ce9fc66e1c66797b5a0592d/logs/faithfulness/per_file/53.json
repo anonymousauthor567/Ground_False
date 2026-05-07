@@ -1,0 +1,8 @@
+{
+  "file": "53.lean",
+  "stem": "53",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses custom definitions `IsGorensteinLocalRing` (Noetherian local ring with Ext^i(k, R) = 0 for i ≫ 0) and `IsGorensteinRing` (Noetherian ring whose localizations at all maximal ideals are Gorenstein local). By Bass's theorem (Bruns-Herzog 3.1.17, Matsumura 18.1), for a Noetherian local ring, inj.dim_R R < ∞ is equivalent to Ext^i(k, R) = 0 for all i ≫ 0, so the `IsGorensteinLocalRing` class faithfully encodes the informal definition via an equivalent characterization. The global definition (localize at every maximal ideal) is the standard definition of Gorenstein for general Noetherian rings. The ring `k[X,Y,Z]/(X²-Y², Y²-Z², XY, YZ, ZX)` is correctly encoded as `MvPolynomial (Fin 3) k ⧸ Ideal.span {...}` with the five generators matching exactly. `Subsingleton` on an Ext-group (an abelian group) correctly expresses vanishing. All components match the informal claim.",
+  "duration_ms": 1145499,
+  "cost_usd": 2.2031234999999993
+}

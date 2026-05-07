@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts \"A × B is abelian iff both A and B are abelian\" where A and B are (implicitly) groups. The Lean version uses [Group A] [Group B] as instance arguments, making A × B automatically a group via Mathlib's product instance, and then expresses \"abelian\" as the commutativity axiom ∀ x y, x * y = y * x — which is precisely the extra axiom distinguishing CommGroup from Group. Thus the LHS of the iff expresses \"A × B is abelian (as a group)\" and the RHS expresses \"both A and B are abelian (as groups)\". The universal quantification over groups A and B is captured by the implicit type variables. The hypotheses, conclusion, quantifier structure, and types all match the informal claim.",
+  "duration_ms": 42148,
+  "cost_usd": 0.14614700000000003
+}

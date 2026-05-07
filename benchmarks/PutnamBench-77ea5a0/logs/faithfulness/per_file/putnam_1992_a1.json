@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_a1.lean",
+  "stem": "putnam_1992_a1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that f(n) = 1-n is the unique integer function satisfying conditions (i), (ii), (iii). This uniqueness claim is logically equivalent to the iff: \"f equals n ↦ 1-n if and only if f satisfies all three conditions\". The Lean formalization encodes exactly this iff. The forward direction verifies the specific function satisfies the conditions, and the backward direction captures the uniqueness. The three conditions are transcribed verbatim: f(f n) = n, f(f(n+2)+2) = n, and f(0) = 1, all quantified correctly over ℤ. The type ℤ → ℤ matches \"integer-valued function defined on the integers\". No hypotheses are added or dropped.",
+  "duration_ms": 27566,
+  "cost_usd": 0.06930900000000001
+}

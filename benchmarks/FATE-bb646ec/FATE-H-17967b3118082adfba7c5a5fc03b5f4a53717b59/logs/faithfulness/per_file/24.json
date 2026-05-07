@@ -1,0 +1,8 @@
+{
+  "file": "24.lean",
+  "stem": "24",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes ℚ/ℤ as `ℚ ⧸ (Int.castAddHom ℚ).range`, where `Int.castAddHom ℚ : ℤ →+ ℚ` is the canonical inclusion and its `.range` is exactly the image of ℤ as an AddSubgroup of ℚ. `AddSubgroup.FiniteIndex` is Mathlib's standard notion of finite index. The conclusion `H = ⊤` (the whole group) is logically equivalent to \"H is not proper\": a subgroup is proper iff H ≠ ⊤, so \"no proper subgroup has finite index\" ⟺ \"every finite-index subgroup equals ⊤\". The quantification over arbitrary H with the FiniteIndex hypothesis matches the informal universal claim about all finite-index subgroups. No hypotheses are added or dropped, and the ambient objects match the informal statement.",
+  "duration_ms": 143736,
+  "cost_usd": 0.3727035
+}

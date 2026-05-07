@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p20_1.lean",
+  "stem": "linear_algebra__p20_1",
+  "verdict": "incomparable",
+  "reasoning": "In Mathlib's convention, `A : Matrix (Fin m) (Fin n) ℝ` is `Fin m → Fin n → ℝ` where `A i` is the i-th row, so `LinearIndependent ℝ (fun i => A i)` expresses linear independence of ROWS of A (confirmed by `linearIndependent_rows_iff_isUnit` in `Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean`). But the informal statement claims \"the COLUMN vectors of A are linearly dependent\" — a different property (e.g., for the 1×2 matrix A = (1,0) with B = (0,1)ᵀ, we have AB=0, A≠0, B≠0, columns of A are LD, rows of B are LD, yet the single row of A is linearly independent, so the Lean claim fails while the informal holds). Additionally, the Lean statement drops the second conjunct of the informal conclusion entirely (\"row vectors of B are linearly dependent\") and omits the hypothesis `B ≠ 0`. So Lean neither implies nor is implied by the informal statement.",
+  "duration_ms": 455571,
+  "cost_usd": 1.2013455
+}

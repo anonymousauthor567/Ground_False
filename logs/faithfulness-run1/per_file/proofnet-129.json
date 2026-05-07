@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "informal": "Show that if $X$ is normal, every pair of disjoint closed sets have neighborhoods whose closures are disjoint.",
+  "lean": "\ntheorem Munkres_exercise_31_2 {X : Type*}\n  [TopologicalSpace X] [NormalSpace X] {A B : Set X}\n  (hA : IsClosed A) (hB : IsClosed B) (hAB : Disjoint A B) :\n  ∃ (U V : Set X), IsOpen U ∧ IsOpen V ∧ A ⊆ U ∧ B ⊆ V ∧ closure U ∩ closure V = ∅",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in a normal space, disjoint closed sets A, B have neighborhoods (open sets containing them) whose closures are disjoint. The Lean signature assumes NormalSpace X, takes disjoint closed A, B, and asserts existence of open U, V with A ⊆ U, B ⊆ V, and closure U ∩ closure V = ∅. \"Neighborhoods\" of a set typically means open sets containing the set (or sets whose interior contains it); using open sets here matches standard usage. Disjoint closures is expressed as their intersection being empty, which is equivalent. The hypotheses (normality, closedness, disjointness) match the informal version exactly.",
+  "duration_ms": 7412,
+  "cost_usd": 0.04691225
+}

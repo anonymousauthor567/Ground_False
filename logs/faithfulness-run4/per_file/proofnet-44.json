@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"G ≅ Z_p for some prime p\" is logically equivalent to \"G is cyclic and G has prime cardinality\". The Lean statement conjoins `IsCyclic G` with `∃ G_fin : Fintype G, Nat.Prime (@card G G_fin)`, which exactly asserts this: cyclicity plus finiteness with prime order. The existential over Fintype is effectively \"G is finite\" (any Fintype instance yields the same cardinality), and the prime cardinality ensures G ≅ Z_p. The hypotheses `[CommGroup G] [IsSimpleGroup G]` correctly encode \"abelian simple group\", and crucially `G : Type*` has no Fintype assumption a priori — matching the informal \"do not assume G is a finite group\". This is a faithful formalization.",
+  "duration_ms": 107878,
+  "cost_usd": 0.329174
+}

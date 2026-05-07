@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p8_2.lean",
+  "stem": "linear_algebra__p8_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes exactly the claim made in the informal statement. The system of 4 equations in 3 unknowns (x, y, z) is faithfully encoded: `coeff_matrix` is a 4×3 ℚ matrix whose rows match the coefficients of (x, y, z) in the four equations (with z-column being 0, 0, 0, 1), and `aug_matrix` is the 4×4 augmented matrix obtained by appending the b vector [-108, -404, -12, 14]. The conclusion `rank coeff_matrix = 2 ∧ rank aug_matrix = 2` directly mirrors \"the rank of both the coefficient matrix A and the augmented matrix [A | b] is 2\". Mathlib's `Matrix.rank` is the standard rank (finrank of the image of mulVecLin), which is the same as the usual matrix rank over ℚ. The `verify_solution` lemma is auxiliary and does not affect the main claim. While the main statement is stated as `axiom` rather than `theorem`, this does not change the semantic content of the claim itself, and the proposition being asserted matches the informal statement exactly.",
+  "duration_ms": 434046,
+  "cost_usd": 1.08919175
+}

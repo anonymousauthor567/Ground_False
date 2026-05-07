@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p12.lean",
+  "stem": "number_theory__p12",
+  "verdict": "faithful",
+  "reasoning": "In Lean 4 v4.9.0-rc2, the `variable (a b c : ℕ) (ha : 0 < a) (hb : 0 < b) (hc : 0 < c)` declaration auto-includes `ha`, `hb`, `hc` in the theorem signature because their types depend on `a`, `b`, `c`, which are referenced in the theorem body (verified via mathlib patterns like `Mathlib/Data/Int/CardIntervalMod.lean:79-115` and `Combinatorics/SimpleGraph/Turan.lean`). So the elaborated theorem is effectively `∀ (a b c : ℕ), 0 < a → 0 < b → 0 < c → ¬ ∃ k : ℤ, a²+b²+c² = k · 3(ab+bc+ca)`. Since 3(ab+bc+ca) > 0 for positive a, b, c, the existence of k : ℤ with a²+b²+c² = k · 3(ab+bc+ca) is exactly equivalent to the fraction (a²+b²+c²)/(3(ab+bc+ca)) being an integer. Using ℤ for k rather than ℕ doesn't weaken the statement since any such k must be a positive integer. The formalization matches the informal claim precisely.",
+  "duration_ms": 1025740,
+  "cost_usd": 2.8755002499999995
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_b2.lean",
+  "stem": "putnam_1990_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal identity. The numerator ∏ i : Fin j, (1 - z * x^i) iterates over exponents 0..j-1, matching (1-z)(1-zx)...(1-zx^{j-1}). The denominator ∏ i : Set.Icc 1 j, (z - x^i) iterates over exponents 1..j, matching (z-x)(z-x^2)...(z-x^j). The series ∑' j : Set.Ici 1, ... correctly sums from j=1 to ∞, and the hypothesis hP constrains P on exactly the indices j ≥ 1 that appear in the sum, leaving P 0 irrelevant. The bounds |x|<1 and |z|>1 are preserved. The informal statement does not specify real vs. complex, so interpreting x, z : ℝ is a valid and natural reading of the written text.",
+  "duration_ms": 148253,
+  "cost_usd": 0.4613895
+}

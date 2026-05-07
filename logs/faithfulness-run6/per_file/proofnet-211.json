@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that subtraction on ℤ is not commutative, i.e., ¬(∀ a b : ℤ, a - b = b - a). This is classically equivalent to ∃ a b : ℤ, a - b ≠ b - a, which is exactly the Lean statement. The types (ℤ) and the operation (integer subtraction) match the informal statement precisely. Therefore the Lean formalization is strictly faithful.",
+  "duration_ms": 8576,
+  "cost_usd": 0.0408195
+}

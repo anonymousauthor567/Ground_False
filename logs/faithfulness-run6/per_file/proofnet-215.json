@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any element x in a group G, x and x⁻¹ have the same order. The Lean signature universally quantifies over `G : Type*` with `[Group G]` and `x : G`, and states `orderOf x = orderOf x⁻¹`. In Mathlib, `orderOf` is the standard notion of element order (defined in GroupTheory/OrderOfElement.lean, with `orderOf_inv` confirming this exact equality). The equality of natural numbers is symmetric, so whether it's written `orderOf x = orderOf x⁻¹` or `orderOf x⁻¹ = orderOf x` is irrelevant. No hypotheses are added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 35921,
+  "cost_usd": 0.087537
+}

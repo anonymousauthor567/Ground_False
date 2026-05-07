@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_b5.lean",
+  "stem": "putnam_1984_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The function `d` is properly constrained: `hd` says `d k = sumbits (Nat.digits 2 k)`, and since base-2 digits are 0/1, summing them gives the count of 1's — matching d(k). The sum `∑ k : Set.Icc 0 (2^m - 1), ...` correctly ranges over k = 0, 1, ..., 2^m - 1 for m > 0. The body `(-(1 : ℤ)) ^ (d k) * (k : ℕ) ^ m` encodes `(-1)^(d k) * k^m`, and gets elaborated to ℝ via coercion to match the RHS. The RHS `(-1)^m * (a : ℝ)^(f.eval (m : ℝ)) * (g.eval m)!` with solution `(2, X(X-1)/2, X)` yields `(-1)^m * 2^(m(m-1)/2) * m!`. While `Real.rpow` is used for the exponent, since `m(m-1)/2` is always a nonneg integer, this equals the natural power. The polynomial types (`Polynomial ℝ` for f due to the 1/2 coefficient, `Polynomial ℕ` for g=X) are appropriate choices consistent with the informal claim.",
+  "duration_ms": 484950,
+  "cost_usd": 1.376389
+}

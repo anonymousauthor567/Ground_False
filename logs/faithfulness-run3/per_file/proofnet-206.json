@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Fin n` as the index set with coefficient `(i + 1)`, which elaborates to `((i : ℕ) : ℝ) + 1` and ranges over {1, 2, ..., n} — matching the informal index `j ∈ {1, ..., n}`. The three sums correspond exactly: `∑ a i * b i` matches `∑ a_j b_j`, `∑ (i+1) * a i^2` matches `∑ j a_j^2`, and `∑ b i^2 / (i+1)` matches `∑ b_j^2 / j`. Universal quantification over `n : ℕ` and arbitrary functions `a, b : Fin n → ℝ` matches \"for all real numbers\". The `n = 0` case is vacuously fine (empty sums, 0 ≤ 0), and for `n ≥ 1` the divisors `i+1` are positive so no division-by-zero issues arise. No hypotheses are added or dropped.",
+  "duration_ms": 220538,
+  "cost_usd": 0.6855414999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "weaker",
+  "reasoning": "Munkres defines \"regular\" as T₁ + the regularity separation axiom (corresponding to Mathlib's `T3Space`), as confirmed by the informal proof in the file which explicitly says \"We have to prove that X_α satisfies the T_1 and the T_3 axiom.\" The Lean statement uses Mathlib's `RegularSpace`, which is strictly the separation axiom without T₁ — an indiscrete 2-point space is `RegularSpace` but not `T3Space`. The Lean thus uses a strictly weaker notion of \"regular\" in BOTH the hypothesis and the conclusion, dropping the T₁ part that Munkres requires. The Lean's conclusion `RegularSpace (X i)` fails to assert that each factor is T₁/Hausdorff, which is the first thing Munkres' informal proof establishes. So the Lean captures only a proper sub-claim of the informal statement's conclusion — it proves less separation content than Munkres asks.",
+  "duration_ms": 832688,
+  "cost_usd": 2.21566575
+}

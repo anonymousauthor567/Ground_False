@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "theorem_name": "Ireland_Rosen_exercise_5_13_corrected",
+  "informal": "Show that any prime divisor of $x^{4}-x^{2}+1$ is congruent to 1 modulo 12 .",
+  "lean": "\ntheorem Ireland_Rosen_exercise_5_13_corrected {p : ℕ} {x : ℤ}\n    (hp : Nat.Prime p)\n    (hpx : (p : ℤ) ∣ (x^4 - x^2 + 1)) : (p : ℤ) ≡ 1 [ZMOD 12]",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: every prime p dividing x^4 - x^2 + 1 (for some integer x) satisfies p ≡ 1 (mod 12). The Lean signature universally quantifies over a prime p and an integer x, assumes p ∣ (x^4 - x^2 + 1), and concludes (p : ℤ) ≡ 1 [ZMOD 12]. This matches the informal claim exactly: same hypotheses (p prime, x integer, divisibility), same conclusion (congruence mod 12). The use of ℤ for x and the ZMOD congruence are standard equivalent encodings. No extra hypotheses (like p odd, p > 3) are added, and none are dropped. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 12683,
+  "cost_usd": 0.056645499999999994
+}

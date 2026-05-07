@@ -1,0 +1,8 @@
+{
+  "file": "97.lean",
+  "stem": "97",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show sin 1° is algebraic over ℚ. Since 1° = π/180 radians, and with `open Real` in scope `sin` refers to `Real.sin` and `π` to `Real.pi`, `sin (π / 180)` is literally sin 1°. The Mathlib definition `IsAlgebraic ℚ x` means there exists a nonzero rational polynomial with x as a root, which is exactly the standard meaning of \"algebraic over ℚ\". The Lean statement neither adds nor drops hypotheses and the conclusion matches the informal claim exactly.",
+  "duration_ms": 44242,
+  "cost_usd": 0.0937945
+}

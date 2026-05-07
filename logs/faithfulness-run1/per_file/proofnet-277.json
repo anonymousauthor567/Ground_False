@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "theorem_name": "Herstein_exercise_5_4_3_modified",
+  "informal": "If a ∈ ℂ satisfies p(a) = 0 where p(x) = x^5 + √2·x³ + √5·x² + √7·x + √11,\nthen a is algebraic over ℚ of degree at most 80.",
+  "lean": "theorem Herstein_exercise_5_4_3_modified {a : ℂ}\n    (ha : a ^ 5 + (Real.sqrt 2 : ℂ) * a ^ 3 + (Real.sqrt 5 : ℂ) * a ^ 2 +\n      (Real.sqrt 7 : ℂ) * a + (Real.sqrt 11 : ℂ) = 0) :\n    ∃ q : Polynomial ℚ, q ≠ 0 ∧ q.natDegree ≤ 80 ∧\n      Polynomial.aeval a q = 0",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"a is algebraic over ℚ of degree at most 80\" is equivalent to the existence of a nonzero polynomial q ∈ ℚ[x] with deg(q) ≤ 80 and q(a) = 0 (the minimal polynomial divides any such q, so its degree is ≤ 80). The Lean signature asserts exactly this: ∃ q : Polynomial ℚ with q ≠ 0, q.natDegree ≤ 80, and aeval a q = 0. The hypothesis encodes p(a)=0 with the same polynomial p(x)=x^5+√2 x^3+√5 x^2+√7 x+√11, with √· interpreted via Real.sqrt cast to ℂ (and since 2,5,7,11 are nonnegative, Real.sqrt gives the standard real square roots). Quantifier structure (universally over a satisfying p(a)=0, existentially over q) matches. No extra or missing hypotheses; the conclusion matches the informal claim.",
+  "duration_ms": 9762,
+  "cost_usd": 0.053613999999999995
+}

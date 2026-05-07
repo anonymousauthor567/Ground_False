@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every continuous open mapping R¹ → R¹ is monotonic. In standard real analysis (and Rudin's textbook convention), \"monotonic\" means either monotonically non-decreasing or monotonically non-increasing. The Lean formalization encodes this as `Monotone f ∨ Antitone f`, where `Monotone f := ∀ ⦃a b⦄, a ≤ b → f a ≤ f b` and `Antitone f := ∀ ⦃a b⦄, a ≤ b → f b ≤ f a`. This disjunction is logically equivalent to the classical notion of \"monotonic\". The hypotheses `Continuous f` and `IsOpenMap f` correctly encode \"continuous open mapping\", and the type `ℝ → ℝ` matches \"R¹ into R¹\". No hypothesis has been added or dropped.",
+  "duration_ms": 42574,
+  "cost_usd": 0.19340299999999996
+}

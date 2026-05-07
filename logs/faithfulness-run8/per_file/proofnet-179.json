@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The informal statement concerns a \"region\" Ω (standardly: nonempty, open, connected subset of ℂ), a continuous function f on Ω, and two primitives F₁, F₂ of f — asserting they differ by a constant. The Lean formalization encodes \"region\" as `IsOpen Ω ∧ IsConnected Ω ∧ Nonempty Ω` (the `Nonempty Ω` is redundant since Mathlib's `IsConnected` already requires nonemptiness, but this does not change the logical content). \"Primitive of f\" is encoded as `DifferentiableOn ℂ F_i Ω` together with `deriv F_i x = f x` on Ω, which is the correct notion of a holomorphic antiderivative. The `ContinuousOn f Ω` hypothesis directly matches the informal \"f continuous\" (it is in fact redundant given the other hypotheses, but it's the informal premise). The conclusion `∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c` is the standard encoding of \"differ by a constant.\" No hypothesis is weakened or strengthened, and the types and quantifier structure match the informal content.",
+  "duration_ms": 154966,
+  "cost_usd": 0.500501
+}

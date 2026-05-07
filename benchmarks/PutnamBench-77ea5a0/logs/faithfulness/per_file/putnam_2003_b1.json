@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b1.lean",
+  "stem": "putnam_2003_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization introduces four univariate real polynomials `a, b, c, d : Polynomial ℝ` and asserts that the statement \"there exist such polynomials with `1 + x*y + x²*y² = a(x)*c(y) + b(x)*d(y)` for all real x, y\" is equivalent to `putnam_2003_b1_solution = False`. This is exactly the Putnam 2003 B1 question, with the answer encoded as \"no such polynomials exist.\" Using ℝ as the coefficient ring is the standard interpretation; since ℝ is infinite, the polynomial identity holding for all real x, y is equivalent to it being a formal polynomial identity. The number of polynomials (four: a, b, c, d), the placement of variables (a, b in x; c, d in y), and the form of the expression all match the informal statement. The formalization is faithful.",
+  "duration_ms": 98142,
+  "cost_usd": 0.2729805
+}

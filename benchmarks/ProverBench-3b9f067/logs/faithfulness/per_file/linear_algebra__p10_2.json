@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p10_2.lean",
+  "stem": "linear_algebra__p10_2",
+  "verdict": "incomparable",
+  "reasoning": "The Lean definition `column_full_rank A := LinearIndependent K (fun i => A i)` is actually asserting linear independence of the ROWS of A, not the columns. In Mathlib's convention (confirmed by `linearIndependent_rows_iff_isUnit` vs `linearIndependent_cols_iff_isUnit` in `NonsingularInverse.lean`), for `A : Matrix m n K`, `fun i => A i` iterates over the row-index `m`, giving rows. Column LI would require `fun i => Aᵀ i` or `fun j => fun i => A i j`. Thus the theorem effectively claims \"rows of A are linearly independent → rank A = Fintype.card n\", which is actually false for non-square matrices (e.g., a 2×3 matrix with LI rows has rank 2 ≠ 3). Additionally, the informal statement is a biconditional (\"if and only if\"), whereas the theorem only states a one-way implication. The Lean claim neither implies nor is implied by the informal iff \"columns LI ↔ rank = n\".",
+  "duration_ms": 752798,
+  "cost_usd": 1.9384695
+}

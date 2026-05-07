@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "stronger",
+  "reasoning": "The informal statement, taken from Pugh Ch. 3 (Sequences), asks for the limit of √(n+1) − √n as a natural-number index n → ∞. In the Lean statement, because `sqrt` resolves to `Real.sqrt : ℝ → ℝ` and there is no type annotation on the lambda, Lean unifies the bound variable's type directly with ℝ (no coercion is needed since `1 : ℝ` via `OfNat`). This is confirmed by the ground-truth proof, which introduces the limit variable as `x : ℝ` and uses `sqrt (x + 1)` on it — so `atTop` is `Filter ℝ` and the claim is about the limit as a real variable tends to infinity. The real-variable version strictly implies the natural-number version (by restricting to ℕ ⊂ ℝ), but not conversely, so the Lean statement is logically stronger than what the informal text asks. The unused outer parameter `(n : ℕ)` is cosmetic and doesn't change this (since ℕ is inhabited).",
+  "duration_ms": 302980,
+  "cost_usd": 0.68255225
+}

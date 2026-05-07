@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Rudin's exercise 4.5(a) exactly: E is a closed subset of ℝ (IsClosed E), f is continuous on E (ContinuousOn f E, which by Mathlib's definition means continuity at every point within E), and there exists a continuous g : ℝ → ℝ with g = f on E. Modeling f as ℝ → ℝ with the ContinuousOn hypothesis is the standard and logically equivalent encoding of \"f defined on E\" — values of f outside E are unconstrained and irrelevant. The equality f x = g x is symmetric to g x = f x. No hypotheses are added or dropped and the quantifier structure matches.",
+  "duration_ms": 63532,
+  "cost_usd": 0.18103475
+}

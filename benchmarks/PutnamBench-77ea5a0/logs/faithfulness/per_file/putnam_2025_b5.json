@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b5.lean",
+  "stem": "putnam_2025_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The hypotheses `hp_prime : p.Prime` and `hp_gt : 3 < p` capture \"p is a prime greater than 3\". `modInv p k = ZMod.val ((k : ZMod p)⁻¹)` faithfully encodes $I(k)$: since `ZMod p` is a field when p is prime, the multiplicative inverse of a nonzero `(k : ZMod p)` is nonzero, and `ZMod.val` returns its unique representative in `{1,...,p-1}`, which is exactly $I(k)$. `Finset.Icc 1 (p - 2)` is `{1,...,p-2}` (nonempty since `p ≥ 4`), and `descentCount p` counts `k` in this set with `modInv p (k+1) < modInv p k`, matching $I(k+1) < I(k)$. The conclusion `(p : ℚ) / 4 - 1 < descentCount p` is precisely the inequality \"greater than $p/4 - 1$\" with the natural number coerced to ℚ. No hypotheses are added or dropped, and the types/ranges align correctly.",
+  "duration_ms": 134763,
+  "cost_usd": 0.38664100000000007
+}

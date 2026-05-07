@@ -1,0 +1,8 @@
+{
+  "file": "57.lean",
+  "stem": "57",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly uses Mathlib's `alternatingGroup (Fin n)` (defined as `sign.ker`), which matches A_n, and `sign σ = -1` correctly encodes \"σ is odd\". The quantifier structure matches: σ and its oddness are fixed hypotheses; then for every odd τ, it asserts existence of π ∈ A_n with τ = σ * π. The n ≥ 2 hypothesis from the informal statement is automatically captured: for n < 2, no permutation has sign -1, so the hypothesis `sign σ = -1` is unsatisfiable and the theorem is vacuously true, which is consistent with the informal claim. The reading τ = σ * π matches the natural reading of \"a product of σ and some permutation in A_n\". No hidden weakening or strengthening.",
+  "duration_ms": 168520,
+  "cost_usd": 0.39757175
+}

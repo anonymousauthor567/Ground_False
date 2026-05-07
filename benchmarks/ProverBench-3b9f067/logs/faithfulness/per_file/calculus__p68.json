@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p68.lean",
+  "stem": "calculus__p68",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal triple integral correctly. The region {p : ℝ × ℝ × ℝ | p.1 ∈ Icc 0 5 ∧ p.2.1 ∈ Icc 0 1 ∧ p.2.2 ∈ Icc 0 1 ∧ p.2.1 + p.2.2 ≤ 1} equals the triangular prism S: the bounds 0 ≤ y ≤ 1 and 0 ≤ z ≤ 1 are logically implied by y ≥ 0, z ≥ 0, and y+z ≤ 1, so adding them does not restrict the set. The integrand ENNReal.ofReal p.2.2 equals z on the region (since z ≥ 0), and using ∫⁻ with a non-negative integrand against the default volume (product Lebesgue) measure on ℝ × ℝ × ℝ gives the same value as the Riemann/Bochner integral. The answer 5/6 is correct (5·∫₀¹(1-y)²/2 dy = 5/6). So the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 160658,
+  "cost_usd": 0.36528299999999997
+}

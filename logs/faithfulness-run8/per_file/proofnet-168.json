@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for every bounded set E ⊆ ℝ and every f : ℝ → ℝ that is uniformly continuous on E, the image f(E) is bounded. This matches the informal claim exactly. `Bornology.IsBounded E` is the correct formalization of \"bounded set in ℝ¹\", `UniformContinuousOn f E` is the standard Mathlib definition of uniform continuity on a set, `f : ℝ → ℝ` correctly represents a real function defined on ℝ¹, and `Bornology.IsBounded (Set.image f E)` correctly formalizes \"f is bounded on E\" (i.e., f(E) is bounded in ℝ). The quantifier structure (E,h as parameters, f under ∀) is logically equivalent to universally quantifying over both. No hypotheses are added or dropped.",
+  "duration_ms": 30344,
+  "cost_usd": 0.136446
+}

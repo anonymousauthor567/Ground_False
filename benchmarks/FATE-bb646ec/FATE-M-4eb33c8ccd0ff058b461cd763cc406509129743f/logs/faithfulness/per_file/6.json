@@ -1,0 +1,8 @@
+{
+  "file": "6.lean",
+  "stem": "6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. Both groups carry `[Finite]` and `[Group]` instances matching \"finite groups\"; `Nat.card G` and `Nat.card H` denote their orders (well-defined as positive naturals under Finite). The hypothesis `(Nat.card H).gcd (Nat.card G) = 1` is exactly the definition of coprime orders (gcd is symmetric, so the argument order is irrelevant). The conclusion `∀ p : G, f p = 1` is the standard formalization of \"f is trivial\" / \"f(G) = {1_H}\" — saying every element maps to the identity is equivalent to saying the image is the singleton {1_H}. The monoid hom `G →* H` between groups is exactly a group homomorphism. No hypotheses are missing or added.",
+  "duration_ms": 115121,
+  "cost_usd": 0.37428875
+}

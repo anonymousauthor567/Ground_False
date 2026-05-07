@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a3.lean",
+  "stem": "putnam_2021_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The sphere x²+y²+z²=N is captured by `Nsphere`. Integer coordinates are encoded via `p i = round (p i)`, which holds iff each coordinate is an integer (since Mathlib's `round : ℝ → ℤ` returns the same integer back upon re-coercion iff the input is an integer). The regular tetrahedron condition is encoded by 4 points with all 6 pairwise distances (AB, AC, AD, BC, BD, CD) equal to a common positive s — in ℝ³ this is equivalent to a (non-degenerate) regular tetrahedron. The `s > 0` ensures distinct vertices. Vertices on the sphere match \"inscribed\". The positivity constraint `0 < N` correctly restricts to positive integers, and for N = 0 both sides of the iff are false (since the solution set excludes 0). The iff with the solution set correctly characterizes the set of valid N.",
+  "duration_ms": 262869,
+  "cost_usd": 0.639275
+}

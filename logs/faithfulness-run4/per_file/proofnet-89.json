@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem precisely mirrors the informal claim. The hypothesis `Nat.Prime p` matches \"$p$ is a prime\". The polynomial `∑ i ∈ Finset.range p, X ^ i : Polynomial ℚ` expands to $\\sum_{i=0}^{p-1} X^i = 1 + X + X^2 + \\cdots + X^{p-1}$, which is exactly $q(x)$. The conclusion `Irreducible` over `Polynomial ℚ` captures \"irreducible in $\\mathbb{Q}[x]$\". This is the classical result that $\\Phi_p(x) = 1 + x + \\cdots + x^{p-1}$ is irreducible over $\\mathbb{Q}$ for prime $p$. No hypotheses are added or removed, types are correct, and the conclusion faithfully encodes the assertion.",
+  "duration_ms": 34982,
+  "cost_usd": 0.13036725000000002
+}

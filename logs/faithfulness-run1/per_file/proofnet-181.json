@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "theorem_name": "Shakarchi_exercise_3_3",
+  "informal": "Show that $ \\int_{-\\infty}^{\\infty} \\frac{\\cos x}{x^2 + a^2} dx = \\pi \\frac{e^{-a}}{a}$ for $a > 0$.",
+  "lean": "\ntheorem Shakarchi_exercise_3_3 (a : ℝ) (ha : 0 < a) :\n    Tendsto (λ y => ∫ x in -y..y, Real.cos x / (x ^ 2 + a ^ 2))\n    atTop (𝓝 (Real.pi * (Real.exp (-a) / a)))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the value of the improper integral ∫_{-∞}^{∞} cos(x)/(x²+a²) dx for a > 0. The Lean signature expresses this as the limit, as y → ∞, of the symmetric interval integrals ∫_{-y}^{y} cos(x)/(x²+a²) dx, which is exactly the standard meaning of ∫_{-∞}^{∞} written in the informal statement. The hypothesis a > 0 matches, and the right-hand side π·e^{-a}/a matches. Since the integrand is absolutely integrable (bounded by 1/(x²+a²)), the symmetric limit also coincides with the Lebesgue integral, so there is no semantic drift between principal-value and full improper integral. The Lean encoding is logically equivalent to the informal claim.",
+  "duration_ms": 10123,
+  "cost_usd": 0.052674000000000006
+}

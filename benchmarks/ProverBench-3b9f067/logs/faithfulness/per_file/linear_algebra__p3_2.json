@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p3_2.lean",
+  "stem": "linear_algebra__p3_2",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts det(A⁻¹) = 1/det(A) for an invertible matrix A. The Lean theorem signature `det_mul (A B : Matrix n n ℝ) : det (A * B) = det A * det B` states the multiplicativity of the determinant, which is an entirely different theorem. The Lean statement does not mention matrix inverses at all, and the informal statement does not mention products of arbitrary matrices. Multiplicativity does not imply the inverse formula without additional facts (det(I)=1, which is here a separate axiom, not a hypothesis of the theorem). Conversely, the inverse formula for invertible matrices says nothing about determinants of products of general matrices. Hence the two propositions are logically incomparable — neither implies the other — and the Lean file formalizes a different claim than the one stated informally.",
+  "duration_ms": 122334,
+  "cost_usd": 0.3741164999999999
+}

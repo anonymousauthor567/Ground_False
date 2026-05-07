@@ -1,0 +1,8 @@
+{
+  "file": "38.lean",
+  "stem": "38",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. (1) `[Fact p.Prime]` captures \"p is prime\". (2) `(primitiveRoots p F).Nonempty` correctly formalizes \"F contains p-th roots of unity\" — for prime p, the existence of a primitive p-th root is equivalent to F containing all (nontrivial) p-th roots, which is the standard Kummer-theory reading; this also implicitly excludes char F = p, needed for the claim to be true. (3) `[IsGalois F K]` plus `(K ≃ₐ[F] K) ≃* Multiplicative (ZMod p × ZMod p)` correctly encodes \"K/F Galois with Galois group ℤ_p × ℤ_p\": the `Multiplicative` wrapper is the standard Mathlib idiom (seen e.g. in `KummerExtension.lean`) since the Galois group is written multiplicatively. (4) The conclusion `∃ α β, α ≠ 0 ∧ β ≠ 0` matches α, β ∈ K^×; `α^p ∈ (algebraMap F K).range` matches α^p ∈ F; and `IntermediateField.adjoin F {α, β} = ⊤` matches K = F(α, β). No hypothesis is added or dropped beyond what is mathematically required.",
+  "duration_ms": 281570,
+  "cost_usd": 0.87492125
+}

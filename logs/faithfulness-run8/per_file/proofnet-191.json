@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim directly: `I + J = ⊤` is the Mathlib encoding of `I + J = R` (since `Ideal.add_eq_sup` gives `I + J = I ⊔ J` and `⊤` is the whole ring), and `I * J = I ⊓ J` is exactly `IJ = I ∩ J` for ideals. The only potentially extra hypothesis is `CommRing R`. However, the conclusion `IJ = I ∩ J` is actually false for non-commutative rings — in general one only has `I ∩ J = IJ + JI` (taking any `x ∈ I ∩ J` and writing `1 = i + j` gives `x = xi + xj` with `xi ∈ JI` and `xj ∈ IJ`). So commutativity is an implicit premise needed for the informal claim to be true, and making it explicit is the faithful reading (analogous to the worked example in the prompt). No hypotheses are weakened or added beyond what's needed for correctness.",
+  "duration_ms": 152571,
+  "cost_usd": 0.47303225
+}

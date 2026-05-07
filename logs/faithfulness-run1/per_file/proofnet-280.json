@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "informal": "If $a$ is a nonzero integer, then for $n>m$ show that $\\left(a^{2^{n}}+1, a^{2^{m}}+1\\right)=1$ or 2 depending on whether $a$ is odd or even.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_2_4 {a : ℤ} (_ha : a ≠ 0)\n  (hf : f_a = λ n m : ℕ => Int.gcd (a^(2^n) + 1) (a^(2^m)+1)) {n m : ℕ}\n  (hnm : n > m) :\n  (Odd a → f_a n m = 2) ∧ (Even a → f_a n m = 1)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says gcd(a^(2^n)+1, a^(2^m)+1) = 1 if a is even, and 2 if a is odd (since odd a makes both terms even, even a makes both terms odd). The Lean signature asserts exactly this conjunction: Odd a → gcd = 2, Even a → gcd = 1, under the hypothesis a ≠ 0 and n > m. The unusual encoding via a free variable f_a constrained by hf is logically equivalent to using the gcd expression directly. Types (a : ℤ, n m : ℕ) and Int.gcd match the informal claim. The verdict is faithful.",
+  "duration_ms": 11122,
+  "cost_usd": 0.0526205
+}

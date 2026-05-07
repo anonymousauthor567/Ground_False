@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims $\\int_{-\\infty}^{\\infty} \\frac{x \\sin x}{x^2+a^2}\\,dx = \\pi e^{-a}$ for $a>0$. The integrand is not Lebesgue integrable on $\\mathbb{R}$ (it decays like $1/|x|$ in absolute value), so the informal notation must be read as an improper integral / principal value. The Lean statement expresses exactly this limit: $\\lim_{y \\to \\infty}\\int_{-y}^{y}\\frac{x \\sin x}{x^2+a^2}\\,dx = \\pi e^{-a}$. Since the integrand is even (odd × odd / even = even), the symmetric limit equals the standard improper integral whenever the latter exists (it does, by Dirichlet's test), so the principal-value encoding is logically equivalent to the informal claim. The hypothesis $a > 0$ and the target value are preserved.",
+  "duration_ms": 34160,
+  "cost_usd": 0.12143400000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim (a special case of Tietze's extension theorem for ℝ) exactly. The hypothesis `IsClosed E` matches \"closed set E ⊂ ℝ\", and `ContinuousOn f E` together with `f : ℝ → ℝ` is the standard Lean idiom for \"a real continuous function defined on E\" — logically equivalent because the extension depends only on the values of f on E, and any continuous function on E admits some extension (even non-continuous) to all of ℝ. The conclusion `∃ g : ℝ → ℝ, Continuous g ∧ ∀ x ∈ E, f x = g x` precisely matches \"there exists a continuous g on ℝ such that g(x) = f(x) for all x ∈ E\" (equality is symmetric). No extra or missing hypotheses, and no change to the quantifier structure.",
+  "duration_ms": 34444,
+  "cost_usd": 0.14160325
+}

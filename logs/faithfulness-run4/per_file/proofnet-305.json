@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes `X = [0,1]` as the subtype `I := Icc 0 1 ⊂ ℝ` (with `abbrev`), and Mathlib gives `I` the subspace topology from ℝ, which is the standard topology on the unit interval. The hypothesis `Continuous f` for `f : I → I` exactly expresses continuity of a self-map of `[0,1]`. The conclusion `∃ x : I, f x = x` says there is an element of `[0,1]` fixed by `f` (since equality in the subtype is equivalent to equality of the underlying real). This matches the informal claim precisely, with no extra or missing hypotheses and no change in quantifier structure or types.",
+  "duration_ms": 65657,
+  "cost_usd": 0.24733300000000003
+}

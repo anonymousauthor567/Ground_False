@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that addition of residue classes in ℤ/nℤ is associative. The Lean theorem universally quantifies over n : ℕ and states that for all x, y, z : ZMod n, (x + y) + z = x + (y + z). In Mathlib, `ZMod n` corresponds to ℤ/nℤ (with ZMod 0 ≃ ℤ, which is still a valid residue-class-style object and consistent with the general claim). The quantifier structure (∀ n, ∀ x y z) matches \"addition in ZMod n is associative\" exactly: no hypotheses are dropped or added, the conclusion is precisely associativity, and the types are correct. This is a direct, logically equivalent formalization.",
+  "duration_ms": 31768,
+  "cost_usd": 0.08805700000000001
+}

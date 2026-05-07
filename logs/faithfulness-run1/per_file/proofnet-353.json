@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "theorem_name": "Rudin_exercise_4_15_corrected",
+  "informal": "Prove that every continuous open mapping of $R^{1}$ into $R^{1}$ is monotonic.",
+  "lean": "theorem Rudin_exercise_4_15_corrected {f : ℝ → ℝ}\n    (hf : Continuous f) (hof : IsOpenMap f) :\n    Monotone f ∨ Antitone f",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every continuous open map f : ℝ → ℝ is monotonic, where \"monotonic\" in Rudin's convention means either monotonically increasing or monotonically decreasing. The Lean signature takes an arbitrary f : ℝ → ℝ with hypotheses Continuous f and IsOpenMap f, and concludes Monotone f ∨ Antitone f, which corresponds exactly to \"monotonically increasing or monotonically decreasing.\" The hypotheses, types, and conclusion match the informal statement precisely.",
+  "duration_ms": 6441,
+  "cost_usd": 0.044223
+}

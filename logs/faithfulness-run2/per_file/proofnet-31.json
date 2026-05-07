@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"A iff B iff C\" standardly means the conjunction (A ↔ B) ∧ (B ↔ C), which implies A ↔ C by transitivity. The Lean statement encodes precisely this conjunction: (xy = yx ↔ y⁻¹xy = x) ∧ (y⁻¹xy = x ↔ x⁻¹y⁻¹xy = 1). The group G is arbitrary (universally quantified via `{G : Type*} [Group G]`), x and y are arbitrary elements, and the group expressions match the informal ones exactly. No hypotheses are added or dropped, and the quantifier structure is faithful.",
+  "duration_ms": 11837,
+  "cost_usd": 0.06143799999999999
+}

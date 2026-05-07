@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_b1.lean",
+  "stem": "putnam_1998_b1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the minimum value of the expression for x > 0. The Lean statement formalizes this as sInf of the set of values of the expression over x > 0, equal to the solution (6). Since the expression simplifies to 3(x + 1/x) ≥ 6 with equality at x = 1, the minimum is actually attained, so sInf equals min for this set. Thus \"sInf = 6\" is equivalent to \"the minimum value is 6\". The set-builder notation correctly captures the range of the expression over x > 0, and this matches the standard Putnam formalization convention. No hypotheses are silently changed.",
+  "duration_ms": 64462,
+  "cost_usd": 0.15231224999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each element of the informal statement precisely. `[Group G] [Fintype G]` matches \"G is a finite group\". The element `(a : G)` matches \"given a ∈ G\". The existential `∃ (n : ℕ), n > 0 ∧ a ^ n = 1` matches \"there is a positive integer n such that a^n = e\" — in Mathlib, the group identity is denoted `1` for multiplicative groups, and `n : ℕ` with `n > 0` is the standard encoding of \"positive integer\". The dependency of n on a is correctly captured by placing `a` as a parameter before the existential. There is no silent addition or omission of hypotheses.",
+  "duration_ms": 31133,
+  "cost_usd": 0.142169
+}

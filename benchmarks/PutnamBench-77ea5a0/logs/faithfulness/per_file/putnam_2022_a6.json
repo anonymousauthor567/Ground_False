@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_a6.lean",
+  "stem": "putnam_2022_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. Encoding the finite tuple (x_1, ..., x_{2n}) as a function ℕ → ℝ with `StrictMono x`, `-1 < x 1`, `x (2*n) < 1` is equivalent: given any x_1 < ... < x_{2n} in (-1, 1) one can extend to a strictly monotonic function on ℕ (the unused positions don't affect the sum), and conversely any such function restricts to a valid informal witness. The sum `∑ i ∈ Icc 1 n, (x (2*i))^(2*k-1) - (x (2*i-1))^(2*k-1)` correctly expresses the sum of interval lengths (odd power preserves order), and k ∈ Icc 1 m ensures 2k-1 ≥ 1 so the natural subtraction is fine. `IsGreatest` is defined as membership plus upperBound, which correctly encodes \"the largest m with the property\". The hypothesis `hn : 0 < n` matches \"n is a positive integer\".",
+  "duration_ms": 411754,
+  "cost_usd": 0.9081842500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement cleanly. The product space $\\prod X_\\alpha$ is represented by `Π i, X i` with Mathlib's standard `Pi.topologicalSpace`. `NormalSpace` in Mathlib (Topology/Separation/Regular.lean) is defined in the usual way (disjoint closed sets admit disjoint open neighborhoods). The hypothesis `∀ i, Nonempty (X i)` directly corresponds to \"Assume that each $X_\\alpha$ is nonempty,\" and this nonemptiness hypothesis is genuinely necessary (an empty factor would make the product empty/vacuously normal while leaving other factors unconstrained). The conclusion `∀ i, NormalSpace (X i)` is precisely \"so is $X_\\alpha$\" universally quantified over the index. No hypotheses are silently added or dropped and the quantifier structure matches.",
+  "duration_ms": 55904,
+  "cost_usd": 0.2182595
+}

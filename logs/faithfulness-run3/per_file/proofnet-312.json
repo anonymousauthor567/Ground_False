@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "In Munkres' Topology (Section 31), \"regular\" is defined to include T1 (one-point sets are closed), so Munkres-regular = Mathlib's `RegularSpace` + `T1Space`. Without T1, Mathlib's `RegularSpace` allows e.g. the indiscrete topology on {a,b}, which is vacuously regular but where distinct points cannot be separated by neighborhoods with disjoint closures. Thus adding `[T1Space X]` is correctly surfacing an implicit premise that Munkres bakes into his definition of \"regular\" — not a narrowing of the scope. The hypothesis `hxy : x ≠ y` matches the informal \"pair of points\" (meaning distinct points in this context). The conclusion `IsOpen U ∧ IsOpen V ∧ x ∈ U ∧ y ∈ V ∧ closure U ∩ closure V = ∅` faithfully encodes \"neighborhoods (open sets containing the points) whose closures are disjoint.\" Thus the Lean statement is logically equivalent to Munkres' intended claim.",
+  "duration_ms": 109048,
+  "cost_usd": 0.2812855
+}

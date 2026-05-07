@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "informal": "Prove that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}$.",
+  "lean": "\ntheorem Artin_exercise_11_4_1b :\n  Irreducible (12 + 6 * X + X ^ 3 : Polynomial ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove x^3 + 6x + 12 is irreducible over ℚ. The Lean signature states `Irreducible (12 + 6*X + X^3 : Polynomial ℚ)`, which is the same polynomial (addition is commutative) in ℚ[X], and `Irreducible` in Mathlib for a polynomial over a field means exactly the standard notion of irreducibility (non-unit, non-zero, and not factoring as a product of two non-units). The coefficients, the ambient ring, and the conclusion all match.",
+  "duration_ms": 7133,
+  "cost_usd": 0.04430025
+}

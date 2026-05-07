@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that a group G with |G|=105 has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup. The Lean signature assumes `[Fintype G] [Group G]` and `card G = 105` (where `card` is `Fintype.card` from the opened `Fintype` namespace), then concludes `(∃ P : Sylow 5 G, P.Normal) ∧ (∃ P : Sylow 7 G, P.Normal)`. In Mathlib, `Sylow p G` is always nonempty for finite groups (by `Sylow.nonempty`), so the existential `∃ P : Sylow 5 G, P.Normal` is mathematically equivalent to \"G has a normal Sylow 5-subgroup\", and analogously for 7. The Fintype hypothesis is equivalent to finiteness given the explicit cardinality 105. No hypothesis is added or dropped, and the conclusion matches exactly the conjunction in the informal statement.",
+  "duration_ms": 77709,
+  "cost_usd": 0.25215525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses `LocallyCompactSpace X` and `T2Space X` correspond exactly to \"locally compact Hausdorff\" (the two Mathlib notions of local compactness coincide in Hausdorff spaces, matching Munkres's definition). The conclusion `RegularSpace X` in Mathlib is the separation property (disjoint neighborhoods of a point and closed set not containing it) without bundling T1/T0; under the already-assumed `T2Space` (which implies `T0Space`), `RegularSpace X` is equivalent to `T3Space X`, which is Munkres's notion of \"regular\" (regular = T1 + separation). So the Lean statement asserts the same mathematical claim as the informal one.",
+  "duration_ms": 222919,
+  "cost_usd": 0.74421675
+}

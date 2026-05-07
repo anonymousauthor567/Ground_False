@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p12.lean",
+  "stem": "abstract_algebra__p12",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the three conditions of the informal claim: (1) P has degree ≤ 5 (via `hDegree` which is auto-included in the theorem signature because it depends on `P`, which is referenced in the body); (2) P leaves remainder -1 upon division by (X-1)³; (3) P leaves remainder 1 upon division by (X+1)³. The conclusion — that P equals -3/8 X^5 + 5/4 X^3 - 15/8 X — matches the informal target polynomial. The encoding `(P %ₘ (X-1)^3).eval x = -1` for all x is equivalent to `P %ₘ (X-1)^3 = -1` as polynomials (since ℝ is infinite, `Polynomial.funext` applies), and since (X-1)^3 is monic of degree 3, the degree-<3 remainder being constant is consistent. The degree bound is essential to uniqueness (otherwise adding any multiple of (X-1)³(X+1)³ to P would preserve the remainder conditions), matching the informal \"degree at most 5\" assumption.",
+  "duration_ms": 825612,
+  "cost_usd": 1.5543812500000005
+}

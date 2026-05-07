@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures the informal statement exactly. Axler's **F** is ℝ or ℂ, which is precisely what `RCLike F` encodes. The setup `[NormedAddCommGroup V] [InnerProductSpace F V]` matches Axler's ambient inner product space. The iff is preserved: `⟪u, v⟫_F = 0` corresponds to $\\langle u, v \\rangle = 0$, and `∀ (a : F), ‖u‖ ≤ ‖u + a • v‖` matches \"for all $a \\in \\mathbf{F}$, $\\|u\\| \\leq \\|u + av\\|$\". No hypothesis has been added or dropped, and the quantifier structure is identical.",
+  "duration_ms": 88380,
+  "cost_usd": 0.352857
+}

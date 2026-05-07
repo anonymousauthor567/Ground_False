@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p25.lean",
+  "stem": "linear_algebra__p25",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `A : Matrix (Fin 3) (Fin 3) ℝ` with entries `!![2,1,3; 2,4,2; 1,4,-5]` encodes exactly the 3×3 matrix given in the informal statement. The theorem `det A = -32` asserts precisely the informal claim `det(A) = -32`. Manual computation confirms the determinant is indeed -32 (2·(-28) - 1·(-12) + 3·4 = -56+12+12 = -32). Choosing ℝ as the underlying ring is a natural and faithful reading — the informal statement doesn't specify a ring, but since the entries are integers, the determinant is the same integer -32 in any characteristic-zero ring. No hypotheses are added, removed, or altered.",
+  "duration_ms": 31097,
+  "cost_usd": 0.08543475
+}

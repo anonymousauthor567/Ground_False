@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_a4.lean",
+  "stem": "putnam_2004_a4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement requires the identity to hold \"identically\" in x, i.e., as a polynomial identity: ∃ N, c, a such that for ALL x_1,...,x_n the equation holds. In the Lean signature, `x : Fin n → ℝ` is bound as a theorem parameter OUTSIDE the existentials on N, c, a. This makes the Lean statement ∀x ∃N,c,a (equation holds at this specific x), which allows N, c, a to depend on x. This ∀∃ formulation is strictly weaker than the intended ∃∀ formulation — it only asserts pointwise decomposition at each specific tuple x, not the existence of a universal polynomial identity. All other aspects (types, constraints a_{ij} ∈ {-1,0,1}, c_i ∈ ℚ, sum/product structure) match correctly, but the quantifier order change is a genuine semantic weakening.",
+  "duration_ms": 940877,
+  "cost_usd": 0.9190492499999999
+}

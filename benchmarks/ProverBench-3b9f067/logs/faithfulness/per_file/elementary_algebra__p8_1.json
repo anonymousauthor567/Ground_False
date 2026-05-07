@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p8_1.lean",
+  "stem": "elementary_algebra__p8_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims the real-number equality $(2-5\\sqrt{5})/(4\\sqrt{13}) = (2\\sqrt{13}-5\\sqrt{65})/52$. The Lean file defines `LHS` and `RHS` as real-valued expressions using `Real.sqrt` with exactly these numerators, denominators, and constants, then asserts `LHS = RHS`. The types (`ℝ`), the operations (subtraction, multiplication, division), and the square root arguments (5, 13, 65) all match literally. The equality itself is true — rationalizing the LHS by $\\sqrt{13}/\\sqrt{13}$ gives exactly the RHS — so no implicit premises need to be surfaced. No quantifiers, hypotheses, or scope have been altered.",
+  "duration_ms": 23128,
+  "cost_usd": 0.04033475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes a nested decreasing family of nonempty compact sets (`hcomp`, `hne`, `hmono`) and concludes that the intersection is nonempty — matching the informal claim. The `[T2Space α]` instance surfaces an implicit premise needed for truth: as the GT file itself explicitly documents, the literal informal statement is false without Hausdorff (a cofinite-topology counterexample is given), but Pugh's Exercise 2.92 is set in a metric-space context where Hausdorff is implicit. The informal proof tacitly uses that compact sets are closed (to take complements as an open cover), which holds in T2 spaces. Per the system prompt's guidance on implicit premises, adding `[T2Space α]` to make the statement true is a correct faithful reading, not a weakening. The GT file even labels this exact signature as the \"corrected\" version.",
+  "duration_ms": 835457,
+  "cost_usd": 0.56174125
+}

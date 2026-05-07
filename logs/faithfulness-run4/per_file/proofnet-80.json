@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over two groups G, H (via `{G H : Type*}` with `[Group _]`), requires `card G = 21` and `card H = 21` for \"order 21\", and encodes \"nonabelian\" as `∃ a b, a * b ≠ b * a`, which is exactly the negation of commutativity. The conclusion `Nonempty (G ≃* H)` captures \"isomorphic\" using Mathlib's `MulEquiv`, the standard notion of group isomorphism. The `Fintype` instances are necessary infrastructure so that `card` is well-defined, and are entailed by \"order 21\" in the informal statement. No extra hypotheses narrow the scope, and no hypotheses are missing.",
+  "duration_ms": 55268,
+  "cost_usd": 0.17077699999999998
+}

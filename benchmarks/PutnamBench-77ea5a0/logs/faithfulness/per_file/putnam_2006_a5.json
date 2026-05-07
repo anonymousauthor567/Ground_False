@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_a5.lean",
+  "stem": "putnam_2006_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"Positive odd integer\" is captured by `n : ℕ` with `Odd n` (since `Odd 0` is false in ℕ, this forces `n ≥ 1`). The hypothesis `Irrational (theta / Real.pi)` matches $\\theta/\\pi$ irrational. The indexing `Set.Icc 1 n` gives $\\{1, \\ldots, n\\}$ matching the informal range. The formula `a k = Real.tan (theta + (k * Real.pi) / n)` correctly encodes $a_k = \\tan(\\theta + k\\pi/n)$ via coercion. The conclusion states equality to the explicit value, which both establishes integrality and identifies the value (addressing both parts of the informal question). The solution function `if (n ≡ 1 [MOD 4]) then n else -n` matches the correct Putnam 2006 A5 answer: $n$ when $n \\equiv 1 \\pmod 4$ and $-n$ when $n \\equiv 3 \\pmod 4$ (verified via Vieta's formulas: sum/product = $(-1)^{(n-1)/2} n$).",
+  "duration_ms": 250349,
+  "cost_usd": 0.7387907499999999
+}

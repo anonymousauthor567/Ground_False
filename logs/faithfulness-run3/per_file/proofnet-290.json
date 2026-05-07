@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the union of a family of topologies need not be a topology, which is logically equivalent to \"there exists a family of topologies whose union is not a topology\". The Lean signature encodes exactly this: ∃ X, I, T such that each T i is a topology and ⋃ᵢ T i is not. The `is_topology` predicate captures the standard definition (univ ∈ T, closed under binary intersection, closed under arbitrary unions via sUnion, which subsumes ∅ ∈ T). The `⋃ i : I, T i` correctly represents the union of the collections of open sets. Existentially quantifying over X is appropriate and necessary to exhibit a counterexample.",
+  "duration_ms": 27838,
+  "cost_usd": 0.09401
+}

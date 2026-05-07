@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `IsOpen Ω` and `DifferentiableOn ℂ f Ω` together capture \"f is holomorphic in an open set Ω\"; `∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c` captures \"Im(f) is constant\"; and `∀ a b : Ω, f a = f b` (using the subtype coercion) captures \"f is constant on Ω\". The only addition is `IsPreconnected Ω`. This is an implicit premise necessary for truth: on a disconnected open set (e.g., two disjoint disks), f can be different constants on different components while Im(f) remains constant overall, making the literal statement false. The standard reading of \"open set Ω\" in complex analysis (region/domain) assumes connectedness, and from Cauchy-Riemann, Im(f) constant only gives locally constant, so connectedness is required. Per the guidelines, making such an implicit premise explicit is faithful, not weakening.",
+  "duration_ms": 82177,
+  "cost_usd": 0.2788905
+}

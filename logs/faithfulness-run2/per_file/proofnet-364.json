@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The informal statement requires f to be entire (analytic on all of ℂ), which on ℂ is equivalent to `Differentiable ℂ f`. The Taylor coefficient c_n at z₀ is f^(n)(z₀)/n!, which matches `iteratedDeriv n f z₀ / (n.factorial : ℂ)`; since n! ≠ 0 in ℂ, this zero-test is equivalent to c_n = 0. The quantifier structure \"for each z₀, some n with c_n = 0\" matches `∀ z₀, ∃ n, ... = 0`, with n ranging over ℕ including 0 (corresponding to c_0 = f(z₀)). The conclusion \"f is a polynomial\" is correctly expressed as the existence of a polynomial p such that f equals its evaluation function via `Polynomial.aeval`. No hypotheses are dropped or added, and types match.",
+  "duration_ms": 19543,
+  "cost_usd": 0.08577299999999999
+}

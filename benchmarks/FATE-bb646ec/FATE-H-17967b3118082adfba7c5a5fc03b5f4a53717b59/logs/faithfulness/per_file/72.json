@@ -1,0 +1,8 @@
+{
+  "file": "72.lean",
+  "stem": "72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. `Localization.AtPrime m` in Mathlib is defined as `Localization m.primeCompl`, which is exactly A_m (localization of A at the complement of m). The hypothesis `h_local` states A_m is Noetherian for every maximal ideal m (using instance-style argument `[m.IsMaximal]`, which is standard Mathlib convention and logically equivalent to `m.IsMaximal →`). The hypothesis `h_finite` correctly formalizes \"for each nonzero x, the set of maximal ideals containing x is finite\". The conclusion `IsNoetherianRing A` matches. The use of `CommRing` instead of `Ring` reflects the standard implicit convention in commutative algebra texts (like Atiyah-Macdonald) where \"ring\" means \"commutative ring\" — this is required for `Localization.AtPrime` to even make sense, so it is a correctly surfaced implicit premise rather than an added hypothesis.",
+  "duration_ms": 192781,
+  "cost_usd": 0.40747775
+}

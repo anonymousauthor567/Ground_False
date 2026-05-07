@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "theorem_name": "Herstein_exercise_4_2_9",
+  "informal": "Let $p$ be an odd prime and let $1 + \\frac{1}{2} + ... + \\frac{1}{p - 1} = \\frac{a}{b}$, where $a, b$ are integers. Show that $p \\mid a$.",
+  "lean": "theorem Herstein_exercise_4_2_9 {p : ℕ} (hp : Nat.Prime p) (hp1 : Odd p) :\n  ∀ (a b : ℤ), (a / b : ℚ) = ∑ i ∈ Finset.range (p-1), (1 / (i + 1) : ℚ) → ↑p ∣ a",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all integer pairs (a, b) with a/b = ∑_{i=0}^{p-2} 1/(i+1) in ℚ, and concludes p ∣ a. The sum ∑ 1/(i+1) for i ∈ range(p-1) covers 1/1 + 1/2 + ... + 1/(p-1), matching the informal sum exactly. For any (a,b) with a/b equal to this rational sum, a must be an integer multiple of the reduced-form numerator (so the universal quantifier is equivalent to the claim about the reduced numerator), and the b=0 case is vacuous since the harmonic-like sum is nonzero. The hypotheses (p prime, p odd) match the informal \"odd prime\". Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 26834,
+  "cost_usd": 0.17396174999999997
+}

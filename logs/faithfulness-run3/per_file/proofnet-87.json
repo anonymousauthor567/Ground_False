@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all two-sided ideals I of the matrix ring M_2(ℝ) and asserts I = ⊥ ∨ I = ⊤, matching the informal claim that any ideal I is either (0) or R. The use of `TwoSidedIdeal` rather than a one-sided notion is the correct reading of Herstein's convention: in his book \"ideal\" means two-sided ideal, and indeed the claim is false for one-sided ideals (M_2(ℝ) has proper left ideals such as matrices with a zero column). The types align: `Matrix (Fin 2) (Fin 2) ℝ` is the ring of 2×2 real matrices, `⊥` corresponds to (0), and `⊤` corresponds to R. No hypotheses are added or dropped relative to the intended mathematical content.",
+  "duration_ms": 86389,
+  "cost_usd": 0.21746725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. `IsPrimitiveRoot a (p-1)` for a : ZMod p with p prime means the multiplicative order of a equals p-1, which is the standard definition of \"primitive root modulo p\". The hypotheses `hp0 : p.Prime` and `hp1 : p = 4*t+1` together correctly encode \"prime of the form 4t+1\" (and automatically force t ≥ 1 since p ≥ 5). The case a = 0 is handled trivially: both `IsPrimitiveRoot 0 (p-1)` and `IsPrimitiveRoot (-0) (p-1)` are false, so the iff holds vacuously, consistent with the implicit understanding that a primitive root is coprime to p. The bi-implication structure and universal quantification over a match the informal statement. No hypotheses are dropped or added that would narrow or broaden the claim.",
+  "duration_ms": 177796,
+  "cost_usd": 0.62364975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement component-by-component. The finite set A with |A|>1 corresponds to α being a Fintype with Fintype.card α > 1. \"G is a permutation group on A\" corresponds to G : Subgroup (Equiv.Perm α). The transitivity hypothesis ∀ a b, ∃ σ : G, σ(a) = b is the standard correct encoding of a transitive action. The conclusion ∃ σ : G, ∀ a, σ(a) ≠ a is exactly \"there exists a derangement in G.\" G's finiteness is automatic since it is a subgroup of the finite group Equiv.Perm α, matching the implicit finiteness in the informal statement. No hypotheses are added or dropped.",
+  "duration_ms": 17178,
+  "cost_usd": 0.065758
+}

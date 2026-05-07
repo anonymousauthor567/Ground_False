@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "informal": "Prove that if $G$ is an abelian simple group then $G \\cong Z_{p}$ for some prime $p$ (do not assume $G$ is a finite group).",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_4_1 (G : Type*) [CommGroup G] [IsSimpleGroup G] :\n    IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (@card G G_fin)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says any abelian simple group G is isomorphic to Z_p for some prime p. Being isomorphic to Z_p is equivalent to being cyclic and having prime (finite) order. The Lean statement assumes [CommGroup G] [IsSimpleGroup G] and concludes IsCyclic G together with the existence of a Fintype instance such that card G is prime. A cyclic group of prime cardinality is exactly Z_p, so the conjunction captures \"G ≅ Z_p for some prime p\" (the existential ∃ G_fin : Fintype G also encodes finiteness, matching the conclusion that G must be finite). No extra hypotheses (like assuming G finite up front) are imposed, and no part of the conclusion is weakened. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 10531,
+  "cost_usd": 0.059671
+}

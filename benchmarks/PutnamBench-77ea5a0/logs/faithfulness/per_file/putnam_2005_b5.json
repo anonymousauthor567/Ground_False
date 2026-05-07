@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b5.lean",
+  "stem": "putnam_2005_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures all parts of the informal statement. (1) `P : MvPolynomial (Fin n) ℝ` matches \"polynomial with real coefficients in n variables\". (2) `∑ i : Fin n, (MvPolynomial.pderiv i)^[2] P = 0` correctly expresses Σᵢ ∂²P/∂xᵢ² = 0 (the Laplacian), since `Derivation` has a FunLike coercion so `(pderiv i)^[2]` iterates the partial derivative twice. (3) Parsing-wise, `∑ i : Fin n, (MvPolynomial.X i) ^ 2 ∣ P` groups as `(∑ i, Xᵢ²) ∣ P` because the ∑ body is `term:67` while `∣` has precedence 50, and the alternative parsing would be ill-typed (sum of Props). (4) Conclusion `P = 0` matches. The extra hypothesis `npos : n > 0` is a reasonable surfacing of the implicit premise — the notation \"x₁, ..., xₙ\" conventionally assumes n ≥ 1 — and the case n = 0 is degenerate anyway. Per the rubric, making implicit premises explicit counts as faithful.",
+  "duration_ms": 575597,
+  "cost_usd": 1.9566764999999997
+}

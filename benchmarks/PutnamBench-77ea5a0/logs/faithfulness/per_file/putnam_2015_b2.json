@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_b2.lean",
+  "stem": "putnam_2015_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal problem. (1) `sets 0 = Set.Ici 1` correctly represents the positive integers {1, 2, 3, ...}. (2) `Smin3` picks the three smallest elements via iterated `sInf`, which is well-defined on the always-infinite `sets n`. (3) `sums n` sums these three smallest, and `sets (n+1)` removes all four numbers (three smallest + their sum), exactly matching the crossing-off rule. Checking values: (1,2,3)→6, (4,5,7)→16, (8,9,10)→27, (11,12,13)→36, matching the informal sequence. (4) `Nat.digits 10` is little-endian, so `List.IsPrefix [5, 1, 0, 2] (Nat.digits 10 n)` correctly means the last four base-10 digits of n are \"2015\". (5) The `↔ putnam_2015_b2_solution` pattern correctly formalizes \"prove or disprove\" with the solution placeholder. All quantifiers, types, and semantics align with the informal statement.",
+  "duration_ms": 193711,
+  "cost_usd": 0.5940637499999999
+}

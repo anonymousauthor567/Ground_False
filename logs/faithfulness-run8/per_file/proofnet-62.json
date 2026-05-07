@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-62.lean",
+  "stem": "proofnet-62",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `IsNilpotent (span {↑p} : Ideal (ZMod (p^m)))` under the hypothesis `p.Prime`, which matches the informal claim. In Mathlib, `IsNilpotent I` for an ideal means `∃ n, I^n = 0`, which is equivalent to the informal definition (the `n ≥ 1` in the informal definition is automatic whenever the ring is nontrivial, and in a trivial ring both conditions hold vacuously). The ideal `span {↑p}` in `ZMod (p^m)` is exactly the image of `pℤ` in `ℤ/p^m ℤ`, i.e., `pℤ/p^m ℤ`. The hypothesis `p.Prime` matches the prime condition. The statement leaves `m` unrestricted; when `m = 0`, `ZMod 1` is trivial and the claim holds vacuously, so no mathematical content is lost or added. This is a faithful formalization.",
+  "duration_ms": 305207,
+  "cost_usd": 1.07254975
+}

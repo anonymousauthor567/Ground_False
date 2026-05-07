@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. G is a finite group (`[Fintype G] [Group G]`), `card G = 132` expresses |G| = 132 (via `Fintype.card` from the `open Fintype`), and `¬ IsSimpleGroup G` asserts that G is not simple. Mathlib's `IsSimpleGroup` matches the standard definition (nontrivial with only ⊥ and ⊤ as normal subgroups). There are no added or dropped hypotheses, and the quantifier structure (a universal claim over groups of order 132) is preserved implicitly by the type variables. This is a direct, logically equivalent formalization.",
+  "duration_ms": 50570,
+  "cost_usd": 0.17146075
+}

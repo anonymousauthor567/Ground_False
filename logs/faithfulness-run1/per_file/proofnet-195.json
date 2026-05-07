@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-195.lean",
+  "stem": "proofnet-195",
+  "theorem_name": "Artin_exercise_11_4_6c",
+  "informal": "Prove that $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}$.",
+  "lean": "\ntheorem Artin_exercise_11_4_6c : Irreducible (X^3 - 9 : Polynomial (ZMod 31))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that $x^3 - 9$ is irreducible in $\\mathbb{F}_{31}[x]$ (the polynomial ring over the field with 31 elements). The Lean signature states `Irreducible (X^3 - 9 : Polynomial (ZMod 31))`, where `ZMod 31` is the field $\\mathbb{F}_{31}$ (since 31 is prime), `Polynomial (ZMod 31)` is the polynomial ring, and `Irreducible` is the standard Mathlib notion of irreducibility in a commutative monoid/ring. The polynomial `X^3 - 9` matches $x^3 - 9$, with `9` interpreted in `ZMod 31`. This is a direct and equivalent formalization.",
+  "duration_ms": 6691,
+  "cost_usd": 0.042285
+}

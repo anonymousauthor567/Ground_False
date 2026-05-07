@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_b6.lean",
+  "stem": "putnam_1977_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the Putnam 1977 B6 problem. The `[Finite H]` instance makes explicit the implicit premise that \"H has h elements\" for h : ℕ means H is finite — this is a surfacing of an implicit premise, not a weakening. The hypothesis `ha : ∀ x : H, (x*a)^3 = 1` correctly uses the subgroup subtype coercion to express \"(xa)^3 = 1 for all x ∈ H\". The set P is encoded as products over lists of H-elements of length ≥ 1 of the form (h*a), and `List.prod` gives x₁a·x₂a·⋯·xₙa, matching the informal description exactly. The conclusion `Finite P ∧ P.ncard ≤ 3*h^2` together states P is finite with at most 3h² elements, matching the informal claim. The parameters h : ℕ with h_def : h = Nat.card H is logically equivalent to using Nat.card H directly.",
+  "duration_ms": 268642,
+  "cost_usd": 0.7820902500000001
+}

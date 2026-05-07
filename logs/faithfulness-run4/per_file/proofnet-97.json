@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts there are infinitely many primes p with p ≡ -1 (mod 6). The Lean statement `Infinite {p : Nat.Primes // p ≡ -1 [ZMOD 6]}` forms the subtype of `Nat.Primes` (the subtype of ℕ consisting of primes, per Mathlib's `Data/Nat/Prime/Defs.lean`) satisfying `p ≡ -1 [ZMOD 6]`. The notation `[ZMOD 6]` is `Int.ModEq 6 p (-1)`, i.e. `p % 6 = (-1) % 6` with `p` coerced to ℤ via the standard Nat.Primes → ℕ → ℤ coercion (`Data/Int/ModEq.lean` line 33). `Infinite` asserts the subtype has infinitely many elements, which is exactly the informal claim. No extra hypotheses are added, and no weakening occurs.",
+  "duration_ms": 81116,
+  "cost_usd": 0.316827
+}

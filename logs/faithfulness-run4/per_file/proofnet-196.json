@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts infinitely many primes p satisfying p ≡ -1 (mod 4). The Lean statement uses the standard \"for every N there exists p ≥ N with property P\" encoding of infinitude, which is logically equivalent to \"infinitely many p with property P\". The condition `p + 1 ≡ 0 [MOD 4]` unfolds (via `Nat.ModEq`, defined as `(p+1) % 4 = 0 % 4 = 0`) to `4 ∣ (p+1)`, i.e., `p ≡ 3 ≡ -1 (mod 4)`, which exactly captures \"congruent to -1 modulo 4\". `Nat.Prime p` correctly expresses primality. No hypotheses are added or dropped, and the quantifier structure faithfully expresses infinitude.",
+  "duration_ms": 72665,
+  "cost_usd": 0.18645899999999999
+}

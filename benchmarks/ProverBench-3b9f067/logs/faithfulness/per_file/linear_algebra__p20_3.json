@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p20_3.lean",
+  "stem": "linear_algebra__p20_3",
+  "verdict": "incomparable",
+  "reasoning": "In Mathlib, `Matrix m n α := m → n → α`, so for `A : Matrix (Fin m) (Fin n) ℝ`, the term `A i` (with `i : Fin m`) is the i-th ROW of A. Hence `fun i => A i` is the family of rows of A, not columns. Similarly, for `Bᵀ : Matrix (Fin p) (Fin n) ℝ`, `fun i => Bᵀ i` is the family of rows of Bᵀ, which are the COLUMNS of B. The informal statement asserts that the COLUMNS of A are linearly dependent and the ROWS of B are linearly dependent, but the Lean statement asserts the opposite: rows of A dependent and columns of B dependent. These are semantically different claims about different sets of vectors. In fact, the Lean statement is false in general: take A = [1, 0] (1×2) and B = [0; 1] (2×1); then A·B = 0, A ≠ 0, B ≠ 0, but the single row of A is (1,0) (linearly independent) and the single column of B is (0,1) (linearly independent). A correct formalization would use `Aᵀ` for the columns of A and `B` (not `Bᵀ`) for the rows of B.",
+  "duration_ms": 1644218,
+  "cost_usd": 1.71914525
+}

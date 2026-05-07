@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that (ZMod n, ·) is not a group for n > 1. For ZMod n with the standard multiplication of residue classes, closure, associativity, and the identity element (1) always hold — it is a commutative monoid. Hence the only way (ZMod n, ·) can fail to be a group is if some element lacks a multiplicative inverse. The Lean statement negates exactly this: \"every element has a two-sided multiplicative inverse (with identity 1)\". So `¬ (∀ x, ∃ y, x*y = 1 ∧ y*x = 1)` is logically equivalent to \"(ZMod n, ·, 1) is not a group.\" The hypothesis `1 < n` exactly matches `n > 1`. The two-sided inverse formulation matches the standard group-inverse axiom. This is a faithful encoding.",
+  "duration_ms": 75181,
+  "cost_usd": 0.28207374999999996
+}

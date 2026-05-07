@@ -1,0 +1,8 @@
+{
+  "file": "61.lean",
+  "stem": "61",
+  "verdict": "weaker",
+  "reasoning": "The informal statement \"an intersection of normal subgroups of a group G is again a normal subgroup\" uses plural \"normal subgroups\" with an indefinite \"an intersection\", which in standard mathematical parlance refers to an arbitrary (possibly infinite) intersection of a family of normal subgroups. The Lean formalization only asserts this for the binary meet `M ⊓ N` of two specific normal subgroups. Mathlib itself separates these into two distinct lemmas: `normal_inf_normal` (binary) and `normal_iInf_normal` (arbitrary family), with the latter being the faithful general version. The binary case is logically implied by the general statement but does not imply it (an arbitrary infinite intersection cannot be reduced to finitely many binary meets), so the Lean signature proves a strictly weaker special case.",
+  "duration_ms": 245505,
+  "cost_usd": 0.473301
+}

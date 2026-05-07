@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The metric space X is represented by `[MetricSpace α]`, the continuous real function by `f : α → ℝ` with `Continuous f`, and the zero set Z(f) = {p : f(p) = 0} by `f⁻¹' {0}` (the preimage of the singleton {0}). Introducing `z` via the hypothesis `z = f⁻¹' {0}` and concluding `IsClosed z` is logically equivalent to directly stating `IsClosed (f⁻¹' {0})`. Mathlib's `Continuous` uses the topology from the metric, and `IsClosed` is the standard topological closedness, so the formulation matches the informal statement exactly.",
+  "duration_ms": 32805,
+  "cost_usd": 0.11819525000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature sets up `f : ℕ → I → ℝ` with `I = Icc 0 1` and pins down `f n x = ↑x ^ n`, which matches the informal definition $f_n(x) = x^n$ on $[0,1]$. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` uses Mathlib's standard `TendstoUniformly` (uniform convergence over the whole domain with respect to `atTop`), and Lean infers `f₀ : I → ℝ`. This exactly matches the informal claim \"the sequence $(f_n)$ does not converge uniformly,\" i.e., there is no limit function to which $f_n$ converges uniformly. No hypothesis is silently added or removed.",
+  "duration_ms": 174313,
+  "cost_usd": 0.28369174999999996
+}

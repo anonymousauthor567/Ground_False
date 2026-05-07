@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures \"p = 2^n + 1 is a Fermat prime\" via `hp : p.Prime` and `hpn : p = 2^n + 1` (for n ≥ 1, such p is automatically a Fermat prime since 2^n+1 prime forces n to be a power of 2). The conclusion `IsPrimitiveRoot (3 : ZMod p) (p - 1)` is the standard Mathlib encoding of \"3 is a primitive root mod p\" — it asserts 3 has order exactly p - 1 in (ZMod p)*. The only subtle point is the extra hypothesis `hn : 2 ≤ n`. This excludes n = 1 (i.e., p = 3), where the literal claim is false: 3 ≡ 0 (mod 3) is not even a unit, let alone a primitive root. Per the system prompt's worked example about 2^r+1 Fermat primes, making such an implicit premise explicit (needed for the statement to be true) counts as faithful, not weaker. The remaining excluded case n = 0 (p = 2) is likewise trivially degenerate and outside the intended scope. Hence the formalization is faithful.",
+  "duration_ms": 836630,
+  "cost_usd": 0.6119140000000001
+}

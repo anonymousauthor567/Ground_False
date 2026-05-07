@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `T : V →ₗ[F] V` represents T ∈ L(V), `U : Fin n → Submodule F V` encodes the finite list U₁,...,Uₘ of subspaces, and the hypothesis `Submodule.map T (U i) ≤ U i` is the standard Mathlib idiom for \"U i is T-invariant\". The conclusion `Submodule.map T (∑ i, U i) ≤ ∑ i, U i` asserts that the sum is T-invariant, matching the informal claim. Generalizing from an implicit field (ℝ or ℂ in Axler) to an arbitrary field F is a standard mathematical reading and does not alter the meaning of this purely algebraic statement. The n = 0 case gives a trivially true vacuous sum, not a genuine strengthening.",
+  "duration_ms": 49720,
+  "cost_usd": 0.1656925
+}

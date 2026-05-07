@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p20.lean",
+  "stem": "elementary_algebra__p20",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. The function type ℚ → ℚ is preserved, both hypotheses (f(1) = 2 and the functional equation f(xy) = f(x)f(y) - f(x+y) + 1 with implicit universal quantification over x, y made explicit) are conjoined on the left side of the iff, and the conclusion ∀ x : ℚ, f x = x + 1 matches \"f(x) = x+1 for all x ∈ ℚ\" on the right side. The variable `f` being declared as a `variable` correctly makes this a statement about arbitrary f : ℚ → ℚ. The bi-implication structure is preserved faithfully, with no hypotheses dropped or added and no change to the quantifier structure.",
+  "duration_ms": 20234,
+  "cost_usd": 0.0731195
+}

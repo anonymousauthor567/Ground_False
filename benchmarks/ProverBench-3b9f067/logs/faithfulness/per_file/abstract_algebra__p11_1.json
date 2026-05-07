@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p11_1.lean",
+  "stem": "abstract_algebra__p11_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement makes two claims about f(x) = x² + 1 over ℤ₂: (1) that f has exactly one zero (uniqueness), and (2) that this unique zero is x = 1. The Lean statement `Polynomial.IsRoot f 1` unfolds (per `Mathlib/Algebra/Polynomial/Eval.lean`) to `f.eval 1 = 0`, which only asserts that 1 is a root of f. It does not assert that 1 is the only root. Thus the Lean formalization captures only part of the informal claim — it drops the uniqueness (\"exactly one zero\") part. The informal statement implies the Lean statement, but not vice versa, so the Lean encoding is strictly weaker.",
+  "duration_ms": 23994,
+  "cost_usd": 0.10398424999999999
+}

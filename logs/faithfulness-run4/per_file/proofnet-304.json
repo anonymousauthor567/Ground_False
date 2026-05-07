@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. `IsQuotientMap p` corresponds to \"p is a quotient map\" (surjective with coinduced topology). `ConnectedSpace Y` captures \"Y is connected\". The hypothesis `∀ y : Y, IsConnected (p ⁻¹' {y})` faithfully encodes \"each set p⁻¹({y}) is connected\" — Mathlib's `IsConnected` is defined as nonempty ∧ preconnected, which matches the standard mathematical meaning of a \"connected set\"; moreover, since quotient maps are surjective, the nonemptiness component is automatic for every y. The conclusion `ConnectedSpace X` matches \"X is connected\". The quantifier structure and types all align.",
+  "duration_ms": 57477,
+  "cost_usd": 0.22326174999999995
+}

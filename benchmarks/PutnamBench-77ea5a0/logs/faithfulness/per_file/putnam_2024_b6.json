@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_b6.lean",
+  "stem": "putnam_2024_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the Putnam 2024 B6 problem. The sum $\\sum_{n\\geq 1} n^a e^{2n} x^{n^2}$ is encoded via `HasSum` over `n : ℕ` with summand `(n+1)^a * rexp (2*(n+1)) * x^(n+1)^2`, correctly shifting to start at 1 (where `^` is right-associative so `x^(n+1)^2 = x^((n+1)^2)`). The domain `Set.Ico 0 1` matches $[0,1)$, and `𝓝[<] 1` matches $x \\to 1^-$. The conclusion formulation \"(conditions) ↔ $c = -1/2$\" correctly captures \"find the $c$\" since only $c = -1/2$ can satisfy both conditions simultaneously (any other value creates a contradiction on an interval). The `rexp (-1/(1-x))` expression matches $e^{-1/(1-x)}$ in either parsing, and `Filter.atTop` correctly captures divergence to $+\\infty$. The type coercions and quantifier structure are all faithful.",
+  "duration_ms": 653740,
+  "cost_usd": 1.06505275
+}

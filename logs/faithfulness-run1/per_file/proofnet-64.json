@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "informal": "Prove that if an integer is the sum of two rational squares, then it is the sum of two integer squares.",
+  "lean": "\ntheorem Dummit_Foote_exercise_8_3_4 {n : ℤ} {r s : ℚ}\n  (h : r^2 + s^2 = n) :\n  ∃ a b : ℤ, a^2 + b^2 = n",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for every integer n, if there exist rationals r, s with r² + s² = n, then there exist integers a, b with a² + b² = n. The Lean signature universally quantifies over n : ℤ and r, s : ℚ (implicit binders are still universal), assumes r² + s² = n, and concludes ∃ a b : ℤ, a² + b² = n. This is exactly the same claim — taking the universal over r, s outside is equivalent to assuming the existence of such r, s. The types (ℤ, ℚ) and the conclusion match, with no extra or missing hypotheses.",
+  "duration_ms": 7630,
+  "cost_usd": 0.0459365
+}

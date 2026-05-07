@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes all four components: (1) p is a quotient map via `IsQuotientMap` (which bundles surjectivity and the coinduced topology — standard quotient map notion); (2) each fiber connected via `IsConnected (p ⁻¹' {y})`; (3) Y connected via `ConnectedSpace Y`; (4) conclusion X connected via `ConnectedSpace X`. The Mathlib `ConnectedSpace` and `IsConnected` include nonemptiness, which matches the standard mathematical convention used in Munkres-style textbook statements. Given surjectivity of the quotient map, nonemptiness of Y automatically yields nonempty fibers and nonempty X, so the nonemptiness requirements cohere. Quantifier structure (universal over y for the fibers) matches the informal \"each set\". No hypotheses are added or removed, and no types have been changed.",
+  "duration_ms": 101063,
+  "cost_usd": 0.3379325
+}

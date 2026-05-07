@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a6.lean",
+  "stem": "putnam_1968_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all parts of the informal statement. The condition $n \\ge 1$ becomes `P.natDegree ≥ 1`; since $a_0 = \\pm 1 \\ne 0$ the leading coefficient is nonzero so natDegree equals $n$. The requirement \"$a_i = \\pm 1$ for all $0 \\le i \\le n$\" is captured by `∀ k ∈ Set.Icc 0 P.natDegree, P.coeff k = 1 ∨ P.coeff k = -1` — since the $k$-th coefficient of $\\sum a_i x^{n-i}$ is $a_{n-k}$, the range of indices matches. The roots-are-real condition uses `∀ z : ℂ, P.eval z = 0 → ∃ r : ℝ, r = z`, which (via the standard `Coe ℝ ℂ` = `Complex.ofReal` instance) becomes `↑r = z`, equivalent to `z.im = 0`. The set equality asks to characterize all such polynomials, matching \"find all\". There is no drift in hypotheses, conclusion, types, or quantifier structure.",
+  "duration_ms": 278793,
+  "cost_usd": 0.8289535
+}

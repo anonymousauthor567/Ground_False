@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` is logically equivalent to Pugh's informal claim. By Mathlib's `mem_closure_iff_clusterPt`, `ClusterPt x (𝓟 Uᶜ)` is exactly `x ∈ closure Uᶜ`, which is the standard meaning of \"x is a limit of Uᶜ\" (every neighborhood of x meets Uᶜ, equivalently in metric spaces there is a sequence in Uᶜ converging to x). Thus the Lean statement reads \"U is open iff no point of U lies in the closure of Uᶜ\", equivalent to \"U ⊆ interior U\", i.e., U is open. The generalization from metric spaces (Pugh's context) to arbitrary topological spaces is harmless since the cluster-point characterization of closure holds in general topological spaces. The biconditional, quantifier structure, and set-theoretic framing all match.",
+  "duration_ms": 175329,
+  "cost_usd": 0.5863155
+}

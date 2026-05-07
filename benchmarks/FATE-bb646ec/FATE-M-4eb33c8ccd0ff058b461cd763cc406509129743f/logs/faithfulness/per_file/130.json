@@ -1,0 +1,8 @@
+{
+  "file": "130.lean",
+  "stem": "130",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes each component of the informal claim exactly. `{G : Type*} [Group G]` corresponds to \"Let G be a group\", `(A : Subgroup G)` corresponds to \"A is a subgroup of G\", and `(Subgroup.center G) ≤ (Subgroup.normalizer A)` captures \"Z(G) ≤ N_G(A)\". I confirmed in the local Mathlib that `Subgroup.center G` is the standard center (elements commuting with all of G) and `Subgroup.normalizer A` is the standard normalizer `{g | ∀ n, n ∈ A ↔ g n g⁻¹ ∈ A}`, and `≤` on `Subgroup G` is subset inclusion. No hypotheses are added or dropped and no quantifier structure is changed. This is a strictly faithful formalization.",
+  "duration_ms": 32175,
+  "cost_usd": 0.1425845
+}

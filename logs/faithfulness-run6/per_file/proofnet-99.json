@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding captures each part of the informal statement accurately: \"odd primes\" is expressed as `p.Prime ∧ p > 2` (and similarly for q), which is equivalent since 2 is the only even prime; \"distinct\" is `p ≠ q`; \"p−1 divides q−1\" is `p - 1 ∣ q - 1` (well-defined natural subtraction since p, q > 2); \"(n, pq) = 1\" is `n.gcd (p*q) = 1`; and the conclusion `n^(q-1) ≡ 1 [MOD p*q]` is `Nat.ModEq` for congruence modulo pq. Working in ℕ for n rather than ℤ does not weaken or strengthen the statement, since every integer residue class mod pq has a natural representative and gcd is preserved. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 52191,
+  "cost_usd": 0.15473399999999998
+}

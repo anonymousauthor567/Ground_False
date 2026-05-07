@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts infinitely many primes p with p ≡ -1 (mod 4). The Lean statement says: for every N : ℕ, there exists p ≥ N that is prime with p + 1 ≡ 0 [MOD 4]. In Mathlib, `a ≡ b [MOD n]` unfolds to `a % n = b % n`, so `p + 1 ≡ 0 [MOD 4]` means `4 ∣ (p+1)`, i.e., p ≡ -1 (mod 4). For a subset of ℕ, being unbounded (∀ N, ∃ p ≥ N in the set) is equivalent to being infinite, so the quantifier structure correctly encodes \"infinitely many\". The formalization matches the informal claim exactly.",
+  "duration_ms": 44429,
+  "cost_usd": 0.15965574999999999
+}

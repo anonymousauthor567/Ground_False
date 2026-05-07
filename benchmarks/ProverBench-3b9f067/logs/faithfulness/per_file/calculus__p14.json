@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p14.lean",
+  "stem": "calculus__p14",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `Fin 3 → ℝ` with indices `p 1`, `p 2`, `p 3`. Crucially, in Mathlib `(3 : Fin 3) = 0` because the `OfNat` instance uses `Fin.ofNat'` which takes `a % n`, so `3 % 3 = 0`. Therefore `p 3` actually refers to `p 0`. This means the three coordinates in use are `p 0`, `p 1`, `p 2` — a bona fide point in ℝ³. The encoding assigns: p 1 = x, p 2 = y, p 0 (= p 3) = z. The four conditions then correctly encode y ≥ 0, z ≥ 0, y ≤ x, z ≤ 4 - x² - y², and the integrand p 1² + p 2² = x² + y². The integral `∫ p in D, …` uses the default product Lebesgue measure on `Fin 3 → ℝ`, which is the standard 3D Lebesgue measure. The stray `variable` declarations above the theorem are shadowed by the theorem's own `D` parameter. The RHS (e⁴ - 5)·π/8 matches exactly. The formalization is faithful (though stylistically awkward due to the mod-3 index trick).",
+  "duration_ms": 675953,
+  "cost_usd": 1.8412405
+}

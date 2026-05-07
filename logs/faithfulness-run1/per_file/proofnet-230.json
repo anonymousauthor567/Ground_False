@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "informal": "Prove that if $H$ has finite index $n$ then there is a normal subgroup $K$ of $G$ with $K \\leq H$ and $|G: K| \\leq n!$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_2_8 {G : Type*} [Group G] {H : Subgroup G}\n  {n : ℕ} (hn : n > 0) (hH : H.index = n) :\n  ∃ K ≤ H, K.Normal ∧ K.index ≤ n.factorial",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the same claim: given a subgroup H of finite index n (the hypothesis n > 0 together with H.index = n rules out the Mathlib convention `index = 0` for infinite index, matching the informal \"finite index n\"), it asserts the existence of a subgroup K ≤ H that is normal in G with [G:K] ≤ n!. The quantifier structure (∃ K ≤ H, K.Normal ∧ K.index ≤ n!) matches \"there is a normal subgroup K of G with K ≤ H and |G:K| ≤ n!\". No extra hypotheses (e.g. finiteness of G, commutativity) are imposed, and no part of the conclusion is dropped or strengthened. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 15085,
+  "cost_usd": 0.060555
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if integers a, b satisfy a ∣ b in ℤ[i] (Gaussian integers), then a ∣ b in ℤ. In the Lean statement, `ofInt a : GaussianInt` is the embedding ⟨a, 0⟩ : Zsqrtd (-1), which is the canonical image of a ∈ ℤ inside ℤ[i] (and equal to the integer cast, by `ofInt_eq_intCast`). So `(ofInt a : GaussianInt) ∣ ofInt b` is precisely \"a divides b in the Gaussian integers\", and the conclusion `a ∣ b` is divisibility in ℤ. The hypothesis and conclusion match the informal claim exactly, with no extra assumptions or missing quantifiers. Hence the formalization is faithful.",
+  "duration_ms": 34642,
+  "cost_usd": 0.19887074999999999
+}

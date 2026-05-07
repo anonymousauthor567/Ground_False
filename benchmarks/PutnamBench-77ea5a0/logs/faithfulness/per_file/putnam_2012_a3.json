@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a3.lean",
+  "stem": "putnam_2012_a3",
+  "verdict": "incomparable",
+  "reasoning": "Condition (iii) is incorrectly formalized. In Mathlib, `Function.leftLim f a : β` always returns a real number by design (using `f a` as a \"garbage value\" when the left limit doesn't exist or `a` is isolated on its left). Therefore `∃ y : ℝ, leftLim g 1 = y` is trivially true for any `g` (take `y := leftLim g 1`), so the Lean encoding of \"the limit exists and is finite\" is vacuous. The informal conditions C = {(i),(ii),(iii)} strictly imply the Lean conditions C' = {(i),(ii), trivial}, but not vice versa. Consequently the Lean existence conjunct `fsat(solution)` is weaker than the informal existence claim, while the Lean uniqueness conjunct `∀ f, fsat f → f = solution` is stronger than informal uniqueness (it constrains more functions). The conjunction of a weaker claim with a stronger claim is neither logically implied by nor implies the informal statement, so the two are incomparable.",
+  "duration_ms": 1079510,
+  "cost_usd": 2.95108375
+}

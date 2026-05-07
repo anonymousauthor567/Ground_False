@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "informal": "Suppose $\\left\\{p_{n}\\right\\}$ is a Cauchy sequence in a metric space $X$, and some sequence $\\left\\{p_{n l}\\right\\}$ converges to a point $p \\in X$. Prove that the full sequence $\\left\\{p_{n}\\right\\}$ converges to $p$.",
+  "lean": "\ntheorem Rudin_exercise_3_20 {X : Type*} [MetricSpace X]\n  (p : ℕ → X) (l : ℕ+) (r : X)\n  (hp : CauchySeq p)\n  (hpl : Tendsto (λ n => p (l * n)) atTop (𝓝 r)) :\n  Tendsto p atTop (𝓝 r)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement assumes an arbitrary subsequence {p_{n_k}} of the Cauchy sequence converges to p. The Lean signature, however, restricts the hypothesis to subsequences of the very specific arithmetic form n ↦ p(l·n) for some fixed l : ℕ+. This is only a special case of \"some subsequence converges\": e.g. a subsequence indexed by n_k = k² (or any non-arithmetic-progression index function) is allowed in the informal statement but cannot be expressed via l·n. Since the Lean hypothesis is strictly more restrictive than the informal hypothesis (while the conclusion is the same), the Lean theorem is implied by the informal claim but does not imply it. Hence the formalization is logically weaker.",
+  "duration_ms": 17878,
+  "cost_usd": 0.07762324999999999
+}

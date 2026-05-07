@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The Lean type `ℕ →ᵇ I` (bounded continuous functions ℕ → [0,1]) is in bijection with [0,1]^ω since ℕ has discrete topology (so every function is continuous) and I is bounded (so every function is automatically bounded). Mathlib equips `α →ᵇ β` with the uniform/sup distance `sInf { C | 0 ≤ C ∧ ∀ x, dist (f x) (g x) ≤ C }`, which on `ℕ →ᵇ I` is the sup metric sup_n |f(n) - g(n)|. This coincides with Munkres' uniform metric ρ̄(x,y) = sup_n min(|x_n-y_n|, 1) restricted to [0,1]^ω (where the min is superfluous since distances are ≤ 1). Mathlib's `LocallyCompactSpace` matches the classical notion. Thus `¬ LocallyCompactSpace (ℕ →ᵇ I)` faithfully asserts that [0,1]^ω in the uniform topology is not locally compact.",
+  "duration_ms": 159431,
+  "cost_usd": 0.557122
+}

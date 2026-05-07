@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: given finite-dimensional V and T : V → W linear, there exists a subspace U of V such that U ∩ null T = {0} and range T = {T u : u ∈ U}. The Lean signature captures exactly this: `FiniteDimensional F V` gives V finite-dimensional, `L : V →ₗ[F] W` gives the linear map, `U ⊓ (ker L) = ⊥` expresses U ∩ null T = {0}, and `range L = range (domRestrict L U)` expresses range T = {L u : u ∈ U}, since `domRestrict L U` is L restricted to U and its range is the image of U under L. The module setup with a field F is equivalent to the vector space setting in Axler. Quantifier structure (∃ U) and all hypotheses match.",
+  "duration_ms": 11630,
+  "cost_usd": 0.062086249999999996
+}

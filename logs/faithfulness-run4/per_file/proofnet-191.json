@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. `CommRing R` matches Artin's convention (rings are commutative with identity). The hypothesis `I + J = ⊤` is exactly $I+J=R$, since `⊤` is the top ideal (the whole ring) and `I + J` on ideals equals `I ⊔ J` (via `Ideal.add_eq_sup`). The conclusion `I * J = I ⊓ J` is exactly $IJ = I \\cap J$ (ideal product equals intersection). This is in fact the well-known Mathlib lemma `Ideal.mul_eq_inf_of_coprime`. No hypotheses are added or dropped beyond the standard commutativity convention, and the quantifier structure matches.",
+  "duration_ms": 141446,
+  "cost_usd": 0.47029675
+}

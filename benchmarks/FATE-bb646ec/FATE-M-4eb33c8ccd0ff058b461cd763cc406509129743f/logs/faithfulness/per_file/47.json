@@ -1,0 +1,8 @@
+{
+  "file": "47.lean",
+  "stem": "47",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. \"Let $U$ and $V$ have the same dimension $n$\" is formalized as `[FiniteDimensional K U]`, `[FiniteDimensional K V]`, and `Module.finrank K U = Module.finrank K V`, which exactly captures the notion of finite-dimensional vector spaces of equal dimension. The linear map $h$ (renamed to $f$) from $U$ to $V$ is encoded as `f : U →ₗ[K] V`, and the conclusion `Function.Injective f ↔ Function.Surjective f` matches \"injective iff surjective\" verbatim. The use of `[Field K]` is the standard interpretation of the implicit base field in a linear algebra textbook exercise about dimension. This statement corresponds directly to Mathlib's `LinearMap.injective_iff_surjective_of_finrank_eq_finrank`, confirming the formalization is canonical and faithful.",
+  "duration_ms": 128264,
+  "cost_usd": 0.335398
+}

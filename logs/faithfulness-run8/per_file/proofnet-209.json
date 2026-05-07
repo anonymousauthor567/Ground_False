@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes all components of the informal claim: `T * adjoint T = adjoint T * T` is the definition of a normal operator; `IsSelfAdjoint T` is self-adjointness (star T = T, which equals adjoint T = T for endomorphisms of inner product spaces); `T.Eigenvalues` from `Module.End` is the subtype of eigenvalues and `(e : ℂ).im = 0` states the eigenvalue is real; and the iff structure with universal quantification matches the informal \"if and only if all its eigenvalues are real.\" The `FiniteDimensional ℂ V` hypothesis is an implicit premise needed for truth: in infinite dimensions the claim fails (e.g., the bilateral shift on ℓ²(ℤ) is normal/unitary with no eigenvalues, so \"all eigenvalues are real\" vacuously holds, yet it is not self-adjoint). Furthermore, Mathlib's `LinearMap.adjoint` is only defined under `FiniteDimensional`, so the formalization could not even typecheck without it. Adding this implicit premise is a correct reading, not a weakening.",
+  "duration_ms": 308885,
+  "cost_usd": 0.8661005
+}

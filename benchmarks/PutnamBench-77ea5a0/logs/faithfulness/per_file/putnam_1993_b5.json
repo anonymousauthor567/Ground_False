@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_b5.lean",
+  "stem": "putnam_1993_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that there is no function p from Fin 4 to the 2D Euclidean space such that for every pair i ≠ j, dist(p i, p j) equals some odd integer. This matches the informal claim about four points in the Euclidean plane with all pairwise odd-integer distances. The distinctness of the four points is implicitly forced by the odd-distance condition: if p i = p j then dist = 0, which is not odd, and since dist ≥ 0, the integer n must be a positive odd integer. The `dist` on `EuclideanSpace ℝ (Fin 2)` is the standard Euclidean distance (confirmed in Mathlib's PiL2.lean), and `Odd n` for `n : ℤ` uses Mathlib's standard definition (∃ k, n = 2k + 1). The condition `i ≠ j` correctly captures \"pairwise\" (excluding the trivial i = j case). No hypotheses are silently added or dropped.",
+  "duration_ms": 110098,
+  "cost_usd": 0.2988075
+}

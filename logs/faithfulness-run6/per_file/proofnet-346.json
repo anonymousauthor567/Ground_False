@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "All the hypotheses in the informal statement are faithfully translated: complete metric space X, sequence E : ℕ → Set X of closed nonempty bounded sets, nested condition E_n ⊇ E_{n+1}, and Metric.diam E_n → 0. The conclusion \"∩ E_n consists of exactly one point\" is encoded as `∃ a, Set.iInter E = {a}`, which says the intersection is precisely the singleton {a}, i.e., exactly one point. `Metric.diam` is the standard Mathlib real-valued diameter, which agrees with the usual notion on bounded sets (and since boundedness is assumed, this matches the informal meaning). Types and quantifier structure all match. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 57027,
+  "cost_usd": 0.248483
+}

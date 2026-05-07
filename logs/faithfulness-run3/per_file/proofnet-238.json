@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: it quantifies over an arbitrary finite group G (via `{G : Type*} [Fintype G] [Group G]`), hypothesizes |G| = 6545 (via `card G = 6545`), and concludes ¬ IsSimpleGroup G. The factorization 6545 = 5·7·11·17 makes the mathematical content well-defined, and the Mathlib convention that `IsSimpleGroup` includes nontriviality is harmless here since |G| = 6545 > 1 forces nontriviality automatically. No hypotheses are added or dropped and the conclusion matches \"G is not simple\" verbatim.",
+  "duration_ms": 28669,
+  "cost_usd": 0.0894615
+}

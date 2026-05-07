@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. `{p : Nat.Primes}` with `H.index = p` encodes \"prime index p\". `H.Normal` is the normality hypothesis. `∀ K : Subgroup G` quantifies over all subgroups. The disjunction `K ≤ H ∨ (H ⊔ K = ⊤ ∧ (K ⊓ H).relIndex K = p)` matches \"either K ≤ H, or G = HK and [K : K∩H] = p\": since H is normal, HK is a subgroup equal to H ⊔ K, so `H ⊔ K = ⊤` ⟺ `G = HK`. And by the Mathlib definition `H.relIndex K := (H.subgroupOf K).index`, we have `(K ⊓ H).relIndex K = [K : K∩H]`. No hypothesis is silently added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 109398,
+  "cost_usd": 0.4012495
+}

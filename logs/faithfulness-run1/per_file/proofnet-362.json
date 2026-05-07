@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "informal": "Prove that the power series $\\sum z^n/n$ converges at every point of the unit circle except $z = 1$.",
+  "lean": "\ntheorem Shakarchi_exercise_1_19c (z : ℂ) (hz : ‖z‖ = 1) (s : ℕ → ℂ)\n    (h : s = (λ n => ∑ i ∈ (range n), z ^ (i + 1) / (i + 1))) :\n    (∃ z₀, Tendsto s atTop (𝓝 z₀)) ↔ z ≠ 1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the partial sums s_n = ∑_{i=0}^{n-1} z^(i+1)/(i+1) = z + z²/2 + ... + z^n/n, exactly the series ∑ z^n/n (from n=1). It restricts to z on the unit circle (‖z‖=1) and asserts that the sequence of partial sums has a limit iff z ≠ 1. The informal phrasing \"converges at every point of the unit circle except z = 1\" naturally reads as: convergence holds precisely when z ≠ 1 (it converges for z≠1, and at z=1 it is the harmonic series, which diverges). The iff captures both directions, matching the \"except\" reading. Existence of a limit (∃ z₀, Tendsto s atTop (𝓝 z₀)) is the standard encoding of sequence convergence. No extra hypotheses or weakened conclusions are introduced.",
+  "duration_ms": 12055,
+  "cost_usd": 0.058024
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding represents $S^1$ as the unit sphere in $\\mathbb{C}$ (i.e., `Metric.sphere (0 : ℂ) 1`), which is exactly the circle. The function is continuous and real-valued as required. The conclusion $\\exists x, f(x) = f(-x)$ uses Mathlib's `Neg` instance on spheres centered at $0$, which coincides with the antipodal map on $S^1$. Domain, codomain, hypothesis, and conclusion all correspond precisely to the informal statement, so the formalization is logically equivalent.",
+  "duration_ms": 32861,
+  "cost_usd": 0.08787299999999999
+}

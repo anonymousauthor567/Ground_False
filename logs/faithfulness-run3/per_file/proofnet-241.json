@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"P ∩ H is the unique Sylow p-subgroup of H\" decomposes into existence and uniqueness. The Lean statement captures both: conjunct `Nonempty (Sylow p H)` gives existence of a Sylow p-subgroup, and `∀ R : Sylow p H, R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H` gives uniqueness and identifies that Sylow subgroup as (H ⊓ P).subgroupOf H. Since `subgroupOf` is defined as `H.comap K.subtype`, the expression `(H ⊓ P).subgroupOf H` is exactly P ∩ H viewed intrinsically as a subgroup of H, matching the informal \"P ∩ H\" (which must be read as a subgroup of H for type reasons). Combining (1) and (2), (H ⊓ P).subgroupOf H itself becomes a Sylow p-subgroup of H and is the unique one — logically equivalent to the informal claim. The Fintype hypotheses are standard finite-group context, and while `Nonempty (Sylow p H)` is already a Mathlib instance, including it doesn't change the content.",
+  "duration_ms": 215334,
+  "cost_usd": 0.6781295
+}

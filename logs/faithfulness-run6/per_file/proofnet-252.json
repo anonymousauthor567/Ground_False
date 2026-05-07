@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `Irreducible (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ)`, which matches the informal claim exactly. The coefficients (1, 4, 6, 2, 1) are identical, the ring `Polynomial ℤ` corresponds to `ℤ[x]`, and Mathlib's `Irreducible` structure (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) is the standard ring-theoretic definition: not a unit, and every factorization has a unit factor. This is the conventional meaning of \"irreducible in ℤ[x]\". No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 44029,
+  "cost_usd": 0.19182924999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "S_0024.lean",
+  "stem": "S_0024",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the forgetful functor from abelian groups to groups admits a left adjoint. The Lean statement `(forget₂ CommGrp.{u} Grp.{u}).IsRightAdjoint` asserts exactly this: `IsRightAdjoint` is defined in Mathlib (CategoryTheory/Adjunction/Basic.lean line 121) as \"A class asserting the existence of a left adjoint\", which matches \"admits a left adjoint\" precisely. Although Mathlib uses `Ab := AddCommGrp` (additive convention) while the Lean statement uses the multiplicative `CommGrp`, these categories are equivalent — the mathematical claim about the forgetful functor from abelian groups to groups is the same regardless of additive vs. multiplicative notation. Mathlib explicitly uses `forget₂ CommGrp Grp` for this forgetful functor (with `abelianize` as its known left adjoint via `abelianizeAdj`). No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal claim.",
+  "duration_ms": 114138,
+  "cost_usd": 0.44378125
+}

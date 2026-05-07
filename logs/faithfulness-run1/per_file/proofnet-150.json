@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "informal": "Let $A$ be a nonempty set of real numbers which is bounded below. Let $-A$ be the set of all numbers $-x$, where $x \\in A$. Prove that $\\inf A=-\\sup (-A)$.",
+  "lean": "\ntheorem Rudin_exercise_1_5 (A minus_A : Set ℝ) (hA : A.Nonempty)\n  (hA_bdd_below : BddBelow A) (hminus_A : minus_A = {x | -x ∈ A}) :\n  sInf A = - sSup minus_A",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the same hypotheses (A is a nonempty set of reals bounded below) and the same conclusion (sInf A = -sSup(-A)). The set `minus_A = {x | -x ∈ A}` is exactly {-a : a ∈ A}, since x ∈ minus_A ↔ -x ∈ A ↔ x = -a for some a ∈ A. The use of sInf/sSup on Set ℝ is the standard Mathlib encoding for inf/sup of sets of reals. No extra or missing hypotheses are present, and no quantifier or type changes occur.",
+  "duration_ms": 7755,
+  "cost_usd": 0.04751750000000001
+}

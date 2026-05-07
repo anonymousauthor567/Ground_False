@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any integer x and any prime p dividing x^4 - x^2 + 1, we have p ≡ 1 (mod 12). The Lean formalization captures this faithfully: {p : ℕ} and {x : ℤ} provide the implicit universal quantification over primes and integers, `Nat.Prime p` asserts primality, `(p : ℤ) ∣ (x^4 - x^2 + 1)` correctly formalizes \"p is a prime divisor of x^4 - x^2 + 1\", and `(p : ℤ) ≡ 1 [ZMOD 12]` (using Mathlib's `Int.ModEq` notation, defined as `p % 12 = 1 % 12`) correctly formalizes \"congruent to 1 modulo 12\". The types (p : ℕ coerced to ℤ, x : ℤ) and quantifier structure match the natural reading of the informal claim with no added or dropped hypotheses.",
+  "duration_ms": 125563,
+  "cost_usd": 0.44320000000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p35_4.lean",
+  "stem": "calculus__p35_4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a three-part conjunction: (1) local max at x=2, (2) local min at x=4, and (3) these are the ONLY local extrema on ℝ. However, the Lean theorem `local_min_at_4 : IsLocalMin f 4` only captures claim (2). Claim (1) is stated as an axiom (assumed, not proved), and claim (3) — the uniqueness/exhaustiveness of these extrema — is not formalized at all. The Lean theorem is logically implied by the informal statement but does not imply it: a function could have a local min at x=4 without the other two claims holding. Hence the formalization is strictly weaker than the informal claim.",
+  "duration_ms": 87117,
+  "cost_usd": 0.21335600000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Rudin Exercise 3.20. The ambient space is a metric space (`[MetricSpace X]`), the sequence `p : ℕ → X` is assumed Cauchy via `CauchySeq p` (Mathlib's standard definition as `Cauchy (atTop.map p)`), and a subsequence is encoded in the standard Mathlib way as `p ∘ φ` with `StrictMono φ`, which corresponds exactly to selecting strictly increasing indices. The hypothesis `Tendsto (p ∘ φ) atTop (𝓝 r)` expresses that this subsequence converges to `r ∈ X`, and the conclusion `Tendsto p atTop (𝓝 r)` states that the full sequence converges to the same limit. The only cosmetic difference is using `r` for the limit point (the informal uses `p`), but this is purely a renaming. No hypothesis is added or dropped, and the quantifier structure matches.",
+  "duration_ms": 42047,
+  "cost_usd": 0.16350975
+}

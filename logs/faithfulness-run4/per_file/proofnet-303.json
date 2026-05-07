@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-303.lean",
+  "stem": "proofnet-303",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Munkres Exercise 23.6. `A C : Set X` correctly represents subsets of the topological space X. `IsConnected C` (defined in Mathlib as nonempty + preconnected) matches Munkres' notion of a connected subspace. The hypotheses `C ∩ A ≠ ∅` and `C ∩ Aᶜ ≠ ∅` precisely encode \"C intersects both A and X−A\". The conclusion `C ∩ (frontier A) ≠ ∅` matches \"C intersects Bd A\", since Mathlib's `frontier A = closure A \\ interior A = closure A ∩ closure Aᶜ`, which is exactly Munkres' boundary definition. No hypotheses are silently added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 92180,
+  "cost_usd": 0.268559
+}

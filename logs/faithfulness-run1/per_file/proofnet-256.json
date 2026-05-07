@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "informal": "If $G$ is a finite group, prove that, given $a \\in G$, there is a positive integer $n$, depending on $a$, such that $a^n = e$.",
+  "lean": "\ntheorem Herstein_exercise_2_1_26 {G : Type*} [Group G]\n  [Fintype G] (a : G) : ∃ (n : ℕ), n > 0 ∧ a ^ n = 1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for a finite group G and any element a, there exists a positive integer n with a^n = e. The Lean signature uses [Group G] and [Fintype G] to express finiteness, takes an arbitrary element a : G, and concludes ∃ n : ℕ, n > 0 ∧ a^n = 1. The identity element e corresponds to 1 in multiplicative notation, and n > 0 captures \"positive integer.\" The quantifier structure and hypotheses match exactly.",
+  "duration_ms": 6099,
+  "cost_usd": 0.041258
+}

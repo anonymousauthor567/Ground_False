@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_a4.lean",
+  "stem": "putnam_1994_a4",
+  "verdict": "faithful",
+  "reasoning": "The matrices are correctly typed `Matrix (Fin 2) (Fin 2) ℤ`. In Mathlib, `Invertible a` provides a two-sided inverse `invOf` in the **same type** as `a`; for an integer matrix this inverse is itself an integer matrix. Hence `Nonempty (Invertible M)` for `M : Matrix (Fin 2) (Fin 2) ℤ` simultaneously captures \"M is invertible\" AND \"its inverse has integer entries\" (equivalently, M is a unit in $M_2(\\mathbb Z)$, i.e., det M = ±1). The hypotheses assert this for $A, A+B, A+2B, A+3B, A+4B$ (with `2*B, 3*B, 4*B` computed in the matrix ring), and the conclusion asserts it for $A+5B$ — exactly matching the informal claim in both hypothesis and conclusion.",
+  "duration_ms": 141446,
+  "cost_usd": 0.48398625
+}

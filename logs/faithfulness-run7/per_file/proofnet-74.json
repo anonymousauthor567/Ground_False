@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary group G and elements a, x, matching the informal statement. `centralizer {x⁻¹ * a * x}` (resolving to `Set.centralizer` per the opened `Set` namespace, defined as `{c | ∀ m ∈ S, m * c = c * m}`) is exactly C(x⁻¹ax), and `centralizer {a}` is C(a). The right-hand side `(fun g => x⁻¹ * g * x) '' centralizer {a}` is the image of C(a) under the conjugation map, i.e., the set `{x⁻¹ g x : g ∈ C(a)}`, which is the standard meaning of `x⁻¹ C(a) x`. Both sides are `Set G`, and the equation precisely asserts the informal claim C(x⁻¹ax) = x⁻¹ C(a) x.",
+  "duration_ms": 61738,
+  "cost_usd": 0.24127024999999996
+}

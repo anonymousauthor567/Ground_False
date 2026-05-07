@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if P is a Sylow p-subgroup of G and H is a subgroup containing P, then P is a Sylow p-subgroup of H. In Mathlib, `Sylow p G` is defined as a subgroup satisfying two properties: `isPGroup' : IsPGroup p toSubgroup` and `is_maximal' : ∀ {Q : Subgroup G}, IsPGroup p Q → toSubgroup ≤ Q → Q = toSubgroup` (verified in `Mathlib/GroupTheory/Sylow.lean` line 53-55). The Lean conclusion unfolds these two properties with H as the ambient group: `IsPGroup p (P.subgroupOf H)` and the maximality condition for subgroups of H. Since `subgroupOf` is defined as `H.comap K.subtype` (viewing P as a subgroup of H), this conjunction is logically equivalent to saying `P.subgroupOf H` is a Sylow p-subgroup of H. The hypotheses `P : Sylow p G`, `H : Subgroup G`, and `P ≤ H` correctly encode the premise. The formalization is faithful.",
+  "duration_ms": 116626,
+  "cost_usd": 0.44403
+}

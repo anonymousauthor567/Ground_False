@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement of Rudin Exercise 2.28. It universally quantifies over the space X with `[MetricSpace X] [SeparableSpace X]` (separable metric space), takes an arbitrary closed set A via `IsClosed A`, and asserts the existence of two sets P₁, P₂ with A = P₁ ∪ P₂, where `Perfect P₁` and `Set.Countable P₂`. Mathlib's `Perfect` definition (in `Mathlib/Topology/Perfect.lean`) explicitly does not require the perfect set to be nonempty, matching the informal \"(possibly empty) perfect set\"; `Set.Countable` means \"at most countable\", matching \"at most countable\". This is essentially the Cantor-Bendixson theorem `exists_countable_union_perfect_of_isClosed`, where separable metric ↔ second countable. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 82227,
+  "cost_usd": 0.27199075000000006
+}

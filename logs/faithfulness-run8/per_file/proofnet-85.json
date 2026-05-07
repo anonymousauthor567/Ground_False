@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `h : ∀ x : R, x ^ 3 = x` directly encodes \"$x^3 = x$ for every $x \\in R$\" (with `x^3 = x*x*x` in any ring). The conclusion `∀ x y : R, x * y = y * x` is the standard unfolding of \"R is commutative\". The typeclass `[Ring R]` represents the standard modern notion of a (not necessarily commutative) ring with 1, matching the informal \"ring\". No extra hypotheses (Fintype, Nonempty, characteristic, etc.) are added and no hypotheses are dropped. The universal quantification over rings is correctly captured via the implicit type variable `{R : Type*}`.",
+  "duration_ms": 90027,
+  "cost_usd": 0.28373774999999996
+}

@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p12.lean",
+  "stem": "elementary_algebra__p12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts g(f(7,6)) = 595 where f(x,y) = 3x² - 4y - 3 and g(x) = 5x - 5. The Lean code defines f_poly as a polynomial in X with the y parameter inserted as a constant (3·X² - 4·C y - 3), and g_poly as 5·X - 5. Evaluating (f_poly 6).eval 7 correctly computes f(7,6) = 3·49 - 24 - 3 = 120, and g_poly.eval 120 = 600 - 5 = 595, matching the claim. The choice of ℤ as the base ring is a reasonable implicit typing since all inputs and outputs are integers; the numeric claim is identical. No hypotheses are added or dropped, and the conclusion matches the informal equality exactly.",
+  "duration_ms": 23220,
+  "cost_usd": 0.08571174999999999
+}

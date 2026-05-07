@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the Cauchy product of two absolutely convergent series converges absolutely. The Lean hypotheses `ha` and `hb` encode absolute convergence of ∑a_n and ∑b_n via `Tendsto` of partial sums of |a_i| and |b_i|. The inner expression `∑ j ∈ range (i + 1), a j * b (i - j)` = a_0·b_i + a_1·b_{i-1} + ⋯ + a_i·b_0, which is exactly the Cauchy product c_i. The conclusion states the partial sums of |c_i| converge, which is precisely absolute convergence of the Cauchy product. The only choice made is fixing the coefficient type to ℝ, which is a standard and faithful reading of Rudin's setting for series in Chapter 3; the claim's mathematical content is preserved. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 120320,
+  "cost_usd": 0.35891799999999996
+}

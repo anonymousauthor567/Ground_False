@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim: it takes an arbitrary index type `I` and a family `T : I → Set (Set X)` with each `T i` satisfying `is_topology`, and concludes `⋂ i, T i` satisfies `is_topology`. The `is_topology` predicate encodes the three standard topology axioms (univ membership, closed under binary intersection, closed under arbitrary unions), from which `∅ ∈ T` follows via `sUnion ∅`. The quantifier structure (\"for any family\") is preserved via universal quantification over `I` and `T`, and no extra hypotheses (like Nonempty, Fintype, or decidability) are imposed. The types match — `Set (Set X)` for a topology on `X`, and the indexed intersection `⋂ i : I, T i` correctly represents $\\bigcap \\mathcal{T}_\\alpha$.",
+  "duration_ms": 15090,
+  "cost_usd": 0.05687899999999999
+}

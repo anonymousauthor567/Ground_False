@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p17.lean",
+  "stem": "number_theory__p17",
+  "verdict": "incomparable",
+  "reasoning": "The Lean formalization uses the exponent `2*n+1` in `(1 + Real.sqrt 2)^(2*n+1)`, tying the exponent to the specific value of n, whereas the informal statement's exponent is `2*i+1` with `i` as an independent (existentially quantified) index into the sequence of Pell-like solutions. This fundamentally changes the LHS condition: the informal asks whether n lies in the image set {(x_i-3)/2 : i ∈ ℕ} = {-1, 2, 19, 118, 697, ...}, while the Lean asks whether n equals (x_n-3)/2 where x_n is the specific n-th sequence value (with x_n growing exponentially). At n=19, the informal iff holds (both sides true; x_2=41 gives n=19, and k=14 satisfies the binomial equation), but Lean's iff fails because x_19 is astronomically large, making Lean's LHS false while its RHS is true. Conversely, at n=2 the two iffs can disagree in the other direction. The two formulations are logically incomparable. (Minor additional drift: the Lean introduces an unused existential over k on the LHS of the iff, and adds a `k > 0` constraint, though the latter does not change the set of valid n.)",
+  "duration_ms": 510331,
+  "cost_usd": 1.2202335
+}

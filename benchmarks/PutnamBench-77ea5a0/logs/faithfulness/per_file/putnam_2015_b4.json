@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_b4.lean",
+  "stem": "putnam_2015_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the sum: it ranges over `Fin 3 → ℤ` (equivalent to integer triples), filters to positive integers (`t n > 0`) satisfying all three strict triangle inequalities (`t 0 < t 1 + t 2`, etc.), and sums `2^(t 0)/(3^(t 1)*5^(t 2))` which matches $2^a/(3^b 5^c)$. The helper `quotientof q = (q.num, q.den)` extracts numerator and denominator in lowest terms (since Mathlib's ℚ stores values coprime with positive denominator by construction). The answer `(17, 21)` corresponds to 17/21 with gcd(17,21)=1, which is correct: direct computation gives $S = 4/3 - 2 \\cdot 11/42 = 28/21 - 11/21 = 17/21$. Strict inequalities correctly capture non-degenerate triangles, the standard convention.",
+  "duration_ms": 169595,
+  "cost_usd": 0.46569374999999996
+}

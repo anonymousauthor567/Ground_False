@@ -1,0 +1,8 @@
+{
+  "file": "probability__p2_3.lean",
+  "stem": "probability__p2_3",
+  "verdict": "stronger",
+  "reasoning": "The informal statement only claims that the second component of X_3 = A^3 X_0 equals 0.18. However, the Lean lemma X3 asserts that the entire vector A * (A * (A * X0)) equals [0.38, 0.18, 0.44]^T — including specific values for the first and third components. While the computed values are correct (A³X_0 = [0.38, 0.18, 0.44]^T), proving the full vector equality is strictly stronger than proving only the second component equals 0.18. The Lean statement implies the informal claim but not vice versa, so it's stronger than what was asked.",
+  "duration_ms": 125750,
+  "cost_usd": 0.10764275000000001
+}

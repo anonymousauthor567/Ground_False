@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature introduces an arbitrary group `G : Type*` with `[Group G]`, two subgroups `H K : Subgroup G`, assumes both are normal via `[Normal H] [Normal K]`, and concludes `Normal (H ⊓ K)`. In Mathlib, `H ⊓ K` is precisely the set-theoretic intersection of `H` and `K` as a subgroup, and `Subgroup.Normal` is the standard \"closed under conjugation\" definition (see `Mathlib/Algebra/Group/Subgroup/Defs.lean` line 617). The existence of `normal_inf_normal` in `Mathlib/Algebra/Group/Subgroup/Basic.lean` with exactly this signature confirms that `(H ⊓ K).Normal` is the standard encoding of \"the intersection H ∩ K is normal\". No hypotheses are added or dropped, and quantifier structure matches. This is a strictly faithful formalization.",
+  "duration_ms": 70713,
+  "cost_usd": 0.236939
+}

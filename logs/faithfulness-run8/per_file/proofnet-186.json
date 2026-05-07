@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over arbitrary fields F and G and asserts that any ring homomorphism φ : F →+* G is injective. In Mathlib, `F →+* G` is the standard type for ring homomorphisms (preserving 0, 1, +, ·), which is the standard mathematical meaning of \"homomorphism of fields\" — a field homomorphism is a unital ring homomorphism between fields. The conclusion `Injective φ` matches \"is injective\" exactly. The universal quantification over all fields F, G via `{F : Type*} [Field F] {G : Type*} [Field G]` correctly captures \"every homomorphism of fields.\" The requirement that the homomorphism be unital is standard; without this, the claim would be false (the zero map). This is the conventional reading.",
+  "duration_ms": 33032,
+  "cost_usd": 0.12041875
+}

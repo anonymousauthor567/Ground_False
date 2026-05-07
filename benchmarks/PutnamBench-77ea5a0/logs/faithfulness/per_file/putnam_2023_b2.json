@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b2.lean",
+  "stem": "putnam_2023_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal question. `digits 2 (2023*n)` is the list of base-2 digits (each 0 or 1), so `.sum` counts the number of 1s in the binary representation of `2023*n`, matching `k(n)`. The type of `n` is inferred as `ℕ` (since `2023*n` must be a natural for `Nat.digits`), and `n > 0` correctly encodes \"positive integer\". The set `{(digits 2 (2023*n)).sum | n > 0}` is nonempty, and `sInf` on a nonempty subset of `ℕ` gives the minimum (ℕ is well-ordered), matching \"minimum value of k(n)\". The answer `3` equals the Putnam 2023 B2 solution. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 582691,
+  "cost_usd": 0.50635775
+}

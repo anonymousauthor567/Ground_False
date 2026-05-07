@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_b6.lean",
+  "stem": "putnam_2004_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all components of the informal statement: A is a non-empty set of positive naturals (Anempty, Apos); N(x) counts elements of A ≤ x via Set.encard on the subtype (with ℕ→ℕ∞ coercion, uniquely determined since the set is always finite); B uses nat-subtraction with the b' > 0 filter, which correctly gives {a - a' : a, a' ∈ A, a > a'}; b strictly increasing with range B forces B infinite, which is the implicit premise of \"b₁ < b₂ < ... listed in increasing order\"; the unboundedness condition ∀ r ∃ i, b(i+1) - b i ≥ r is exactly \"unbounded for sequences of naturals\" (not the stronger \"tends to infinity\"); and the conclusion Tendsto (N x / x) atTop (𝓝 0) is the standard formalization of N(x)/x → 0. Natural subtraction b(i+1) - b i is well-behaved because b is strictly increasing. The formalization is strictly faithful.",
+  "duration_ms": 352302,
+  "cost_usd": 0.9598705
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "informal": "Assume that $f \\colon \\mathbb{R} \\rightarrow \\mathbb{R}$ satisfies $|f(t)-f(x)| \\leq|t-x|^{2}$ for all $t, x$. Prove that $f$ is constant.",
+  "lean": "\ntheorem Pugh_exercise_3_1 {f : ℝ → ℝ}\n  (hf : ∀ x y, |f x - f y| ≤ |x - y| ^ 2) :\n  ∃ c, f = λ _x => c",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says f is constant, given |f(t)-f(x)| ≤ |t-x|^2. The Lean statement asserts ∃ c, f = (fun _ => c), which is exactly the definition of f being a constant function. The hypothesis ∀ x y, |f x - f y| ≤ |x - y|^2 matches the informal hypothesis (with variable names swapped, which doesn't matter due to symmetry). The types are ℝ → ℝ as in the informal statement. This is a faithful formalization.",
+  "duration_ms": 6311,
+  "cost_usd": 0.0418765
+}

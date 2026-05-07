@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a3.lean",
+  "stem": "putnam_2010_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `ContDiff ℝ 1 h` for a function on ℝ × ℝ is equivalent to having continuous partial derivatives. The expressions `fderiv ℝ h x (1, 0)` and `fderiv ℝ h x (0, 1)` correctly represent ∂h/∂x and ∂h/∂y respectively (Fréchet derivative applied to coordinate vectors). The PDE equation, boundedness condition `|h x| ≤ M`, and the conclusion `h = 0` all match. The universally-quantified parameters a, b, M in the Lean theorem are logically equivalent to the existential phrasing \"for some constants a, b\" and \"there is a constant M\" in the informal statement, because the conclusion `h = 0` does not involve these constants.",
+  "duration_ms": 123112,
+  "cost_usd": 0.37244725
+}

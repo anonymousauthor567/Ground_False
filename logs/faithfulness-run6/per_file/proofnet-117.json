@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all parts of the informal statement. `A : Set X` induces the subtype `↑A` with the canonical subspace topology, so `r : X → A` is a continuous map from `X` to `A` viewed as a subspace. The hypothesis `∀ x : A, r x = x` precisely expresses the retraction fixed-point condition $r(a)=a$ for $a \\in A$ (with `x : A` being coerced to `X` on the left and identified with itself in `A` on the right). The conclusion `IsQuotientMap r` uses Mathlib's standard structure (surjective plus coinduced topology), matching Munkres' notion of quotient map. No extraneous hypotheses are introduced and nothing needed is dropped.",
+  "duration_ms": 52802,
+  "cost_usd": 0.192323
+}

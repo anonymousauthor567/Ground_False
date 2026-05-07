@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch1_16.lean",
+  "stem": "brualdi_ch1_16",
+  "verdict": "faithful",
+  "reasoning": "The Lean `IsMagicSquare` structure faithfully captures the standard magic square definition: entries lie in {1,...,n²} (`mem`), all distinct (`pairwise`), and the common sum s is shared by every row, every column, the main diagonal (`∑ i, M i i`), and the anti-diagonal (`∑ i, M i i.rev`, using `Fin.rev : i ↦ n-1-i`). Since n² distinct values in [1, n²] must be exactly {1,...,n²}, this matches the traditional definition. The `replace` function implements a ↦ n²+1-a as specified; with entries in [1,n²], natural subtraction causes no truncation. The theorem asserts for any matrix M that `IsMagicSquare M → IsMagicSquare (replace M)`, which is exactly the informal claim. No hypothesis is silently added or dropped, and the quantifier structure correctly ranges over all magic squares of order n.",
+  "duration_ms": 120857,
+  "cost_usd": 0.4143295000000001
+}

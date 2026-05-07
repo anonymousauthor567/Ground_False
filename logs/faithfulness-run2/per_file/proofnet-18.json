@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully. The hypothesis `hm : m = p.degree` (with the standard coercion ℕ → WithBot ℕ) asserts that p has degree m, matching \"p has degree m\". The left side of the iff, `card (p.rootSet ℂ) = m`, counts distinct complex roots (rootSet is a Set, so no multiplicity), matching \"p has m distinct roots\". The right side, `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)`, says the sets of roots of p and p' share no elements, matching \"p and p' have no roots in common\". The `hp : p ≠ 0` hypothesis is redundant given the degree equation (since a natural number cannot equal ⊥) but does not alter the mathematical content.",
+  "duration_ms": 34512,
+  "cost_usd": 0.13818875000000003
+}

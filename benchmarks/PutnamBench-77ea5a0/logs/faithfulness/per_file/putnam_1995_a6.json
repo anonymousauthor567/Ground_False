@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a6.lean",
+  "stem": "putnam_1995_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The sample space `SM n` correctly encodes matrices whose columns are permutations of {1,2,3} (since the set of column entries equals {1,2,3}, forcing a 3-element column to be a permutation). `Srowsums` is the set of row sums. Event 1 (`sumsprog`) correctly captures \"b = a+1 and c = a+2\" after sorting, since this forces the sorted sums to be three consecutive integers, equivalent to the set being {a, a+1, a+2}. Event 2 (`encard = 1`) correctly captures \"a = b = c\". Because the probabilistic description in the informal statement (\"all orders equally likely, independent columns\") induces a uniform distribution on SM n, the probability ratio P(E1) ≥ 4·P(E2) is equivalent to the cardinality ratio |E1| ≥ 4·|E2|, which is what the Lean asserts. The existential n ≥ 1995 also matches.",
+  "duration_ms": 230072,
+  "cost_usd": 0.53593625
+}

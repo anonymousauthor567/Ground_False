@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-205.lean",
+  "stem": "proofnet-205",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures each component: `AddCommGroup V` + `Module ℝ V` encodes a real vector space; `End ℝ V` matches T ∈ L(V); `∀ c : ℝ, eigenspace T c = ⊥` correctly asserts T has no eigenvalues (via Mathlib's `hasEigenvalue_iff : HasEigenvalue μ ↔ eigenspace μ ≠ ⊥`); `Submodule.map T U ≤ U` is the standard encoding of T-invariance (T(U) ⊆ U); and `Even (finrank ℝ U)` matches \"has even dimension\". The `FiniteDimensional ℝ V` hypothesis surfaces an implicit premise: \"has even dimension\" naturally presumes finite-dimensionality (otherwise V itself, as a T-invariant subspace, would fail the conclusion if infinite-dimensional). This is the same category as the worked example in the instructions where a hypothesis is added to make the statement true under its intended reading.",
+  "duration_ms": 224078,
+  "cost_usd": 0.6708959999999999
+}

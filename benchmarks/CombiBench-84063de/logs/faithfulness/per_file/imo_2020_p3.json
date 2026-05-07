@@ -1,0 +1,8 @@
+{
+  "file": "imo_2020_p3.lean",
+  "stem": "imo_2020_p3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes IMO 2020 P3. The weight condition—stated as \"weights 1, 2, ..., 4n\" informally—is equivalent in Lean via three combined facts: PebbleSet has cardinality 4n, all weights lie in Finset.Icc 1 (4*n) (a set of exactly 4n values), and h_ne_weight ensures distinct pebbles have distinct weights; together these force the weights to be exactly {1, 2, ..., 4n}. The coloring condition (h_color) directly matches \"four pebbles of each color\" quantified over all i : Fin n. The conclusion's partition (P1 ∪ P2 = PebbleSet ∧ P1 ∩ P2 = ∅) correctly expresses \"arrange into two piles\", and the equal-sums plus \"2 pebbles of each color in each pile\" match conditions (1) and (2) exactly. No hypothesis is silently added or removed, and the quantifier structure is preserved.",
+  "duration_ms": 84401,
+  "cost_usd": 0.29146025000000003
+}

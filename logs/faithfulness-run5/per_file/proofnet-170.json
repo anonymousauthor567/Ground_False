@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin's Exercise 4.19. The IVP hypothesis uses a disjunction under the assumption a < b: (f a < c ∧ c < f b) ∨ (f b < c ∧ c < f a), which is logically equivalent to the informal \"if f(a) < c < f(b), then ∃ x between a and b with f(x) = c\" by relabeling/swapping a and b. The strict inequalities a < x < b correctly encode \"between a and b\" given the strict premise on c. The second hypothesis `∀ r : ℚ, IsClosed {x | f x = r}` (with ℚ ↪ ℝ coercion in the set) exactly matches \"for every rational r, the set of x with f(x) = r is closed.\" The conclusion `Continuous f` matches directly. No drift in quantifiers, types, or ambient assumptions.",
+  "duration_ms": 66175,
+  "cost_usd": 0.21768275
+}

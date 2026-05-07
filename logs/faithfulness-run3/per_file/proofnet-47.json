@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the three parts of the informal claim. \"Composite order n\" is captured by `¬ (card G).Prime ∧ card G ≠ 1`: since any group has the identity element, `card G ≥ 1` is automatic, so excluding 1 and primes yields exactly the composite numbers. The subgroup hypothesis `∀ k : ℕ, k ∣ card G → ∃ H fH, @card H fH = k` correctly encodes \"G has a subgroup of order k for each positive integer k dividing n\"—for k=0, divisibility `0 ∣ card G` would force card G = 0, which is impossible, so only positive divisors are effectively constrained. The existential over a Fintype instance is harmless since cardinality is independent of the Fintype instance. The conclusion `¬ IsSimpleGroup G` matches \"G is not simple\".",
+  "duration_ms": 102256,
+  "cost_usd": 0.26011125
+}

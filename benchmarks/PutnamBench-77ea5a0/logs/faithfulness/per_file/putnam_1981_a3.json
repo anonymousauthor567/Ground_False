@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_a3.lean",
+  "stem": "putnam_1981_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal question. The function f is defined as e^{-t} times the iterated integral, with Ico 0 t matching [0,t] up to a measure-zero set (irrelevant for Lebesgue integration). The order of integration (outer y, inner x) matches the informal dx dy convention. The existential `∃ L : ℝ, Tendsto f atTop (𝓝 L)` correctly encodes \"the limit exists as a finite real number\", which is the standard interpretation of the informal question. The integrand's removable singularity at x=y only affects a measure-zero set, so Lean's convention (division by zero = 0) gives the same integral value. The iff with putnam_1981_a3_solution (to be False) correctly encodes the yes/no form with the negative answer.",
+  "duration_ms": 205216,
+  "cost_usd": 0.5869
+}

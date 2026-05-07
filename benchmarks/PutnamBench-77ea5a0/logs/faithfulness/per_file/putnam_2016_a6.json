@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_a6.lean",
+  "stem": "putnam_2016_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The predicate `p c` asserts that c is a valid bound for all degree-3 polynomials with a root in [0,1], using `P.degree = 3` (degree exactly 3), `∃ x ∈ Icc 0 1, P.eval x = 0` (root in [0,1]), `∫ x in (0)..1, |P.eval x|` (integral of |P| over [0,1]), and `sSup {y | ∃ x ∈ Icc 0 1, y = |P.eval x|}` (which equals max_{x ∈ [0,1]} |P(x)| since |P| is continuous on compact [0,1]). The conclusion `IsLeast p (5/6)` correctly encodes \"smallest constant C\": since the set of valid constants is upward-closed, `IsLeast` requires 5/6 to satisfy the inequality AND be a lower bound of all valid constants, which is exactly \"smallest C such that the inequality holds for all such P\".",
+  "duration_ms": 277053,
+  "cost_usd": 0.6578094999999999
+}

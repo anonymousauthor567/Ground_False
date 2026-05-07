@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal claim: given a finite group G of order 2907, G is not simple. The hypotheses `[Fintype G] [Group G]` plus `card G = 2907` express \"G is a finite group with |G| = 2907\" (finiteness is implicit in the informal statement since it gives a finite cardinality), and the conclusion `¬ IsSimpleGroup G` matches \"G is not simple\". Note 2907 = 3² · 17 · 19, so the group is nontrivial (|G| > 1), avoiding any edge case around the trivial group not being simple. No hypotheses have been silently added or dropped, and the quantifier structure (universal over all such G) is preserved via the implicit `{G : Type*}`.",
+  "duration_ms": 11781,
+  "cost_usd": 0.0474495
+}

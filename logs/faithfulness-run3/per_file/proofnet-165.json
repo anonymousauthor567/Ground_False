@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. Metric spaces α (=X) and β (=Y), continuous `f`, and `Dense s` (=E dense in X) are all correctly rendered. The conclusion `f '' Set.univ ⊆ closure (f '' s)` is exactly \"f(X) is contained in the closure of f(E)\", which is the standard meaning of \"f(E) is dense in f(X)\" (with subspace topology, this is equivalent to f(X) ⊆ closure(f(E)) in Y). The mention of `g` in the informal statement is because this is part (a) of a multi-part exercise where `g` is used in later parts; it plays no role in the claim for part (a). No hypothesis is added or dropped, and the types match.",
+  "duration_ms": 20159,
+  "cost_usd": 0.09352025
+}

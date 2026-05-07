@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_a3.lean",
+  "stem": "putnam_2008_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures both parts of the informal statement. `cont s` correctly encodes \"a move is still possible\" (∃ j < k with ¬(s j ∣ s k)). The `trans` predicate correctly encodes a valid step: pick j < k with ¬(P t j ∣ P t k), replace position j by gcd and position k by lcm, leave other positions unchanged. The conclusion `∃ f, ∀ P, init P → trans P → ∃ t, ¬cont (P t) ∧ P t = f` asserts that there is a single terminal configuration f reached by every valid process — which encodes both termination (existence of t with ¬cont) and uniqueness of the final sequence (P t = f for the common f). Positivity of the initial values is made explicit, which is an implicit premise in \"positive integers\"; positivity is preserved under gcd/lcm, so no further positivity assumption is required. Using Nat.gcd/Nat.lcm on ℕ matches the informal. This is a faithful encoding.",
+  "duration_ms": 225947,
+  "cost_usd": 0.61122675
+}

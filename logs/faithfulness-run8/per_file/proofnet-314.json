@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors the informal statement exactly: hypothesis `h : ∀ i, Nonempty (X i)` encodes \"each $X_\\alpha$ is nonempty\", hypothesis `h2 : T2Space (Π i, X i)` encodes \"the product is Hausdorff\" (using Mathlib's default product topology via `Pi.topologicalSpace`), and the conclusion `∀ i, T2Space (X i)` encodes \"each $X_\\alpha$ is Hausdorff\", which is the natural reading of \"so is $X_\\alpha$\". The universal quantification is correct and the nonemptiness hypothesis is preserved. No hidden hypotheses are added or dropped, and the types and quantifier structure correspond exactly to the informal claim.",
+  "duration_ms": 44241,
+  "cost_usd": 0.1633885
+}

@@ -1,0 +1,8 @@
+{
+  "file": "42.lean",
+  "stem": "42",
+  "verdict": "incomparable",
+  "reasoning": "The formalization has a fundamental type error in the mathematical encoding. The polynomial X^2 - C c.1 is over L (since c.1 : L), so AdjoinRoot (X^2 - C c.1) is L[X]/(X^2 - c), a degree-2 extension of L and degree 8 over K. The informal statement's E = K(sqrt(c)) is a degree-2 extension of K, an entirely different mathematical object. Additionally, hcs : not IsSquare c.1 says c is nonsquare in L, but the informal context (with Gal(L/K) isomorphic to (Z/2Z)^2 and E being an intermediate field) requires c to be nonsquare in K while living in L. The Lean statement thus asserts a mathematically different claim compared to the informal.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

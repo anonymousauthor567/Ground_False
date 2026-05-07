@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the improper integral $\\int_{-\\infty}^{\\infty} \\frac{\\cos x}{x^2+a^2}\\,dx = \\pi e^{-a}/a$ for $a>0$. The Lean statement encodes this as the symmetric limit: as $y \\to \\infty$, $\\int_{-y}^{y} \\cos x / (x^2+a^2)\\,dx \\to \\pi \\cdot (e^{-a}/a)$. Since the integrand is absolutely integrable on $\\mathbb{R}$ (bounded by $1/(x^2+a^2)$), this symmetric-limit formulation is equivalent to the improper integral written in the informal statement. The hypothesis $a > 0$, the types ($a : \\mathbb{R}$), and the right-hand side $\\pi \\cdot (e^{-a}/a)$ all match. This is a standard and faithful Lean encoding of the stated identity.",
+  "duration_ms": 21378,
+  "cost_usd": 0.054048
+}

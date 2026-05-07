@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely mirrors the informal statement. The hypothesis `∑ i ∈ range (n+1), (C i)/(i+1) = 0` unfolds to $C_0/1 + C_1/2 + \\cdots + C_n/(n+1) = 0$, matching the informal hypothesis exactly. The conclusion `∃ x ∈ Set.Ioo 0 1, ∑ i ∈ range (n+1), (C i)*(x^i) = 0` captures \"the polynomial $C_0 + C_1 x + \\cdots + C_n x^n$ has a real root strictly between 0 and 1\" — `Set.Ioo 0 1` is the open interval $(0,1)$. The coefficients are typed `ℕ → ℝ`, and although defined on all of ℕ, only indices 0..n contribute, matching \"$C_0, \\ldots, C_n$ are real constants\". No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 54898,
+  "cost_usd": 0.19042774999999998
+}

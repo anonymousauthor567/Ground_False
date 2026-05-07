@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly transcribes each element of the informal claim. `CommRing R` matches \"commutative ring\", `hR : (0 : R) ≠ 1` is logically equivalent to the informal \"1 ≠ 0\", `IsNilpotent a` matches \"a is a nilpotent element\" (Mathlib defines `IsNilpotent a` as `∃ n, a^n = 0`, the standard definition), and the universally quantified `b : R` in the theorem binder corresponds to \"for all b ∈ R\". The conclusion `IsUnit (1 - a*b)` matches \"1 - ab is a unit\". No hypothesis is silently added or dropped, and no types are changed. The quantifier structure (fixed nilpotent a, arbitrary b, conclusion on 1 - ab) is preserved exactly.",
+  "duration_ms": 53800,
+  "cost_usd": 0.23486325
+}

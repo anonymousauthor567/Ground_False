@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-251.lean",
+  "stem": "proofnet-251",
+  "informal": "Prove that $x^4-4x^3+6$ is irreducible in $\\mathbb{Z}[x]$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_9_4_2a : Irreducible (X^4 - 4*X^3 + 6 : Polynomial ℤ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the polynomial x^4 - 4x^3 + 6 is irreducible in ℤ[x]. The Lean signature asserts `Irreducible (X^4 - 4*X^3 + 6 : Polynomial ℤ)`, which is exactly the same claim: the polynomial is the same, the ring is ℤ[X] (Polynomial ℤ), and `Irreducible` in Mathlib captures the standard notion of irreducibility (non-unit and any factorization has a unit factor), which agrees with the textbook definition for nonzero non-unit polynomials over ℤ. No hypotheses are added or dropped, and the conclusion matches directly.",
+  "duration_ms": 7202,
+  "cost_usd": 0.045211
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says $(a_1 \\cdots a_n)^{-1} = a_n^{-1} \\cdots a_1^{-1}$ in a group $G$. The Lean statement quantifies over any group $G$ and any list `as : List G`, with LHS `as.prod⁻¹` = $(a_1 \\cdots a_n)^{-1}$ and RHS `(as.reverse.map (λ x => x⁻¹)).prod` = $a_n^{-1} a_{n-1}^{-1} \\cdots a_1^{-1}$ (since reversing then mapping inversion produces exactly that list). This is precisely Mathlib's `List.prod_inv_reverse` (up to the standard identity `(L.map f).reverse = L.reverse.map f`). The empty-list case is trivially true and doesn't alter the claim. No extra hypotheses are added and the quantifier structure matches.",
+  "duration_ms": 59251,
+  "cost_usd": 0.15473525
+}

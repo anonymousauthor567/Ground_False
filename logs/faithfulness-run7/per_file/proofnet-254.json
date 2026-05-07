@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `n : ℕ+` to match ℤ⁺ (positive integers starting at 1), encodes ℝⁿ as `Fin n → ℝ` (the standard Mathlib encoding of an n-fold product), uses `≃ₗ[ℚ]` for ℚ-linear equivalence (i.e., vector space isomorphism over ℚ), and wraps it in `Nonempty` to express \"there exists an isomorphism\" (the meaning of ≅). Each component matches the informal statement exactly: positive integers n, the space ℝⁿ, the space ℝ, and isomorphism over ℚ. No hypotheses are added or dropped, quantifier structure is preserved, and the types correctly reflect the intended mathematical objects.",
+  "duration_ms": 53811,
+  "cost_usd": 0.18312975
+}

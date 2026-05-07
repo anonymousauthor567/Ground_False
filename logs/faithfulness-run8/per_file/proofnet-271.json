@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that L(a) = {x ∈ R | xa = 0} is an ideal of R, given a commutative ring R and a ∈ R. The Lean statement asserts `∃ I : Ideal R, {x : R | x*a=0} = I`. Since `Ideal R` has a `SetLike` instance coercing it to `Set R`, this equality is between sets, asserting that there exists an ideal whose underlying carrier set is exactly {x | x*a = 0}. This is logically equivalent to saying \"{x | x*a = 0} is (the underlying set of) an ideal\", which matches the informal claim exactly. The hypotheses (CommRing, element a), the set defining L(a), and the conclusion all match without any weakening or strengthening.",
+  "duration_ms": 65288,
+  "cost_usd": 0.2420125
+}

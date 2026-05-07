@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_b6.lean",
+  "stem": "putnam_1998_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal Putnam 1998 B6 using `Real.sqrt` and asks whether its value equals some integer (via coercion). The universal quantification over a, b, c : ℤ, the existential over positive n : ℤ, and the cubic expression n³+an²+bn+c all match exactly. The predicate `¬∃ k : ℤ, (k:ℝ) = Real.sqrt(P(n))` is the standard Mathlib way to express \"√P(n) is not an integer\" — for P(n) > 0 it captures exactly \"P(n) is not a perfect square,\" which is the intended meaning in the Putnam context. There is a minor quirk: Real.sqrt(negative) = 0 in Mathlib, so n with P(n) < 0 would not satisfy the Lean predicate. However, since P is a cubic with positive leading coefficient, witnesses with P(n) > 0 non-square always exist (the content of the Putnam theorem), so both statements are true with the same natural witnesses. The standard olympiad reading of \"√N is not an integer\" is \"N is not a perfect square,\" which the Lean encoding captures correctly.",
+  "duration_ms": 971292,
+  "cost_usd": 2.68690425
+}

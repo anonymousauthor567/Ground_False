@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p4_2.lean",
+  "stem": "abstract_algebra__p4_2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $f+g = 2x^2+5$ in $\\mathbb{Z}_8[x]$. The Lean axiom asserts `f + g = C 2 * X^2 - C 3` in `Polynomial (ZMod 8)`. Since in `ZMod 8` we have $-3 = 5$, and `C` is a ring homomorphism (so `-C 3 = C (-3) = C 5` via `Polynomial.C_sub`/`map_neg`), the polynomials `C 2 * X^2 - C 3` and `C 2 * X^2 + C 5` are literally equal in `Polynomial (ZMod 8)`. Thus the Lean equation is the same mathematical claim as the informal one. The definitions of `f` and `g` using `C` and `X` over `ZMod 8` match the informal polynomials coefficient-by-coefficient. The formalization is therefore strictly faithful.",
+  "duration_ms": 83898,
+  "cost_usd": 0.2663485
+}

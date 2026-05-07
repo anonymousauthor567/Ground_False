@@ -1,0 +1,8 @@
+{
+  "file": "80.lean",
+  "stem": "80",
+  "verdict": "faithful",
+  "reasoning": "All six polynomial generators match the informal ideal (accounting for the 0-indexing of Fin 6: X i in Lean corresponds to x_{i+1} in the informal statement). The ring target_ring_aux k correctly encodes k[x_1,...,x_6]/I. The Lean theorem asserts the conjunction \"IsCohenMacaulayRing (R/I) ∧ ringKrullDim (R/I) = 3\", which is the natural reading of \"R/I is Cohen-Macaulay of dimension 3\". The CM ring definition used (every prime localization is CM local, i.e., ringKrullDim = depth via Ext-vanishing) is the standard textbook definition for Cohen-Macaulay rings, and the depth via Ext-vanishing over the maximal ideal matches the standard homological definition of depth. No hypotheses are silently added or dropped, and the quantifier structure is correct.",
+  "duration_ms": 427271,
+  "cost_usd": 1.08460475
+}

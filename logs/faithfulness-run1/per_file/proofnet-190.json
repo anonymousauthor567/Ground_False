@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "informal": "An element $x$ of a ring $R$ is called nilpotent if some power of $x$ is zero. Prove that if $x$ is nilpotent, then $1+x$ is a unit in $R$.",
+  "lean": "\ntheorem Artin_exercise_10_1_13 {R : Type*} [Ring R] {x : R}\n  (hx : IsNilpotent x) : IsUnit (1 + x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary ring R (via [Ring R]), an element x : R, assumes IsNilpotent x (which states some power of x equals 0), and concludes IsUnit (1 + x). This matches the informal statement exactly: nilpotent element implies 1 + x is a unit. The quantification over R and x is captured by the implicit/explicit binders, and the definitions of IsNilpotent and IsUnit in Mathlib correspond precisely to the informal notions.",
+  "duration_ms": 5199,
+  "cost_usd": 0.04125125
+}

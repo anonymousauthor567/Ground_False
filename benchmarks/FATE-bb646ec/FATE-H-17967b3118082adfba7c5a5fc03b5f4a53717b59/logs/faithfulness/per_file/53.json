@@ -1,0 +1,8 @@
+{
+  "file": "53.lean",
+  "stem": "53",
+  "verdict": "faithful",
+  "reasoning": "The Lean type `ℝ ≃ₐ[ℚ] ℝ` unpacks (per Mathlib's `AlgEquiv` definition in `Algebra/Algebra/Equiv.lean`) to a ring equivalence of ℝ with itself that commutes with the algebra map from ℚ — i.e., a ring automorphism of ℝ fixing every rational. Since a ring automorphism of a field is a field automorphism, this exactly encodes \"field automorphism of ℝ that fixes ℚ\". The value `1 : ℝ ≃ₐ[ℚ] ℝ` is defined as `AlgEquiv.refl` (the identity), so `f = 1` says f is the trivial automorphism. The quantifier structure (universal over automorphisms) and conclusion match the informal statement. No extra or missing hypotheses.",
+  "duration_ms": 129406,
+  "cost_usd": 0.24518874999999998
+}

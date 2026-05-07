@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `f : ℝ → ℝ` with `ContinuousOn f E` instead of a function defined only on `E`, but this is equivalent: any continuous function `f : E → ℝ` can be extended to `ℝ → ℝ` (satisfying `ContinuousOn`), and conversely `ContinuousOn f E` implies `f|_E` is continuous on `E` (with subspace topology). Crucially, `ContinuousOn f E` only depends on `f`'s values on `E`, and the non-existence clause `¬ ∃ g, Continuous g ∧ ∀ x ∈ E, f x = g x` captures exactly the non-extendability of `f|_E` to a continuous function on ℝ. So existentials on both sides match, and the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 64158,
+  "cost_usd": 0.234094
+}

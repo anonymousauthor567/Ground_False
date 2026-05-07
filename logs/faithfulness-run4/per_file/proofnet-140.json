@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement specifies \"the real function $\\sqrt{n+1}-\\sqrt{n}$\" with $n \\to \\infty$, and the Lean encoding `Tendsto (fun n : ℝ => sqrt (n + 1) - sqrt n) atTop (𝓝 0)` directly matches this: it uses the real-variable domain `ℝ` (matching \"real function\"), applies `Real.sqrt` (via `open Real`), and `atTop` on ℝ is the standard filter for n → +∞. The target `𝓝 0` is the neighborhood filter of 0, capturing the convergence \"→ 0\". Quantifier structure, types, and conclusion all correspond exactly to the informal claim with no added or missing hypotheses.",
+  "duration_ms": 93854,
+  "cost_usd": 0.29602775
+}

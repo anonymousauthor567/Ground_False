@@ -1,0 +1,8 @@
+{
+  "file": "56.lean",
+  "stem": "56",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that $\\mathbb{Z}_p$ (the cyclic group of order p) has no proper nontrivial subgroups. The Lean statement claims that every finite group G of prime order p has only trivial subgroups (H = ⊥ or H = ⊤). These two claims are logically equivalent under standard mathematical reading: every finite group of prime order p is cyclic, hence isomorphic to ℤ/pℤ (this is `isCyclic_of_prime_card` in Mathlib), and subgroups transfer across isomorphism. The conclusion \"H = ⊥ ∨ H = ⊤\" correctly encodes \"no proper nontrivial subgroups,\" the `[Fact p.Prime]` typeclass is standard Mathlib idiom for primality, and `Fintype.card G = p` correctly captures the order. No hypotheses are dropped or improperly added; the generalization from the specific group $\\mathbb{Z}_p$ to any group of order p is a semantically equivalent reformulation commonly used in Mathlib.",
+  "duration_ms": 290467,
+  "cost_usd": 0.40989624999999996
+}

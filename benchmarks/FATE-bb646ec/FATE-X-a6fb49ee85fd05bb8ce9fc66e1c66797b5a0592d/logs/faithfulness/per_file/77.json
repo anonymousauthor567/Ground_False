@@ -1,0 +1,8 @@
+{
+  "file": "77.lean",
+  "stem": "77",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The Noetherian ring, prime ideals P ⊆ Q, and height conditions ht(P) = h and ht(Q/P) = d (encoded as `(Q.map (Ideal.Quotient.mk P)).height = d`, which is the standard Mathlib convention for the height of Q/P as the image of Q in R/P) all match. The condition `1 < d` is explicit. Although the informal uses strict `P ⊂ Q` while Lean uses `P ≤ Q`, strictness is automatically forced by `d > 1` combined with the height hypothesis. Similarly, in the conclusion set `{P' | P ≤ P' ∧ P' ≤ Q ∧ ...}`, the conditions `P'.height = h + 1 ≠ h` and `(Q.map (Quotient.mk P')).height = d - 1 ≥ 1 ≠ 0` force P ≠ P' and P' ≠ Q, making `≤` equivalent to strict `<`. `Set.Infinite` correctly encodes \"infinitely many\". The use of `Type` instead of `Type*` is a minor universe restriction that does not affect the mathematical content.",
+  "duration_ms": 325134,
+  "cost_usd": 1.007752
+}

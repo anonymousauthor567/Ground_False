@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"All roots of x^m - x are distinct\" is precisely encoded by `Polynomial.Separable` (defined in Mathlib as `IsCoprime f (derivative f)`, which for polynomials over a field is equivalent to having no repeated roots, as shown by `nodup_roots_iff_of_splits`). The hypotheses `[Field F]`, `[CharP F p]`, and `p ≠ 0` correctly encode \"F of characteristic p ≠ 0\". The extra `n > 0` is not a weakening — it is an implicit premise made explicit: without it, n = 0 gives m = 1, so x^m - x = 0, which is not separable in Mathlib's sense (`not_separable_zero`). The informal statement from Herstein clearly intends n ≥ 1 (this is the classical theorem underlying finite fields of order p^n), analogous to the worked example about 2^r+1 requiring r ≥ 1. Therefore this is a faithful formalization.",
+  "duration_ms": 399544,
+  "cost_usd": 0.7967582500000001
+}

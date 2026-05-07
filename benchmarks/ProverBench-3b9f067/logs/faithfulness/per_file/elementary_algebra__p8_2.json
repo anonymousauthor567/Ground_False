@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p8_2.lean",
+  "stem": "elementary_algebra__p8_2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a specific numerical equality: (2-5√5)/(4√13) = (2√13-5√65)/52. The Lean definitions LHS := (2 - 5 * sqrt 5) / (4 * sqrt 13) and RHS := (2 * sqrt 13 - 5 * sqrt 65) / 52 translate the left- and right-hand sides literally, using Real.sqrt as imported via `open Real`. The statement `LHS = RHS` therefore expresses exactly the asserted equality. The phrase \"for any real numbers\" in the informal text is vacuous (there are no free variables), so it does not introduce any additional quantification. Although the equality is declared as an `axiom` rather than proved, the signature/type itself is a precise formalization of the informal claim, and the auxiliary sqrt_five_times_sqrt_thirteen lemma is explicitly marked as an optional intermediate step, not an alternative main statement.",
+  "duration_ms": 217679,
+  "cost_usd": 0.5224947499999999
+}

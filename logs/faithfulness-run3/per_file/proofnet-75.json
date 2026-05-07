@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. The hypothesis `a > 1` with `a : ℕ` matches \"a > 1 is an integer\" (since a must be positive). The conclusion `n ∣ (a ^ n - 1).totient` directly corresponds to `n ∣ φ(a^n - 1)`. Natural subtraction works correctly here because `a > 1` ensures `a^n ≥ 1`. Edge cases are consistent: `n = 0` gives `0 ∣ 0` (true), `n = 1` is trivial, and `n ≥ 2` is the substantive case where the multiplicative order of `a` mod `a^n - 1` equals `n` and divides `φ(a^n - 1)` by Lagrange. The informal statement imposes no restriction on `n`, matching the Lean formulation. No hypotheses are added or dropped.",
+  "duration_ms": 21270,
+  "cost_usd": 0.10365275
+}

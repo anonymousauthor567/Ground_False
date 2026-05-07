@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_b1.lean",
+  "stem": "putnam_1980_b1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the set of real numbers $c$ such that $(e^x+e^{-x})/2 \\leq e^{cx^2}$ holds for all real $x$. The Lean formalization expresses this as an iff: the universally quantified inequality holds if and only if $c$ belongs to `putnam_1980_b1_solution`, which is set to $\\{c : \\mathbb{R} \\mid c \\geq 1/2\\}$. The quantifier structure (∀ x : ℝ), the inequality, the types, and the formulation match the informal claim exactly. The \"for which c\" phrasing is naturally captured by an iff with a solution set. Hence the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 16349,
+  "cost_usd": 0.04886675
+}

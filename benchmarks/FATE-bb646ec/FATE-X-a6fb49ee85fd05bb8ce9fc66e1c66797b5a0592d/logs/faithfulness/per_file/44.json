@@ -1,0 +1,8 @@
+{
+  "file": "44.lean",
+  "stem": "44",
+  "verdict": "faithful",
+  "reasoning": "The Lean file defines a class `IsGlobalCompleteIntersection` capturing the informal definition: extending `Algebra.FiniteType k S` encodes \"finite type k-algebra\", and the `isGlobalCompleteIntersection` field states exactly that there exist n ∈ ℕ and a list rs of polynomials in k[x_1,…,x_n] such that S ≅ k[x_1,…,x_n]/(rs) and ringKrullDim S + rs.length = n (i.e., dim S = n - c). The `Algebra.FiniteType` parent is technically redundant (any such presentation implies finite type) but doesn't change the logical content. `Ideal.ofList rs = span {r | r ∈ rs}` correctly represents the ideal (f_1,…,f_c). The ring A in the theorem matches the informal ring exactly under X↔X 0, Y↔X 1, Z↔X 2, with Ideal.span generating the same ideal as Ideal.ofList over the same elements. The conclusion ¬ IsGlobalCompleteIntersection k A matches \"A is not a global complete intersection.\"",
+  "duration_ms": 289678,
+  "cost_usd": 0.6398395
+}

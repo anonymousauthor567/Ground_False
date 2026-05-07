@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-251.lean",
+  "stem": "proofnet-251",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Irreducible (X^4 - 4*X^3 + 6 : Polynomial ℤ)` directly formalizes the informal claim \"x^4 - 4x^3 + 6 is irreducible in ℤ[x]\". The polynomial matches exactly (X^4 - 4*X^3 + 6), the ambient ring matches (Polynomial ℤ = ℤ[x]), and Mathlib's `Irreducible` predicate (a non-unit that can't be written as a product of two non-units) corresponds to the standard mathematical notion of irreducibility in a commutative ring. There are no extra or missing hypotheses, no change in conclusion, and no quantifier drift.",
+  "duration_ms": 37138,
+  "cost_usd": 0.21731325000000004
+}

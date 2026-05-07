@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch11_20.lean",
+  "stem": "brualdi_ch11_20",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal claim: V has cardinality n (graph of order n), the edge count via `(SimpleGraph.edgeSet G).ncard` equals the usual number of edges (V is a Fintype so this is well-defined), and Mathlib's `G.Connected` captures standard graph connectivity. The formula `(n-1)*(n-2)/2 + 1` in natural subtraction gives the correct bound for all n ≥ 2 (and the statement holds vacuously for smaller n). The added hypothesis `n ≥ 1` is a mild surfacing of the common convention that \"a graph of order n\" is non-empty; for n = 0, the hypothesis `1 ≤ |E|` is unsatisfiable, so the informal claim would be vacuously true anyway — no non-trivial content is lost. This qualifies as a faithful formalization.",
+  "duration_ms": 402110,
+  "cost_usd": 1.19098225
+}

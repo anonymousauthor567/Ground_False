@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-327.lean",
+  "stem": "proofnet-327",
+  "theorem_name": "Putnam_exercise_1999_b4",
+  "informal": "Let $f$ be a real function with a continuous third derivative such that $f(x), f^{\\prime}(x), f^{\\prime \\prime}(x), f^{\\prime \\prime \\prime}(x)$ are positive for all $x$. Suppose that $f^{\\prime \\prime \\prime}(x) \\leq f(x)$ for all $x$. Show that $f^{\\prime}(x)<2 f(x)$ for all $x$.",
+  "lean": "\ntheorem Putnam_exercise_1999_b4 (f : ℝ → ℝ) (hf: ContDiff ℝ 3 f)\n  (hf1 : ∀ n ≤ 3, ∀ x : ℝ, iteratedDeriv n f x > 0)\n  (hf2 : ∀ x : ℝ, iteratedDeriv 3 f x ≤ f x) :\n  ∀ x : ℝ, deriv f x < 2 * f x",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one. `ContDiff ℝ 3 f` encodes \"continuous third derivative\". The hypothesis `∀ n ≤ 3, ∀ x, iteratedDeriv n f x > 0` covers n = 0, 1, 2, 3, i.e., f, f', f'', f''' all positive (note iteratedDeriv 0 f = f, iteratedDeriv 1 f = deriv f, etc.). The hypothesis `iteratedDeriv 3 f x ≤ f x` is exactly f'''(x) ≤ f(x). The conclusion `deriv f x < 2 * f x` is f'(x) < 2 f(x) for all x. Quantifiers and types align.",
+  "duration_ms": 8438,
+  "cost_usd": 0.04901475
+}

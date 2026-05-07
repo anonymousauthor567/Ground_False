@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the non-summability of `1/i` (as ℚ) indexed by the subtype of squarefree integers in ℤ. While the subtype `{p : ℤ // Squarefree p}` includes negative squarefree integers and ±1 (not just positive squarefree naturals as in the informal proof's S ⊂ ℕ*), Mathlib's `Summable` requires unconditional convergence, which for real/ℚ-valued series coincides with absolute summability. Thus \"not summable over all squarefree integers in ℤ\" is equivalent to \"not absolutely summable\" which is equivalent to \"∑ 1/n over positive squarefree integers diverges\" — the informal claim. The ℚ codomain is also fine, since non-absolute-summability in ℝ forces non-summability in the rationals. This matches the ground-truth formalization (proofnet-281.lean) verbatim, which is proved by restricting along an injection from `Nat.Primes` and invoking `Nat.Primes.not_summable_one_div`.",
+  "duration_ms": 269309,
+  "cost_usd": 0.8599519999999999
+}

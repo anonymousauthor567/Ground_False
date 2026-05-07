@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_b5.lean",
+  "stem": "putnam_1982_b5",
+  "verdict": "weaker",
+  "reasoning": "Due to Lean 4 precedence (∧ binds tighter than →, which is right-associative, and ∀ x ∈ T extends the implication all the way to the right), the conclusion parses as: \"∀ x ∈ T, ((∃ L, Tendsto (S x) atTop (𝓝 L)) ∧ (∀ x' ∈ T, Tendsto (S x') atTop (𝓝 (g x')))) → ContinuousOn g T\". This places the convergence of the sequence as a HYPOTHESIS of an implication rather than as a conclusion to prove. The informal statement requires proving two things: (a) that the sequence converges for every x > e^e, and (b) that the limit function is continuous. The Lean version entirely drops obligation (a): it says \"IF g is already the pointwise limit, THEN g is continuous on T.\" If the sequence failed to converge, the Lean implication would hold vacuously while the informal claim would be false. Thus the Lean statement is implied by the informal claim but does not imply it.",
+  "duration_ms": 317117,
+  "cost_usd": 0.9659625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that if A is abelian and B is a subgroup, then A/B is abelian. In Mathlib, when A has `[CommGroup A]` and B is a `Subgroup A`, there is an instance `Quotient.commGroup` (in `Mathlib/GroupTheory/QuotientGroup/Defs.lean`) providing the group structure on `A ⧸ B` (every subgroup of an abelian group is automatically normal, so the quotient group is well-defined). The multiplication on `A ⧸ B` is the standard quotient group multiplication. The Lean statement `∀ a b : A ⧸ B, a * b = b * a` directly asserts that this quotient group is commutative, which is precisely what \"A/B is abelian\" means — the group structure on A/B is already given, and commutativity is the remaining property. The hypotheses (A commutative group, B a subgroup) and the conclusion (commutativity of A/B) match exactly.",
+  "duration_ms": 90065,
+  "cost_usd": 0.239276
+}

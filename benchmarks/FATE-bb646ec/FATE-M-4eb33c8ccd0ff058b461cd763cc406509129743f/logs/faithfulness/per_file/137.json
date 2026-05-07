@@ -1,0 +1,8 @@
+{
+  "file": "137.lean",
+  "stem": "137",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the multiplication map μ : G × G → G is a group homomorphism, then G is abelian. The Lean statement provides `f : G × G →* G` (a MonoidHom, which between groups is exactly a group homomorphism in Mathlib) together with the hypothesis `∀ x, f x = x.1 * x.2`, which asserts that f is precisely the multiplication map. This is logically equivalent to \"the multiplication map is a group homomorphism.\" The product group structure on `G × G` is the standard direct product. The conclusion `∀ a b : G, a * b = b * a` is exactly the definition of G being abelian. No extra hypotheses are added and none are dropped; the quantifier structure and types match the informal claim.",
+  "duration_ms": 120734,
+  "cost_usd": 0.31014225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_b1.lean",
+  "stem": "putnam_1997_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. `dist_to_int r = |r - round r|` is exactly the distance from r to the nearest integer. The sum `∑ m ∈ Finset.Icc 1 (6*n-1)` correctly ranges over m = 1 to 6n-1 (for n > 0, 6n-1 ≥ 5). Since `dist_to_int : ℝ → ℝ` expects a real number, Lean's bidirectional elaboration of `m/(6*n)` and `m/(3*n)` (with `m : ℕ` from the Finset and `n : ℕ`) forces the expected type ℝ to propagate through the division, producing real division with coercions — not natural division — so these match the informal fractions m/(6n) and m/(3n). The condition `n > 0` matches \"for each positive integer n\", and encoding \"evaluate\" as equality with a `putnam_1997_b1_solution : ℕ → ℝ` is the standard PutnamBench convention. The min operator also matches. No hypotheses are silently added or dropped.",
+  "duration_ms": 350334,
+  "cost_usd": 1.26889325
+}

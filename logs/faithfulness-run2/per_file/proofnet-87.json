@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `TwoSidedIdeal` for the 2×2 real matrix ring, which matches the standard non-commutative ring theory reading of \"ideal\" in Herstein's textbook (the result is the simplicity of M_2(ℝ), a theorem about two-sided ideals; one-sided ideals of M_2(ℝ) are plentiful). The ring `Matrix (Fin 2) (Fin 2) ℝ` correctly encodes 2×2 matrices over ℝ, and `⊥`/`⊤` correspond to the zero ideal and the whole ring. The conclusion `I = ⊥ ∨ I = ⊤` is the faithful translation of \"I = (0) or I = R\".",
+  "duration_ms": 15350,
+  "cost_usd": 0.05411725
+}

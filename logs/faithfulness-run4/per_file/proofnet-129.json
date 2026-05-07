@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement requires, for a normal space X and any pair of disjoint closed sets A, B, the existence of open sets U ⊇ A and V ⊇ B whose closures are disjoint. In Munkres, \"neighborhood of a set\" means an open set containing that set, so the use of `IsOpen U ∧ IsOpen V ∧ A ⊆ U ∧ B ⊆ V` faithfully captures \"neighborhoods U of A and V of B.\" The condition `closure U ∩ closure V = ∅` is exactly \"their closures are disjoint.\" The Mathlib `NormalSpace` class (disjoint closed sets have disjoint open neighborhoods) is the standard definition used in Munkres. Quantifier structure, types, and hypotheses all match the informal statement.",
+  "duration_ms": 106531,
+  "cost_usd": 0.31027675000000005
+}

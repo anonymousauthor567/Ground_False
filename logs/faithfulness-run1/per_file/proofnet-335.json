@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "informal": "If $z_1, \\ldots, z_n$ are complex, prove that $|z_1 + z_2 + \\ldots + z_n| \\leq |z_1| + |z_2| + \\cdots + |z_n|$.",
+  "lean": "\ntheorem Rudin_exercise_1_12 (n : ℕ) (f : ℕ → ℂ) :\n  ‖∑ i ∈ range n, f i‖ ≤ ∑ i ∈ range n, ‖f i‖",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the triangle inequality for a finite sum of complex numbers. The Lean version states ‖∑ i ∈ range n, f i‖ ≤ ∑ i ∈ range n, ‖f i‖ for any function f : ℕ → ℂ and any n : ℕ. This is logically equivalent: indexing n complex numbers z_1,...,z_n by a function f : ℕ → ℂ over Finset.range n captures exactly the same finite sum. The norm ‖·‖ on ℂ equals the absolute value. So the Lean statement faithfully encodes the claim.",
+  "duration_ms": 6031,
+  "cost_usd": 0.04263625
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p39.lean",
+  "stem": "calculus__p39",
+  "verdict": "incomparable",
+  "reasoning": "In Mathlib, `∫ x, f x` denotes the Bochner integral `integral volume (fun x => f x)` — a definite integral over all of ℝ yielding a single real number — NOT an indefinite integral/antiderivative. Due to precedence, the Lean statement parses as `(∫ y, sin(y)^10 · cos(y)) = sin(x)^11/11 + C`, where `x` on the RHS is the outer theorem binder (shadowed inside the integral). The LHS is a fixed real (in fact 0, since `sin^10·cos` is not in L¹(ℝ), so Mathlib's convention gives 0), while the RHS varies with the free `x, C`; thus the Lean claim is identically false (take x=0, C=1). The informal antiderivative relation (true) is not logically implied by nor implies this broken Bochner-integral equation: the informal statement is true while the Lean one is false in the standard model, and the Lean statement's structure is a category mismatch (definite integral vs. antiderivative), not a simple strengthening or weakening of the informal claim.",
+  "duration_ms": 117425,
+  "cost_usd": 0.35689550000000003
+}

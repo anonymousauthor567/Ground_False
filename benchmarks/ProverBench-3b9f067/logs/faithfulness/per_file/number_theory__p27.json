@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p27.lean",
+  "stem": "number_theory__p27",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement has a critical scoping issue: the `z` in the conclusion `¬((4 * k * x * y - 1) ∣ z)` is OUTSIDE the scope of the `∃ z : PNat, ...` binder inside the hypothesis `h`. The existential binder only binds `z` within the body of the existential itself, so the `z` in the conclusion is a different variable. With the project's `autoImplicit := false` (and Lean 4's default `relaxedAutoImplicit := true`), the free `z` in the conclusion gets auto-bound as a fresh implicit `PNat` argument, making the theorem state: \"for all positive x,y,k,m,n,z, if there exists some z' with x^m+y^n = z', then 4kxy-1 does not divide z.\" Since the hypothesis is trivially satisfiable and `z` is unconstrained, this can be refuted by e.g. k=x=y=1 (so 4kxy-1=3) and z=3. The informal claim (∀ x,y,k,m,n, ¬(4kxy-1 ∣ x^m+y^n)) is true, but the Lean formalization expresses a different (false) claim where the conclusion's `z` is disconnected from `x^m+y^n`, so the two statements are not logically equivalent in the intended way.",
+  "duration_ms": 432980,
+  "cost_usd": 1.2084732500000006
+}

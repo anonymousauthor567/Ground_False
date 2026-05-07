@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "informal": "Show that if $\\prod X_\\alpha$ is Hausdorff, then so is $X_\\alpha$. Assume that each $X_\\alpha$ is nonempty.",
+  "lean": "\ntheorem Munkres_exercise_32_2a\n  {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]\n  (h : ∀ i, Nonempty (X i)) (h2 : T2Space (Π i, X i)) :\n  ∀ i, T2Space (X i)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the product space ∏ X_α is Hausdorff and each X_α is nonempty, then each X_α is Hausdorff. The Lean signature takes ι-indexed family of topological spaces, hypothesis that each X i is Nonempty, hypothesis that the product Π i, X i is T2 (Hausdorff), and concludes that each X i is T2. This matches the informal statement exactly: same hypotheses (nonemptiness of each factor, Hausdorffness of product) and same conclusion (Hausdorffness of each factor). The quantifier structure (∀ i) and types match.",
+  "duration_ms": 6808,
+  "cost_usd": 0.04280425
+}

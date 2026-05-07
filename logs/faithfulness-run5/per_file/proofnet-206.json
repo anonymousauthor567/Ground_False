@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the Cauchy–Schwarz-type inequality using Fin n (0-indexed) with coefficient (i+1), which corresponds precisely to the informal 1-indexed coefficient j under the natural reindexing j = i+1. Since a i ^ 2 and b i ^ 2 have type ℝ, Lean's binop elaboration forces (i+1) to be elaborated as ((↑i : ℝ) + 1), so the coefficients range over {1, 2, ..., n} in ℝ, matching the informal j exactly. The three sums (the product sum, the weighted sum with coefficient j, and the sum with divisor j) all correspond term-for-term after this reindexing. The universal quantification over a, b : Fin n → ℝ matches \"for all real numbers a_1, ..., a_n, b_1, ..., b_n\", and n is implicitly universally quantified. The edge case n = 0 gives 0 ≤ 0 trivially in both readings. No spurious hypotheses are added or dropped.",
+  "duration_ms": 194763,
+  "cost_usd": 0.6278365
+}

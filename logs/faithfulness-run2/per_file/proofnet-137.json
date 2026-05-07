@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem universally quantifies over all finite-dimensional real normed spaces E of dimension m and asserts the closed unit ball is compact. This is logically equivalent to the informal claim \"for any norm on ℝ^m, the closed unit ball is compact\": every m-dimensional real normed space is linearly isometric to ℝ^m equipped with some norm (by transporting the norm along any linear isomorphism), so quantifying over all such E is the same as quantifying over all norms on ℝ^m. The Metric.closedBall (0 : E) 1 precisely encodes {x : ‖x‖ ≤ 1}, and the finrank = m hypothesis pins the dimension. No extra hypotheses are smuggled in and nothing essential is dropped.",
+  "duration_ms": 26639,
+  "cost_usd": 0.08341025
+}

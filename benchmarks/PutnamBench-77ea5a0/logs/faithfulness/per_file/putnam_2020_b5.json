@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_b5.lean",
+  "stem": "putnam_2020_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over four complex numbers via `z : Fin 4 → ℂ`, matching \"for j ∈ {1,2,3,4}\". The hypothesis `‖z n‖ = 1` correctly captures |z_j| = 1 since the norm on ℂ in Mathlib (defined in `Mathlib/Analysis/Complex/Norm.lean` as `√(normSq z)`) is the standard complex absolute value. The hypothesis `z n ≠ 1` directly matches z_j ≠ 1. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0) * (z 1) * (z 2) * (z 3) ≠ 0` matches the informal conclusion exactly (with only a cosmetic 0-indexing vs 1-indexing). No hypotheses are added or dropped, and types (ℂ) match.",
+  "duration_ms": 62478,
+  "cost_usd": 0.13098474999999998
+}

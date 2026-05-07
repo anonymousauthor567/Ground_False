@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. A \"region\" in complex analysis means a nonempty open connected set, which is captured by `IsOpen Ω`, `IsConnected Ω`, and `Nonempty Ω` (the latter being redundant since `IsConnected` is defined in Mathlib as `Nonempty ∧ IsPreconnected`, but not a faithfulness issue). \"F is a primitive of f\" is encoded as `DifferentiableOn ℂ F Ω ∧ ∀ x ∈ Ω, deriv F x = f x`, which is the standard definition. Since Ω is open, the global `deriv` agrees with the within-set derivative at points of Ω. The conclusion `∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c` directly expresses \"F₁ and F₂ differ by a constant\". The hypothesis `ContinuousOn f Ω` matches \"f is continuous in Ω\". No hypotheses are dropped or added beyond what the mathematical meaning of \"region\" and \"primitive\" requires.",
+  "duration_ms": 173875,
+  "cost_usd": 0.5542107500000001
+}

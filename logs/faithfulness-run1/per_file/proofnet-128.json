@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "informal": "Show that if $X$ has a countable dense subset, every collection of disjoint open sets in $X$ is countable.",
+  "lean": "\ntheorem Munkres_exercise_30_13 {X : Type*} [TopologicalSpace X]\n  (h : ∃ (s : Set X), Countable s ∧ Dense s) (U : Set (Set X))\n  (hU : ∀ (x y : Set X), x ∈ U → y ∈ U → x ≠ y → x ∩ y = ∅)\n  (hUopen : ∀ (u : Set X), u ∈ U → IsOpen u) :\n  Countable U",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the standard separability result: if X has a countable dense subset, every pairwise-disjoint collection of open sets is countable. The Lean signature encodes the hypotheses correctly: `h` provides a countable dense subset (Countable s ∧ Dense s), `hU` expresses pairwise disjointness via x ≠ y → x ∩ y = ∅, and `hUopen` says each member of U is open. The conclusion `Countable U` matches. The empty set can technically be a member of U, but since U is a `Set (Set X)` it can appear at most once and does not affect countability, so this does not break equivalence with the informal statement. Types and quantifier structure align with the original claim.",
+  "duration_ms": 17225,
+  "cost_usd": 0.060737250000000007
+}

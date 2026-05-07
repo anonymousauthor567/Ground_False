@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. T : V →ₗ[F] V encodes T ∈ L(V); U : Fin n → Submodule F V encodes the finite family U₁,...,Uₘ of subspaces; hU asserts each Uᵢ is T-invariant via `Submodule.map T (U i) ≤ U i`, the standard Mathlib formulation of T(Uᵢ) ⊆ Uᵢ; and the conclusion expresses that the sum submodule ∑ Uᵢ (which equals U₁ + ... + Uₙ) is T-invariant. Using `Field F` and `Fin n` indexing are standard faithful encodings of Axler's 𝔽 and \"m subspaces\". No hypotheses are added or dropped.",
+  "duration_ms": 33824,
+  "cost_usd": 0.10469325
+}

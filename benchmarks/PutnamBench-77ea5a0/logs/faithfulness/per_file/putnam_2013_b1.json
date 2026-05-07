@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_b1.lean",
+  "stem": "putnam_2013_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement closely: `c 1 = 1` is the base case, and the recurrences `c(2n) = c(n)` and `c(2n+1) = (-1)^n c(n)` are stated with `n > 0`, matching \"for positive integers n\". The sum `∑ n : Set.Icc 1 2013, c n * c (n.1 + 2)` iterates over the subtype with elements 1, ..., 2013 (via `instFintypeIcc`), with `c n` using subtype-to-ℕ coercion and `n.1 + 2` computing n+2 in ℕ, correctly encoding ∑_{n=1}^{2013} c(n)c(n+2). Although `c 0` is unconstrained, it is irrelevant to the sum, and the recurrences uniquely determine c on all positive integers appearing in the sum. The formalization captures exactly the mathematical claim.",
+  "duration_ms": 192637,
+  "cost_usd": 0.6135615
+}

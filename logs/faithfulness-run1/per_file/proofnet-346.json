@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "informal": "If $\\left\\{E_{n}\\right\\}$ is a sequence of closed nonempty and bounded sets in a complete metric space $X$, if $E_{n} \\supset E_{n+1}$, and if $\\lim _{n \\rightarrow \\infty} \\operatorname{diam} E_{n}=0,$ then $\\bigcap_{1}^{\\infty} E_{n}$ consists of exactly one point.",
+  "lean": "\ntheorem Rudin_exercise_3_21\n  {X : Type*} [MetricSpace X] [CompleteSpace X]\n  (E : ℕ → Set X)\n  (hEcl : ∀ n, IsClosed (E n))\n  (hEne : ∀ n, (E n).Nonempty)\n  (hEbdd : ∀ n, Bornology.IsBounded (E n))\n  (hE : ∀ n, E n ⊇ E (n + 1))\n  (hE' : Tendsto (λ n => Metric.diam (E n)) atTop (𝓝 0)) :\n  ∃ a, Set.iInter E = {a}",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all hypotheses of the informal statement: X is a complete metric space, each E n is closed, nonempty, and bounded, the sets are nested (E n ⊇ E (n+1)), and diam(E n) → 0. The conclusion `∃ a, Set.iInter E = {a}` asserts the intersection equals a singleton, which is exactly \"consists of exactly one point\". The quantifier structure and types align with the informal claim, so the formalization is logically equivalent.",
+  "duration_ms": 6114,
+  "cost_usd": 0.044848250000000006
+}

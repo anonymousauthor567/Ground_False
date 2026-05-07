@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal claim. \"Composite order n\" is encoded via `¬ (card G).Prime` and `card G ≠ 1`; combined with the implicit fact that `card G ≥ 1` for any group (Group requires an identity), these exactly capture \"composite\". The subgroup-existence hypothesis `∀ k : ℕ, k ∣ card G → ∃ (H : Subgroup G) (fH : Fintype H), @card H fH = k` matches \"for each positive integer k dividing n\" because k=0 dividing card G would require card G = 0, which is impossible for a group; so the universal effectively only ranges over positive k. The conclusion `¬ IsSimpleGroup G` matches Mathlib's standard definition (Nontrivial plus all normal subgroups are ⊥ or ⊤), which matches the usual informal notion of \"simple group\". No hypotheses are silently added or dropped.",
+  "duration_ms": 173119,
+  "cost_usd": 0.560346
+}

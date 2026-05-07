@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if Y ⊆ X and A ⊆ Y, the subspace topology on A from Y agrees with the subspace topology on A from X. In Lean, `A : Set Y` automatically gets Mathlib's `instTopologicalSpaceSubtype`, which is the subspace-of-Y topology. `IsInducing f` (from `Mathlib/Topology/Defs/Induced.lean`) means the topology on the source equals the topology induced on it from the target via `f`. Thus `IsInducing (fun a : A => (a : X))` says the subspace-of-Y topology on A equals the topology induced on A by the composite inclusion A ↪ Y ↪ X, which is exactly the subspace-of-X topology on A. This matches the informal claim precisely — same objects, same conclusion, no added or missing hypotheses.",
+  "duration_ms": 155158,
+  "cost_usd": 0.58698875
+}

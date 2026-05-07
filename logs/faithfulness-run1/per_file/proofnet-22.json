@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "theorem_name": "Axler_exercise_6_2_corrected",
+  "informal": "Suppose $u, v \\in V$. Prove that $\\langle u, v\\rangle=0$ if and only if $\\|u\\| \\leq\\|u+a v\\|$ for all $a \\in \\mathbf{F}$.",
+  "lean": "\ntheorem Axler_exercise_6_2_corrected {V : Type*} [NormedAddCommGroup V] {F : Type*}\n    [RCLike F] [InnerProductSpace F V]\n    (u v : V) :\n    ⟪u, v⟫_F = 0 ↔ ∀ (a : F), ‖u‖ ≤ ‖u + a • v‖",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature places u and v in an inner product space V over a field F that is either ℝ or ℂ (via RCLike), matching Axler's setting where F ∈ {ℝ, ℂ}. The biconditional ⟪u, v⟫_F = 0 ↔ ∀ a : F, ‖u‖ ≤ ‖u + a • v‖ states exactly the informal claim: the inner product vanishes iff u has minimal norm among u + av for all scalars a. The quantifier structure (universal over a ∈ F), the conclusion (norm inequality), and the hypothesis-free framing (just u, v ∈ V) all align with the informal statement. No extraneous hypotheses (like nonzero v, finite-dimensionality) are added or dropped.",
+  "duration_ms": 8101,
+  "cost_usd": 0.04880525
+}

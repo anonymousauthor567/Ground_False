@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-113.lean",
+  "stem": "proofnet-113",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Munkres 18.8(b). \"Ordered set\" corresponds to `LinearOrder Y` (Munkres' ordered/simply-ordered sets are linearly ordered), \"order topology\" matches `OrderTopology Y`, `f, g : X → Y` with continuity are captured by `{f g : X → Y}`, `Continuous f`, and `Continuous g`, and the conclusion `Continuous (λ x => min (f x) (g x))` exactly says h(x) = min{f(x), g(x)} is continuous. The `TopologicalSpace X` instance is needed for continuity to be meaningful and is implicitly assumed in the informal statement when it says f and g are continuous from X. No hypotheses are silently added or dropped, and the conclusion matches what Mathlib's `Continuous.min` lemma states.",
+  "duration_ms": 45504,
+  "cost_usd": 0.17344199999999999
+}

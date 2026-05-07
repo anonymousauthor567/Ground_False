@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_a5.lean",
+  "stem": "putnam_1978_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The sequence a_1,...,a_n is represented as `a : Fin n → ℝ` with each term in `Ioo 0 Real.pi` (matching \"(0, π)\"). The arithmetic mean `μ = ∑ i, a i / n` parses correctly since Mathlib's ∑ notation uses precedence 67 for its body while `/` has precedence 70, so this equals `(∑ i, a i) / n`. The conclusion `∏ i, sin (a i) / (a i) ≤ (sin μ / μ) ^ n` faithfully encodes the product inequality. The added hypothesis `n > 0` is a natural implicit premise (the arithmetic mean requires at least one term), not a narrowing of scope.",
+  "duration_ms": 113685,
+  "cost_usd": 0.36998425000000007
+}

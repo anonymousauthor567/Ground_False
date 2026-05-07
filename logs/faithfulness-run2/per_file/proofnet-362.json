@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the power series $\\sum z^n/n$ converges at every point of the unit circle *except* $z=1$. The natural mathematical reading is a biconditional: the set of points on the unit circle where the series converges is exactly the unit circle minus $\\{1\\}$ (and indeed at $z=1$ the series becomes the divergent harmonic series). The Lean statement fixes $z$ on the unit circle via $\\|z\\|=1$, lets $s_n = \\sum_{i<n} z^{i+1}/(i+1)$ be the partial sums of $\\sum z^n/n$ starting at $n=1$, and asserts convergence of $s_n$ iff $z \\ne 1$. The types, quantifier structure, definition of partial sums, and biconditional all match the informal claim.",
+  "duration_ms": 26711,
+  "cost_usd": 0.10682249999999999
+}

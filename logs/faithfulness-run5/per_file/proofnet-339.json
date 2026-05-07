@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-339.lean",
+  "stem": "proofnet-339",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every compact metric space has a countable base. The Lean signature quantifies over an arbitrary type `K` equipped with `MetricSpace K` and `CompactSpace K` instances, matching \"compact metric space K\". The conclusion `∃ B : Set (Set K), Set.Countable B ∧ IsTopologicalBasis B` asserts the existence of a countable topological basis for the induced topology, which is exactly the standard definition of \"having a countable base.\" Mathlib's `IsTopologicalBasis` (verified in `Mathlib/Topology/Bases.lean`) is the standard formalization of a topological basis, and `Set.Countable` is the standard countability predicate. There are no extra or missing hypotheses, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 77924,
+  "cost_usd": 0.27856625
+}

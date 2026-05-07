@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that -(-v) = v for every v in a vector space V. The Lean formalization sets up F as a Field, V as an AddCommGroup with a Module F V structure (the standard Mathlib encoding of \"vector space V over field F\"), and asserts -(-v) = v for an implicit v : V (giving universal quantification over V). The hypotheses, conclusion, quantifier structure, and types all match the informal statement exactly. While the property -(-v) = v actually holds in any additive group, the Lean version preserves the vector-space context of the informal statement without adding or dropping anything material.",
+  "duration_ms": 40672,
+  "cost_usd": 0.15272324999999998
+}

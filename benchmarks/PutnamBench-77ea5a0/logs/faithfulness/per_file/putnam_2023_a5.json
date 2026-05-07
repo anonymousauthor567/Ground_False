@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_a5.lean",
+  "stem": "putnam_2023_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. `num_ones (digits 3 k)` correctly computes f(k) = number of ones in the base-3 representation of k: `Nat.digits 3 k` returns the base-3 digits in little-endian order, and `num_ones` counts occurrences of 1. `Finset.Icc 0 (3^1010 - 1)` exactly matches the summation range from 0 to 3^1010 − 1 (inclusive). The factor `(-2)^(num_ones (digits 3 k))` matches (-2)^{f(k)}, the exponent 2023 is preserved, and `(z + k)^2023` correctly coerces the natural number k to ℂ. Finally, expressing \"find all z\" as the equality of the solution set to `putnam_2023_a5_solution` is the standard encoding. No hypotheses are added or dropped, and no quantifier structure or type is silently altered.",
+  "duration_ms": 237577,
+  "cost_usd": 0.523572
+}

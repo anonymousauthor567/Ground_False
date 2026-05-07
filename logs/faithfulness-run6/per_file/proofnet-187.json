@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each component of the informal claim: `[Field K] [Infinite K]` gives the infinite field, `[AddCommGroup V] [Module K V]` gives the vector space, `[Fintype ι]` with `γ : ι → Submodule K V` gives a finite family of subspaces, `h : ∀ i, γ i ≠ ⊤` expresses \"each subspace is proper\", and the conclusion `(⋃ i, (γ i : Set V)) ≠ ⊤` states that their union (as a subset of V) is not all of V (since `⊤ : Set V` is `Set.univ`). Encoding \"for any finite family of proper subspaces, the union is not V\" via universally quantified parameters γ and h is the standard equivalent formalization. The types, hypotheses, and conclusion all match the informal statement without adding or dropping any assumptions.",
+  "duration_ms": 89059,
+  "cost_usd": 0.35127200000000003
+}

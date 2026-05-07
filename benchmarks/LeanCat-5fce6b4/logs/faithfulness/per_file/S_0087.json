@@ -1,0 +1,8 @@
+{
+  "file": "S_0087.lean",
+  "stem": "S_0087",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `IsSemisimple A` is defined as \"every short exact sequence admits a splitting\" via `Nonempty S.Splitting`, which matches the informal definition (the `Nonempty` wrapping is required since `ShortComplex.Splitting` is structured data, not a proposition). The informal three-way equivalence (1) ↔ (2) ↔ (3) is captured as `(1 ↔ 2) ∧ (1 ↔ 3)`, which is logically equivalent to the three-way equivalence by transitivity. `CategoryTheory.Injective` and `CategoryTheory.Projective` are the standard Mathlib definitions for categorical injective/projective objects. The quantification over a general abelian category `A` with universes `{u, v}` matches \"Let $\\mathcal{A}$ be an abelian category.\"",
+  "duration_ms": 72804,
+  "cost_usd": 0.27730625
+}

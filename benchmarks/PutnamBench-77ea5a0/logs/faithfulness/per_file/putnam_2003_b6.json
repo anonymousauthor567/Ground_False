@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_b6.lean",
+  "stem": "putnam_2003_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the same mathematical claim as the informal one. The only surface difference is that informal uses `f : [0,1] → ℝ` while Lean uses `f : ℝ → ℝ` with `Continuous f` — a standard Lean idiom that is logically equivalent here since (a) every continuous function on `[0,1]` extends to a continuous function on `ℝ`, (b) every continuous function on `ℝ` restricts to one on `[0,1]`, and (c) both sides of the inequality only depend on values of `f` on `[0,1]`. The `∫ x in 0..1` notation is `intervalIntegral`, which equals the Lebesgue integral over `Ioc 0 1` when `0 ≤ 1`, agreeing with the informal `∫_0^1` for continuous functions. The double integral structure, the integrand `|f x + f y|`, the integrand `|f x|`, and the `≥` direction all match exactly.",
+  "duration_ms": 96532,
+  "cost_usd": 0.33472650000000004
+}

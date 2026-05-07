@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim: for `p` a prime natural number (the standard reading of \"prime integer\" in textbooks, encoded via `Prime p` on `ℕ`), the polynomial `X^n - p` in `ℚ[X]` is irreducible. The coercion `(p : Polynomial ℚ)` gives the constant polynomial `p`, matching `x^n - p`. The only non-literal addition is `hn : n > 0`, which is an implicit premise needed for truth: at `n = 0`, `X^0 - p = 1 - p` is a nonzero rational constant (since `p ≥ 2`), hence a unit in `ℚ[X]`, hence NOT irreducible in Mathlib's convention. Any mathematician reading \"the polynomial $x^n - p$\" would implicitly assume $n \\geq 1$ (otherwise there is no polynomial equation to speak of in the intended sense). Per the guidance, surfacing such an implicit premise needed for the statement to be true is faithful, not weaker. Thus the formalization is strictly faithful.",
+  "duration_ms": 188780,
+  "cost_usd": 0.63639875
+}

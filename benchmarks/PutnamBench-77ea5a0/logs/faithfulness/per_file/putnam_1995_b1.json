@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_b1.lean",
+  "stem": "putnam_1995_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. `Finset.range 9` is a 9-element set (just {0,...,8} instead of {1,...,9}, but partition/cardinality statements are invariant under relabeling). The function `Pi` is defined so that `Pi partition k = (Exists.choose (exists_mem)).card`, where `Finpartition.exists_mem partition k.2 : ∃ t ∈ partition.parts, k.1 ∈ t`. By `Finpartition.existsUnique_mem`, the part containing k is unique, so `Exists.choose` returns it and `.card` is the correct π(k). The conclusion `∃ x y : Finset.range 9, x ≠ y ∧ Pi Pt1 x = Pi Pt1 y ∧ Pi Pt2 x = Pi Pt2 y` precisely matches \"two distinct x, y with π(x)=π(y) and π'(x)=π'(y)\". The universal quantifier over the two partitions matches \"for any two partitions\". The Pi/Pi_def parameter pattern is logically equivalent to using the defined function directly, since Pi_def fully determines Pi.",
+  "duration_ms": 203103,
+  "cost_usd": 0.54047975
+}

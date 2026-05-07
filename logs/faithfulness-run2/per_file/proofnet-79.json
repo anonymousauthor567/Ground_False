@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement component by component: `[CommGroup G]` captures \"abelian group\"; the two existential hypotheses `∃ g, orderOf g = m` and `∃ g, orderOf g = n` capture \"has an element of order m\" and \"of order n\"; `m.Coprime n` captures \"relatively prime\"; and the conclusion `∃ g, orderOf g = m * n` matches \"has an element of order mn\". Types and quantifier structure align, and edge cases around m or n being 0 are handled consistently by Mathlib's `orderOf` convention together with `Nat.Coprime`. No hypotheses have been silently added or dropped.",
+  "duration_ms": 19050,
+  "cost_usd": 0.06692999999999999
+}

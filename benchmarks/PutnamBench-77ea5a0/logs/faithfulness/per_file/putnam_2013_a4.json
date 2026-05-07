@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_a4.lean",
+  "stem": "putnam_2013_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The circle is represented as `Fin n → Fin 2` (digits 0 and 1), and arcs are represented as pairs `(start, length) : Fin n × Fin (n+1)` where lengths range 0 to n. The `hZ` and `hN` hypotheses correctly define Z(w) and N(w) by counting matching digits over the L consecutive circular positions starting at w.1 (using Fin n's modular addition). The `Zle1` hypothesis matches \"arcs of the same length\" via `w.2 = w'.2`. Declaring `Zsum Nsum : ℤ` with equations in ℝ correctly forces the averages to be integers (matching the informal's \"both are integers\"). The conclusion `∃ w, Z w = Zsum ∧ N w = Nsum` matches directly. Hypotheses `npos` and `kpos` make implicit premises (nonempty circle, nonempty arc list for averaging) explicit — these are needed for the statement to be sensible. Since each position contributes 1 to exactly one of Z or N, the informal condition on Z alone is equivalent to the one also applied to N.",
+  "duration_ms": 228666,
+  "cost_usd": 0.65816425
+}

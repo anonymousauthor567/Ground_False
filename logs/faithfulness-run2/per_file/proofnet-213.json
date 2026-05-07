@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary group `G` and an arbitrary list `as : List G`, and asserts `as.prod⁻¹ = (as.reverse.map (·⁻¹)).prod`. Unfolding: `as.prod` is $a_1 a_2 \\cdots a_n$, and reversing then mapping inversion gives $[a_n^{-1}, \\dots, a_1^{-1}]$ whose product is $a_n^{-1} a_{n-1}^{-1} \\cdots a_1^{-1}$. This is exactly the identity stated informally. The empty list case is included but trivially holds ($1^{-1} = 1$) and is consistent with the universal quantification in the informal statement. No extra hypotheses (e.g., commutativity, finiteness) are assumed and none are omitted.",
+  "duration_ms": 13223,
+  "cost_usd": 0.0578495
+}

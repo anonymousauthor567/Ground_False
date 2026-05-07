@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement precisely. The indexed family `{A : α → Set X}` with `hAa : ∀ a, IsConnected (A a)` corresponds to \"{A_α} a collection of connected subspaces\"; `A₀` with `hA : IsConnected A₀` corresponds to \"A a connected subset\"; `h : ∀ a, A₀ ∩ A a ≠ ∅` corresponds to \"A ∩ A_α ≠ ∅ for all α\"; and the goal `IsConnected (A₀ ∪ (⋃ a, A a))` is exactly the claimed conclusion. Mathlib's `IsConnected` requires nonemptiness, matching the mathematical convention that a \"connected subset/subspace\" is nonempty. The edge case of empty `α` remains consistent (the union reduces to `A₀`, which is connected by `hA`). No hypotheses are added, dropped, or strengthened.",
+  "duration_ms": 116991,
+  "cost_usd": 0.38121974999999997
+}

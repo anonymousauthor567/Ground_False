@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says there are infinitely many primes p ≡ -1 (mod 4). The Lean statement `∀ N, ∃ p ≥ N, Nat.Prime p ∧ p + 1 ≡ 0 [MOD 4]` expresses \"infinitely many\" in the standard way: for every natural number N, there exists a prime at least N with the required property. The condition `p + 1 ≡ 0 [MOD 4]` (i.e., 4 ∣ (p+1)) is equivalent to p ≡ -1 (mod 4) ≡ 3 (mod 4). The types (ℕ), the primality predicate (`Nat.Prime`), and the congruence match the informal claim. No hypotheses are added or dropped, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 32592,
+  "cost_usd": 0.0628855
+}

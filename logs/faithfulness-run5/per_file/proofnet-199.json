@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a field F, a vector space V over F, a scalar a ∈ F, and v ∈ V, if a·v = 0 then a = 0 or v = 0. The Lean statement uses `[Field F]`, `[AddCommGroup V]`, and `[Module F V]`, which is exactly Mathlib's standard encoding of \"V is a vector space over the field F\". The universally quantified variables `v : V` and `a : F` match the \"for all a ∈ F, v ∈ V\" reading of the informal statement, and the conclusion `a • v = 0 → a = 0 ∨ v = 0` is exactly what is claimed. There is no weakening or strengthening of hypotheses or conclusion.",
+  "duration_ms": 33388,
+  "cost_usd": 0.1073505
+}

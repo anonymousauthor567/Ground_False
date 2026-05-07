@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"characteristic subgroups are normal.\" The Lean signature takes an arbitrary group `G`, an arbitrary subgroup `H : Subgroup G`, assumes `[Characteristic H]` (Mathlib's definition: H is fixed by all automorphisms, i.e. `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`), and concludes `Normal H` (Mathlib's standard normal subgroup predicate). The universal quantification over groups and subgroups is captured by the type/hypothesis binders, and both the hypothesis and conclusion match the standard meanings. No extra hypotheses (like finiteness, commutativity, or decidability) are added, and none are dropped. This is a direct and faithful formalization — indeed it corresponds to Mathlib's own `normal_of_characteristic` instance.",
+  "duration_ms": 71498,
+  "cost_usd": 0.200374
+}

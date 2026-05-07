@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures both components of \"P ∩ H is the unique Sylow p-subgroup of H\": existence (Nonempty (Sylow p H)) and uniqueness together with the identification (every R : Sylow p H has R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H). In Mathlib, subgroupOf is comap along the subtype inclusion, so (H ⊓ P.toSubgroup).subgroupOf H correctly represents P ∩ H viewed as a subgroup of H. Combined with Nonempty, the universal equality forces P ∩ H to itself be a Sylow p-subgroup and to be the unique one, matching the informal claim. The Fintype assumptions surface the implicit finiteness premise standard for the Dummit–Foote chapter 4 Sylow-theoretic setting and are required for the uniqueness argument to go through, so this is a faithful reading rather than narrowing.",
+  "duration_ms": 233113,
+  "cost_usd": 0.70180725
+}

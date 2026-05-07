@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the corrected version in proofnet_verified_gt/proofnet-367.lean (the canonical ground truth). The three hypotheses correspond precisely to the informal ones: `DifferentiableOn ℂ f (ball 0 1)` = holomorphic in the unit disc; `IsBounded (f '' ball 0 1)` = bounded; `¬ Set.EqOn f 0 (ball 0 1)` = not identically zero on the disc. The conclusion encodes the classical Blaschke condition: the informal sum $\\sum_n (1 - |z_n|)$ with zeros listed with multiplicity (standard convention in Shakarchi) is equivalent to the Lean sum indexed by the geometric-zero subtype and weighted by `(analyticOrderAt f z).toNat`, which is the multiplicity. `Summable` on nonnegative reals is exactly \"$< \\infty$\". No extra hypotheses are silently added, none are dropped, and the quantifier structure matches.",
+  "duration_ms": 273752,
+  "cost_usd": 0.9885195
+}

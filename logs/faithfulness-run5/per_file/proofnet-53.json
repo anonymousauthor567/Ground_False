@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures every aspect of the informal claim: `[Group G]` + `[Fintype G]` encodes a finite group (finiteness is implicitly required to state `|G| = pqr`), `hpqr` gives $p < q < r$, `hpqr1` gives the primality of all three, and `hG : card G = p*q*r` gives the order constraint. The disjunctive conclusion `(∃ P : Sylow p G, P.Normal) ∨ (∃ P : Sylow q G, P.Normal) ∨ (∃ P : Sylow r G, P.Normal)` is exactly \"G has a normal Sylow subgroup for either p, q, or r\". I verified against `Mathlib/GroupTheory/Sylow.lean` that `Sylow p G` is the standard maximal p-subgroup structure and `P.Normal` is the standard normality predicate. No hypotheses are added or dropped beyond what the informal statement implicitly requires.",
+  "duration_ms": 76885,
+  "cost_usd": 0.27464774999999997
+}

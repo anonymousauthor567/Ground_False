@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the claim that 1729 is the minimum (via sInf over ℕ, which gives the least element when the set is nonempty per Nat.sInf_def) positive integer expressible as x³+y³ = z³+w³ with positive naturals and disjoint representations. The many disequalities (x≠z, x≠w, y≠z, y≠w) seem stronger than \"two different representations\", but for positive integer cubes summing to the same value, if the unordered pairs share any element then they must be equal (since a=c forces b=d), so disjointness is equivalent to being distinct unordered pairs — exactly the informal meaning of \"two ways\". The use of ℕ with positivity (instead of ℤ for \"integral\") makes explicit the implicit positive-integer premise that is required for the statement to be true (otherwise 91 = 3³+4³ = 6³+(-5)³ would be a counterexample), which is the standard Hardy–Ramanujan reading of the taxicab problem. This is faithful surfacing of an implicit premise, not a weakening.",
+  "duration_ms": 223761,
+  "cost_usd": 0.71272675
+}

@@ -1,0 +1,8 @@
+{
+  "file": "48.lean",
+  "stem": "48",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes both pieces of the informal statement. The `IsAbsolutelyFlat` class captures \"every A-module is flat\" by quantifying `Module.Flat R P` over all `P` with `AddCommGroup P` and `Module R P`, which is the standard Mathlib formulation for modules over a commutative ring. The iff-conclusion `∀ I : Ideal R, I.IsPrincipal → I ^ 2 = I` precisely captures \"every principal ideal is idempotent\": `Ideal.IsPrincipal` is Mathlib's predicate for principal ideals (∃ a, I = span{a}), and `I^2 = I` on ideals is exactly the definition of idempotent ideal (since `I^2 = I * I`). The universe restriction to `Type 0` is a conventional formalization choice that does not weaken the statement, since absolute flatness is characterized by a universe-invariant property (flatness of finitely generated cyclic modules R/I). No hypotheses are silently added or dropped.",
+  "duration_ms": 590910,
+  "cost_usd": 0.9968075000000001
+}

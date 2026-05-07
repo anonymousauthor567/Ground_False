@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"quotient groups of a solvable group are solvable.\" The Lean theorem takes an arbitrary group G with `[IsSolvable G]`, an arbitrary subgroup `H : Subgroup G` with `[Normal H]` (normality is required for the quotient G ⧸ H to be a group), and concludes `IsSolvable (G ⧸ H)`. The normality hypothesis is not an extra restriction — it is required in Mathlib to even form the group quotient `G ⧸ H`, and \"quotient group\" in the informal statement implicitly refers to quotients by normal subgroups. The types and quantifier structure (universal over G and H) match exactly, and indeed this statement corresponds precisely to Mathlib's `solvable_quotient_of_solvable` instance in `Mathlib/GroupTheory/Solvable.lean`.",
+  "duration_ms": 48096,
+  "cost_usd": 0.09385874999999999
+}

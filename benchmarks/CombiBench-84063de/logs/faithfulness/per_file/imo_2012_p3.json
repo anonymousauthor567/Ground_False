@@ -1,0 +1,8 @@
+{
+  "file": "imo_2012_p3.lean",
+  "stem": "imo_2012_p3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement specifies that \"among any k+1 consecutive answers, at least one answer must be truthful\" (window size k+1, so Alice may lie at most k consecutive times). The Lean `AliceStrategy.IsValid` uses `∃ t ∈ Finset.Ico t₀ (t₀ + k)`, which encodes \"every k consecutive answers contain a truth\" (window size k, so Alice may lie at most k-1 consecutive times). This off-by-one in the window size creates a genuine semantic mismatch that is not compensated elsewhere. For part (a), at the same k the Lean's Alice is strictly more restricted than the informal's Alice, so Lean's claim \"n ≥ 2^k → Bob wins\" is strictly weaker than the informal claim (informal (a) → Lean (a), but not vice versa, since the Lean would need n ≥ 2^{k+1} to recover informal (a)). For part (b), the Lean's existential Alice is drawn from a strictly smaller set of valid strategies, making the claim \"∃ Alice who beats Bob\" strictly stronger than the informal (Lean (b) → informal (b), but not vice versa, since informal only provides an n ≥ 1.99^k against an Alice that need not be Lean-valid). Since (a) is weaker and (b) is stronger, the conjunction is incomparable to the informal statement.",
+  "duration_ms": 1749209,
+  "cost_usd": 4.95382875
+}

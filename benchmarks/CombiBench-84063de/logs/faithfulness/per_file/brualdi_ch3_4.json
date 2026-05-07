@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch3_4.lean",
+  "stem": "brualdi_ch3_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. S : Finset ℕ ensures distinctness (matching \"n+1 integers chosen\"), the elem_range hypothesis encodes membership in {1,...,2n}, and card = n+1 matches the count. The conclusion ∃ s ∈ S, ∃ s' ∈ S, s = s' + 1 captures \"two which differ by 1\": since s = s' + 1 in ℕ forces s ≠ s', the two witnesses are automatically distinct, and \"one is successor of the other\" is exactly what \"differ by 1\" means. No hypothesis is added, removed, or changed, and the quantifier structure matches.",
+  "duration_ms": 53548,
+  "cost_usd": 0.16045075
+}

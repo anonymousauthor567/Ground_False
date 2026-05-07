@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypothesis `h1 : ∀ a, ¬(σ a ≠ a ∧ τ a ≠ a)` correctly encodes \"disturb no common element\" (no element is moved by both σ and τ). The conclusion `σ = 1 ∧ τ = 1` matches \"σ = τ = e\". Regarding `h2 : τ * σ = 1` versus the informal \"στ = e\": in Mathlib, `(f * g) x = f (g x)` so informal \"στ\" corresponds to `σ * τ`, but in any group `σ * τ = 1 ↔ τ = σ⁻¹ ↔ τ * σ = 1`, so these are logically equivalent. The use of `{α : Type*}` without finiteness or decidability matches the informal statement, which does not restrict the underlying set. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 89698,
+  "cost_usd": 0.29417925
+}

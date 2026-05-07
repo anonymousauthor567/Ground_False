@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "informal": "Let $p \\colon X \\rightarrow Y$ be an open map. Show that if $A$ is open in $X$, then the map $q \\colon A \\rightarrow p(A)$ obtained by restricting $p$ is an open map.",
+  "lean": "\ntheorem Munkres_exercise_22_5 {X Y : Type*} [TopologicalSpace X]\n  [TopologicalSpace Y] (p : X → Y) (hp : IsOpenMap p)\n  (A : Set X) (hA : IsOpen A) : IsOpenMap (p ∘ Subtype.val : A → Y)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks that q : A → p(A) (with p(A) carrying the subspace topology) be an open map. The Lean version states that p ∘ Subtype.val : A → Y is an open map (into Y). Since p is open and A is open, p(A) is open in Y; therefore for any subset S ⊆ p(A), S is open in the subspace topology of p(A) iff S is open in Y. Hence \"q is open as a map to p(A)\" is logically equivalent to \"p ∘ Subtype.val is open as a map to Y\". The hypotheses (p open, A open) match exactly, so the formalization is faithful.",
+  "duration_ms": 14171,
+  "cost_usd": 0.06212699999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if |G|=105, then G has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup. The Lean statement assumes G is a finite group with card G = 105 and concludes ∃ P : Sylow 5 G, P.Normal and ∃ P : Sylow 7 G, P.Normal. The existential quantifiers match the phrase \"has a normal Sylow p-subgroup\" precisely. The Sylow p-subgroup API in Mathlib (Sylow p G) matches the standard notion, and P.Normal expresses normality as a subgroup of G. The finiteness hypothesis is needed to make \"Sylow 5-subgroup of order exactly 5 in a group of order 105\" meaningful and is implicit in the informal claim via |G|=105. So the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 9149,
+  "cost_usd": 0.0421825
+}

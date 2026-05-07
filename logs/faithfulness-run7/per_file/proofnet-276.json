@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely matches the informal statement. `[Field K]` with `F : Subfield K` corresponds to \"subfield F of K\" (K being a field is implicit in the informal phrasing). `IsAlgebraic F (a ^ 2)` is the standard Mathlib encoding of \"a² is algebraic over F\" (existence of a nonzero polynomial in F[X] with a² as a root, using the natural F-algebra structure on K coming from the subfield inclusion). The conclusion `IsAlgebraic F a` matches \"a is algebraic over F\". No hypotheses are added or dropped, and the types/quantifiers align exactly.",
+  "duration_ms": 74247,
+  "cost_usd": 0.37899249999999995
+}

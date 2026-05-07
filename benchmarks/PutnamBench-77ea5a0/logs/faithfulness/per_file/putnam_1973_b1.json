@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_b1.lean",
+  "stem": "putnam_1973_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement accurately. The function `a : Finset.Icc 1 (2*n+1) → ℤ` represents 2n+1 integers indexed by the subtype. The hypothesis `h_remove` quantifies over all finsets S of size 2n in the 2n+1-element index type; each such S is the complement of a singleton (i.e., \"removing one element\"), so this is equivalent to the informal \"if any one is removed\". The existence of T ⊆ S with |T|=n and equal sums, combined with |S|=2n forcing |S\\T|=n, precisely encodes \"divided into two sets of n integers with equal sums\". The conclusion ∀ i j, a i = a j matches $a_1 = \\cdots = a_{2n+1}$. The edge case n=0 is vacuously handled consistently in both forms. No hypotheses are added or dropped.",
+  "duration_ms": 113960,
+  "cost_usd": 0.35041125000000006
+}

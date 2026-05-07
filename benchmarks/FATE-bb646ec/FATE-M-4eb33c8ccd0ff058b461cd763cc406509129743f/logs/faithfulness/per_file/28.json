@@ -1,0 +1,8 @@
+{
+  "file": "28.lean",
+  "stem": "28",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim in the standard Mathlib way: E and K are intermediate fields inside a common ambient field F₀ (which makes the compositum EK well-defined — an implicit premise of the informal statement, since \"EK\" only makes sense when E and K share an overfield), `E ⊔ K` in the `IntermediateField F F₀` lattice is precisely the compositum EK, and `Normal F E`, `Normal F K`, `Normal F (E ⊔ K)` correctly express the normality conditions. This matches Mathlib's existing `normal_sup` instance in `FieldTheory/Normal/Basic.lean` verbatim. The typeclass arguments `[Normal F E] [Normal F K]` are redundantly repeated twice in the signature, but this is a harmless redundancy that does not change the logical content of the statement. Therefore the Lean signature is a faithful formalization.",
+  "duration_ms": 70095,
+  "cost_usd": 0.19365949999999998
+}

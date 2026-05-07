@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p25.lean",
+  "stem": "number_theory__p25",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for all non-negative integers x, y, if 37 ∣ 15x + 11y then 37 ∣ 7x + 15y. The Lean signature uses x y : ℕ, which exactly captures \"non-negative integers\" (Lean's ℕ is {0, 1, 2, ...}). The hypothesis `37 ∣ 15 * x + 11 * y` and conclusion `37 ∣ 7 * x + 15 * y` correspond verbatim to the informal divisibility claims. The quantifier structure (∀ x y, P x y → Q x y) and the divisibility relation are identical. Mathematically, multiplying by 35 (the modular inverse of 15 mod 37 applied to 7) gives 35·(15x+11y) ≡ 7x + 15y (mod 37), confirming the claim is provably true over ℕ. No hypotheses have been added, dropped, or altered.",
+  "duration_ms": 24741,
+  "cost_usd": 0.05691775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p8.lean",
+  "stem": "calculus__p8",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is a surface integral ∬_G (x²+y²+2z) dS over a paraboloid cap. For z = 7-x²-y², the surface element is dS = √(1+4x²+4y²) dx dy. The Lean statement formalizes the integrand merely as (x²+y²+2·(7-x²-y²)) = 14-x²-y² over the projected disk, completely omitting the Jacobian factor √(1+4x²+4y²). Consequently, the Lean left-hand side evaluates to 147π/2, not to (957√29-47)π/20 — the Lean statement is actually false, while the informal claim (with the true surface element) is true. The Lean formalization encodes a plain area integral rather than a surface integral, so it captures a different mathematical object entirely and is not logically equivalent to, nor an implication of, the informal statement. Additionally, the hypothesis hG defining G is never used in the theorem statement, which further indicates the geometric/surface structure has been dropped.",
+  "duration_ms": 195516,
+  "cost_usd": 0.28556899999999996
+}

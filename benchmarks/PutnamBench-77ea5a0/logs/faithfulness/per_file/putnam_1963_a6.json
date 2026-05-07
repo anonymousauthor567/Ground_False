@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_a6.lean",
+  "stem": "putnam_1963_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes Putnam 1963 A6 (Butterfly Theorem for ellipses). The ellipse is defined via the two-foci sum-of-distances definition with `r > dist F1 F2` ensuring non-degeneracy — an implicit premise of the informal statement. The chords passing through M are correctly captured via `M ∈ segment ℝ A B` (M is inside the ellipse since it's the midpoint of a chord of a convex set, so being on the segment is equivalent to being on the chord through M). The intersection points P, Q are encoded via `Collinear` hypotheses (P on lines AC and UV; Q on lines BD and UV), which is the standard Mathlib encoding. The technical hypotheses `A ≠ C`, `B ≠ D`, `AB ≠ CD` are all needed premises (lines must be well-defined; \"two other chords\" implies distinctness), not scope-narrowing restrictions. The conclusion `M = midpoint ℝ P Q` matches exactly. The labeling of which cross-chord is which (AC vs AD) is consistent with the informal statement's specific notation.",
+  "duration_ms": 362767,
+  "cost_usd": 1.0316922499999999
+}

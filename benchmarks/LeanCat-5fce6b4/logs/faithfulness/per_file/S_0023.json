@@ -1,0 +1,8 @@
+{
+  "file": "S_0023.lean",
+  "stem": "S_0023",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts a specific claim: the restriction-of-scalars functor φ_* has B ⊗_A - as left adjoint and Hom_A(B, -) as right adjoint. The Lean statement, however, only asserts the existence of some functors φ_pull : ModuleCat B ⥤ ModuleCat A, φ_push, φ_coind : ModuleCat A ⥤ ModuleCat B forming an adjoint triple φ_push ⊣ φ_pull ⊣ φ_coind, without any requirement that φ_pull be the restriction of scalars functor associated with φ (nor that φ_push/φ_coind be the specific tensor/Hom functors). Indeed, φ is only used to fix the rings A and B — the existentials are not tied to φ at all. The informal statement implies the Lean existential (choose the canonical functors), but the Lean statement does not imply the informal one, since it could be witnessed by any adjoint triple. Hence the Lean formalization is strictly weaker.",
+  "duration_ms": 265104,
+  "cost_usd": 0.7854365000000001
+}

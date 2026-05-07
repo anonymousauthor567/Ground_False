@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "verdict": "faithful",
+  "reasoning": "`ℝˣ` and `ℂˣ` denote the groups of units of ℝ and ℂ; since both are fields, these coincide with the multiplicative groups ℝ∖{0} and ℂ∖{0} (with the standard `CommGroup` instance `instCommGroupUnits`). `≃*` is `MulEquiv`, the standard multiplicative-group isomorphism. `IsEmpty (ℝˣ ≃* ℂˣ)` asserts that the type of such isomorphisms is empty, i.e., the two multiplicative groups are not isomorphic. This matches the informal statement exactly.",
+  "duration_ms": 31193,
+  "cost_usd": 0.130008
+}

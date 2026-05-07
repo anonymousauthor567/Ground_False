@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Rudin Exercise 5.7. `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` correspond exactly to \"f'(x), g'(x) exist\"; `deriv g x ≠ 0` matches g'(x) ≠ 0; and `f x = 0`, `g x = 0` match f(x) = g(x) = 0. The conclusion `Tendsto (λ t => f t / g t) (𝓝[≠] x) (𝓝 (deriv f x / deriv g x))` correctly formalizes lim_{t→x} f(t)/g(t) = f'(x)/g'(x) using the punctured neighborhood filter `𝓝[≠] x = nhdsWithin x {x}ᶜ`, which matches Rudin's standard definition of limit (0 < |t - x| < δ). Using the punctured filter is the natural and correct choice since f(t)/g(t) is 0/0 at t = x. No hypotheses are added or dropped, and the types match (ℝ → ℝ).",
+  "duration_ms": 76624,
+  "cost_usd": 0.30170250000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors the informal one: `IsSelfAdjoint T` matches self-adjointness; `RCLike 𝕜` correctly represents Axler's F ∈ {ℝ, ℂ}; the hypothesis `∃ v, ‖v‖ = 1 ∧ ‖T v - l • v‖ < ε` matches the existence of an approximate eigenvector; and the conclusion `∃ l' : T.Eigenvalues, ‖l - l'‖ < ε` uses Mathlib's bundled `Eigenvalues` subtype (with coercion to 𝕜, where the RCLike norm equals the absolute value), matching |λ - λ'| < ε. The `FiniteDimensional 𝕜 V` hypothesis makes explicit an implicit premise that is both standard in Axler's Chapter 7 context and genuinely required for the claim's truth — a self-adjoint operator on an infinite-dimensional inner product space can have approximate eigenvectors without any actual eigenvalues, so without finite-dimensionality the statement is false. Surfacing such a needed premise is faithful, not weakening.",
+  "duration_ms": 108707,
+  "cost_usd": 0.39374824999999997
+}

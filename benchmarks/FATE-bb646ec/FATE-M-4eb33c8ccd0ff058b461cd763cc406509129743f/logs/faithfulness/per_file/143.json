@@ -1,0 +1,8 @@
+{
+  "file": "143.lean",
+  "stem": "143",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. \"Let G be a group\" is encoded as `{G : Type} [Group G]`, keeping G an arbitrary group. The element `a ∈ G` becomes `(a : G)`. The hypothesis \"a³ = e\" matches `a ^ 3 = 1` (where `1` is the identity in multiplicative notation used by Mathlib's `Group` class). The conclusion \"a has a square root\", defined by the problem as \"a = z^n for some z ∈ G\" with n = 2, translates faithfully to `∃ x : G, x ^ 2 = a` (equality is symmetric, so `x^2 = a` matches `a = x^2`). No hypotheses are added or dropped, and no types are silently changed.",
+  "duration_ms": 64799,
+  "cost_usd": 0.14563674999999998
+}

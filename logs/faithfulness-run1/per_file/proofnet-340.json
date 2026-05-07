@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "informal": "Suppose $E\\subset\\mathbb{R}^k$ is uncountable, and let $P$ be the set of condensation points of $E$. Prove that at most countably many points of $E$ are not in $P$.",
+  "lean": "\ntheorem Rudin_exercise_2_27b (k : ℕ) (E P : Set (EuclideanSpace ℝ (Fin k)))\n  (hE : ¬ Set.Countable E)\n  (hP : P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}) :\n  Set.Countable (E \\ P)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says E ⊂ ℝ^k is uncountable, P is the set of condensation points of E, and asks to show at most countably many points of E are not in P, i.e., E \\ P is countable. The Lean signature uses EuclideanSpace ℝ (Fin k) which is the standard formalization of ℝ^k, assumes E is uncountable (¬ Countable E), defines P as the set of points x such that every neighborhood U of x has uncountable intersection with E — this is the standard definition of condensation point of E. The conclusion Set.Countable (E \\ P) matches \"at most countably many points of E are not in P.\" The encoding is faithful.",
+  "duration_ms": 7135,
+  "cost_usd": 0.043470499999999995
+}

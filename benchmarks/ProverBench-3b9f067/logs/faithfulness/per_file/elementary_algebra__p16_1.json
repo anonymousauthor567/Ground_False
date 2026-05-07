@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p16_1.lean",
+  "stem": "elementary_algebra__p16_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims r = 7 is the unique solution to 2 = -12 + 2r. The Lean lemma expresses this as a biconditional `given_equation r ↔ r = 7` where `given_equation r := 2 = -12 + 2r`, with r implicitly universally quantified over ℝ via the `variable` declaration. The iff precisely captures both directions of \"unique solution\": the forward direction gives uniqueness (any solution must equal 7), and the backward direction gives existence (7 is indeed a solution). The types (ℝ) and the equation are encoded literally. This is the standard, logically equivalent formalization of \"the unique solution is r = 7\".",
+  "duration_ms": 36352,
+  "cost_usd": 0.05311125
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-9.lean",
+  "stem": "proofnet-9",
+  "informal": "Let $I, J$ be ideals in a ring $R$. Prove that the residue of any element of $I \\cap J$ in $R / I J$ is nilpotent.",
+  "lean": "\ntheorem Artin_exercise_10_4_6 {R : Type*} [CommRing R]\n  (I J : Ideal R) (x : ↑(I ⊓ J)) :\n  IsNilpotent ((Ideal.Quotient.mk (I*J)) x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over x in the subtype ↑(I ⊓ J), which corresponds exactly to \"any element of I ∩ J\". It then asserts that the image under Ideal.Quotient.mk (I*J) — the residue in R/(IJ) — is nilpotent, matching the informal conclusion. The use of CommRing is appropriate: this is exercise 10.4.6 from Artin's Algebra, where the ambient ring context is commutative rings, and the statement (I∩J)^2 ⊆ IJ relies on commutativity. Quantifier structure (∀ I J, ∀ x ∈ I∩J) and the conclusion (IsNilpotent of the residue class) match the informal claim. No extra or missing hypotheses appear.",
+  "duration_ms": 12210,
+  "cost_usd": 0.0543825
+}

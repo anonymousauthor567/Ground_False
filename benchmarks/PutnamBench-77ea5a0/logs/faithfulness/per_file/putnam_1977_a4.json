@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a4.lean",
+  "stem": "putnam_1977_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. `RatFunc.X / (1 - RatFunc.X)` encodes the rational function $\\frac{x}{1-x}$, which is the correct closed form (via telescoping: partial sums equal $\\frac{1}{1-x} - \\frac{1}{1-x^{2^{N+1}}} \\to \\frac{x}{1-x}$ on $(0,1)$). `Ioo 0 1` is the open interval $(0,1)$. Because `open RingHom` is in effect, `id ℝ` resolves to `RingHom.id ℝ`, so `putnam_1977_a4_solution.eval (id ℝ) x` evaluates the rational function at $x$ via `RatFunc.eval`. Lean's right-associative `^` makes `x ^ 2 ^ n = x ^ (2^n)` and `x ^ 2 ^ (n+1) = x ^ (2^(n+1))`, matching $x^{2^n}$ and $x^{2^{n+1}}$. The `∑' n : ℕ` sums from $n=0$, matching the informal sum. No hidden hypotheses are added or removed.",
+  "duration_ms": 74767,
+  "cost_usd": 0.28816025
+}

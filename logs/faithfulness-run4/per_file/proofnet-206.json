@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement re-indexes the sums from `j ∈ {1,...,n}` to `i ∈ Fin n` (with `i.val ∈ {0,...,n-1}`), compensating by using `(i+1)` as the weight. When `i : Fin n` appears with expected type ℝ (as forced by `a i ^ 2 : ℝ` and `b i ^ 2 : ℝ`), Lean's binop elaborator inserts a coercion `Fin n → ℕ → ℝ` on `i`, so `(i + 1)` evaluates to `(↑i.val : ℝ) + 1`, giving values 1, 2, ..., n — exactly the informal $j$. Thus the three sums and the squared inner sum match the informal statement term-for-term. The universal quantification over `n`, `a`, `b` is preserved via implicit `{n : ℕ}` and explicit `a b : Fin n → ℝ`. The `n = 0` edge case gives 0 ≤ 0, which the informal statement also accepts. No hypotheses are added or dropped.",
+  "duration_ms": 344755,
+  "cost_usd": 1.049133
+}

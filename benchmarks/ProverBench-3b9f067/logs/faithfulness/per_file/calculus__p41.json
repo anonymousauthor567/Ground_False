@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p41.lean",
+  "stem": "calculus__p41",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts the two-sided limit lim_{x→0} (e^(8x)-1)/x = 8, with no restriction on the sign of x. The Lean statement uses the filter `𝓝[Set.Ioi 0] 0 = nhdsWithin 0 (Set.Ioi 0)`, which Mathlib defines as the punctured right-neighborhood filter `𝓝[>] 0`, i.e. it only approaches 0 from x > 0. Thus the Lean statement proves only the right-hand limit equals 8. The two-sided limit equalling 8 implies the right-hand limit equals 8, but not conversely, so the Lean statement is strictly logically weaker than the informal claim. This is not an \"implicit premise\" case — nothing in standard mathematical reading of \"lim_{x→0}\" restricts to positive x.",
+  "duration_ms": 40549,
+  "cost_usd": 0.10468325
+}

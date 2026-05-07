@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_b4.lean",
+  "stem": "putnam_2004_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal problem. Points P_k = (k,0) are encoded as the complex number k; the rotation by θ = 2π/n about P_k is correctly given by Q ↦ k + e^(iθ)(Q - k). The recurrence R 0 = id and R (k+1) = Rk (k+1) ∘ R k yields R n = Rk n ∘ Rk (n-1) ∘ ... ∘ Rk 1, which when applied to an input point applies Rk 1 first, then Rk 2, etc. — matching the informal \"applying, in order, R_1, then R_2, …, then R_n\". The hypothesis n ≥ 2 matches. The solution fun n z ↦ z + n correctly represents translation by (n,0), which can be verified for small n (e.g., n=2 gives R(z) = z+2). The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 155860,
+  "cost_usd": 0.298376
+}

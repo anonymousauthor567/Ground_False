@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes two finite groups G and H with `card G = 21` and `card H = 21`, both assumed nonabelian via `∃ a b, a * b ≠ b * a` (the standard negation of the abelian condition), and concludes `Nonempty (G ≃* H)`, i.e. they are isomorphic as groups. This matches the informal claim that \"any two nonabelian groups of order 21 are isomorphic\" exactly: the universal quantification is captured by the arbitrary type variables G, H, the hypotheses encode \"nonabelian of order 21\", and the conclusion encodes \"isomorphic\". The `Fintype` instance is needed to make `card` well-defined and is implied by \"order 21\" in the informal statement. No hypothesis is added or dropped, and no condition is strengthened or weakened.",
+  "duration_ms": 9909,
+  "cost_usd": 0.04403375
+}

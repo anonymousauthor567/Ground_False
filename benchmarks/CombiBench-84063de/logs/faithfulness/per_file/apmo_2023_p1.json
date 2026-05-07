@@ -1,0 +1,8 @@
+{
+  "file": "apmo_2023_p1.lean",
+  "stem": "apmo_2023_p1",
+  "verdict": "incomparable",
+  "reasoning": "The predicate `touches_only_vertices s1 s2` is vacuously true for disjoint squares (the ∀ over an empty intersection is trivially satisfied) — it only fails when squares have non-vertex intersection points. Thus it means \"does not interior-overlap with\", not \"actually shares a vertex with\". Condition 1 correctly encodes the informal hypothesis. However, condition 2 counts squares S with `touches_only_vertices ⟨position m, m+1⟩ S`, which — given condition 1 and the fact that `touches_only_vertices s s` is false for nondegenerate s — forces this count to be exactly n−1 (all other squares). Requiring ncard = 2 for n ≥ 5 is therefore unsatisfiable, while the informal statement (APMO 2023 P1, count of squares sharing a vertex = 2) is satisfiable. The Lean measures a structurally different quantity (non-overlap count) than the informal (vertex-sharing count), so the two statements are not equivalent.",
+  "duration_ms": 420313,
+  "cost_usd": 1.13382
+}

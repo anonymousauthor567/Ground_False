@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over a vector space V over a field F (matching Axler's setting) and two submodules U, W. The conclusion `∃ U' : Submodule F V, U'.carrier = ↑U ∪ ↑W` is logically equivalent to \"the set ↑U ∪ ↑W is a submodule of V\", since it asserts exactly that the set-theoretic union can be realized as the carrier of some submodule (which happens iff the union is closed under 0, addition, and scalar multiplication). The right-hand side `U ≤ W ∨ W ≤ U` is the standard Mathlib encoding of \"one subspace is contained in the other\". The iff direction matches the informal \"if and only if\". No hidden hypotheses are added or dropped.",
+  "duration_ms": 64498,
+  "cost_usd": 0.230681
+}

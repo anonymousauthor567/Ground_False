@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b1.lean",
+  "stem": "putnam_1969_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. \"Positive integer n\" is encoded as `n : ℕ` with `hnpos : n > 0`. \"n+1 is divisible by 24\" is `24 ∣ n + 1`. \"Sum of all divisors of n is divisible by 24\" is `24 ∣ ∑ d ∈ divisors n, d`, where `Nat.divisors n` is defined in Mathlib as `{d ∈ Ico 1 (n + 1) | d ∣ n}`, which for positive n gives precisely the set of positive divisors of n, matching the standard number-theoretic σ(n). No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 21875,
+  "cost_usd": 0.08235625
+}

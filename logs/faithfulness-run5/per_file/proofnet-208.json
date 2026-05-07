@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `finrank F V ≥ 2` matches \"dim V ≥ 2\". The set `{T | T * adjoint T = adjoint T * T}` is precisely the set of normal operators (TT* = T*T). `End F V` is `V →ₗ[F] V` which is $\\mathcal{L}(V)$. The encoding `∀ U : Submodule F (End F V), U.carrier ≠ S` is logically equivalent to \"S is not a subspace of L(V)\", since \"S is a subspace\" means \"there exists a submodule whose carrier is S\". `RCLike F` appropriately covers Axler's usual ℝ/ℂ setting, and the `FiniteDimensional` instance is needed for `LinearMap.adjoint` to be defined. The quantifier structure, typing, and conclusion all align with the informal statement.",
+  "duration_ms": 132981,
+  "cost_usd": 0.447767
+}

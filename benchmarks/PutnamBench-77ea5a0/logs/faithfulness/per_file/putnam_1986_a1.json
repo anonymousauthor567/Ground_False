@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a1.lean",
+  "stem": "putnam_1986_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature defines S as the set of reals satisfying x^4 + 36 ≤ 13x^2 and f as x ↦ x^3 - 3x, matching the informal statement exactly. `IsGreatest {f x | x ∈ S} putnam_1986_a1_solution` asserts that the solution value is in the image of S under f (so it is attained) and is an upper bound for that image — this is precisely the standard definition of \"the maximum value of f on S\". The set-builder notation `{f x | x ∈ S}` denotes the image f(S), as required. The formalization captures both the attainment and upper-bound aspects of \"maximum\" correctly and introduces no extra or missing hypotheses.",
+  "duration_ms": 98563,
+  "cost_usd": 0.369378
+}

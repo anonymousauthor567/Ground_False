@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly captures the informal claim: given a locally path-connected topological space X (`[LocPathConnectedSpace X]`), an open set U (`IsOpen U`), and U being connected (`IsConnected U`), it concludes U is path connected (`IsPathConnected U`). This matches Munkres' statement verbatim. I verified against Mathlib's `IsOpen.isConnected_iff_isPathConnected` in `Mathlib/Topology/Connected/LocPathConnected.lean`, which uses the same hypotheses and phrasing; the theorem here is just the forward direction of that biconditional, which is precisely what the informal exercise asks to prove. Both `IsConnected` and `IsPathConnected` in Mathlib carry a nonempty requirement that aligns with the standard reading of \"connected set\" and \"path-connected set\". No hypotheses are silently added or dropped.",
+  "duration_ms": 339334,
+  "cost_usd": 0.30612025000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1973_a2.lean",
+  "stem": "putnam_1973_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes both parts of the informal problem. The list L of length 8 with ±1 entries encodes the block of 8 signs; `pluses = 4` correctly encodes \"balanced\" (4 plus and 4 minus signs). The partial sum `S(n) = ∑_{i=1}^{n} L[i%8]/i` correctly captures the series with period-8 sign pattern (e.g., i=1 uses L[1], i=9 uses L[1], matching \"9th term has same sign as 1st\"). The first conjunct `pluses = 4 → convergent` is Part 1 (balanced ⟹ convergent). The second conjunct `solution ↔ (convergent → pluses = 4)` encodes the Part 2 question \"is balanced necessary?\"; with solution = True, this asserts (for every L) that convergent ⟹ balanced, which is the correct answer. The theorem's universal quantification over L makes the second part exactly the \"necessity\" claim.",
+  "duration_ms": 198910,
+  "cost_usd": 0.56132725
+}

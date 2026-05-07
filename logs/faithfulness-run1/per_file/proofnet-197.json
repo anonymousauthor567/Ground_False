@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "informal": "Let $K$ be a finite field. Prove that the product of the nonzero elements of $K$ is $-1$.",
+  "lean": "\ntheorem Artin_exercise_13_6_10 {K : Type*} [Field K] [Fintype Kˣ] :\n  (∏ x : Kˣ,  x) = -1",
+  "verdict": "faithful",
+  "reasoning": "In a field, the nonzero elements are exactly the units, so Kˣ corresponds bijectively to K \\ {0}. Assuming [Fintype Kˣ] is equivalent to assuming K is finite (since K = Kˣ ∪ {0}). The product ∏ x : Kˣ, x lives in Kˣ and equals -1 (which is a unit in any field, including characteristic 2 where -1 = 1); via the injective monoid embedding Kˣ ↪ K this is equivalent to saying the product of the nonzero elements of K is -1. So the Lean statement matches the informal claim exactly.",
+  "duration_ms": 14739,
+  "cost_usd": 0.061652000000000005
+}

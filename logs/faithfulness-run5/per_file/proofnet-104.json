@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `1729 = sInf S` where S is the set of positive ℕ-values expressible as `x³+y³ = z³+w³` with x,y,z,w positive, x≠y, z≠w, and all cross-pairs distinct. By Nat.sInf (verified in Mathlib/Data/Nat/Lattice.lean), this is equivalent to: 1729 ∈ S and no smaller positive integer is in S — exactly the informal claim that 1729 is the smallest such positive integer. The use of ℕ with `0 < x` surfaces the implicit \"positive integers\" premise of the classical Hardy-Ramanujan problem (without it, 91 = 3³+4³ = 6³+(-5)³ would be smaller). The cross-inequalities (x≠z, x≠w, y≠z, y≠w) ensure disjoint representations; under x³+y³=z³+w³ with x≠y, z≠w in ℕ, this is equivalent to {x,y}≠{z,w}, correctly capturing \"two different ways.\" The `x≠y` and `w≠z` conditions capture \"two different cubes\" in each representation.",
+  "duration_ms": 204676,
+  "cost_usd": 0.6239672500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: G is a finite group (`[Group G] [Fintype G]`) of order p² (`card G = p^2`) with p prime (`Nat.Prime p`), and the conclusion asserts the existence of a subgroup N with cardinality p that is normal. The extra `Fintype N` witness inside the existential is a harmless technicality — it is automatically derivable from the finiteness of G, so it neither weakens nor strengthens the claim. The conjunction `@card N Fin = p ∧ N.Normal` precisely encodes \"normal subgroup of order p\". Hypotheses and conclusion align with the informal statement.",
+  "duration_ms": 54037,
+  "cost_usd": 0.057525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "56.lean",
+  "stem": "56",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypotheses `Odd n` and `1 < n` exactly match \"n odd, n > 1\" from the informal text (and n > 1 is necessary: for n=1, Φ₂(X) = X+1 while Φ₁(-X) = -X-1, so the equality fails). The cyclotomic polynomial is indexed by ℕ over ℚ, matching the informal statement. The conclusion `cyclotomic (2*n) ℚ = (cyclotomic n ℚ).comp (-X)` is exactly the polynomial identity Φ_{2n}(X) = Φ_n(-X), since `p.comp (-X)` in Mathlib denotes polynomial composition p(-X). Polynomial equality in ℚ[X] is equivalent to the functional identity Φ_{2n}(x) = Φ_n(-x). No drift in hypotheses, types, or conclusion.",
+  "duration_ms": 113837,
+  "cost_usd": 0.37429175
+}

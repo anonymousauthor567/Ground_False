@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `Set.MapsTo.restrict p A (p '' A) (mapsTo_image p A)` produces exactly the map q : A → p(A) from the subtype ↥A to the subtype ↥(p '' A), with the standard subspace topologies inherited from X and Y. The hypothesis `hp : IsOpenMap p` corresponds to \"p is an open map\", `hA : IsOpen A` corresponds to \"A is open in X\", and the conclusion `IsOpenMap (...)` says the restriction sends open sets of A (subspace topology) to open sets of p(A) (subspace topology). This matches the informal statement precisely without strengthening or weakening.",
+  "duration_ms": 59886,
+  "cost_usd": 0.241079
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p24.lean",
+  "stem": "calculus__p24",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims lim_{x→+∞} sin(2x+x³)/(x+3x³) = 0. The Lean signature expresses this via `Tendsto (fun x : ℝ => sin (2 * x + x^3) / (x + 3 * x^3)) atTop (𝓝 0)`. Here `atTop` on ℝ is the standard Mathlib encoding of x → +∞, `𝓝 0` is the neighborhood filter of 0 (so convergence to 0), the function matches sin(2x+x³)/(x+3x³) exactly, and `sin` under `open Real` resolves to Real.sin. Thus the Lean statement is logically equivalent to the informal claim without added or missing hypotheses.",
+  "duration_ms": 42832,
+  "cost_usd": 0.14657150000000002
+}

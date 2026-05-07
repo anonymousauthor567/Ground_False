@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ H : Subgroup G, H = ⊤ ∨ H = ⊥` correctly captures \"no proper subgroups\" in the Herstein sense (no subgroup strictly between {1} and G). The added nontriviality hypothesis `∃ g, g ≠ 1` is not a scope-narrowing addition but an implicit premise needed for the statement to be true — the trivial group vacuously satisfies the subgroup condition but isn't of prime order, so any mathematician would read this as implicitly assumed. The conclusion `IsCyclic G ∧ ∃ p, Nat.Prime p ∧ Nat.card G = p` faithfully expresses \"cyclic of prime order p\". The `IsCyclic G` conjunct is mathematically redundant (prime order implies cyclic) but does not affect faithfulness since it's part of what is being asked to prove.",
+  "duration_ms": 103247,
+  "cost_usd": 0.322397
+}

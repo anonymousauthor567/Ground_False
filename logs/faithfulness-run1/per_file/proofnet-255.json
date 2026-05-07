@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-255.lean",
+  "stem": "proofnet-255",
+  "informal": "If $G$ is a finite group of even order, show that there must be an element $a \\neq e$ such that $a=a^{-1}$.",
+  "lean": "\ntheorem Herstein_exercise_2_1_18 {G : Type*} [Group G]\n  [Fintype G] (hG2 : Even (card G)) :\n  ∃ (a : G), a ≠ 1 ∧ a = a⁻¹",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes G as an arbitrary type with Group and Fintype instances, with the hypothesis that card G is even, matching \"finite group of even order.\" The conclusion ∃ a : G, a ≠ 1 ∧ a = a⁻¹ exactly captures \"there exists an element a ≠ e with a = a⁻¹.\" The identity element e in the informal statement corresponds to 1 in the Lean group. No extra hypotheses are added and none are dropped. This is a faithful formalization.",
+  "duration_ms": 6681,
+  "cost_usd": 0.04311124999999999
+}

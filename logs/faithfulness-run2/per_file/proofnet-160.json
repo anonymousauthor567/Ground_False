@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature defines `g n = Real.sqrt (n+1) - Real.sqrt n`, which matches $a_i = \\sqrt{i+1} - \\sqrt{i}$. The summation `∑ i ∈ range n, g i` corresponds exactly to $\\sum_{i < n} a_i$. The claim `Tendsto (fun n => ...) atTop atTop` is the standard Mathlib encoding of $\\lim_{n \\to \\infty} (\\ldots) = \\infty$ for a real-valued sequence. All types (`ℕ` index, `ℝ` values) and quantifier structure match the informal statement.",
+  "duration_ms": 9348,
+  "cost_usd": 0.039976750000000005
+}

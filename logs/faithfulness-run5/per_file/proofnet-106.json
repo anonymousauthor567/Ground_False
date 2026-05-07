@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-106.lean",
+  "stem": "proofnet-106",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes \"family of topologies on X\" as `T : I → Set (Set X)` with hypothesis `∀ i, is_topology X (T i)`, which is a standard faithful encoding of an indexed family. The conclusion `is_topology X (⋂ i : I, T i)` uses Mathlib's indexed intersection, which correctly captures $\\bigcap \\mathcal{T}_\\alpha$ — a set U belongs to it iff U belongs to every T i. The same `is_topology` predicate (with univ ∈ T, binary intersection closure, and arbitrary union closure — equivalent to the standard topology axioms since the empty union gives ∅ ∈ T) is used uniformly in both hypothesis and conclusion. The universal quantification over X, I, and the family is handled by making them free variables of the theorem. No hypotheses have been added or dropped, and no types have been changed relative to the informal statement.",
+  "duration_ms": 57588,
+  "cost_usd": 0.2057625
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "informal": "If $G$ is a nonabelian group of order 6, prove that $G \\simeq S_3$.",
+  "lean": "\ntheorem Herstein_exercise_2_5_37 (G : Type*) [Group G] [Fintype G]\n  (hG : card G = 6) (hG' : IsEmpty (CommGroup G)) :\n  Nonempty (G ≃* Equiv.Perm (Fin 3))",
+  "verdict": "different",
+  "reasoning": "The informal hypothesis \"G is nonabelian\" should be encoded as something like `¬ ∀ a b : G, a * b = b * a`. Instead, the Lean signature uses `IsEmpty (CommGroup G)`, which asserts that the type `CommGroup G` (the type of *all* commutative group structures on the carrier type G) is empty. This is not the same as saying the given `Group G` instance is noncommutative: any 6-element type admits *some* commutative group structure (transfer the structure of ℤ/6ℤ across a bijection G ≃ Fin 6), so `IsEmpty (CommGroup G)` is in fact always false for |G| = 6. Hence the Lean hypothesis is vacuous and the theorem becomes trivial, capturing none of the actual mathematical content of \"the given group G is nonabelian ⟹ G ≃ S₃\". This is a genuine semantic mismatch, not a logically equivalent reformulation.",
+  "duration_ms": 20185,
+  "cost_usd": 0.0735675
+}

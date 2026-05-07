@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. X and Y are arbitrary metric spaces (matching \"a metric space X into a metric space Y\"), f is given with `UniformContinuous f` (matching \"uniformly continuous mapping\"), and the \"for every Cauchy sequence {x_n}\" is faithfully rendered by parameterizing over `x : ℕ → X` with hypothesis `CauchySeq x`. The conclusion `CauchySeq (λ n => f (x n))` matches \"{f(x_n)} is a Cauchy sequence in Y\". Mathlib's `CauchySeq` and `UniformContinuous` on metric spaces correspond to the standard definitions used in Rudin. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 30308,
+  "cost_usd": 0.09433224999999999
+}

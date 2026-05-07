@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that $x^2+1$ is irreducible in $\\mathbb{F}_7[x]$. The Lean statement quantifies over any field F with `Fintype.card F = 7`; since all fields of cardinality 7 are (uniquely up to isomorphism) isomorphic to $\\mathbb{F}_7 = \\mathbb{Z}/7\\mathbb{Z}$, asserting `Irreducible (X^2 + 1 : Polynomial F)` for every such F is logically equivalent to asserting it specifically for $\\mathbb{F}_7$. Mathlib's `Irreducible` is the standard ring-theoretic notion, and `Polynomial F` is the univariate polynomial ring $F[x]$, so both sides match. No hypotheses are added or dropped that change the mathematical content. Hence the formalization is strictly faithful.",
+  "duration_ms": 116743,
+  "cost_usd": 0.36033175
+}

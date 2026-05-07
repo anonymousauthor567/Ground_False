@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Rudin Exercise 5.17. The \"three times differentiable on [-1,1]\" hypothesis is captured by three DifferentiableOn conditions: f, deriv f, and deriv (deriv f) all on Icc (-1) 1 — the standard Mathlib convention. The four point conditions f(-1)=0, f(0)=0, f(1)=1, f'(0)=0 are encoded exactly. The conclusion `∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3` matches \"f^{(3)}(x) ≥ 3 for some x ∈ (-1,1)\" directly. The use of `deriv` rather than `derivWithin` is a standard convention and does not affect the interior-point conclusion; indeed, the GT file contains a complete proof of this signature using Rolle's theorem applied three times, confirming the encoding captures the intended mathematical content.",
+  "duration_ms": 218708,
+  "cost_usd": 0.651107
+}

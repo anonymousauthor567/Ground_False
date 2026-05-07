@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"2 is divisible by (1+i)^2 in Z[i]\" means (1+i)^2 divides 2 in the Gaussian integers. In Mathlib, `GaussianInt := Zsqrtd (-1)`, where `⟨re, im⟩` represents `re + im·√(-1) = re + im·i`. So `(⟨1, 1⟩ : GaussianInt) = 1 + i`, and `(⟨1, 1⟩ : GaussianInt) ^ 2 = (1+i)^2`. The Lean divisibility notation `a ∣ b` means \"a divides b\" (∃ c, b = a*c), so `(1+i)^2 ∣ 2` correctly encodes \"(1+i)^2 divides 2\", which is equivalent to \"2 is divisible by (1+i)^2\". The numeral `2` is interpreted in `GaussianInt` via the expected coercion. The formalization is a faithful encoding.",
+  "duration_ms": 55389,
+  "cost_usd": 0.21891575
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for irreducibility of $x^2+x+1$ in $\\mathbb{F}_2$. The Lean statement universally quantifies over any field `F` with `Fintype.card F = 2`. Since all fields of order 2 are isomorphic to $\\mathbb{F}_2 = \\mathbb{Z}/2\\mathbb{Z}$, and irreducibility of the polynomial $X^2 + X + 1$ (defined via the canonical 0 and 1) is preserved under ring isomorphism, the generic formulation is logically equivalent to the specific claim about $\\mathbb{F}_2$. The hypotheses `[Field F] [Fintype F] (hF : card F = 2)` uniquely characterize $\\mathbb{F}_2$ up to isomorphism, so neither direction of implication is lost. This is a faithful formalization.",
+  "duration_ms": 39367,
+  "cost_usd": 0.149915
+}

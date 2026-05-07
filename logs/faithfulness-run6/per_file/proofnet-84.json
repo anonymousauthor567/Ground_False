@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that there are infinitely many solutions to x^2 = -1 in the quaternions. The Lean theorem states `Infinite {x : Quaternion ℝ | x^2 = -1}`, where `Quaternion ℝ` is the standard Hamilton quaternions ℍ (the universally understood meaning of \"the quaternions\" in Herstein's context). Applying `Infinite` to a set in Lean is equivalent (via `Set.infinite_coe_iff`) to asserting that the set is `Set.Infinite`, i.e., has infinitely many elements. The set comprehension `{x : Quaternion ℝ | x^2 = -1}` captures exactly the solutions to x² = -1. Hypotheses, conclusion, quantifier structure, and types all match the informal claim.",
+  "duration_ms": 121468,
+  "cost_usd": 0.3048665
+}

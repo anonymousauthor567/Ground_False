@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The set `minus_A := {x | -x ∈ A}` is equal to `{-a : a ∈ A}` (if -x ∈ A then x = -(-x) with -x ∈ A, and conversely), which is exactly the informal definition of -A. The hypotheses (A nonempty, A bounded below) match the informal hypotheses. The conclusion `sInf A = -sSup minus_A` matches `inf A = -sup(-A)`. Since A is nonempty and bounded below, minus_A is nonempty and bounded above, so sInf and sSup give the genuine infimum/supremum rather than the conditionally-complete-lattice fallback. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 85692,
+  "cost_usd": 0.31145649999999997
+}

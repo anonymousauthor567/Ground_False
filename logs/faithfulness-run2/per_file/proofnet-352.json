@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces X and Y as arbitrary metric spaces, f : X → Y as uniformly continuous, and x : ℕ → X as an arbitrary Cauchy sequence, concluding that (f ∘ x) is a Cauchy sequence. This matches the informal claim exactly: the \"for every Cauchy sequence\" is correctly encoded by taking x and its Cauchy-ness as hypotheses (equivalent to universal quantification). The types (metric spaces, ℕ-indexed sequences, UniformContinuous, CauchySeq) align with the standard meanings of the informal objects. No extra or missing hypotheses are present.",
+  "duration_ms": 13665,
+  "cost_usd": 0.03689050000000001
+}

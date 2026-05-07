@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes `LocallyCompactSpace X` (every neighborhood contains a compact neighborhood) and `T2Space X` (Hausdorff) as hypotheses and concludes `RegularSpace X` (Mathlib's regularity: any closed set and external point can be separated by disjoint open sets). Mathlib's `RegularSpace` does not bundle T1, but since T2 is already a hypothesis (which implies T1), the overall statement is equivalent to the Munkres-style claim \"locally compact Hausdorff ⇒ regular (with T1)\". Similarly, Mathlib's `LocallyCompactSpace` (compact neighborhood basis) coincides with Munkres' local compactness under the Hausdorff assumption. The quantifier structure (universal over spaces) is correctly encoded. Thus the formalization faithfully captures the informal statement.",
+  "duration_ms": 91124,
+  "cost_usd": 0.39950475
+}

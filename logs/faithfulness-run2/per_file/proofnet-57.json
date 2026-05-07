@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: `card G = 105` matches \"order 105\", `P : Sylow 3 G` with `[hP : P.Normal]` matches \"a Sylow 3-subgroup of G is normal\", and `∀ a b : G, a*b = b*a` is the standard definition of G being abelian. The parametric quantification over P in Lean is equivalent to the informal \"if a Sylow 3-subgroup is normal\" since all Sylow 3-subgroups are conjugate in a finite group (so one being normal is equivalent to the unique one being normal). The Fintype instance is necessary machinery for stating `card G` and Sylow subgroups, not an extra hypothesis beyond the informal claim.",
+  "duration_ms": 16309,
+  "cost_usd": 0.07517825
+}

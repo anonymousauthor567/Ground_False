@@ -1,0 +1,8 @@
+{
+  "file": "23.lean",
+  "stem": "23",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: \"if |G| = 1053 then G is not simple.\" The Lean formalization uses `[Group G]`, `[Finite G]`, `Nat.card G = 1053`, and concludes `¬ IsSimpleGroup G`. In Mathlib, `IsSimpleGroup` is defined as Nontrivial plus \"every normal subgroup is ⊥ or ⊤\", the standard definition. `Nat.card G = 1053` with 1053 ≠ 0 already implies G is finite (since `Nat.card` returns 0 for infinite types, via `Nat.finite_of_card_ne_zero`), so the `[Finite G]` hypothesis is technically redundant but does not narrow the scope. The cardinality 1053 = 3⁴ × 13 is exactly what the informal statement requires. The Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 135112,
+  "cost_usd": 0.26718675000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b5.lean",
+  "stem": "putnam_2010_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal question. `StrictMono f` is exactly \"strictly increasing\" (a < b → f a < f b). The functional equation `deriv f x = f (f x)` for all `x` matches $f'(x) = f(f(x))$. The addition of `Differentiable ℝ f` surfaces an implicit premise: in Mathlib, `deriv f x` returns 0 as a junk value when `f` is not differentiable at `x`, so requiring the derivative to equal $f(f(x))$ everywhere genuinely requires `f` to be differentiable everywhere — which is implicit in the informal \"$f'(x) = f(f(x))$ for all $x$\". The Putnam-style formulation `(∃ f, ...) ↔ putnam_2010_b5_solution` with solution `False` correctly encodes \"no such function exists\" as the answer to \"Is there a function...?\"",
+  "duration_ms": 90156,
+  "cost_usd": 0.20890949999999997
+}

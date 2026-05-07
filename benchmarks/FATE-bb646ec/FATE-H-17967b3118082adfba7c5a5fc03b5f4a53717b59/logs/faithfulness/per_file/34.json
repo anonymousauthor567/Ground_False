@@ -1,0 +1,8 @@
+{
+  "file": "34.lean",
+  "stem": "34",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes each piece of the informal statement: [CharZero E] matches \"characteristic zero\", [Fact q.Prime] matches \"prime q\", hb : b ≠ 0 matches b ∈ E^×, not_pow : ∀ c, c^q ≠ b matches \"b is not a q-th power\", ha : a^q = algebraMap E E' b correctly uses the embedding E ↪ E' to express a^q = b, and haE : ⊤ = IntermediateField.adjoin E {a} correctly encodes E' = E(a) (⊤ in the IntermediateField lattice is the full field E'). The conclusion ¬ Irreducible (X^q - C b) ↔ Module.finrank E E' < q matches \"X^q - b is reducible over E ⟺ [E':E] < q\" — for non-unit polynomials (X^q - b has degree q ≥ 2), ¬Irreducible is exactly reducibility, and Module.finrank agrees with [E':E] since E' = E(a) is finite over E. No hypotheses are dropped or added beyond what the informal states.",
+  "duration_ms": 677844,
+  "cost_usd": 1.3500825
+}

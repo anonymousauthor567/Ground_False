@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts a chain of equivalences: $xy=yx \\iff y^{-1}xy=x \\iff x^{-1}y^{-1}xy=1$. The Lean statement encodes this chain as the conjunction of two iffs: `(x * y = y * x ↔ y⁻¹ * x * y = x) ∧ (y⁻¹ * x * y = x ↔ x⁻¹ * y⁻¹ * x * y = 1)`, which is exactly the standard way to formalize a chained biconditional (and by transitivity recovers all pairwise equivalences). The types (arbitrary group G with elements x, y) match, the group operation and inverse notation are standard Mathlib, and left-associativity gives `y⁻¹ * x * y = (y⁻¹ * x) * y` and `x⁻¹ * y⁻¹ * x * y = ((x⁻¹ * y⁻¹) * x) * y`, matching the informal expressions. No hypotheses are added or dropped.",
+  "duration_ms": 10455,
+  "cost_usd": 0.0489795
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. Two arbitrary metric spaces `α, β` correspond to $X, Y$; `f g : α → β` with `Continuous f` and `Continuous g` match the continuous mappings; `s : Set α` with `Dense s` matches the dense subset $P$ (Mathlib's `Dense s` means `∀ x, x ∈ closure s`, the standard density notion); `h₄ : ∀ x ∈ s, f x = g x` matches \"$f(p) = g(p)$ for all $p \\in P$\"; and the conclusion `f = g` is equivalent to `∀ x, f x = g x`, matching \"for all $p \\in X$\". No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 32677,
+  "cost_usd": 0.07135174999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement correctly. `[CommRing R] [IsDomain R]` gives an integral domain. The hypothesis `h1` is precisely the Bezout-type condition (i): for any nonzero a, b, the gcd can be written as r*a + s*b. The hypothesis `h2` is the chain condition (ii): any divisibility-descending sequence of nonzero elements eventually becomes unit-associate. The conclusion `IsPrincipalIdealRing R` is exactly the PID conclusion. The added `[GCDMonoid R]` typeclass is not a faithfulness issue — it simply makes explicit the gcd function implicitly required by condition (i), since in an integral domain the existence of gcds for all nonzero pairs yields a GCDMonoid structure (lcm is derivable from gcd in a domain). The indexing (ℕ from 0 vs 1-indexed) and the \"positive integer\" wording are inconsequential encoding choices that preserve the mathematical content.",
+  "duration_ms": 300877,
+  "cost_usd": 0.9491574999999999
+}

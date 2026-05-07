@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"U ∪ W is a subspace\" as \"∃ U' : Submodule F V, U'.carrier = ↑U ∪ ↑W\", meaning the set-theoretic union of U and W is realized as the carrier of some submodule. This is the standard and correct formalization of \"the union is a subspace.\" The RHS \"U ≤ W ∨ W ≤ U\" faithfully captures \"one subspace is contained in the other\" since Submodule's ≤ coincides with set inclusion. The ambient structure (field F, AddCommGroup V, Module F V) is the standard setup for a vector space over F, matching Axler's setting. No hypotheses are added or dropped, and the iff structure matches exactly.",
+  "duration_ms": 73168,
+  "cost_usd": 0.28063675
+}

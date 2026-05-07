@@ -1,0 +1,8 @@
+{
+  "file": "S_0015.lean",
+  "stem": "S_0015",
+  "verdict": "stronger",
+  "reasoning": "The Lean formalization correctly encodes the category $\\mathcal{L}at_\\wedge$ as `SemilatInfCat` (inf-semilattices with top, `InfTopHom` morphisms), and the definitions of initial morphism, embedding, and injective object faithfully match the informal definitions. `IsFrameObj` correctly captures \"frame structure on P\" via LUB/GLB functions plus the frame distributive law. However, the informal statement says \"injective objects are frames,\" which in mathematical English literally asserts only one direction: every injective object is a frame (Injective → Frame). The Lean theorem, by contrast, uses `↔`, which also asserts the converse — every frame is an injective object. The converse direction is mathematically true (classical characterization theorem), but it is an additional claim beyond what the informal text literally asks. Hence the Lean statement is strictly stronger than the informal statement.",
+  "duration_ms": 794539,
+  "cost_usd": 2.12823725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "140.lean",
+  "stem": "140",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over subgroups H, K ≤ G and elements a, b ∈ G, then claims that (a•H) ∩ (b•K) is either ⊥ (which equals ∅ as a Set G, via Set.bot_eq_empty) or equals c•(H ⊓ K) for some c ∈ G. Here `a • H.carrier : Set G` is the left coset aH, `b • K` elaborates to `Set G` via SetLike coercion giving left coset bK, and `H ⊓ K` is the subgroup intersection (with `coe_inf` showing ↑(H ⊓ K) = H ∩ K). So `c • (H ⊓ K) : Set G` is precisely a left coset of H ∩ K. This captures exactly the informal claim: the intersection of any left coset of H with any left coset of K is either empty or a left coset of H ∩ K. Quantifier structure, types, and conclusion match the informal statement.",
+  "duration_ms": 477124,
+  "cost_usd": 1.513359
+}

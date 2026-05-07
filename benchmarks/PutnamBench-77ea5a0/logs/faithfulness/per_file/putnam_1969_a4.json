@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_a4.lean",
+  "stem": "putnam_1969_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the partial sums ∑_{i=1}^n (-1)^{i+1} · i^{-i} (over integers i) converge to ∫_{(0,1)} x^x as n → ∞ in ℤ. This is logically equivalent to the infinite series equaling the integral, which is exactly what the informal statement claims. The terms match: for i=1, (-1)²·1⁻¹=1; for i=2, (-1)³·2⁻²=-1/4, matching (-1)^{n+1}n^{-n}. For n ≤ 0 the Icc is empty (sum = 0), but this is irrelevant to the atTop limit. The integral over Ioo(0,1) equals the integral over [0,1] since the boundary has measure zero, and x^x with real x uses Real.rpow as expected. The encoding faithfully captures \"series = integral\".",
+  "duration_ms": 121532,
+  "cost_usd": 0.36551775000000003
+}

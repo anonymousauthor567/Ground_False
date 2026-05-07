@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p26_1.lean",
+  "stem": "abstract_algebra__p26_1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. \"Non-constant polynomial\" is correctly encoded as `f.degree > 0` (degree ≥ 1 excludes all constant polynomials, including the zero polynomial which has degree ⊥). \"Extension field E of F\" is encoded in the standard Mathlib style as `(E : Type*) (_ : Field E) (i : F →+* E)` — a ring homomorphism from a field is automatically injective, so E indeed contains an isomorphic copy of F. The conclusion `eval₂ i α f = 0` correctly expresses f(α) = 0 by applying the coefficient embedding i while evaluating f at α ∈ E. No hypotheses are added or dropped, and the quantifier structure (∃ E, ∃ α) matches the informal claim.",
+  "duration_ms": 115725,
+  "cost_usd": 0.33120325
+}

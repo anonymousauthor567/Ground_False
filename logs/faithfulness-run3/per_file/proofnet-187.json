@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `[Field K] [Infinite K]` encodes \"infinite field\", `[AddCommGroup V] [Module K V]` encodes \"vector space over K\", `[Fintype ι]` with `γ : ι → Submodule K V` encodes \"finitely many subspaces\", and the hypothesis `γ i ≠ ⊤` correctly says each subspace is proper (strictly smaller than V). The conclusion `(⋃ i, (γ i : Set V)) ≠ ⊤` is a statement in `Set V`, where `⊤` is `Set.univ`, so this asserts that the set-theoretic union of the subspaces is not all of V — exactly \"V is not the union of finitely many proper subspaces.\" The universal quantification over ι and γ in the Lean signature matches the universal reading of the informal claim.",
+  "duration_ms": 57313,
+  "cost_usd": 0.20237825000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "Each piece of the informal statement maps faithfully: `A ⊂ Set.univ` (using Mathlib's `HasSSubset` instance for `Set`) means strict subset, so `A` is a proper subset of `X` (matches Munkres's convention that \"proper\" means ≠, allowing possibly empty). `IsConnected (Set.univ : Set X)` is equivalent to `ConnectedSpace X` via Mathlib's `connectedSpace_iff_univ`, correctly capturing \"X is connected\". The conclusion `IsConnected (Set.univ \\ (A ×ˢ B))` in `Set (X × Y)` is exactly $(X \\times Y) \\setminus (A \\times B)$ where `A ×ˢ B` is the Cartesian product of sets. The nonempty part built into `IsConnected` is standard and consistent with Munkres's usage. No hidden extra hypotheses or missing ones.",
+  "duration_ms": 123634,
+  "cost_usd": 0.45765500000000003
+}

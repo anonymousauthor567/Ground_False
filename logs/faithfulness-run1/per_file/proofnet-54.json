@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "informal": "Prove that a group of order 200 has a normal Sylow 5-subgroup.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_18 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 200) :\n  ∃ N : Sylow 5 G, N.Normal",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a group of order 200 has a normal Sylow 5-subgroup. The Lean signature assumes G is a finite group with `card G = 200` and concludes `∃ N : Sylow 5 G, N.Normal`, i.e. there exists a Sylow 5-subgroup that is normal. Since all Sylow 5-subgroups are conjugate, the existence of one normal Sylow 5-subgroup is equivalent to the Sylow 5-subgroup being normal (and unique). The hypothesis (`Fintype G`, `Group G`, order 200) and conclusion match the informal claim exactly.",
+  "duration_ms": 8169,
+  "cost_usd": 0.049753250000000006
+}

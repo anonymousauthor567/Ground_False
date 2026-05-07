@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim accurately. The power series f(x) = Σ c_i x^i is encoded via `tsum` (∑'), which is the standard Mathlib way to encode infinite sums. The hypothesis `hc : ∀ n, c n = 0 ∨ c n = 1` matches \"each coefficient c_i is 0 or 1\", the hypothesis `hf1 : f (2/3) = 3/2` matches \"f(2/3) = 3/2\", and the conclusion `Irrational (f (1/2))` matches \"f(1/2) must be irrational\". Although `tsum` returns 0 for non-summable series in general, the series with coefficients in {0,1} evaluated at 1/2 and 2/3 (both in (0,1)) is always summable, so at these evaluation points tsum gives the intended mathematical value. The index starts at i = 0, matching the informal statement. No hypotheses are silently added or dropped.",
+  "duration_ms": 22177,
+  "cost_usd": 0.07041325
+}

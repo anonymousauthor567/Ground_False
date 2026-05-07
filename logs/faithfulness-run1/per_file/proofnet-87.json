@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "theorem_name": "Herstein_exercise_4_3_25_corrected",
+  "informal": "Let $R$ be the ring of $2 \\times 2$ matrices over the real numbers; suppose that $I$ is an ideal of $R$. Show that $I = (0)$ or $I = R$.",
+  "lean": "theorem Herstein_exercise_4_3_25_corrected\n    (I : TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)) :\n    I = ⊥ ∨ I = ⊤",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any ideal of the ring of 2×2 real matrices is either the zero ideal or the whole ring. The Lean signature quantifies over `TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)` and concludes `I = ⊥ ∨ I = ⊤`, where `⊥` is the zero ideal and `⊤` is the whole ring. In the noncommutative setting of matrix rings, \"ideal\" conventionally means two-sided ideal, matching `TwoSidedIdeal`. The matrix ring `Matrix (Fin 2) (Fin 2) ℝ` correctly encodes 2×2 matrices over ℝ. The quantifier structure (for all ideals I) and conclusion match exactly.",
+  "duration_ms": 8102,
+  "cost_usd": 0.04736075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes G₁ and G₂ are cyclic groups of orders m and n — the phrase \"of orders m and n\" implies finiteness, so the Fintype hypotheses faithfully capture the intended setting. The IsCyclic hypotheses on G and H match \"G₁ and G₂ are cyclic groups\". With `open Fintype`, `card G` resolves to `Fintype.card G`, which is exactly the order |G| = m, and similarly for H. The iff conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` matches \"G₁ × G₂ is cyclic if and only if m and n are relatively prime\" exactly. No hypotheses are added or removed beyond what the informal statement implies, and no conclusion is strengthened or weakened.",
+  "duration_ms": 24927,
+  "cost_usd": 0.13508275
+}

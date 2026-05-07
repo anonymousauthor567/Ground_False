@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes Munkres Exercise 28.5. The `countably_compact` definition correctly captures \"every countable open cover has a finite subcover\" (Munkres' definition). The right-hand side of the iff correctly encodes: for any sequence of closed nonempty sets that are nested (C_{n+1} ⊆ C_n), the intersection is nonempty (∃ x, ∀ n, x ∈ C n). The `⊃` symbol in Munkres denotes non-strict containment, matching the `⊆` encoding. The shift in indexing from C_1 vs C_0 is immaterial since the same class of nested sequences is described. The biconditional structure and all hypotheses match the informal claim without adding or omitting content.",
+  "duration_ms": 68692,
+  "cost_usd": 0.2508045
+}

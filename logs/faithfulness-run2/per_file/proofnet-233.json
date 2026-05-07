@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to exhibit the existence of a normal subgroup that is not characteristic, which implicitly requires producing some group containing such a subgroup. The Lean signature existentially quantifies over a type G, a Group instance on G, and a Subgroup H, asserting that H is Normal and not Characteristic. This correctly captures \"there exists a group G with a subgroup H that is normal but not characteristic.\" The quantifier structure, the hypotheses (none beyond being a group), and the conclusion (Normal H ∧ ¬ Characteristic H) all match the informal claim. No extra hypotheses (like finiteness) are added, and the standard Mathlib notions of Normal and Characteristic are the expected ones.",
+  "duration_ms": 20261,
+  "cost_usd": 0.03934675
+}

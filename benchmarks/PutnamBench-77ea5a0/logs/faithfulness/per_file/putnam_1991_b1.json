@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_b1.lean",
+  "stem": "putnam_1991_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately captures Putnam 1991 B1. The hypothesis `hm` correctly defines `m n` as the greatest integer with m² ≤ n (conjunction of \"(m n)² ≤ n\" and \"any m' with m'² ≤ n satisfies m' ≤ m n\"). The hypothesis `hS` defines S on non-negative integers as n - (m n)². The sequence `a` has correct initial value A and recurrence aₖ₊₁ = aₖ + S(aₖ). The conclusion asks for equivalence between \"sequence eventually constant\" and A being a positive perfect square ({A | ∃ x > 0, A = x²}), matching the Putnam answer. That m and S are unspecified for negative inputs is harmless since A > 0 keeps the sequence non-negative. Using `c : ℕ` for the eventual constant value is fine since the sequence values are non-negative (and positive) integers when A > 0. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 219124,
+  "cost_usd": 0.5996625000000001
+}

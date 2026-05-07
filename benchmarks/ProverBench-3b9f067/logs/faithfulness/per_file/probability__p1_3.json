@@ -1,0 +1,8 @@
+{
+  "file": "probability__p1_3.lean",
+  "stem": "probability__p1_3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asks to prove three specific claims — (a) λ = 1, (b) P{X ≤ 1} = 2e^(-1), (c) cov(X, X²) = 3 — assuming a Poisson random variable X with P{X>0} = 1-e^(-1). The only actual `theorem` with a proof obligation in the Lean file is `E_X`, which states `∑' k, k * poissonPMFReal λ k = λ` for arbitrary NNReal λ. This is the expectation formula E[X] = λ for a Poisson distribution — a standard general fact that is NOT any of the three asked-for claims. The statements are logically incomparable: E[X] = λ (universally in λ) does not imply λ = 1, nor the specific probability/covariance values; conversely, the informal claims (which fix a specific λ) do not imply the general expectation formula. Additionally, parts (b) and (c) of the informal statement are encoded only as axioms (part (b) incorrectly, as `2 * exp(-λ)` which doesn't even hold for general λ) or missing entirely (covariance).",
+  "duration_ms": 162376,
+  "cost_usd": 0.36522024999999997
+}

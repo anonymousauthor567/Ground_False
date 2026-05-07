@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding uses `sqrt (a i) / (i + 1)` to represent $\\sqrt{a_n}/n$ because Lean's `ℕ` is 0-indexed and we need to avoid division by zero. Under the natural reindexing (Rudin's $a_n$ ↔ Lean's `a (n-1)` for $n \\geq 1$), the Lean sum $\\sum_{i=0}^{N-1} \\sqrt{a_i}/(i+1)$ exactly equals Rudin's $\\sum_{n=1}^{N} \\sqrt{a_n}/n$, and the hypothesis $\\sum_{i=0}^{N-1} a_i$ matches $\\sum_{n=1}^{N} a_n$. Even under the alternative interpretation where indices align literally, convergence of $\\sum \\sqrt{a_i}/(i+1)$ is equivalent to convergence of $\\sum \\sqrt{a_n}/n$ (for $n \\geq 1$: $\\sqrt{a_n}/(n+1) \\leq \\sqrt{a_n}/n \\leq 2\\sqrt{a_n}/(n+1)$), and a single constant term $\\sqrt{a_0}$ doesn't affect convergence. The non-negativity and convergence-of-partial-sums are faithfully encoded. This is a standard and correct Lean formalization.",
+  "duration_ms": 83489,
+  "cost_usd": 0.313465
+}

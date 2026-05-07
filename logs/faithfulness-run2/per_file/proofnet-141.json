@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `¬ Summable f` for `f k = 1/(k * (Real.log k)^p)` when `p ≤ 1`, which matches the informal claim that the Bertrand series diverges for `p ≤ 1`. The potentially problematic edge cases at k = 0, 1 (where `Real.log k = 0`) produce only finitely many bounded terms (0 or 1 depending on p via `Real.rpow` conventions), which cannot affect whether the infinite series converges. For k ≥ 2 the terms are positive, so `¬ Summable` is equivalent to \"diverges\" in the standard sense. The universal quantification over p is correctly represented, and all real `p ≤ 1` (including p = 0 giving the harmonic series and p < 0) correctly yield a divergent series.",
+  "duration_ms": 50167,
+  "cost_usd": 0.18190725
+}

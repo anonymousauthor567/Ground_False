@@ -1,0 +1,8 @@
+{
+  "file": "S_0062.lean",
+  "stem": "S_0062",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal theorem. `StronglyComplete C` bundles `HasLimits C` with `HasIntersections C`, and `StronglyCocomplete C` is defined as `StronglyComplete Cᵒᵖ` (giving `HasColimits C` and cointersections). Although `IsIntersectionOf` uses a lattice-GLB formulation (quantifying over subobjects rather than arbitrary morphisms), this is equivalent to the informal universal-property definition in any category with HasLimits — and HasLimits is precisely what's bundled in `StronglyComplete`, since in Mathlib `sInf` on subobjects is constructed as the wide pullback (see Subobject/Lattice.lean). `IsSeparating` matches the informal \"separating set\" definition. The `[Small.{v} 𝒢]` hypothesis is a standard Mathlib encoding that makes explicit the implicit smallness of \"separating set\" (cf. `hasLimits_of_hasColimits_of_isSeparating` in AdjointFunctorTheorems.lean which uses the same convention). No hypothesis is dropped or added beyond surfacing implicit premises, and the conclusion matches. The theorem as stated is logically equivalent to the informal claim.",
+  "duration_ms": 1575590,
+  "cost_usd": 3.7646414999999998
+}

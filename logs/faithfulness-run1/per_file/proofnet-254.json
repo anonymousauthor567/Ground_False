@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "informal": "Prove that as vector spaces over $\\mathbb{Q}, \\mathbb{R}^n \\cong \\mathbb{R}$, for all $n \\in \\mathbb{Z}^{+}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_11_1_13 {n : ℕ+} :\n  Nonempty ((Fin n → ℝ) ≃ₗ[ℚ] ℝ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for every positive integer n, ℝ^n is isomorphic to ℝ as ℚ-vector spaces. The Lean signature uses n : ℕ+ (positive naturals), encodes ℝ^n as Fin n → ℝ, and asserts Nonempty of a ℚ-linear equivalence to ℝ, which is exactly the existence of a ℚ-vector-space isomorphism. The types, quantifier, and conclusion match the informal claim.",
+  "duration_ms": 6483,
+  "cost_usd": 0.043578250000000006
+}

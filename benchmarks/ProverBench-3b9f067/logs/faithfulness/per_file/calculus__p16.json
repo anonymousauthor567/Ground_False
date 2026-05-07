@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p16.lean",
+  "stem": "calculus__p16",
+  "verdict": "stronger",
+  "reasoning": "The informal statement expresses the standard calculus \"limit as x approaches 0\", which for an expression with a 0/0 form like sin(5x²)/x² is inherently the *punctured* limit (x ≠ 0). The faithful Lean encoding would be `Tendsto (fun x => sin(5*x^2)/x^2) (𝓝[≠] 0) (𝓝 5)`. The Lean file instead uses the full neighborhood filter `𝓝 0`. In a Hausdorff space like ℝ, `Tendsto f (𝓝 0) (𝓝 5)` additionally forces f(0) = 5. Since `𝓝[≠] 0 ≤ 𝓝 0`, the Lean statement implies the informal punctured-limit claim but not conversely: the informal statement says nothing about the value at 0, whereas the Lean statement requires f(0) = 5. Because Lean's total division gives `sin(0)/0² = 0/0 = 0`, the Lean statement is in fact false (while the informal claim is true), which concretely demonstrates the extra strength. This is a genuine logical strengthening, not merely surfacing an implicit hypothesis, so the verdict is \"stronger\".",
+  "duration_ms": 606765,
+  "cost_usd": 1.75216125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes X = [0,1] as the subtype derived from `I : Set ℝ := Icc 0 1`, which carries the subspace topology from ℝ. The function `f : I → I` matches \"f : X → X\" with X = [0,1], and `Continuous f` captures continuity with respect to this subspace topology, matching the usual notion of continuity on [0,1]. The conclusion `∃ x : I, f x = x` is exactly \"there is a point x such that f(x) = x\". No hypotheses are added or dropped, quantifier structure is preserved, and the types agree with the informal statement. This is the standard 1D fixed point theorem stated in a natural Mathlib form.",
+  "duration_ms": 37573,
+  "cost_usd": 0.15774225000000003
+}

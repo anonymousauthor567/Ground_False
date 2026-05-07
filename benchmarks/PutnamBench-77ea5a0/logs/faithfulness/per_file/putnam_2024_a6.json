@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_a6.lean",
+  "stem": "putnam_2024_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The power series hypothesis `∀ᶠ x in 𝓝 0, HasSum (fun k => c k * x^k) ...` correctly encodes \"for sufficiently small x, the series sums to the given expression\", and since power series coefficients are unique, this implicitly determines c uniquely (matching the informal's \"defined so that\"). The matrix indexing correctly converts from the informal's 1-indexed $i,j \\in \\{1,...,n\\}$ with entries $c_{i+j-1}$ to Lean's 0-indexed `Fin n` with entries `c (i + j + 1)`: via the `c : ℕ → ℝ` expected type, Lean's `binop%` elaborator uses Fin→ℕ coercions and natural number arithmetic (confirmed by the fact that `Fin.instAddMonoidWithOne` is explicitly NOT a global instance in Mathlib to avoid coercion loops). Both versions thus yield entries $c_1$ through $c_{2n-1}$. The `0 < n` hypothesis matches \"positive integer n\". The equality to `putnam_2024_a6_solution n` matches \"find the determinant\".",
+  "duration_ms": 1222090,
+  "cost_usd": 4.561232999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes `LocallyCompactSpace X` and `T2Space X` as hypotheses and concludes `CompletelyRegularSpace X`, directly matching \"every locally compact Hausdorff space is completely regular.\" The Mathlib `CompletelyRegularSpace` definition (separating points from closed sets by continuous [0,1]-valued functions) is the standard notion. Although Munkres's textbook definition of \"completely regular\" typically bundles in T₁, the T₂ hypothesis already provides T₁/T₀ for free, so under the given hypotheses, `CompletelyRegularSpace X` is equivalent to Mathlib's `T35Space X` (= Munkres's \"completely regular\"). Hence the Lean statement is logically equivalent to the informal claim with no added or dropped hypotheses.",
+  "duration_ms": 137257,
+  "cost_usd": 0.43261775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims there is no order on ℂ making it an ordered field. In modern Mathlib, an ordered field is encoded as `[Field K] [LinearOrder K] [IsStrictOrderedRing K]` (confirmed by the deprecation notice in `Mathlib/Algebra/Order/Field/Defs.lean`). Since ℂ already has a Field instance globally, the Lean statement `¬ (∃ inst : LinearOrder ℂ, IsStrictOrderedRing ℂ)` asserts exactly that no linear order can be put on ℂ that would make it a strict ordered ring — i.e., that makes it an ordered field. This captures the ordered field claim faithfully, including the requirement that the order be a total/linear order (as ordered fields in Rudin are total orders). The quantifier structure and mathematical content match precisely.",
+  "duration_ms": 99316,
+  "cost_usd": 0.31080775000000005
+}

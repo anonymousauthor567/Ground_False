@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature has P : Sylow p G and H : Subgroup G with hypothesis P ≤ H, matching \"P is a Sylow p-subgroup of G and H is a subgroup containing P\". The conclusion unfolds the two defining conditions of Mathlib's Sylow structure (IsPGroup and maximality among p-subgroups) for `P.subgroupOf H` as a subgroup of H. Since `P.subgroupOf H = P.comap H.subtype` and P ≤ H, this is exactly P viewed as a subgroup of H. So the conclusion is logically equivalent to \"P ∈ Syl_p(H)\". Primality of p isn't needed since Mathlib's Sylow structure is well-defined for any p : ℕ, matching the convention in the informal notation.",
+  "duration_ms": 83818,
+  "cost_usd": 0.27665725
+}

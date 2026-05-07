@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-280.lean",
+  "stem": "proofnet-280",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. Setting `f_a` via the hypothesis `hf` makes `f_a n m = Int.gcd (a^(2^n)+1) (a^(2^m)+1)`, so the conclusion `(Odd a → f_a n m = 2) ∧ (Even a → f_a n m = 1)` is equivalent to asserting the gcd equals 2 when a is odd and equals 1 when a is even. This matches the mathematical reality: for a odd, both terms are even so gcd ≥ 2 (and =2); for a even, both terms are odd so gcd is odd (and =1). The English \"1 or 2 depending on whether a is odd or even\" is word-order ambiguous but the only true reading is odd↔2, even↔1, which is what Lean encodes. The hypotheses `a ≠ 0` and `n > m` match the informal conditions, and `Int.gcd` returning ℕ matches the standard gcd convention.",
+  "duration_ms": 243696,
+  "cost_usd": 0.7864682499999999
+}

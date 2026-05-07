@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal statement. The hypothesis `∀ x : R, x ^ 3 = x` matches \"x³ = x for every x ∈ R\" exactly. The conclusion `∀ x y : R, x * y = y * x` is precisely the definition of a commutative ring. The quantifier structure (universally quantified over an arbitrary R with the Ring typeclass) matches the informal \"Let R be a ring... prove that R is commutative.\" While Mathlib's `Ring` includes a multiplicative unit whereas Herstein's textbook definition of a ring does not, this is a standard formalization convention and Jacobson's theorem (which this instantiates) holds in both settings. The theorem is logically equivalent to the informal claim under the standard Mathlib reading.",
+  "duration_ms": 401205,
+  "cost_usd": 0.35148399999999996
+}

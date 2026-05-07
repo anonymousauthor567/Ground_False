@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-101.lean",
+  "stem": "proofnet-101",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `IsPrimitiveRoot (a : ZMod p) (p-1)` (per Mathlib's definition in RingTheory/RootsOfUnity/PrimitiveRoots.lean, which requires `a^(p-1) = 1` and divisibility of any `l` with `a^l = 1`) is equivalent to saying the order of `a` in `(ZMod p)ˣ` is exactly `p-1`, i.e., `a` is a primitive root modulo `p`. Taking `a : (ZMod p)ˣ` naturally encodes the implicit premise that a primitive root is coprime to `p`. The RHS `∀ q, q ∣ (p-1) → q.Prime → ¬ (a ^ ((p-1)/q) = 1)` faithfully encodes \"for all prime divisors q of p-1, a^((p-1)/q) ≢ 1 (mod p)\". Hypotheses `Odd p` and `p.Prime` match \"odd prime p\". The quantifier structure, types, and iff-direction all align with the informal statement.",
+  "duration_ms": 117534,
+  "cost_usd": 0.38681975
+}

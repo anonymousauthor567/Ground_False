@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-137.lean",
+  "stem": "proofnet-137",
+  "informal": "Let $\\|\\cdot\\|$ be any norm on $\\mathbb{R}^{m}$ and let $B=\\left\\{x \\in \\mathbb{R}^{m}:\\|x\\| \\leq 1\\right\\}$. Prove that $B$ is compact.",
+  "lean": "\ntheorem Pugh_exercise_2_41 (m : ℕ) [NormedSpace ℝ ((Fin m) → ℝ)] :\n  IsCompact (Metric.closedBall (0 : EuclideanSpace ℝ (Fin m)) 1)",
+  "verdict": "weaker",
+  "reasoning": "The informal statement quantifies over ANY norm on ℝ^m and asks to show the closed unit ball in that arbitrary norm is compact. The Lean statement, however, fixes the space to `EuclideanSpace ℝ (Fin m)`, which carries the specific Euclidean (ℓ²) norm, and shows compactness of the closed unit ball in that fixed norm. The unused `[NormedSpace ℝ ((Fin m) → ℝ)]` hypothesis does not introduce a variable norm on the relevant type, and there is no quantification over an arbitrary `NormedAddCommGroup`/norm structure. Hence the Lean theorem only proves a single special case (the Euclidean norm) of the informal claim, making it strictly weaker.",
+  "duration_ms": 11258,
+  "cost_usd": 0.051282499999999995
+}

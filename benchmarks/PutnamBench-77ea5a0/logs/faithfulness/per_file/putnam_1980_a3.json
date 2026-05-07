@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_a3.lean",
+  "stem": "putnam_1980_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement integrates `1 / (1 + (Real.tan x) ^ (Real.sqrt 2))` over `Set.Ioo 0 (Real.pi / 2)` and equates it to `Real.pi / 4`, which matches the informal request to evaluate $\\int_0^{\\pi/2} dx/(1+(\\tan x)^{\\sqrt{2}})$. The use of `Set.Ioo` vs `Set.Icc` is immaterial since the endpoints have measure zero (and `tan(π/2)` is undefined anyway, making `Ioo` natural). The expression `(Real.tan x) ^ (Real.sqrt 2)` correctly resolves to `Real.rpow` since both arguments are real, matching the intended real-exponent power. The solution `Real.pi / 4` matches the well-known answer. No hypotheses are silently added or dropped.",
+  "duration_ms": 104835,
+  "cost_usd": 0.32133475
+}

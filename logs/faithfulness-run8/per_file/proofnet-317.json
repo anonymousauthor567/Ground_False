@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: X is a compact Hausdorff topological space (CompactSpace X + T2Space X), X1 and X2 are closed subsets of X (IsClosed X1, IsClosed X2) whose union is the whole space (hX : X1 ∪ X2 = univ), each subspace is metrizable (MetrizableSpace X1 and MetrizableSpace X2, which in Mathlib refers to the subtype with its induced subspace topology), and the conclusion is that X is metrizable. Mathlib's MetrizableSpace class (extending PseudoMetrizableSpace and T0Space) is equivalent to the standard notion of metrizability. No hypothesis is silently added or dropped, and the conclusion matches. This is a strictly faithful formalization.",
+  "duration_ms": 37912,
+  "cost_usd": 0.155227
+}

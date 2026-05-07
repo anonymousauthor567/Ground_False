@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the holomorphy hypothesis via `DifferentiableOn ℂ f Ω`, openness via `IsOpen Ω`, the \"Re(f) is constant\" hypothesis via `∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c`, and \"f is constant\" via the universal form `∀ a b : Ω, f a = f b`. The extra `IsPreconnected Ω` hypothesis is necessary for the informal claim to even be true: without it, one can take Ω to be a disjoint union of two open disks and choose f to be different constants of the same real part on each component, giving a counterexample. Since Shakarchi's exercise is asserted to be a true theorem, connectedness is an implicit premise that any complex analyst reads into \"open set\" in this context, and making it explicit is a faithful reading per the worked example guidance.",
+  "duration_ms": 97230,
+  "cost_usd": 0.27606475
+}

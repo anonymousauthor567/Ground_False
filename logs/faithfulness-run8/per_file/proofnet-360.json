@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The `IsOpen Ω`, `DifferentiableOn ℂ f Ω` (standard Mathlib encoding of \"holomorphic on Ω\"), `∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c` (Im(f) constant on Ω), and `∀ a b : Ω, f a = f b` (f is constant on Ω) all match the informal content directly. The added `IsPreconnected Ω` hypothesis is an implicit premise needed for the statement to be true: without connectedness, one can pick Ω to be two disjoint open disks with f taking different real values on each (Im(f) = 0 is constant, but f is not constant). Under standard convention in complex analysis, \"open set\" in such statements implicitly means a domain (connected open set), so adding this hypothesis surfaces the implicit premise rather than weakening the claim.",
+  "duration_ms": 103326,
+  "cost_usd": 0.33979525
+}

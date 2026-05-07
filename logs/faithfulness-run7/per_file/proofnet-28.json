@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the associativity of addition on ℤ/nℤ. The Lean signature uses `ZMod n` — Mathlib's standard encoding of ℤ/nℤ — and quantifies over all `n : ℕ` and all `x y z : ZMod n`, asserting `(x + y) + z = x + (y + z)`. This is precisely the associativity of addition on residue classes mod n. While `ZMod 0` is defined as ℤ in Mathlib, this corresponds to the standard limiting convention (Z/0Z ≅ Z) and associativity holds there as well, so quantifying over all `n : ℕ` does not deviate from the informal claim. No hypothesis has been added or dropped, and the conclusion matches.",
+  "duration_ms": 49414,
+  "cost_usd": 0.16002149999999998
+}

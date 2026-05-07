@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p31.lean",
+  "stem": "abstract_algebra__p31",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement reverses the divisibility. The informal statement says \"x^n + x - 1 is divisible by x^2 - x + 1\", which means (x^2 - x + 1) ∣ (x^n + x - 1), i.e., Q ∣ P. But the Lean statement writes P ∣ Q (and similarly P ∣ R), asserting that (X^n + X - 1) divides (X^2 - X + 1). These are genuinely different claims: e.g., for n = 5 the informal claim is true while P ∣ Q is false (a degree-5 polynomial cannot divide a degree-2 polynomial), so the two iff's have different truth values on the same n. This makes the Lean formalization neither stronger nor weaker but simply about a different divisibility relation. (Secondary issues also exist: truncated ℕ-subtraction lets i=0 yield n=0 in the RHS, the second conjunct spuriously re-quantifies ∀ n, and hP/hQ/hR are declared as variables but never tie the theorem's explicit n to the variables' auto-bound n — but the reversed divisibility alone suffices for incomparability.)",
+  "duration_ms": 844657,
+  "cost_usd": 0.60788325
+}

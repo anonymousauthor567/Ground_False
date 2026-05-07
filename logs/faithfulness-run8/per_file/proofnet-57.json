@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the informal claim exactly: `[Fintype G]` with `card G = 105` (via `open Fintype`) captures \"group of order 105\"; `P : Sylow 3 G` with `[hP : P.Normal]` captures \"a Sylow 3-subgroup is normal\" (verified against `Mathlib/GroupTheory/Sylow.lean` where `P.Normal` refers to the underlying subgroup being normal); and `∀ a b : G, a*b = b*a` is the standard definition of G being abelian. Though the Lean form universally quantifies over P while the informal says \"a Sylow 3-subgroup\", these are equivalent because Sylow 3-subgroups always exist (3 ∣ 105) and all are conjugate, so one being normal is equivalent to every one being normal. No extra or missing hypotheses beyond what the informal statement asserts.",
+  "duration_ms": 50528,
+  "cost_usd": 0.2331795
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each informal hypothesis and the conclusion precisely. `[Group G] [Fintype G]` with `card G = p*m`, `Nat.Prime p`, and `¬ p ∣ m` match \"|G| = pm, p prime, p ∤ m\". `{H : Subgroup G} [H.Normal]` with `card H = p` matches \"H is a normal subgroup of order p\". The conclusion `Subgroup.Characteristic H` uses Mathlib's standard `Characteristic` structure (invariance under all automorphisms), which is the standard mathematical meaning of \"characteristic subgroup\". The extra `[Fintype H]` instance is redundant (derivable from `Fintype G`) but does not alter the meaning. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 36494,
+  "cost_usd": 0.157779
+}

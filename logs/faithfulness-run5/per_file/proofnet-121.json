@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes $S^1$ as `Metric.sphere (0 : ℂ) 1`, i.e., the unit sphere in $\\mathbb{C}$, which is canonically $S^1$ (since $\\mathbb{C} \\cong \\mathbb{R}^2$ and the unit sphere is the circle). Mathlib provides an `InvolutiveNeg` instance on `sphere (0 : E) r` in a seminormed group (BallSphere.lean) defined as the antipodal map, with `coe_neg_sphere` confirming that negation on the subtype corresponds to negation in the ambient space. Thus `-x` is exactly the antipodal point of $x$. The continuity hypothesis, existential quantifier, and conclusion $f(x) = f(-x)$ all directly correspond to the informal claim. This is a faithful formalization of the Borsuk–Ulam consequence for $S^1$.",
+  "duration_ms": 76495,
+  "cost_usd": 0.22838324999999998
+}

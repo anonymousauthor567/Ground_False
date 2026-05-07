@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: subgroups of a solvable group are solvable. The Lean statement universally quantifies over any type `G` with a `Group` structure, takes an arbitrary subgroup `H : Subgroup G`, assumes `IsSolvable G`, and concludes `IsSolvable H`. This matches the informal claim exactly. Mathlib's `IsSolvable` is the standard notion of group solvability (defined in `Mathlib/GroupTheory/Solvable.lean`), and `Subgroup G` is the standard type of subgroups. No hypotheses are added or dropped, and the conclusion is precisely what the informal statement asks. Indeed, Mathlib already contains this exact result as `subgroup_solvable_of_solvable`.",
+  "duration_ms": 36058,
+  "cost_usd": 0.10680575
+}

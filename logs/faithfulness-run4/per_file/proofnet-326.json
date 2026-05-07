@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures Putnam 1998 B6. The integer coefficients a, b, c : ℤ match the informal \"for any integers a, b, c\"; the positive integer witness is encoded as n : ℤ with n > 0; the polynomial n^3 + a*n^2 + b*n + c matches literally; and \"√(…) is not an integer\" is rendered as ¬∃ m : ℤ, Real.sqrt(…) = m. Under Mathlib's convention Real.sqrt(x) = 0 for x ≤ 0, this condition holds iff f(n) > 0 and f(n) is not a perfect square, which matches the natural mathematical reading of the informal statement (since √f(n) being compared to an integer implicitly requires f(n) ≥ 0). This is the standard faithful formalization of this problem.",
+  "duration_ms": 383208,
+  "cost_usd": 1.0569325
+}

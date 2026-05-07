@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p63.lean",
+  "stem": "calculus__p63",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement claims ∫ cos(5x) dx = (1/5) sin(5x) + C, i.e., if F'(x) = cos(5x) then F(x) = (1/5) sin(5x) + C. However, the Lean hypothesis `h_deriv` states `deriv f x = (1/5) * Real.sin (5 * x)` — using sin(5x) instead of cos(5x) as the integrand. A correct formalization would require `deriv f x = Real.cos (5 * x)`. As written, the Lean statement is actually mathematically false: the function f(x) = -(1/25) cos(5x) satisfies f'(x) = (1/5) sin(5x) but is not of the form (1/5) sin(5x) + C for any constant C. The Lean statement makes a substantively different (and false) claim from the informal (true) statement, changing the integrand/derivative. This is neither weaker nor stronger — it is a different claim entirely.",
+  "duration_ms": 188362,
+  "cost_usd": 0.46055825000000006
+}

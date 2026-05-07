@@ -1,0 +1,8 @@
+{
+  "file": "2.lean",
+  "stem": "2",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires φ and ψ to be **isomorphisms** G → G'. The Lean formalization uses `f1 f2 : G →* G'`, which are ordinary `MonoidHom` (group homomorphisms), not isomorphisms. The hypothesis `h : ∀ g : G, ∃ n, g = a ^ n` correctly captures \"G is cyclic with generator a\", and `heq : f1 a = f2 a` captures φ(a)=ψ(a). However, by stating the conclusion for arbitrary group homomorphisms rather than isomorphisms, the Lean version drops an explicit hypothesis of the informal statement. Logically, the Lean statement implies the informal statement (isomorphisms are a subset of homomorphisms), but not vice versa — the informal claim, as stated, only asserts something about isomorphisms. Per the rubric, \"dropping a hypothesis that the informal statement explicitly requires\" is the canonical case of \"stronger\".",
+  "duration_ms": 944586,
+  "cost_usd": 2.4719862499999996
+}

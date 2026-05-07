@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_a4.lean",
+  "stem": "putnam_2008_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem encodes the informal problem precisely. The hypothesis `hf` gives the functional equation `f(x) = x if x ≤ e, else x*f(log x)`, which uniquely determines f on ℝ by well-founded recursion on iterated logarithms (matching the informal piecewise definition). The sum `∑ n ∈ Finset.range N, 1/(f (n+1))` ranges over n+1 = 1,...,N, correctly representing the partial sums of $\\sum_{n=1}^\\infty 1/f(n)$. The existence of a real limit `∃ r, Tendsto ... (𝓝 r)` is the standard encoding of convergence of a series in ℝ. The iff linking convergence to `putnam_2008_a4_solution : Prop` correctly formulates the \"does it converge?\" question as a Prop-valued answer. No extra or missing hypotheses.",
+  "duration_ms": 128357,
+  "cost_usd": 0.3958005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for an element x in a group G, x and x⁻¹ have the same order. The Lean signature takes an arbitrary group G (via `[Group G]`), an arbitrary element x : G, and concludes `orderOf x = orderOf x⁻¹`. The `orderOf` function in Mathlib (defined in `Mathlib/GroupTheory/OrderOfElement.lean`) is precisely the order of a group element (returning 0 for infinite order), so the equality captures exactly the claim that x and x⁻¹ share the same order (including the infinite-order case, where both would be 0). There are no extra or missing hypotheses, and the quantification over arbitrary G and x matches the informal \"For x an element in G\". This is a strictly faithful formalization.",
+  "duration_ms": 13316,
+  "cost_usd": 0.0660825
+}

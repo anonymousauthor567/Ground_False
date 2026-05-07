@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-13.lean",
+  "stem": "proofnet-13",
+  "informal": "Let $p$ be a prime integer. Prove that the polynomial $x^n-p$ is irreducible in $\\mathbb{Q}[x]$.",
+  "lean": "\ntheorem Artin_exercise_11_4_8 (p : ℕ) (hp : Prime p) (n : ℕ) (hn : n > 0) :\n  Irreducible (X ^ n - (p : Polynomial ℚ) : Polynomial ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"p prime, n ≥ 1 ⟹ X^n − p is irreducible in ℚ[X]\", which matches the informal claim. Using `p : ℕ` with `Prime p` (Mathlib's `Prime` on ℕ coincides with the usual notion of prime, equivalent to \"prime integer\" after coercion to ℚ). The added hypothesis `n > 0` is the natural implicit assumption from the informal statement — for n = 0 the polynomial becomes the constant 1 − p which is not irreducible, so the informal statement implicitly requires n ≥ 1. The polynomial `X^n − (p : ℚ)` in `Polynomial ℚ` faithfully represents x^n − p in ℚ[x], and `Irreducible` is the correct Mathlib predicate. No hypotheses are silently added or dropped, and the conclusion matches.",
+  "duration_ms": 12552,
+  "cost_usd": 0.05594525
+}

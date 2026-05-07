@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `X : ℕ → Type*` to encode a countable product, which is the standard Mathlib convention for \"countable family\" (ℕ being the canonical countably infinite index type). Each factor's \"countable dense subset\" hypothesis is encoded as `∃ s : Set (X i), Countable s ∧ Dense s`, where `Countable s` (via the `CoeSort` on `Set`) is definitionally equal to `s.Countable` by `Set.countable_coe_iff`. The conclusion `∃ s : Set (Π i, X i), Countable s ∧ Dense s` applies the same encoding to the product space (with its standard Pi topology). The finite-product case is a trivial consequence of the ℕ case, and any countably infinite index is in bijection with ℕ, so the ℕ-indexed formulation faithfully captures the mathematical content of \"countable product\". The types, hypotheses, and conclusion all correctly match the informal claim.",
+  "duration_ms": 225118,
+  "cost_usd": 0.76861625
+}

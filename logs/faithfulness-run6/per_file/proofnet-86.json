@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the Wolstenholme-type statement. Hypotheses `hp : Nat.Prime p` and `hp1 : Odd p` match \"odd prime p\". The sum `∑ i ∈ Finset.range (p-1), 1/(i+1)` over `{0,...,p-2}` yields exactly `1 + 1/2 + ... + 1/(p-1)`. The condition `(a / b : ℚ) = S` with `a, b : ℤ` (interpreted as `(↑a)/(↑b)` in ℚ) quantified over all integer pairs captures \"let S = a/b with a, b integers\". The conclusion `↑p ∣ a` matches \"p ∣ a\". The universal quantification correctly handles non-reduced representations: if a/b = S = n/d (lowest terms), then p | n implies p | a. The b = 0 case is vacuous since S > 0 for odd prime p ≥ 3, and a = 0 trivially satisfies p ∣ 0. No hypotheses or conclusions are altered.",
+  "duration_ms": 140958,
+  "cost_usd": 0.51340325
+}

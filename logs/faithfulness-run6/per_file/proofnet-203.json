@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `(S*T).Eigenvalues = (T*S).Eigenvalues` where `Eigenvalues f := { μ : R // f.HasEigenvalue μ }`. Type equality of these subtypes is equivalent (via propext/funext) to `∀ μ, (S*T).HasEigenvalue μ ↔ (T*S).HasEigenvalue μ`, which is precisely \"ST and TS have the same eigenvalues.\" The `[FiniteDimensional F V]` hypothesis is an implicit premise required for truth: the claim fails in infinite dimensions (e.g., left/right shift operators give ST = id but 0 is an eigenvalue of TS), and matches Axler's convention that $\\mathcal{L}(V)$ is the set of operators on a finite-dimensional V. Per the system prompt's guidance, surfacing an implicit premise needed for truth is faithful, not weakening. The universal quantification over fields F and finite-dimensional V over F correctly captures the intended generality.",
+  "duration_ms": 315045,
+  "cost_usd": 0.9813740000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p8.lean",
+  "stem": "number_theory__p8",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely matches the informal claim. The informal statement quantifies over natural numbers x, y, z with the hypothesis xy = z²+1 and asserts the existence of integers a, b, c, d satisfying the three equations. The Lean signature has x, y, z : ℕ, hypothesis x*y = z^2+1 in ℕ, and asserts ∃ (a b c d : ℤ) making the three equations hold. The equations `x = a^2 + b^2` etc. automatically coerce x, y, z from ℕ to ℤ (RHS is in ℤ), which is the standard and correct encoding. Since ℕ→ℤ is injective, these coerced equalities are equivalent to the informal equalities. No hidden hypotheses are added or dropped, and the quantifier structure (∀ x y z, ∃ a b c d) matches exactly.",
+  "duration_ms": 45742,
+  "cost_usd": 0.139231
+}

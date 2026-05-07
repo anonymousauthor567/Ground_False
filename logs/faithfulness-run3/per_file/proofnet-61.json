@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. `[Fintype G]` with `[Group G]` gives a finite group. `MonoidAlgebra R G` is Mathlib's group ring R[G], and `MonoidAlgebra.of R G g = single g 1` is the embedding of group element g as a basis element with coefficient 1, so `∑ g : G, MonoidAlgebra.of R G g` is exactly N = g₁ + ... + gₙ. Membership in `center (MonoidAlgebra R G)` (resolving via `Set.center` since MonoidAlgebra is a Mul, not a Group) expresses \"is central in the ring,\" matching \"is in the center of the group ring.\" The use of `[Ring R]` rather than `[CommRing R]` is not a faithfulness issue: the statement is true for any ring R since the coefficient 1_R commutes with all scalars and the bijections h↦gh, h↦hg make aN=Na hold. All hypotheses, quantifiers, types, and the conclusion match.",
+  "duration_ms": 545463,
+  "cost_usd": 1.1267820000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes every component of the informal claim. `[CommRing R]` matches \"commutative ring\"; `hR : (0 : R) ≠ 1` is logically identical to \"1 ≠ 0\"; `IsNilpotent a` in Mathlib is `∃ n, a^n = 0`, exactly the standard definition of nilpotent; the `(b : R)` binder captures the universal \"for all b ∈ R\"; and the goal `IsUnit (1 - a*b)` states exactly that `1 - ab` is a unit. No hypotheses are added or dropped, no types are swapped, and the quantifier structure matches. Hence the formalization is strictly faithful.",
+  "duration_ms": 86672,
+  "cost_usd": 0.21194225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures all parts of the informal statement. M is a MetricSpace, A and B are subsets with IsCompact, Disjoint, and nonempty (encoded as A ≠ ∅, B ≠ ∅, which is classically equivalent to Set.Nonempty). The conclusion asserts the existence of a₀ ∈ A and b₀ ∈ B such that for all a ∈ A and b ∈ B, dist a₀ b₀ ≤ dist a b, which is exactly the informal claim. The types of a₀ and b₀ are correctly inferred as M from the membership constraints. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 22577,
+  "cost_usd": 0.10378874999999999
+}

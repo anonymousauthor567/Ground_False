@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem states that for any `Group G` and any two subgroups `H K : Subgroup G` that are both `Normal`, the subgroup `H ⊓ K` is also `Normal`. In Mathlib, `Subgroup.Normal` is the standard definition (closure under conjugation by any element of `G`), and `H ⊓ K` is the subgroup intersection (verified by `Subgroup.mem_inf : x ∈ H ⊓ K ↔ x ∈ H ∧ x ∈ K` and `Subgroup.coe_inf`). The universal quantification over `G, H, K` and the hypotheses that `H` and `K` are normal exactly match the informal statement; the conclusion that the intersection is normal also matches exactly. There are no extra hypotheses, no omitted conditions, and no type mismatches.",
+  "duration_ms": 31465,
+  "cost_usd": 0.1749125
+}

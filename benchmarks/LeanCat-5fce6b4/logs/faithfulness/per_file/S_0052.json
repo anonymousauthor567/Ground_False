@@ -1,0 +1,8 @@
+{
+  "file": "S_0052.lean",
+  "stem": "S_0052",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `Function.Pullback f g` is defined in Mathlib as `{p : X × Y // f p.1 = g p.2}`, which is literally the set `{(x,y) ∈ X × Y | f(x) = g(y)}` from the informal statement. The projections `Function.Pullback.fst` and `.snd` are the obvious first/second component maps into X and Y respectively. `IsPullback (C := Type u) fst snd f g` asserts that this square (with legs fst, snd and cospan f, g) is a pullback in the category Type u, which is exactly the informal claim that the given set is the pullback X ×_Z Y. The universe restriction to a single Type u is standard and does not introduce a meaningful weakness. No hypotheses or conclusions are added or dropped.",
+  "duration_ms": 146635,
+  "cost_usd": 0.424988
+}

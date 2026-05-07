@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a direct, literal translation of the informal claim. \"Topological space X\" maps to `X : Type*` with `[TopologicalSpace X]`; \"subset A of X\" maps to `A : Set X`; the hypothesis \"for each x ∈ A there is an open U containing x with U ⊂ A\" maps precisely to `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A`; and \"A is open in X\" maps to `IsOpen A` (the standard Mathlib predicate from `Mathlib/Topology/Defs/Basic.lean`). The quantifier structure, hypotheses, and conclusion all match exactly, with no extra assumptions (e.g., no finiteness or nonemptiness) and no omissions.",
+  "duration_ms": 28807,
+  "cost_usd": 0.11574925
+}

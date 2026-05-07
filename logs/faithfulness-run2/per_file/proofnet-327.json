@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-327.lean",
+  "stem": "proofnet-327",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. `ContDiff ℝ 3 f` encodes that $f$ has a continuous third derivative. The hypothesis `∀ n ≤ 3, ∀ x, iteratedDeriv n f x > 0` covers $n = 0, 1, 2, 3$, which correspond to $f, f', f'', f'''$ all being positive (since `iteratedDeriv 0 f = f` and `iteratedDeriv 1 f = deriv f`, etc.). The inequality `iteratedDeriv 3 f x ≤ f x` is exactly $f''' \\leq f$, and the conclusion `deriv f x < 2 * f x` is exactly $f'(x) < 2f(x)$. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 14891,
+  "cost_usd": 0.080373
+}

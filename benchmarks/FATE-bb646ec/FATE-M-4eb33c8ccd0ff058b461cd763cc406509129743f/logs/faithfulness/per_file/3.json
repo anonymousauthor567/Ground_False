@@ -1,0 +1,8 @@
+{
+  "file": "3.lean",
+  "stem": "3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes arbitrary groups G, H, K and two group homomorphisms f : G →* H and g : H →* K, assumes each is surjective as a function, and concludes that g.comp f is surjective. Since MonoidHom.comp (used via g.comp f) automatically produces a group homomorphism G →* K, asserting Function.Surjective on it is equivalent to asserting that the composition \"is a surjective homomorphism\" as in the informal statement. Hypotheses and conclusion correspond exactly to the informal claim, with no extra or missing assumptions. Hence the formalization is strictly faithful.",
+  "duration_ms": 52785,
+  "cost_usd": 0.12875975
+}

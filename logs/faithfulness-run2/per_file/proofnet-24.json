@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "stronger",
+  "reasoning": "Axler's Exercise 6.16 is stated in the book's context of finite-dimensional inner product spaces, where every subspace is automatically closed and the ambient space is automatically complete. The Lean statement drops the finite-dimensionality assumption and replaces it with the weaker hypotheses `CompleteSpace V` and `IsClosed U`, both of which are automatic in the finite-dimensional setting. Thus the Lean theorem proves the result in greater generality (any Hilbert space with a closed subspace), which is a proper generalization — indeed, in infinite dimensions the informal claim fails without closure (a dense proper subspace has trivial orthogonal complement). So Lean ⟹ Axler but not vice versa, making the Lean statement strictly stronger than the informal one.",
+  "duration_ms": 63797,
+  "cost_usd": 0.20458875000000004
+}

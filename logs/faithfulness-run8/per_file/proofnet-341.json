@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly Rudin's exercise 2.29. The use of EReal endpoints for the \"segments\" is essential because the statement must allow unbounded open intervals like (-∞, b), (a, +∞), and (-∞, +∞) — otherwise the theorem is false (e.g., ℝ itself is open but is not a disjoint union of bounded open intervals). This surfaces an implicit premise needed for the statement's truth, not a scope-narrowing hypothesis. The indexing by ℕ with possible empty \"padding\" sets (which are valid segments {x : a < x < b} when a ≥ b under Rudin's literal definition) correctly represents \"at most countable\". The disjointness (`f n ∩ f m = ∅` for `n ≠ m`) and union (`U = ⋃ n, f n`) conditions match the informal statement directly. The condition `∀ n, f n ⊆ U` is redundant but not problematic. Overall, this is a standard, faithful encoding of the classical decomposition theorem for open subsets of ℝ.",
+  "duration_ms": 241103,
+  "cost_usd": 0.7278509999999999
+}

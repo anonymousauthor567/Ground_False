@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_a5.lean",
+  "stem": "putnam_1997_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the Putnam 1997 A5 problem. The type `Fin n → ℕ+` correctly represents ordered n-tuples of positive integers. The condition `∑ i : Fin n, (1 : ℝ)/(t i) = 1` correctly encodes the sum of reciprocals equaling 1 (coercing ℕ+ values to ℝ). `Set.ncard` gives the cardinality of the set, and `Odd (N 10).ncard ↔ True` asserts that $N_{10}$ is odd, which is the expected determination for this problem. While `ncard` returns 0 for infinite sets, $N_{10}$ is indeed finite, so this doesn't cause an issue. The Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 74212,
+  "cost_usd": 0.21961275000000002
+}

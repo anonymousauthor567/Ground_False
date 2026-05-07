@@ -1,0 +1,8 @@
+{
+  "file": "S_0032.lean",
+  "stem": "S_0032",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes \"Set has precisely three full, isomorphism-closed, reflective subcategories.\" Encoding subcategories as predicates `Type u → Prop` via `ObjectProperty.ι P` automatically makes them full (since `ObjectProperty.ι` is fully faithful by construction in Mathlib). `IsIsoClosed` captures closure under categorical isomorphism in the category `Type u` (which is the standard Set category). `IsReflectiveSubcategory P := Nonempty (Reflective (ObjectProperty.ι P))` correctly asserts existence of a left adjoint to the inclusion, since Mathlib's `Reflective` class requires fully faithful + left adjoint and the inclusion is automatically fully faithful. The \"precisely three\" is encoded correctly: three witnesses that are pairwise non-equivalent (distinctness) plus universality (every iso-closed reflective Q equals one of them). `SubcategoryEquiv` via pointwise ↔ is the correct notion of two full subcategories having the same object class. No hypotheses are added or dropped beyond the informal claim.",
+  "duration_ms": 539485,
+  "cost_usd": 1.6042435
+}

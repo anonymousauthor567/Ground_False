@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement on all components: p.Prime corresponds to \"p is prime\", α > 0 corresponds to \"α ∈ ℤ⁺\", card G = p^α corresponds to \"order p^α\", and the universally quantified statement ∀ H : Subgroup G, H.index = p → H.Normal faithfully encodes \"every subgroup of index p is normal\". The Fintype G instance is justified by the finite order condition (G being a group of order p^α is inherently finite). The quantifier structure, types (ℕ for α is fine since it's positive), and conclusion all correctly mirror the mathematical claim without adding or dropping hypotheses.",
+  "duration_ms": 14180,
+  "cost_usd": 0.05786374999999999
+}

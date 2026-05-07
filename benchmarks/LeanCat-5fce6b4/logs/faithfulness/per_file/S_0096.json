@@ -1,0 +1,8 @@
+{
+  "file": "S_0096.lean",
+  "stem": "S_0096",
+  "verdict": "weaker",
+  "reasoning": "The informal statement describes the classical adjunction $-\\otimes_{\\mathbb{Z}} R : \\mathrm{Ab} \\to \\mathrm{Ab}_R$ with no restriction on R, and specifically concludes that T-algebras are *right* R-modules — a distinction that matters for non-commutative R. The Lean formalization adds `[CommRing R]` (required by Mathlib's `extendScalars` / `extendRestrictScalarsAdj`, which are defined only for commutative rings in `ChangeOfRings.lean:336, 817`) and uses `ModuleCat R`, which is the category of *left* R-modules. For commutative R, left = right modules, so the Lean statement is provable and correct — but only for the commutative case. The informal theorem covers all rings R (including non-commutative), where the result is a genuine, non-trivial statement about right modules. Thus the Lean signature only proves a strict special case of the informal claim, making it strictly weaker.",
+  "duration_ms": 1578025,
+  "cost_usd": 3.1492774999999997
+}

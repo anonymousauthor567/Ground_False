@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over a ring R and an element u with `IsUnit u`, concluding `IsUnit (-u)`. This is exactly what the informal statement asserts: in any ring, the negation of a unit is a unit. The typeclass `Ring` matches Dummit & Foote's convention of ring with 1 (possibly non-commutative), and `IsUnit` is Mathlib's standard two-sided unit predicate. Mathlib even has this as `IsUnit.neg` in `Mathlib/Algebra/Ring/Units.lean`. No hypotheses are added or dropped, no quantifier structure is altered, and the conclusion matches the informal claim directly.",
+  "duration_ms": 45590,
+  "cost_usd": 0.16748025
+}

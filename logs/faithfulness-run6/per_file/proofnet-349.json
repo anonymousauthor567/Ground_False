@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement closely. Both α and β are metric spaces, f and g are continuous maps α → β, s represents the dense subset P (Mathlib's `Dense s := ∀ x, x ∈ closure s` captures the standard notion of a dense subset), and h₄ asserts f x = g x on s (equivalent to g(p) = f(p) on P by symmetry of equality). The conclusion `f = g` is equivalent by function extensionality to \"f(x) = g(x) for all x ∈ X\", which is exactly the informal conclusion. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 28456,
+  "cost_usd": 0.11806049999999998
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "informal": "Suppose $K$ and $F$ are disjoint sets in a metric space $X, K$ is compact, $F$ is closed. Prove that there exists $\\delta>0$ such that $d(p, q)>\\delta$ if $p \\in K, q \\in F$.",
+  "lean": "\ntheorem Rudin_exercise_4_21a {X : Type*} [MetricSpace X]\n  (K F : Set X) (hK : IsCompact K) (hF : IsClosed F) (hKF : Disjoint K F) :\n  ∃ (δ : ℝ), δ > 0 ∧ ∀ (p q : X), p ∈ K → q ∈ F → dist p q > δ",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the hypotheses of the informal statement: X is a metric space, K and F are subsets, K is compact (IsCompact K), F is closed (IsClosed F), and K and F are disjoint (Disjoint K F). The conclusion asserts the existence of δ > 0 such that for all p ∈ K and q ∈ F, dist p q > δ, which is exactly the informal claim. The quantifier structure (∃δ > 0, ∀ p q, ...) matches \"there exists δ > 0 such that d(p,q) > δ if p ∈ K, q ∈ F.\" No extra or missing assumptions.",
+  "duration_ms": 6858,
+  "cost_usd": 0.04576125
+}

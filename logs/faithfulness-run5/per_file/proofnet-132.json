@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `LocallyCompactSpace X`, `T2Space X` as hypotheses and concludes `RegularSpace X`, which matches \"every locally compact Hausdorff space is regular.\" Mathlib's `RegularSpace` is the separation axiom for points and closed sets; Munkres's \"regular\" further requires T1, but T1 follows from the `T2Space` hypothesis, so the two readings agree in context. Mathlib's `LocallyCompactSpace` is stronger than `WeaklyLocallyCompactSpace` (Munkres's definition) in general, but the two coincide in Hausdorff (R1) spaces — Mathlib even provides the instance `WeaklyLocallyCompactSpace.locallyCompactSpace` under R1. Thus the class of Hausdorff spaces satisfying either notion is the same, and the theorems are logically equivalent. The use of explicit hypothesis names instead of typeclass instances is a stylistic choice with no semantic impact.",
+  "duration_ms": 184479,
+  "cost_usd": 0.6241982499999998
+}

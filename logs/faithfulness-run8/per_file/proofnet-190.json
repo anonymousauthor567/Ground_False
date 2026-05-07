@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely mirrors the informal statement. `[Ring R]` matches \"a ring R\"; `{x : R}` with `hx : IsNilpotent x` matches \"x is nilpotent\" since Mathlib defines `IsNilpotent x := ∃ n : ℕ, x^n = 0`, which is exactly \"some power of x is zero\". The conclusion `IsUnit (1 + x)` matches \"1+x is a unit in R\" using Mathlib's standard `IsUnit` predicate. No extra hypotheses are added or required ones dropped, and the quantifier structure (universal over R and x) is correctly captured by the implicit binders.",
+  "duration_ms": 42610,
+  "cost_usd": 0.154191
+}

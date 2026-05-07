@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_b2.lean",
+  "stem": "putnam_1962_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature asserts ∃ f : ℝ → Set ℕ+, ∀ a b : ℝ, a < b → f a ⊂ f b. In Mathlib, `⊂` on `Set α` is `HasSSubset` defined as `<`, i.e., proper (strict) subset, matching the informal `⊂` (which must mean proper subset, else any constant function would satisfy it). The quantifier structure `∃ f, ∀ a b, a < b → ...` matches the informal \"exists a function f such that f(a) ⊂ f(b) whenever a < b\". The only deviation is `ℕ+` vs `ℕ`, but since ℕ and ℕ+ are in bijection (both countably infinite), the existence of a strictly increasing ℝ-indexed chain of subsets is logically equivalent in either case — one can transport any such chain through the bijection. Hence the two statements have the same truth value, making the Lean formalization faithful. The note at the top explicitly records the (accepted) modification from \"exhibit\" to \"existential\", which matches the Lean.",
+  "duration_ms": 113671,
+  "cost_usd": 0.34651075000000003
+}

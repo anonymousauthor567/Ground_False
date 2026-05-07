@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `‖z‖ = 1` correctly encodes \"point on the unit circle\". The partial sum `∑ i ∈ range n, z^(i+1) / (i+1)^2` equals `∑_{k=1}^n z^k/k^2` via the substitution `k = i+1`, which matches the standard reading of $\\sum z^n/n^2$ (starting at n=1, since 1/0² is undefined). The conclusion `∃ y, Tendsto s atTop (𝓝 y)` is the standard way to say the partial sums converge. The `(s : ℕ → ℂ)` parameter with `h : s = ...` is an unusual encoding but logically equivalent to directly asserting convergence of the specified partial sum expression. No hypotheses are silently added or dropped, and the universal quantification over z on the unit circle is preserved.",
+  "duration_ms": 63565,
+  "cost_usd": 0.18722424999999998
+}

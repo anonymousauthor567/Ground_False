@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-296.lean",
+  "stem": "proofnet-296",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. \"Ordered set\" in Munkres means a totally ordered set, which corresponds to `LinearOrder Y`. The \"order topology\" assumption matches `OrderTopology Y` (Mathlib's class, defined via the subbase of open intervals, coincides with Munkres' definition when combined with `LinearOrder`). The continuity hypotheses `hf : Continuous f` and `hg : Continuous g` match \"f, g : X → Y are continuous\", and the conclusion `IsClosed {x | f x ≤ g x}` matches the claim that {x | f(x) ≤ g(x)} is closed. No extra hypotheses are added on X beyond the topological space structure, and no hypotheses are dropped. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 25623,
+  "cost_usd": 0.12405875
+}

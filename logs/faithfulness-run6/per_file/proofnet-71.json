@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a group of order 5 must be abelian. The Lean signature takes a group G with `Fintype G` and hypothesis `card G = 5`, which encodes \"group of order 5\" correctly (using `Fintype.card` opened via `open Fintype`). The conclusion `∀ a b : G, a*b = b*a` is precisely the definition of being abelian/commutative. There is no extra hypothesis and no weakening; this matches the informal claim exactly.",
+  "duration_ms": 11424,
+  "cost_usd": 0.03164
+}

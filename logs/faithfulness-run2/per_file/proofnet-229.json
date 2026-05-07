@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that any quotient of a solvable group is solvable. The Lean statement takes an arbitrary group G with `[IsSolvable G]`, an arbitrary normal subgroup H (required for the quotient to be a group), and concludes `IsSolvable (G ⧸ H)`. The universal quantification over G and H is via `{G : Type*}` and `(H : Subgroup G)`, with the normality assumption being exactly the minimum needed to form the quotient group. No extra hypotheses (like finiteness or commutativity) are imposed, and the conclusion matches the informal claim. This is a logically equivalent formalization.",
+  "duration_ms": 29265,
+  "cost_usd": 0.033302500000000006
+}

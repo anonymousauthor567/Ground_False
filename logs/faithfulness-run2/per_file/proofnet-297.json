@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem encodes the uniqueness of a continuous extension to the closure. Hypotheses match: Y is Hausdorff (T2Space), f is continuous on A (ContinuousOn f A), and g is a continuous extension (ContinuousOn g (closure A) with g = f on A). The `f : X → Y` / `g : X → Y` with `ContinuousOn ... A` / `ContinuousOn ... (closure A)` encoding is the standard Mathlib idiom for partial functions. The conclusion ∀ g', (continuous extension) → g = g' on closure A is logically equivalent to \"g is uniquely determined by f\" (fixing one extension and comparing to any other is the same as saying any two extensions agree). Equality is asserted on closure A (not X), which matches the informal claim about g : Ā → Y.",
+  "duration_ms": 28755,
+  "cost_usd": 0.11009849999999999
+}

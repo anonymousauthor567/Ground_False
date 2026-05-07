@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures all parts of the informal statement. `card (T.Eigenvalues) = finrank F V` encodes \"T has dim V distinct eigenvalues\": `T.Eigenvalues` is the subtype of scalars satisfying `HasEigenvalue`, which comes with a Fintype instance, and its cardinality equals the number of distinct eigenvalues. The hypothesis `∀ v, (∃ c, v ∈ eigenspace S c) ↔ (∃ c, v ∈ eigenspace T c)` expresses \"S and T have the same eigenvectors\" — for nonzero v this says exactly that v is an eigenvector of S iff of T (with possibly different eigenvalues), and for v = 0 both sides are trivially true (0 is in every eigenspace), so the iff imposes the right condition. The conclusion `S * T = T * S` in `End F V` is composition, matching ST = TS. Generalizing to an arbitrary field is fine since the result holds over any field by the standard diagonalization argument.",
+  "duration_ms": 209569,
+  "cost_usd": 0.6155515
+}

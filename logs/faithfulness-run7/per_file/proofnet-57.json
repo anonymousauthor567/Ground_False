@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `[Fintype G]` with `card G = 105` (using `open Fintype` so `card` resolves to `Fintype.card`) correctly encodes \"group of order 105\". `P : Sylow 3 G` with `[P.Normal]` corresponds to \"a Sylow 3-subgroup is normal\" (and since all Sylow p-subgroups are conjugate, \"a normal Sylow 3-subgroup exists\" is equivalent to \"every Sylow 3-subgroup is normal\", which matches the universal quantification over P in the Lean signature). The conclusion `∀ a b : G, a*b = b*a` is precisely the standard definition of G being abelian. No hypotheses are added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 89435,
+  "cost_usd": 0.34488025000000005
+}

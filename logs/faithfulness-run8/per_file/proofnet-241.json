@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim using Mathlib's standard `Sylow p G` API. The hypotheses match: `P : Sylow p G` with `P.Normal` encodes \"normal Sylow p-subgroup of G\", `H : Subgroup G` is any subgroup, and `Fintype G`/`Fintype H` encode the standard finiteness for Sylow theory. The conclusion `(∀ R : Sylow p H, R.toSubgroup = (H ⊓ P.toSubgroup).subgroupOf H) ∧ Nonempty (Sylow p H)` properly encodes \"P ∩ H is the unique Sylow p-subgroup of H\": `(H ⊓ P).subgroupOf H` is Mathlib's canonical way to view P ∩ H as a subgroup of H, the universal quantifier expresses uniqueness, and `Nonempty` gives existence. Mathlib's `Sylow p G` is defined as a maximal p-subgroup for any p (not requiring primality), so the formalization is internally consistent with standard Mathlib usage.",
+  "duration_ms": 1123556,
+  "cost_usd": 3.5301330000000006
+}

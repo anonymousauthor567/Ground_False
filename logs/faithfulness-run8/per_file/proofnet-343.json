@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes Rudin's inequality limsup(aₙ+bₙ) ≤ limsup aₙ + limsup bₙ with the required side condition. Setting A = limsup aₙ, B = limsup bₙ in EReal (⊤ = +∞, ⊥ = −∞), the forbidden \"∞−∞\" cases are (A=⊤,B=⊥) and (A=⊥,B=⊤). Hypothesis h1 (A ≠ ⊥ ∨ B ≠ ⊤) fails exactly when A=⊥ ∧ B=⊤, and h2 (A ≠ ⊤ ∨ B ≠ ⊥) fails exactly when A=⊤ ∧ B=⊥, so h1 ∧ h2 is exactly \"not of the form ∞−∞\". The conclusion with the EReal coercions faithfully states the desired inequality, and in Mathlib's convention (⊥ + ⊤ = ⊥), these hypotheses are precisely what's needed to prevent a counterexample like aₙ=n, bₙ=−n. Sequences are over ℕ (standard), and the quantification over \"any two real sequences\" is captured by the free variables a, b : ℕ → ℝ.",
+  "duration_ms": 161001,
+  "cost_usd": 0.5430172499999999
+}

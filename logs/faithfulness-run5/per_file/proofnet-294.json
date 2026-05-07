@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-294.lean",
+  "stem": "proofnet-294",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for Y ⊆ X and A ⊆ Y, the subspace topology A inherits from Y equals the subspace topology A inherits (directly) from X. In the Lean formalization, `Y : Set X` is automatically given the subspace topology of X, and `A : Set Y` is automatically given the subspace topology of Y (i.e., A's topology as a subspace of Y). The map `fun a : A => (a : X)` is the composite inclusion A → Y → X. `IsInducing` (defined in Mathlib.Topology.Defs.Induced as `tX = tY.induced f`) asserts that the topology on A equals the topology induced from X via this map. The topology induced on A from X via A → Y → X is exactly the subspace topology A would inherit directly as a subset of X. Thus the Lean statement says \"A's subspace topology from Y = A's subspace topology as a subset of X\", which is precisely the informal claim.",
+  "duration_ms": 85907,
+  "cost_usd": 0.306918
+}

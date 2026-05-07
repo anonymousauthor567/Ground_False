@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-240.lean",
+  "stem": "proofnet-240",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any group G with |G| = 462 is not simple. The Lean statement assumes G is a type with `Fintype` and `Group` instances, with `card G = 462`, and concludes `¬ IsSimpleGroup G`. Since |G| = 462 inherently implies G is finite, the `Fintype` assumption is not an extra restriction — it is the natural formalization of \"G has order 462\". `IsSimpleGroup` in Mathlib matches the standard notion of a nontrivial group with no proper nontrivial normal subgroups. The universal quantification over G is captured correctly via the implicit `{G : Type*}`. This is a faithful formalization.",
+  "duration_ms": 12488,
+  "cost_usd": 0.0385885
+}

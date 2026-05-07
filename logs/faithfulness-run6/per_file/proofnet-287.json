@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal iff correctly: under the hypothesis `p ≡ 1 [MOD 4]`, `x^4 ≡ 2 [MOD p]` is solvable iff `p = A^2 + 64*B^2`. The explicit `hp : p.Prime` hypothesis is an implicit premise in the informal text — without primality the statement is false (e.g., p=9 ≡ 1 mod 4 and 9 = 3^2 + 64·0^2, but x^4 ≡ 2 mod 9 is unsolvable). This is a faithful surfacing of an implicit premise, not a weakening. The existentials are over ℕ in Lean, but for both `∃ x, x^4 ≡ 2 [MOD p]` and `∃ A B, p = A^2 + 64*B^2`, the ℕ and ℤ versions are equivalent (via absolute values and mod p reduction). The quantifier structure and all arithmetic content match exactly.",
+  "duration_ms": 109222,
+  "cost_usd": 0.6706885
+}

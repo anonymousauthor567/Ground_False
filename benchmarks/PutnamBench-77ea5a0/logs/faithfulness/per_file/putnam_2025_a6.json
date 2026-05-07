@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a6.lean",
+  "stem": "putnam_2025_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `b : ℕ → ℤ` matches the informal recurrence: `b 0 = 0` and `b (n+1) = 2*(b n)^2 + b n + 1`. The hypothesis `1 ≤ k` precisely encodes \"$k \\ge 1$\". The conclusion is a conjunction: `2^(2k+2) ∣ (b(2^(k+1)) - 2*b(2^k))` and `¬(2^(2k+3) ∣ ...)`, which matches \"divisible by $2^{2k+2}$ but not by $2^{2k+3}$\". The indices $2^{k+1}$ and $2^k$ in $b$ are correctly translated, divisibility is expressed via the standard `∣` over ℤ, and the powers of 2 are explicitly cast to ℤ. No hypotheses are added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 82110,
+  "cost_usd": 0.18113424999999997
+}

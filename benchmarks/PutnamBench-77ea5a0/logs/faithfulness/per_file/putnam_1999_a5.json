@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a5.lean",
+  "stem": "putnam_1999_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. `∃ C : ℝ, ∀ p : Polynomial ℝ, p.degree = 1999 → ...` correctly captures \"there exists a constant C such that for any polynomial p of degree 1999\". Since `p.degree : WithBot ℕ`, the condition `p.degree = 1999` means degree is exactly 1999 (excluding the zero polynomial whose degree is ⊥), matching the standard competition reading. On ℝ, `‖·‖` equals absolute value, so `‖p.eval 0‖` is |p(0)| and `‖p.eval x‖` is |p(x)|. The interval integral `∫ x in (-1)..1, ‖p.eval x‖` with -1 ≤ 1 equals the Lebesgue integral over [-1,1], matching ∫_{-1}^1 |p(x)| dx. All components align semantically with the informal claim.",
+  "duration_ms": 128118,
+  "cost_usd": 0.42360675000000003
+}

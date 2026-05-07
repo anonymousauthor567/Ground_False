@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over any finite group G with `card G = 224` and concludes `IsSimpleGroup G → false`. In Lean 4, `false` (lowercase) is `Bool.false`, which is coerced via `CoeSort Bool Prop` to the proposition `false = true`, logically equivalent to `False`. Thus the statement reads: for every finite group G of order 224, G is not simple — exactly the informal claim \"no group of order 224 is simple.\" The Mathlib `IsSimpleGroup` class matches the standard definition (nontrivial with only trivial normal subgroups). The quantifier structure, hypothesis (order 224), and conclusion (not simple) all match; the proof in the file further confirms the statement is well-formed and typechecks.",
+  "duration_ms": 353809,
+  "cost_usd": 1.10663475
+}

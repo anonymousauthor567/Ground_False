@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"U ∪ W is a subspace ↔ U ⊆ W ∨ W ⊆ U\". In Lean, the LHS `∃ U' : Submodule F V, U'.carrier = ↑U ∪ ↑W` is the standard encoding of \"U ∪ W is a subspace\" — it is logically equivalent to saying the set U ∪ W carries a submodule structure. The RHS `U ≤ W ∨ W ≤ U` uses the `Submodule` partial order induced by `SetLike`, which is precisely subset inclusion on the underlying sets, matching \"one is contained in the other\". The ambient structure (F a field, V an additive commutative group with F-module structure) is the natural setting for subspaces. The biconditional is preserved. No extra or missing hypotheses; the quantifier structure and types match the informal statement.",
+  "duration_ms": 92818,
+  "cost_usd": 0.3341515
+}

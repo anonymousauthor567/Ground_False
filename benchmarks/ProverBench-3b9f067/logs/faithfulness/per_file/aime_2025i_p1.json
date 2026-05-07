@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025i_p1.lean",
+  "stem": "aime_2025i_p1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the sum of all integer bases b > 9 such that 17_b divides 97_b. In base b, 17_b = b + 7 and 97_b = 9b + 7, which matches the Lean divisibility hypothesis `b + 7 ∣ 9 * b + 7`. The constraint `b > 9` is the explicit base lower bound (which also ensures the digits 9 and 7 are valid base-b digits). The `Finset ℕ` together with the iff membership characterization uniquely pins down S = {21, 49}, and the conclusion `∑ b in S, b = 70` matches the claimed answer. The encoding is logically equivalent to the informal claim, with no added or dropped hypotheses.",
+  "duration_ms": 42591,
+  "cost_usd": 0.11301375000000001
+}

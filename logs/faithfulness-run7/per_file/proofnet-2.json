@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures \"exactly one element of order 2\" by combining an existence witness (`x : G` with `hx : orderOf x = 2`) and a uniqueness clause (`hx1 : ∀ y, orderOf y = 2 → y = x`). Together these mean there is a unique element of order 2, namely x. The conclusion `x ∈ center G` uses `Subgroup.center`, which in Mathlib is defined as elements that commute with everything, matching \"in the center of the group.\" The group `G` is arbitrary (`{G : Type*} [Group G]`), matching the universal \"a group\" in the informal text. `orderOf` in Mathlib corresponds to the standard mathematical order of a group element. No hypotheses are added or dropped, and the conclusion matches exactly — this is a faithful formalization.",
+  "duration_ms": 47452,
+  "cost_usd": 0.175351
+}

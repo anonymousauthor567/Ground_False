@@ -1,0 +1,8 @@
+{
+  "file": "S_0037.lean",
+  "stem": "S_0037",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a conjunction of two claims: (1) there are precisely two concrete functors from Set to Top, and (2) there is a proper class of concrete functors from Top to itself. The Lean theorem `only_two_concrete_functors_from_Set_to_Top_iso` formalizes only the first conjunct (`Nat.card (ConcreteFuncClasses SetConcrete TopConcrete) = 2`) and entirely omits the second claim about a proper class of concrete functors from Top to Top. Since the Lean statement proves strictly less than the informal statement asks for, it is logically weaker: the informal statement implies the Lean statement, but the Lean statement does not imply the informal one.",
+  "duration_ms": 12580,
+  "cost_usd": 0.05597825
+}

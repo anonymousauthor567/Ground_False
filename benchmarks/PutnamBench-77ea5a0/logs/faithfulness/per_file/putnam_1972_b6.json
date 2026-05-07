@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b6.lean",
+  "stem": "putnam_1972_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `k ≥ 1` matches the implicit requirement in \"$n_1 < \\dots < n_k$\". The `n : Fin k → ℤ` with `n i > 0` and strict monotonicity encodes the strictly increasing positive integer sequence. The polynomial `1 + ∑ i, z^(n i)` matches $1 + z^{n_1} + \\dots + z^{n_k}$ (integer powers of positive integers coincide with natural powers). `Metric.ball 0 ((√5-1)/2)` is the open disk $|z| < (\\sqrt{5}-1)/2$, and the conclusion `zpoly z ≠ 0` on this ball exactly says the polynomial has no roots inside that disk. All hypotheses and the conclusion correspond one-to-one with the informal statement.",
+  "duration_ms": 72669,
+  "cost_usd": 0.26075975
+}

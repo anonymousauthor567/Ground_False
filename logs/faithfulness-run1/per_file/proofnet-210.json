@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "informal": "Suppose $V$ is a complex inner-product space. Prove that every normal operator on $V$ has a square root. (An operator $S \\in \\mathcal{L}(V)$ is called a square root of $T \\in \\mathcal{L}(V)$ if $S^{2}=T$.)",
+  "lean": "\ntheorem Axler_exercise_7_11 {V : Type*} [NormedAddCommGroup V] [InnerProductSpace ℂ V]\n  [FiniteDimensional ℂ V] {T : End ℂ V} (hT : T*adjoint T = adjoint T*T) :\n  ∃ (S : End ℂ V), S ^ 2 = T",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Axler Exercise 7.11, which in Axler's book takes place in a finite-dimensional complex inner-product space (this is the standing assumption throughout the relevant chapter). The Lean signature accordingly assumes `FiniteDimensional ℂ V`, which matches Axler's convention. The hypothesis `T * adjoint T = adjoint T * T` is exactly the definition of a normal operator (TT* = T*T). The conclusion `∃ S, S^2 = T` matches the definition of a square root given in the problem. Quantifier structure (∃ S) and types match. So the formalization is faithful.",
+  "duration_ms": 8578,
+  "cost_usd": 0.048661750000000004
+}

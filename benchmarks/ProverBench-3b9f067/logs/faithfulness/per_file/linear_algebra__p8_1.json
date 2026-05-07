@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p8_1.lean",
+  "stem": "linear_algebra__p8_1",
+  "verdict": "faithful",
+  "reasoning": "The Lean file encodes the same system as given informally: the 4×3 coefficient matrix and the 4×4 augmented matrix over ℚ faithfully match the four equations in variables x, y, z. The conjunction `rank coeff_matrix = 2 ∧ rank aug_matrix = 2` directly mirrors the informal claim \"the rank of both the coefficient matrix A and the augmented matrix [A | b] is 2\". Mathlib's `Matrix.rank` is defined as `finrank R (LinearMap.range A.mulVecLin)`, which over the field ℚ coincides with the standard (column = row) rank of a matrix. The types, quantifier structure, and conclusion all align; no hypotheses are added, dropped, or changed. Whether the claim is actually mathematically true is separate from faithfulness — here the Lean and informal statements make identical assertions.",
+  "duration_ms": 358871,
+  "cost_usd": 1.0237582500000002
+}

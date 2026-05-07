@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-354.lean",
+  "stem": "proofnet-354",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: X is an arbitrary metric space, K and F are sets with K compact, F closed, and disjoint. The conclusion is ∃ δ > 0 such that for all p ∈ K, q ∈ F, dist p q > δ, which is exactly the informal claim (using strict inequality in both). Quantifier structure, hypotheses, and conclusion align with Rudin's exercise 4.21a as stated. No extra or missing assumptions.",
+  "duration_ms": 11405,
+  "cost_usd": 0.050183000000000005
+}

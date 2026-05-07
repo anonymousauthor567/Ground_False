@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"show that ⋃ 𝒯_α does not need to be a topology on X\" is a claim that there exists a counterexample: some family of topologies whose union is not a topology. The Lean statement ∃ X I T, (∀ i, is_topology X (T i)) ∧ ¬ is_topology X (⋃ i, T i) expresses exactly this — existence of a type X, index type I, and family of topologies T whose union is not a topology. The `is_topology` predicate correctly captures the standard topology axioms (univ membership, binary intersection closure, arbitrary union closure). The quantifier structure, types, and hypotheses align with the informal reading, so this is faithful.",
+  "duration_ms": 29644,
+  "cost_usd": 0.11569149999999999
+}

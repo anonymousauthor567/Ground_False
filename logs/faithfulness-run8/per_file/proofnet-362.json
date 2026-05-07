@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The hypothesis `‖z‖ = 1` places z on the unit circle. The sequence `s n = ∑ i ∈ range n, z^(i+1)/(i+1)` gives exactly the partial sums $z^1/1 + z^2/2 + ... + z^n/n$ of the series $\\sum_{k=1}^\\infty z^k/k$ (the natural interpretation since $z^0/0$ is undefined). The conclusion `(∃ z₀, Tendsto s atTop (𝓝 z₀)) ↔ z ≠ 1` faithfully encodes \"converges at every point of the unit circle except z = 1\" as a biconditional: the series converges iff z ≠ 1, which captures both that convergence holds everywhere on the circle except at z = 1, and that at z = 1 the series (the harmonic series) diverges. The use of an auxiliary `s` via the hypothesis `h : s = ...` is a benign reformulation that is logically equivalent to substituting directly. No hypotheses are silently added or dropped, and the types are correct.",
+  "duration_ms": 143411,
+  "cost_usd": 0.42791275
+}

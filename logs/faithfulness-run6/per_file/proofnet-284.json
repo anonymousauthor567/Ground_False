@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The hypotheses `hp0 : p.Prime` and `hp1 : p = 4 * t + 1` (with `t : ℕ`) together characterize primes of the form 4t+1. For `a : ZMod p` with `p` prime, Mathlib's `IsPrimitiveRoot a (p-1)` — defined as `a^(p-1) = 1` together with the divisibility condition `∀ l, a^l = 1 → (p-1) ∣ l` — is equivalent to the standard notion \"a is a primitive root modulo p\" (i.e., a generator of `(ZMod p)*` of order p-1). The implicit universal quantification over `a` in the informal statement is captured by taking `a : ZMod p` as a free variable. The iff matches the informal biconditional. No hypotheses are added or dropped beyond what the informal statement provides.",
+  "duration_ms": 82784,
+  "cost_usd": 0.3613595
+}

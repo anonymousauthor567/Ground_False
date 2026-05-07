@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "informal": "Prove that if $|G|=6545$ then $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_19 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 6545) : ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary type G with a Group and Fintype instance, asserts that its cardinality is 6545, and concludes ¬ IsSimpleGroup G. This matches the informal claim that any group of order 6545 is not simple. The Fintype instance is necessary to even speak of `card G = 6545` and is implicit in the informal statement. No extra hypotheses are imposed and the conclusion is exactly non-simplicity.",
+  "duration_ms": 7878,
+  "cost_usd": 0.045481
+}

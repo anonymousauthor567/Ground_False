@@ -1,0 +1,8 @@
+{
+  "file": "S_0004.lean",
+  "stem": "S_0004",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly represents the informal theorem. `Type u` is Mathlib's standard model of the category of sets (via `instance types : LargeCategory (Type u)` with `Hom a b := a → b`). `PUnit.{u}` is confirmed as a terminal object in `Type u` (via `Types.isTerminalPunit`). The functor `fromTerminalFunctor` maps `α` to `PUnit → α`, which is precisely `Hom_{Type u}(PUnit, α)`, and its action on morphisms `fun g => f ∘ g` is the standard post-composition action of the covariant Hom functor. `Functor.IsEquivalence` is Mathlib's standard notion of equivalence of categories (faithful + full + essentially surjective). So the Lean statement asserts exactly: Hom_Set({*}, -) : Set → Set is an equivalence of categories, matching the informal claim.",
+  "duration_ms": 111295,
+  "cost_usd": 0.40488349999999995
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"there exist three consecutive integers i such that (ab)^i = a^i b^i for all a,b ∈ G\" as `∃ n : ℤ, (∀ a b, (a*b)^n = a^n * b^n) ∧ (at n+1) ∧ (at n+2)`, which matches the informal statement exactly. Using ℤ (not ℕ) is essential to cover the \"three consecutive integers\" phrasing, since the informal claim allows negative exponents; group zpow is well-defined for negative integers. The conclusion `∀ a b : G, a * b = b * a` is the standard encoding of \"G is abelian\". The quantifier structure (∃ n with ∀ a b inside each condition) correctly reflects that the identity holds uniformly in a,b at three specific consecutive exponents. This matches the corrected ground-truth formalization in proofnet_verified_gt/proofnet-257.lean.",
+  "duration_ms": 60692,
+  "cost_usd": 0.26621825000000005
+}

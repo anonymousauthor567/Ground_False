@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `∀ n : ℕ, Odd n → 8 ∣ (n^2 - 1)`, which is logically equivalent to the informal \"for all odd n, 8 ∣ n^2 - 1\". Using ℕ rather than ℤ is not a weakening because for any odd integer m, we have m^2 = |m|^2 and |m| is an odd natural, making the two quantifications equivalent. The truncated natural subtraction is not an issue since `Odd n` forces `n ≥ 1`, hence `n^2 ≥ 1`, so `n^2 - 1` in ℕ equals the integer value. The hypothesis `Odd n` precisely matches the informal \"odd n\". Thus the formalization is faithful.",
+  "duration_ms": 37260,
+  "cost_usd": 0.0921665
+}

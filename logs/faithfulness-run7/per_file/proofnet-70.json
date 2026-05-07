@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal claim. `MvPolynomial (Fin 2) ℚ` is the standard formalization of $\\mathbb{Q}[x, y]$, with `MvPolynomial.X 0` and `MvPolynomial.X 1` as the two indeterminates. The expression `(MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1` is exactly $x^2 + y^2 - 1$. Mathlib's `Irreducible` predicate (defined in `Mathlib/Algebra/Group/Irreducible/Defs.lean` as \"not a unit, and in every factorization one factor is a unit\") is the standard notion of irreducibility in a commutative ring, matching the informal meaning. There are no extra or missing hypotheses.",
+  "duration_ms": 42554,
+  "cost_usd": 0.15421500000000002
+}

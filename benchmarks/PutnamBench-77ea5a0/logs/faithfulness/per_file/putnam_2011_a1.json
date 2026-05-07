@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a1.lean",
+  "stem": "putnam_2011_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The IsSpiral predicate encodes: (1) n ≥ 2 via P.length ≥ 3 (since P has n+1 points); (2) P_0 = (0,0) via P[0]! = 0, where 0 denotes the zero function on Fin 2 → ℤ; (3) alternating directions east/north/west/south via i % 4 ∈ {0,1,2,3} with correct coordinate updates (east: x increases by l(i), etc.); (4) positive lengths via 0 < l i; (5) strictly increasing lengths via StrictMono l; (6) integer coordinates via the type Fin 2 → ℤ. The final set correctly counts lattice points (x,y) with 0 ≤ x,y ≤ 2011 that are not the last point (getLast!) of any growing spiral, and uses encard to take cardinality. All indexing is valid because P.length ≥ 3 ensures P[0]! and getLast! return real elements, and i+1 ≤ P.length - 1 for i : Fin (P.length - 1).",
+  "duration_ms": 314527,
+  "cost_usd": 0.42817449999999996
+}

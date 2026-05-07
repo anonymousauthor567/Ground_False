@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes: given a nonnegative sequence a : ℕ → ℝ whose partial sums ∑_{i<n} a_i converge, the partial sums ∑_{i<n} sqrt(a_i)/(i+1) converge. This matches the informal claim up to standard 0-indexing: using range n (i.e., i = 0, 1, ..., n-1) with denominator (i+1) avoids division by zero and corresponds exactly to the informal series via re-indexing (the Lean `a` plays the role of the informal sequence starting at 1). The nonnegativity hypothesis, the convergence-of-series encoding via Tendsto on partial sums with ∃ y, and the quantifier structure all match the informal statement. The two formulations are logically equivalent for generic nonnegative sequences, so this is a strictly faithful formalization.",
+  "duration_ms": 174083,
+  "cost_usd": 0.55053875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "6.lean",
+  "stem": "6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The prime $p$ is typed as `ℕ` with `hp : p.Prime`, and `a, b` are existentially quantified over `ℤ`, matching \"$a, b \\in \\mathbb{Z}$\". The equation `a^2 + a*b + b^2 = p` is a direct transcription of $p = a^2+ab+b^2$ (equality is symmetric). The conclusion `p = 3 ∨ p % 3 = 1` correctly expresses \"$p = 3$ or $p \\equiv 1 \\pmod{3}$\": for natural numbers, `p % 3 = 1` is literally the mod-3 residue being 1, and the `p = 3` disjunct correctly captures the special case where $p \\equiv 0 \\pmod{3}$ (which for primes means $p = 3$). No extra hypotheses are added or dropped, and the iff direction matches.",
+  "duration_ms": 124356,
+  "cost_usd": 0.32525275
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-259.lean",
+  "stem": "proofnet-259",
+  "theorem_name": "Herstein_exercise_2_3_16_corrected",
+  "informal": "If a group $G$ has no proper subgroups, prove that $G$ is cyclic of order $p$, where $p$ is a prime number.",
+  "lean": "\ntheorem Herstein_exercise_2_3_16_corrected\n    {G : Type*} [Group G] [Fintype G]\n    (hG : ∀ H : Subgroup G, H = ⊤ ∨ H = ⊥)\n    (h_nontrivial : ∃ g : G, g ≠ (1 : G)) :\n    IsCyclic G ∧ ∃ p : ℕ, Nat.Prime p ∧ Fintype.card G = p",
+  "verdict": "weaker",
+  "reasoning": "The informal statement only assumes \"G has no proper subgroups\" (typically read as: the only subgroups are {e} and G) and, implicitly, that G is nontrivial; finiteness is part of the conclusion (order p prime), not a hypothesis. The Lean signature, however, adds `[Fintype G]` as an ambient hypothesis, so it asks the prover to derive cyclicity and prime-order while already given finiteness — this is logically weaker than the informal task, which requires deducing finiteness from the subgroup hypothesis. The other components (∀ H, H = ⊤ ∨ H = ⊥; the existence of a nonidentity element; IsCyclic G ∧ ∃ p prime, |G| = p) faithfully capture the rest of the claim. Because the extra `Fintype G` hypothesis strictly reduces what must be proved, the Lean version is implied by the informal claim but does not imply it.",
+  "duration_ms": 22300,
+  "cost_usd": 0.08228725
+}

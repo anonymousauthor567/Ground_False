@@ -1,0 +1,8 @@
+{
+  "file": "71.lean",
+  "stem": "71",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Hochster-Eagon theorem: a finite subgroup G of R's k-algebra automorphisms (equivalent to a finite group acting by k-algebra automorphisms on R up to the fixed-point ring), over a characteristic-0 field k, with R Cohen-Macaulay, yields that the fixed subalgebra is Cohen-Macaulay. The addition of `[IsNoetherianRing R]` is not a weakening: in standard mathematical convention (Eisenbud, Matsumura), a Cohen-Macaulay ring is by definition Noetherian, but the file's custom `IsCohenMacaulayRing` (defined via localizations having depth = Krull dimension) does not automatically include Noetherianness. Adding `IsNoetherianRing R` explicitly surfaces this implicit premise of the classical CM definition. The `FixedPoints.subalgebra` construction correctly captures R^G as a k-subalgebra, and the subgroup-of-Aut formulation is logically equivalent to the abstract-group-with-action formulation since fixed-point rings depend only on the image of the action homomorphism. Types and quantifier structure align with the informal claim.",
+  "duration_ms": 1095329,
+  "cost_usd": 2.3999882499999994
+}

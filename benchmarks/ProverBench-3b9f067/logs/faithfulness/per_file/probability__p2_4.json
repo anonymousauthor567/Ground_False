@@ -1,0 +1,8 @@
+{
+  "file": "probability__p2_4.lean",
+  "stem": "probability__p2_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization defines matrix A with the exact entries given in the informal statement, and X0 as the column vector [0, 1, 0]^T. The theorem `(A * (A * (A * X0))) 1 0 = 0.18` states that the entry at row index 1 (the \"second component\" in 0-indexed Fin 3) of A^3 * X0 is 0.18, which is precisely what the informal statement asks to prove. Direct computation confirms: A * X0 = [0.3, 0.3, 0.4]^T, A^2 X0 = [0.4, 0.2, 0.4]^T, A^3 X0 = [0.38, 0.18, 0.44]^T, so entry (1,0) is indeed 0.18. The axioms provide intermediate computations but do not affect the theorem signature itself, which faithfully captures the claim. The matrix dimensions, entries, and target value all match exactly.",
+  "duration_ms": 58366,
+  "cost_usd": 0.0940295
+}

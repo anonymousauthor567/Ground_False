@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement precisely. The hypotheses `[Field F]`, `CharP F p`, and `p ≠ 0` together encode \"field of characteristic $p \\neq 0$\" (in a field, nonzero characteristic is automatically prime). The hypothesis `n > 0` matches \"positive integer $n$\", `m = p^n` matches the definition of $m$, and the universally-bound `a b : F` correspond to \"for all $a, b \\in F$\". The conclusion `(a + b)^m = a^m + b^m` is the same freshman's dream identity. No extra or missing hypotheses, no type drift, and the quantifier structure (universal in $a, b, n$) is correctly expressed as parameters.",
+  "duration_ms": 25909,
+  "cost_usd": 0.09503275
+}

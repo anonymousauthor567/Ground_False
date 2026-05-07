@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "theorem_name": "Axler_exercise_6_7_corrected",
+  "informal": "Prove that if $V$ is a complex inner-product space, then $\\langle u, v\\rangle=\\frac{\\|u+v\\|^{2}-\\|u-v\\|^{2}+\\|u+i v\\|^{2} i-\\|u-i v\\|^{2} i}{4}$ for all $u, v \\in V$.",
+  "lean": "\n\n\ntheorem Axler_exercise_6_7_corrected {V : Type*} [NormedAddCommGroup V] [InnerProductSpace ℂ V]\n    (u v : V) :\n    ⟪u, v⟫_ℂ =\n      (‖u + v‖ ^ 2 - ‖u - v‖ ^ 2 +\n          (‖u - I • v‖ ^ 2 - ‖u + I • v‖ ^ 2) * I) / 4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes Axler's complex polarization identity in a complex inner product space, with universal quantification over u, v and the correct typeclass setup (`NormedAddCommGroup V`, `InnerProductSpace ℂ V`). The apparent sign discrepancy on the imaginary part — Axler writes `+‖u+iv‖²·i − ‖u−iv‖²·i` while Lean has `(‖u−iv‖² − ‖u+iv‖²)·I` — exactly reflects Mathlib's convention that `⟪·,·⟫_ℂ` is conjugate-linear in the first argument, whereas Axler's `⟨·,·⟩` is linear in the first. Conjugating Axler's RHS flips precisely the signs of the i-coefficient terms, producing the Lean expression. A direct expansion using ‖u±iv‖² = ‖u‖² + ‖v‖² ∓ 2 Im⟪u,v⟫ confirms the Lean identity holds. So the Lean formula expresses the same theorem under Mathlib's convention; the \"corrected\" suffix reflects this convention adjustment.",
+  "duration_ms": 46139,
+  "cost_usd": 0.1603945
+}

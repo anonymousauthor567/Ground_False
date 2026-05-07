@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_a3.lean",
+  "stem": "putnam_2007_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly captures Putnam 2007 A3. `perms` encodes permutations of {1,...,3k+1}: the condition `∀ y ∈ Icc 1 (3k+1), ∃! x, f x = y` combined with |Fin (3k+1)| = |Icc 1 (3k+1)| = 3k+1 forces f to be a bijection onto {1,...,3k+1}. `goodperms` filters those permutations where no initial partial sum ∑_{i≤j} f(i) is divisible by 3, with j ranging over all time points (position 0 through 3k), matching \"at no time during this process\". Since f maps into positive integers, partial sums are automatically positive, so \"3 ∣ sum\" matches \"positive integer divisible by 3\". The conclusion `goodperms.ncard = perms.ncard * solution` correctly encodes the probability as the ratio. The `kpos` hypothesis matches the informal \"positive integer k\".",
+  "duration_ms": 314236,
+  "cost_usd": 0.8170657500000001
+}

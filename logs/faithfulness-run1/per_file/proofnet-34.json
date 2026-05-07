@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "informal": "If $x$ is an element of infinite order in $G$, prove that the elements $x^{n}, n \\in \\mathbb{Z}$ are all distinct.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_34 {G : Type*} [Group G] {x : G}\n  (hx_inf : orderOf x = 0) (n m : ℤ) (hnm : n ≠ m) :\n  x ^ n ≠ x ^ m",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `orderOf x = 0` is the standard encoding of \"x has infinite order\" for a group element. The conclusion `∀ n m : ℤ, n ≠ m → x^n ≠ x^m` is logically equivalent to the assertion that the integer powers `x^n` are all distinct. The ambient setting is an arbitrary group `G`, matching the informal statement, and no extra hypotheses (e.g., finiteness, commutativity) are added or removed. Therefore the Lean signature captures exactly the informal claim.",
+  "duration_ms": 9529,
+  "cost_usd": 0.059284
+}

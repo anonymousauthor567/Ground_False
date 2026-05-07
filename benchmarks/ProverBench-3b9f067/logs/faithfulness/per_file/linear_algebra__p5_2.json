@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p5_2.lean",
+  "stem": "linear_algebra__p5_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims det(A') = -det(A) when A' is obtained by interchanging EITHER two rows OR two columns — a conjunction of two claims. The Lean theorem signature `det_column_interchange` only asserts the column-swap case. The row-swap case is stated separately as an `axiom` (assumed, not proved), so it is not part of what this formalization proves. Thus the theorem signature captures only half of the informal claim: it is implied by the informal statement but does not imply it (it says nothing about row interchanges). This is logically weaker than what the informal statement asserts.",
+  "duration_ms": 821186,
+  "cost_usd": 0.9487935000000001
+}

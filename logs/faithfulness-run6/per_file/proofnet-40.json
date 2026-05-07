@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly: it assumes `[CommGroup A]` (A is an abelian group) and takes `B : Subgroup A` (a subgroup of A), then concludes `∀ a b : A ⧸ B, a*b = b*a`. Mathlib's `HasQuotient` for subgroups and `Quotient.commGroup` instance in `Mathlib/GroupTheory/QuotientGroup/Defs.lean` make `A ⧸ B` a well-defined group whenever A is commutative (using the automatic `normal_of_comm`). Asserting commutativity of the multiplication on the quotient is precisely the meaning of \"A/B is abelian\". No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal claim.",
+  "duration_ms": 33329,
+  "cost_usd": 0.13526799999999997
+}

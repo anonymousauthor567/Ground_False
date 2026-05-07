@@ -1,0 +1,8 @@
+{
+  "file": "S_0048.lean",
+  "stem": "S_0048",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"a reflective subcategory C of a cocomplete category D is also cocomplete.\" The Lean theorem takes a functor i : C ⥤ D with `[Reflective i]`, which in Mathlib means i is fully faithful with a left adjoint — this is exactly the standard category-theoretic notion of a reflective subcategory inclusion. `HasColimits D` is the standard Mathlib abbreviation for \"D is cocomplete\" (i.e., `HasColimitsOfSize.{v,v} D` for a category with hom-sets in universe v), and likewise `HasColimits C` correctly encodes \"C is cocomplete.\" The universe setup (both C and D in Type u with hom-sets in Type v) is the natural ambient setting. This matches Mathlib's own `hasColimits_of_reflective` in `CategoryTheory/Monad/Limits.lean` (specialized from `HasColimitsOfSize.{v,u}` to `HasColimits`). Hypotheses and conclusion correspond exactly to the informal statement.",
+  "duration_ms": 120276,
+  "cost_usd": 0.45713475000000003
+}

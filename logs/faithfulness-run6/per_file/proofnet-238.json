@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: `[Fintype G] [Group G]` with `card G = 6545` precisely encodes \"G is a (finite) group of order 6545\", and `¬ IsSimpleGroup G` matches \"G is not simple\" since Mathlib's `IsSimpleGroup` (verified in Mathlib/GroupTheory/Subgroup/Simple.lean) is defined as a Nontrivial group where every normal subgroup is ⊥ or ⊤, which is the standard definition of a simple group. The `Fintype G` instance is needed to make `card G = 6545` meaningful and reflects the finiteness implicit in |G|=6545. No hypotheses are added or removed, and the conclusion matches directly.",
+  "duration_ms": 47449,
+  "cost_usd": 0.138844
+}

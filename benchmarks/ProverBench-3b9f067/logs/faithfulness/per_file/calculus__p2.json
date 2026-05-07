@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p2.lean",
+  "stem": "calculus__p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes exactly the informal claim. The integrand f(x) = (8x² + 6x + 5)/(x² + 2x + 2) matches. The integration domain `Set.Icc 0 1` is [0,1]; since the denominator (x+1)²+1 ≥ 1 > 0, f is continuous on [0,1], so the Lebesgue integral over Icc equals the Riemann integral from 0 to 1. The RHS `-5 * log (5/2) - (arctan 2 - π/4) + 8` under `open Real` matches `-5 ln(5/2) - (tan⁻¹(2) - π/4) + 8` exactly. Computing analytically via polynomial division confirms the value: ∫₀¹ f = 8 - 5ln(5/2) - arctan(2) + π/4, which is algebraically identical to the stated RHS.",
+  "duration_ms": 95844,
+  "cost_usd": 0.282841
+}

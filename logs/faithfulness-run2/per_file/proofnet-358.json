@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses correspond exactly to the informal ones: `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` capture the existence of $f'(x)$ and $g'(x)$; `deriv g x ≠ 0` captures $g'(x) \\neq 0$; and `f x = 0`, `g x = 0` capture $f(x)=g(x)=0$. The conclusion uses `𝓝[≠] x` (the punctured neighborhood filter), which matches Rudin's standard convention for $\\lim_{t\\to x}$ where $t \\ne x$. Under the differentiability hypotheses, `deriv f x` and `deriv g x` coincide with $f'(x)$ and $g'(x)$, so the target limit is $f'(x)/g'(x)$. No extra or missing hypotheses, and no change in quantifier structure or types.",
+  "duration_ms": 24740,
+  "cost_usd": 0.07259225
+}

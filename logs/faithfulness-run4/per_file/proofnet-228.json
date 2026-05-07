@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. \"Finite abelian group\" is encoded by `CommGroup G` + `Fintype G`. The hypothesis `n ∣ card G` together with the fact that a group always has `card G ≥ 1` (nonempty due to the identity) automatically forces `n > 0`, so \"positive divisor\" is correctly captured without needing an explicit `n > 0` hypothesis. The conclusion `∃ (H : Subgroup G) (H_fin : Fintype H), @card H H_fin = n` is the standard way of asserting \"there exists a subgroup of order n\" — the explicit `Fintype H` is stylistic and logically equivalent to the inferable instance. Quantifier structure (\"for each divisor\" → universal in n, \"has a subgroup of order n\" → existence) matches. No hypotheses are dropped or added beyond standard mathematical reading.",
+  "duration_ms": 247227,
+  "cost_usd": 0.44997699999999996
+}

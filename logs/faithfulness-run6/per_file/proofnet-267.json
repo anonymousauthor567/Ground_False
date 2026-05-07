@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: if P is a normal Sylow p-subgroup of G, then every automorphism φ of G satisfies φ(P) = P. In Mathlib, `Subgroup.Characteristic H` is defined precisely as `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`, which is equivalent to \"φ(P) = P for every automorphism φ of G\" (via `characteristic_iff_map_eq`). The hypotheses match: G is an arbitrary group, p is prime (`hp : Nat.Prime p`), P is a Sylow p-subgroup (`P : Sylow p G`), and P is normal (`hP : P.Normal`). No finiteness assumption on G is silently added or dropped; the informal statement also doesn't require finiteness, and the result actually holds in general (if P is a normal Sylow p-subgroup, then for any other Sylow p-subgroup Q, PQ is a p-subgroup containing P, hence equals P by maximality, so P is unique and thus fixed by every automorphism). The quantifier structure and conclusion match exactly.",
+  "duration_ms": 146176,
+  "cost_usd": 0.5197965000000001
+}

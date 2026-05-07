@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-98.lean",
+  "stem": "proofnet-98",
+  "informal": "Show that the equation $7 x^{3}+2=y^{3}$ has no solution in integers.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_3_5 : ¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that 7x^3 + 2 = y^3 has no integer solutions. The Lean signature states ¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3, which is exactly the negation of the existence of integer solutions. The types (ℤ), the equation, and the quantifier structure all match precisely.",
+  "duration_ms": 5192,
+  "cost_usd": 0.03957075
+}

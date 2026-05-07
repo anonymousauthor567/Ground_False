@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch3_27.lean",
+  "stem": "brualdi_ch3_27",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. The type `Set (Set (Set.Icc 1 n))` represents a collection of subsets of {1,...,n}. The condition `∀ S ∈ subsets, ∀ T ∈ subsets, (S ∩ T).Nonempty` is the standard intersecting family condition (any two sets, possibly equal, share a common element), which is the conventional combinatorial reading. The conclusion `∃ m, m ≤ 2^(n-1) ∧ Nonempty (Fin m ≃ subsets)` is logically equivalent to saying |subsets| ≤ 2^(n-1), since the bijection with `Fin m` captures finiteness and cardinality m, and the collection is automatically finite (being a subcollection of the finite powerset of {1,...,n}). The hypothesis `n ≥ 1` is a reasonable implicit premise given the notation \"{1, 2, ..., n}\" — without it, ℕ-truncated subtraction makes 2^(n-1) behave oddly, though the theorem still holds trivially when n = 0.",
+  "duration_ms": 216462,
+  "cost_usd": 0.6657155000000001
+}

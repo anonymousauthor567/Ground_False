@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `EuclideanSpace ℝ (Fin k)` to encode $\\mathbb{R}^k$, takes `hE : ¬ Set.Countable E` as the uncountability hypothesis, and defines P as `{x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}`, which is exactly the definition of condensation points (every neighborhood of x meets E in an uncountable set; note that 𝓝 x in Mathlib corresponds to the standard neighborhood filter). The conclusion `Set.Countable (E \\ P)` precisely captures \"at most countably many points of E are not in P\". No extra or missing hypotheses, and the types match. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 55438,
+  "cost_usd": 0.24148299999999998
+}

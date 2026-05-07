@@ -1,0 +1,8 @@
+{
+  "file": "S_0057.lean",
+  "stem": "S_0057",
+  "verdict": "faithful",
+  "reasoning": "The Lean file provides two separate theorems matching the two alternatives in \"A functor that reflects equalizers (or finite products) reflects isomorphisms\". (1) `ReflectsLimitsOfShape WalkingParallelPair F` is exactly \"F reflects equalizers\" since `WalkingParallelPair` is Mathlib's indexing category for equalizer diagrams — this is a direct faithful formalization. (2) `ReflectsLimitsOfShape (Discrete PEmpty) F` together with `ReflectsLimitsOfShape (Discrete WalkingPair) F` encodes \"reflects terminal objects and binary products\", which is the standard categorical reading of \"reflects finite products\" (terminal + binary are the generators; in classical texts like Borceux/Mac Lane, \"finite products\" refers to this structure). The conclusion `F.ReflectsIsomorphisms` matches Mathlib's standard `Functor.ReflectsIsomorphisms` class. Both theorems accurately capture the two branches of the informal claim under standard categorical convention.",
+  "duration_ms": 1763474,
+  "cost_usd": 5.220309500000001
+}

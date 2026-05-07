@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. `CommGroup G` corresponds to \"abelian group\", the two existential hypotheses encode \"has an element of order m\" and \"has an element of order n\", `m.Coprime n` (i.e., `Nat.gcd m n = 1`) is exactly \"relatively prime\", and the conclusion `∃ g : G, orderOf g = m * n` states \"G has an element of order mn\". The quantifier structure over m, n : ℕ is appropriate, and the edge cases (m = 0 forces n = 1 by coprimality, making the conclusion trivial) are consistent. No extra hypotheses are added that narrow or broaden the scope beyond the informal statement.",
+  "duration_ms": 139308,
+  "cost_usd": 0.44867225
+}

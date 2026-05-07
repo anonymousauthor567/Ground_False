@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_a1.lean",
+  "stem": "putnam_2005_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all components of the informal claim. The universal quantification over positive integers uses ℤ with n > 0, which matches \"every positive integer\". The existential witness provides k pairs (r_i, s_i) encoded as `a : Fin k → Fin 2 → ℕ`, giving nonnegative integer exponents as required. Although the Lean allows k = 0 syntactically, this is automatically excluded because the empty sum is 0 ≠ n, so \"one or more\" is preserved. The sum `n = ∑ 2^(a i 0) * 3^(a i 1)` matches exactly. The divisibility condition `∀ i j, i ≠ j → ¬(2^(r_i)3^(s_i) ∣ 2^(r_j)3^(s_j))` correctly encodes \"no summand divides another\" — by applying to both (i,j) and (j,i), it asserts for distinct indices neither divides the other, and also forbids duplicate (r,s) pairs which would violate the antichain condition. The ℕ/ℤ coercion in divisibility is harmless since divisibility agrees on nonnegative values.",
+  "duration_ms": 107080,
+  "cost_usd": 0.21165299999999998
+}

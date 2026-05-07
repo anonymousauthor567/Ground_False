@@ -1,0 +1,8 @@
+{
+  "file": "S_0059.lean",
+  "stem": "S_0059",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization defines a custom `LiftableCone₂` structure that extends Mathlib's `LiftableCone` with an additional `isLimit` field — this correctly captures the informal requirement that L' be a limit (not merely a cone). The `LiftsLimit K F` class then says: for every limit cone c of K⋙F, there exists a lifted limit cone. The theorem asserts the existence of categories C, D and a functor F such that for every diagram K: J → C, F lifts limits, and F is not faithful (using Mathlib's `Functor.Faithful`). This correctly distinguishes \"lifts limits\" (existence only) from Mathlib's `CreatesLimit` (which requires reflecting limits). The universe polymorphic treatment of J (objects in Type u₁, morphisms in Type w') is standard and matches \"every diagram\". The `Nonempty` wrapper is appropriate since `LiftsLimit` is data-carrying. All three required pieces — the universal quantification over diagrams and their limits, the existence of a limit lift, and the non-faithfulness — match exactly.",
+  "duration_ms": 697635,
+  "cost_usd": 1.90279475
+}

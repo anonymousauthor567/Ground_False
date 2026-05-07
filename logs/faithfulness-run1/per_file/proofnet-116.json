@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-116.lean",
+  "stem": "proofnet-116",
+  "informal": "Let $X$ be a topological space and let $Y$ be a metric space. Let $f_{n}: X \\rightarrow Y$ be a sequence of continuous functions. Let $x_{n}$ be a sequence of points of $X$ converging to $x$. Show that if the sequence $\\left(f_{n}\\right)$ converges uniformly to $f$, then $\\left(f_{n}\\left(x_{n}\\right)\\right)$ converges to $f(x)$.",
+  "lean": "\ntheorem Munkres_exercise_21_8\n  {X : Type*} [TopologicalSpace X] {Y : Type*} [MetricSpace Y]\n  {f : ℕ → X → Y} {x : ℕ → X}\n  (hf : ∀ n, Continuous (f n))\n  (x₀ : X)\n  (hx : Tendsto x atTop (𝓝 x₀))\n  (f₀ : X → Y)\n  (hh : TendstoUniformly f f₀ atTop) :\n  Tendsto (λ n => f n (x n)) atTop (𝓝 (f₀ x₀))",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the same claim: X is a topological space, Y a metric space, f n are continuous functions X → Y, x n is a sequence in X converging to x₀, f converges uniformly to f₀, and the conclusion is that f n (x n) → f₀ x₀. The hypotheses (continuity of each f n, convergence of xₙ, uniform convergence) and the conclusion match exactly. TendstoUniformly with atTop is the standard Mathlib encoding of uniform convergence of a sequence. No extra or missing assumptions.",
+  "duration_ms": 6709,
+  "cost_usd": 0.0457495
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "informal": "Prove that the power series $\\sum nz^n$ does not converge on any point of the unit circle.",
+  "lean": "\ntheorem Shakarchi_exercise_1_19a (z : ℂ) (hz : ‖z‖ = 1) (s : ℕ → ℂ)\n    (h : s = (λ n => ∑ i ∈ (range n), i * z ^ i)) :\n    ¬ ∃ y, Tendsto s atTop (𝓝 y)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes an arbitrary z ∈ ℂ on the unit circle (‖z‖ = 1) and asserts that the sequence of partial sums s_n = ∑_{i<n} i·z^i has no limit in ℂ, which is precisely the assertion that ∑ n z^n diverges at every point of the unit circle. The quantifier \"for any point on the unit circle\" is captured by the universally quantified z with hypothesis ‖z‖ = 1, and \"does not converge\" is captured by ¬∃ y, Tendsto s atTop (𝓝 y). The partial sum encoding via Finset.range n with summand i · z^i correctly represents the series ∑ n z^n. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 8427,
+  "cost_usd": 0.047191750000000005
+}

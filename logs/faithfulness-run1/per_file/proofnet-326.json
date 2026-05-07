@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "theorem_name": "Putnam_exercise_1998_b6",
+  "informal": "Prove that, for any integers $a, b, c$, there exists a positive integer $n$ such that $\\sqrt{n^3+a n^2+b n+c}$ is not an integer.",
+  "lean": "\ntheorem Putnam_exercise_1998_b6 (a b c : ℤ) :\n    ∃ n : ℤ, n > 0 ∧ ¬ ∃ m : ℤ, Real.sqrt (n^3 + a*n^2 + b*n + c) = m",
+  "verdict": "faithful",
+  "reasoning": "The informal claim: for any integers a,b,c, there exists a positive integer n such that √(P(n)) is not an integer, where P(n)=n³+an²+bn+c. The Lean statement quantifies a,b,c over ℤ, then asserts ∃ n:ℤ with n>0 and no integer m with Real.sqrt(P(n)) = m, i.e., the square root is not equal to any integer. The integer n with n>0 corresponds exactly to \"positive integer,\" and \"¬∃ m:ℤ, Real.sqrt(...) = m\" expresses \"the square root is not an integer.\" There is a minor edge case: Real.sqrt of a negative radicand returns 0 (an integer) in Lean, whereas informally a negative radicand has no real square root and so is \"not an integer\"; but since the claim is existential over n>0 and one can always take n large enough that P(n)>0, this does not change the meaning of the overall statement. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 18959,
+  "cost_usd": 0.07026675
+}

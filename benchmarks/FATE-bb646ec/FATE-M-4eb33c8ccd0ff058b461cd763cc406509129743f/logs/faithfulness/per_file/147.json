@@ -1,0 +1,8 @@
+{
+  "file": "147.lean",
+  "stem": "147",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim. The hypothesis `Fintype.card G = p ^ 2 * q` matches |G| = p²q, the primality hypotheses `pp : Nat.Prime p` and `pq : Nat.Prime q` together with `h₂ : q < p` correspond to \"p > q are primes\", and `P : Sylow p G` with conclusion `P.Normal` matches \"Let P be a Sylow p-subgroup, then P ◁ G\". The `[Fintype G]` instance is the natural Lean encoding of the implicit finiteness required by the cardinality hypothesis. `P.Normal` in Mathlib (as confirmed in Mathlib/GroupTheory/Sylow.lean) means the underlying subgroup is normal, which is exactly the meaning of ◁. No hypotheses are added or dropped, and the conclusion is equivalent.",
+  "duration_ms": 119263,
+  "cost_usd": 0.315681
+}

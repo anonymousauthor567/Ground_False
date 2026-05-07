@@ -1,0 +1,8 @@
+{
+  "file": "89.lean",
+  "stem": "89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `[Field K] [Field L] [Algebra K L]` is the standard encoding of \"L is an extension field of K\" (with automatic injectivity of `algebraMap K L` since K is a field). The condition \"p = P ∩ K[X_1,...,X_n]\" is correctly expressed as `P.comap (MvPolynomial.map (algebraMap K L)) = p`, since MvPolynomial.map induces the embedding K[X_1,...,X_n] ↪ L[X_1,...,X_n] and comap under this embedding is the intersection. `Ideal.primeHeight` in Mathlib (Height.lean) is defined as the supremum of lengths of strictly decreasing chains of prime ideals below it, matching ht. The inequality direction `p.primeHeight ≤ P.primeHeight` matches ht(P) ≥ ht(𝔭). The extra `[p.IsPrime]` instance assumption is redundant (automatic from `P.IsPrime` and h via `Ideal.IsPrime.comap`) but adds no logical restriction.",
+  "duration_ms": 211545,
+  "cost_usd": 0.45306725000000003
+}

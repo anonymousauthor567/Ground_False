@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. The list `as : List G` represents the sequence $a_1, a_2, \\dots, a_n$; `as.prod⁻¹` is $(a_1a_2\\cdots a_n)^{-1}$; and `(as.reverse.map (λ x => x⁻¹)).prod` reverses the list to get $[a_n, a_{n-1}, \\dots, a_1]$, inverts each element to get $[a_n^{-1}, a_{n-1}^{-1}, \\dots, a_1^{-1}]$, and takes the product, yielding $a_n^{-1}a_{n-1}^{-1}\\cdots a_1^{-1}$. This matches the informal RHS exactly. The universal quantification over any group `G` and any list matches \"for all $a_1,\\dots,a_n\\in G$\". This encoding is essentially Mathlib's `List.prod_inv_reverse` (up to the interchangeable `map_reverse` identity). No hypotheses are added or dropped.",
+  "duration_ms": 40995,
+  "cost_usd": 0.18492525
+}

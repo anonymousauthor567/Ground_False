@@ -1,0 +1,8 @@
+{
+  "file": "S_0083.lean",
+  "stem": "S_0083",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims ZMod p is a simple object in Ab (category of abelian groups) when p is prime. The Lean statement claims `Simple (ModuleCat.of ℤ (ZMod p))` — simple object in the category of ℤ-modules. These are logically equivalent because: (1) the forgetful functor `ModuleCat ℤ → AddCommGrp` is an equivalence of categories (Mathlib's `forget₂AddCommGroupIsEquivalence`); (2) ℤ-submodules of an abelian group are exactly its subgroups; (3) the categorical `Simple` predicate is preserved under equivalence of categories. Furthermore, Mathlib has `simple_iff_isSimpleModule : Simple (of R M) ↔ IsSimpleModule R M`, so the Lean statement reduces to \"ZMod p is a simple ℤ-module,\" which matches \"ZMod p is a simple abelian group.\" The encoding choice (ℤ-module rather than AddCommGrp directly) is a standard, mathematically equivalent formalization.",
+  "duration_ms": 85945,
+  "cost_usd": 0.343483
+}

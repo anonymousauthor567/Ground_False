@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_b6.lean",
+  "stem": "putnam_1989_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The region X is correctly encoded: with [NeZero n], `x (-1)` is the last coordinate (since Fin n has an AddCommGroup structure), so combined with StrictMono and `0 < x 0`, this gives `0 < x_1 < ... < x_n < 1`. `I x = Fin.cons 0 (Fin.snoc x 1)` correctly sets x_0=0 and x_{n+1}=1. The sum S correctly computes ∑_{i=0}^n (x_{i+1}-x_i)f(x_{i+1}) using castSucc/succ. The measure ℙ[|X] (from ProbabilityTheory.ConditionalProbability) is the uniform probability measure on X, so the integral equals the expected value. The existential structure correctly places P outside the ∀f, matching \"P independent of f\"; degree exactly n, [0,1] bounds on [0,1], and the integral equation all match. The [NeZero n] assumption is an implicit premise required for the statement to be meaningful/true (n=0 would make the problem ill-defined), which is a faithful surfacing of an implicit assumption.",
+  "duration_ms": 1577672,
+  "cost_usd": 1.2293635
+}

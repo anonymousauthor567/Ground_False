@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b5.lean",
+  "stem": "putnam_2011_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely captures the informal statement. Hypothesis: `∑ i : Finset.range n, 1 / (1 + (x - a i)^2)` sums over the subtype `↥(Finset.range n)`, which by `Finset.sum_coe_sort` equals `∑ i ∈ Finset.range n, 1 / (1 + (x - a i)^2)`, giving n terms (i from 0 to n-1). Since `a : ℕ → ℝ` is arbitrary, the index shift 1..n → 0..n-1 is a harmless relabeling. Conclusion: `∑' i : Finset.range n, ∑' j : Finset.range n, (1 + (a i - a j)^2)` uses tsum over a finite subtype; by `Finset.tsum_subtype`, this equals `∑ i ∈ Finset.range n, ∑ j ∈ Finset.range n, (1 + (a i - a j)^2)`, exactly the informal double sum. The natural number `n` is implicitly cast to ℝ in `A * n` and `B * n^3`. The existential structures, integrand, squaring, and inequality direction all match. No hypotheses are added or dropped; no scope is narrowed or broadened.",
+  "duration_ms": 624063,
+  "cost_usd": 2.649742999999999
+}

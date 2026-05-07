@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal statement. A \"finite group G\" is encoded as `[Group G] [Fintype G]`, which is the standard Mathlib convention. The element a ∈ G becomes `(a : G)`. \"Positive integer n\" becomes `n : ℕ` with `n > 0`, which is logically equivalent (every positive integer is a positive natural number and vice versa). The identity element e is `1` in multiplicative notation, and `a^n = e` becomes `a ^ n = 1`. The existential dependency on a is captured correctly since a is in scope when n is quantified. No hypotheses are added or removed.",
+  "duration_ms": 28721,
+  "cost_usd": 0.11356324999999999
+}

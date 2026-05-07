@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "theorem_name": "Herstein_exercise_4_1_34",
+  "informal": "Let $T$ be the group of $2\\times 2$ matrices $A$ with entries in the field $\\mathbb{Z}_2$ such that $\\det A$ is not equal to 0. Prove that $T$ is isomorphic to $S_3$, the symmetric group of degree 3.",
+  "lean": "\ntheorem Herstein_exercise_4_1_34 :\n    Nonempty (Equiv.Perm (Fin 3) ≃* Matrix.GeneralLinearGroup (Fin 2) (ZMod 2))",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the group of 2×2 invertible matrices over ℤ/2ℤ is isomorphic to S_3. The Lean signature asserts `Nonempty (Equiv.Perm (Fin 3) ≃* Matrix.GeneralLinearGroup (Fin 2) (ZMod 2))`, i.e. there exists a multiplicative group isomorphism between Perm(Fin 3) (which is S_3) and GL_2(ZMod 2) (the group of invertible 2×2 matrices over 𝔽_2). `Nonempty (... ≃* ...)` is the standard Lean encoding of \"is isomorphic to\". Types and quantifier structure match exactly.",
+  "duration_ms": 7397,
+  "cost_usd": 0.046374750000000006
+}

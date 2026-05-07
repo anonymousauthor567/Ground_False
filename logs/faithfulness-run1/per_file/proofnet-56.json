@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "informal": "Prove that if $|G|=132$ then $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_22 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 132) : ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature introduces an arbitrary type G with a Group structure and Fintype instance, and the hypothesis `card G = 132` matches |G| = 132. The conclusion `¬ IsSimpleGroup G` directly states that G is not simple. The Fintype assumption is implicit in the informal claim (since |G| = 132 is finite). Quantifier structure (\"for all such G\") is preserved by the universally quantified type variable. No extra or missing hypotheses, and the conclusion matches exactly.",
+  "duration_ms": 6153,
+  "cost_usd": 0.04317175
+}

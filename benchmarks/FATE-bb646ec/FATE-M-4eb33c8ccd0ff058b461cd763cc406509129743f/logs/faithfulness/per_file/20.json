@@ -1,0 +1,8 @@
+{
+  "file": "20.lean",
+  "stem": "20",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a field F has only two ideals: (0) = {0} and (1) = F. The Lean signature asserts that for any ideal I of a field F, I = 0 ∨ I = ⊤. In Mathlib, (0 : Ideal F) equals ⊥ (the zero ideal) via Submodule.zero_eq_bot, so `I = 0` corresponds to the ideal {0}, and `I = ⊤` corresponds to the whole ring F (the ideal (1)). The universal quantification over F as an arbitrary field and over I as an arbitrary ideal matches the informal claim. Mathlib even has an analogous lemma `Ideal.eq_bot_or_top` stated identically (but for division semirings). The formalization is strictly faithful.",
+  "duration_ms": 116958,
+  "cost_usd": 0.30189750000000004
+}

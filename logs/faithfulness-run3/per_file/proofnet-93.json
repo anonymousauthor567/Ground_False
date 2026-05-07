@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show the polynomial x³ - 3x - 1 is irreducible over ℚ. The Lean statement directly formalizes this as `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)`. Mathlib's `Irreducible` predicate on an element of a commutative ring means the element is not a unit and cannot be factored as a product of two non-units, which for polynomials over a field like ℚ is equivalent to the standard mathematical notion of irreducibility (non-constant and not factorable into lower-degree polynomials). The polynomial, the coefficient ring ℚ, and the conclusion all match the informal claim exactly, with no added or dropped hypotheses.",
+  "duration_ms": 28181,
+  "cost_usd": 0.038740500000000004
+}

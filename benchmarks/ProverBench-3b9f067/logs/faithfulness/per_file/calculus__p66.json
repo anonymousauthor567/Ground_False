@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p66.lean",
+  "stem": "calculus__p66",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims ∫₁⁵ x·ln(x) dx = (25·ln 5 - 12)/2 (it says \"indefinite integral\" but the explicit bounds 1 to 5 make it clearly a definite integral — a harmless terminology slip). The Lean statement `∫ x in Set.Icc 1 5, x * log x = (25 * log 5 - 12) / 2` expresses exactly this: with `open Real`, `log` is the natural logarithm (ln), and the set integral over `Set.Icc 1 5` coincides with the definite Riemann/Lebesgue integral from 1 to 5 for the continuous integrand x·ln(x). The numerical value (25·ln 5 - 12)/2 is correct (F(x) = (x²/2)ln(x) - x²/4 gives F(5) - F(1) = (25/2)ln 5 - 6). The hypothesis structure, quantification, types, and conclusion all match.",
+  "duration_ms": 112417,
+  "cost_usd": 0.23641275
+}

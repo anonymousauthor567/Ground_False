@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b1.lean",
+  "stem": "putnam_1964_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Putnam 1964 B1. Hypothesis `h : ∀ n, 0 < a n` correctly captures \"positive integers\" (since ℕ in Mathlib includes 0). `h' : Summable fun n ↦ (1:ℝ)/a n` matches the convergent series (indexing from 0 vs 1 only adds one finite term, preserving summability). `h'' : ∀ n, b n = {k | a k ≤ n}.ncard` correctly defines $b_n$ as the count of indices $k$ with $a_k \\le n$, matching the standard reading of \"the number of $a_n$ which are at most $n$\". Under the summability hypothesis, $\\{k : a_k \\le n\\}$ is necessarily finite, so `Set.ncard` gives the intended cardinality rather than its junk value. The conclusion `Tendsto (fun n ↦ (b n : ℝ)/n) atTop (𝓝 0)` directly matches $\\lim b_n/n = 0$. The division by 0 at n=0 is harmless since `atTop` ignores finitely many values.",
+  "duration_ms": 147206,
+  "cost_usd": 0.5010404999999999
+}

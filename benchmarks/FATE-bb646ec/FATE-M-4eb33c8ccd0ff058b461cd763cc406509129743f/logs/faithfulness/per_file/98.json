@@ -1,0 +1,8 @@
+{
+  "file": "98.lean",
+  "stem": "98",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses encode \"a group of order $p^2$, $p$ a prime\" exactly: `[Group G] [Fintype G]` makes G a finite group, `pp : p.Prime` asserts p is prime, and `ord : Fintype.card G = p^2` gives the order. The conclusion `∃ P : Subgroup G, P.Normal ∧ Fintype.card P = p` is a direct formalization of \"has a normal subgroup of order $p$\" using the standard Mathlib `Subgroup.Normal` predicate and cardinality via `Fintype.card`. There is no silent weakening, strengthening, or type/quantifier drift.",
+  "duration_ms": 124468,
+  "cost_usd": 0.11634200000000001
+}

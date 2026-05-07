@@ -1,0 +1,8 @@
+{
+  "file": "138.lean",
+  "stem": "138",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures \"finite p-group\" via `[Fintype G]` and `IsPGroup p G`, \"simple\" via `IsSimpleGroup G`, and \"|G| = p\" via `Fintype.card G = p`, preserving the iff structure. The `[Fact (Nat.Prime p)]` hypothesis makes explicit an implicit premise of the informal statement: in standard mathematical usage \"p-group\" assumes p is prime, but Mathlib's `IsPGroup` definition does not require primality. Without this hypothesis the statement would actually be false (e.g., p = 4 with G = ℤ/2ℤ is simple and IsPGroup 4 G holds but |G| ≠ 4; p = 1 makes G trivial). Surfacing this necessary implicit premise is faithful per the guidelines, not a weakening. All other types and quantifications match exactly.",
+  "duration_ms": 98312,
+  "cost_usd": 0.24542975
+}

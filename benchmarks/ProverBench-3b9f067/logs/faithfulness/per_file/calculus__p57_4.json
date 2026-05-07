@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p57_4.lean",
+  "stem": "calculus__p57_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully formalizes the informal claim. The function f is defined correctly. The existential quantifier over a, b with the equalities a = (21-√497)/4 and b = (21+√497)/4 is a syntactic device pinning the specific critical points; it does not change the semantic content. The conditions `∀ x < a, f''(x) > 0` and `∀ x > b, f''(x) > 0` precisely characterize the intervals (-∞, (21-√497)/4) and ((21+√497)/4, ∞). Since f is C² everywhere (5x²+35 > 0), the condition f'' > 0 on an open interval is exactly the standard calculus characterization of \"concave up\" used in textbooks, and is equivalent to StrictConvexOn for this smooth function (via Mathlib's `strictConvexOn_of_deriv2_pos`). The extra conjunct `a < b` is mathematically implied by √497 > 0, so it does not add restriction. The axioms for derivatives and critical points are auxiliary and don't affect the theorem signature itself.",
+  "duration_ms": 496906,
+  "cost_usd": 1.27666525
+}

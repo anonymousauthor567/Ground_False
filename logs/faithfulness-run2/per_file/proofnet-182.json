@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `intervalIntegral` from 0 to 1 of `Real.log (Real.sin (Real.pi * x))` and asserts it equals `- Real.log 2`. This directly matches the informal claim $\\int_0^1 \\log(\\sin \\pi x)\\,dx = -\\log 2$: the integration variable, the bounds, the integrand $\\log(\\sin(\\pi x))$, and the value $-\\log 2$ all correspond exactly. There are no added or dropped hypotheses, and all types are real as expected.",
+  "duration_ms": 14926,
+  "cost_usd": 0.0353515
+}

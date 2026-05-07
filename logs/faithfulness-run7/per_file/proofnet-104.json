@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the Hardy-Ramanujan taxicab claim. The positivity constraints on x, y, z, w make explicit an implicit premise needed for truth: without positivity, 91 = 3³+4³ = 6³+(-5)³ would be a smaller counterexample (per the cabtaxi number). The six pairwise inequalities force all four values to be distinct, which — for positive naturals satisfying x³+y³ = z³+w³ with x≠y and z≠w — is precisely equivalent to {x,y} ≠ {z,w} as multisets (if any two from different pairs coincide, the remaining values are forced equal by cube injectivity on ℕ). Since 1729 is in the set, `sInf` over ℕ yields the minimum, matching \"smallest positive integer\". The type ℕ with positivity matches the intended reading of \"integral cubes\" in this classical context, and allowing 0 would not reduce the minimum (by FLT for n=3).",
+  "duration_ms": 164674,
+  "cost_usd": 0.477117
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement's conclusion `Subgroup.Characteristic (P : Subgroup G)` unfolds (per Mathlib's definition in Algebra/Group/Subgroup/Basic.lean) to \"∀ ϕ : G ≃* G, H.comap ϕ = H,\" i.e., φ(P) = P for every automorphism φ of G — exactly the informal conclusion. The hypothesis `P : Sylow p G` with `hp : Nat.Prime p` captures \"P a p-Sylow subgroup of G,\" and `hP : P.Normal` captures \"P ⊲ G.\" The claim \"a normal Sylow p-subgroup is characteristic\" is true in arbitrary groups (no finiteness is needed at the statement level: one can show a normal Sylow p-subgroup is the unique Sylow p-subgroup even in infinite groups via the standard PQ-is-a-p-subgroup argument), so omitting a finiteness assumption doesn't make the Lean statement stronger. Hypotheses, quantifier structure, and mathematical objects all match.",
+  "duration_ms": 201791,
+  "cost_usd": 0.7175572499999999
+}

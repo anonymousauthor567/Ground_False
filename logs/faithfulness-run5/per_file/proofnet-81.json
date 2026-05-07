@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes G₁ and G₂ are cyclic groups of orders m and n (so finite), and claims G₁ × G₂ is cyclic iff m and n are coprime. The Lean signature encodes exactly this: `Fintype G`/`Fintype H` captures \"of orders m, n\" (finiteness), `IsCyclic G`/`IsCyclic H` captures \"cyclic\", and the conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` (where `card` resolves via `open Fintype` to `Fintype.card`, i.e., the group orders) directly matches the biconditional. No hypothesis is silently added or dropped, the quantifier structure is preserved (universal over such G, H), and the types/notions used (`IsCyclic`, `Nat.Coprime`) match the informal ones. This is a logically equivalent formalization.",
+  "duration_ms": 62144,
+  "cost_usd": 0.17090475
+}

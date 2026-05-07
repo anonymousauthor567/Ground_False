@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b4.lean",
+  "stem": "putnam_1964_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the Putnam problem: great circles are defined as intersections of the unit sphere with planes {x | ⟨v_i, x⟩ = 0} through the origin (with v_i ≠ 0, ensuring a proper great circle); distinctness via Function.Injective; general position via \"at most 2 circles contain both x and y\" (which for great circles is mathematically equivalent to \"no three share a common intersection\"); and the region count via non-empty sign-pattern subsets, which for hyperplanes in general position bijects with connected components of S² minus the circles. The answer n² - n + 2 is the classical correct formula. The hypothesis hn : 0 < n is a necessary implicit premise: with n=0 the sphere has 1 region but the formula gives 2, so \"n great circles\" implicitly assumes n ≥ 1 — making this explicit is faithful per the worked example convention, not weaker.",
+  "duration_ms": 340533,
+  "cost_usd": 0.9355065
+}

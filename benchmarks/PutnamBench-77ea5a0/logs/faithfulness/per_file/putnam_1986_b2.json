@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b2.lean",
+  "stem": "putnam_1986_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the set of triples T = (x-y, y-z, z-x) arising from complex (x,y,z) satisfying x(x-1)+2yz = y(y-1)+2zx = z(z-1)+2xy equals a specified Finset (coerced to Set). The equation chain is encoded as the conjunction `x*(x-1)+2*y*z = y*(y-1)+2*z*x ∧ y*(y-1)+2*z*x = z*(z-1)+2*x*y`, which is logically equivalent to the three-way equality in the informal statement. The set-equals-Finset formulation simultaneously captures both parts of the informal task: finiteness (since any set equal to a finite set is finite) and the exact enumeration. The solution set {(0,0,0), (0,-1,1), (1,0,-1), (-1,1,0)} matches the four mathematical cases (x=y=z; x=y with z=x+1; y=z with x=y+1; x=z with y=x+1). Types (ℂ) and the ordered triple structure match exactly. No extra hypotheses are added nor required ones omitted.",
+  "duration_ms": 82463,
+  "cost_usd": 0.29011675
+}

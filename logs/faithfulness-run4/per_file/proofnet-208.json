@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes \"the set of normal operators on V is not a subspace of L(V)\" as \"no submodule of End F V has carrier equal to {T | T * adjoint T = adjoint T * T}\". The definition of normal operator (T commutes with its adjoint) matches the standard textbook definition, `End F V` is the correct Mathlib encoding for L(V), and `Submodule F (End F V)` is precisely the type of subspaces of L(V); saying that no submodule has the given carrier is equivalent to saying the set is not a subspace. The `RCLike F` captures Axler's setting of real/complex inner product spaces, and `finrank F V ≥ 2` matches the hypothesis. The `FiniteDimensional F V` instance is an implicit premise (Axler's book is entirely finite-dimensional, and `LinearMap.adjoint` in Mathlib requires it for definability), so making this explicit is faithful.",
+  "duration_ms": 99974,
+  "cost_usd": 0.4133555
+}

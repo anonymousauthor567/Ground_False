@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each component of the informal statement: `[CommRing R]` matches \"commutative ring\", `hR : (0 : R) ≠ 1` is logically equivalent to \"1 ≠ 0\", `ha : IsNilpotent a` matches \"a is a nilpotent element\", and the free variable `(b : R)` encodes the universal quantifier \"for all b ∈ R\". The conclusion `IsUnit (1 - a*b)` matches \"1 - ab is a unit\". No hypotheses are dropped or added beyond what the informal statement says, and no extra strength is claimed. This is a strictly faithful formalization.",
+  "duration_ms": 29311,
+  "cost_usd": 0.10174
+}

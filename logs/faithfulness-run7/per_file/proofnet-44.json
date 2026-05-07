@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The informal statement requires showing that an abelian simple group G (without finiteness assumption) is isomorphic to Z_p for some prime p. The Lean statement assumes only [CommGroup G] [IsSimpleGroup G] (no finiteness), and concludes `IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (@card G G_fin)`. This conclusion is logically equivalent to \"G ≅ Z_p for some prime p\": a cyclic group of prime order p is isomorphic to Z_p, and conversely Z_p is cyclic with prime cardinality. The existence of a Fintype instance making the cardinality prime is the standard way to assert G is finite of prime order without pre-assuming finiteness. Mathlib's `IsSimpleGroup.isCyclic`, `IsSimpleGroup.prime_card`, and `IsSimpleGroup.finite` in `Cyclic.lean` confirm this is the standard classification. No hypotheses are added or dropped relative to the informal claim.",
+  "duration_ms": 63391,
+  "cost_usd": 0.23113325
+}

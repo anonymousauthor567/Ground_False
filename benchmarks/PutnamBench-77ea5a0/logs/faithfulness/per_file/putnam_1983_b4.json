@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_b4.lean",
+  "stem": "putnam_1983_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes f(n) = n + ⌊√n⌋ using `Int.floor (√n)` (where √ is Real.sqrt from Mathlib) and correctly sets up the recurrence a(n+1) = f(a n) with appropriate ℕ→ℤ coercion. The conclusion `∃ i, ∃ s : ℤ, a i = s^2` faithfully expresses \"the sequence contains at least one square\" since a_i ∈ ℕ and existence of an integer s with a_i = s² is the standard encoding of a perfect square. The hypothesis `a 0 > 0` surfaces the implicit premise that m is a positive integer (standard Putnam convention where m denotes a positive integer); even if one reads the informal more literally to allow m = 0, that case is trivially true (0 = 0²), so restricting to positive m is the natural reading and matches the worked-example pattern of making implicit premises explicit.",
+  "duration_ms": 243896,
+  "cost_usd": 0.7005645
+}

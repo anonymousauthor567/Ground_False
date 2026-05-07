@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "informal": "Let $p$ and $q$ be distinct odd primes such that $p-1$ divides $q-1$. If $(n, p q)=1$, show that $n^{q-1} \\equiv 1(p q)$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_3_14 {p q n : ℕ} (hp0 : p.Prime ∧ p > 2)\n  (hq0 : q.Prime ∧ q > 2) (hpq0 : p ≠ q) (hpq1 : p - 1 ∣ q - 1)\n  (hn : n.gcd (p*q) = 1) :\n  n^(q-1) ≡ 1 [MOD p*q]",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the components of the informal statement: p and q are primes greater than 2 (i.e., odd primes), they are distinct (p ≠ q), p-1 divides q-1, and n is coprime to pq (encoded as gcd(n, p*q) = 1). The conclusion n^(q-1) ≡ 1 [MOD p*q] matches \"n^{q-1} ≡ 1 (mod pq)\". Working in ℕ is appropriate here since gcd and modular congruence are well-defined, and the statement is equivalent to the informal claim. No hidden hypotheses are added or omitted.",
+  "duration_ms": 6454,
+  "cost_usd": 0.04644700000000001
+}

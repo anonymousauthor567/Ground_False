@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b6.lean",
+  "stem": "putnam_1994_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the Putnam 1994 B6 problem. (1) The function `n : ℕ → ℤ` with hypothesis `n a = 101 * a - 100 * 2^a` matches the informal definition (restricting to ℕ is harmless since only 0 ≤ a ≤ 99 matters). (2) Quantifying `a b c d : Set.Icc 0 99` correctly encodes the subtype {x : ℕ // 0 ≤ x ∧ x ≤ 99} via Lean's coercion of `Set` to its subtype, matching the range constraint. (3) `n a + n b ≡ n c + n d [ZMOD 10100]` uses `Int.ModEq 10100`, the standard mod-10100 congruence in ℤ. (4) `({a, b} : Set (Set.Icc 0 99)) = {c, d}` is logically equivalent to the unordered-pair equality $\\{a,b\\} = \\{c,d\\}$. The Lean subtraction is over ℤ (no truncation issues), and the formula applies elementwise to the coerced natural numbers. No hypotheses are added or dropped beyond the informal content.",
+  "duration_ms": 730402,
+  "cost_usd": 0.41004
+}

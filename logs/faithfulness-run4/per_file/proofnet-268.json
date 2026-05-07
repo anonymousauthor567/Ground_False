@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Herstein's exercise. \"Disturb no common element\" is correctly encoded as `∀ a, ¬(σ a ≠ a ∧ τ a ≠ a)`, which is logically equivalent to `Equiv.Perm.Disjoint σ τ` (per Mathlib's `disjoint_iff_eq_or_eq`: Disjoint f g ↔ ∀ x, f x = x ∨ g x = x). In Herstein's left-to-right multiplication convention, στ = e means apply σ first, then τ, so (στ)(x) = τ(σ(x)) = x, which matches `h2 : τ ∘ σ = id`. The conclusion \"σ = τ = e\" is correctly rendered as `σ = 1 ∧ τ = 1`. The `[Fintype α]` hypothesis reflects the chapter's context (Herstein ch. 3.2 concerns S_n), an implicit premise that does not alter the mathematical content. Types and quantifier structure match.",
+  "duration_ms": 270368,
+  "cost_usd": 0.8184487500000001
+}

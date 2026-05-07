@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"there exists a unique pair (a, n) of positive naturals with a^(n+1) - (a+1)^n = 2001\" using ∃! over ℕ × ℕ, with p.1 > 0 and p.2 > 0 corresponding to \"positive integers.\" Although ℕ uses truncated subtraction, this does not introduce spurious solutions: if (a+1)^n > a^(n+1), the truncated result is 0 ≠ 2001; otherwise the ℕ subtraction equals the ℤ subtraction. Hence the solution set of pairs is identical to the mathematical one, and the uniqueness claim matches the informal statement exactly. No extra hypotheses are added or dropped.",
+  "duration_ms": 26944,
+  "cost_usd": 0.1011315
+}

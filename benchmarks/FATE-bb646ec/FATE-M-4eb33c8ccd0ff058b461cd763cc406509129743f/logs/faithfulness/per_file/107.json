@@ -1,0 +1,8 @@
+{
+  "file": "107.lean",
+  "stem": "107",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the mathematical claim of the informal statement. `Equiv.Perm.IsSwap` is Mathlib's standard encoding of \"transposition\" (`∃ x y, x ≠ y ∧ f = swap x y`), matching the informal notion exactly. The expression `f * g * f⁻¹` corresponds precisely to στσ⁻¹, and the universal quantification over f, g matches \"for any permutation σ\". The `DecidableEq α` instance is technically required to define `swap`/`IsSwap`. The `Fintype α` assumption surfaces the implicit classical context where \"transposition\" is typically understood (permutations of a finite set) — this is a standard Lean encoding that does not distort the mathematical content, and the conclusion is the same statement mathematicians mean.",
+  "duration_ms": 340152,
+  "cost_usd": 0.8429902500000002
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "theorem_name": "Axler_exercise_4_4_corrected",
+  "informal": "Suppose $p \\in \\mathcal{P}(\\mathbf{C})$ has degree $m$. Prove that $p$ has $m$ distinct roots if and only if $p$ and its derivative $p^{\\prime}$ have no roots in common.",
+  "lean": "theorem Axler_exercise_4_4_corrected (p : Polynomial ℂ) (m : ℕ) (hp : p ≠ 0) (hm : m = p.degree) :\n    @card (p.rootSet ℂ) (rootSetFintype p ℂ) = m ↔\n    Disjoint (p.rootSet ℂ) ((Polynomial.derivative p).rootSet ℂ)",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `hm : m = p.degree` (with `m : ℕ` coerced into `WithBot ℕ`) together with `hp : p ≠ 0` correctly captures \"p has degree m\". The left side `card (p.rootSet ℂ) = m` says the set of complex roots of p has exactly m elements, i.e. p has m distinct roots (since p has at most m roots, this is equivalent to \"m distinct roots\"). The right side `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)` says p and p' share no complex root. The edge case m = 0 still works: p is a nonzero constant with empty rootSet, p' = 0 whose rootSet is also empty, so disjointness holds and card = 0. The encoding matches the informal statement.",
+  "duration_ms": 18274,
+  "cost_usd": 0.0753305
+}

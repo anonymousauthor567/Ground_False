@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes G is a finite group (`Fintype G`, `Group G`) with `card G = 132` (using `Fintype.card` from the open `Fintype` namespace), and concludes `¬ IsSimpleGroup G`. This matches the informal claim \"if |G| = 132 then G is not simple\" exactly: |G| = 132 implicitly requires G to be finite, so `Fintype G` is appropriate; `IsSimpleGroup` in Mathlib (Subgroup/Simple.lean) is the standard definition (Nontrivial, every normal subgroup is ⊥ or ⊤), matching \"simple.\" No hypotheses are added or dropped, the quantifier structure is preserved (universal over all such G), and the types align.",
+  "duration_ms": 36424,
+  "cost_usd": 0.123956
+}

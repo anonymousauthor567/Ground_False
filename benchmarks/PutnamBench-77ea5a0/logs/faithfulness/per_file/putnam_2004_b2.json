@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_b2.lean",
+  "stem": "putnam_2004_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes the informal claim. The hypothesis `m > 0 ∧ n > 0` over `m n : ℕ` faithfully captures \"positive integers m and n\". The factorial notation `!` resolves to `Nat.factorial` via Mathlib's scoped notation. The rational type ascription `: ℚ` on the denominators forces genuine rational division (not integer truncation), with the natural-number factorial numerators coerced to ℚ. The strict inequality `<` matches. LHS and RHS match the informal expressions $(m+n)!/(m+n)^{m+n}$ and $(m!/m^m)(n!/n^n)$ respectively. No hypothesis is added or dropped, and no direction/quantifier is changed.",
+  "duration_ms": 80724,
+  "cost_usd": 0.25890875
+}

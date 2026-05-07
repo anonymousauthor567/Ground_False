@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the uniqueness of continuous extensions exactly. Y is T2Space (Hausdorff), f: X → Y is continuous on A, g: X → Y is continuous on closure A and agrees with f on A (so g is a continuous extension). The conclusion says any other g' with these same extension properties agrees with g on closure A, which is equivalent to \"g is uniquely determined by f\". The encoding of partial functions via ContinuousOn and agreement on subtype coercions is the standard Mathlib idiom and logically equivalent to the informal A → Y / Ā → Y formulation. The hypothesis hf : ContinuousOn f A mirrors the informal premise. No hypothesis is silently added or dropped; no quantifier structure or type is altered.",
+  "duration_ms": 27408,
+  "cost_usd": 0.11549849999999999
+}

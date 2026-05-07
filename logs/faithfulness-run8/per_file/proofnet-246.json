@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-246.lean",
+  "stem": "proofnet-246",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization mirrors the informal statement exactly: R is a commutative ring via `[CommRing R]`, the hypothesis `hR : (0 : R) ≠ 1` encodes \"1 ≠ 0\", `IsNilpotent a` (Mathlib: `∃ n, a^n = 0`) captures \"a is nilpotent\", `b : R` as a free theorem parameter gives the universal quantification \"for all b ∈ R\", and `IsUnit (1 - a*b)` captures \"1 - ab is a unit\". No hypothesis is added or dropped beyond what the informal statement requires, and no type or quantifier has drifted. This is a strictly faithful formalization.",
+  "duration_ms": 40207,
+  "cost_usd": 0.12183025
+}

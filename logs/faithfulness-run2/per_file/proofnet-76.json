@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all the hypotheses of the informal statement: G is a finite group with `card G = p*m`, p is prime (`Nat.Prime p`), p does not divide m (`¬ p ∣ m`), and H is a normal subgroup of G (`[H.Normal]`) with order p (`card H = p`). The conclusion `Subgroup.Characteristic H` matches the informal conclusion \"H is characteristic\". The finiteness of G is implicit in the informal statement (since $|G|=pm$ is a natural number product) and is correctly encoded as `[Fintype G]`. All quantifier structure, types, and mathematical notions align, so this is a faithful formalization.",
+  "duration_ms": 12434,
+  "cost_usd": 0.055956000000000006
+}

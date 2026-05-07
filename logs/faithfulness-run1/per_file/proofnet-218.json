@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "informal": "Prove that if $\\Omega=\\{1,2,3, \\ldots\\}$ then $S_{\\Omega}$ is an infinite group",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_3_8 : Infinite (Equiv.Perm ℕ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the symmetric group S_Ω on Ω = {1,2,3,...} is infinite. In Lean, `Equiv.Perm ℕ` is exactly the symmetric group on ℕ (the underlying set of permutations is the same as S_Ω, since {1,2,3,...} is in bijection with ℕ), and `Infinite` asserts that this type has infinitely many elements, which is precisely the claim that S_Ω is an infinite group. The group structure is implicit in `Equiv.Perm`, and \"infinite group\" in the informal sense just means the underlying set is infinite. No hypotheses are added or dropped.",
+  "duration_ms": 7613,
+  "cost_usd": 0.04624075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: in a group G, if there exist three consecutive integers i such that (ab)^i = a^i b^i for all a, b ∈ G, then G is abelian. The Lean formalization introduces an existentially quantified integer n and asserts the three identities for exponents n, n+1, n+2 — which precisely captures \"three consecutive integers.\" The identity \"(ab)^i = a^i b^i\" holds for all a, b ∈ G in each case, matching the informal reading where a single triple of consecutive integers works uniformly for every pair. The conclusion ∀ a b, a * b = b * a is exactly \"G is abelian.\" The exponents are typed as ℤ, matching \"integers.\" Quantifier structure, hypotheses, and conclusion all align with the informal statement.",
+  "duration_ms": 19110,
+  "cost_usd": 0.0820445
+}

@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch9_11.lean",
+  "stem": "brualdi_ch9_11",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `n > 1` matches. The family A is indexed by Fin n (0-indexed), with `A i = Finset.Icc 1 n \\ {i.1 + 1}` — the `+1` shift correctly maps Fin n values (0 to n-1) to the 1-indexed exclusion values (1 to n), giving a bijective relabeling of the informal A_i. The SDR structure encodes a function f : Fin n → α with f(i) ∈ A i and pairwise distinctness, which is the standard definition of a System of Distinct Representatives. The conjunction `Nonempty (SDR A) ∧ Fintype.card (SDR A) = numDerangements n` faithfully captures both \"has an SDR\" and \"the number of SDRs equals D_n\". Mathlib's `numDerangements` is verified to be the standard derangement number D_n.",
+  "duration_ms": 112257,
+  "cost_usd": 0.38085775
+}

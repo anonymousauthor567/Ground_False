@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: `A : α → Set X` encodes the family $\\{A_\\alpha\\}$, `hAa` states each $A_\\alpha$ is connected, `A₀` plays the role of $A$ with `hA` asserting it is connected, and `h : ∀ a, A₀ ∩ A a ≠ ∅` encodes the nonempty intersection hypothesis (which is logically equivalent to `Set.Nonempty` in Mathlib). The conclusion `IsConnected (A₀ ∪ (⋃ a, A a))` directly matches the informal conclusion. Mathlib's `IsConnected` = nonempty + preconnected, which aligns with the standard informal convention that connected sets are nonempty. The empty index-type case is handled consistently by both readings. No hypothesis is added or dropped, and no type drift occurs.",
+  "duration_ms": 91467,
+  "cost_usd": 0.283271
+}

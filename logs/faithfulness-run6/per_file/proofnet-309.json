@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization's hypotheses (MetricSpace X, CompactSpace X, Isometry f) match the informal \"compact metric space with f an isometry\" (Mathlib's Isometry via edist is equivalent to distance-preservation on metric spaces). The conclusion `Continuous f ∧ Bijective f ∧ IsOpenMap f` is logically equivalent to \"f is bijective and is a homeomorphism\": by Mathlib's `Homeomorph.homeomorphOfContinuousOpen`, a continuous bijection that is an open map is a homeomorphism, and conversely every homeomorphism is continuous, bijective, and open. So the triple captures \"bijective + homeomorphism\". Including Continuous f explicitly is redundant (since isometries are automatically continuous) but doesn't change the logical strength. This is a faithful encoding of the informal claim.",
+  "duration_ms": 109598,
+  "cost_usd": 0.3895565
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-51.lean",
+  "stem": "proofnet-51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if P is a Sylow p-subgroup of G and H is a subgroup of G containing P, then P is a Sylow p-subgroup of H. The Lean statement takes `P : Sylow p G`, `H : Subgroup G`, and `hH : P ≤ H` (H contains P), and concludes the two defining properties of `P.subgroupOf H` being a Sylow p-subgroup of H, namely: (1) `IsPGroup p (P.subgroupOf H)` and (2) maximality among p-subgroups of H. These are exactly the two fields of Mathlib's `Sylow` structure, unfolded for the ambient group H. The use of `P.subgroupOf H` is the standard way to view P as a subgroup of H (which coincides with P via `subgroupOfEquivOfLe` given `P ≤ H`). No extra hypothesis is added and none is dropped; the Lean signature faithfully encodes the informal claim.",
+  "duration_ms": 91756,
+  "cost_usd": 0.32624475
+}

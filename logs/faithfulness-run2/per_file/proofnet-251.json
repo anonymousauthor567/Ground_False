@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-251.lean",
+  "stem": "proofnet-251",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $x^4 - 4x^3 + 6$ is irreducible in $\\mathbb{Z}[x]$. The Lean signature uses `Irreducible (X^4 - 4*X^3 + 6 : Polynomial ℤ)`, which directly encodes the same polynomial in the same ring `Polynomial ℤ`, and Mathlib's `Irreducible` predicate on a commutative monoid captures exactly the standard notion of irreducibility (not a unit and any factorization has a unit factor). The polynomial, the ring, and the property match the informal statement exactly.",
+  "duration_ms": 14084,
+  "cost_usd": 0.037110000000000004
+}

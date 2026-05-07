@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "theorem_name": "Dummit_Foote_exercise_4_5_16",
+  "informal": "Let $|G|=p q r$, where $p, q$ and $r$ are primes with $p < q < r$. Prove that $G$ has a normal Sylow subgroup for either $p, q$ or $r$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_16 {p q r : ℕ} {G : Type*} [Group G]\n  [Fintype G]  (hpqr : p < q ∧ q < r)\n  (hpqr1 : p.Prime ∧ q.Prime ∧ r.Prime)(hG : card G = p*q*r) :\n  (∃ (P : Sylow p G), P.Normal) ∨ (∃ (P : Sylow q G), P.Normal) ∨ (∃ (P : Sylow r G), P.Normal)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the hypotheses: p, q, r are primes (hpqr1), p < q < r (hpqr), G is a finite group (Group G + Fintype G), and |G| = pqr (hG). The conclusion is a disjunction asserting the existence of a normal Sylow p-subgroup, normal Sylow q-subgroup, or normal Sylow r-subgroup, which exactly matches \"G has a normal Sylow subgroup for either p, q, or r.\" The Fintype assumption is needed to make sense of `card G = p*q*r` and is implicit in the informal claim that |G| = pqr is a finite number. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 7422,
+  "cost_usd": 0.12761775
+}

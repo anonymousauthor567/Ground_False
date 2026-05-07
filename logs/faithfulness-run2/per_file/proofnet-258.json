@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: G is an arbitrary group, n is a natural number with n > 1 (the informal \"integer n > 1\" is equivalent here since n must be positive), the hypothesis (a*b)^n = a^n * b^n is universally quantified over a, b ∈ G, and the conclusion (aba⁻¹b⁻¹)^(n(n-1)) = e is universally quantified over a, b ∈ G. The commutator expression and exponent n*(n-1) match directly. Since n > 1, natural-number subtraction n-1 gives the usual n-1, so no semantic drift occurs. The quantifier structure, hypotheses, and conclusion all align with the informal statement.",
+  "duration_ms": 14759,
+  "cost_usd": 0.059606000000000006
+}

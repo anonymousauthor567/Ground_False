@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `q : ℕ` with `Nat.Prime` is the standard way to express \"positive prime $q \\in \\mathbb{Z}$\" (and the condition $q \\equiv 3 \\pmod 4$ rules out the ambiguous cases anyway). `q ≡ 3 [ZMOD 4]` correctly captures the congruence via the coercion to ℤ. `span ({↑q} : Set GaussianInt)` is the principal ideal $(q)$ in $\\mathbb{Z}[i]$. `IsField` expresses \"is a field,\" and the existential over a `Fintype` instance with `Fintype.card = q^2` correctly asserts that the quotient is finite with exactly $q^2$ elements. The conjunction appropriately encodes \"is a field with $q^2$ elements.\"",
+  "duration_ms": 38465,
+  "cost_usd": 0.14588774999999998
+}

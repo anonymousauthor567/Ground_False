@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim: p = 2^n + 1 is prime (which, together with being prime, forces n to be a power of 2, i.e., p is a Fermat prime), and concludes that 3 is a primitive root mod p via Mathlib's standard `IsPrimitiveRoot (3 : ZMod p) (p - 1)`. The only notable difference is the extra hypothesis `2 ≤ n`. This is an implicit premise made explicit: without it, n = 1 gives p = 3, in which case (3 : ZMod 3) = 0 and `IsPrimitiveRoot 0 2` is false, so the literal informal statement fails. The informal exercise tacitly assumes p > 3 (so that 3 is a unit mod p), exactly as in the worked example in the system prompt. Surfacing this premise is a correct, faithful reading rather than an unwarranted strengthening/weakening.",
+  "duration_ms": 195913,
+  "cost_usd": 0.68914175
+}

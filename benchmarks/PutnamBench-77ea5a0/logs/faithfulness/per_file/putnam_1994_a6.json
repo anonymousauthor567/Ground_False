@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_a6.lean",
+  "stem": "putnam_1994_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the Putnam 1994 A6 problem: f is 10 permutations of ℤ (Equiv.Perm ℤ matches \"bijections\"); hf states 0 reaches every integer via some length-≥1 composition, which matches \"some composition f_{i_1}∘⋯∘f_{i_m}\" (a composition inherently requires m ≥ 1); hmijcomp's recursion correctly yields mijcomp m i 0 = f(i 0) ∘ f(i 1) ∘ ⋯ ∘ f(i (m-1)); F is defined via hF to be the set of compositions (f 0)^[e 0] ∘ ⋯ ∘ (f 9)^[e 9] with e : Fin 10 → Fin 2, which yields id when eᵢ = 0 and fᵢ when eᵢ = 1 (via Function.iterate_zero/one); the conclusion {g ∈ F | g '' A = A}.card ≤ 512 correctly encodes \"at most 512 functions in F map A to itself\" (for bijective g and finite A, g '' A = A is equivalent to g mapping A to itself). F being a Finset (distinct elements) matches the informal's set-builder notation. All components align with standard mathematical reading.",
+  "duration_ms": 592071,
+  "cost_usd": 1.5026329999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p3_1.lean",
+  "stem": "complex_analysis__p3_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove that f is constant, given that f is entire and |f(z)| ≥ 1 everywhere. The Lean formalization instead concludes only that the reciprocal 1/f is entire and |1/f(z)| ≤ 1. This is an intermediate step in the standard proof (one would then apply Liouville's theorem to 1/f to conclude f is constant), but it is strictly weaker than the informal target: the informal conclusion (f constant) implies the Lean conclusion (1/f entire and bounded by 1), but the Lean conclusion does not imply that f is constant without additional tools. The Lean signature therefore fails to assert the key conclusion of the problem.",
+  "duration_ms": 204559,
+  "cost_usd": 0.24648274999999997
+}

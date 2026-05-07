@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p20.lean",
+  "stem": "calculus__p20",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem's full elaborated signature binds u and v implicitly and auto-includes all four Prop hypotheses via Lean 4's `variable` auto-inclusion rule (they depend on u and v, which are referenced in the conclusion). The resulting signature is: ∀ {u v : ℝ → ℝ}, (u 0 = 1 ∧ u 1 = 2 ∧ u 2 = 3) → (v 0 = 2 ∧ v 1 = 3 ∧ v 2 = 4) → (deriv u 0 = 4 ∧ deriv u 1 = 5 ∧ deriv u 2 = 6) → (deriv v 0 = 7 ∧ deriv v 1 = 8 ∧ deriv v 2 = 9) → deriv (fun x => u (v x)) 0 = 42. All 12 informal hypotheses are present, the conclusion matches, and the ambient type ℝ→ℝ matches. Regarding `deriv`: in Mathlib it returns 0 when a function is not differentiable, so `deriv u 0 = 4 ≠ 0` implies u is differentiable at 0 with derivative 4, correctly encoding u'(0)=4. By the chain rule (u∘v)'(0) = u'(v(0))·v'(0) = 6·7 = 42, matching the informal claim.",
+  "duration_ms": 1142831,
+  "cost_usd": 3.538011750000001
+}

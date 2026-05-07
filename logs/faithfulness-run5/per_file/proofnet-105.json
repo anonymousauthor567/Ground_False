@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly mirrors the informal statement. \"X is a topological space\" is `[TopologicalSpace X]`, \"A a subset of X\" is `A : Set X`, and the hypothesis \"for each x ∈ A there is an open set U containing x such that U ⊂ A\" is exactly `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A`. The conclusion `IsOpen A` matches \"A is open in X\". The quantifier structure, typing of A as a Set, and use of `IsOpen` and `⊆` all align with the standard reading of the informal claim. No hypotheses are added or dropped.",
+  "duration_ms": 23407,
+  "cost_usd": 0.08369925
+}

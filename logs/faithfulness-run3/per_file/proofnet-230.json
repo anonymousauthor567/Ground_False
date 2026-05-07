@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim under Mathlib's convention that `Subgroup.index` returns 0 for infinite index. The hypothesis `hn : n > 0` combined with `hH : H.index = n` correctly encodes \"H has finite index n\" (any finite index is ≥ 1, and n > 0 rules out the \"infinite index\" encoding of 0). The conclusion's `0 < K.index ∧ K.index ≤ n.factorial` correctly encodes \"|G:K| ≤ n!\": the clause `0 < K.index` is necessary to prevent the inequality from being trivially satisfied by K having infinite index (Mathlib's index = 0 ≤ n!). The informal statement's inequality implicitly requires the index to be finite, so making this explicit is surfacing an implicit premise required by the Mathlib encoding, not strengthening the claim. The existential, normality, and containment conditions are all encoded directly. No genuine semantic drift is present.",
+  "duration_ms": 161883,
+  "cost_usd": 0.44887325000000006
+}

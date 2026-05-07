@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"p is an odd prime\" as `p.Prime ∧ p > 2`, which is equivalent since 2 is the only even prime. The polynomial expression `∑ n ∈ (f.support \\ {0}), f.coeff n * X^(n-1)` with `f = (X+2)^p` correctly computes $\\frac{(X+2)^p - 2^p}{X}$: since $(X+2)^p = \\sum_{n=0}^p \\binom{p}{n} 2^{p-n} X^n$ has all non-zero coefficients (so its support is $\\{0,1,\\ldots,p\\}$), removing index 0 and shifting by $X^{n-1}$ yields exactly $\\sum_{n=1}^p \\binom{p}{n} 2^{p-n} X^{n-1}$, which equals $((X+2)^p - 2^p)/X$. The irreducibility is claimed in `Polynomial ℤ`, matching $\\mathbb{Z}[x]$. Types, hypotheses, and conclusion all match the informal claim.",
+  "duration_ms": 66484,
+  "cost_usd": 0.27686700000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. `[CommRing R] [IsDomain R]` is Mathlib's standard encoding of \"integral domain\" (commutative ring with no zero divisors and 1 ≠ 0), matching Dummit & Foote's definition. The hypothesis `x^2 = 1` corresponds to the informal \"x² = 1\", and the conclusion `x = 1 ∨ x = -1` exactly matches \"x = ±1\". The use of implicit `{x : R}` with hypothesis `hx` gives a universally quantified statement over all x in R satisfying x² = 1, matching the informal \"for some x ∈ R then x = ±1\" (which is really a universal claim). No hypotheses are added or dropped, and the conclusion is logically equivalent.",
+  "duration_ms": 54040,
+  "cost_usd": 0.13120674999999998
+}

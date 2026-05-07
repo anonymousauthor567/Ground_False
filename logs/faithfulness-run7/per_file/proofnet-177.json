@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes \"holomorphic on Ω\" as `DifferentiableOn ℂ f Ω`, \"open set Ω\" as `IsOpen Ω`, \"|f| is constant\" as `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c`, and \"f is constant\" as `f a = f b` for arbitrary parameters `(a b : Ω)` (which is universally quantified at the theorem level, equivalent to f being constant on Ω). The only addition is `IsPreconnected Ω`, which is an implicit premise necessary for the statement to be true: without connectedness, f could take different constant-modulus values on different components (e.g., f = c on one disk and f = -c on another), giving a counterexample. Per the instructions, surfacing an implicit premise needed for truth is faithful, not weaker. `IsPreconnected` is the correct Mathlib notion (equivalent to IsConnected for nonempty sets, vacuous otherwise).",
+  "duration_ms": 72964,
+  "cost_usd": 0.24766549999999998
+}

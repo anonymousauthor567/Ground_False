@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-65.lean",
+  "stem": "proofnet-65",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately encodes \"the quotient ring ℤ[i]/(1+i) is a field of order 2\". `GaussianInt` is `Zsqrtd (-1)` = ℤ[i]; `⟨1, 1⟩` is the Gaussian integer with re=1, im=1, i.e. 1+i; `span` (with `open Ideal`) is `Ideal.span` so `span {⟨1,1⟩}` is the ideal (1+i); and the quotient `GaussianInt ⧸ ...` is the quotient ring. The conjunction asserts both (a) it is a field (`IsField`) and (b) it has exactly two elements (∃ a Fintype instance with cardinality 2). Together these faithfully capture \"a field of order 2\" — neither logically weaker nor stronger than the informal claim.",
+  "duration_ms": 111768,
+  "cost_usd": 0.37359699999999996
+}

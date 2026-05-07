@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Nat.factorial (n-1) ≡ 0 [MOD n] ↔ n ≠ 4` under `¬ n.Prime` correctly formalizes \"if n is not prime, (n-1)! ≡ 0 (mod n) except when n = 4\". The phrase \"except when n = 4\" standardly identifies n = 4 as a genuine exception, meaning the congruence holds exactly for n ≠ 4; this is the natural reading, and mathematically n = 4 is indeed the unique exceptional case (3! = 6 ≢ 0 mod 4). The informal proof in the file explicitly addresses both directions, verifying 4 ∤ 6 as the exception and proving divisibility for other composite n. Using ℕ+ plus `¬ n.Prime` correctly encodes the non-prime hypothesis, and `Nat.ModEq n (Nat.factorial (n-1)) 0` is the standard formalization of the congruence. This matches the ground truth formalization at proofnet_verified_gt/proofnet-283.lean exactly.",
+  "duration_ms": 247297,
+  "cost_usd": 0.8489840000000001
+}

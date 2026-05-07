@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal Rudin exercise exactly: `ContinuousOn f (Set.Ici 0)` for continuity on [0,∞), `DifferentiableOn ℝ f (Set.Ioi 0)` for differentiability on (0,∞), `f 0 = 0` for f(0)=0, and `MonotoneOn (deriv f) (Set.Ioi 0)` for the monotonicity of f' (naturally restricted to the domain where f' exists). The conclusion `MonotoneOn (λ x => f x / x) (Set.Ioi 0)` correctly expresses that g(x)=f(x)/x is monotone on (0,∞). Rudin's convention for \"monotonically increasing\" is the weak (non-decreasing) sense, which matches Mathlib's `MonotoneOn`. No hypotheses are added or dropped, and types/domains match.",
+  "duration_ms": 59969,
+  "cost_usd": 0.21090125000000004
+}

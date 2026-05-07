@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-65.lean",
+  "stem": "proofnet-65",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes \"ℤ[i]/(1+i) is a field of order 2\" correctly. `GaussianInt` is Mathlib's `Zsqrtd (-1)` = ℤ[i], and `⟨1, 1⟩` has `re=1, im=1`, so it represents `1+i`. `span ({⟨1,1⟩} : Set GaussianInt)` is the principal ideal (1+i). `IsField (GaussianInt ⧸ span {...})` asserts the quotient is a field (the standard Mathlib `IsField` predicate requires nontriviality, commutativity, and existence of multiplicative inverses). The `∃ finR : Fintype (...), @Fintype.card _ finR = 2` clause encodes \"has order 2\": it says the quotient admits a Fintype structure with cardinality 2, which is equivalent to saying the quotient has exactly two elements. Both conjuncts together match the informal claim exactly.",
+  "duration_ms": 96546,
+  "cost_usd": 0.33213800000000004
+}

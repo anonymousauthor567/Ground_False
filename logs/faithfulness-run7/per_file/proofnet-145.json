@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The coefficient sequence `c : ℕ → ℝ` is constrained by `hc` to take values in {0, 1}, matching the informal condition. The power series is encoded as `∑' (i : ℕ), (c i) * x^i` using tsum; for |x| < 1 with bounded 0/1 coefficients the series is absolutely summable, so tsum coincides with the usual power series sum at both evaluation points x = 2/3 and x = 1/2. The hypothesis `f (2/3) = 3/2` and the conclusion `Irrational (f (1/2))` (using Mathlib's standard definition of Irrational as \"not in the range of ℚ → ℝ\") exactly match the informal statement. No hypotheses are added or dropped, and the quantifier structure and types are appropriate.",
+  "duration_ms": 85528,
+  "cost_usd": 0.26280925
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℂ cannot be endowed with an order making it an ordered field. In Mathlib, ℂ already carries a `Field` instance, and the classical notion of \"ordered field\" corresponds exactly to `Field + LinearOrder + IsStrictOrderedRing` (this is how `LinearOrderedField` is assembled). The Lean statement `¬ ∃ inst : LinearOrder ℂ, IsStrictOrderedRing ℂ` therefore asserts: no linear order on ℂ makes it an ordered field. `IsStrictOrderedRing` in Mathlib packages exactly the compatibility axioms (addition-strictly-monotone, multiplication-by-positive-strictly-monotone, nontriviality, 0 ≤ 1) that characterize the positive cone of an ordered field. The use of `LinearOrder` (total order) rather than `PartialOrder` matches the standard mathematical convention that \"ordered field\" means linearly/totally ordered. No hypotheses are added or dropped; the quantifier structure and conclusion faithfully match the informal claim.",
+  "duration_ms": 133335,
+  "cost_usd": 0.4955605
+}

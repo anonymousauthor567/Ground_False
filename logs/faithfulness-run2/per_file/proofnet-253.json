@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"the polynomial $X^2 - \\sqrt{2}$ is irreducible over $\\mathbb{Z}[\\sqrt{2}]$\". `Zsqrtd 2` is exactly $\\mathbb{Z}[\\sqrt{2}]$, `Zsqrtd.sqrtd` is the element $\\sqrt{2}$, `C` embeds it as a constant polynomial, and `X^2 - C Zsqrtd.sqrtd` is the polynomial $X^2 - \\sqrt{2}$ in the polynomial ring over $\\mathbb{Z}[\\sqrt{2}]$. `Irreducible` is the standard Mathlib definition of irreducibility in a commutative ring. The UFD hint in the informal statement is only a proof aid, not part of the claim, so its absence from the signature is appropriate.",
+  "duration_ms": 16559,
+  "cost_usd": 0.08178275
+}

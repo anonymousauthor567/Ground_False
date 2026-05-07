@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a2.lean",
+  "stem": "putnam_2021_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines $g(x) = \\lim_{r \\to 0}((x+1)^{r+1} - x^{r+1})^{1/r}$ (two-sided) and asks for $\\lim_{x \\to \\infty} g(x)/x$. The Lean formulation uses `𝓝[>] 0` (right-sided limit) in the hypothesis defining $g$. For this specific expression, expanding $(x+1)^{r+1} - x^{r+1} = 1 + rL + O(r^2)$ with $L = (x+1)\\ln(x+1) - x\\ln x$, both one-sided limits (and hence the two-sided limit) exist and equal $e^L$. So any $g$ satisfying the right-sided limit condition has the same values on $(0,\\infty)$ as any $g$ satisfying the two-sided limit condition. The quantifier `∀ x > 0` matches \"for every positive real number $x$\", and the conclusion `Tendsto (g x / x) atTop (𝓝 (Real.exp 1))` matches the informal limit and answer $e$. The two theorems are therefore logically equivalent and faithful.",
+  "duration_ms": 325151,
+  "cost_usd": 0.69708275
+}

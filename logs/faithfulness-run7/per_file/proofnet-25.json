@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes Axler 7.6. `End F V` is `V →ₗ[F] V` (matching L(V)), the hypothesis `T * adjoint T = adjoint T * T` literally is the definition of T being normal (TT* = T*T) since multiplication in `Module.End` is composition, and `range T = range (adjoint T)` matches \"range T = range T*\" exactly. The `RCLike F` assumption matches Axler's scalar field 𝔽 = ℝ or ℂ, and `InnerProductSpace F V` gives the required inner product structure. The `FiniteDimensional F V` hypothesis surfaces the standing assumption of Axler's chapter (V is finite-dimensional) and is in fact needed for the conclusion to hold (the result relies on range closure), so this is making an implicit premise explicit rather than narrowing the claim.",
+  "duration_ms": 140134,
+  "cost_usd": 0.52198575
+}

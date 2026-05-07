@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-121.lean",
+  "stem": "proofnet-121",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the Borsuk–Ulam theorem for $S^1 \\to \\mathbb{R}$: a continuous map from the unit circle to ℝ takes the same value at some pair of antipodal points. The Lean formalization encodes $S^1$ as the unit sphere in ℂ (`Metric.sphere (0 : ℂ) 1`), which is homeomorphic to the standard circle. The subtype inherits the subspace topology, and `Continuous f` captures continuity. The negation `-x` on `↥(Metric.sphere (0 : ℂ) 1)` is defined via Mathlib's `InvolutiveNeg` instance in `BallSphere.lean` as `Subtype.map Neg.neg`, i.e., the antipodal map (negation in ℂ, which preserves the unit circle since |-z| = |z|). The conclusion `∃ x, f x = f (-x)` exactly matches the informal claim. Hypotheses, conclusion, and types all align.",
+  "duration_ms": 45355,
+  "cost_usd": 0.182271
+}

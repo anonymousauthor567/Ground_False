@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b4.lean",
+  "stem": "putnam_1986_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal Putnam problem. The hypotheses `hGeq` and `hGlb` together characterize G(r) as the minimum of |r - √(m²+2n²)| over integer pairs (m,n): `hGlb` makes G(r) a lower bound and `hGeq` asserts it is attained. `Tendsto G atTop (𝓝 0)` is the standard Mathlib encoding of \"the limit as r → ∞ exists and equals 0\", which exactly captures the prove-or-disprove assertion. The iff with `putnam_1986_b4_solution : Prop` (with answer True) correctly formalizes the \"prove or disprove\" format. Although G is defined on all of ℝ rather than just positive reals, only behavior as r → ∞ matters for the Tendsto assertion, so this is inconsequential. The formalization is faithful.",
+  "duration_ms": 137413,
+  "cost_usd": 0.39147975
+}

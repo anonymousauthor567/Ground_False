@@ -1,0 +1,8 @@
+{
+  "file": "88.lean",
+  "stem": "88",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one exactly. `[Fintype G] [Group G]` encodes \"finite group written multiplicatively\" (Mathlib's `Group` uses multiplicative notation by default, so `y^2 = y*y`), `Odd (Fintype.card G)` encodes \"|G| is odd\", and `∀ (x : G), ∃! (y : G), y ^ 2 = x` is precisely \"every x ∈ G has exactly one g ∈ G with g² = x\" (Mathlib's `∃!` is `ExistsUnique`, meaning there exists a unique element). No hypotheses are dropped or added, the quantifier structure matches, and the ambient objects are the same.",
+  "duration_ms": 51699,
+  "cost_usd": 0.125003
+}

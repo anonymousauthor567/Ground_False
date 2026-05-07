@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-324.lean",
+  "stem": "proofnet-324",
+  "informal": "Prove that $\\sum 1/k(\\log(k))^p$ converges when $p > 1$.",
+  "lean": "\ntheorem Pugh_exercise_3_63a (p : ℝ) (f : ℕ → ℝ) (hp : p > 1)\n  (h : f = λ (k : ℕ) => (1 : ℝ) / (k * (log k) ^ p)) :\n  ∃ l, Tendsto f atTop (𝓝 l)",
+  "verdict": "different",
+  "reasoning": "The informal statement asserts convergence of the series ∑ 1/(k (log k)^p) for p > 1. The Lean statement instead asserts that the sequence f(k) = 1/(k (log k)^p) tends to some limit l (i.e., that the terms converge), not that the partial sums converge. These are very different claims: the sequence of terms tends to 0 trivially (even for p ≤ 1, where the series diverges), so the Lean statement does not capture series convergence. There is no use of `Summable`, `HasSum`, or partial sums. This is a different (and much weaker) mathematical claim.",
+  "duration_ms": 10199,
+  "cost_usd": 0.0515755
+}

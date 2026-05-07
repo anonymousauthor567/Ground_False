@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures \"all roots of x^m - x are distinct\" via `Polynomial.Separable` (defined as `IsCoprime f (derivative f)`), which is equivalent to \"no repeated roots in the algebraic closure\" for nonzero polynomials over a field. The hypotheses `Field F`, `CharP F p`, and `p ≠ 0` correctly encode \"F has characteristic p ≠ 0\" (and automatically force p prime since F is a field). The extra hypothesis `n > 0` surfaces an implicit premise: if n = 0 then m = 1 and X^m - X = 0, which is not separable (and the \"distinct roots\" claim is degenerate); in Herstein's Section 5.6 on finite fields, n ≥ 1 is the standard implicit assumption. Per the guidelines, making this implicit premise explicit is faithful, not weakening. The condition `m = p^n` matches exactly.",
+  "duration_ms": 148324,
+  "cost_usd": 0.46667775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The map g ↦ g⁻¹ is introduced via `f = λ g => g⁻¹`, and \"f is a homomorphism\" is encoded as the multiplicative-preservation property `∀ x y, f x * f y = f (x*y)`, which is the defining axiom of a group homomorphism (f(1)=1 and f(x⁻¹)=f(x)⁻¹ follow automatically). \"G is abelian\" is encoded as `∀ x y, x*y = y*x`, the standard definition. The iff structure, the universal quantification over an arbitrary group `{G : Type*} [Group G]`, and the types all match. No hypotheses are added or dropped, and the conclusion is the same biconditional as in the informal statement.",
+  "duration_ms": 18727,
+  "cost_usd": 0.06970174999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `IsQuotientMap` is defined as surjective plus the coinduced-topology condition, matching Munkres's definition of a quotient map. `ConnectedSpace Y` captures \"Y is connected\" (nonempty + preconnected). `IsConnected (p ⁻¹' {y})` captures \"each fiber is connected\" — the required nonemptiness of fibers is automatic from surjectivity of p, so using `IsConnected` rather than `IsPreconnected` changes nothing. The conclusion `ConnectedSpace X` matches \"X is connected\". All types, hypotheses, and quantifier structure line up with the informal statement, with no silent additions or omissions.",
+  "duration_ms": 81172,
+  "cost_usd": 0.25183124999999995
+}

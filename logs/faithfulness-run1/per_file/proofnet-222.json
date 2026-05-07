@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "informal": "A subgroup $M$ of a group $G$ is called a maximal subgroup if $M \\neq G$ and the only subgroups of $G$ which contain $M$ are $M$ and $G$. Prove that if $H$ is a proper subgroup of the finite group $G$ then there is a maximal subgroup of $G$ containing $H$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_2_4_16a {G : Type*} [Group G] [Fintype G] {H : Subgroup G}\n  (hH : H ≠ ⊤) :\n  ∃ M : Subgroup G, M ≠ ⊤ ∧\n  (∀ K : Subgroup G, M ≤ K → K = M ∨ K = ⊤) ∧\n  H ≤ M",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully. `[Fintype G]` corresponds to \"finite group G\", `H ≠ ⊤` corresponds to \"H is a proper subgroup\", and the conclusion asserts the existence of M which is proper (M ≠ ⊤), maximal (any K containing M equals M or ⊤), and contains H (H ≤ M). The maximality condition matches the informal definition exactly: the only subgroups containing M are M and G itself. Quantifier structure and types align.",
+  "duration_ms": 7020,
+  "cost_usd": 0.04562725
+}

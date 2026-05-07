@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-353.lean",
+  "stem": "proofnet-353",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely matches Rudin Exercise 4.15. The function type `ℝ → ℝ` corresponds to \"mapping of R¹ into R¹\", `Continuous f` is \"continuous\", and `IsOpenMap f` (defined in Mathlib as mapping open sets to open sets) is \"open mapping\". The conclusion `Monotone f ∨ Antitone f` faithfully captures Rudin's \"monotonic\", which per Definition 4.28 includes both monotonically increasing and monotonically decreasing (in the non-strict sense, matching Mathlib's `Monotone`/`Antitone` which use `a ≤ b → f a ≤ f b` / `f b ≤ f a`). No hypotheses are added or dropped; the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 129278,
+  "cost_usd": 0.25738825
+}

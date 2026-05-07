@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-320.lean",
+  "stem": "proofnet-320",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every subset of ℕ is clopen. The Lean signature `(A : Set ℕ) : IsClopen A` is implicitly universally quantified over A, so it asserts \"∀ A : Set ℕ, IsClopen A\", which is exactly the informal claim. Mathlib gives ℕ the discrete topology by default (`instance : DiscreteTopology ℕ := ⟨rfl⟩` in `Mathlib/Topology/Order.lean`), which coincides with the subspace topology from ℝ used in Pugh's book — so the ambient topological structure matches the intended one. The conclusion `IsClopen A` is the standard Mathlib notion of a set being both open and closed. No hypotheses are added or dropped, types match, and the quantifier structure is preserved.",
+  "duration_ms": 97750,
+  "cost_usd": 0.23764525
+}

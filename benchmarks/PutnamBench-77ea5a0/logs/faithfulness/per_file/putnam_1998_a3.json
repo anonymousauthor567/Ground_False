@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_a3.lean",
+  "stem": "putnam_1998_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `f : ℝ → ℝ` is a real function on the real line, and `ContDiff ℝ 3 f` is the standard Mathlib encoding of \"f has a continuous third derivative\" (equivalent to f being C^3). The conclusion uses `deriv f a` for f'(a), `iteratedDeriv 2 f a` for f''(a), and `iteratedDeriv 3 f a` for f'''(a) — confirmed from Mathlib's `iteratedDeriv_succ`: iteratedDeriv (n+1) f = deriv (iteratedDeriv n f), so these are the correct second and third derivatives. The existential quantifier and the ≥ 0 inequality on the four-fold product match the informal statement exactly. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 62069,
+  "cost_usd": 0.170018
+}

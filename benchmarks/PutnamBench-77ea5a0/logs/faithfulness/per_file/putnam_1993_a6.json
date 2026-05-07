@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_a6.lean",
+  "stem": "putnam_1993_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the Putnam 1993 A6 self-similar sequence problem. The hypothesis `hseq2inds` encodes the self-similarity property: since between the k-th and (k+1)-th 2 there are seq(k) threes, the positions of 2's are exactly the partial sums ∑(seq(i) + 1), and this also implies seq(0) = 2 via the empty sum case N=0. The conclusion correctly handles the 1-indexed to 0-indexed shift via `n + 1`. The only textual discrepancy is `∃ m : ℤ` (Lean) vs \"nonnegative integer m\" (informal). However, for r > 0 and n ≥ 0, negative m gives ⌊rm⌋ < 0 ≠ n, so these clauses are equivalent; for r < 0 the Lean condition with r matches the informal condition with -r > 0. Thus the existential statements `∃ r, ...` are logically equivalent in both cases.",
+  "duration_ms": 676508,
+  "cost_usd": 1.8333795000000002
+}

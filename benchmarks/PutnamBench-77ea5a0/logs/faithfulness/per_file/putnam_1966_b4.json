@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_b4.lean",
+  "stem": "putnam_1966_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement faithfully. The \"increasing sequence of mn+1 positive integers\" is encoded as a Finset S of size m*n+1 with all elements positive — Finset enforces distinctness, and since elements are in ℕ the strictly increasing order is recoverable. The antichain condition \"no element divides any other\" is correctly encoded as ∀ j i ∈ T, i ≠ j → ¬(j ∣ i), which by iterating over both orderings rules out both directions of divisibility between distinct elements. The chain condition \"each element (except the greatest) divides the next\" is encoded as ∀ i j ∈ T, j < i → j ∣ i; although this literally says every smaller element divides every larger element, this is logically equivalent to consecutive divisibility by transitivity of ∣. The cardinalities (m+1, n+1) and the disjunction structure match. No extraneous hypotheses are added and none are dropped.",
+  "duration_ms": 84714,
+  "cost_usd": 0.25057050000000003
+}

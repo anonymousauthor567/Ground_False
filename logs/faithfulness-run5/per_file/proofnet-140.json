@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement describes \"the real function √(n+1)−√n\" tending to 0 as n → ∞. The Lean version uses `fun n : ℝ => sqrt (n + 1) - sqrt n`, treating the domain as ℝ — which matches the informal phrase \"real function\". The filter `atTop` on ℝ precisely captures \"n → ∞\" for real n, and `𝓝 0` captures convergence to 0. Since `Real` is open, `sqrt` is `Real.sqrt`, matching the informal √. There are no extra or missing hypotheses, the quantifier structure matches, and the types are correctly interpreted. Hence the Lean signature is a strictly faithful formalization.",
+  "duration_ms": 37089,
+  "cost_usd": 0.14282125
+}

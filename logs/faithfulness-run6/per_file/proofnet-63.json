@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures all the informal hypotheses (N positive, gcd(M,N)=1, gcd(d,φ(N))=1, M' ≡ M^d mod N) and the conclusion (∃ inverse d' of d mod φ(N) with M ≡ M'^d' mod N). Typing d and d' as ℕ rather than ℤ is the natural formalization since M^d for d:ℤ would need group structure, and any ℤ-exponent coprime to φ(N) can be reduced mod φ(N) to a natural number without changing M^d mod N (by Euler's theorem, using gcd(M,N)=1). The existential packaging of \"d' is the inverse\" with the congruence conclusion is equivalent to the informal phrasing since all inverses are congruent mod φ(N) and the conclusion depends only on d' mod φ(N). Multiplication commutes so d'·d ≡ 1 matches d·d' ≡ 1. Int.gcd via coercion gives gcd(|M|, N), which is the standard \"coprime\" relation.",
+  "duration_ms": 309134,
+  "cost_usd": 1.0487255
+}

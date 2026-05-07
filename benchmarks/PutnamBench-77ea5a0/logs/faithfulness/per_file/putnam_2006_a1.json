@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_a1.lean",
+  "stem": "putnam_2006_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement defines the set `{(x, y, z) : ℝ × ℝ × ℝ | (x^2 + y^2 + z^2 + 8)^2 ≤ 36 * (x^2 + y^2)}` using exactly the same inequality from the informal statement. The measure `MeasureTheory.volume` on `ℝ × ℝ × ℝ` uses the standard product measure instance (from `Mathlib/MeasureTheory/Measure/Prod.lean`), which coincides with the 3-dimensional Lebesgue measure — the standard notion of volume in ℝ³. The region is a bounded torus (equivalent to `(√(x²+y²) - 3)² + z² ≤ 1`), so the ENNReal volume is finite and `.toReal` faithfully converts it to a real number equal to `6π²`. The types, conclusion, and mathematical content all match the informal problem exactly.",
+  "duration_ms": 82694,
+  "cost_usd": 0.24480624999999998
+}

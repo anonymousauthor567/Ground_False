@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that X² − √2 is irreducible in Polynomial (Zsqrtd 2). In Mathlib, `Zsqrtd 2` is exactly ℤ[√2] (structure with `re` and `im` components), `Zsqrtd.sqrtd = ⟨0,1⟩` represents √d, and `C` lifts this constant into the polynomial ring. Mathlib's `Irreducible` for a commutative (semi)ring element matches the standard definition: not a unit and every factorization has a unit factor, which is precisely the standard notion of irreducibility for a polynomial over a commutative ring. The UFD remark in the informal statement is a proof hint, not part of the claim, so it need not (and does not) appear in the signature. No hypotheses are added or removed, and the conclusion matches exactly.",
+  "duration_ms": 71311,
+  "cost_usd": 0.23300949999999998
+}

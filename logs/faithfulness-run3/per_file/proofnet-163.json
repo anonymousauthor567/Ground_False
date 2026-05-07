@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. \"Nonempty complete metric space X\" is encoded as `[MetricSpace X] [CompleteSpace X] [Nonempty X]`. A \"sequence of dense open sets\" is encoded as `G : ℕ → Set X` with `hG : ∀ n, IsOpen (G n) ∧ Dense (G n)`. The conclusion \"∩_1^∞ G_n is not empty\" is equivalent to `∃ x, ∀ n, x ∈ G n`, which is the standard unfolding of nonemptiness of a countable intersection. The difference between indexing from 1 vs 0 is immaterial since the claim concerns the intersection of all sets in the sequence and is just a relabeling.",
+  "duration_ms": 20588,
+  "cost_usd": 0.0479505
+}

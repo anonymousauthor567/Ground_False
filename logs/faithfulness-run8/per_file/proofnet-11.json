@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Irreducible (12 + 6 * X + X ^ 3 : Polynomial ℚ)` encodes exactly the informal claim. The polynomial `12 + 6*X + X^3` is the same as $x^3 + 6x + 12$ (just written with ascending coefficients), `Polynomial ℚ` is $\\mathbb{Q}[x]$, and Mathlib's `Irreducible` predicate captures the standard ring-theoretic notion of irreducibility (not a unit, and any factorization has a unit factor), which is precisely what \"irreducible in ℚ\" means for a polynomial. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 27034,
+  "cost_usd": 0.089949
+}

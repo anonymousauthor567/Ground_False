@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement from Dummit & Foote 1.1.22b asks to prove that the order of ab equals the order of ba for all a, b in a group G. The Lean signature takes an arbitrary `Group G` and arbitrary elements `a b : G`, and concludes `orderOf (a * b) = orderOf (b * a)`. Mathlib's `orderOf` (defined in `Mathlib/GroupTheory/OrderOfElement.lean`) is exactly the group-theoretic order |x|. The universal quantification over G, a, b is preserved, the types match, and the conclusion is literally the equality |ab| = |ba|. This is a strictly faithful formalization.",
+  "duration_ms": 34328,
+  "cost_usd": 0.10617000000000001
+}

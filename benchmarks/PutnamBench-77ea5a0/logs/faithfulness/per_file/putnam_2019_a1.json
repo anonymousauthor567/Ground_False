@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_a1.lean",
+  "stem": "putnam_2019_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal problem. \"Nonnegative integers $A, B, C$\" is correctly encoded as `A B C : ℤ` with `A ≥ 0 ∧ B ≥ 0 ∧ C ≥ 0` (equivalent to ℕ). The expression $A^3 + B^3 + C^3 - 3ABC$ is faithfully written in ℤ. \"Determine all possible values\" is properly formalized as an equality between the image set $\\{n \\mid \\exists A,B,C \\geq 0, A^3+B^3+C^3-3ABC = n\\}$ and the answer set. The answer set uses `Int.ModEq 9 n 3`, which (per Mathlib's `Data/Int/ModEq.lean`) means `n % 9 = 3 % 9`, i.e., $n \\equiv 3 \\pmod 9$, matching the standard meaning. No hypotheses are added or dropped, and the quantifier structure and ambient types match the informal claim.",
+  "duration_ms": 69196,
+  "cost_usd": 0.2406025
+}

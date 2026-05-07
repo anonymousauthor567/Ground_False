@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the content of the informal claim: positive N, integer M with gcd(M,N)=1, exponent d with gcd(d, φ(N))=1, hypothesis M' ≡ M^d (mod N), and conclusion that there exists d' with d'·d ≡ 1 (mod φ(N)) and M ≡ M'^{d'} (mod N). Recasting \"the inverse d' mod φ(N)\" as an existential ∃d' with d'd ≡ 1 mod φ(N) is logically equivalent, since M'^{d'} mod N only depends on d' mod φ(N). The only minor encoding choice is taking d : ℕ rather than d : ℤ, but since for any integer d with gcd(d, φ(N))=1 one can reduce d mod φ(N) to a nonnegative representative giving the same M^d mod N, the two formulations are equivalent (and in the Dummit–Foote / RSA setting d is naturally a positive integer anyway). No hypothesis is silently added or dropped.",
+  "duration_ms": 57955,
+  "cost_usd": 0.20596574999999998
+}

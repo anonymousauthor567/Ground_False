@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of multiplication on $\\mathbb{Z}/n\\mathbb{Z}$. The Lean formalization uses `ZMod n`, which is Mathlib's standard encoding of $\\mathbb{Z}/n\\mathbb{Z}$ (with `ZMod 0 = ℤ`, which is consistent since $0\\mathbb{Z} = \\{0\\}$ so $\\mathbb{Z}/0\\mathbb{Z} \\cong \\mathbb{Z}$). The statement `(a * b) * c = a * (b * c)` universally quantified over `a b c : ZMod n` is exactly the associativity claim. Universally quantifying over `n : ℕ` matches the natural reading of the exercise (the claim should hold for any modulus). No hypotheses are silently added or dropped, and the conclusion matches exactly. This is a faithful formalization.",
+  "duration_ms": 38575,
+  "cost_usd": 0.12248999999999999
+}

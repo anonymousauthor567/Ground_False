@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "informal": "If $f$ is defined on $E$, the graph of $f$ is the set of points $(x, f(x))$, for $x \\in E$. In particular, if $E$ is a set of real numbers, and $f$ is real-valued, the graph of $f$ is a subset of the plane. Suppose $E$ is compact, and prove that $f$ is continuous on $E$ if and only if its graph is compact.",
+  "lean": "\ntheorem Rudin_exercise_4_6\n  (f : ℝ → ℝ)\n  (E : Set ℝ)\n  (G : Set (ℝ × ℝ))\n  (h₁ : IsCompact E)\n  (h₂ : G = {(x, f x) | x ∈ E})\n  : ContinuousOn f E ↔ IsCompact G",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement defines E as a compact subset of ℝ, f as a real-valued function, and G as the graph {(x, f(x)) | x ∈ E}, then states ContinuousOn f E ↔ IsCompact G. This matches the informal statement: E is compact, f is continuous on E iff its graph is compact. The types (ℝ → ℝ, Set ℝ, Set (ℝ × ℝ)) correspond exactly to the informal setup of real numbers and the plane. The biconditional captures \"if and only if\" faithfully.",
+  "duration_ms": 5235,
+  "cost_usd": 0.042807750000000006
+}

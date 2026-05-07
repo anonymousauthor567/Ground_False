@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p3_3.lean",
+  "stem": "complex_analysis__p3_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"entire f with |f(z)| ≥ 1 implies f is constant.\" The Lean hypotheses correctly capture this: `Entire f` is defined as `AnalyticOn ℂ f Set.univ` (analytic everywhere on ℂ) and `∀ z, 1 ≤ abs (f z)` captures the lower bound. The conclusion `∃ c : ℂ, ∀ z, f z = 1/c` is an unusual but logically equivalent way to state \"f is constant\": in Lean/Mathlib the map c ↦ 1/c is surjective on ℂ (since `inv_zero` gives 1/0 = 0, and for k ≠ 0 we have 1/(1/k) = k). Thus `(∃ c, ∀ z, f z = 1/c) ↔ (∃ k, ∀ z, f z = k)`. Moreover, under the hypothesis |f(z)| ≥ 1, any constant value k must satisfy |k| ≥ 1, hence k ≠ 0, so c := 1/k is a valid witness. The encoding reflects the proof strategy via Liouville on g = 1/f.",
+  "duration_ms": 191608,
+  "cost_usd": 0.602781
+}

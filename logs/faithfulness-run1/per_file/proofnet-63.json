@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "informal": "Let $N$ be a positive integer. Let $M$ be an integer relatively prime to $N$ and let $d$ be an integer relatively prime to $\\varphi(N)$, where $\\varphi$ denotes Euler's $\\varphi$-function. Prove that if $M_{1} \\equiv M^{d} \\pmod N$ then $M \\equiv M_{1}^{d^{\\prime}} \\pmod N$ where $d^{\\prime}$ is the inverse of $d \\bmod \\varphi(N)$: $d d^{\\prime} \\equiv 1 \\pmod {\\varphi(N)}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_8_1_12 {N : ℕ} (hN : N > 0) {M M': ℤ} {d : ℕ}\n  (hMN : M.gcd N = 1) (hMd : d.gcd N.totient = 1)\n  (hM' : M' ≡ M^d [ZMOD N]) :\n  ∃ d' : ℕ, d' * d ≡ 1 [ZMOD N.totient] ∧\n  M ≡ M'^d' [ZMOD N]",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim: hN : N > 0, hMN : gcd(M, N) = 1, hMd : gcd(d, φ(N)) = 1, and the hypothesis M' ≡ M^d (mod N), with conclusion that there exists d' satisfying d'·d ≡ 1 (mod φ(N)) and M ≡ M'^{d'} (mod N). The informal statement says \"d' is the inverse of d mod φ(N)\"; since gcd(d, φ(N)) = 1 such an inverse exists and is unique mod φ(N), and because gcd(M, N) = 1 (hence gcd(M', N) = 1), Euler's theorem makes M'^{d'} mod N depend only on d' mod φ(N). So \"∃ d' which is an inverse and satisfies the congruence\" is equivalent to the universal/canonical statement. Using d : ℕ rather than ℤ is harmless because M^d mod N depends only on d mod φ(N) when M is a unit mod N, and any integer d coprime to φ(N) has a natural-number representative coprime to φ(N). No hypotheses are silently added or dropped.",
+  "duration_ms": 19161,
+  "cost_usd": 0.08096450000000001
+}

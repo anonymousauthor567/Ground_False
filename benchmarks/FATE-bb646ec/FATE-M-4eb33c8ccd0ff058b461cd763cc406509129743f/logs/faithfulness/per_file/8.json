@@ -1,0 +1,8 @@
+{
+  "file": "8.lean",
+  "stem": "8",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `MulAut.conj : G →* MulAut G` is defined in Mathlib (Algebra/Group/End.lean) exactly as `g ↦ (h ↦ g*h*g⁻¹)`, matching the informal `φ : g ↦ f_g` where `f_g(x) = gxg⁻¹`. `MonoidHom.ker` yields a `Subgroup G`, and `Subgroup.center G` is defined as the set of elements commuting with everything in G (i.e., Z(G)). The equality of these two subgroups of G precisely states Ker(φ) = Z(G). The universal quantification over groups is captured by `(G : Type*) [Group G]`, matching \"Let G be a group\". No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 76245,
+  "cost_usd": 0.23568974999999998
+}

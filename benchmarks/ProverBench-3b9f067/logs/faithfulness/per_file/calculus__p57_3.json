@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p57_3.lean",
+  "stem": "calculus__p57_3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asserts that f is concave up (convex) on the intervals (-∞, (21-√497)/4) and ((21+√497)/4, ∞), i.e., a statement about convexity of f on specific intervals. The Lean `critical_points` lemma instead asserts that f''(x) = 0 exactly at the two values a = (21-√497)/4 and b = (21+√497)/4, i.e., it characterizes the zero set of f''. These are logically incomparable: (1) convexity on (-∞,a) ∪ (b,∞) does not imply f'' is nonzero on those intervals (e.g., analog of x⁴ where f''=0 at an interior point of a convex region), so informal does not imply Lean; (2) knowing the zero set of f'' alone does not determine the sign of f'' on each interval, so one could have f'' = 0 only at {a,b} yet f concave down on (-∞,a) and (b,∞), so Lean does not imply informal. The Lean formalization changes the conclusion from a convexity claim (e.g., `ConvexOn ℝ (Set.Iio a) f` and `ConvexOn ℝ (Set.Ioi b) f`) to an unrelated claim about roots of the second derivative.",
+  "duration_ms": 337036,
+  "cost_usd": 0.7440855000000001
+}

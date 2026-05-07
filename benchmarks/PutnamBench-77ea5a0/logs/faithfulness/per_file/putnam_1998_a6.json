@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_a6.lean",
+  "stem": "putnam_1998_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all elements of the informal statement. Points in ℝ² are represented as `EuclideanSpace ℝ (Fin 2)`, integer coordinates are expressed via `hint`, and distinctness via `htriangle`. The expression `dist A B + dist B C` matches |AB|+|BC| literally (B as the middle vertex). `(MeasureTheory.volume (convexHull ℝ {A,B,C})).toReal` equals the standard area of triangle ABC (Lebesgue measure of the filled triangle). The `threesquare P Q R` predicate asserts |QP|=|QR| and (P-Q) ⊥ (R-Q), which together with distinctness forms a right isoceles triangle at Q. The disjunction over (A,B,C), (B,C,A), (C,A,B) covers all three possible corners, and three points forming a right isoceles triangle is equivalent to being three vertices of a square. No hypotheses are added or dropped.",
+  "duration_ms": 298707,
+  "cost_usd": 0.8782679999999999
+}

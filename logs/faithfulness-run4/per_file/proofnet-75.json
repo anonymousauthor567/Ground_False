@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `a : ℕ` with `h : a > 1` correctly captures \"a > 1 integer\" (since a positive integer greater than 1 is naturally encoded in ℕ). The exponent `n : ℕ` is consistent with the informal statement's implicit reading. `(a^n - 1).totient` corresponds to `φ(a^n - 1)`, using Mathlib's `Nat.totient`. Natural number subtraction is safe since `a > 1` implies `a^n ≥ 1`. Edge cases check out: for n = 0, `0 ∣ 0` holds trivially; for n ≥ 1, this is Herstein's classical result that the multiplicative order of a modulo (a^n - 1) is exactly n, so n divides φ(a^n - 1) by Lagrange. The conclusion, types, and hypothesis all faithfully reflect the informal statement.",
+  "duration_ms": 115743,
+  "cost_usd": 0.30555849999999996
+}

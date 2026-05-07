@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "verdict": "faithful",
+  "reasoning": "The informal claim asks to show that the equation x² = -1 has infinitely many solutions in the real quaternions. The Lean statement asserts `Infinite {x : Quaternion ℝ | x^2 = -1}`, where `Quaternion ℝ` is Mathlib's real quaternion algebra and `Infinite` means the type is not finite. This captures exactly \"infinitely many solutions to x² = -1 in the real quaternions,\" with no added or dropped hypotheses, no type substitutions, and no change in quantifier structure. Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 80045,
+  "cost_usd": 0.12964375
+}

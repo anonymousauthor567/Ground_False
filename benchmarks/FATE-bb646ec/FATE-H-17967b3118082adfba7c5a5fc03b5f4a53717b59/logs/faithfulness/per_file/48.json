@@ -1,0 +1,8 @@
+{
+  "file": "48.lean",
+  "stem": "48",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that the group of field automorphisms of ℂ is infinite. The Lean statement asserts that `ℂ ≃ₐ[ℚ] ℂ` (the ℚ-algebra automorphism group of ℂ) is infinite. These are logically equivalent: any ring/field automorphism of ℂ must fix the prime subfield ℚ pointwise (it sends 1 to 1, hence ℤ to ℤ, hence ℚ to ℚ), so it automatically is a ℚ-algebra automorphism. Mathlib makes this precise via `RingHom.equivRatAlgHom` which gives a canonical bijection between ring homs and ℚ-algebra homs for ℚ-algebras. Thus `(ℂ ≃+* ℂ)` (field automorphisms of ℂ) is in bijection with `(ℂ ≃ₐ[ℚ] ℂ)`, so the `Infinite` claims are equivalent. The formalization is faithful.",
+  "duration_ms": 201094,
+  "cost_usd": 0.512997
+}

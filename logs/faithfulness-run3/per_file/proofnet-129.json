@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-129.lean",
+  "stem": "proofnet-129",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the Munkres exercise: given a NormalSpace X and disjoint closed sets A, B, it asserts the existence of open sets U ⊇ A and V ⊇ B whose closures are disjoint (closure U ∩ closure V = ∅). Encoding \"neighborhoods\" as open sets containing A and B is equivalent to the general neighborhood formulation, since any neighborhood contains an open neighborhood and vice versa (and passing to interiors only shrinks closures, preserving disjointness). The disjointness of closures is expressed via empty intersection, which is logically equivalent to `Disjoint`. Hypotheses, quantifier structure, and conclusion all align with the informal statement.",
+  "duration_ms": 21395,
+  "cost_usd": 0.08340249999999999
+}

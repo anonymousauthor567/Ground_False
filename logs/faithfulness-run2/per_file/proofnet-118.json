@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Munkres Exercise 23.2. The sequence `A : ℕ → Set X` encodes \"a sequence of subspaces,\" `IsConnected (A n)` encodes \"connected\" (Mathlib's `IsConnected` is nonempty + preconnected, but the hypothesis `A n ∩ A (n+1) ≠ ∅` already forces each `A n` to be nonempty, so this is equivalent to Munkres's notion in this context). The pairwise-consecutive nonempty intersection hypothesis `A n ∩ A (n+1) ≠ ∅` matches exactly. The conclusion `IsConnected (⋃ n, A n)` matches \"⋃ Aₙ is connected\" — the union is automatically nonempty since the Aₙ are. No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 30235,
+  "cost_usd": 0.11488749999999999
+}

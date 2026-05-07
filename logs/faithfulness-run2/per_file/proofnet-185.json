@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that for any two groups G and H, the center of G × H is the product of the centers Z(G) and Z(H). The Lean theorem quantifies over arbitrary groups G, H and asserts the existence of a multiplicative isomorphism between center (G × H) and (center G) × (center H). Since Z(G) and Z(H) are subgroups (separate types in Lean), the natural way to state \"is the product of their centers\" is as a group isomorphism, which is exactly what `Nonempty (... ≃* ...)` captures. The quantifier structure, hypotheses (just Group instances), and conclusion all match the informal reading. This is a standard, faithful formalization.",
+  "duration_ms": 29155,
+  "cost_usd": 0.106926
+}

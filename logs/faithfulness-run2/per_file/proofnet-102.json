@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the universal quantification over both x : ℤ and prime p : ℕ via implicit arguments with hypotheses, matching the informal \"any prime divisor\" reading. The hypothesis (p : ℤ) ∣ (x^4 - x^2 + 1) exactly encodes \"p is a prime divisor of x^4 - x^2 + 1\", and the conclusion (p : ℤ) ≡ 1 [ZMOD 12] correctly expresses \"p ≡ 1 mod 12\". Types (p : ℕ, x : ℤ) are standard and no extraneous hypotheses (e.g., p > 3) are added or dropped. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 37735,
+  "cost_usd": 0.1309025
+}

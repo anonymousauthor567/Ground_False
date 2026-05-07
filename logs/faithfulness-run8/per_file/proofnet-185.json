@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that Z(G × H) = Z(G) × Z(H) for arbitrary groups G, H. The Lean signature quantifies over arbitrary G, H with `[Group G] [Group H]` (no extra hypotheses like finiteness or abelianness) and equates `Subgroup.center (G × H)` with `(Subgroup.center G).prod (Subgroup.center H)`. In Mathlib, `Subgroup.prod H K` is the subgroup of G × N given by `H × K`, which is precisely the \"product of subgroups\" meaning in the informal statement. Both sides are subgroups of G × H and the equality is the standard characterization of the center of a product. The hypotheses and conclusion match exactly, so this is a faithful formalization.",
+  "duration_ms": 36654,
+  "cost_usd": 0.1227845
+}

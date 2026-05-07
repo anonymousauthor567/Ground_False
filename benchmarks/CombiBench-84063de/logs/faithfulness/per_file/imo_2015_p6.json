@@ -1,0 +1,8 @@
+{
+  "file": "imo_2015_p6.lean",
+  "stem": "imo_2015_p6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal IMO 2015 Problem 6 statement. The sequence `a : ℕ+ → ℤ` correctly encodes integer-valued sequence indexed from 1. Condition (i) `1 ≤ a j ∧ a j ≤ 2015` for all j : ℕ+ faithfully captures \"1 ≤ a_j ≤ 2015 for all j ≥ 1\". Condition (ii) `∀ k l, k < l → k + a k ≠ l + a l` over ℕ+ matches \"k+a_k ≠ ℓ+a_ℓ for all 1 ≤ k < ℓ\" (with automatic coercion from ℕ+ to ℤ for the addition). The conclusion quantifies over positive integers `b N : ℕ+`, and the inner universal over `m n : ℕ+` is equivalent to \"all integers m, n with n > m ≥ N\" since m ≥ N ≥ 1 already forces positivity. The sum `Finset.Icc (m+1) n` over ℕ+ correctly represents $\\sum_{j=m+1}^n$, and `|·| ≤ 1007^2` in ℤ matches the stated bound. No hypotheses have been added or dropped, and types are consistent with standard Mathlib conventions.",
+  "duration_ms": 136981,
+  "cost_usd": 0.43016875000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. `U ⊓ (ker L) = ⊥` is exactly the assertion that U ∩ null T = {0} (in Lean, ⊥ for submodules is the zero submodule). By Mathlib's `range_domRestrict` lemma (`range (domRestrict f K) = K.map f`), the expression `range (domRestrict L U)` equals `{L u : u ∈ U}`, so `range L = range (domRestrict L U)` precisely encodes \"range T = {T u : u ∈ U}\". The hypotheses—finite-dimensional V and a linear map L : V →ₗ[F] W—match Axler's setup; generalizing from Axler's 𝔽 (ℝ or ℂ) to any field F is a standard and harmless formalization convention since the proof works over any field. No hypotheses are dropped or added in a way that changes the mathematical meaning.",
+  "duration_ms": 115668,
+  "cost_usd": 0.43387800000000004
+}

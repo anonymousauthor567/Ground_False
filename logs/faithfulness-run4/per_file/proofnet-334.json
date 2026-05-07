@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement negates the existence of a LinearOrder on ℂ such that ℂ becomes an IsStrictOrderedRing. Since ℂ already carries a Field/Semiring structure, combining it with LinearOrder and IsStrictOrderedRing yields exactly the classical notion of an ordered field: a total order compatible with addition, plus strict positivity of products of positives (via PosMulStrictMono and MulPosStrictMono). The let-binding properly brings the LinearOrder instance into scope so IsStrictOrderedRing can access the PartialOrder component. Therefore, asserting that no such (LinearOrder, IsStrictOrderedRing) pair exists on ℂ is logically equivalent to the informal claim that no order turns ℂ into an ordered field.",
+  "duration_ms": 102778,
+  "cost_usd": 0.33467275
+}

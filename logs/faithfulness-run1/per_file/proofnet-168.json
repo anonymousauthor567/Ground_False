@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "theorem_name": "Rudin_exercise_4_8b_corrected",
+  "informal": "Let $E$ be a bounded set in $R^{1}$. Prove that there exists a real function $f$ such that $f$ is uniformly continuous and is not bounded on $E$.",
+  "lean": "\ntheorem Rudin_exercise_4_8b_corrected\n  (E : Set ℝ) (h : Bornology.IsBounded E) :\n  ∀ f : ℝ → ℝ, UniformContinuousOn f E → Bornology.IsBounded (Set.image f E)",
+  "verdict": "different",
+  "reasoning": "The informal statement (as written) claims: for any bounded E ⊆ ℝ, there EXISTS a uniformly continuous function f that is UNBOUNDED on E. The Lean signature states the opposite/converse: for every uniformly continuous f on a bounded E, the image f(E) is BOUNDED. These are not logically related in the same direction — the Lean theorem is essentially the negation of the existential claim in the informal statement (and is actually the true Rudin 4.8(a), as suggested by the \"_corrected\" suffix). The Lean version neither implies nor is implied by the informal claim; it asserts a different (in fact contradictory) proposition. Hence the formalization is not faithful but \"different.\"",
+  "duration_ms": 19506,
+  "cost_usd": 0.07698625
+}

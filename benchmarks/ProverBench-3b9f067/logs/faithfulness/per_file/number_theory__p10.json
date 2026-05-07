@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p10.lean",
+  "stem": "number_theory__p10",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for irrational α and positive integer n, there exist p ∈ ℤ and q ∈ {1,...,n} with |α − p/q| < 1/((n+1)q). The Lean statement asserts exactly this: hypothesis `Irrational α`, `0 < n` (positive integer), and the conclusion provides p q : ℤ with 0 < q ∧ q ≤ n (which, since q is an integer, means q ∈ {1,...,n}) and the strict inequality |α - p/q| < 1/((n+1)*q). The elaborator inserts real-valued coercions for p, q, and n since α : ℝ forces the expected type. The quantifier structure, hypotheses, and strict inequality all match. The irrationality hypothesis is used precisely to upgrade Mathlib's standard ≤ version (`Real.exists_rat_abs_sub_le_and_den_le`) to a strict <. This is a faithful encoding.",
+  "duration_ms": 321049,
+  "cost_usd": 0.41604875
+}

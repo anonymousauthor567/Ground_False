@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes each element of the informal Baire theorem exactly: `[MetricSpace X] [CompleteSpace X] [Nonempty X]` matches \"nonempty complete metric space\"; `G : ℕ → Set X` with `∀ n, IsOpen (G n) ∧ Dense (G n)` matches \"sequence of dense open sets {G_n}\"; and the conclusion `∃ x, ∀ n, x ∈ G n` is logically equivalent to `(⋂ n, G n).Nonempty`, which is the claim that the countable intersection is not empty. No hypotheses are added or weakened, the quantifier structure is preserved, and no stricter/looser topological notions are substituted. Hence the formalization is strictly faithful.",
+  "duration_ms": 33483,
+  "cost_usd": 0.17341650000000003
+}

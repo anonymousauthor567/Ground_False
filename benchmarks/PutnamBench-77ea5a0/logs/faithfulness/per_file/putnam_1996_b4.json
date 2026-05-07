@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_b4.lean",
+  "stem": "putnam_1996_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The power series definition of matsin via `∑' n : ℕ, ((-1)^n / (2n+1)!) • A^(2n+1)` exactly mirrors the informal definition of sin A. The target matrix mat1996 has entries (0,0)=1, (0,1)=1996, (1,0)=0, (1,1)=1, matching [[1,1996],[0,1]]. The \"prove or disprove\" framing is captured by the iff with `putnam_1996_b4_solution := False`, meaning the statement asserts no such A exists. The series converges for all matrices (dominated by the real sin series), so tsum gives the correct value. The existential over 2×2 real matrices matches the informal statement.",
+  "duration_ms": 167322,
+  "cost_usd": 0.48739675
+}

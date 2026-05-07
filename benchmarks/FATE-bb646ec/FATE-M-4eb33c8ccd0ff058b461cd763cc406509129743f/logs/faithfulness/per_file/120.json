@@ -1,0 +1,8 @@
+{
+  "file": "120.lean",
+  "stem": "120",
+  "verdict": "weaker",
+  "reasoning": "The informal statement says \"for all integers $m$ and $n$\" — i.e., $m, n \\in \\mathbb{Z}$, including negative values. The Lean signature quantifies over `m n : ℕ` (natural numbers only). This is a strictly weaker claim: the natural-number case is implied by the integer case but does not imply it. The integer version is non-trivially stronger because it involves $a^{-1}, b^{-1}$ and `zpow` rather than `npow`. Since the Lean statement only establishes a restricted (non-negative exponent) special case of what the informal statement claims, it is logically weaker than the informal statement.",
+  "duration_ms": 49619,
+  "cost_usd": 0.15934225
+}

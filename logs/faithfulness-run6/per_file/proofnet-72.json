@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"finite group\" as `[Group G] [Fintype G]`, the standard Mathlib convention. The existential quantifier `∃ m : ℕ, m > 0 ∧ ∀ a : G, a ^ m = 1` precisely captures \"there is an integer $m > 0$ such that $a^m = e$ for all $a \\in G$\": `1` is the group identity (= $e$), and `a ^ m` for `m : ℕ` is the standard group power. Using `ℕ` rather than `ℤ` does not change the meaning because the positivity condition `m > 0` ensures we are working with positive integers, and positive `ℕ` and positive `ℤ` exponents coincide in a group. The quantifier structure and hypotheses match the informal statement exactly.",
+  "duration_ms": 27621,
+  "cost_usd": 0.09446425
+}

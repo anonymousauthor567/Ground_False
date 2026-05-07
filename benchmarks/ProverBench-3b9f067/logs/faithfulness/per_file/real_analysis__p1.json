@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p1.lean",
+  "stem": "real_analysis__p1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims the domain of f(x) = √(-1-x)/log_{1/2}(x) is empty. The Lean code defines Dom := {x | -1 - x ≥ 0 ∧ x > 0}, capturing the square-root condition (-1-x ≥ 0) and the log-argument condition (x > 0). Although Lean's Dom omits the denominator-nonzero condition (x ≠ 1, needed since log_{1/2}(1) = 0), that omission is immaterial here: x = 1 fails the first condition -1-x ≥ 0, so Lean's Dom coincides with the true mathematical domain of f as a set. Both are empty because x ≤ -1 and x > 0 are jointly contradictory. Hence `Dom = ∅` is logically equivalent to \"the domain of f is empty.\" This is a faithful formalization.",
+  "duration_ms": 373379,
+  "cost_usd": 1.02998275
+}

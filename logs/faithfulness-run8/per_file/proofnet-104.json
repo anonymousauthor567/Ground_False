@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the classical Hardy-Ramanujan claim about 1729 correctly. Although \"integral cubes\" literally means cubes of integers (ℤ), under that literal reading the statement is false (e.g., 91 = 3³+4³ = 6³+(−5)³), so the intended meaning must be positive integers — the Lean's use of ℕ with 0 < x,y,z,w surfaces this necessary implicit premise. The conditions x ≠ y and w ≠ z encode \"two different cubes\" in each representation; the extra conditions x ≠ z ∧ x ≠ w ∧ y ≠ z ∧ y ≠ w force the two pairs to be disjoint, but given x³+y³=z³+w³ with positive x,y,z,w, sharing one element forces sharing both, so \"fully disjoint\" is equivalent to \"{x,y}≠{z,w}\" (i.e., \"two different ways\"). Finally, `sInf` on ℕ returns the minimum for nonempty sets, so `1729 = sInf S` correctly asserts 1729 is the smallest such positive integer.",
+  "duration_ms": 350805,
+  "cost_usd": 1.0818797500000001
+}

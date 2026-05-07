@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-334.lean",
+  "stem": "proofnet-334",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts no total order on ℂ compatible with its field operations exists (making it an ordered field in the classical sense). The Lean statement negates the existence of a `LinearOrder ℂ` such that `IsStrictOrderedRing ℂ` holds. In current Mathlib, `[Field K] [LinearOrder K] [IsStrictOrderedRing K]` is explicitly the replacement for the deprecated `LinearOrderedField`, so this exactly captures \"ℂ is an ordered field.\" Since ℂ has `Field` structure already, and `IsStrictOrderedRing` encodes strict monotonicity of addition and positive multiplication plus nontriviality — precisely the classical ordered field axioms — the negation `¬∃ inst : LinearOrder ℂ, IsStrictOrderedRing ℂ` is logically equivalent to the informal claim. The `let _ : LinearOrder ℂ := inst` pattern correctly bundles the chosen linear order as the ambient instance when stating `IsStrictOrderedRing ℂ`.",
+  "duration_ms": 98593,
+  "cost_usd": 0.38603550000000003
+}

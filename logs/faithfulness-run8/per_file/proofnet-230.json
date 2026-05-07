@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal statement, with two clauses that make implicit premises explicit. First, `hn : n > 0` surfaces the implicit premise that \"H has finite index n\" means n is a positive integer — in Mathlib's convention, `Subgroup.index = 0` encodes infinite index, so without `n > 0` the case n=0 would contradict \"finite index\". Second, `0 < K.index` surfaces the implicit finiteness assumption in the informal \"|G:K| ≤ n!\" — without this clause, `K.index ≤ n.factorial` would be trivially satisfied by any K with infinite index (since `K.index = 0 ≤ n!` in Mathlib). The other components match directly: `∃ K ≤ H` captures K ≤ H, `K.Normal` captures \"normal subgroup K of G\" (Subgroup.Normal means normal in the ambient group), and `K.index ≤ n.factorial` matches |G:K| ≤ n!. Both added hypotheses are the correct way to make the informal statement true and non-trivial in Mathlib's encoding.",
+  "duration_ms": 256848,
+  "cost_usd": 0.8914522500000002
+}

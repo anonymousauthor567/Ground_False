@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-213.lean",
+  "stem": "proofnet-213",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary group `G` and an arbitrary list `as : List G`, which correctly encodes \"for all $a_1, \\dots, a_n \\in G$\". The LHS `as.prod⁻¹` equals $(a_1 a_2 \\cdots a_n)^{-1}$. The RHS `(as.reverse.map (λ x => x⁻¹)).prod` first reverses to $[a_n, \\dots, a_1]$, maps inversion to get $[a_n^{-1}, \\dots, a_1^{-1}]$, then takes the product $a_n^{-1} a_{n-1}^{-1} \\cdots a_1^{-1}$. This is logically equivalent to Mathlib's `List.prod_inv_reverse` (which uses `(L.map (·⁻¹)).reverse.prod`) since `map` and `reverse` commute. The empty-list case reduces to $1^{-1} = 1$. The encoding matches the informal statement exactly.",
+  "duration_ms": 66837,
+  "cost_usd": 0.25084275
+}

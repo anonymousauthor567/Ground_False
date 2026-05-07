@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "Rudin defines two sets $A$ and $B$ to be separated when $A \\cap \\overline{B} = \\emptyset$ and $\\overline{A} \\cap B = \\emptyset$. The Lean conclusion `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅` encodes exactly this definition. The hypotheses match as well: `MetricSpace X`, `IsClosed A`, `IsClosed B`, and `Disjoint A B` correspond directly to \"disjoint closed sets in some metric space\". No extra assumptions (e.g., finiteness, nonemptiness) are added, and nothing is dropped, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 11146,
+  "cost_usd": 0.040539500000000006
+}

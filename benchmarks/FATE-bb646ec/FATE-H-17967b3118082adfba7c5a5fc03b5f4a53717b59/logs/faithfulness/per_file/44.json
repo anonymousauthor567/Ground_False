@@ -1,0 +1,8 @@
+{
+  "file": "44.lean",
+  "stem": "44",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement. The setup `{F : Type} [Field F] [Fintype F]` with `Fintype.card F = q` faithfully encodes \"finite field of size q\" (no extra hypothesis is added — `q ≥ 2` follows automatically from `Field` being `Nontrivial`). The set `{P : F[X] | P.Monic ∧ Irreducible P ∧ P.natDegree = 19}` precisely counts monic irreducible polynomials of degree 19 (for monic polynomials `natDegree = degree`, so no ambiguity). The RHS `(q^19 - q) / 19` uses ℕ division, which is exact here since 19 is prime and Fermat's little theorem gives $19 \\mid q^{19} - q$ for all $q$, so it matches the rational $\\frac{q^{19}-q}{19}$. `Nat.card` correctly returns the finite cardinality since polynomials of bounded degree over a finite field form a finite set.",
+  "duration_ms": 165650,
+  "cost_usd": 0.4766895
+}

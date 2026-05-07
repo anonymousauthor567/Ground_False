@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_a4.lean",
+  "stem": "putnam_1976_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes: P is monic cubic with integer coefficients a, b and constant -1; r is a real root; P is irreducible over ℚ; Q is monic cubic with integer coefficients c, d and constant +1; r+1 is a root of Q. The conclusion asserts existence of a root s of P equal to one of the two solution functions -1/(r+1) or -(r+1)/r — these are precisely the two \"other roots\" of P (they're legitimately the third root since the product of all roots is 1). The informal asks to \"express another root as a function of r\"; since there are two valid expressible roots, encoding the solution as a pair and asserting existence of a matching root is a natural and faithful encoding of this \"exhibit a formula\" style problem. The implicit constraint s ≠ r is automatically satisfied because neither f₁(r)=r nor f₂(r)=r admits a real solution (both reduce to r²+r+1=0).",
+  "duration_ms": 246599,
+  "cost_usd": 0.7409045
+}

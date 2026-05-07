@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_a5.lean",
+  "stem": "putnam_1984_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The region R is correctly defined as the standard simplex {(x,y,z) : xᵢ ≥ 0, x+y+z ≤ 1}, w is defined as 1-x-y-z, and the integrand is exactly x¹y⁹z⁸w⁴. The integration is over Fin 3 → ℝ with the product Lebesgue measure (standard MeasureSpace.pi instance), which gives the correct triple integral. The conclusion asserts each of a,b,c,d,n is a positive integer (matching the informal \"positive integers\") and that the integral equals a!b!c!d!/n!. This matches the Dirichlet integral value 1!·9!·8!·4!/25! = Γ(2)Γ(10)Γ(9)Γ(5)/Γ(26). No hidden hypothesis, no conclusion drift, no type mismatch.",
+  "duration_ms": 150092,
+  "cost_usd": 0.43457575
+}

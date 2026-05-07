@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show it is \"not true in general\" that the interior of a connected set is connected — i.e., to exhibit a counterexample. The Lean statement asserts exactly that: there exists a set S ⊆ ℝ×ℝ such that S is connected and interior S is not connected. Mathlib's `IsConnected` is the standard \"nonempty + preconnected\" definition, matching the usual topological meaning. Pugh's book is set in Euclidean space, so restricting the ambient space to ℝ × ℝ is the natural and intended reading — and it is actually necessary since on ℝ connected sets are intervals and the phenomenon only arises nontrivially in the plane (e.g., a figure-eight). Therefore the Lean encoding captures the same mathematical claim as the informal statement.",
+  "duration_ms": 56965,
+  "cost_usd": 0.1927055
+}

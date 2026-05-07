@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The sequence `f : ℕ → ℂ` represents {s_n}, and `‖f n‖` for complex numbers is exactly the modulus |s_n| (Mathlib's norm instance on ℂ agrees with the complex absolute value). The hypothesis `∃ (a : ℂ), Tendsto f atTop (𝓝 a)` expresses \"{s_n} converges in ℂ\", and the conclusion `∃ (a : ℝ), Tendsto (‖f ·‖) atTop (𝓝 a)` expresses \"{|s_n|} converges (in ℝ)\". Both the informal and Lean statements only assert existence of a limit for the norms, not a specific value, so there is no hidden strengthening or weakening. The quantifier structure, types, and logical content all match.",
+  "duration_ms": 72511,
+  "cost_usd": 0.23065150000000006
+}

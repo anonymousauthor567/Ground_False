@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. `CompletelyRegularSpace` in Mathlib requires only the separation property (continuous function separating point from closed set via [0,1]) without assuming T1, which precisely matches Munkres's qualifier \"(separation property only)\". `IsConnected (univ : Set X)` unfolds to `Nonempty ∧ IsPreconnected univ`, which is the standard \"X is connected\" notion (equivalent to `ConnectedSpace X`). `StoneCech X` is the Stone-Čech compactification of X as constructed in Mathlib (compact Hausdorff quotient with the universal property). The biconditional `IsConnected (univ : Set X) ↔ IsConnected (univ : Set (StoneCech X))` directly matches \"X is connected iff its Stone-Čech compactification is connected\". No hypotheses are added or dropped, and the types and quantifier structure align.",
+  "duration_ms": 131484,
+  "cost_usd": 0.41346525000000006
+}

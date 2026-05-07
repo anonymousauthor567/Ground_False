@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one precisely. `H K : Subgroup G` with `hHK : H ≤ K` captures \"subgroups H and K of G with H ≤ K\". The expression `(H.subgroupOf K).Characteristic` is the standard Mathlib encoding of \"H is characteristic in K\" — since `H.subgroupOf K := H.comap K.subtype`, combined with `H ≤ K` this is precisely H viewed as a subgroup of K, and Mathlib's `.Characteristic` says every automorphism of K fixes this subgroup. `K.Normal` gives K normal in G, and the conclusion `H.Normal` asserts H is normal in G. This is the standard \"characteristic-in-normal is normal\" theorem, correctly formalized with no added or missing hypotheses.",
+  "duration_ms": 40383,
+  "cost_usd": 0.19034425000000002
+}

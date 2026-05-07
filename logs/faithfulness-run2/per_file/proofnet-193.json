@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over integers a, b (matching the informal \"if a, b are integers\"), assumes (ofInt a : GaussianInt) ∣ ofInt b (matching \"a divides b in the Gauss integers\" via the canonical embedding ℤ → ℤ[i] given by Zsqrtd.ofInt n = ⟨n, 0⟩), and concludes a ∣ b in ℤ (matching \"a divides b in ℤ\"). No hypotheses are added or dropped, the quantifier structure is correct, and the types are the natural ones. This is a strictly faithful formalization.",
+  "duration_ms": 16616,
+  "cost_usd": 0.053615750000000004
+}

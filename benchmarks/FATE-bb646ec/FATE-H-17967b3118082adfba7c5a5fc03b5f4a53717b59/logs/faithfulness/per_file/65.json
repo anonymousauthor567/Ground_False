@@ -1,0 +1,8 @@
+{
+  "file": "65.lean",
+  "stem": "65",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `GaloisField p n` (with `[Fact p.Prime]`) is Mathlib's standard realization of $\\mathbb{F}_{p^n}$, defined as the splitting field of $X^{p^n}-X$ over $\\mathbb{Z}/p\\mathbb{Z}$. The polynomial `X^3 + C a * X + C b` is exactly $x^3+ax+b$ in $\\mathbb{F}_{p^n}[X]$, and `Irreducible` captures the standard notion of irreducibility in that polynomial ring. The conclusion `IsSquare (-4 * a^3 - 27 * b^2)` unfolds to $\\exists r, -4a^3-27b^2 = r \\cdot r$, which is \"is a square in $\\mathbb{F}_{p^n}$\". The universal quantification over $a,b$ is handled by free variables in the theorem signature. No hypotheses have been added or dropped that change the mathematical content.",
+  "duration_ms": 804255,
+  "cost_usd": 1.8615862500000004
+}

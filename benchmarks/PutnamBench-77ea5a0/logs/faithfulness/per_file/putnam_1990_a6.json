@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_a6.lean",
+  "stem": "putnam_1990_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal problem. The type `Finset (Set.Icc 1 10)` (with `open Nat`) uses the subtype `↥(Set.Icc 1 10)` which has exactly 10 elements (the naturals 1–10), so Finsets of this subtype biject with subsets of {1,...,10}. The predicates `∀ s ∈ S, T.card < s` and `∀ t ∈ T, S.card < t` (with automatic Subtype.val coercion of s, t to ℕ) exactly express \"s > |T|\" and \"t > |S|\", and `.card` counts the admissible pairs over the full universe of pairs. The empty-pair case (which satisfies the conditions vacuously) is handled the same way in both the informal and Lean readings. No hypotheses are added or dropped.",
+  "duration_ms": 222110,
+  "cost_usd": 0.6490832500000002
+}

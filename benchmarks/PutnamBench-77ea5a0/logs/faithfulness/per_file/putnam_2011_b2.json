@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b2.lean",
+  "stem": "putnam_2011_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) \"Ordered triples of primes\" is represented as `Fin 3 → ℕ` with each coordinate required to be `.Prime`. (2) The quadratic equation $px^2+qx+r=0$ with rational root is encoded as `∃ x : ℚ, (s 0) * x^2 + (s 1) * x + (s 2) = 0`. (3) \"Appears in\" as one of the three coordinates is encoded as `∃ i : Fin 3, s i = t`. (4) \"Seven or more\" is `.encard ≥ 7`, using extended natural numbers which correctly handles finite/infinite sets. (5) The theorem is implicitly universally quantified in `t`, characterizing exactly the primes appearing in ≥ 7 elements of $S$. The `t.Prime` conjunct is technically redundant (since any $t$ appearing in an element of $S$ is automatically prime), but it does not alter the set defined by the biconditional.",
+  "duration_ms": 78840,
+  "cost_usd": 0.23767824999999998
+}

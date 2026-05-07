@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p26.lean",
+  "stem": "number_theory__p26",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts the existence of infinitely many pairs (p,q) of positive integers satisfying |α - p/q| < 1/q². The Lean signature fails to capture \"infinitely many\". The outer binders `(p q : ℕ) (h : q > 0)` are never used in the body, making that existential vacuous. Likewise, `∀ (n : ℕ), n > 0 →` introduces `n` but `n` is never referenced in the body, so the universal over n is trivial. Thus the Lean statement collapses to merely `∃ (p_n q_n : ℕ), q_n > 0 ∧ |α - p_n/q_n| < 1/q_n²` — the existence of a single pair, not infinitely many. The correct Mathlib idiom uses `Set.Infinite` (as in `Real.infinite_rat_abs_sub_lt_one_div_den_sq_of_irrational`). Since \"infinitely many\" implies \"at least one\" but not vice versa, the Lean statement is strictly weaker than the informal claim.",
+  "duration_ms": 113077,
+  "cost_usd": 0.23709924999999998
+}

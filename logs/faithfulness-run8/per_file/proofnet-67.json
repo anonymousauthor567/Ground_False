@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. Both f and g are polynomials over ℚ, and i, j are universally quantified natural numbers (matching \"any coefficient\"). The hypothesis `∀ n : ℕ, ∃ a : ℤ, (f * g).coeff n = a` correctly encodes \"f·g has integer coefficients\" via the standard ℤ → ℚ coercion, and the conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` correctly encodes \"the product f_i · g_j is an integer\". The quantifier structure (∀ f, g, (∀n ...) → ∀ i, j, ...) exactly matches the informal claim. No hypotheses are dropped or added, and no types are changed.",
+  "duration_ms": 39849,
+  "cost_usd": 0.12186725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem quantifies over arbitrary groups G and H (via `{G H : Type*} [Group G] [Group H]`) and states `Subgroup.center (G × H) = (Subgroup.center G).prod (Subgroup.center H)`. In Mathlib, `Subgroup.center` is the standard center of a group (elements commuting with all others), and `Subgroup.prod` yields the subgroup of `G × H` whose underlying set is `H ×ˢ K`, i.e., the product subgroup. Thus the equality expresses exactly \"the center of the product of two groups equals the product of their centers,\" which is precisely the informal statement. No hypotheses are added or dropped, and the types match naturally.",
+  "duration_ms": 42858,
+  "cost_usd": 0.243411
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses ∃! to encode \"there is a unique smallest topology\". The property bound by ∃! asserts three things: (1) T' is a topology via the local `is_topology` definition (which correctly encodes univ ∈ T, binary intersections, arbitrary unions — with ∅ ∈ T following from empty union); (2) T' contains each T_i in the family via `∀ i, T i ⊆ T'`, matching the standard meaning of one topology containing another; (3) T' is smallest, via the universal property that any topology T'' containing all T_i satisfies T' ⊆ T''. This exactly matches \"unique smallest topology containing all the collections T_α\". Uniqueness is actually automatic from the smallest property (antisymmetry), so ∃! is equivalent to ∃ here, but this does not affect faithfulness. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 45084,
+  "cost_usd": 0.17396849999999997
+}

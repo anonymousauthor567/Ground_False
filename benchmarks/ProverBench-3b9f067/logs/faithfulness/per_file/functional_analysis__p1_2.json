@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_2.lean",
+  "stem": "functional_analysis__p1_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to prove three conclusions (a), (b), (c) from two hypotheses. The Lean file bakes conclusion (b) — the closed-form expression f(u,v) = (u²+v²)e^{-(u+v)} — directly into the definition of f, converts hypothesis (1) into an axiom, and states only one lemma to prove (with sorry): f(u,0) = u²e^{-u}. But this is exactly hypothesis (2) of the informal problem, not one of its conclusions. The conclusions (a) ∂g/∂x = (4x-2y)e^{-y} and (c) the unique global minimum at (0,0) are entirely absent. Thus the Lean statement is trivially implied by the informal setup (since hypothesis 2 is given) but fails to capture any of the three actual conclusions the informal problem requires, making it strictly weaker.",
+  "duration_ms": 85807,
+  "cost_usd": 0.19707449999999999
+}

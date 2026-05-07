@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely: `[CommGroup G]` captures \"abelian\", `[Fintype G]` captures finiteness (implicit in \"order p^n·m\"), `hG : card G = p^n*m` captures the group order, `hp : Nat.Prime p` and `hp1 : ¬ p ∣ m` capture \"p prime\" and \"p ∤ m\", `hH : card H = p^n` captures the subgroup order, and `Subgroup.Characteristic H` is defined in Mathlib (verified in `Mathlib/Algebra/Group/Subgroup/Basic.lean` line 236) exactly as \"H is fixed by all automorphisms\" (`∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`), which is the standard definition. The implicit `{H : Subgroup G}` correctly universally quantifies over such H. No hypothesis is added or dropped beyond what the informal statement requires.",
+  "duration_ms": 51512,
+  "cost_usd": 0.21637425
+}

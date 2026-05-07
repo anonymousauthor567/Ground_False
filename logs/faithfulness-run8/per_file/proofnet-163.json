@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim. `[MetricSpace X] [CompleteSpace X] [Nonempty X]` captures \"nonempty complete metric space\". The sequence `G : ℕ → Set X` with `hG : ∀ n, IsOpen (G n) ∧ Dense (G n)` captures \"sequence of dense open sets\" using Mathlib's standard `Dense` (closure = univ). The conclusion `∃ x, ∀ n, x ∈ G n` is equivalent to ⋂ₙ Gₙ being nonempty, matching exactly what the informal statement asks (the weaker form — nonemptiness, not density of the intersection). No hypotheses are added or dropped, and the types/quantifier structure align.",
+  "duration_ms": 27911,
+  "cost_usd": 0.10910874999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim. `G : Type*` with `[Fintype G] [Group G]` and `card G = 1365` (where `card` resolves to `Fintype.card` from the opened `Fintype` namespace) is the standard Mathlib way to express \"G is a finite group of order 1365\". `¬ IsSimpleGroup G` matches \"G is not simple\", since Mathlib's `IsSimpleGroup` is the standard definition (nontrivial group whose only normal subgroups are `⊥` and `⊤`). No hypotheses were added or dropped and the conclusion is the literal negation of simplicity, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 65592,
+  "cost_usd": 0.17670275000000002
+}

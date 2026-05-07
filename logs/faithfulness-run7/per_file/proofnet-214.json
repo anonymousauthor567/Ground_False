@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `G` is an arbitrary group, `x : G` is arbitrary, and `n : ℕ+` captures \"positive integer n\". The hypothesis `orderOf x = n` corresponds to $|x| = n$ (via the `ℕ+ → ℕ` coercion). The conclusion `x⁻¹ = x ^ (n - 1 : ℕ)` elaborates `n - 1` in `ℕ` by first coercing `n : ℕ+` to `ℕ`, yielding ordinary `Nat.sub`, which matches $n - 1$ exactly (and remains true in the edge case `n = 1` where both sides equal the identity). No extra hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 144450,
+  "cost_usd": 0.45499375000000003
+}

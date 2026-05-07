@@ -1,0 +1,8 @@
+{
+  "file": "S_0033.lean",
+  "stem": "S_0033",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement counts the number of full, isomorphism-closed, coreflective subcategories of CompHaus as mathematical objects — subcategories are identified by their underlying object-property. The Lean formalization defines `FullCoreflectiveSubcategory` as a structure whose third field is `coreflective : Coreflective obj.ι`, where Mathlib's `Coreflective` is a data-carrying class (containing an explicit right-adjoint functor `R : D ⥤ C` and an adjunction `L ⊣ R`), not a `Prop`. Thus `Nat.card (FullCoreflectiveSubcategory CompHaus)` counts tuples `(obj, iso_closed, Coreflective structure)`, where different (but naturally isomorphic) choices of `R` or `adj` yield distinct elements. The counts can diverge in both directions: a single mathematical coreflective subcategory can produce many (often infinitely many) Coreflective instances up to strict Lean equality, so the Lean count may be 0 (infinite type) or inflated; conversely, in principle the Lean count could hit 2 without there being exactly 2 underlying subcategories. Neither statement logically implies the other in general, so the formalization is incomparable. A faithful formalization would have used `Nonempty (Coreflective obj.ι)` or wrapped the coreflective condition as a propositional predicate.",
+  "duration_ms": 1181346,
+  "cost_usd": 3.89580025
+}

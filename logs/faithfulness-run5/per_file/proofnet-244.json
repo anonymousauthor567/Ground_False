@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"$p$ is a zero divisor in $R[x]$\" as `∃ q ≠ 0, p * q = 0` (standard definition) and the RHS as `∃ b ≠ 0, b • p = 0`. Since `smul_eq_C_mul` in Mathlib (`a • p = C a * p`), the scalar action `b • p` is exactly the polynomial $bp(x)$ obtained by multiplying each coefficient by $b$, matching the informal $bp(x) = 0$. The quantifier structure (iff with existentials on both sides) and the ambient type (`CommRing R`) match the informal statement. Even the edge case $p = 0$ is handled consistently (both sides equivalent, trivially true when $R$ is nontrivial). Both nontrivial directions (including McCoy's theorem, which is the substantive content) are captured. The formalization faithfully represents Dummit-Foote 7.2.2.",
+  "duration_ms": 223009,
+  "cost_usd": 0.694696
+}

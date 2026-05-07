@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary group G and an arbitrary element x, matching the informal \"Let x be an element of G\". The conclusion `x ^ 2 = 1 ↔ orderOf x = 1 ∨ orderOf x = 2` directly matches \"x^2 = 1 iff |x| is 1 or 2\". In Mathlib `orderOf x = 0` denotes infinite order, so `orderOf x = 1 ∨ orderOf x = 2` precisely captures the two finite-order cases mentioned in the informal statement — infinite order is correctly excluded, consistent with the fact that x^2 = 1 forces finite order. No hypotheses are added or dropped, and no types are narrowed. This is a faithful formalization.",
+  "duration_ms": 22496,
+  "cost_usd": 0.1105285
+}

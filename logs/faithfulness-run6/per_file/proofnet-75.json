@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-75.lean",
+  "stem": "proofnet-75",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"if a > 1 is an integer, then n ∣ φ(a^n - 1)\" maps directly to the Lean signature: `a : ℕ` with `a > 1` (so a ≥ 2), and the conclusion `n ∣ (a^n - 1).totient`. Using ℕ rather than ℤ is natural since a > 1 gives a positive integer, and a^n - 1 in ℕ truncated subtraction equals the expected value because a ≥ 2 implies a^n ≥ 1. The informal text imposes no constraint on n, and indeed the Lean statement remains true for all n ∈ ℕ, including n = 0 (where a^0 - 1 = 0, φ(0) = 0, and 0 ∣ 0 by Mathlib convention). The hypothesis, conclusion, quantifier structure, and ambient types all line up, so this is a strictly faithful formalization.",
+  "duration_ms": 126345,
+  "cost_usd": 0.44109200000000004
+}

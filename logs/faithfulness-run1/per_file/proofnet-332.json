@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "informal": "If $r$ is rational $(r \\neq 0)$ and $x$ is irrational, prove that $rx$ is irrational.",
+  "lean": "\ntheorem Rudin_exercise_1_1b\n(x : ℝ)\n(y : ℚ)\n(h : y ≠ 0)\n: ( Irrational x ) -> Irrational ( x * y )",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for nonzero rational r and irrational x, rx is irrational. The Lean signature takes x : ℝ, y : ℚ with y ≠ 0, and concludes that if x is irrational, then x * y is irrational. Multiplication of reals is commutative, so x * y = y * x = rx. The hypothesis y ≠ 0 matches r ≠ 0, and Irrational x captures x being irrational. This is logically equivalent to the informal claim.",
+  "duration_ms": 4699,
+  "cost_usd": 0.041008249999999996
+}

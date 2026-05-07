@@ -1,0 +1,8 @@
+{
+  "file": "11.lean",
+  "stem": "11",
+  "verdict": "faithful",
+  "reasoning": "The Lean file defines `EuclideanNormNat` as a classical Euclidean domain with an ℕ-valued norm (matching the standard textbook definition in Dummit-Foote/Lang), and asserts `IsEmpty` of this class for A = ℝ[X,Y]/(X²+Y²+1). The ring is correctly encoded as `MvPolynomial (Fin 2) ℝ ⧸ Ideal.span {X 0^2 + X 1^2 + C 1}`. The extra `mul_left_not_lt` axiom (norm(a·b) ≥ norm(a) for b ≠ 0) is not in the classical textbook definition, but by Samuel's reduction (replacing N with N*(a) = min{N(a·x) : x ≠ 0}), any classical ℕ-valued Euclidean norm can be refined to one satisfying this multiplicativity condition. Hence \"A has a classical Euclidean norm\" ⟺ \"A has an `EuclideanNormNat` structure\", making `IsEmpty (EuclideanNormNat A)` logically equivalent to \"A is not a Euclidean domain.\" The formalization is faithful.",
+  "duration_ms": 684340,
+  "cost_usd": 1.1565699999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely. \"Positive integer n\" is correctly encoded as `n : ℕ` with `hn : n > 0`. The tower of exponents `10^10^10^n` parses as `10^(10^(10^n))` due to right-associativity of `^` in Lean 4, matching $10^{10^{10^n}}$. Natural number subtraction `... - 1` is safe here since the sum is well above 1 (even without `hn`, it's at least 3, and with `hn` it's huge). `Nat.Prime` is the standard primality predicate. The structure (universal quantifier, hypothesis, conclusion) is a direct translation.",
+  "duration_ms": 25892,
+  "cost_usd": 0.0709055
+}

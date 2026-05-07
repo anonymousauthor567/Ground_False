@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_b4.lean",
+  "stem": "putnam_2025_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures every element of the informal statement. Setting n = m+2 (with m : ℕ) encodes n ≥ 2. Condition (a)'s 1-based \"i+j ≤ n\" becomes 0-based \"i+j ≤ m\" (shift of 2), matching `ha`. Conditions (b) and (c) quantify correctly: i : Fin (m+1) with Fin.castSucc/Fin.succ captures adjacent rows/columns at all valid positions (rows 0..m, columns 0..m+1), matching the informal ranges [1,n-1] × [1,n] after reindexing. The sum S matches, and N uses the standard `#{p | ...}` Finset-sep notation (as used in Mathlib's Hamming.lean for counting nonzero entries). The conclusion 3*S ≤ (m+4)*N is the clear-denominators form of S ≤ (n+2)N/3, avoiding loss from integer division since the multiplication form is logically equivalent over ℕ.",
+  "duration_ms": 206628,
+  "cost_usd": 0.52692
+}

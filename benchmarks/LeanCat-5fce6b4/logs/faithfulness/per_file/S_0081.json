@@ -1,0 +1,8 @@
+{
+  "file": "S_0081.lean",
+  "stem": "S_0081",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: the abelian category hypothesis `[Abelian C]` is present, f is an arbitrary morphism between arbitrary objects X, Y in C, and the conclusion `Mono f ↔ IsZero (kernel f)` expresses 'f is monic iff ker(f) = 0' in the standard Mathlib way. In Mathlib's abelian category API (e.g. `Abelian.tfae_mono` in `CategoryTheory/Abelian/Exact.lean`), `Mono f`, `kernel.ι f = 0`, and `IsZero (kernel f)` are all equivalent characterizations, and `IsZero (kernel f)` is the natural formalization of 'the kernel object is zero.' There is no strengthening or weakening of the hypotheses or conclusion.",
+  "duration_ms": 60161,
+  "cost_usd": 0.29654099999999994
+}

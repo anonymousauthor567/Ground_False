@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_b5.lean",
+  "stem": "putnam_2013_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal problem. `Set.Icc 1 n` (as a subtype of ℕ) correctly encodes $X = \\{1, \\ldots, n\\}$. The functions $f: X \\to X$ are formalized as `Set.Icc 1 n → Set.Icc 1 n`, and `f^[j]` is Mathlib's iterate, which satisfies the same recursion as the informal $f^{(j)}$. The condition `∀ x, ∃ j : ℕ, f^[j] x ≤ k` matches the informal condition (since `j : ℕ` is automatically ≥ 0, and `≤` on the subtype is the underlying ℕ ordering). The count uses `encard`, which for this finite set gives the cardinality, and the RHS `k * n ^ (n - 1)` (with subtype coercion and promotion to ℕ∞) matches $k \\cdot n^{n-1}$. The `fiter`/`hfiter` indirection is equivalent to inlining the condition. The extra hypothesis `hn : n ≥ 1` merely makes explicit the implicit premise that $X$ is non-empty (required by $k \\in X$), so it is not a narrowing.",
+  "duration_ms": 182122,
+  "cost_usd": 0.4647595
+}

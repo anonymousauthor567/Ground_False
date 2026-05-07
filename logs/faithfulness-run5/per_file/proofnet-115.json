@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures the informal statement precisely. The set `I := Icc 0 1` corresponds to [0,1]; `f : ℕ → I → ℝ` together with `h : ∀ x n, f n x = ↑x ^ n` uniquely determines f_n(x) = x^n (specifying f by hypothesis rather than definition is logically equivalent here). The conclusion `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)` is the standard Mathlib encoding of \"for every x ∈ [0,1], the sequence (f_n(x)) converges to some limit in ℝ\", which is exactly what the informal statement asks. No hypotheses are added or dropped, types match, and quantifier structure is preserved.",
+  "duration_ms": 71978,
+  "cost_usd": 0.183471
+}

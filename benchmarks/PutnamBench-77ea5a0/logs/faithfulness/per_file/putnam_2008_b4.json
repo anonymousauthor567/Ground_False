@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b4.lean",
+  "stem": "putnam_2008_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim exactly. `p : ℕ` with `Nat.Prime p` matches \"p prime\"; `h : Polynomial ℤ` matches \"polynomial with integer coefficients\". The hypothesis `∀ i j : Finset.range (p^2), h.eval i ≡ h.eval j [ZMOD p^2] → i = j` uses the standard `CoeSort` from `Finset` to subtype `{x : ℕ // x ∈ Finset.range (p^2)}`, i.e., naturals less than p². With `Int.ModEq` meaning `a % n = b % n` and `i = j` on the subtype being equivalent to equality of underlying ℕ values, this exactly expresses \"h(0), h(1), …, h(p²-1) are distinct modulo p²\". The conclusion is formed identically with p³ instead of p², matching \"h(0), …, h(p³-1) are distinct modulo p³\". The coercion chain subtype → ℕ → ℤ for `h.eval` is standard. No hypotheses are added or dropped, and the meaning is preserved.",
+  "duration_ms": 202030,
+  "cost_usd": 0.63706325
+}

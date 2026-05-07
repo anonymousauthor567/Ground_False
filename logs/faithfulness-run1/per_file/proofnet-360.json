@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "theorem_name": "Shakarchi_exercise_1_13b_corrected",
+  "informal": "Suppose that $f$ is holomorphic in an open set $\\Omega$. Prove that if $\\text{Im}(f)$ is constant, then $f$ is constant.",
+  "lean": "theorem Shakarchi_exercise_1_13b_corrected {f : ℂ → ℂ} {Ω : Set ℂ}\n    (hΩ : IsOpen Ω) (hConn : IsPreconnected Ω)\n    (hf : DifferentiableOn ℂ f Ω)\n    (hc : ∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c) :\n    ∀ a b : Ω, f a = f b",
+  "verdict": "weaker",
+  "reasoning": "The conclusion `∀ a b : Ω, f a = f b` faithfully encodes \"f is constant on Ω\", and the hypothesis `(f z).im = c` correctly captures \"Im(f) is constant on Ω\". However, the Lean version adds an extra hypothesis `IsPreconnected Ω` that is not present in the informal statement (the informal only says \"open set Ω\", not \"region\"). The author's `_corrected` suffix even signals this was added. Strictly speaking, this makes the Lean theorem a special case of the literal informal claim (which is actually false without connectedness, but the literal text does not include it), so the Lean statement is logically weaker — it is implied by the informal claim but does not imply the unrestricted version.",
+  "duration_ms": 19985,
+  "cost_usd": 0.0742775
+}

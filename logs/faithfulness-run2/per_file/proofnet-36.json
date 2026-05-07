@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures both directions of the biconditional. The hypothesis `hf : f = λ g => g⁻¹` fully pins down `f` as the inverse map, so asserting `∀ x y, f x * f y = f (x*y)` is exactly the homomorphism property `(xy)⁻¹ = x⁻¹ y⁻¹` (up to a trivial equality flip, which is reflexively the same proposition). The right-hand side `∀ x y, x*y = y*x` is the standard definition of `G` being abelian. The universal quantification over arbitrary groups `G` is preserved via `{G : Type*} [Group G]`. No extra hypotheses (e.g., finiteness or commutativity) are added, and nothing is dropped. The two sides of the iff are logically equivalent to the informal claim.",
+  "duration_ms": 21551,
+  "cost_usd": 0.07221025
+}

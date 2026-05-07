@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a1.lean",
+  "stem": "putnam_1971_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal Putnam 1971 A1 claim accurately. (1) `S : Set (ℤ × ℤ × ℤ)` with `S.ncard = 9` correctly encodes \"a set of 9 lattice points in 3D\" — since `Set.ncard` has junk value 0 for infinite sets, the equation to 9 forces finiteness and exactly 9 elements. (2) The function L is defined using `t ∈ Ioo 0 1` (open interval), so L(P,Q) is the open line segment between P and Q, excluding endpoints — this matches \"interior of the line segment\". (3) The conclusion asserts existence of integers x, y, z and distinct P, Q ∈ S such that the real embedding ((x:ℝ),(y:ℝ),(z:ℝ)) lies in L(P,Q), which is precisely \"a lattice point along the interior of the segment joining two distinct points of S\". The coercions from ℤ to ℝ are handled correctly. No extra or missing hypotheses, and the quantifier structure matches.",
+  "duration_ms": 94683,
+  "cost_usd": 0.320703
+}

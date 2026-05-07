@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the series $\\sum_{k=1}^{\\infty} z^k/k$ via partial sums `s n = ∑_{i<n} z^(i+1)/(i+1)`, with `‖z‖ = 1` placing z on the unit circle. The iff `(∃ z₀, Tendsto s atTop (𝓝 z₀)) ↔ z ≠ 1` captures exactly the content of \"converges at every point of the unit circle except z = 1\": the (←) direction is convergence at z ≠ 1 (Dirichlet's test), and the (→) direction is the implicit claim that z = 1 is excluded because the harmonic series diverges there. The word \"except\" in the informal statement strongly signals this two-sided claim. The types (ℂ), the quantifier structure (universal z on the unit circle), and the convergence predicate (existence of a limit) all match the informal statement exactly.",
+  "duration_ms": 53114,
+  "cost_usd": 0.19873175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `∀ K, ∀ fK : Fintype K, card H = card K → H = K` correctly encodes \"H is the unique subgroup of its order\": any finite subgroup K with the same cardinality as H must equal H (any K of infinite cardinality trivially cannot equal the finite H). The `[Fintype H]` assumption surfaces the implicit premise that \"a given order\" refers to a finite cardinality, which is the standard mathematical reading of \"order\" in this context. The conclusion `H.Characteristic` matches Mathlib's definition (H fixed by all automorphisms), which is exactly the textbook meaning of characteristic subgroup. The finiteness assumption is needed to formalize the notion of \"order\" as a natural number and to apply the uniqueness hypothesis to φ(H) for automorphisms φ.",
+  "duration_ms": 184785,
+  "cost_usd": 0.5754692499999999
+}

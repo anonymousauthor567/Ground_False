@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement clause-by-clause: complete metric space ([MetricSpace X] [CompleteSpace X]), closed (IsClosed), nonempty (.Nonempty), bounded (Bornology.IsBounded), nested (E n ⊇ E (n+1)), diameter tends to 0 (Tendsto (Metric.diam (E n)) atTop (𝓝 0)), and the conclusion that the intersection is a singleton (∃ a, Set.iInter E = {a}), which is exactly \"consists of exactly one point\". The index shift (ℕ starting at 0 vs. the informal starting at 1) is immaterial because the decreasing-nested hypothesis makes the two intersections equal. All types and quantifier structure line up, so this is a strictly faithful formalization.",
+  "duration_ms": 101312,
+  "cost_usd": 0.41857049999999996
+}

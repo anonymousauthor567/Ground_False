@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch12_34.lean",
+  "stem": "brualdi_ch12_34",
+  "verdict": "stronger",
+  "reasoning": "In Mathlib, `SimpleGraph.Connected` is defined as a structure requiring both `Preconnected` and `Nonempty V` (Mathlib/Combinatorics/SimpleGraph/Connectivity/Connected.lean, lines 253-255). This means for `V = Empty`: `G.Connected` is false (fails `Nonempty`), so `¬ G.Connected` holds, but `Gᶜ.Connected` also fails (same reason), making the Lean implication false and unprovable at this edge case. The informal statement about \"complement of a disconnected graph\" classically presumes a non-empty graph (indeed, \"disconnected\" typically means \"has ≥2 components,\" which implicitly requires V to have vertices). The Lean formalization quantifies over all `V : Type*` without a `[Nonempty V]` hypothesis, thereby claiming the result for the extra V = Empty case that the informal statement does not cover. The Lean claim logically implies the informal one (by specialization) but not conversely, matching the definition of \"stronger\"—it drops an implicit hypothesis needed for truth and claims the result for extra cases.",
+  "duration_ms": 660215,
+  "cost_usd": 1.8353424999999999
+}

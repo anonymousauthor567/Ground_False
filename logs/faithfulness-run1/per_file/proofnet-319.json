@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "informal": "Prove that a set $U \\subset M$ is open if and only if none of its points are limits of its complement.",
+  "lean": "\ntheorem Pugh_exercise_2_26 {M : Type*} [TopologicalSpace M]\n  (U : Set M) : IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says U is open iff no point of U is a limit point of its complement Uᶜ. The Lean version states `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)`, where `ClusterPt x (𝓟 Uᶜ)` is exactly Mathlib's notion of x being a cluster/accumulation/limit point of the set Uᶜ (every neighborhood of x meets Uᶜ). The quantifier \"for all x in U\" matches \"none of its points\", and the topological space M is left general, matching the informal \"set U ⊂ M\" where M is a metric/topological space. This is the standard characterization and the encoding is logically equivalent.",
+  "duration_ms": 7796,
+  "cost_usd": 0.047726750000000005
+}

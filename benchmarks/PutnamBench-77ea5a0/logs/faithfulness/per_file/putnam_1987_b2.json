@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b2.lean",
+  "stem": "putnam_1987_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. Using ℕ for r, s, t correctly encodes \"integers with 0 ≤ r, 0 ≤ s\" (and t ≥ 0 is forced by r+s ≤ t). The hypothesis `r + s ≤ t` matches. The sum `∑ i : Finset.range (s + 1), ...` uses the `CoeSort` instance (Finset.instCoeSortFinsetType) to interpret the Finset as the subtype `{x // x ∈ Finset.range (s+1)}`, which with `Finset.fintypeCoeSort` sums over i = 0, ..., s, matching the informal sum. The summand `(choose s i : ℚ) / (choose t (r + i))` (with `open Nat`, `choose` = `Nat.choose`) correctly encodes $\\binom{s}{i}/\\binom{t}{r+i}$ via rational division. The RHS `(t+1 : ℚ) / ((t+1-s) * choose (t-s) r)` gives the correct value: under `r+s ≤ t`, both `t-s` and `t+1-s` are safe under ℕ subtraction (s ≤ t), so the expression equals $\\frac{t+1}{(t+1-s)\\binom{t-s}{r}}$ mathematically.",
+  "duration_ms": 275991,
+  "cost_usd": 0.9220819999999998
+}

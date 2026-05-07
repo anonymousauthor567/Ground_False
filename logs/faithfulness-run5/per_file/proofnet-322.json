@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: each `s i` is compact and nonempty, `s i ⊇ s (i+1)` (nested decreasing), and the conclusion is that `⋂ i, s i` is nonempty. \"Covering compact\" in Pugh's terminology is precisely `IsCompact` (open-cover definition). The T2Space hypothesis is an implicit premise needed for the statement to be literally true — without some separation axiom, the claim fails (e.g., in ℕ with open sets {k, k+1, …}, the sets s_n = {n, n+1, …} are compact, nested, nonempty, but have empty intersection). Since the informal statement is stated abstractly and is only true when compact sets are closed (which T2 guarantees), adding T2Space is surfacing an implicit premise, which per the guidelines is faithful. The ℕ-indexing and set-theoretic structure match the standard interpretation of \"nested decreasing intersection.\"",
+  "duration_ms": 283664,
+  "cost_usd": 0.7564827500000001
+}

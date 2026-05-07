@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal statement. Each A_a is asserted connected via `IsConnected (A a)`, A₀ is asserted connected via `IsConnected A₀`, the hypothesis `∀ a, A₀ ∩ A a ≠ ∅` matches \"A ∩ A_α ≠ ∅ for all α\" (equivalent to nonempty intersection), and the conclusion `IsConnected (A₀ ∪ (⋃ a, A a))` is the claim in the informal statement. The quantifier structure over the index type α is preserved, and types (Set X) are appropriate. Mathlib's `IsConnected` requires nonempty + preconnected, which aligns with the standard topological reading used in Munkres for \"connected subspace/subset\", and the hypothesis structure is consistent in all edge cases. No hypotheses are silently added or dropped.",
+  "duration_ms": 41422,
+  "cost_usd": 0.09585325
+}

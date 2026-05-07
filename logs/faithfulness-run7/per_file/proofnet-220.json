@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-220.lean",
+  "stem": "proofnet-220",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement on every point. `{G : Type*} [Group G] [Finite G]` captures \"finite group G\". `σ : MulAut G` is exactly a group automorphism since `MulAut G := G ≃* G` in Mathlib. The hypothesis `hs : ∀ g, σ g = g ↔ g = 1` encodes \"σ(g)=g iff g=1\". The hypothesis `hs2 : ∀ g, σ (σ g) = g` is the pointwise version of σ² = id, which is logically equivalent to σ² = 1 in `MulAut G`. The conclusion `∀ x y, x * y = y * x` is the standard definition of G being abelian. No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 38979,
+  "cost_usd": 0.17785625
+}

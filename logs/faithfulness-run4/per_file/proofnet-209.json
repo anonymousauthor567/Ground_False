@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Axler Exercise 7.9. The normality hypothesis `T * adjoint T = adjoint T * T` matches $TT^* = T^*T$ under `End ℂ V`'s multiplication (composition). `IsSelfAdjoint T` on `End ℂ V` is equivalent to `adjoint T = T` via `isSelfAdjoint_iff'`. The RHS `∀ e : T.Eigenvalues, (e : ℂ).im = 0` correctly quantifies over `{μ : ℂ // T.HasEigenvalue μ}` and asserts each eigenvalue is real. The `FiniteDimensional ℂ V` assumption is an implicit premise from Axler's book context (all of Axler is finite-dimensional) and is also required for `LinearMap.adjoint` to be defined in Mathlib — making this implicit premise explicit is not a faithfulness error.",
+  "duration_ms": 197512,
+  "cost_usd": 0.72705925
+}

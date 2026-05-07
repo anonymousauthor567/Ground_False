@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_b6.lean",
+  "stem": "putnam_2015_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal Putnam 2015 B6 statement. (1) A(k) is encoded via the set {j : ℕ | Odd j ∧ j ∣ k ∧ j < Real.sqrt(2k)}.encard; the lower bound 1 is automatic since Odd j forces j ≥ 1 (and for k > 0 any divisor j satisfies j ≥ 1), and j < Real.sqrt(2k) correctly encodes the half-open upper bound. The hypothesis `∀ k > 0` only constrains A on positive k, which suffices since the sum starts at k = 1. (2) The expression `(-1 : ℝ) ^ ((k : ℝ) - 1)` uses Real.rpow; by rpow_def_of_neg, (-1)^y = exp(log(-1)·y)·cos(y·π) = cos(y·π), which for integer k-1 equals (-1)^(k-1). (3) A k / (k : ℝ) elaborates as real division with A k coerced to ℝ. (4) The infinite series is encoded as the limit of partial sums over Finset.Icc 1 K, which is the standard meaning of ∑_{k=1}^∞. (5) The solution π²/16 is the known correct answer. No hypotheses are added or dropped, and the types and quantifier structure match.",
+  "duration_ms": 449949,
+  "cost_usd": 1.3058507499999996
+}

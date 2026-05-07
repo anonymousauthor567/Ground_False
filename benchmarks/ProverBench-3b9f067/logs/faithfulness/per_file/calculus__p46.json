@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p46.lean",
+  "stem": "calculus__p46",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement is about an indefinite integral (antiderivative): F(x) = (2/3)(x-5)^(3/2) + C is an antiderivative of √(x-5). The Lean formalization uses `∫ (x : ℝ), Real.sqrt (x - 5)`, which in Mathlib's notation (Bochner.lean) means `integral volume (fun x => Real.sqrt (x - 5))` — the Bochner/Lebesgue integral of √(x-5) over ALL of ℝ, a single real number. These are fundamentally different mathematical objects: an antiderivative relationship vs. a definite integral over ℝ. Additionally, the integration variable `x` in the integral shadows the outer `(x : ℝ)` parameter, so the LHS is a constant while the RHS depends on the outer x and an undefined variable C (auto-bound implicit). Also `(3/2)` likely elaborates as Nat division = 1. The Lean statement neither implies nor is implied by the informal antiderivative claim — they are different kinds of mathematical assertions.",
+  "duration_ms": 261641,
+  "cost_usd": 0.558344
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_a3.lean",
+  "stem": "putnam_1983_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The hypothesis `Odd p ∧ p.Prime` exactly encodes \"p is an odd prime\" (excluding 2). The sum `∑ i ∈ Finset.range (p-1), (i+1) * n^i` expands to 1 + 2n + 3n² + ... + (p-1)n^(p-2), matching F(n). The conclusion `¬(F a ≡ F b [MOD p])` expresses \"F(a) − F(b) is not divisible by p\". The only notable encoding choice is using `Finset.Icc 1 p` = {1,...,p} instead of {0,...,p-1} as in the informal, but both are complete residue systems mod p, and since F(p) ≡ F(0) (mod p) (all terms with n^i for i≥1 vanish mod p), and the conclusion only involves values mod p, the two quantifications give logically equivalent statements. This is a standard faithful encoding.",
+  "duration_ms": 170499,
+  "cost_usd": 0.5345625
+}

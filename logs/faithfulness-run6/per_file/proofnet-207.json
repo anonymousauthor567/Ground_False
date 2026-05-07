@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim from Axler 6.13. The orthonormal list is encoded as `e : Fin n → V` with `Orthonormal F e`, where `RCLike F` correctly restricts scalars to ℝ or ℂ (Axler's setting). The LHS sum `∑ i, ‖⟪v, e i⟫_F‖^2` equals `|⟨v, e_1⟩|^2 + ... + |⟨v, e_n⟩|^2` since `‖·‖` applied to an `RCLike` scalar yields its absolute value/modulus. The RHS `v ∈ Submodule.span F (e '' Set.univ)` correctly encodes membership in the F-linear span of {e_1, ..., e_n}, since `e '' Set.univ` equals the range of `e`. The iff connective matches \"if and only if\". No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 191667,
+  "cost_usd": 0.66927725
+}

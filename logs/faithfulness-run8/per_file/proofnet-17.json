@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. It quantifies over a field F, a vector space V over F (given by AddCommGroup plus Module F V), a linear map T : V →ₗ[F] V, assumes finrank F V = 1 (matching \"dim V = 1\"), and concludes ∃ c : F, ∀ v : V, T v = c • v, which matches \"∃ a ∈ F such that Tv = av for all v\". The extra [FiniteDimensional F V] instance is redundant because in Mathlib `finrank K V = 0` whenever V is not finite-dimensional, so `finrank F V = 1` already implies FiniteDimensional; it neither weakens nor strengthens the claim. The quantifier structure, types, and conclusion match the informal statement exactly.",
+  "duration_ms": 66643,
+  "cost_usd": 0.24768275000000003
+}

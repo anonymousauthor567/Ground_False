@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group of order 9 is abelian. The Lean signature takes a type G with a Group instance and Fintype instance, hypothesizes that card G = 9, and concludes ∀ a b : G, a * b = b * a, which is precisely the definition of G being abelian (commutative). The Fintype instance combined with card G = 9 correctly captures \"group of order 9\". No hypotheses are added or dropped, and the conclusion matches the standard definition of abelian. This is a faithful formalization.",
+  "duration_ms": 19241,
+  "cost_usd": 0.034260250000000006
+}

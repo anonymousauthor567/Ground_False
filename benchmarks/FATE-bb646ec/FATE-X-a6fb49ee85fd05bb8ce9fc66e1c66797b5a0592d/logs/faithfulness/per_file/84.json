@@ -1,0 +1,8 @@
+{
+  "file": "84.lean",
+  "stem": "84",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. `[CommRing R]` and `[Module.Projective R M]` match the hypotheses \"commutative ring R\" and \"projective module M\". The existential `∃ (N : Type) (_ : AddCommGroup N) (_ : Module R N), Module.Free R N` expresses \"there exists a free R-module N\". The conclusion `Module.Free R (N × M)` correctly expresses \"M ⊕ N is free\", since in Mathlib the binary direct sum of two modules is encoded as the product type `N × M` (confirmed by the `Module.Free.prod` instance in `Mathlib/LinearAlgebra/Basis/Prod.lean`). The order \"N × M\" vs. informal \"M ⊕ N\" is immaterial since direct sum is commutative. The universe restriction to `Type` (Type 0) is a standard formalization choice and does not change the mathematical content — this is the classical Eilenberg swindle.",
+  "duration_ms": 473999,
+  "cost_usd": 0.9259185
+}

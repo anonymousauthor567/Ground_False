@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "informal": "A ring $R$ is called a Boolean ring if $a^{2}=a$ for all $a \\in R$. Prove that every Boolean ring is commutative.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_1_15 {R : Type*} [Ring R] (hR : ∀ a : R, a^2 = a) :\n∀ a b : R, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary ring R (via `[Ring R]`), assumes the Boolean-ring hypothesis `∀ a : R, a^2 = a`, and concludes `∀ a b : R, a*b = b*a`, which is exactly the definition of commutativity. This matches the informal statement: a Boolean ring (ring where every element is idempotent) is commutative. No extra hypotheses (like commutativity, finiteness, or characteristic) are silently assumed, and nothing is dropped. The quantifier structure and conclusion correspond precisely.",
+  "duration_ms": 7643,
+  "cost_usd": 0.04424425000000001
+}

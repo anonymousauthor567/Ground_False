@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the polynomial X² − C(√2) is irreducible in Polynomial (Zsqrtd 2), which is exactly the claim \"x² − √2 is irreducible over ℤ[√2]\". In Mathlib, `Zsqrtd 2` is ℤ[√2], `Zsqrtd.sqrtd` is the canonical element with `sqrtd * sqrtd = d` (so in `Zsqrtd 2` it is √2), and `Irreducible` is the standard monoid-theoretic notion of irreducibility, which is the usual meaning for polynomials over an integral domain. The informal \"You may assume that ℤ[√2] is a U.F.D.\" is a proof hint, not a hypothesis of the statement. The types, objects, and conclusion match precisely.",
+  "duration_ms": 68785,
+  "cost_usd": 0.26194724999999996
+}

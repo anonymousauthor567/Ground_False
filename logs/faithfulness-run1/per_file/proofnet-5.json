@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "informal": "Let $Z$ be the center of a group $G$. Prove that if $G / Z$ is a cyclic group, then $G$ is abelian and hence $G=Z$.",
+  "lean": "\ntheorem Artin_exercise_6_1_14 (G : Type*) [Group G]\n  (hG : IsCyclic $ G ⧸ (center G)) :\n  center G = ⊤",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if G/Z(G) is cyclic, then G is abelian (equivalently Z(G) = G). The Lean signature takes an arbitrary group G with the hypothesis that G ⧸ center G is cyclic and concludes center G = ⊤, which is precisely the statement that the center equals the whole group, i.e., G is abelian. The quantification over arbitrary G is correctly captured by the type variable, and `IsCyclic` on the quotient group matches \"G/Z is cyclic\". The conclusion `center G = ⊤` is logically equivalent to \"G is abelian and G = Z\", so the formalization is faithful.",
+  "duration_ms": 7663,
+  "cost_usd": 0.045482999999999996
+}

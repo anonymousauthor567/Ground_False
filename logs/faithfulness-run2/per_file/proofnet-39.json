@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures \"the rotation subgroup of a dihedral group is maximal.\" The rotation subgroup is correctly encoded as `Subgroup.closure {DihedralGroup.r 1}` (since `r 1` generates the cyclic rotation subgroup for n ≥ 1). The maximality condition is correctly expressed as being proper (`R ≠ ⊤`) plus having no subgroups strictly between R and ⊤. The `n ≠ 0` hypothesis restricts to finite dihedral groups, which matches Dummit and Foote's convention (D&F's \"dihedral group\" in this exercise refers to the finite D_{2n}, not the infinite dihedral group that Mathlib's `DihedralGroup 0` represents). Thus the quantifier structure, the objects, and the conclusion all match the informal claim.",
+  "duration_ms": 72889,
+  "cost_usd": 0.250612
+}

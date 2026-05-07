@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a3.lean",
+  "stem": "putnam_1995_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal claim. `digits_to_num` assembles a 9-digit number from a Fin 9 → ℤ sequence using powers of 10 (the index direction is reversed from the informal notation, but this is immaterial since we quantify over all positions and divisibility by 7 doesn't depend on which position holds which power of 10). The `relation d e` definition correctly encodes \"each number formed by replacing d_i with e_i is divisible by 7\" via `if j = i then e j else d j`, and also enforces the implicit constraint that digits lie in [0,10) — which is necessary since Fin 9 → ℤ would otherwise admit arbitrary integer values. Digit bounds on all three sequences follow from the two relation hypotheses. The conclusion `∀ i, 7 ∣ d i - f i` matches exactly. The relation is appropriately asymmetric and matches the informal directed replacement process.",
+  "duration_ms": 188759,
+  "cost_usd": 0.5446509999999999
+}

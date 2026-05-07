@@ -1,0 +1,8 @@
+{
+  "file": "104.lean",
+  "stem": "104",
+  "verdict": "faithful",
+  "reasoning": "The Mathlib `Subgroup.centralizer` (defined in `Mathlib/GroupTheory/Subgroup/Centralizer.lean`) has the characterization `g ∈ centralizer s ↔ ∀ h ∈ s, h * g = g * h`, which exactly matches the informal definition `B(N) = {x ∈ G | xa = ax for all a ∈ N}`. The hypothesis `[nh : N.Normal]` matches \"N ◁ G\", and the conclusion `(Subgroup.centralizer (N : Set G)).Normal` matches \"B(N) ◁ G\". The coercion `(N : Set G)` correctly passes the underlying set of the subgroup to the centralizer definition. Universal quantification over G and N is expressed via the Lean arguments. No hypotheses are added or dropped.",
+  "duration_ms": 28480,
+  "cost_usd": 0.12863475
+}

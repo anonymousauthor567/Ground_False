@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors the informal claim point-for-point: `CompactSpace X` and `T2Space X` encode \"compact Hausdorff\"; `X1 X2 : Set X` with `IsClosed X1`, `IsClosed X2` encode the two closed subspaces; `X1 ∪ X2 = univ` encodes \"X is the union of X₁ and X₂\"; and `MetrizableSpace X1`, `MetrizableSpace X2` encode metrizability of the subspaces (Mathlib coerces `Set X` to a subtype with the subspace topology, matching the mathematical meaning). The goal `MetrizableSpace X` matches the required conclusion. No hypotheses are added or dropped, and the types correspond correctly.",
+  "duration_ms": 37731,
+  "cost_usd": 0.13954175
+}

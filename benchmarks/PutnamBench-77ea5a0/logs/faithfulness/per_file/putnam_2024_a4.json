@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_a4.lean",
+  "stem": "putnam_2024_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. The primality, bound $p > 5$, integer types for $a$ and $r$, and bound $1 \\le r \\le p-1$ are all preserved. The \"rearrangement of the sequence $1, a, a^2, \\ldots, a^{p-5}$\" is correctly encoded as a bijection $e$ on the index set $\\{0, 1, \\ldots, p-5\\}$ (via `Set.BijOn e (Set.Icc 0 (p-5)) (Set.Icc 0 (p-5))`), with $b_n := a^{e(n)}$ so that $(a^{e(0)}, \\ldots, a^{e(p-5)})$ is a permutation of $(a^0, \\ldots, a^{p-5})$. The divisibility condition `(p : ℤ) ∣ a^(e n) - a^(e (n-1)) - r` for $1 \\le n \\le p-5$ matches exactly. The set comprehension equals the solution set, so finding \"all primes\" is correctly captured. Natural subtraction `p - 5` and `n - 1` are safe given the guarding inequalities. No hypotheses are silently added, dropped, or reshaped.",
+  "duration_ms": 130330,
+  "cost_usd": 0.3604805
+}

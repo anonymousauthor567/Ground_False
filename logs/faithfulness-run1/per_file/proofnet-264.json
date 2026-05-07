@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "theorem_name": "Herstein_exercise_2_7_7_corrected",
+  "informal": "If $\\varphi$ is a homomorphism of $G$ onto $G'$ and $N \\triangleleft G$, show that $\\varphi(N) \\triangleleft G'$.",
+  "lean": "\ntheorem Herstein_exercise_2_7_7_corrected {G : Type*} [Group G] {G' : Type*} [Group G']\n    (φ : G →* G') (hφ : Function.Surjective φ) (N : Subgroup G) [N.Normal] :\n    (Subgroup.map φ N).Normal",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says φ is a homomorphism of G onto G' (i.e., surjective) and N is normal in G, then φ(N) is normal in G'. The Lean signature has φ : G →* G' (group homomorphism), hφ : Function.Surjective φ (onto), N : Subgroup G with [N.Normal] instance, and concludes (Subgroup.map φ N).Normal, which is exactly the image φ(N) being normal in G'. The hypotheses, conclusion, and types all align precisely.",
+  "duration_ms": 5660,
+  "cost_usd": 0.04323775
+}

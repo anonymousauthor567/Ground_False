@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_b3.lean",
+  "stem": "putnam_1970_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim piece-by-piece: S : Set (ℝ × ℝ) captures \"subset of ℝ²\", IsClosed S captures \"closed\", the hypothesis ∀ s ∈ S, s.1 ∈ Ioo a b precisely expresses \"lies in a < x < b\" (since Ioo a b = {x | a < x ∧ x < b}), and {y | ∃ x : ℝ, ⟨x,y⟩ ∈ S} is exactly the projection on the y-axis. The conclusion IsClosed on this set matches \"its projection on the y-axis is closed\". The explicit hypothesis a < b merely surfaces the implicit premise of the informal \"a < x < b\" strip; if a ≥ b were allowed, S would be forced empty and the conclusion would be trivial, so this does not change the mathematical content.",
+  "duration_ms": 52633,
+  "cost_usd": 0.16693049999999998
+}

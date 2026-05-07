@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. \"Odd prime\" is correctly encoded as `p.Prime ∧ p > 2` (equivalent since 2 is the only even prime). The polynomial expression `∑ n ∈ (f.support \\ {0}), f.coeff n * X^(n-1)` with `f = (X+2)^p` produces $\\sum_{n=1}^{p} \\binom{p}{n} 2^{p-n} X^{n-1}$, which is precisely $\\frac{(X+2)^p - 2^p}{X}$: subtracting off the constant term (index 0) and shifting exponents down by 1 implements division by $X$. Irreducibility is asserted in `Polynomial ℤ` as requested. The bound variable `f` with hypothesis `hf : f = (X+2)^p` is a stylistic equivalent of substitution. No hypotheses are added or dropped, and the conclusion matches.",
+  "duration_ms": 76822,
+  "cost_usd": 0.27024525
+}

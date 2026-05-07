@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures \"a closed subspace of a normal space is normal.\" It takes an arbitrary topological space X with `NormalSpace X`, an arbitrary subset A, a hypothesis that A is closed, and concludes that the subtype `{x // x ∈ A}` (which carries the induced subspace topology) is a `NormalSpace`. Mathlib's `NormalSpace` encodes the standard normality axiom (disjoint closed sets have disjoint open neighborhoods), which is exactly the substantive content of the exercise. The only minor convention difference is that Munkres traditionally bundles T1 into \"normal\" (corresponding to Mathlib's `T4Space`), but T1 is trivially inherited by any subspace and is not the essential mathematical content of the exercise. The hypotheses, conclusion, types, and quantifier structure all match the informal statement under standard mathematical reading.",
+  "duration_ms": 312747,
+  "cost_usd": 0.7631495
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-109.lean",
+  "stem": "proofnet-109",
+  "informal": "Show that the lower limit topology $\\mathbb{R}_l$ and $K$-topology $\\mathbb{R}_K$ are not comparable.",
+  "lean": "\ntheorem Munkres_exercise_13_6 :\n  ¬ (∀ U, Rl.IsOpen U → K_topology.IsOpen U) ∧ ¬ (∀ U, K_topology.IsOpen U → Rl.IsOpen U)",
+  "verdict": "faithful",
+  "reasoning": "Two topologies being \"not comparable\" means neither is finer than the other, i.e., neither inclusion of open sets holds. The Lean statement asserts exactly this: ¬(every Rl-open is K-open) ∧ ¬(every K-open is Rl-open), which is the standard definition of incomparable topologies. The quantification over open sets U with the IsOpen predicates correctly captures the finer/coarser relation in both directions.",
+  "duration_ms": 6359,
+  "cost_usd": 0.04345425
+}

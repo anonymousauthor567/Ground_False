@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "weaker",
+  "reasoning": "In the current Mathlib, `ContDiff` has signature `ContDiff (n : WithTop ℕ∞) (f : E → F) : Prop`, and `⊤ : WithTop ℕ∞` is the scoped notation `ω` for real-analytic functions (C^ω), NOT `∞` (C^∞) — that would require `((⊤ : ℕ∞) : WithTop ℕ∞)`. This is confirmed by `contDiff_omega_iff_analyticOnNhd : ContDiff 𝕜 ω f ↔ AnalyticOnNhd 𝕜 f univ` and Mathlib examples like `contDiff_bernoulliFun : ContDiff ℝ ⊤ (bernoulliFun k)` (polynomials are analytic). The informal statement hypothesizes only that `f` is \"infinitely differentiable\" (C^∞), whereas the Lean signature assumes the strictly stronger property that `f` is real-analytic. Adding analyticity restricts the universe of functions the conclusion is asserted for, yielding a logically weaker statement: the informal claim implies the Lean claim (since analytic ⇒ C^∞), but the Lean claim does not imply the informal one. Hence the formalization is weaker.",
+  "duration_ms": 1027483,
+  "cost_usd": 3.749038250000001
+}

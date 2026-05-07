@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-320.lean",
+  "stem": "proofnet-320",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"every subset of ℕ is clopen\" is formalized as `(A : Set ℕ) : IsClopen A`, which universally quantifies over all subsets A of ℕ and claims they are clopen. In Mathlib, ℕ comes equipped with the discrete topology by default (see `Mathlib/Topology/Order.lean`: `instance : TopologicalSpace ℕ := ⊥` and `instance : DiscreteTopology ℕ`), which matches the standard interpretation of ℕ (e.g., as a subspace of ℝ in Pugh). Under the discrete topology, every subset is indeed clopen (via `isClopen_discrete`). The Lean statement is logically equivalent to the informal claim — neither weaker nor stronger — so it is a faithful formalization.",
+  "duration_ms": 49083,
+  "cost_usd": 0.16157749999999999
+}

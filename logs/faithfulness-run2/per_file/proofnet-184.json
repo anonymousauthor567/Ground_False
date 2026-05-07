@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-184.lean",
+  "stem": "proofnet-184",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that $ab$ and $ba$ are conjugate in any group. Two elements $x, y$ are conjugate iff there exists $g$ with $y = gxg^{-1}$. The Lean statement asserts $\\exists g, ba = g \\cdot a \\cdot b \\cdot g^{-1} = g(ab)g^{-1}$, which is exactly the assertion that $ba$ is a conjugate of $ab$ — equivalently, that $ab$ and $ba$ are conjugate. The quantifier structure (universally for any group $G$ and any $a, b \\in G$, existentially for the conjugator $g$) matches the informal claim, and no extra hypotheses are introduced. This is a faithful formalization.",
+  "duration_ms": 20674,
+  "cost_usd": 0.055327749999999995
+}

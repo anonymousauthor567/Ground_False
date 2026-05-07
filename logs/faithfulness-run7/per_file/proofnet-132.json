@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is \"every locally compact Hausdorff space is regular.\" The Lean signature takes `LocallyCompactSpace X` and `T2Space X` as hypotheses and concludes `RegularSpace X`. Mathlib's `RegularSpace` is the pure separation property (disjoint neighborhoods of a point and a disjoint closed set), while Munkres' \"regular\" additionally requires T1. However, since `T2Space X ⇒ T0Space X` and `T0Space + RegularSpace = T3Space` in Mathlib, concluding `RegularSpace X` under the Hausdorff hypothesis is logically equivalent to concluding `T3Space X` (Munkres' notion). Thus the Lean statement asserts exactly the same mathematical content as the informal one.",
+  "duration_ms": 99201,
+  "cost_usd": 0.36938925000000006
+}

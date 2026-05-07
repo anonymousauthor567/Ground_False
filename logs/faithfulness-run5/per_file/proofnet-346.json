@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all hypotheses: complete metric space (`[MetricSpace X] [CompleteSpace X]`), closed (`IsClosed`), nonempty (`Set.Nonempty`), bounded (`Bornology.IsBounded`, the standard Mathlib notion of bounded in a metric space), nested decreasing (`E n ⊇ E (n+1)`, matching Rudin's `⊃`), and diameter tending to 0 (`Tendsto (Metric.diam ∘ E) atTop (𝓝 0)`). The conclusion `∃ a, Set.iInter E = {a}` expresses exactly \"the intersection consists of exactly one point\". Indexing from 0 instead of 1 is inconsequential because of the monotonicity of the sets. All types and quantifier structures match the informal claim.",
+  "duration_ms": 70860,
+  "cost_usd": 0.23686025000000002
+}

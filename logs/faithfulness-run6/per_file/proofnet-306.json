@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `[TopologicalSpace G] [Group G] [IsTopologicalGroup G]` exactly matches \"G is a topological group\", and `C = connectedComponent (1 : G)` exactly matches \"C is the component of G containing the identity\" (in Munkres, \"component\" means connected component, which Mathlib's `connectedComponent` implements). The conclusion `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` asserts that C is the carrier of some normal subgroup of G — this is logically equivalent to the informal claim \"C is a normal subgroup of G\" (a set is a normal subgroup iff it equals the carrier of some normal subgroup). No hypotheses are added or dropped, and the quantifier structure faithfully reflects the statement. Mathlib even provides `Subgroup.connectedComponentOfOne` precisely for this fact, confirming the formalization's shape.",
+  "duration_ms": 48815,
+  "cost_usd": 0.1851705
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: a group of even order contains an element of order 2. The Lean signature encodes \"group of even order\" as `[Group G] [Fintype G]` with hypothesis `Even (card G)` (where `card G` is `Fintype.card G` via the opened `Fintype` namespace), and encodes \"contains an element of order 2\" as `∃ x : G, orderOf x = 2`. `Even n` in Mathlib is equivalent to `2 ∣ n`, so this precisely captures \"even order\". The conclusion `orderOf x = 2` precisely captures \"element of order 2\". No extraneous hypotheses are added and no hypotheses are dropped; the quantifier structure (one existential) matches. This is a textbook instance of Cauchy's theorem for p = 2, and the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 30757,
+  "cost_usd": 0.125936
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. The metric space `X` is arbitrary, `p : ℕ → X` is the sequence, and `φ : ℕ → ℕ` with `StrictMono φ` correctly encodes the notion of a subsequence via `p ∘ φ`. The hypothesis `CauchySeq p` matches \"Cauchy sequence\", `Tendsto (p ∘ φ) atTop (𝓝 r)` matches \"subsequence converges to p\", and the conclusion `Tendsto p atTop (𝓝 r)` matches \"the full sequence converges to p\". No extra hypotheses (like completeness, nonemptyness, etc.) are added, and none are dropped.",
+  "duration_ms": 19222,
+  "cost_usd": 0.04453075
+}

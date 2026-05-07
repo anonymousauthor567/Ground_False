@@ -1,0 +1,8 @@
+{
+  "file": "35.lean",
+  "stem": "35",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says Q(sqrt(a*sqrt(D))) cannot be a cyclic extension of degree 4 over Q, where D is squarefree and a is nonzero rational. Let theta = sqrt(a*sqrt(D)); then theta^2 = a*sqrt(D), so theta^4 = a^2*D, giving minimal polynomial X^4 - a^2*D. The Lean polynomial (a^{-1} * X^2)^2 - C(d) = a^{-2}*X^4 - d has roots satisfying X^4 = a^2*d, which is the same splitting field. The IsEmpty of an isomorphism between the Galois group automorphisms and Multiplicative (ZMod 4) correctly encodes that the Galois group cannot be cyclic of order 4. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

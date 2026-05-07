@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p5.lean",
+  "stem": "number_theory__p5",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires that n ≥ 3 is an odd integer. The Lean file declares `variable {n : ℤ} (hn : n ≥ 3 ∧ n % 2 = 1)`, but in Lean 4 a `variable` hypothesis is only auto-included in a theorem when it (or something that depends on it) is referenced in the theorem's statement or proof. Here `hn` is not referenced anywhere in `integer_representation_theorem`'s signature or its `sorry` proof, so Lean will NOT auto-include `hn` as a hypothesis — only `n` itself gets auto-bound. The resulting theorem therefore asserts the existence claim for EVERY integer n, not just odd n ≥ 3. This is a strictly stronger claim (and in fact false: e.g., n = 4, l = 3 has no representation because any pair coprime to 4 must both be odd, so their sum/difference is even). Because the Lean statement drops a hypothesis the informal statement explicitly requires, this is the \"stronger\" case per the rubric.",
+  "duration_ms": 1133548,
+  "cost_usd": 2.6759730000000004
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-35.lean",
+  "stem": "proofnet-35",
+  "theorem_name": "Dummit_Foote_exercise_1_6_4_corrected",
+  "informal": "Prove that the multiplicative groups $\\mathbb{R}-\\{0\\}$ and $\\mathbb{C}-\\{0\\}$ are not isomorphic.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_6_4_corrected :\n    IsEmpty (ℝˣ ≃* ℂˣ)",
+  "verdict": "faithful",
+  "reasoning": "In Lean/Mathlib, `ℝˣ` and `ℂˣ` denote the unit groups of ℝ and ℂ, which (since ℝ and ℂ are fields) are exactly the multiplicative groups ℝ∖{0} and ℂ∖{0}. The type `ℝˣ ≃* ℂˣ` is the type of multiplicative group isomorphisms between them, and `IsEmpty` of that type asserts that no such isomorphism exists. This is precisely the informal claim that the two multiplicative groups are not isomorphic, with no extra hypotheses or weakening.",
+  "duration_ms": 6886,
+  "cost_usd": 0.04574025
+}

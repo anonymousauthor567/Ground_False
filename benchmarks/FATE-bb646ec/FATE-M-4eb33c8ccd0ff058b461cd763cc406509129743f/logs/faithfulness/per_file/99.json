@@ -1,0 +1,8 @@
+{
+  "file": "99.lean",
+  "stem": "99",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. G is a group via `[Group G]`; N is a normal subgroup via `(N : Subgroup G) [N.Normal]`; the condition that G/N is abelian is expressed as `∀ a b : (G ⧸ N), a * b = b * a`, which is exactly the definition of commutativity for the quotient group (and `G ⧸ N` is the Mathlib notation for the quotient group, well-defined due to `[N.Normal]`). The conclusion `∀ a b : G, a * b * a⁻¹ * b⁻¹ ∈ N` (parsed left-associatively as `((a * b) * a⁻¹) * b⁻¹`) is exactly `aba⁻¹b⁻¹ ∈ N`. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 61563,
+  "cost_usd": 0.15798274999999998
+}

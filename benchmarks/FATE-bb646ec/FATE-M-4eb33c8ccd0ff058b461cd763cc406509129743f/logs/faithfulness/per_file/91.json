@@ -1,0 +1,8 @@
+{
+  "file": "91.lean",
+  "stem": "91",
+  "verdict": "weaker",
+  "reasoning": "The Lean formalization adds an extra `[Nontrivial R]` typeclass hypothesis that is not required by the informal statement. The informal claim should hold for all rings, including the trivial (zero) ring: in the zero ring, 0^n = 0 satisfies the hypothesis for any positive n, and -0 = 0 satisfies the conclusion trivially. Moreover, the standard proof (since n is even, (-x)^n = x^n = x, and also (-x)^n = -x by applying the hypothesis to -x, hence -x = x) works in any ring without needing Nontrivial. The encoding of \"positive even integer\" as `2 * n` with `[NeZero n]` is faithful (covers exactly {2,4,6,...}), and `x = -x` vs `-x = x` is trivially equivalent. However, the superfluous `Nontrivial` hypothesis narrows the scope of what is proved, making the Lean statement strictly weaker than the informal one.",
+  "duration_ms": 211948,
+  "cost_usd": 0.48938899999999996
+}

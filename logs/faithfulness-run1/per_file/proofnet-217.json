@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "informal": "Prove that $A \\times B$ is an abelian group if and only if both $A$ and $B$ are abelian.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_29 {A B : Type*} [Group A] [Group B] :\n  (∀ x y : A × B, x * y = y * x) ↔ (∀ x y : A, x * y = y * x) ∧\n  (∀ x y : B, x * y = y * x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes A and B are groups (matching the informal premise that A, B, and A×B are groups) and states the iff between commutativity of the product group A × B and commutativity of both A and B. Saying a group is abelian is exactly the condition `∀ x y, x*y = y*x`, so spelling it out rather than using `IsCommutative`/`CommGroup` is logically equivalent. The product group structure on A × B is the standard componentwise one provided by the `Group` instances. Both directions of the iff are captured. Hence the Lean version matches the informal claim exactly.",
+  "duration_ms": 8277,
+  "cost_usd": 0.045526750000000005
+}

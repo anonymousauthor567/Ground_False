@@ -1,0 +1,8 @@
+{
+  "file": "116.lean",
+  "stem": "116",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary `Ring R` with `a b : R`, matching \"any ring R and a,b∈R\". The hypothesis `a * b = - (b * a)` is exactly `ab = -ba`. The informal chain equality `(a+b)^2 = (a-b)^2 = a^2+b^2` is logically equivalent to the Lean conjunction `(a+b)^2 = a^2+b^2 ∧ (a-b)^2 = a^2+b^2`: from the conjunction, `(a+b)^2 = (a-b)^2` follows by transitivity; conversely, both conjuncts follow directly from the chain. No commutativity, finiteness, or other extraneous hypotheses are imposed, and no required hypothesis is dropped. The formalization is strictly faithful.",
+  "duration_ms": 79936,
+  "cost_usd": 0.20526750000000002
+}

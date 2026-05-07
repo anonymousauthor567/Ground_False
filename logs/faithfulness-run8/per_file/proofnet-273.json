@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-273.lean",
+  "stem": "proofnet-273",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures all three parts of the informal statement: (1) Irreducibility of p = X³ - 2 via `Irreducible p`, (2) Irreducibility of q = X³ + 2 via `Irreducible q`, and (3) Isomorphism of the quotient fields via `Nonempty (... ⧸ span {p} ≃+* ... ⧸ span {q})`. With `open Ideal`, `span {p}` is `Ideal.span {p}`, which is the principal ideal (p), so the quotient is F[x]/(p). The `Nonempty` wrapping is the standard Lean idiom for \"there exists an isomorphism\" since `≃+*` is a type. Asserting a ring isomorphism between the quotients is equivalent to asserting a field isomorphism, since both structures are fields (automatically, from irreducibility) and ring isomorphisms between fields are exactly field isomorphisms. The types, hypothesis structure, and conclusion match precisely.",
+  "duration_ms": 107335,
+  "cost_usd": 0.37818175000000004
+}

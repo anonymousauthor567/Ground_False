@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_b5.lean",
+  "stem": "putnam_1996_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the problem. Strings are modeled as `Fin n → ℤˣ`, with ℤˣ = {±1} naturally representing X (+1) and O (-1). The function Δ is pinned down via `hΔ` as the sum of (S i : ℤ) over `Finset.Icc a b`, which for a ≤ b equals (# of +1's) - (# of -1's) in the consecutive substring from index a to b — exactly Δ(T) in the informal sense. The `balanced` predicate is pinned to `∀ a b, a ≤ b → |Δ S a b| ≤ 2`, which is equivalent to -2 ≤ Δ(T) ≤ 2 for every non-empty consecutive substring; empty substrings trivially satisfy the bound, so coverage is complete. The count is `{S | balanced S}.ncard`. Spot-checking the solution formula against small cases (n=0→1, n=1→2, n=2→4, n=3→6) matches. This is a faithful formalization.",
+  "duration_ms": 191076,
+  "cost_usd": 0.579303
+}

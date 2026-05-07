@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly describes \"the real function f(n) = √(n²+n) - n\" and asks for the limit as n → ∞ to equal 1/2. The Lean formalization uses `(n : ℝ)` for the domain, matching the \"real function\" description. The expression `sqrt (n^2 + n) - n` correctly encodes √(n²+n) - n using Real.sqrt (as imported via `open Real`). The convergence `Tendsto f atTop (𝓝 (1/2))` is the standard Mathlib formulation of lim_{n→∞} f(n) = 1/2 on ℝ. The domain, the function expression, the filter (atTop for n→∞), and the limit value (1/2) all match exactly. No hypotheses are added or dropped, and the quantifier/filter structure faithfully captures the informal claim.",
+  "duration_ms": 107641,
+  "cost_usd": 0.3856130000000001
+}

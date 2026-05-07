@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. In Mathlib, `v ∈ eigenspace S c` is defined so that `v ∈ eigenspace S c ↔ S v = c • v` (via `mem_eigenspace_iff`), which allows v = 0 trivially. Axler's convention excludes 0 as an eigenvector, but this only makes the v = 0 case of the Lean hypothesis vacuous, so `∀ v, ∃ c, v ∈ eigenspace S c` is equivalent to \"every nonzero v is an eigenvector of S\". The conclusion `∃ c : F, S = c • LinearMap.id` is a literal transcription of \"S is a scalar multiple of the identity operator\". The ambient setting `[AddCommGroup V] [Field F] [Module F V]` matches \"vector space\" with no extra finite-dimensionality or characteristic hypotheses added or dropped, which is appropriate since the claim holds over any field without finiteness.",
+  "duration_ms": 148014,
+  "cost_usd": 0.4905009999999999
+}

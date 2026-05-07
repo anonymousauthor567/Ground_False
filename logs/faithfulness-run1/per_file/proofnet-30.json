@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "informal": "Let $x$ be an element of $G$. Prove that $x^2=1$ if and only if $|x|$ is either $1$ or $2$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_16 {G : Type*} [Group G]\n  (x : G) : x ^ 2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says x² = 1 iff the order |x| is 1 or 2, in an arbitrary group G with x ∈ G. The Lean signature takes G to be an arbitrary group, x : G, and states x^2 = 1 ↔ (orderOf x = 1 ∨ orderOf x = 2). Mathlib's `orderOf` matches the standard notion of order |x| (with orderOf = 1 iff x = 1, and otherwise the least positive n with x^n = 1, or 0 if no such n exists). The biconditional matches the informal claim exactly, with no extra or missing hypotheses.",
+  "duration_ms": 19689,
+  "cost_usd": 0.04256275
+}

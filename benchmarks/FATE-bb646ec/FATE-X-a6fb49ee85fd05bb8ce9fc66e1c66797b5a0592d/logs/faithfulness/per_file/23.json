@@ -1,0 +1,8 @@
+{
+  "file": "23.lean",
+  "stem": "23",
+  "verdict": "stronger",
+  "reasoning": "The Lean statement drops an implicit premise needed for truth: that f is non-constant (positive degree). In Mathlib, `Irreducible (f : Polynomial ℤ)` includes constant prime polynomials like `C 2` (since 2 is prime/irreducible in ℤ, and `C 2` has only unit factorizations in ℤ[X]). For such `f = C 2`, `rootSet_C` gives `(C 2).rootSet (ZMod p) = ∅` for every prime p, so the numerator is identically 0 and the ratio's right limit at 1 is 0, not 1. The informal statement, read with the standard algebraic-number-theory convention that \"irreducible polynomial\" implicitly means non-constant (a premise needed for the claim to be true and for the Chebotarev-style argument to apply), is provable, but the Lean version drops this hypothesis and claims the result for a strictly wider class (including constants), which makes it logically stronger than the informal claim. A faithful formalization would have added `0 < f.natDegree` (or equivalent) as a hypothesis.",
+  "duration_ms": 1331337,
+  "cost_usd": 2.6634935
+}

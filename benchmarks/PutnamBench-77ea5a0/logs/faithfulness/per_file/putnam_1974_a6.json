@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_a6.lean",
+  "stem": "putnam_1974_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes \"minimal degree of a monic integer polynomial f such that 10^6 ∣ f(x) for all integers x, equals the solution.\" Specifically: `Monic f` with `f : Polynomial ℤ` matches \"monic integral polynomial\"; `∀ x : ℤ, (10^6 : ℤ) ∣ f.eval x` matches \"f(x) is divisible by 1000000 for every integer x\" (since 10^6 = 1,000,000); and `sInf {d : ℕ | ∃ f, … ∧ d = f.natDegree}` matches \"minimal degree\" (for monic polynomials, which are nonzero, natDegree coincides with the usual notion of degree). The `hdivnallx` auxiliary is merely a definitional abbreviation introduced via a hypothesis, not a semantic change. The set is nonempty, so `Nat.sInf` returns the minimum as expected.",
+  "duration_ms": 125821,
+  "cost_usd": 0.42047825000000005
+}

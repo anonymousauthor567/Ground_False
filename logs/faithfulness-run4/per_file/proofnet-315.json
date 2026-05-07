@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement correctly: an arbitrary index type `ι`, a family of topological spaces `X : ι → Type*`, the nonemptiness hypothesis `∀ i, Nonempty (X i)` matching \"each $X_\\alpha$ is nonempty\", the normality of the product `NormalSpace (Π i, X i)`, and the conclusion `∀ i, NormalSpace (X i)`. Mathlib's `NormalSpace` (defined in `Mathlib/Topology/Separation/Regular.lean` as \"disjoint closed sets have disjoint open neighborhoods\") is the standard ProofNet rendering of Munkres' \"normal\"; the same notion is used in both hypothesis and conclusion, so the logical content matches. The Π-type `Π i, X i` is the correct product space. The statement is the one Munkres asks to prove in exercise 32.2c.",
+  "duration_ms": 280405,
+  "cost_usd": 0.7691952500000001
+}

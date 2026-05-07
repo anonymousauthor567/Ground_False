@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-156.lean",
+  "stem": "proofnet-156",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. The ambient space `EuclideanSpace ℝ (Fin k)` is the standard formalization of $\\mathbb{R}^k$; `¬ Set.Countable E` is \"E is uncountable\"; the defining predicate `∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)` is exactly the standard definition of a condensation point; and `Perfect P` in Mathlib is defined as closed with no isolated points, which is the standard notion of a perfect set. Binding both E and P as parameters with the hypothesis `hP` pinning P to the condensation set is equivalent to \"let P be the set of condensation points of E\". No hypotheses are silently added or dropped.",
+  "duration_ms": 18382,
+  "cost_usd": 0.0846055
+}

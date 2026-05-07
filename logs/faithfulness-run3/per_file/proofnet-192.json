@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "GaussianInt is defined as `Zsqrtd (-1)` with fields `re : ℤ` and `im : ℤ`, so a Gaussian integer with `im = 0` is exactly the image of the ordinary integer `re` under the canonical embedding `ℤ ↪ ℤ[i]`. The Lean statement asserts that for every nonzero ideal `I`, there exists `z ∈ I` with `z ≠ 0` and `z.im = 0`; together these conditions force `z.re ≠ 0`, so `z` is a nonzero ordinary integer embedded in `ℤ[i]`. This is exactly what the informal statement claims. The quantifier structure (∀ ideal I, I ≠ ⊥ → ∃ nonzero integer in I) matches precisely, and no extra hypotheses or conclusions are introduced.",
+  "duration_ms": 88873,
+  "cost_usd": 0.22518174999999999
+}

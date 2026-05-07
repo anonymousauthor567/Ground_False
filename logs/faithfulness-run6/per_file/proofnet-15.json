@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"prove $-(-v) = v$ for every $v \\in V$\" in the context of a vector space V over a field F (Axler). The Lean encoding sets up V as an `AddCommGroup` which is a `Module` over a `Field F`, which precisely captures \"vector space over a field\". The implicit binder `{v : V}` is equivalent to universal quantification over v in the statement. The conclusion `-(-v) = v` matches exactly. Although the double-negation identity actually holds in any additive group and does not require the module/field structure, including those typeclass assumptions merely reflects the ambient setting of the exercise (V being a vector space) and does not change the mathematical content of the claim being proved.",
+  "duration_ms": 35315,
+  "cost_usd": 0.12531099999999998
+}

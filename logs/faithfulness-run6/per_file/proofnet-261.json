@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. `CommGroup G` with `Fintype G` captures \"abelian group\" (finite, as needed for the order to make sense). `hp : Nat.Prime p` and `hp1 : ¬ p ∣ m` correctly state that p is prime and p ∤ m. `hG : card G = p^n*m` gives the order condition, and `hH : card H = p^n` gives H's order. The conclusion `Subgroup.Characteristic H` uses Mathlib's definition (fixed by all automorphisms ϕ : G ≃* G), which is the standard meaning of characteristic subgroup. Note that `¬ p ∣ m` forces m ≠ 0 since p ∣ 0, so no extra positivity hypothesis is needed. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 55753,
+  "cost_usd": 0.23673725
+}

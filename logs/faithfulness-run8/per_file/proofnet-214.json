@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The universal quantification over groups G and elements x matches the mathematical convention \"Let x be an element of G.\" The hypothesis `orderOf x = n` with `n : ℕ+` matches \"|x|=n for some positive integer n\" (ℕ+ represents positive naturals, which matches \"positive integer\"). The conclusion `x⁻¹ = x ^ (n - 1 : ℕ)` uses the type ascription `: ℕ` which forces `n - 1` to be evaluated in ℕ (coercing n first, then using ℕ's truncated subtraction); this correctly gives n-1 for n≥1 and handles the n=1 case (where x=1 and x⁻¹=x⁰=1). No hypotheses are added or omitted, and the quantifier structure and types match the informal statement.",
+  "duration_ms": 84556,
+  "cost_usd": 0.313101
+}

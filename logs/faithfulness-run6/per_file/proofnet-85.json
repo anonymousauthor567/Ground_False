@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-85.lean",
+  "stem": "proofnet-85",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization quantifies over an arbitrary ring `R` via `{R : Type*} [Ring R]`, matching \"Let R be a ring\". The hypothesis `h : ∀ x : R, x ^ 3 = x` exactly encodes \"x³ = x for every x ∈ R\". The conclusion `∀ x y : R, x * y = y * x` is the precise meaning of \"R is commutative\". Mathlib's `Ring` is an associative ring with 1, consistent with Herstein's convention. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 71443,
+  "cost_usd": 0.07208450000000001
+}

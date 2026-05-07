@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "informal": "Let $X$ be completely regular. Show that $X$ is connected if and only if the Stone-Čech compactification of $X$ is connected.",
+  "lean": "\ntheorem Munkres_exercise_38_6 {X : Type*} [TopologicalSpace X] [CompletelyRegularSpace X] :\n  IsConnected (univ : Set X) ↔ IsConnected (univ : Set (StoneCech X))",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes X to be a topological space with CompletelyRegularSpace, matching \"X completely regular.\" The biconditional `IsConnected univ ↔ IsConnected univ` on X and StoneCech X correctly expresses \"X is connected iff its Stone-Čech compactification is connected.\" Mathlib's `IsConnected` requires nonemptiness as well as preconnectedness, but this is the standard convention used in Munkres for connected spaces, and it applies symmetrically on both sides (X is empty iff StoneCech X is empty). The hypothesis CompletelyRegularSpace matches the informal hypothesis. No extra or missing assumptions, no quantifier or type drift.",
+  "duration_ms": 14111,
+  "cost_usd": 0.055474
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if a² = 0 in a ring R, then for any x, the element ax + xa commutes with a. The Lean signature takes a ring R, elements a, x : R, a hypothesis h : a^2 = 0, and concludes a * (a*x + x*a) = (a*x + x*a) * a, which is exactly the definition of \"ax + xa commutes with a\". The free variable x in the Lean signature corresponds to the implicit universal quantification over x in the informal statement. No extra or missing hypotheses: `Ring R` is the natural ambient structure, matching the informal \"in R\". This is a direct, logically equivalent formalization.",
+  "duration_ms": 9698,
+  "cost_usd": 0.04139725
+}

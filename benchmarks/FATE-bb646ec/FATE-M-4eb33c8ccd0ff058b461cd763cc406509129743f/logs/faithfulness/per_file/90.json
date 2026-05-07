@@ -1,0 +1,8 @@
+{
+  "file": "90.lean",
+  "stem": "90",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature assumes `IsCyclic (G ⧸ Subgroup.center G)`, which matches the informal hypothesis that G/Z(G) is cyclic. The conclusion `∀ a b : G, a * b = b * a` directly expresses that G is abelian, which is logically equivalent to the informal conclusion \"G = Z(G)\" (an element is in the center iff it commutes with every element of G, so universal commutativity and G = Z(G) are the same statement). Mathlib's `Subgroup.center` and `IsCyclic` match the standard mathematical definitions. The restriction `Type` vs `Type*` is a minor, conventional universe choice that does not alter the mathematical content. No hypotheses are added or dropped.",
+  "duration_ms": 68390,
+  "cost_usd": 0.144454
+}

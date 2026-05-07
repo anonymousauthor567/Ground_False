@@ -1,0 +1,8 @@
+{
+  "file": "16.lean",
+  "stem": "16",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement using standard Mathlib encodings: `CommRing R` + `IsDomain R` corresponds to \"integral domain\"; `MvPolynomial (Fin 2) R` with `X 0` and `X 1` corresponds to `R[x,y]`; `span {X 0 ^ i - X 1 ^ j}` is the ideal `(x^i - y^j)`; `Nat.Coprime i j` (i.e., `gcd i j = 1`) is \"relatively prime\"; and `.IsPrime` is \"prime ideal\". The use of ℕ instead of ℤ for exponents is the standard (and necessary) choice for polynomial exponents. The additional hypotheses `i > 0` and `j > 0` make explicit the standard reading of \"x^i - y^j\" as a non-degenerate polynomial expression — the informal notation and phrasing implicitly assume positive exponents (the degenerate cases i=0 or j=0 are not what the problem addresses). This is surfacing an implicit premise from the notation/context, not narrowing beyond the intended scope.",
+  "duration_ms": 557507,
+  "cost_usd": 1.29614825
+}

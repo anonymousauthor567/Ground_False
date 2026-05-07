@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim. The hypothesis `E : Set ℝ` with `Bornology.IsBounded E` faithfully encodes \"bounded set E in ℝ¹\". The quantifier `∀ f : ℝ → ℝ, UniformContinuousOn f E → …` matches \"Let f be a real uniformly continuous function on E\" (the surrounding f : ℝ → ℝ rather than f : E → ℝ is logically equivalent, since UniformContinuousOn only depends on values in E, and any f : E → ℝ extends to ℝ → ℝ). The conclusion `Bornology.IsBounded (Set.image f E)` correctly expresses \"f is bounded on E\" (i.e., the image f(E) is bounded in ℝ). Mathlib's `UniformContinuousOn` is the standard definition via the uniformity filter restricted to E ×ˢ E, matching the classical notion. No hypothesis is added or dropped; no strengthening or weakening occurs.",
+  "duration_ms": 107914,
+  "cost_usd": 0.34251775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-285.lean",
+  "stem": "proofnet-285",
+  "verdict": "faithful",
+  "reasoning": "The Lean conclusion `IsPrimitiveRoot (3 : ZMod p) (p - 1)` correctly captures \"3 is a primitive root mod p\" since for prime p, the multiplicative group (ZMod p)^× has order p-1. The hypotheses \"p prime ∧ p = 2^n + 1 ∧ n ≥ 2\" match the informal \"Fermat prime p = 2^n + 1\", since for 2^n+1 to be prime with n ≥ 2, n must be a power of 2, yielding exactly the non-trivial Fermat primes {5, 17, 257, 65537}. The n ≥ 2 constraint makes explicit the implicit assumption p > 3 needed for the claim to be meaningful — for p = 3, 3 ≡ 0 mod 3 so it cannot be a primitive root, meaning the informal claim requires this implicit restriction to be true. This is the standard interpretation of the Ireland-Rosen exercise, and making the implicit assumption explicit is a faithful formalization.",
+  "duration_ms": 120031,
+  "cost_usd": 0.38892175
+}

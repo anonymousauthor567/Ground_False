@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_a6.lean",
+  "stem": "putnam_1991_a6",
+  "verdict": "weaker",
+  "reasoning": "The Lean encoding of `A(n)` is structurally broken by operator precedence. In Lean 4, `∧` has precedence 35 and `→` has precedence 25 (confirmed via Mathlib/Logic/Basic.lean uses like `{f : p ∧ q → Prop}` which requires `(p ∧ q) → Prop`). Thus the set-builder body `nabsum n a ∧ (∀ i : Fin (a.1-2), ...) ∧ 1 < a.1 → a.2 (a.1-2) > a.2 (a.1-1)` parses as `(nabsum n a ∧ ... ∧ 1 < a.1) → (a.2 (a.1-2) > a.2 (a.1-1))`, not as a conjunction of the three original conditions with the final `(1 < a.1 → ...)` clause. Every `a` with `a.1 = 0` trivially makes the antecedent false and so lies in the set, giving uncountably many elements; hence `{...}.encard = ⊤ : ℕ∞`. The hypothesis `hA : A n = ⊤` then forces `(A n : ℕ) = ⊤`, which is impossible since `ENat.coe_ne_top`. Therefore `hA` is unsatisfiable, so the Lean theorem is vacuously true for all `A, g, B`, while the informal statement is a substantive combinatorial identity A(n)=B(n). The Lean statement is implied by (anything, including) the informal one but does not imply the informal claim — strictly weaker.",
+  "duration_ms": 976217,
+  "cost_usd": 3.4138547500000014
+}

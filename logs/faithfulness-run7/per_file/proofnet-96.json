@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal von Mangoldt identity Σ_{d|n} μ(n/d) log d = Λ(n) faithfully. The function `l` is characterized by two hypotheses that uniquely determine it on all of ℕ to match Λ: (1) `hl` says l(p^n) = log p for prime p and n > 0, matching \"log p if n is a power of p\"; (2) `hl1` says l m = 0 when m is not a prime power (Mathlib's `IsPrimePow` requires exponent > 0, so this correctly handles 0 and 1 as well as composites with multiple prime factors), matching \"zero otherwise\". Together these cover every natural number (since any n is either IsPrimePow or not) and force l to equal Mathlib's Λ. The conclusion `l = fun n ↦ ∑ d ∈ n.divisors, μ(n/d) * log d` is the exact pointwise Möbius-inversion identity stated in the informal, with proper coercions (μ : ℤ → ℝ) and Real.log. No hypothesis is silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 332020,
+  "cost_usd": 0.393864
+}

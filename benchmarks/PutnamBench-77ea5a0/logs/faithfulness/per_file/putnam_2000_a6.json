@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2000_a6.lean",
+  "stem": "putnam_2000_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization exactly mirrors the informal statement. The polynomial f has integer coefficients (`Polynomial ℤ`), the sequence a maps naturals to integers (`ℕ → ℤ`), the initial condition `a 0 = 0` and the recurrence `a (n+1) = f.eval (a n)` match the informal definitions. The conclusion `(∃ m > 0, a m = 0) → (a 1 = 0 ∨ a 2 = 0)` directly encodes \"if there exists a positive integer m with a_m = 0 then a_1 = 0 or a_2 = 0\" (note that `m > 0` on ℕ is equivalent to \"positive integer m\"). No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 34254,
+  "cost_usd": 0.1148965
+}

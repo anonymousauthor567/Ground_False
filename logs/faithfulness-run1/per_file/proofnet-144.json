@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "theorem_name": "Putnam_exercise_2010_a4",
+  "informal": "Prove that for each positive integer $n$, the number $10^{10^{10^n}}+10^{10^n}+10^n-1$ is not prime.",
+  "lean": "theorem Putnam_exercise_2010_a4 (n : ℕ) (hn : n > 0) :\n    ¬ Nat.Prime (10^10^10^n + 10^10^n + 10^n - 1)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over n : ℕ with the hypothesis n > 0, matching \"for each positive integer n.\" The expression 10^10^10^n + 10^10^n + 10^n - 1 mirrors the informal expression exactly (right-associative exponentiation in Lean matches the tower notation). Although natural-number subtraction is truncating, for n ≥ 1 the value 10^10^10^n + 10^10^n + 10^n is at least 10, so subtracting 1 behaves as ordinary subtraction and the value coincides with the integer-arithmetic interpretation. The conclusion ¬ Nat.Prime asserts non-primality, matching \"is not prime.\" No extra or missing hypotheses.",
+  "duration_ms": 8031,
+  "cost_usd": 0.0439935
+}

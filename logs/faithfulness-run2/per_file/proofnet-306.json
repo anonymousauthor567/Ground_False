@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes the informal claim. A topological group is given by the `[TopologicalSpace G] [Group G] [IsTopologicalGroup G]` typeclasses, `connectedComponent (1 : G)` is the connected component of G containing the identity, and the existential `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` is the standard Mathlib-idiomatic way to say \"C is (the underlying set of) a normal subgroup of G.\" This existential is equivalent to C itself being a normal subgroup, since a subgroup is determined by its underlying set. No hypotheses are added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 14022,
+  "cost_usd": 0.05329175
+}

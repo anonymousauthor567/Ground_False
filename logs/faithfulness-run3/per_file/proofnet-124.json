@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. `MetricSpace X` encodes \"metric space\", `ConnectedSpace X` encodes \"connected\", and `∃ x y : X, x ≠ y` encodes \"more than one point\" (i.e., at least two distinct points). The conclusion `¬ Countable (univ : Set X)` is equivalent to `¬ Countable X` (via the subtype coercion from `univ`), which is the standard formalization of \"uncountable\" (not at most countable). The quantifier structure (universal over metric spaces via type-class implicits) and the hypotheses/conclusion match exactly, with no extra or missing assumptions.",
+  "duration_ms": 78917,
+  "cost_usd": 0.18418599999999996
+}

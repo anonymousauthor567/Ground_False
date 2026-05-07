@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "theorem_name": "Dummit_Foote_exercise_9_4_2c",
+  "informal": "Prove that $x^4+4x^3+6x^2+2x+1$ is irreducible in $\\mathbb{Z}[x]$.",
+  "lean": "theorem Dummit_Foote_exercise_9_4_2c : Irreducible\n  (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the polynomial x^4+4x^3+6x^2+2x+1 is irreducible in ℤ[x]. The Lean signature states `Irreducible (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ)`, which is exactly the same polynomial in ℤ[x] with the standard Mathlib `Irreducible` predicate. The coefficients and the ambient ring match exactly. This is a faithful formalization.",
+  "duration_ms": 5434,
+  "cost_usd": 0.03992
+}

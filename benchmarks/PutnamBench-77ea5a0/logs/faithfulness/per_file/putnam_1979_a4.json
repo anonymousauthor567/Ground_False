@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_a4.lean",
+  "stem": "putnam_1979_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the Putnam problem. The set A is encoded via two disjoint Finsets R, B with equal cardinality (giving 2n distinct points), and the no-three-collinear condition uses Mathlib's `Collinear ℝ` on 3-element subsets of R ∪ B. The segments are parameterized by `w(P,Q)(x) = x*P + (1-x)*Q` for x ∈ [0,1], giving closed line segments. The Finset v has n pairs (L.1, L.2) with L.1 ∈ R and L.2 ∈ B, and the condition that for L ≠ M the Euclidean distance between points on the segments is never 0 correctly enforces non-intersection (including disjoint endpoints). Combined with v.card = n = |R| = |B|, this forces a perfect matching between red and blue points, matching the standard interpretation. The solution wrapping (putnam_1979_a4_solution ↔ ∀...) with intended value True correctly answers the \"Must there exist...\" question affirmatively.",
+  "duration_ms": 250631,
+  "cost_usd": 0.70423775
+}

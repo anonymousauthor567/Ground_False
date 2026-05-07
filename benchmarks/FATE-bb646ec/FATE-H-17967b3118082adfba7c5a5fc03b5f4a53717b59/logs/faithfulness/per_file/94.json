@@ -1,0 +1,8 @@
+{
+  "file": "94.lean",
+  "stem": "94",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal claim. `Algebra.IsIntegral R S` with `Algebra R S` correctly expresses \"S is integral over the image of R → S\" (since `Algebra R S` provides the ring map and IsIntegral asserts every element of S is integral over R). The conclusion uses `ringKrullDim (R ⧸ Module.annihilator R M)` as the Krull dimension of M as an R-module, which is the standard textbook definition (e.g., Matsumura §5: dim M := dim(R/ann M)). The `IsScalarTower R S M` hypothesis correctly links the R- and S-module structures on M. No finiteness assumption on M is needed because the equality R/ann_R(M) ↪ S/ann_S(M) is an injective integral extension, and integral extensions preserve Krull dimension; so the claim is provable as stated. Types and quantifier structure match the informal statement exactly.",
+  "duration_ms": 449929,
+  "cost_usd": 1.107237
+}

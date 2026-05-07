@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p6_3.lean",
+  "stem": "real_analysis__p6_3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asks to prove that $\\sum_{n=1}^\\infty \\frac{n}{n^2+1}$ diverges, which corresponds to `general_term n = n/(n^2+1)`. However, the Lean signature `comparison_series_diverges : ¬ Summable comparison_series` asserts the divergence of the auxiliary series `comparison_series n = 1/(2n)`, which is a completely different series. This is an intermediate/helper lemma, not the main theorem, and the main claim about `general_term` is never actually stated as a theorem in the file. Divergence of $\\sum 1/(2n)$ and divergence of $\\sum n/(n^2+1)$ are logically independent statements about different sequences — neither implies the other purely as a logical claim — so the signature is incomparable to the informal statement.",
+  "duration_ms": 111644,
+  "cost_usd": 0.28049825000000006
+}

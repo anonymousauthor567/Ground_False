@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch1_10.lean",
+  "stem": "brualdi_ch1_10",
+  "verdict": "faithful",
+  "reasoning": "The Lean `IsMagicSquare` structure correctly captures the standard definition of a magic square: `mem` says entries lie in {1,...,n²}; `pairwise` says entries at distinct positions are distinct (combined with mem and Fin n × Fin n having exactly n² positions, this means entries are a permutation of {1,...,n²}); and `same_sum` asserts that all row sums, all column sums, the main diagonal (∑ i, M i i), and the anti-diagonal (∑ i, M i i.rev, where Fin.rev maps i ↦ n-1-i) all equal a common value s. The theorem asserts there is no 2×2 such matrix over ℕ, exactly matching \"no magic square of order 2\". The matrix type `Matrix (Fin 2) (Fin 2) ℕ` correctly encodes a 2×2 square, and ℕ is the natural ambient for entries in {1,...,4}. No hypotheses are added or dropped, and the conclusion matches.",
+  "duration_ms": 126009,
+  "cost_usd": 0.35786275
+}

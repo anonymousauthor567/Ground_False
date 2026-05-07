@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `RegularSpace α` (Mathlib: separation of point from disjoint closed set, without T1), while Munkres' definition of \"regular\" includes T1 (one-point sets closed) as a prerequisite — corresponding to Mathlib's `T3Space`. However, under the given hypotheses `[LinearOrder α] [OrderTopology α]`, the space is automatically Hausdorff (hence T1), so `RegularSpace α` and `T3Space α` are logically equivalent. The separation property is the substantive non-trivial content Munkres is asking to prove; the T1 part is free from the hypotheses. Additionally, the convention of \"regular = separation only\" (distinct from T3) is a legitimate mathematical reading used in many texts. The hypotheses `LinearOrder α` + `OrderTopology α` correctly match Munkres' \"simply ordered set with the order topology\". The statement is faithful.",
+  "duration_ms": 150289,
+  "cost_usd": 0.36769725
+}

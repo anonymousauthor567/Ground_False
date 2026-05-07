@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal Rudin Exercise 4.19. The IVP hypothesis `hf` uses a disjunction $(f(a) < c < f(b)) \\lor (f(b) < c < f(a))$ with $a < b$, which is equivalent to the informal \"$f(a) < c < f(b) \\Rightarrow \\exists x$ between $a$ and $b$\" — the informal statement is symmetric in $a, b$ under relabeling, and the Lean version simply makes this symmetry explicit. The closed-set hypothesis `hg`: `∀ r : ℚ, IsClosed {x | f x = r}` elaborates via the standard ℚ → ℝ coercion, giving the set $\\{x : f(x) = (r : \\mathbb{R})\\}$, matching the informal \"for every rational $r$, $\\{x : f(x) = r\\}$ is closed\". The conclusion `Continuous f` matches exactly. No hypotheses are added, dropped, or weakened.",
+  "duration_ms": 90878,
+  "cost_usd": 0.230422
+}

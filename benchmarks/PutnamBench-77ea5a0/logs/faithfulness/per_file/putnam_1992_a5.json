@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_a5.lean",
+  "stem": "putnam_1992_a5",
+  "verdict": "faithful",
+  "reasoning": "The definition `a = fun n ↦ ite (Even {i | (digits 2 n).get i = 1}.ncard) 0 1` correctly captures the informal parity function: `digits 2 n` gives the little-endian base-2 digits, `{i | (digits 2 n).get i = 1}` is the set of positions (in `Fin (digits 2 n).length`) where the digit is 1, and `.ncard` counts these — i.e., the number of 1's in the binary representation of `n`. Thus `a n = 0` when this count is even, else 1, matching the informal definition. The conclusion `¬∃ k > 0, ∃ m > 0, ∀ j ≤ m - 1, a(k+j) = a(k+m+j) ∧ a(k+m+j) = a(k+2*m+j)` encodes the chained equality `a_{k+j} = a_{k+m+j} = a_{k+2m+j}` as the equivalent conjunction. Since `m > 0`, natural subtraction `m - 1` behaves normally, and `j ≤ m - 1` over `ℕ` gives exactly `j ∈ {0, ..., m-1}`. The quantifier structure, types, and claim all match the informal statement.",
+  "duration_ms": 490694,
+  "cost_usd": 1.4199765000000002
+}

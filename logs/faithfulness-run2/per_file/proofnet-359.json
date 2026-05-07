@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim well. \"Three times differentiable on [-1,1]\" is encoded as the standard chain of `DifferentiableOn` hypotheses on `f`, `deriv f`, and `deriv (deriv f)` over `Icc (-1) 1`. The boundary conditions `f(-1)=0, f(0)=0, f(1)=1, f'(0)=0` map directly to `hf0, hf1, hf2, hf3`. The conclusion `∃ x ∈ Ioo (-1) 1, deriv^3 f x ≥ 3` correctly encodes \"there exists x ∈ (-1,1) with f'''(x) ≥ 3\", using the open interval and the right inequality direction. At the interior points where the conclusion lives, `DifferentiableOn` on the closed interval agrees with `DifferentiableAt` globally, so `deriv (deriv (deriv f))` matches the classical f''' there. Minor technicalities about `deriv` at the endpoints do not change the mathematical content, and this is the standard Mathlib idiom for this problem.",
+  "duration_ms": 64480,
+  "cost_usd": 0.23627374999999998
+}

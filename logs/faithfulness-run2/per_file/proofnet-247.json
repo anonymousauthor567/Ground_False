@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures both hypotheses and the conclusion faithfully. `[CommRing R] [IsDomain R]` matches \"integral domain\". `[GCDMonoid R]` provides gcd existence (equivalent in an integral domain to the existence-of-gcd part of condition (i)), and h1 adds the Bezout-like representability for nonzero elements, which together match (i). h2 directly encodes condition (ii): for any sequence of nonzero elements with $a_{i+1} \\mid a_i$, the chain eventually becomes associate. The \"positive integer N\" in the informal vs. `N : ℕ` in Lean is inconsequential. The conclusion `IsPrincipalIdealRing R`, combined with `IsDomain R`, is exactly the definition of PID. Since gcd is unique up to unit and the representability property is invariant under associates, the choice of gcd function in the `GCDMonoid` instance does not introduce a mismatch.",
+  "duration_ms": 56990,
+  "cost_usd": 0.19336
+}

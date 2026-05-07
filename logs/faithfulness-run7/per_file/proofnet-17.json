@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim: V is a vector space over a field F with dim V = 1, T is a linear endomorphism V →ₗ[F] V, and the conclusion asserts the existence of a scalar c ∈ F such that T v = c • v for all v ∈ V. The scalar multiplication `c • v` is the standard Mathlib encoding of `a · v` in a vector space. The `FiniteDimensional F V` hypothesis is technically redundant since `finrank F V = 1` already implies finite-dimensionality in Mathlib (finrank returns 0 when infinite-dimensional), but this does not weaken or strengthen the claim. The quantifier structure (∃ scalar, ∀ vector) matches precisely.",
+  "duration_ms": 43276,
+  "cost_usd": 0.16536574999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_b3.lean",
+  "stem": "putnam_1980_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal problem correctly. The sequence is specified by `u 0 = a` and `u (n+1) = 2 * u n - n^2`, matching the informal recurrence $u_0 = a$, $u_{n+1} = 2u_n - n^2$. Quantifying over arbitrary `u : ℕ → ℝ` with these defining equations is equivalent to talking about the unique sequence determined by the recurrence. The conclusion `∀ n : ℕ, u n > 0` matches \"$u_n > 0$ for all $n \\geq 0$\" since natural numbers automatically satisfy $n \\geq 0$. The biconditional with the solution set $\\{a \\mid a \\geq 3\\}$ captures \"for which real numbers $a$\" correctly, and the solution $a \\geq 3$ is the correct answer (general solution $u_n = (a-3) \\cdot 2^n + n^2 + 2n + 3$).",
+  "duration_ms": 45547,
+  "cost_usd": 0.1429935
+}

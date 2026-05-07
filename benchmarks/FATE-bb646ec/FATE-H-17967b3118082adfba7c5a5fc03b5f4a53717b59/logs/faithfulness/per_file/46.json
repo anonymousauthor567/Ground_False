@@ -1,0 +1,8 @@
+{
+  "file": "46.lean",
+  "stem": "46",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks about L = normal closure of ℚ(α), where α is a complex number satisfying α + α⁻¹ ∈ a quadratic number field. The Lean statement instead uses `IsNormalClosure ℚ ℚ⟮a⟯ L` where `a : K` is the element in the quadratic field K corresponding to α + α⁻¹ via `algebraMap K ℂ`. The Mathlib notation `ℚ⟮a⟯` (from `FieldTheory/IntermediateField/Adjoin/Defs.lean`) expands to `adjoin ℚ {a}` as an IntermediateField of K/ℚ — so the Lean is formalizing the normal closure of ℚ(α + α⁻¹), not ℚ(α). Since ℚ⟮a⟯ ⊆ K and K has finrank 2 over ℚ, ℚ⟮a⟯ has degree at most 2 over ℚ and is automatically normal, making any normal closure L satisfy [L:ℚ] ≤ 2, which trivially divides 8. The Lean's conclusion is therefore vacuously true given its hypotheses, while the informal claim about the normal closure of ℚ(α) (which can have degree 4) is non-trivial. The informal statement implies the Lean statement (trivially, since the Lean is always true), but not vice versa.",
+  "duration_ms": 896757,
+  "cost_usd": 1.5768089999999997
+}

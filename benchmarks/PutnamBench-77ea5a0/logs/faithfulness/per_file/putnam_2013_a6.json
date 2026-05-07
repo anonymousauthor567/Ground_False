@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_a6.lean",
+  "stem": "putnam_2013_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes every aspect of the informal problem. The 25 table entries are fully and correctly specified via hwn1/hwn2/hw2/hw4/hwn4/hw12 (4+8+4+4+4+1 entries matching all cells of the 5×5 table), and hw0 correctly captures \"otherwise w=0\" via |a|>2 ∨ |b|>2. The A function `∑ s ∈ S, ∑ s' ∈ S, w (s - s').1 (s - s').2` is the curried nested-sum form of $\\sum_{(s,s')\\in S\\times S} w(s-s')$, matching the informal definition. \"Finite nonempty subset\" becomes `S : Finset (ℤ × ℤ)` with `Nonempty S`; by Mathlib's `nonempty_coe_sort`, `Nonempty S` (using the CoeSort from Finset to its subtype) is equivalent to `S.Nonempty`. The conclusion `A S > 0` matches. Verified with the worked example: the 16 computed terms match the list \"12,12,12,12,4,4,0,0,0,0,-1,-1,-2,-2,-4,-4\" given informally.",
+  "duration_ms": 164025,
+  "cost_usd": 0.43132624999999997
+}

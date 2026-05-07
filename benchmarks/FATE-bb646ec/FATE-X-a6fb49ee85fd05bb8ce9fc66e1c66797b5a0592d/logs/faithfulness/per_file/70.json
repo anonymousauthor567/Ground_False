@@ -1,0 +1,8 @@
+{
+  "file": "70.lean",
+  "stem": "70",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures all components of the informal statement. Both rings are Noetherian via `IsNoetherianRing`, R is an integral domain via `IsDomain R`, and S is a local ring via `IsLocalRing S` (with Q implicitly being `IsLocalRing.maximalIdeal S`). The \"R contained in S\" is encoded via `[Algebra R S] [NoZeroSMulDivisors R S]`: since R is a domain and S is nontrivial (being local), Mathlib's `NoZeroSMulDivisors.iff_algebraMap_injective` (derived from `isTorsionFree_iff_algebraMap_injective` in `Mathlib/Algebra/Algebra/Basic.lean`) gives that this is equivalent to injectivity of `algebraMap R S`, i.e., R embeds as a subring of S. The conclusion `∃ (p : minimalPrimes S), Ideal.comap (algebraMap R S) p.1 = ⊥` correctly expresses that some minimal prime of S contracts to 0 in R. No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 536379,
+  "cost_usd": 1.3094635
+}

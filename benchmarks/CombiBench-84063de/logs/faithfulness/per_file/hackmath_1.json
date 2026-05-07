@@ -1,0 +1,8 @@
+{
+  "file": "hackmath_1.lean",
+  "stem": "hackmath_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the number of ways to select a group of 6 students from 13, which is the combination C(13, 6) = 1716. The Lean encoding represents each selection as a characteristic function f : Fin 13 → Fin 2, where the condition (List.ofFn f).count 0 = 6 means exactly 6 of the 13 positions map to 0 (the \"selected\" indicator). The set of such functions is in bijection with 6-element subsets of a 13-element set, so sols.card = C(13, 6), matching the intended answer. The iff in h_sols precisely characterizes sols, and the use of Finset (Fin 13 → Fin 2) with the count condition is a standard and correct encoding of k-element subsets. The word \"group\" in the informal statement rules out ordered arrangements, matching the unordered-selection semantics of the Lean encoding.",
+  "duration_ms": 95923,
+  "cost_usd": 0.317547
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures \"U ∪ W is a subspace of V iff U ⊆ W or W ⊆ U\" for arbitrary submodules U, W of a vector space V over a field F. The existential `∃ U' : Submodule F V, U'.carrier = ↑U ∪ ↑W` is logically equivalent to \"U ∪ W is a subspace\" since a set is a subspace precisely when it arises as the carrier of some Submodule. The order `U ≤ W` on `Submodule F V` is defined via SetLike as subset containment, matching \"contained in\". The ambient setting (Field F, AddCommGroup V, Module F V) matches Axler's vector-space context. Quantifier structure and the biconditional are preserved. Hence the formalization is strictly faithful.",
+  "duration_ms": 54287,
+  "cost_usd": 0.21934425
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each piece of the informal claim exactly. The hypotheses `[Group G] [IsSolvable G]` encode \"G is a solvable group\"; `{H : Subgroup G} (hH : H ≠ ⊥) [H.Normal]` encodes \"H is a nontrivial normal subgroup of G\". The conclusion `∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a` asserts the existence of a subgroup A (of G, contained in H — equivalent to \"subgroup of H\"), with A nontrivial, A normal in G (since `A : Subgroup G` and `Subgroup.Normal` refers to normality in the ambient group), and A abelian. No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 125933,
+  "cost_usd": 0.44028599999999996
+}

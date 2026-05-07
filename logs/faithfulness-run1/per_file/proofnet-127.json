@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "informal": "Show that if $X$ is a Hausdorff space that is locally compact at the point $x$, then for each neighborhood $U$ of $x$, there is a neighborhood $V$ of $x$ such that $\\bar{V}$ is compact and $\\bar{V} \\subset U$.",
+  "lean": "\ntheorem Munkres_exercise_29_10 {X : Type*}\n  [TopologicalSpace X] [T2Space X] (x : X)\n  (hx : ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ (∃ K : Set X, U ⊆ K ∧ IsCompact K))\n  (U : Set X) (hU : IsOpen U) (hxU : x ∈ U) :\n  ∃ (V : Set X), IsOpen V ∧ x ∈ V ∧ IsCompact (closure V) ∧ closure V ⊆ U",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `hx` encodes \"x has a compact neighborhood\": there is an open set U containing x with U ⊆ K for some compact K, which is the standard definition of locally compact at x (x lies in the interior of a compact set). The conclusion provides an open V containing x with closure V compact and closure V ⊆ U, matching the informal claim. Munkres's convention takes \"neighborhood\" to mean an open set containing the point, so requiring U and V to be open matches the informal reading. T2Space gives the Hausdorff hypothesis. The quantifier structure (for every open neighborhood U of x, there exists V) matches. No extra or missing hypotheses.",
+  "duration_ms": 12791,
+  "cost_usd": 0.05857
+}

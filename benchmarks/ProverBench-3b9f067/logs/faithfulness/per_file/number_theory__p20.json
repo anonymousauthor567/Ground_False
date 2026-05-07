@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p20.lean",
+  "stem": "number_theory__p20",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires n to be a \"positive integer\" and the six consecutive integers to be \"positive integers\". The Lean statement uses ℕ for n, a, b, c, d, e, f without any positivity hypotheses (e.g., no 1 ≤ n or 1 ≤ a). This drops hypotheses that were explicitly stated in the informal text, making the Lean claim strictly broader: it asserts the conclusion over all of ℕ including 0. Indeed, n = 0 with a = 0, b = 1, …, f = 5 gives 0·1·2·3·4·5 = 0 = 0^5 with the consecutive conditions satisfied, which would be a counterexample to the Lean statement but is excluded by the informal hypothesis of positivity. Any proof of the Lean statement would imply the informal one (since the informal case is a subset), but the Lean statement claims more than what was asked. This is a textbook \"dropping a hypothesis the informal statement explicitly requires\" situation, which the rubric classifies as stronger.",
+  "duration_ms": 271082,
+  "cost_usd": 0.5210797500000001
+}

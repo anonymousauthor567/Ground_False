@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_b5.lean",
+  "stem": "putnam_1975_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. Setting `e = Real.exp 1` makes `e^x` (via `HPow ℝ ℝ ℝ` = `Real.rpow`) equal to `Real.exp x` by `Real.exp_one_rpow`, so `f 0 x = e^x` matches $f_0(x) = e^x$. The recurrence `f (n+1) x = x * deriv (f n) x` encodes $f_{n+1}(x) = x f'_n(x)$; Lean's `deriv` equals the true derivative here since each `f_n` is differentiable (polynomial × exponential). The final `e^e` also equals `Real.exp (Real.exp 1)` via the same `rpow` simplification. The `tsum` notation `∑' n : ℕ, ...` equates to the series value when summable (0 otherwise); since `e^e > 0`, the equation forces both summability and the correct limit, matching the informal $\\sum_{n=0}^\\infty f_n(1)/n! = e^e$. No hypotheses are added or omitted improperly.",
+  "duration_ms": 142747,
+  "cost_usd": 0.5567482500000001
+}

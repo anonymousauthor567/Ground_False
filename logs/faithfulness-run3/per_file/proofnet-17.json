@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. V is a vector space over field F (AddCommGroup + Field + Module), the hypothesis `finrank F V = 1` corresponds to dim V = 1, and the conclusion `∃ c : F, ∀ v : V, T v = c • v` is exactly the informal claim that there is a scalar a ∈ F with Tv = av for all v ∈ V. The `FiniteDimensional F V` instance is logically redundant (since in Mathlib `finrank F V = 1 ≠ 0` already forces finite-dimensionality), but it does not narrow the class of vector spaces being considered, so this is not a faithfulness issue.",
+  "duration_ms": 19689,
+  "cost_usd": 0.07044275
+}

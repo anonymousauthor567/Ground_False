@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-63.lean",
+  "stem": "proofnet-63",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all essential mathematical content of the informal statement: N > 0 as a positive natural, M and M' as integers, M coprime to N (via Int.gcd), d coprime to φ(N), and the hypothesis M' ≡ M^d (mod N). The conclusion asserts the existence of a d' that is the inverse of d mod φ(N) and satisfies M ≡ M'^d' (mod N), matching the informal claim. The only notable discrepancy is that d is typed as ℕ rather than ℤ, but this is the standard formalization convention for exponents in modular arithmetic (especially in this RSA-like context where d is conventionally positive), and it's required by the Nat.gcd formulation. The quantifier structure (∀ M, M', d satisfying hypotheses → ∃ d') correctly matches the informal claim, and the modular congruences are correctly expressed via the ZMOD notation.",
+  "duration_ms": 348764,
+  "cost_usd": 1.1585462499999999
+}

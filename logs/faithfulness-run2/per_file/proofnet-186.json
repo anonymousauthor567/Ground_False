@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every field homomorphism is injective. The Lean signature takes arbitrary fields F and G (via `[Field F]` and `[Field G]`), a ring homomorphism `φ : F →+* G` (which is the standard Mathlib encoding of a field homomorphism, since `→+*` automatically preserves 1, making it nontrivial given 1 ≠ 0 in a field), and concludes `Injective φ`. The universal quantification over fields is captured by the `{F : Type*}` and `{G : Type*}` implicit arguments, the hypothesis matches (both are fields), and the conclusion matches exactly. No extra or missing hypotheses.",
+  "duration_ms": 11553,
+  "cost_usd": 0.03948599999999999
+}

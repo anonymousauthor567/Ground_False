@@ -1,0 +1,8 @@
+{
+  "file": "15.lean",
+  "stem": "15",
+  "verdict": "faithful",
+  "reasoning": "The Lean `Zsqrtd (-5)` matches ℤ[√(-5)] (Mathlib's `Zsqrtd d` consists of elements `a + b√d` with `a, b : ℤ`). `IsPrincipalIdealRing` in Mathlib asserts that every ideal is principal. Although a PID traditionally includes the domain axiom, Mathlib automatically provides `IsDomain (Zsqrtd d)` for every `d` (see `Zsqrtd/Basic.lean` line 882), so for this specific ring, \"is a PID\" and \"is a principal ideal ring\" are equivalent. Therefore `¬IsPrincipalIdealRing (Zsqrtd (-5))` is logically equivalent to \"ℤ[√(-5)] is not a principal ideal domain\". The formalization is a faithful rendering.",
+  "duration_ms": 179497,
+  "cost_usd": 0.3720705
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_a6.lean",
+  "stem": "putnam_1985_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement. Γ is defined as ∑_{k=0}^{natDegree} (coeff p k)², which equals a_0² + a_1² + ... + a_m² since coefficients beyond the degree are zero. The polynomial f = 3X² + 7X + 2 matches F(x). The two conditions are faithfully stated: g.eval 0 = 1 captures g(0)=1, and ∀ n : ℕ, n ≥ 1 → Γ(f^n) = Γ(g^n) captures 'for every integer n ≥ 1' (positive integers correspond exactly to ℕ with n ≥ 1). The proposed solution 6X² + 5X + 1 = (3X+1)(2X+1) pairs with f = (3X+1)(X+2), and on the unit circle |X+2|² = |2X+1|², so Γ(f^n) = Γ(g^n) by Parseval.",
+  "duration_ms": 67097,
+  "cost_usd": 0.23563300000000004
+}

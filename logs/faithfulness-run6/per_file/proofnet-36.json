@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The auxiliary function f with the hypothesis f = λ g => g⁻¹ is merely a re-parameterization of \"the map g ↦ g⁻¹\". The left side of the iff, ∀ x y, f(x)·f(y) = f(x·y), unfolds to x⁻¹·y⁻¹ = (xy)⁻¹, which is exactly the group-homomorphism condition for this map (identity-preservation e⁻¹ = e is automatic, and the multiplicative condition is all that's needed). The right side, ∀ x y, x·y = y·x, is exactly \"G is abelian\". Both directions of the iff are mathematically equivalent to the informal claim. There are no extra hypotheses, no type/quantifier changes, and no narrowing of scope (G is an arbitrary group).",
+  "duration_ms": 30564,
+  "cost_usd": 0.08557675000000001
+}

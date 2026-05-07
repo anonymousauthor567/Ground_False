@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p6.lean",
+  "stem": "number_theory__p6",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims a parameterization: the rational solutions of x²−dy²=1 ARE exactly the pairs given by the formulas as t ranges over ℚ. This is a bidirectional characterization: (a) each t yields a solution, and (b) every rational solution arises from some t. The Lean statement is `∀ t, ∃ x y, x = (dt²+1)/(dt²−1) ∧ y = 2t/(dt²−1) ∧ x²−dy² = 1`. Since the first two conjuncts uniquely determine x and y, this existential is trivial; the content reduces to \"for every t, the formulas yield a solution of the Pell equation\" — only the forward direction. The essential/hard direction (that the parameterization exhausts the solution set) is entirely missing. Hence the Lean statement is strictly weaker than the informal characterization.",
+  "duration_ms": 260011,
+  "cost_usd": 0.7287945000000001
+}

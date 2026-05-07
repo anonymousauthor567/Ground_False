@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-116.lean",
+  "stem": "proofnet-116",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal one. X is a topological space, Y is a metric space, f : ℕ → X → Y plays the role of the sequence of continuous functions f_n (hypothesis hf ensures each is continuous), x : ℕ → X is a sequence converging to x₀ : X (via Tendsto x atTop (𝓝 x₀)), f₀ : X → Y is the uniform limit (via Mathlib's TendstoUniformly f f₀ atTop, which expands to the standard uniform convergence definition), and the conclusion Tendsto (λ n => f n (x n)) atTop (𝓝 (f₀ x₀)) states exactly that f_n(x_n) → f(x₀). The argument order in TendstoUniformly (sequence, limit, filter) matches correctly. No hypotheses are added or dropped, and the conclusion has not been weakened or strengthened.",
+  "duration_ms": 94619,
+  "cost_usd": 0.25800200000000006
+}

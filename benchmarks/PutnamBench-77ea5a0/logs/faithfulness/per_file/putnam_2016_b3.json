@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b3.lean",
+  "stem": "putnam_2016_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the Putnam 2016 B3 problem. Points in the plane are represented as `Fin 2 → ℝ`, and `MeasureTheory.volume` on this space is the 2D Lebesgue measure, which gives the area of a planar region. The convex hull of three points `convexHull ℝ {A, B, C}` is precisely the closed triangle (including interior), matching \"triangle together with its interior\". The hypothesis encodes \"area of △ABC ≤ 1 for all A, B, C ∈ S\" correctly, and allowing degenerate cases (A = B or collinear points) is harmless since such degenerate convex hulls have volume 0. The conclusion `∃ A' B' C', volume = 4 ∧ convexHull ⊇ S` correctly states existence of a triangle of area 4 covering S. Note that `= 4` is equivalent to `≤ 4` here because any smaller enclosing triangle can be enlarged to exactly area 4, matching the informal claim.",
+  "duration_ms": 256803,
+  "cost_usd": 0.6173620000000001
+}

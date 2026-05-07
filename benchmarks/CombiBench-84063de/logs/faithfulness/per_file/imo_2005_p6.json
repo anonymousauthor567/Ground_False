@@ -1,0 +1,8 @@
+{
+  "file": "imo_2005_p6.lean",
+  "stem": "imo_2005_p6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of IMO 2005 P6. The `solved` function maps each of 6 problems to the set of participants who solved it. Hypothesis `h` uses strict `>` and ordered pairs (which is equivalent to unordered pairs since intersection is symmetric) to say each pair of problems was jointly solved by more than 2/5 of participants, with proper ℝ coercion. Hypothesis `h'` correctly encodes \"no contestant solved all 6 problems\" as \"every participant missed some problem\". The conclusion states there exists a Finset `s` of contestants with `s.card ≥ 2` (at least 2 distinct contestants) and each element of `s` has a size-5 Finset `p` that exactly equals their set of solved problems — equivalent to \"solved exactly 5 problems\". The `∃ p, p.card = 5 ∧ ∀ j, j ∈ p ↔ i ∈ solved j` formulation is a roundabout but logically equivalent way of saying the number of problems i solved is exactly 5.",
+  "duration_ms": 129889,
+  "cost_usd": 0.43890775
+}

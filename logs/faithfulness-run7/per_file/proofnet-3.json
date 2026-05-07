@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"group of even order contains an element of order 2\" directly: `[Group G] [Fintype G]` gives a finite group (implicit in \"even order\" — an infinite group has no even order to speak of), `Even (card G)` with `open Fintype` means `Even (Fintype.card G)`, equivalent to 2 ∣ |G|, and `∃ x : G, orderOf x = 2` says there is an element of order exactly 2. The quantifier structure, types, and conclusion match the informal claim, and the formulation mirrors the standard Mathlib Cauchy-style signature `exists_prime_orderOf_dvd_card`.",
+  "duration_ms": 65694,
+  "cost_usd": 0.23354850000000002
+}

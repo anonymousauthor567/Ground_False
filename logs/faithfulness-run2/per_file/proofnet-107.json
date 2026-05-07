@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence and uniqueness of a topology T' on X that (i) is a topology, (ii) contains each T_i, and (iii) is contained in every topology containing all T_i. Conditions (ii) and (iii) together are exactly the universal property of the \"smallest topology containing all T_α\" in the informal statement, and ∃! captures the uniqueness claim. The family is correctly modeled as an indexed family T : I → Set (Set X) with the hypothesis that each T i is a topology, matching \"family of topologies on X\". No extra or missing hypotheses are introduced, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 15192,
+  "cost_usd": 0.060155
+}

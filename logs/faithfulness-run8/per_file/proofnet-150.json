@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. The hypotheses `hA : A.Nonempty` and `hA_bdd_below : BddBelow A` correspond exactly to \"nonempty set of real numbers which is bounded below\". The set `minus_A = {x | -x ∈ A}` is extensionally equal to `{-x : x ∈ A}` (since `y ∈ {x | -x ∈ A}` iff `-y ∈ A`, and `y ∈ {-x : x ∈ A}` iff `∃ x ∈ A, y = -x` iff `-y ∈ A`). The conclusion `sInf A = -sSup minus_A` translates the informal `inf A = -sup(-A)` directly using Mathlib's standard `sInf`/`sSup` notation on real numbers. No hypotheses are added or dropped, and no type or quantifier structure is altered.",
+  "duration_ms": 58386,
+  "cost_usd": 0.187563
+}

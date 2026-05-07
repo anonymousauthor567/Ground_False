@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. G is an arbitrary group, H K are arbitrary subgroups of G, and `[Fintype H] [Fintype K]` captures the finiteness assumption. With `open Fintype`, `card H` refers to `Fintype.card H`, which is the order of the subgroup H as a group, so `Nat.Coprime (card H) (card K)` faithfully encodes \"orders relatively prime.\" The conclusion `H ⊓ K = ⊥` is the standard Mathlib encoding of the intersection being the trivial subgroup {1}. No hypotheses are dropped or added, and the types of all objects align with the informal claim.",
+  "duration_ms": 53357,
+  "cost_usd": 0.18491324999999997
+}

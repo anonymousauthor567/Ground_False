@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `Differentiable ℂ f` on all of ℂ is equivalent to being entire/analytic on ℂ. (2) The Taylor coefficient $c_n$ at $z_0$ equals $f^{(n)}(z_0)/n!$, which in Lean is `iteratedDeriv n f z₀ / (n.factorial : ℂ)` — exactly how Mathlib formulates Taylor coefficients (cf. `IteratedDeriv/ConvergenceOnBall.lean`). The `∀ z₀, ∃ n` structure matches \"for each $z_0$, at least one coefficient is zero\", including $n=0$ (where $c_0 = f(z_0)$), matching the informal sum starting at $n=0$. (3) The conclusion `∃ p : Polynomial ℂ, f = fun z => Polynomial.aeval z p` states $f$ equals a polynomial function (since `aeval` with $R=A=\\mathbb{C}$ is just polynomial evaluation). No hypotheses are added or dropped.",
+  "duration_ms": 107297,
+  "cost_usd": 0.389596
+}

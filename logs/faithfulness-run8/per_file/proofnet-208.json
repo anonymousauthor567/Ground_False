@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler's exercise 7.5. `End F V` is L(V) with composition as multiplication, and `{T | T * adjoint T = adjoint T * T}` is precisely the set of normal operators (T∘T* = T*∘T). The universal statement `∀ U : Submodule F (End F V), U.carrier ≠ {normal operators}` correctly expresses \"the set of normal operators is not a subspace of L(V)\". The `RCLike F` hypothesis matches Axler's convention that V is over ℝ or ℂ. `FiniteDimensional F V` is implicit in the informal `dim V ≥ 2` (and required for `LinearMap.adjoint` to be defined in Mathlib). The `finrank F V ≥ 2` hypothesis matches `dim V ≥ 2`. No hypotheses are dropped or added beyond what is implicit in the informal statement.",
+  "duration_ms": 146101,
+  "cost_usd": 0.49785075000000006
+}

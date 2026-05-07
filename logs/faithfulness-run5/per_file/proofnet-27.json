@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures Axler's statement faithfully: `T : Module.End 𝕜 V` with `IsSelfAdjoint T` corresponds to T ∈ L(V) self-adjoint (by `isSelfAdjoint_iff'` in Mathlib). `[RCLike 𝕜]` is exactly F ∈ {ℝ, ℂ}. `T.Eigenvalues` is the subtype `{μ : 𝕜 // T.HasEigenvalue μ}`, so `∃ l' : T.Eigenvalues, ‖l - l'‖ < ε` states exactly \"T has an eigenvalue λ' with |λ - λ'| < ε\". The hypothesis `∃ v, ‖v‖ = 1 ∧ ‖T v - l • v‖ < ε` mirrors the informal \"∃ v with ‖v‖=1 and ‖Tv-λv‖<ε\". The added `[FiniteDimensional 𝕜 V]` is an implicit premise from Axler's Chapter 7 context (and is needed for truth—approximate eigenvalues need not be eigenvalues in infinite dimensions), so making it explicit is not a faithfulness violation.",
+  "duration_ms": 228488,
+  "cost_usd": 0.64026725
+}

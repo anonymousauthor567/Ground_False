@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the parallelogram law |x+y|² + |x-y|² = 2|x|² + 2|y|² for x, y ∈ R^k. The Lean signature uses `EuclideanSpace ℝ (Fin n)`, which is Mathlib's standard realization of R^n with its Euclidean norm; the variable rename from k to n is immaterial, and n being a free parameter is equivalent to universal quantification over the dimension. The norm-squared expressions ‖x+y‖², ‖x-y‖², ‖x‖², ‖y‖² match exactly, and the equation form is preserved. No extra or missing hypotheses are introduced, so the formalization is logically equivalent.",
+  "duration_ms": 7956,
+  "cost_usd": 0.038818500000000006
+}

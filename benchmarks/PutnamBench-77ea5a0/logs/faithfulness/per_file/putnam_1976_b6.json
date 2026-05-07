@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_b6.lean",
+  "stem": "putnam_1976_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement faithfully. σ is defined as the sum over Nat.divisors N, which in Mathlib is the finset of positive divisors including 1 and N (and empty for N=0). The quasiperfect predicate σ N = 2N + 1 matches the informal definition. The conclusion ∃ m : ℤ, Odd m ∧ m^2 = N captures \"N is the square of an odd integer\": Odd over ℤ is the standard ∃ k, m = 2k+1 definition, and m^2 = N (with N coerced to ℤ) expresses that N is such a square. Although the informal statement says \"positive integer N\", N=0 cannot satisfy σ(0) = 1 (since divisors 0 = ∅, giving σ 0 = 0), so the positivity constraint is automatically enforced by the quasiperfect condition. No hypotheses are missing or added beyond what the informal statement asserts.",
+  "duration_ms": 84788,
+  "cost_usd": 0.3154745
+}

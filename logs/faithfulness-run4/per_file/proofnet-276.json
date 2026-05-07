@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature declares K as a field, F as a Subfield of K (so F naturally inherits an Algebra F K instance via Subfield.toAlgebra, making IsAlgebraic F x well-typed for x : K), and a : K. The hypothesis `IsAlgebraic F (a ^ 2)` unfolds to \"there exists a nonzero polynomial with coefficients in F such that a^2 is a root\", which is exactly the informal statement that a^2 is algebraic over F. The conclusion `IsAlgebraic F a` matches \"a is algebraic over F\". No hypotheses are added or dropped, the types (Field, Subfield, element of K) exactly mirror the informal setup, and the universal quantification over K, F, a is preserved as implicit variables. This is a direct, logically equivalent formalization.",
+  "duration_ms": 119278,
+  "cost_usd": 0.5042114999999999
+}

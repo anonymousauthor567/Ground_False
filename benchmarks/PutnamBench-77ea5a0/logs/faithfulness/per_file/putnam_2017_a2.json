@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_a2.lean",
+  "stem": "putnam_2017_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `Q : ℕ → RatFunc ℚ` with the field `RatFunc ℚ` is the natural setting to make the division-based recurrence well-defined. `Q 0 = 1` and `Q 1 = (X : ℚ[X])` (using the `Polynomial K → RatFunc K` coercion defined in `Mathlib/FieldTheory/RatFunc/Basic.lean`) match the base cases $Q_0 = 1$ and $Q_1 = x$. The universally quantified `∀ n, Q (n + 2) = (Q (n + 1) ^ 2 - 1) / Q n` exactly captures the recurrence for all $m \\geq 2$ (via $m = n+2$). The conclusion `∃ P : ℤ[X], Q n = P.map (Int.castRingHom ℚ)` asserts that $Q_n$ equals (the image in `RatFunc ℚ` of) some integer-coefficient polynomial — the precise meaning of \"equal to a polynomial with integer coefficients.\" The hypothesis `0 < n` matches \"positive integer $n$\". No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 185789,
+  "cost_usd": 0.5898859999999999
+}

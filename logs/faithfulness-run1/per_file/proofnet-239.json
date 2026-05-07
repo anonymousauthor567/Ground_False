@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-239.lean",
+  "stem": "proofnet-239",
+  "informal": "Prove that if $|G|=2907$ then $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_21 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 2907) : ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group of order 2907 is not simple. The Lean signature quantifies over an arbitrary type G with `Group G` and `Fintype G` instances, asserts `card G = 2907`, and concludes `¬ IsSimpleGroup G`. The Fintype instance is implied by |G| = 2907 (a finite cardinality), and `IsSimpleGroup` in Mathlib correctly captures the standard notion of a simple group. The hypothesis and conclusion match the informal claim exactly, with the proper universal quantification over G.",
+  "duration_ms": 6148,
+  "cost_usd": 0.043587249999999994
+}

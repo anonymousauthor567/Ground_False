@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1980_a6.lean",
+  "stem": "putnam_1980_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal problem. The class $C$ encodes $C^1$ functions on $[0,1]$ with the correct boundary conditions $f(0)=0, f(1)=1$ by using functions $\\mathbb{R} \\to \\mathbb{R}$ with `ContDiffOn ℝ 1 f (Set.Icc 0 1)` — a standard faithful encoding since every $C^1$ function on $[0,1]$ extends (many ways) to a function on $\\mathbb{R}$ satisfying this, and all extensions agree on $[0,1]$. Integration over `Set.Ioo 0 1` vs $[0,1]$ agrees because $|f'-f|$ is continuous and bounded on $[0,1]$, giving identical Lebesgue integrals. For $x \\in (0,1)$, `deriv f x` coincides with the standard derivative because $x$ is an interior point of $[0,1]$ where `ContDiffOn` implies full differentiability in a neighborhood. `IsGreatest {u | ∀ f ∈ C, u ≤ ∫...} c` precisely expresses that $c$ is the largest $u$ such that the inequality holds for all $f \\in C$, matching \"determine the largest real number $u$\". All components are equivalent to the informal claim.",
+  "duration_ms": 298574,
+  "cost_usd": 0.66494725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-2.lean",
+  "stem": "proofnet-2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The two hypotheses `hx : orderOf x = 2` and `hx1 : ∀ y, orderOf y = 2 → y = x` together express \"x is the unique element of order 2 in G\" (existence + uniqueness), which is exactly what \"contains exactly one element of order 2\" means. The conclusion `x ∈ center G` uses Mathlib's `Subgroup.center`, which is defined precisely as elements commuting with every element of the group — matching \"in the center\". G is an arbitrary group. This is the standard encoding of a ∃! statement where the unique element is pulled out as a named variable with two hypotheses, and the conclusion is about that element.",
+  "duration_ms": 42131,
+  "cost_usd": 0.256971
+}

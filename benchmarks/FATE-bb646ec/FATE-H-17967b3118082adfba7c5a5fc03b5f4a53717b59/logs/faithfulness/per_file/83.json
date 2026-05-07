@@ -1,0 +1,8 @@
+{
+  "file": "83.lean",
+  "stem": "83",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `IsDedekindDomain R` (which extends `IsDomain`) captures \"Dedekind domain\"; `Module.Finite R M` captures \"finitely-generated module\"; `Module.Flat R M` is \"flat\"; and `NoZeroSMulDivisors R M` (stating `r • m = 0 → r = 0 ∨ m = 0`) is logically equivalent to \"torsion-free\" whenever R is an integral domain — which is always the case for a Dedekind domain. Mathlib itself documents `NoZeroSMulDivisors` as \"a version of saying that M is torsion free\" and provides `Submodule.noZeroSMulDivisors_iff_torsion_bot` as well as an instance `[IsDomain R] [NoZeroSMulDivisors R M] → Module.IsTorsionFree R M`, confirming the notions coincide over domains. The hypotheses and conclusion match the informal statement with no extra strengthening or weakening.",
+  "duration_ms": 347607,
+  "cost_usd": 0.83872425
+}

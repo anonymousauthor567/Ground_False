@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `[CommGroup G]` encodes \"abelian group\"; the existential hypotheses `∃ g, orderOf g = m` and `∃ g, orderOf g = n` encode \"has an element of order m/n\"; `m.Coprime n` encodes \"m and n are relatively prime\"; and the conclusion `∃ g, orderOf g = m * n` encodes \"has an element of order mn\". The types and quantifier structure align directly with the natural reading. Mathlib's `orderOf_mul_eq_mul_orderOf_of_coprime` confirms this is the intended encoding, and edge cases (e.g., orderOf = 0 meaning infinite order combined with Coprime forcing the other to be 1) remain consistent with the informal claim. No hypotheses are added or dropped.",
+  "duration_ms": 78172,
+  "cost_usd": 0.3463985
+}

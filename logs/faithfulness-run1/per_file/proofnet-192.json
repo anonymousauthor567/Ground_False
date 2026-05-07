@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "informal": "Prove that every nonzero ideal in the ring of Gauss integers contains a nonzero integer.",
+  "lean": "\ntheorem Artin_exercise_10_6_7 {I : Ideal GaussianInt}\n  (hI : I ≠ ⊥) : ∃ (z : I), z ≠ 0 ∧ (z : GaussianInt).im = 0",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for every nonzero ideal I in ℤ[i], there exists a nonzero rational integer in I. The Lean signature assumes I ≠ ⊥ (nonzero ideal) and concludes ∃ z : I with z ≠ 0 and (z : GaussianInt).im = 0, i.e., a nonzero element of I whose imaginary part vanishes — which is exactly a nonzero rational integer in I. The hypothesis and conclusion match the informal claim precisely, with no extra or missing assumptions.",
+  "duration_ms": 7699,
+  "cost_usd": 0.0461165
+}

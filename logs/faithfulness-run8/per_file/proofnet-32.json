@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-32.lean",
+  "stem": "proofnet-32",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is a direct and logically equivalent translation of the informal claim. Mathlib's `orderOf x` represents |x| (the order of a group element, with 0 encoding infinite order), matching the textbook notation. The informal statement's implicit universal quantification over arbitrary elements x, g of an arbitrary group G is faithfully captured by `{G : Type*} [Group G] (x g : G)`. The conclusion `orderOf x = orderOf (g⁻¹ * x * g)` precisely expresses |x| = |g⁻¹ x g|, and works correctly for both finite and infinite order (since conjugation preserves the order in both cases, and 0 = 0 holds in the infinite case).",
+  "duration_ms": 27994,
+  "cost_usd": 0.11117225
+}

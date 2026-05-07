@@ -1,0 +1,8 @@
+{
+  "file": "41.lean",
+  "stem": "41",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"the degree of every finite extension of F is divisible by p\", but taken literally this includes the trivial extension F/F which has degree 1. Since p is prime, p ∤ 1, so a literal reading makes the hypothesis vacuously unsatisfiable. The standard mathematical reading (and the intended content of this classical field-theory exercise) is that every *nontrivial* finite extension has degree divisible by p. The Lean formalization makes this implicit premise explicit by adding `Module.finrank F E ≠ 1` (i.e., E is not isomorphic to F as an F-algebra, equivalently the extension is nontrivial). Per the worked example in the instructions, surfacing such an implicit premise needed for truth is faithful, not weaker. The conclusion `∃ k, Module.finrank F E = p ^ k` correctly encodes \"the degree is a power of p\" (with p^0 = 1 covering the trivial extension case). Types, quantifier structure, and typeclass assumptions (Field, Algebra, FiniteDimensional) all match standard Mathlib conventions for field extensions.",
+  "duration_ms": 333847,
+  "cost_usd": 0.777438
+}

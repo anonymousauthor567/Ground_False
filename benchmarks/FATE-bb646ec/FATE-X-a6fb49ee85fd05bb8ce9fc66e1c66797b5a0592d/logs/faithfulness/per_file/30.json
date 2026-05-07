@@ -1,0 +1,8 @@
+{
+  "file": "30.lean",
+  "stem": "30",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `∀ (x y : B), x ∉ A → y ∉ A → x * y ∉ A` is exactly equivalent to \"B\\A is closed under multiplication\". The conclusion `IsIntegrallyClosedIn A B`, given Mathlib's definition (verified: `IsIntegrallyClosedIn S A ↔ ∀ ⦃x : A⦄, IsIntegral S x → x ∈ S` for S a subring), precisely expresses \"A is integrally closed in B\" (every element of B integral over A lies in A). The `CommRing B` assumption, while not literally stated in the informal text which only says \"a ring B\", is the standard convention in commutative algebra (where this integral-closure problem lives; cf. Atiyah-Macdonald) and is needed for the notion of integral closure as formalized in Mathlib to be defined at all — this is surfacing an implicit premise rather than narrowing the scope.",
+  "duration_ms": 100140,
+  "cost_usd": 0.35447875
+}

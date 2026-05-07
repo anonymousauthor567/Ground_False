@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The inner `⋃ (a : ℚ) (b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` produces precisely the collection of open intervals $(a,b) \\subset \\mathbb{R}$ with rational endpoints $a<b$. Applying `Set.image2 (fun s t => s ×ˢ t)` to two such collections yields exactly $\\{(a,b) \\times (c,d) \\mid a,b,c,d \\in \\mathbb{Q}, a<b, c<d\\}$. Since `ℝ × ℝ` carries the product topology (which agrees with the standard Euclidean topology on $\\mathbb{R}^2$), `IsTopologicalBasis` on this collection states exactly that it is a basis for the topology of $\\mathbb{R}^2$. No hypotheses or conclusions are altered, so this is a faithful formalization.",
+  "duration_ms": 180657,
+  "cost_usd": 0.4606945
+}

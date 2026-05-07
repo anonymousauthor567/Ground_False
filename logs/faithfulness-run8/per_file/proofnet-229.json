@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any quotient of a solvable group is solvable. The Lean signature universally quantifies over an arbitrary group `G` (via the type variable with `[Group G] [IsSolvable G]`) and an arbitrary normal subgroup `H` (via `(H : Subgroup G) [Normal H]`), concluding `IsSolvable (G ⧸ H)`. Mathlib's `IsSolvable` class uses the standard definition (derived series eventually trivial), and `G ⧸ H` is the standard quotient group. No hypotheses are added or dropped, no types are changed, and the quantifier structure matches the universal reading of the informal claim. This is exactly the statement of `solvable_quotient_of_solvable` in Mathlib.",
+  "duration_ms": 24229,
+  "cost_usd": 0.10159899999999998
+}

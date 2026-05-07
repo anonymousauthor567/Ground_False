@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "informal": "Consider a prime $p$ of the form $4 t+1$. Show that $a$ is a primitive root modulo $p$ iff $-a$ is a primitive root modulo $p$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_4_4 {p t: ℕ} (hp0 : p.Prime) (hp1 : p = 4*t + 1)\n  (a : ZMod p) :\n  IsPrimitiveRoot a p ↔ IsPrimitiveRoot (-a) p",
+  "verdict": "different",
+  "reasoning": "In Mathlib, `IsPrimitiveRoot a n` means `a` is a primitive n-th root of unity: `a^n = 1` and no smaller positive power equals 1. A primitive root modulo a prime `p` should have multiplicative order `p - 1 = φ(p)`, not `p`. So the correct encoding would be `IsPrimitiveRoot a (p - 1)`. As written, `IsPrimitiveRoot a p` would require `a^p = 1` in `ZMod p`, which by Fermat's little theorem gives `a^p = a`, forcing `a = 1` (and even then 1 is not a primitive p-th root unless p = 1). Thus the Lean iff is essentially vacuous/wrong rather than expressing the intended claim about primitive roots mod p. This is a genuine semantic mismatch.",
+  "duration_ms": 9732,
+  "cost_usd": 0.0538075
+}

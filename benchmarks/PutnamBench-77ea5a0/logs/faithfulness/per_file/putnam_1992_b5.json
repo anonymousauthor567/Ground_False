@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b5.lean",
+  "stem": "putnam_1992_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the matrix: Fin (n-1) gives the right size, and the diagonal entries i+3 for i ranging 0..n-2 give 3,4,...,n+1 with off-diagonal entries 1 (via ite (i = j)). The set {x | ∃ n ≥ 2, D n / factorial n = x} is exactly {D_n/n!}_{n≥2}. Bornology.IsBounded on ℚ uses the MetricSpace instance induced from ℝ, which corresponds to the standard notion of a bounded set of rationals (being contained in a bounded interval). The solution is wrapped as an iff with putnam_1992_b5_solution, which is the standard Putnam formalization pattern asking whether the set is bounded. No extra hypotheses are added or removed.",
+  "duration_ms": 234294,
+  "cost_usd": 0.62715425
+}

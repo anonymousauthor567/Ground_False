@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "This matches the system prompt's worked example exactly. The informal statement says a prime of the form 2^r + 1 must have the form 2^{2^k} + 1. Literally, without r ≥ 1, the claim fails at r = 0: p = 2 is prime but is not 2^{2^k} + 1 for any k (as 2^{2^k} + 1 ≥ 3). The Lean formalization adds `1 ≤ r` to make this implicit premise explicit — a standard and correct reading of the intended mathematical content. The rest of the encoding is faithful: p is prime (ℕ vs ℤ is inconsequential since 2^r + 1 ≥ 3 > 0), the hypothesis is an existence of r with p = 2^r + 1, and the conclusion is an existence of k with p = 2^(2^k) + 1, preserving the quantifier structure.",
+  "duration_ms": 32019,
+  "cost_usd": 0.105345
+}

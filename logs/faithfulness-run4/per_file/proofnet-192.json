@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "GaussianInt is defined as Zsqrtd (-1) with components re and im, so a Gaussian integer with im = 0 is precisely the image of an ordinary integer under ℤ → ℤ[i]. The Lean statement assumes a nonzero ideal I ≠ ⊥ and asserts the existence of z : I with z ≠ 0 and (z : GaussianInt).im = 0. Since z : I lives in the submodule subtype whose zero coerces to 0 in GaussianInt, z ≠ 0 correctly encodes \"nonzero element in I\", and the im = 0 clause correctly encodes \"is an ordinary integer\". This matches the informal claim that every nonzero ideal of the Gaussian integers contains a nonzero (rational) integer.",
+  "duration_ms": 73202,
+  "cost_usd": 0.256398
+}

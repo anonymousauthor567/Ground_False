@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that in a ring R, if u is a unit then so is -u. The Lean signature takes R with a `Ring` instance (which in Mathlib includes a multiplicative identity, matching Dummit & Foote's convention for rings in Chapter 7), assumes `IsUnit u`, and concludes `IsUnit (-u)`. The hypothesis, conclusion, and ambient structure all correspond directly to the informal claim, with no extra or missing assumptions (e.g. no commutativity required, no finiteness). This is a faithful formalization.",
+  "duration_ms": 16829,
+  "cost_usd": 0.03627
+}

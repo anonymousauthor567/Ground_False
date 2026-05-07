@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p28.lean",
+  "stem": "calculus__p28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims the area under y = x² + 3 from x=1 to x=3 is 44/3. The Lean formalization defines `parabola_poly = X² + C 3` (polynomial x²+3) and `parabola_fun x = aeval x parabola_poly`, which by `aeval_X_pow` and `aeval_C` evaluates to exactly x² + 3 for real x. The theorem then asserts ∫ x ∈ Icc 1 3, (x² + 3) dx = 44/3. Direct computation confirms ∫₁³(x²+3)dx = [x³/3 + 3x]₁³ = 18 - 10/3 = 44/3. Since x² + 3 > 0 on [1,3], the Bochner integral equals the geometric \"area under the curve\", and the choice of Icc vs Ioc is immaterial (endpoints have measure zero). The formalization is a faithful rendering of the informal claim.",
+  "duration_ms": 81685,
+  "cost_usd": 0.21162825
+}

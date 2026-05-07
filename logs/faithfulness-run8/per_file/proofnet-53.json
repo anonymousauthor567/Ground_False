@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The hypotheses `hpqr : p < q ∧ q < r`, `hpqr1 : p.Prime ∧ q.Prime ∧ r.Prime`, and `hG : card G = p*q*r` faithfully encode \"|G| = pqr with primes p < q < r\". The conclusion is a three-way disjunction of existence of a normal Sylow p-, q-, or r-subgroup, which matches \"G has a normal Sylow subgroup for either p, q or r\". `[Fintype G]` is required for `card G` to make sense and is not an added restriction since pqr ≥ 2 forces finiteness. `P.Normal` for `P : Sylow p G` resolves via the `Sylow extends Subgroup G` structure to `Subgroup.Normal`, the standard notion. No hypothesis is dropped or added beyond what is logically implicit.",
+  "duration_ms": 71587,
+  "cost_usd": 0.30430824999999995
+}

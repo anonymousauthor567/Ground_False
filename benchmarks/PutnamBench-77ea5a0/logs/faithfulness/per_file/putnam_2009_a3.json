@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_a3.lean",
+  "stem": "putnam_2009_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes Putnam 2009 A3. The entries at position (i, j) with i, j ∈ Fin n are Real.cos(1 + n·i + j), which gives exactly the left-to-right, top-to-bottom filling pattern described informally: for n=3, entries are cos 1, cos 2, cos 3 in row 0; cos 4, cos 5, cos 6 in row 1; cos 7, cos 8, cos 9 in row 2. The conclusion `Tendsto (fun n => (cos_matrix n).det) atTop (𝓝 putnam_2009_a3_solution)` precisely encodes lim_{n→∞} d_n = solution (here 0). Using `cos_matrix` as a universally quantified matrix function constrained by `hM` is logically equivalent to directly defining the matrix by its entries, since matrix equality is determined by entries. Small-n behavior (e.g., empty matrix at n=0) is irrelevant for the limit.",
+  "duration_ms": 51648,
+  "cost_usd": 0.15314850000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-32.lean",
+  "stem": "proofnet-32",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that for any elements x, g of a group G, the order of x equals the order of g⁻¹xg. The Lean signature quantifies over an arbitrary group G (via `{G : Type*} [Group G]`) and arbitrary elements `x g : G`, then asserts `orderOf x = orderOf (g⁻¹ * x * g)`. In Mathlib, `orderOf` is exactly the notion of order of an element in a group (matching |x|). The conjugation element `g⁻¹ * x * g` matches `g^{-1} x g`. No hypotheses are added or dropped, and the conclusion is an equality exactly as stated. This is a strictly faithful formalization.",
+  "duration_ms": 11127,
+  "cost_usd": 0.0378355
+}

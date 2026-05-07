@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes each component of Munkres 23.9: `A ⊂ Set.univ` (via Mathlib's `HasSSubset` = strict inclusion) faithfully captures \"A is a proper subset of X\" (likewise for B, Y); `IsConnected (Set.univ : Set X)` is equivalent to `ConnectedSpace X`, matching \"X is connected\"; and `IsConnected (Set.univ \\ (A ×ˢ B))` precisely expresses \"(X × Y) − (A × B) is connected.\" Mathlib's `IsConnected` additionally requires nonemptiness (unlike Munkres's convention where the empty space is connected), but this adds no logical content here since `A ⊂ Set.univ` already forces X (and Y) to be nonempty. The quantifier structure (universal over topological spaces X, Y and subsets A, B) and the set-difference/product encoding are all correct.",
+  "duration_ms": 238546,
+  "cost_usd": 0.5109525
+}

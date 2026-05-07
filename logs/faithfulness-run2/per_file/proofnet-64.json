@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if an integer n is the sum of two rational squares, then it is the sum of two integer squares. The Lean signature quantifies over n : ℤ and r s : ℚ with hypothesis r^2 + s^2 = n (with the natural ℤ → ℚ coercion on n) and concludes ∃ a b : ℤ, a^2 + b^2 = n. Universally quantifying over r, s and concluding with an existential over a, b is logically equivalent to \"if there exist rational r, s with r^2 + s^2 = n then there exist integer a, b with a^2 + b^2 = n.\" The types and quantifier structure match the informal claim exactly.",
+  "duration_ms": 12219,
+  "cost_usd": 0.04320375
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. The hypothesis `Nat.Prime p` corresponds to \"p is prime\". The sum `∑ i ∈ Finset.range p, X ^ i` expands to `X^0 + X^1 + ... + X^(p-1) = 1 + X + X^2 + ... + X^(p-1)`, which is exactly the polynomial q(x) in the informal statement. The ambient ring `Polynomial ℚ` matches $\\mathbb{Q}[x]$, and `Irreducible` in a polynomial ring over a field is the standard notion of irreducibility. The statement is universally quantified over primes p, matching the informal quantifier structure.",
+  "duration_ms": 19789,
+  "cost_usd": 0.05181324999999999
+}

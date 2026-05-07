@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_a1.lean",
+  "stem": "putnam_2007_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures \"curves are tangent to each other\". A point (x,y) lies on both curves y = f(x) and x = f(y) iff f(x) = y and f(y) = x. At such a point, curve 1 has tangent slope f'(x), and curve 2 (by implicit differentiation) has dy/dx = 1/f'(y), so the tangent lines coincide iff f'(x) · f'(y) = 1. The existential quantifier ∃ x y matches \"there is a tangent point\" (which is what \"tangent to each other\" means). The universal quantification over α is implicit via α being a theorem parameter, so \"α ∈ solution ↔ P(...)\" correctly expresses \"find all α\". Verified with known answer values (α = 2/3 gives tangent point x=y=1/4 with f'=1; α = 3/2 gives x=y=-1/6 with f'=1). The formulation is logically equivalent to the informal statement.",
+  "duration_ms": 428448,
+  "cost_usd": 0.6098085
+}

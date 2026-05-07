@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every nonzero ideal in the Gaussian integers contains a nonzero integer. The Lean statement quantifies (implicitly) over all ideals `I : Ideal GaussianInt`, assumes `I ≠ ⊥` (i.e., I is nonzero), and concludes there exists `z ∈ I` with `z ≠ 0` and `(z : GaussianInt).im = 0`. Since `GaussianInt = Zsqrtd (-1)` has `re` and `im` integer fields, a Gaussian integer with `im = 0` is precisely one of the form `a + 0·i`, i.e., an ordinary integer embedded into ℤ[i]. Together with `z ≠ 0`, this encodes \"a nonzero (rational) integer lying in I\". The quantifier structure, hypothesis `I ≠ ⊥` (= nonzero ideal), and conclusion match the informal claim exactly.",
+  "duration_ms": 51657,
+  "cost_usd": 0.199399
+}

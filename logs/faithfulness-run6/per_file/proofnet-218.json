@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-218.lean",
+  "stem": "proofnet-218",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that the symmetric group S_Ω on Ω = {1, 2, 3, ...} is an infinite group. The Lean statement `Infinite (Equiv.Perm ℕ)` asserts that the type of permutations of ℕ is infinite. Here ℕ correctly represents the countably infinite set Ω (the starting index 0 vs 1 is immaterial since both are countably infinite sets and thus bijective, producing isomorphic symmetric groups). `Equiv.Perm ℕ` is the group of permutations of ℕ with its canonical group structure (already a Mathlib instance), and `Infinite` captures the mathematical meaning of \"infinite group\" (having infinitely many elements). This is a faithful formalization.",
+  "duration_ms": 57167,
+  "cost_usd": 0.189807
+}

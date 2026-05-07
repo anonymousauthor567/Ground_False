@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is exactly Fermat's Little Theorem: for prime p and any integer a, a^p ≡ a (mod p). The Lean signature `(p : ℕ) (hp : Nat.Prime p) (a : ℤ) : a ^ p ≡ a [ZMOD p]` matches this verbatim — `[ZMOD p]` is the integer modular congruence `Int.ModEq p`, and this is literally the Mathlib lemma `Int.ModEq.pow_prime_eq_self`. The hypotheses (p is a natural prime, a is an integer) and the conclusion align precisely with the informal claim. The \"Use Lagrange's Theorem\" instruction is only a pedagogical hint about the proof method, not a constraint on the statement itself.",
+  "duration_ms": 49522,
+  "cost_usd": 0.16132575000000002
+}

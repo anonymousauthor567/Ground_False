@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. It introduces a finite group G (via `[Fintype G]`, matching the implicit finiteness from |G| = pm), primes p with p ∤ m, and |G| = p*m. H is declared as a subgroup with a `Normal` instance and `card H = p`, matching \"normal subgroup of order p\". The conclusion `Subgroup.Characteristic H` matches the standard Mathlib definition (H fixed by every automorphism of G), which is precisely \"H is characteristic\". All hypotheses and the conclusion line up with the informal statement without adding or dropping requirements.",
+  "duration_ms": 83957,
+  "cost_usd": 0.29302075
+}

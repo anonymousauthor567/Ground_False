@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_a1.lean",
+  "stem": "putnam_1975_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures both parts of the informal statement. Part 1 encodes the existence of formulas for x,y in terms of a,b via the solution pair (ℤ×ℤ→ℤ)×(ℤ×ℤ→ℤ), with expected answer (a+b+1, a-b) which algebraically satisfies (a+b+1)² + (a-b)² = 4n+1 when n = (a²+a)/2 + (b²+b)/2. Part 2 encodes the converse with matching quantifier structure: ∀n∈ℤ, (∃x,y∈ℤ, 4n+1=x²+y²) → (∃a,b∈ℤ, n=T_a+T_b). All types match the informal (n, a, b, x, y all integers), and using integer a ∈ ℤ in the triangular number formula is consistent with the informal wording \"for some integers a and b\" and yields the same set of values as nonneg a. The rational coercion in nab is necessary for the division by 2 but doesn't change the meaning since it equates an integer n with a rational that must equal an integer.",
+  "duration_ms": 133319,
+  "cost_usd": 0.45437374999999997
+}

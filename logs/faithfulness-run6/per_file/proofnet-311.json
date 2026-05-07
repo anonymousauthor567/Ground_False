@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses ℕ as the countable index (the canonical countably infinite index), each factor is a topological space, the hypothesis `∃ (s : Set (X i)), Countable s ∧ Dense s` matches Mathlib's `SeparableSpace.exists_countable_dense` definition exactly (where `Countable s` for a Set uses the subtype coercion and is equivalent to `s.Countable`), and the conclusion asserts the same property for the product type `Π i, X i` under the standard product topology. This is a direct specialization of Mathlib's general instance `SeparableSpace (∀ i, X i)` with `[Countable ι]`, using the canonical countably infinite index ℕ. This matches the informal \"countable product of spaces having countable dense subsets has a countable dense subset\" as the statement is typically read in topology (Munkres-style exercises), where the content is the countably infinite case.",
+  "duration_ms": 421106,
+  "cost_usd": 1.2621062499999998
+}

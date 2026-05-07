@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim: for every natural prime p and every integer x such that p divides x^4 - x^2 + 1, we have p ≡ 1 mod 12. The polynomial x^4 - x^2 + 1 is Φ_{12}(x), and the claim is a classical result. Using `Nat.Prime p` with `p : ℕ` correctly encodes the standard number-theoretic convention that \"prime\" refers to a positive prime (the alternative `Prime (p : ℤ)` would allow negative primes like -13, which divides 13 = 2^4 - 2^2 + 1 but is congruent to 11, not 1, mod 12 — making the literal integer-prime reading false). The `[ZMOD 12]` notation correctly denotes `Int.ModEq 12`, the quantifier structure matches (\"any\" → implicit ∀ over p and x), and both sides use the appropriate types (p cast to ℤ for divisibility and congruence). This is a faithful formalization that makes the implicit \"positive prime\" premise explicit.",
+  "duration_ms": 201573,
+  "cost_usd": 0.7886647500000001
+}

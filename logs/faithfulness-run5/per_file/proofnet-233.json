@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-233.lean",
+  "stem": "proofnet-233",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the existence of a normal subgroup that is not characteristic. The Lean statement existentially quantifies over a group type G (with its Group instance hG) and a subgroup H of G, claiming H is `Normal` and not `Characteristic`. I confirmed in Mathlib (`Algebra/Group/Subgroup/Basic.lean`) that `Subgroup.Normal` and `Subgroup.Characteristic` are the standard definitions matching the usual mathematical notions. The quantifier structure — exists a group and a subgroup — faithfully encodes the implicit \"there exists some group containing such a subgroup\" reading of the informal statement. No hypotheses have been added or dropped, and the conjunction captures both the normal and non-characteristic conditions exactly.",
+  "duration_ms": 51520,
+  "cost_usd": 0.20077975000000003
+}

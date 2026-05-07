@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts an improper integral equality. The integrand $\\frac{x \\sin x}{x^2+a^2}$ is not Lebesgue-integrable on $\\mathbb{R}$ (it behaves like $\\sin x / x$ at infinity), so the natural reading — and the only one under which the equation is true — is as an improper/principal-value limit. The Lean signature encodes exactly this via `Tendsto (λ y => ∫ x in -y..y, ...) atTop (𝓝 (π·e^{-a}))`. Because the integrand is even ($x \\sin x$ is even), the symmetric limit coincides with the full improper integral $\\lim_{a\\to-\\infty, b\\to\\infty} \\int_a^b$, so no mathematical content is lost. The hypothesis `0 < a` matches the informal `a > 0`, and the value $\\pi e^{-a}$ is identical. This is a standard faithful encoding of an improper integral in Lean.",
+  "duration_ms": 82976,
+  "cost_usd": 0.2405785
+}

@@ -1,0 +1,8 @@
+{
+  "file": "86.lean",
+  "stem": "86",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal inequality \"dim A[x,y] + dim A ≤ 2·dim A[x]\" using Mathlib's `ringKrullDim`, with `MvPolynomial (Fin 2) A` correctly representing A[x,y] and `Polynomial A` correctly representing A[x]. The hypothesis `[CommRing A]` exactly matches \"commutative ring A\", and no additional hypotheses (e.g., Noetherian, Nontrivial, finite-dimensional) are added or dropped. The arithmetic operations `+`, `2 *`, and `≤` are well-defined on `WithBot ℕ∞` (the codomain of `ringKrullDim`). The universal quantification over arbitrary commutative rings A is preserved. This is a faithful formalization.",
+  "duration_ms": 191141,
+  "cost_usd": 0.36643975
+}

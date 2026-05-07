@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_a2.lean",
+  "stem": "putnam_1969_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement gives the formula $D_n = (-1)^{n-1}(n-1)2^{n-2}$ without explicitly bounding n. The Lean formalization restricts to n ≥ 2. Checking boundary cases: at n = 0, the empty-matrix determinant is 1 but the formula evaluates to 1/4 (under zpow), so the literal universal claim is false without restriction. The expression $2^{n-2}$ in standard Putnam/mathematical convention indicates a natural-number exponent, which implicitly requires n ≥ 2. The `n ≥ 2` hypothesis is thus surfacing an implicit premise necessary for the formula to hold, analogous to the worked example in the instructions. The matrix entries, determinant, and algebraic form of the formula all match; the Lean uses integer exponents consistent with real zpow in ℝ, which is compatible with the informal reading once n ≥ 2. This is a faithful formalization.",
+  "duration_ms": 354805,
+  "cost_usd": 1.1337385
+}

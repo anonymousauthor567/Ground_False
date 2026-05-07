@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has (implicit) differentiability of g and a uniform bound |g'| ≤ M, then asserts that for sufficiently small ε > 0, f(x) = x + ε·g(x) is one-to-one. The Lean encoding makes differentiability explicit (which is implicit in the informal mention of g'), encodes the bound as `∃ M, ∀ x, |deriv g x| ≤ M` (equivalent to |g'| ≤ M for some M), and expresses \"small enough ε\" as `∃ N > 0, ∀ ε > 0, ε < N → Injective (x ↦ x + ε·g(x))`, which is the standard rendering. The function definition and the injectivity conclusion correspond exactly. No hypothesis is silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 18590,
+  "cost_usd": 0.06937175000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `Differentiable ℂ f` is equivalent over ℂ to analytic/entire. (2) For an entire function, the Taylor coefficient $c_n$ at $z_0$ is exactly $f^{(n)}(z_0)/n!$, so `iteratedDeriv n f z₀ / (n.factorial : ℂ) = 0` correctly expresses \"$c_n = 0$\"; since $n!$ is a nonzero complex number, division by it is well-defined and $c_n = 0$ iff this quotient is 0. The condition covers $n = 0$ (with $0! = 1$ and `iteratedDeriv 0 f = f`), matching the informal sum starting from $n = 0$. (3) The conclusion `∃ p : Polynomial ℂ, f = fun z => Polynomial.aeval z p` says $f$ equals a polynomial function, which is the standard encoding of \"$f$ is a polynomial\". No hypotheses are added, dropped, or altered.",
+  "duration_ms": 119069,
+  "cost_usd": 0.3809545
+}

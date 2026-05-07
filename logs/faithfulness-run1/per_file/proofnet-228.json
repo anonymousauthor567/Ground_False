@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "informal": "Use Cauchy's Theorem and induction to show that a finite abelian group has a subgroup of order $n$ for each positive divisor $n$ of its order.",
+  "lean": "theorem Dummit_Foote_exercise_3_4_4 {G : Type*} [CommGroup G] [Fintype G] {n : ℕ}\n    (hn : n ∣ (card G)) :\n    ∃ (H : Subgroup G) (H_fin : Fintype H), @card H H_fin = n",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any finite abelian group G has, for every positive divisor n of |G|, a subgroup of order n. The Lean signature takes [CommGroup G] [Fintype G] (finite abelian) and a hypothesis n ∣ card G, then concludes the existence of a subgroup H of cardinality n. The \"positive\" qualifier on n is automatic: since G is a group with Fintype instance, card G ≥ 1, so n = 0 would falsify n ∣ card G, making the hypothesis vacuous in that case. The quantifier structure (∀ n with n ∣ |G|, ∃ H, |H| = n) and the mathematical content match exactly. The Fintype H existential is just the standard Lean idiom for stating \"H is finite of cardinality n,\" which is equivalent to the informal \"subgroup of order n.\"",
+  "duration_ms": 11312,
+  "cost_usd": 0.05369500000000001
+}

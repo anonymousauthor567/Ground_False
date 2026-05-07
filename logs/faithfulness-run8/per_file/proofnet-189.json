@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-189.lean",
+  "stem": "proofnet-189",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is \"no group of order 224 is simple.\" The Lean statement quantifies over any `{G : Type*} [Group G] [Fintype G]` with `card G = 224` (where `card` resolves to `Fintype.card` due to `open Fintype`), and concludes `IsSimpleGroup G → false`. In Lean 4 / Mathlib, the `Bool → Prop` coercion gives `(false : Prop) = False` (verified via `Mathlib/Data/Bool/Basic.lean`: `theorem coe_sort_false : (false : Prop) = False`), so `IsSimpleGroup G → false` is `IsSimpleGroup G → False`, i.e., `¬ IsSimpleGroup G`. `IsSimpleGroup` in Mathlib is the standard definition (Nontrivial + every normal subgroup is ⊥ or ⊤). Thus the Lean statement says: for every finite group of order 224, G is not simple — exactly matching the informal claim. The `[Fintype G]` instance together with `card G = 224` captures \"group of order 224\" correctly.",
+  "duration_ms": 124327,
+  "cost_usd": 0.51814125
+}

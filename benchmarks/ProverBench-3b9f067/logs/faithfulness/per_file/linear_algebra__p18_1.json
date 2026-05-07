@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p18_1.lean",
+  "stem": "linear_algebra__p18_1",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts: \"if A·ξ = 0, then A·(k·ξ) = 0\" — a conditional claim about solution preservation. The Lean signature `mulVec_smul` instead states the general algebraic identity `A.mulVec (k • x) = k • (A.mulVec x)` for ALL vectors x (not just solutions), with no hypothesis that x is a solution. This general identity logically implies the informal statement (substituting A·ξ=0 gives A·(k·ξ) = k·0 = 0), but the informal statement does not imply the general identity — knowing scaling preserves solutions tells us nothing about A(kx) for arbitrary non-solutions x. Moreover, the Lean signature generalizes from ℝ to an arbitrary field R, further strengthening the claim. The defined `HomogeneousSystem` predicate is never used in the theorem's statement, and the author's own docstring labels this as a helper \"Lemma\" rather than the main theorem. Hence the Lean signature is strictly stronger than the informal claim.",
+  "duration_ms": 93013,
+  "cost_usd": 0.290734
+}

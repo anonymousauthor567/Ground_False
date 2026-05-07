@@ -1,0 +1,8 @@
+{
+  "file": "26.lean",
+  "stem": "26",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says \"D is an integral domain\", which in standard mathematical convention (and as Mathlib itself documents: \"To obtain an integral domain use [CommRing α] [IsDomain α]\") means a commutative ring with no zero divisors. The Lean formalization uses `[Ring R] [IsDomain R]`, which does NOT require commutativity — IsDomain in Mathlib only extends IsCancelMulZero and Nontrivial. Thus the Lean statement quantifies over a strictly larger class of rings (including non-commutative domains like quaternions). The theorem still holds in this broader setting: using Euclidean-algorithm-style reduction via `n = qm + r`, two-sided cancellation (provided by IsCancelMulZero), and the fact that powers of a single element always commute, one can derive $a = b$ without needing ring-wide commutativity. Since the Lean claim is provable and strictly implies the informal claim (it covers all cases the informal does, plus non-commutative domains), the Lean formalization drops the commutativity hypothesis that \"integral domain\" explicitly requires.",
+  "duration_ms": 362465,
+  "cost_usd": 0.88138375
+}

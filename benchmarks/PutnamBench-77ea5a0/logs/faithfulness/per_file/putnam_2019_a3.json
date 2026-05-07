@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_a3.lean",
+  "stem": "putnam_2019_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all the mathematical content of the informal statement. (1) The polynomial has degree exactly 2019 via `b.degree = 2019`, consistent with b_{2019} ≠ 0 and the ordering constraints. (2) The constraint `∀ i : Fin 2020, (b.coeff i).im = 0` ensures all 2020 coefficients b_0, ..., b_{2019} are real; higher coefficients are automatically zero given the degree constraint. (3) The crucial monotonicity `∀ i : Fin 2019, (b.coeff i).re < (b.coeff (i + 1)).re` — I verified via Mathlib source (Mathlib/Algebra/Group/Fin/Basic.lean lines 42-53) that Lean's `binop%` elaborator coerces `i : Fin 2019` to `ℕ` first (no `Nat → Fin` coercion exists globally to avoid wraparound), so `(i + 1)` is `(↑i + 1 : ℕ)` ranging over 1..2019, correctly giving b_0 < b_1 < ... < b_{2019}. (4) Combined with `1 ≤ (b.coeff 0).re` and `(b.coeff 2019).re ≤ 2019`, this matches `1 ≤ b_0 < ... < b_{2019} ≤ 2019`. (5) `μ` averages the norms of the roots (2019 of them by algebraic closedness of ℂ). (6) `IsGreatest {M | ∀ b, v b → μ b ≥ M} solution` correctly captures \"largest M such that μ ≥ M for all valid b\". The solution `2019^(-1/2019)` also matches.",
+  "duration_ms": 915309,
+  "cost_usd": 3.5371007499999987
+}

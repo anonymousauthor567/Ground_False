@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The informal statement makes two claims under the hypotheses \"U open in X\" and \"A closed in X\": U − A is open, and A − U is closed. The Lean signature has `[TopologicalSpace X]`, hypotheses `hU : IsOpen U` and `hA : IsClosed A`, and conclusion `IsOpen (U \\ A) ∧ IsClosed (A \\ U)`. The set difference `\\` matches the informal `−`, and both conjuncts correspond exactly to the two claims. No hypotheses are added or weakened, types are correct, and this lines up directly with Mathlib's `IsOpen.sdiff` and `IsClosed.sdiff` lemmas.",
+  "duration_ms": 20584,
+  "cost_usd": 0.08377500000000002
+}

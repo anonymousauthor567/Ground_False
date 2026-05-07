@@ -1,0 +1,8 @@
+{
+  "file": "100.lean",
+  "stem": "100",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the hypotheses and conclusion of Bass's theorem correctly. `CommRing R` + `IsNoetherianRing R` matches \"Noetherian ring\" (commutative is the natural reading for localization). `Projective R P` with the existence of a countable spanning set matches \"countably generated projective R-module\". The conclusion `Free R P` matches \"P is free\". The encoding of \"P_m has infinite rank\" as `¬ Module.Finite (R_m) (P_m)` is logically equivalent under the given projectivity hypothesis: localization preserves projectivity, and by Kaplansky's theorem projective modules over local rings are free, so for P_m \"not finitely generated\" is equivalent to \"basis is infinite\" i.e. \"infinite rank\". Both directions of this equivalence hold, so the hypotheses and hence the overall statements are logically equivalent.",
+  "duration_ms": 509930,
+  "cost_usd": 1.2899365
+}

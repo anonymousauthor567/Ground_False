@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors the informal statement exactly: p : X → Y is given as continuous via `h : Continuous p`, the hypothesis asserts existence of a continuous f : Y → X with p ∘ f = id (the `id` here has type Y → Y, i.e., the identity map of Y), and the conclusion is `IsQuotientMap p`. Mathlib's `IsQuotientMap` (in `Mathlib/Topology/Defs/Induced.lean`) is defined as surjectivity plus the target topology being coinduced from the source, which matches Munkres' standard definition of a quotient map. No hypotheses are added, dropped, or altered; the types (general topological spaces X, Y) match the informal statement. This is a strictly faithful formalization.",
+  "duration_ms": 46434,
+  "cost_usd": 0.18770275000000003
+}

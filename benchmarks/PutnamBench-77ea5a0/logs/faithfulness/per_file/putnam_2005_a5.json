@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_a5.lean",
+  "stem": "putnam_2005_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes the integral $\\int_0^1 \\frac{\\ln(x+1)}{x^2+1}\\,dx$ using the standard Mathlib interval integral notation `∫ x in (0:ℝ)..1, (Real.log (x+1))/(x^2 + 1)`, which matches the informal integrand and bounds exactly. The solution value `Real.pi * (Real.log 2) / 8` corresponds to $\\frac{\\pi \\ln 2}{8}$, which is the correct closed form for this integral. All types are ℝ as expected, the quantifier structure is a direct equality claim, and there are no added or missing hypotheses. This is a strictly faithful formalization of the evaluation request.",
+  "duration_ms": 31973,
+  "cost_usd": 0.12810124999999997
+}

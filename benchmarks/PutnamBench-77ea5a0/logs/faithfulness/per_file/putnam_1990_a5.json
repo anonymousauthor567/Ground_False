@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_a5.lean",
+  "stem": "putnam_1990_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks whether ABAB=0 implies BABA=0 for square matrices of the same size, with solution \"False\" (i.e., the implication does not always hold). The Lean formalizes this as a universal claim over real n×n matrices for n ≥ 1. The ring ℝ is the standard Putnam convention when unspecified, and the classical counterexample uses real 2×2 matrices, so the answer (False) is the same under any reasonable interpretation. The n ≥ 1 restriction excludes the vacuous 0×0 case but doesn't affect the truth value (for n=0 the implication is trivially true). The \"same size\" condition is faithfully encoded by having both A and B of type `Matrix (Fin n) (Fin n) ℝ` for the same n. The solution `False` correctly corresponds to the answer \"No\" to the informal question.",
+  "duration_ms": 158733,
+  "cost_usd": 0.45557675000000003
+}

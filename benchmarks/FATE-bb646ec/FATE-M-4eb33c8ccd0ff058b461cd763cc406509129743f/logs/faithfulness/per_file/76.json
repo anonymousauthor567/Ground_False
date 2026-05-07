@@ -1,0 +1,8 @@
+{
+  "file": "76.lean",
+  "stem": "76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says: for any subgroup H of a group G and any a, b ∈ G, if the left cosets a • H and b • H have nonempty intersection, then QuotientGroup.mk a = QuotientGroup.mk b. In Mathlib, `a • (H : Set G)` (via the Pointwise smulSet instance) is exactly the left coset aH, and `α ⧸ H` is defined as the quotient by the left-coset equivalence `leftRel H` without any normality requirement. The equality `QuotientGroup.mk a = QuotientGroup.mk b` is equivalent to `leftRel H a b`, which by `leftRel_r_eq_leftCosetEquivalence` coincides with `a • H = b • H` as sets. So the hypothesis faithfully says \"the two cosets share an element\" and the conclusion faithfully says \"the two cosets are equal.\" The standard convention of reading \"coset\" as \"left coset\" is used consistently, and no extraneous hypotheses (like normality) are introduced.",
+  "duration_ms": 372302,
+  "cost_usd": 1.0415377500000003
+}

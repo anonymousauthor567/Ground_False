@@ -1,0 +1,8 @@
+{
+  "file": "95.lean",
+  "stem": "95",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says \"regular sequence in R\", which in standard commutative-algebra terminology (e.g. R-sequence in Matsumura/Bourbaki) denotes a regular sequence on R itself viewed as a module over R (i.e. M = R). The Lean theorem, however, introduces an arbitrary R-module M with [AddCommGroup M] [Module R M] and asserts the result for Sequence.IsRegular M rs for *any* such M. Since Mathlib's Sequence.IsRegular is indexed by the module M, the faithful encoding of \"regular sequence in R\" would specialize M to R (i.e. Sequence.IsRegular R rs). The Lean statement implies the informal statement (by taking M = R) but not conversely — from the fact that rs is R-regular on R one cannot deduce it is regular on every R-module M. Thus the Lean signature proves strictly more than what was asked, making it logically stronger.",
+  "duration_ms": 799998,
+  "cost_usd": 1.7613465
+}

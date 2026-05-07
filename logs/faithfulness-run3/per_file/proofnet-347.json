@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-347.lean",
+  "stem": "proofnet-347",
+  "verdict": "faithful",
+  "reasoning": "The informal phrasing \"show that f does not need to be continuous\" in the context \"suppose f satisfies P, show that f need not be continuous\" is the standard mathematical idiom for \"there exists a function satisfying P that fails to be continuous,\" i.e., P does not imply continuity. The Lean statement encodes this exactly with ∃ f: ℝ → ℝ satisfying both the symmetric-limit condition (via Tendsto (λ y => f(x+y) − f(x−y)) (𝓝 0) (𝓝 0) for every x, which faithfully encodes lim_{h→0}(f(x+h) − f(x−h)) = 0) and ¬ Continuous f. The types, quantifier structure, and limit encoding all match the informal claim.",
+  "duration_ms": 20038,
+  "cost_usd": 0.06483725
+}

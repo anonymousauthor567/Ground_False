@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p14.lean",
+  "stem": "real_analysis__p14",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal Rolle's theorem statement exactly, modulo surfacing the implicit premise `a < b`. The informal phrasing uses interval notation `[a,b]` and `(a,b)` which conventionally presuppose `a < b`; without it the conclusion `∃ ξ ∈ (a,b) …` would be vacuously false (when a = b, `Set.Ioo a b = ∅`). Per the system prompt's worked-example guidance, making such a necessary implicit premise explicit is a faithful formalization, not a strengthening. `ContinuousOn f (Set.Icc a b)`, `DifferentiableOn ℝ f (Set.Ioo a b)`, and `f a = f b` correctly render the three hypotheses. The conclusion `∃ c ∈ Set.Ioo a b, deriv f c = 0` correctly expresses `f'(ξ) = 0` since `f` is differentiable at each `c ∈ (a,b)` by `h_diff`. This matches Mathlib's own `exists_deriv_eq_zero` in `Mathlib/Analysis/Calculus/LocalExtr/Rolle.lean`.",
+  "duration_ms": 84485,
+  "cost_usd": 0.24815475
+}

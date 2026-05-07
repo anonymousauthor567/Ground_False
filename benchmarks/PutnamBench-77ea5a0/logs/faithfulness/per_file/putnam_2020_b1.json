@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_b1.lean",
+  "stem": "putnam_2020_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes d(n) as the sum of the binary digits of n via `∑ i : Fin (Nat.digits 2 n).length, (Nat.digits 2 n)[i]!` — `Nat.digits 2 n` returns the little-endian binary digits of n, and summing them yields the digit sum (e.g., for n=13 = 1101₂, the list [1,0,1,1] sums to 3, matching the example). The sum S = `∑ k : Icc 1 2020, ((-1:ℤ)^(d k))*(k:ℤ)^3` iterates over the Fintype subtype of Set.Icc 1 2020 = {1,…,2020} with summand (-1)^{d(k)} * k^3, matching the informal expression. The conclusion `S % 2020 = putnam_2020_b1_solution` (= 1990) uses `Int.emod`, which returns the unique value in [0, 2020) congruent to S mod 2020 — the natural reading of \"S modulo 2020\". No extra or missing hypotheses.",
+  "duration_ms": 280068,
+  "cost_usd": 0.8672700000000001
+}

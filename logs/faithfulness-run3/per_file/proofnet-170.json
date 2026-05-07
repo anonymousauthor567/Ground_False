@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-170.lean",
+  "stem": "proofnet-170",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures all components of Rudin's exercise 4.19. The IVP hypothesis is stated for a < b with both disjunctive cases (f a < c < f b OR f b < c < f a), which is logically equivalent to the informal IVP (the informal \"if f(a) < c < f(b)\" combined with \"x between a and b\" covers both orderings). The strict inequality a < x < b matches \"between\" since the strict inequalities on c already force x ≠ a, b. The closed-preimage condition ∀ r : ℚ, IsClosed {x | f x = r} uses the standard coercion ℚ → ℝ and matches \"for every rational r, {x : f(x) = r} is closed\". The conclusion Continuous f with standard topology on ℝ matches \"f is continuous\". No extra or missing hypotheses.",
+  "duration_ms": 37215,
+  "cost_usd": 0.1454605
+}

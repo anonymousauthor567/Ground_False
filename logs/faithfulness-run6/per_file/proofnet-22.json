@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem precisely encodes Axler's exercise. The scalar field F is formalized as an RCLike type (matching Axler's convention that F ∈ {ℝ, ℂ}), V is a general inner product space over F, and u, v are arbitrary elements. The biconditional `⟪u, v⟫_F = 0 ↔ ∀ (a : F), ‖u‖ ≤ ‖u + a • v‖` exactly captures \"⟨u,v⟩=0 iff ‖u‖ ≤ ‖u+av‖ for all a ∈ F\". The inner product notation `⟪u, v⟫_F` unfolds to `inner F u v` which is F-valued, so equating it to 0 is the correct formalization. Types, quantifier structure, and hypotheses all match faithfully with no extra or missing assumptions.",
+  "duration_ms": 55315,
+  "cost_usd": 0.25502349999999996
+}

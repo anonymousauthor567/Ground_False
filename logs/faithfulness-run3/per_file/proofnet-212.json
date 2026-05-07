@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem quantifies over all n : ℕ and all a, b, c : ZMod n, and asserts (a*b)*c = a*(b*c), which is exactly the associativity of multiplication in ℤ/nℤ as stated informally. The type ZMod n is Mathlib's standard formalization of the residue class ring ℤ/nℤ (with ZMod 0 = ℤ, where associativity also holds, so the edge case is fine). There are no extra hypotheses, missing hypotheses, or changes to the conclusion. This is a faithful formalization.",
+  "duration_ms": 10283,
+  "cost_usd": 0.0466525
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_a1.lean",
+  "stem": "putnam_1974_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes \"conspiratorial\" correctly: (1) the `a > 0 ∧ b > 0 ∧ c > 0` conjunct inside the universally quantified triple (taking a=b=c) forces every element of S to be positive, matching \"set of positive integers\"; (2) the conditional `(a ≠ b ∧ b ≠ c ∧ a ≠ c) → (Int.gcd a b > 1 ∨ Int.gcd b c > 1 ∨ Int.gcd a c > 1)` is the exact negation of \"three distinct elements are pairwise relatively prime\", matching \"no three of them are pairwise relatively prime\". The conclusion `IsGreatest {k | ∃ S, S ⊆ Icc 1 16 ∧ conspiratorial S ∧ S.encard = k} putnam_1974_a1_solution` correctly states that the solution is the maximum cardinality among conspiratorial subsets of {1,...,16}. The encoding with ℤ and Icc 1 16 restricts to exactly the positive integers 1 through 16, and the encard/ℕ∞ coercion works correctly for this finite answer (11).",
+  "duration_ms": 157611,
+  "cost_usd": 0.5327884999999999
+}

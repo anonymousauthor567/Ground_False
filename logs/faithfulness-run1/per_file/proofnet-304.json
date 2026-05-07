@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-304.lean",
+  "stem": "proofnet-304",
+  "informal": "Let $p: X \\rightarrow Y$ be a quotient map. Show that if each set $p^{-1}(\\{y\\})$ is connected, and if $Y$ is connected, then $X$ is connected.",
+  "lean": "\ntheorem Munkres_exercise_23_11 {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]\n  (p : X → Y) (hq : IsQuotientMap p)\n  (hY : ConnectedSpace Y) (hX : ∀ y : Y, IsConnected (p ⁻¹' {y})) :\n  ConnectedSpace X",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement: `IsQuotientMap p` captures Munkres's notion of a quotient map (which is surjective), `ConnectedSpace Y` says Y is connected, and the hypothesis `∀ y, IsConnected (p ⁻¹' {y})` says each fiber is connected. The conclusion `ConnectedSpace X` matches \"X is connected.\" One subtle point: Mathlib's `IsConnected` requires nonemptiness, but since `IsQuotientMap` includes surjectivity, every fiber is automatically nonempty, so this matches Munkres's convention without adding a real extra hypothesis. The quantifier structure and types align with the informal claim.",
+  "duration_ms": 10838,
+  "cost_usd": 0.05396225
+}

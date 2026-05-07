@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures all elements of the informal statement. `G ≃* G` is a group automorphism (multiplicative self-equivalence), and `[Fintype G]` ensures G is finite. The hypothesis `∀ x ∈ I, φ x = x⁻¹` combined with `0.75 * |G| < |I|` over an implicitly-quantified Finset I is logically equivalent to the condition that |{x ∈ G : φ(x) = x⁻¹}| > (3/4)|G|: from the existence of such an I one recovers the cardinality bound on the solution set, and conversely one can always take I to be the filter of Finset.univ by that predicate. The strict inequality `<` correctly encodes \"more than three-fourths\", and the conjunctive conclusion asserts both that φ(y) = y⁻¹ for all y (first conjunct) and that G is abelian (second conjunct), matching exactly what the informal statement asks to prove.",
+  "duration_ms": 141229,
+  "cost_usd": 0.4868965
+}

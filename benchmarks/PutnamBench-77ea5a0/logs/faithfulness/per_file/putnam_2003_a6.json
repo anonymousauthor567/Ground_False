@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a6.lean",
+  "stem": "putnam_2003_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the Putnam 2003 A6 question. The counting function r S n is defined using a double tsum over the subtype S with indicator 1 when s1 ≠ s2 and s1 + s2 = n; this equals the number of ordered pairs exactly as in the informal definition (tsum on a finitely-supported function equals the finite count). The subtype inequality s1 ≠ s2 coincides with inequality of the underlying naturals since the subtype coercion is injective. The partition condition A ∪ B = univ ∧ A ∩ B = ∅ faithfully expresses partitioning the nonnegative integers into two parts. The outer existential ∃ A B together with the iff to the solution (intended \"True\") correctly encodes the yes/no question \"Is it possible…?\". No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 153892,
+  "cost_usd": 0.5057615
+}

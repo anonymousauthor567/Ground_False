@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `y : ℚ` with `y ≠ 0` corresponds to the nonzero rational `r`, `Irrational x` corresponds to `x` being irrational, and `Irrational (x * y)` corresponds to `rx` being irrational (with `y` automatically coerced to `ℝ`, and multiplication being commutative so `x * y = y * x = rx`). The hypotheses and conclusion match the informal statement exactly.",
+  "duration_ms": 12305,
+  "cost_usd": 0.063675
+}

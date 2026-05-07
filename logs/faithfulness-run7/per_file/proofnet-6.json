@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over finite groups G with |G| = p²q where p, q : ℕ are prime (Prime p for naturals is equivalent to Nat.Prime via Nat.prime_iff). IsSimpleGroup G → False is the standard encoding of ¬ IsSimpleGroup G, meaning G is not simple. The [Fintype G] together with card G = p²q correctly encodes 'group of order p²q' (such a group is implicitly finite). The case p = q is allowed, but then |G| = p³ is a prime power and such groups are not simple (they have nontrivial center), so this does not create a false instance. The formalization matches the informal statement's meaning exactly.",
+  "duration_ms": 138097,
+  "cost_usd": 0.48278075
+}

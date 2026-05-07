@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b5.lean",
+  "stem": "putnam_2022_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the problem. Xset n is the sample space (outcomes in {-1,0,1}^n), Xprob n X is the joint probability as a product of marginals (p for ±1, 1-2p for 0), and P n b a is the probability the weighted sum equals b (via tsum over a finite set). The biconditional \"(0 ≤ p ∧ p ≤ 1/2 ∧ ∀ n,b,a: P n 0 a ≥ P n b a) ↔ p ∈ [0,1/4]\" correctly captures \"for which p ∈ [0,1/2] does the inequality hold?\" — the hypothesis 0 ≤ p ≤ 1/2 from the informal statement is surfaced as a conjunct on the left, and since [0,1/4] ⊆ [0,1/2] the biconditional is valid for all real p. Quantifier structure (∀ n > 0, ∀ b ∈ ℤ, ∀ a : Fin n → ℤ) matches the informal \"for all positive integers n and all integers b, a_1,...,a_n\". No drift in hypotheses, conclusion, or types.",
+  "duration_ms": 303711,
+  "cost_usd": 0.68621
+}

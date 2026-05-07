@@ -1,0 +1,8 @@
+{
+  "file": "50.lean",
+  "stem": "50",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. \"Group with a finite number of elements\" is captured by `[Group G] [Fintype G]`. The universal quantifier `∀ a : G` matches \"for any a ∈ G\". The existential claim \"∃ n ∈ ℤ⁺ such that a^n = e\" is encoded as `∃ n : ℕ, n ≠ 0 ∧ a ^ n = 1`, where `n : ℕ` with `n ≠ 0` is equivalent to n being a positive integer (ℤ⁺), and `1` is the group identity in Lean's multiplicative notation. This is a standard and logically equivalent formalization with no added or missing hypotheses.",
+  "duration_ms": 51341,
+  "cost_usd": 0.10988125000000001
+}

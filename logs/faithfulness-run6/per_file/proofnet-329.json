@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature defines $P_n = \\sum_{i \\in \\text{Fin } n} (i+1)X^i$, which matches $1 + 2x + 3x^2 + \\cdots + nx^{n-1}$ exactly (giving $P_1=1$, $P_2=1+2X$, etc.). The hypotheses `0 < j → 0 < k → j ≠ k` correctly encode \"positive integers j and k with j ≠ k\". The conclusion `IsCoprime (P j) (P k)` over `Polynomial ℚ` is the standard formalization of \"relatively prime polynomials\" in a Euclidean domain — in ℚ[X], IsCoprime (Bézout) coincides with the classical \"no common non-constant factor\" notion. The use of ℚ rather than ℤ is the correct interpretation since ℤ[X] IsCoprime would be strictly stronger than the intended Putnam meaning. The implicit binders `{j k : ℕ}` do not change logical content. The ground truth file contains a complete proof of this exact signature, confirming it is the intended formalization.",
+  "duration_ms": 343452,
+  "cost_usd": 0.75518875
+}

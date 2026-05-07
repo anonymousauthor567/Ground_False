@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"1729 is the smallest positive integer n such that n = x³ + y³ = z³ + w³ for positive integers with x ≠ y, z ≠ w, and {x,y} essentially different from {z,w}.\" This matches the classical Ramanujan taxicab number Ta(2) = 1729 = 1³+12³ = 9³+10³. The informal phrase \"integral cubes\" is ambiguous: with negatives allowed, 91 = 3³+4³ = 6³+(−5)³ would be smaller, making the literal claim false. The Lean formalization uses ℕ with explicit 0 < x, y, z, w, surfacing the implicit positivity premise that is standard in this number-theory context (Ireland-Rosen Ch. 18) and required for the statement to be true — this is exactly the \"making implicit premises explicit\" case the rubric flags as faithful. The distinctness conditions (x≠y, w≠z plus the four cross-inequalities) correctly capture \"two different cubes in two ways\" — given the cube-sum equation in positive naturals, these are equivalent to {x,y} ≠ {z,w} as multisets.",
+  "duration_ms": 428107,
+  "cost_usd": 0.9157227499999999
+}

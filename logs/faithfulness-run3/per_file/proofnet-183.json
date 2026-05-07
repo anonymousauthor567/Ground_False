@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts nonexistence of a holomorphic function f on the open unit disc, continuous on the closure, with f(z)=1/z on ∂D. The Lean signature universally quantifies over f: ℂ → ℂ, assumes DifferentiableOn ℂ f D (holomorphic on the open disc since D = ball 0 1), ContinuousOn f (closure D) (continuous extension to the closed disc, since closure (ball 0 1) = closedBall 0 1 in ℂ), and concludes ¬ ∀ z ∈ sphere 0 1, f z = 1/z. This ∀-¬ form is logically equivalent to ¬∃, matching \"there is no f.\" The types and notions align: ball 0 1 is the open unit disc, sphere 0 1 is the unit circle {|z|=1}, and DifferentiableOn ℂ = holomorphic. No extra/missing hypotheses. Faithful.",
+  "duration_ms": 33544,
+  "cost_usd": 0.098119
+}

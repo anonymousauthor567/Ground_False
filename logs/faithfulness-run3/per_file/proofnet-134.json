@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `CompletelyRegularSpace` is defined as only the separation-by-continuous-functions property (no bundled T1), which matches Munkres's parenthetical \"(separation property only)\". `IsConnected (univ : Set X)` is logically equivalent to `ConnectedSpace X` (by `connectedSpace_iff_univ`), which is the standard reading of \"X is connected\" (nonempty + preconnected). `StoneCech X` in Mathlib is the Stone-Čech compactification as constructed in `Mathlib/Topology/Compactification/StoneCech.lean`. The iff direction and the quantification over X (implicit universal) both match the informal statement. No extra or missing hypotheses are introduced.",
+  "duration_ms": 180433,
+  "cost_usd": 0.57263525
+}

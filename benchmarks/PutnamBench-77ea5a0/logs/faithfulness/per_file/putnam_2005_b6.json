@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b6.lean",
+  "stem": "putnam_2005_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement: (1) `Equiv.Perm.signAux p` for `Perm (Fin n)` equals `p.sign` (as shown in Mathlib's `Perm/Fin.lean` line 480), and casting to `ℤ` gives +1/-1 for even/odd permutations, matching σ(π); (2) `Set.encard {i : Fin n | p i = i}` correctly defines v p as the number of fixed points ν(π) via the `hv` hypothesis (with coercion ℕ → ℕ∞); (3) the sum `∑ p : Equiv.Perm (Fin n), ...` sums over S_n with real-valued division, matching the informal expression; (4) the RHS `(-1) ^ (n + 1) * (n / (n + 1 : ℝ))` correctly encodes (-1)^(n+1) · n/(n+1). The hypothesis `n ≥ 1` is an implicit premise made explicit: for n = 0, LHS = 1/1 = 1 but RHS = -1·0/1 = 0, so the statement literally fails at n = 0, making n ≥ 1 a necessary (and implicitly assumed) premise rather than an unjustified restriction.",
+  "duration_ms": 304423,
+  "cost_usd": 0.848173
+}

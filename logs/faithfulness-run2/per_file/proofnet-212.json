@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-212.lean",
+  "stem": "proofnet-212",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove associativity of multiplication in ℤ/nℤ. The Lean statement universally quantifies over `n : ℕ` and `a b c : ZMod n`, and asserts `(a * b) * c = a * (b * c)`, which is exactly associativity of multiplication in ZMod n. The only minor wrinkle is that `ZMod 0` is defined as ℤ in Mathlib rather than the degenerate residue class ring, but associativity still holds there, and the informal statement does not explicitly exclude n = 0. The quantifier structure, types, and conclusion all match the informal claim, so this is a faithful formalization.",
+  "duration_ms": 9931,
+  "cost_usd": 0.03985875
+}

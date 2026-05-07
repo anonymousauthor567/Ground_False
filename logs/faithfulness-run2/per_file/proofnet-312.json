@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "In Munkres' textbook, a \"regular\" space is defined to include T1 (singletons closed) plus the separation axiom for points and closed sets. The Lean signature correctly encodes this as `[RegularSpace X] [T1Space X]`, which together is equivalent to Munkres' notion of regular (i.e., T3). The conclusion asks for open neighborhoods U of x and V of y with disjoint closures, which matches \"neighborhoods whose closures are disjoint\" (an open neighborhood is a neighborhood, and any neighborhood contains an open one, so the existential form is equivalent). The added hypothesis `x ≠ y` is necessary and implicit in the informal phrase \"pair of points\" — if x = y, disjoint closures would be impossible. Thus the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 25888,
+  "cost_usd": 0.09375275
+}

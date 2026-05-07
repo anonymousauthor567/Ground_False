@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses Mathlib's `intervalIntegral` notation `∫ x in (0:ℝ)..(1:ℝ), ...` which corresponds exactly to the definite Lebesgue integral $\\int_0^1 \\cdot\\, dx$. The integrand `Real.log (Real.sin (Real.pi * x))` is literally $\\log(\\sin(\\pi x))$, and the right-hand side `- Real.log 2` is $-\\log 2$. The only mild subtlety is that $\\log(\\sin(\\pi x))$ blows up at the endpoints $0,1$, but Mathlib's `Real.log` sends $0 \\mapsto 0$, and the integrable logarithmic singularity means the Bochner-based `intervalIntegral` equals the improper integral intended in the informal statement. No hypotheses, types, or quantifiers have been altered.",
+  "duration_ms": 83745,
+  "cost_usd": 0.35258325
+}

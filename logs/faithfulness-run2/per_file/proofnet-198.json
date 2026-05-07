@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-198.lean",
+  "stem": "proofnet-198",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that (-1 + √3·i)/2 cubed equals 1. The Lean encoding `⟨-1/2, Real.sqrt 3 / 2⟩ : ℂ` constructs the complex number with real part -1/2 and imaginary part √3/2, which is exactly (-1 + √3·i)/2. The conclusion `^ 3 = 1` directly matches \"its cube equals 1\". No hypotheses, types, or quantifiers are altered, so the Lean statement asserts exactly the same mathematical claim as the informal one.",
+  "duration_ms": 9514,
+  "cost_usd": 0.05062175
+}

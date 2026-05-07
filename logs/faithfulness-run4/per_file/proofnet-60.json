@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-60.lean",
+  "stem": "proofnet-60",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `[Ring R]` (associative ring with unity, matching Dummit & Foote's definition used in Chapter 7) with hypothesis `hR : ∀ a : R, a^2 = a` which exactly encodes the Boolean ring condition \"a² = a for all a ∈ R\". The conclusion `∀ a b : R, a*b = b*a` exactly expresses commutativity. The quantifier structure matches, no hypotheses are dropped or added beyond what the informal statement requires, and the types are appropriate. This is a direct, faithful formalization.",
+  "duration_ms": 55802,
+  "cost_usd": 0.155881
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p23_3.lean",
+  "stem": "calculus__p23_3",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `a_n (n : ℕ) : ℝ := (3^n + 2^n) / (3^(n+1) - 2^(n+1))` exactly transcribes the informal formula, with arithmetic happening in ℝ (so subtraction is real subtraction, not truncated natural subtraction). The theorem statement `Filter.Tendsto a_n Filter.atTop (nhds (1/3))` is the standard Mathlib encoding of $\\lim_{n\\to\\infty} a_n = 1/3$. There are no extra hypotheses, no changes in quantifier structure, and no weakening/strengthening. The two `axiom` declarations are auxiliary helper lemmas separate from the theorem being judged; they do not affect the faithfulness of `sequence_limit`'s signature, which matches the informal claim precisely.",
+  "duration_ms": 62625,
+  "cost_usd": 0.15390075
+}

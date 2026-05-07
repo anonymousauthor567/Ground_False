@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "informal": "Show that every locally compact Hausdorff space is completely regular.",
+  "lean": "\ntheorem Munkres_exercise_33_7 {X : Type*} [TopologicalSpace X]\n  (hX : LocallyCompactSpace X) (hX' : T2Space X) :\n  CompletelyRegularSpace X",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes a topological space X with hypotheses LocallyCompactSpace X and T2Space X (Hausdorff) and concludes CompletelyRegularSpace X, which is exactly the claim \"every locally compact Hausdorff space is completely regular.\" Mathlib's CompletelyRegularSpace encodes the standard separation-by-continuous-functions condition (for each point x and closed set K not containing x, there is a continuous f : X → [0,1] separating them). Munkres's definition of completely regular additionally requires T1, but since T2 is already a hypothesis, T1 is automatic, so the conclusion together with the hypotheses is equivalent to Munkres's \"completely regular.\" The quantifier structure (universal over X) and the typing (arbitrary topological space) match the informal claim.",
+  "duration_ms": 24711,
+  "cost_usd": 0.07362275
+}

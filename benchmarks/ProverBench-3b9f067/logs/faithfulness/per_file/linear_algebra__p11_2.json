@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p11_2.lean",
+  "stem": "linear_algebra__p11_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement declares `A : Matrix (Fin 2) (Fin 2) ℝ` (a real 2×2 matrix) as a `variable`, implicitly universally quantifying over A, and asserts `det (A * A) ≥ 0`. In Mathlib, `A * A` for square matrices is standard matrix multiplication (from `instance [Fintype n] [Mul α] [AddCommMonoid α] : Mul (Matrix n n α)`), so `det (A * A)` exactly corresponds to `det(A^2)`. The type, the universal quantification over A, and the conclusion all match the informal claim precisely. The local `axiom det_A_sq` is only a helper lemma (which happens to be a true theorem in Mathlib) and does not modify the statement being proven.",
+  "duration_ms": 52696,
+  "cost_usd": 0.14585875
+}

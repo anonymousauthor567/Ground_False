@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-149.lean",
+  "stem": "proofnet-149",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove there is no rational number whose square is 12. The Lean statement `¬ ∃ (x : ℚ), x ^ 2 = 12` expresses exactly this: negation of the existence of a rational x with x² = 12. The type ℚ correctly represents rational numbers, and the quantifier structure (negation of existence) matches \"there is no ... whose ...\". The squaring operation `x ^ 2` and the value 12 match the informal claim precisely. No hypotheses are added or omitted, and the conclusion is neither weaker nor stronger than what was asked.",
+  "duration_ms": 8879,
+  "cost_usd": 0.041171
+}

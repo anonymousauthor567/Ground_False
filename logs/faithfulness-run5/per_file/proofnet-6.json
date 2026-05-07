@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim: `Fintype G` with `card G = p^2 * q` encodes \"group of order p²q\" (the finiteness is implicit in the informal statement since p²q is a finite number). `Prime p`/`Prime q` for `p q : ℕ` correctly encodes that p, q are prime (equivalent to `Nat.Prime`). The conclusion `IsSimpleGroup G → False` is the standard encoding of \"G is not simple\". The informal statement doesn't require p ≠ q, and the theorem holds in that case too (order p³ groups are p-groups with nontrivial centers, hence not simple), so not imposing p ≠ q is a correct literal reading. Mathlib's `IsSimpleGroup` (nontrivial + every normal subgroup is ⊥ or ⊤) matches the standard definition of simple group.",
+  "duration_ms": 128264,
+  "cost_usd": 0.33386050000000006
+}

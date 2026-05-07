@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that the specific integer polynomial x^4 + 4x^3 + 6x^2 + 2x + 1 is irreducible in ℤ[x]. The Lean statement encodes the exact same polynomial `X^4 + 4*X^3 + 6*X^2 + 2*X + 1` in `Polynomial ℤ`, which is precisely ℤ[x]. Mathlib's `Irreducible` predicate (non-unit, and every factorization has a unit factor) is the standard ring-theoretic notion of irreducibility, matching the informal meaning. There are no extra or missing hypotheses, no change in quantifier structure, and no change in types. Therefore the Lean theorem is logically equivalent to the informal statement.",
+  "duration_ms": 37925,
+  "cost_usd": 0.15168775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-256.lean",
+  "stem": "proofnet-256",
+  "verdict": "faithful",
+  "reasoning": "The informal statement requires: G finite group, a ∈ G, existence of a positive integer n with a^n = e. The Lean signature captures all of these: `[Group G] [Fintype G]` encodes \"finite group\", `(a : G)` introduces the element, and `∃ (n : ℕ), n > 0 ∧ a ^ n = 1` asserts existence of a positive natural number n with a^n equal to the identity (written `1` in multiplicative group notation). The quantifier structure and types all match. This is a faithful formalization.",
+  "duration_ms": 7805,
+  "cost_usd": 0.037089500000000004
+}

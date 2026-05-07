@@ -1,0 +1,8 @@
+{
+  "file": "S_0071.lean",
+  "stem": "S_0071",
+  "verdict": "faithful",
+  "reasoning": "The custom `LiftsLimit` class matches the informal definition precisely: for any cone over `K ⋙ F` that is a limit, there exists a cone over `K` that is a limit and whose image under `F` is isomorphic to the given cone. (The informal statement's \"$L' \\in \\mathcal D$\" is a clear typo — $L'$ must be in $\\mathcal C$ for $F(L')$ to typecheck, which the Lean correctly captures.) \"Lifts equalizers\" is correctly encoded as `LiftsLimitsOfShape Limits.WalkingParallelPair F`, since `WalkingParallelPair` is the standard indexing category for equalizer diagrams in Mathlib. The conclusion `F.Faithful ↔ F.ReflectsEpimorphisms` uses the correct Mathlib definitions (injective on morphisms; morphism is epi if its image is epi). The author deliberately avoids `CreatesLimit` (which would be strictly stronger by adding reflection). The universe setup and quantifier structure match the informal claim.",
+  "duration_ms": 495283,
+  "cost_usd": 1.2452815000000002
+}

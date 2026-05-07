@@ -1,0 +1,8 @@
+{
+  "file": "110.lean",
+  "stem": "110",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one exactly. `[Ring R]` in Mathlib is a not-necessarily-commutative ring, matching \"R is a ring\". The hypothesis `h : e * e = e` matches $e^2 = e$. The conclusion `∀ x : R, (x * e - e * x * e) ^ 2 = 0` correctly encodes \"for every $x \\in R$, $(xe - exe)^2 = 0$\" since `*` is left-associative so `e * x * e` parses as $(ex)e = exe$. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 30229,
+  "cost_usd": 0.09847575
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. (1) \"σ, τ disturb no common element\" is encoded as `∀ a, ¬(σ a ≠ a ∧ τ a ≠ a)`, which exactly matches the condition that no element is moved by both permutations. (2) The conclusion `σ = 1 ∧ τ = 1` matches \"σ = τ = e\". (3) The hypothesis `τ * σ = 1` vs informal \"στ = e\": In Mathlib's Perm convention `(f * g) x = f (g x)`, so the multiplication order depends on whether \"στ\" means \"σ then τ\" or \"τ then σ\". However, in any group, `xy = 1 ⟺ yx = 1` (since right inverse equals left inverse), so this is logically equivalent regardless of convention. No extra hypotheses (like Fintype or Nonempty) are added, and the type `α` is left arbitrary, matching the informal generality.",
+  "duration_ms": 58165,
+  "cost_usd": 0.22157100000000002
+}

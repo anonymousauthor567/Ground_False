@@ -1,0 +1,8 @@
+{
+  "file": "58.lean",
+  "stem": "58",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. `IsLocalRing R/S` + `IsNoetherianRing R/S` + `Algebra R S` capture the local Noetherian R-algebra hypothesis. The hypothesis `Ideal.map (algebraMap R S) (maximalIdeal R) ≤ maximalIdeal S` is exactly 𝔓S ⊆ 𝔔. `Module.Finite S M` with `IsScalarTower R S M` captures \"M is a finitely generated S-module\". The conclusion `Module.Flat R M` matches \"M is flat as R-module\". Finally, the hypothesis `Module.Flat (R ⧸ 𝔓^n) ((R ⧸ 𝔓^n) ⊗[R] M)` is equivalent to \"M/𝔓^n M is flat as R/𝔓^n-module\" via Mathlib's `quotTensorEquivQuotSMul : (R ⧸ I) ⊗[R] M ≃ M ⧸ (I • ⊤)`, which is an R/I-linear isomorphism, and flatness is invariant under such isomorphisms. All quantifiers, types, and logical structure match.",
+  "duration_ms": 364624,
+  "cost_usd": 0.84402925
+}

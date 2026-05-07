@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the Munkres claim: a sequence in a product of topological spaces converges iff each coordinate projection converges. `x : ℕ → Πa, f a` is a sequence in the product, `Tendsto x atTop (𝓝 y)` is sequence convergence (using `atTop` on ℕ, which is the standard encoding), and `∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))` is convergence of each projection π_i(x_j) to π_i(y). The product topology is supplied automatically via `Pi.topologicalSpace` from the `[Πa, TopologicalSpace (f a)]` instance. This is exactly Mathlib's `tendsto_pi_nhds` specialized to `u = atTop`. No hypotheses are added or dropped, and the quantifier structure (∀ i) matches \"for each α\". Strictly faithful.",
+  "duration_ms": 64574,
+  "cost_usd": 0.22004375000000004
+}

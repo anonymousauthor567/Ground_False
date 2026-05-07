@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p19.lean",
+  "stem": "elementary_algebra__p19",
+  "verdict": "stronger",
+  "reasoning": "The informal statement is a classical triangle inequality where `a, b, c` are sides of a triangle and `s` denotes the semi-perimeter `(a+b+c)/2`. The Lean statement quantifies over arbitrary real numbers `a, b, c, s` with no constraints relating them. This drops the essential hypotheses: (1) `a, b, c` form a triangle (positive, satisfying triangle inequality), and (2) `s = (a+b+c)/2`. Without these, the inequality is patently false: e.g., `a=b=c=1, s=100` gives LHS = 297 but RHS = 1.5. The Lean statement, if true, would imply the informal triangle-case statement by specialization, but the informal statement does not imply the universal Lean version. This is a classic case of dropping implicit hypotheses required for the claim to hold, making the Lean formalization strictly stronger than (and in fact inconsistent with) the intended informal claim.",
+  "duration_ms": 290155,
+  "cost_usd": 0.711679
+}

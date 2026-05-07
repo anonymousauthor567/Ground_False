@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: quantifies over all z : ℂ, asserts existence of a real r ≥ 0 and a complex w with ‖w‖ = 1 (equivalent to |w| = 1 for complex numbers in Mathlib) satisfying z = r * w. The multiplication r * w between ℝ and ℂ works via coercion and captures rw from the informal statement. No hypotheses are added or dropped, and the conclusion is neither weakened nor strengthened. The z = 0 case is naturally covered by choosing r = 0 with any unit w.",
+  "duration_ms": 22346,
+  "cost_usd": 0.0872785
+}

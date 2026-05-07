@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures Axler Exercise 3.8 exactly. The hypotheses match: V is a finite-dimensional vector space over a field F (encoded via AddCommGroup V, Field F, Module F V, FiniteDimensional F V), W is also an F-vector space, and L : V →ₗ[F] W is the linear map T. The existential conclusion has two conjuncts that correspond precisely: `U ⊓ (ker L) = ⊥` expresses U ∩ null T = {0}, and `range L = range (domRestrict L U)` expresses range T = {Tu : u ∈ U}, since `domRestrict L U = L.comp U.subtype` has range equal to the image of U under L as a submodule of W. There are no added or dropped hypotheses, no quantifier changes, and no type mismatches.",
+  "duration_ms": 92122,
+  "cost_usd": 0.26248474999999993
+}

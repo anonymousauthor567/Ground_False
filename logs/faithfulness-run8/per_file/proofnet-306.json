@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the connected component $C$ of the identity in a topological group $G$ is a normal subgroup. The Lean statement sets up $G$ as a topological group (via `TopologicalSpace G`, `Group G`, `IsTopologicalGroup G`), fixes $C$ to be `connectedComponent (1 : G)` (the Mathlib definition of the connected component of the identity), and concludes that there exists a subgroup `H` of `G` whose underlying set equals $C$ and which is normal. Since a set can carry at most one subgroup structure, \"there exists a normal subgroup with carrier $C$\" is logically equivalent to \"$C$ is (the carrier of) a normal subgroup of $G$\", which is exactly the informal claim. No extra or missing hypotheses, and the multiplicative identity `1 : G` correctly corresponds to $e$.",
+  "duration_ms": 57120,
+  "cost_usd": 0.23463125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures the informal statement. `H : AddSubgroup ℚ` matches \"subgroup of the additive group of rational numbers\". The hypothesis `∀ ⦃x : ℚ⦄, x ∈ H → x ≠ 0 → (1 / x) ∈ H` faithfully encodes \"1/x ∈ H for every nonzero element x of H\" (the x ≠ 0 guard is appropriate since in Lean 1/0 = 0 by convention, but the informal statement only asserts the condition for nonzero elements anyway). The conclusion `H = ⊥ ∨ H = ⊤` corresponds exactly to \"H = 0 or H = ℚ\" since ⊥ is the zero subgroup and ⊤ is all of ℚ. The quantifier structure, types, and logical content all align.",
+  "duration_ms": 11955,
+  "cost_usd": 0.04732725
+}

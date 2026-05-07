@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-359.lean",
+  "stem": "proofnet-359",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement faithfully. \"Three times differentiable on [-1,1]\" is encoded via three `DifferentiableOn ℝ _ (Icc (-1) 1)` hypotheses for f, deriv f, and deriv (deriv f), which is the standard Mathlib encoding. The four point conditions f(-1)=0, f(0)=0, f(1)=1, deriv f 0 = 0 match exactly (and 0 being an interior point means deriv f 0 correctly captures f'(0)). The conclusion `∃ x ∈ Ioo (-1) 1, deriv (deriv (deriv f)) x ≥ 3` exactly corresponds to \"f⁽³⁾(x) ≥ 3 for some x ∈ (-1,1)\". The use of `f : ℝ → ℝ` instead of a function on [-1,1] is the standard Mathlib convention and doesn't affect the meaning since only behavior on [-1,1] is used. No hypotheses are dropped, added, or changed in a meaningful way.",
+  "duration_ms": 169688,
+  "cost_usd": 0.55327075
+}

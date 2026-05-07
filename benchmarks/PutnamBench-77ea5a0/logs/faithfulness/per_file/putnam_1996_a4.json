@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_a4.lean",
+  "stem": "putnam_1996_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `[Finite A]` encodes \"finite set A\". (2) `hSdistinct` encodes \"S is a set of ordered triples of distinct elements\". (3) The three conditions (hS1, hS2, hS3) properly quantify over triples/quadruples with pairwise distinct elements via `List.Pairwise (· ≠ ·)` — this matches the informal statement which scopes the conditions to \"ordered triples of distinct elements\"; the distinctness is needed for consistency (e.g., condition 2 with a=c would give a false iff). (4) The conclusion `∃ g : A → ℝ, Injective g ∧ ∀ a b c, g a < g b ∧ g b < g c → (a,b,c) ∈ S` precisely captures \"there exists a one-to-one g with g(a)<g(b)<g(c) ⟹ (a,b,c) ∈ S\" — note that injectivity of g combined with the strict inequalities automatically ensures a,b,c are distinct, so no extra distinctness hypothesis is needed there. No hypotheses are added or dropped; the quantifier structure matches.",
+  "duration_ms": 275620,
+  "cost_usd": 0.61853975
+}

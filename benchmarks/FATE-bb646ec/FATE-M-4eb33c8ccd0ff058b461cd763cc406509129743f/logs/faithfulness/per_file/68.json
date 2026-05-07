@@ -1,0 +1,8 @@
+{
+  "file": "68.lean",
+  "stem": "68",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"the order of g^{-1} is the same as g\" is an unconditional statement about an element of a group. The Lean signature takes an arbitrary group `G` and arbitrary element `a : G` and asserts `orderOf a = orderOf a⁻¹`. This is exactly the same equality (equality is symmetric); Mathlib itself proves this as `orderOf_inv`. No extra hypotheses (such as finiteness) are required since `orderOf` is defined for any monoid element (returning 0 for infinite order), and the statement holds in full generality. The types and quantifier structure match the informal statement, so this is a faithful formalization.",
+  "duration_ms": 32157,
+  "cost_usd": 0.10912949999999999
+}

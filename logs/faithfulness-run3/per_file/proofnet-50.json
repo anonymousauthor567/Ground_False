@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"H is the unique subgroup of order |H| in G ⟹ H is characteristic\". The `[Fintype H]` instance surfaces the implicit premise that \"a given order\" means a finite order (otherwise the informal claim is vacuous/ill-typed). The hypothesis `hH` quantifies over all subgroups K with a Fintype instance having `card K = card H`, concluding K = H — exactly the uniqueness-of-H-among-subgroups-of-that-order statement. Quantifying K over finite subgroups is appropriate: infinite subgroups cannot have the same (natural-number) order as H. The conclusion `H.Characteristic` (using Mathlib's definition: fixed by every automorphism of G) matches the informal claim directly. G is left as an arbitrary group with universal quantification, as in the informal claim. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 139556,
+  "cost_usd": 0.35524400000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "117.lean",
+  "stem": "117",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly. The ring R is declared as `CommRing R`, corresponding to \"commutative ring\". The elements a, b are arbitrary elements of R. The hypotheses `a ^ 2 = 0` and `b ^ 3 = 0` directly encode $a^2 = b^3 = 0$. The conclusion `(a + b) ^ 4 = 0` directly encodes $(a+b)^4 = 0$. There is no added or missing hypothesis, no type or structure mismatch, and the quantifier structure (universal over a, b in R) is preserved.",
+  "duration_ms": 30914,
+  "cost_usd": 0.051925000000000006
+}

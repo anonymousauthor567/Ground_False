@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_a4.lean",
+  "stem": "putnam_2017_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes all the content of the informal problem: 2N students (`Fin (2*N)`), scores in {0,...,10} (`Fin 11`), each score occurring (`hsurj`), and total average 7.4 (`havg`). The conclusion asks for a Finset `s` of cardinality N (so its complement automatically has cardinality N, giving a partition into two groups of N) such that both the average over `s` and over `sᶜ` equal 7.4, matching \"each group was exactly 7.4\". The coercion `(score i : ℝ)` correctly passes through `Fin.val` to give the numerical score. The second average condition in the goal is slightly redundant (it follows from the first plus `havg`) but this preserves logical equivalence with the informal claim. No extra or missing hypotheses relative to the stated problem.",
+  "duration_ms": 99664,
+  "cost_usd": 0.31328474999999995
+}

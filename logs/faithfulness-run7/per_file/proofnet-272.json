@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal counting claim. The informal statement asserts |Q| = (p-1)/2 and |N| = (p-1)/2 where Q, N are the sets of nonzero quadratic residues and nonresidues mod p. The Lean statement asserts the existence of a subset S ⊆ Q with |S| = (p-1)/2 and a subset T ⊆ N with |T| = (p-1)/2. Since |Q| + |N| = p - 1 (the number of nonzero residues) and p is odd (from `hodd`), the two lower bounds |Q| ≥ (p-1)/2 and |N| ≥ (p-1)/2 force exact equality |Q| = |N| = (p-1)/2. The converse direction is immediate by taking S = Q, T = N. The `hodd` hypothesis makes explicit the implicit \"odd prime\" premise needed for (p-1)/2 to meaningfully represent half the nonzero residues (p = 2 would be a degenerate case). This is a faithful encoding.",
+  "duration_ms": 94014,
+  "cost_usd": 0.30262775000000003
+}

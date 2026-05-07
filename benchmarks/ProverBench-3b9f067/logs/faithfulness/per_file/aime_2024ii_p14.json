@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024ii_p14.lean",
+  "stem": "aime_2024ii_p14",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement asks for the least b ≥ 2 with **more than ten** (strictly > 10, i.e., ≥ 11) b-eautiful integers. The Lean formalization uses `card ≥ 10` for h₁ (which is weaker: allows count = 10) and `card < 10` for h₂ (which is stronger: excludes count = 10 for smaller values). These two off-by-ones go in opposite directions, so neither hypothesis set implies the other. Concretely: (a) if some b* < 211 had count = 10, the Lean theorem would be false (b* is minimal under Lean's ≥ 10 criterion) while the informal would still be true; (b) if count(211) = 10 and the true answer were larger, the Lean theorem would be true while the informal would be false. The Lean effectively asks \"least b with at least 10\" rather than \"least b with more than 10\". Hence the theorems are incomparable.",
+  "duration_ms": 866062,
+  "cost_usd": 2.4612502499999995
+}

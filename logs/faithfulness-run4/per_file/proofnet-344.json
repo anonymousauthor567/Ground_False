@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-344.lean",
+  "stem": "proofnet-344",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Rudin's exercise. The nonnegativity hypothesis `∀ n, a n ≥ 0` matches \"$a_n \\geq 0$\"; the existence of a limit of partial sums `∑ i ∈ range n, a i` matches \"convergence of $\\sum a_n$\"; and the conclusion asserts convergence of partial sums `∑ i ∈ range n, sqrt (a i) / (i + 1)`. The use of `i + 1` in the denominator (instead of `i`) reflects the standard re-indexing convention when translating a series indexed from $n = 1$ (as in Rudin) into Lean's 0-indexed `ℕ`: Lean's $a_0$ corresponds to informal $a_1$. Under this shift, the Lean sums $\\sum_{i \\geq 0} a_i$ and $\\sum_{i \\geq 0} \\sqrt{a_i}/(i+1)$ correspond exactly to the informal $\\sum_{n \\geq 1} a_n$ and $\\sum_{n \\geq 1} \\sqrt{a_n}/n$. The denominator `i + 1` is also needed to avoid division by zero, which is implicit in the informal statement. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 450425,
+  "cost_usd": 0.27243399999999995
+}

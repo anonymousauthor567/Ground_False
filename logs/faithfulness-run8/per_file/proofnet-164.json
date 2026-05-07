@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for any continuous f : X → Y between metric spaces, f(closure E) ⊆ closure(f(E)) for every E ⊆ X. The Lean statement uses `[MetricSpace α]` and `[MetricSpace β]` to match \"metric spaces X and Y\", `Continuous f` matches \"continuous mapping\", and the conclusion `∀ (x : Set α), f '' (closure x) ⊆ closure (f '' x)` precisely encodes \"for every set E ⊂ X, f(closure E) ⊂ closure(f(E))\". The types `Set α`, image `f ''`, and `closure` are the standard Mathlib encodings, and this statement matches the existing Mathlib lemma `image_closure_subset_closure_image` exactly. No hypotheses are added or dropped, and the conclusion is identical.",
+  "duration_ms": 25241,
+  "cost_usd": 0.12193825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "23.lean",
+  "stem": "23",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: \"Let R be a finite commutative ring with identity. Then every prime ideal I of R is maximal.\" The Lean signature captures this exactly: `[CommRing R]` encodes \"commutative ring with identity\" (Mathlib's CommRing extends Ring, which includes AddGroupWithOne, so identity is built in), `[Fintype R]` encodes finiteness, `(I : Ideal R) (hI : I.IsPrime)` encodes \"every prime ideal I\", and the conclusion `I.IsMaximal` encodes \"is maximal\" using Mathlib's standard `Ideal.IsPrime` and `Ideal.IsMaximal` definitions. The universal quantification over prime ideals is correctly captured by taking an arbitrary `I` with a hypothesis `hI : I.IsPrime`. No hypotheses are added or dropped, and no semantic shift occurs.",
+  "duration_ms": 96575,
+  "cost_usd": 0.221634
+}

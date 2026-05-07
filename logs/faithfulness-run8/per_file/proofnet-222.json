@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes every piece of the informal claim exactly. Finiteness of G is captured by `[Fintype G]`, and \"H is a proper subgroup\" becomes `H ≠ ⊤` (H is not the whole group), which matches the D&F sense of proper. The existential asserts the existence of M satisfying exactly the definition of \"maximal subgroup\" given in the informal text: M ≠ ⊤ (i.e., M ≠ G), and any subgroup K with M ≤ K satisfies K = M or K = ⊤ (the only subgroups containing M are M and G), together with the containment H ≤ M. Rather than using a named Mathlib predicate like `IsCoatom`, the Lean file inlines the informal definition, and the two formulations are logically equivalent. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 77279,
+  "cost_usd": 0.3292345
+}

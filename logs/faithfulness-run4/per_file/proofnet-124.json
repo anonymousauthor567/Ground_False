@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim exactly. `[MetricSpace X]` captures \"metric space\"; `[ConnectedSpace X]` captures \"connected\"; `∃ x y : X, x ≠ y` is the standard formalization of \"more than one point\"; and `¬ Countable (univ : Set X)` — via the subtype coercion of `univ` — is equivalent to `¬ Countable X` (Mathlib's `countable_univ_iff`), i.e., X is uncountable. Mathlib's `Countable` typeclass includes finite sets, so `¬ Countable` corresponds exactly to the mathematical notion \"uncountable\" (cardinality > ℵ₀). There are no extra hypotheses narrowing the scope and no missing hypotheses weakening the conclusion.",
+  "duration_ms": 119730,
+  "cost_usd": 0.43020325000000004
+}

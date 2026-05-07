@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "informal": "Let $A$ be a proper subset of $X$, and let $B$ be a proper subset of $Y$. If $X$ and $Y$ are connected, show that $(X \\times Y)-(A \\times B)$ is connected.",
+  "lean": "\ntheorem Munkres_exercise_23_9 {X Y : Type*}\n  [TopologicalSpace X] [TopologicalSpace Y]\n  (A₁ A₂ : Set X)\n  (B₁ B₂ : Set Y)\n  (hA : A₁ ⊂ A₂)\n  (hB : B₁ ⊂ B₂)\n  (hA : IsConnected A₂)\n  (hB : IsConnected B₂) :\n  IsConnected ({x | ∃ a b, x = (a, b) ∧ a ∈ A₂ ∧ b ∈ B₂} \\\n      {x | ∃ a b, x = (a, b) ∧ a ∈ A₁ ∧ b ∈ B₁})",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement reformulates the problem in a \"subspace-style\" way: instead of taking X and Y as the ambient connected spaces and A ⊂ X, B ⊂ Y as proper subsets, it takes connected subsets A₂ ⊆ X and B₂ ⊆ Y (via `IsConnected A₂/B₂`, which uses the subspace topology) and proper subsets A₁ ⊊ A₂, B₁ ⊊ B₂ (Lean's `⊂` on Set is strict subset). The conclusion that `(A₂ ×ˢ B₂) \\ (A₁ ×ˢ B₁)` is connected is exactly the informal conclusion applied to the connected spaces A₂, B₂ with proper subsets A₁, B₁. Conversely, instantiating A₂ = univ, B₂ = univ recovers the informal statement verbatim. So the two statements are logically equivalent. The duplicated hypothesis names (`hA`, `hB` reused) only cause shadowing in tactic mode but do not drop any hypothesis from the statement. Hence the formalization is faithful.",
+  "duration_ms": 39219,
+  "cost_usd": 0.12519999999999998
+}

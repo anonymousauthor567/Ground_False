@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a2.lean",
+  "stem": "putnam_2011_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization applies a standard 1-based to 0-based indexing shift, which preserves the mathematical content. `a 0 = b 0 = 1` corresponds to $a_1 = b_1 = 1$; the recurrence `b n = b(n-1) * a n - 2` for n ≥ 1 corresponds to the informal recurrence for n ≥ 2; the positivity hypothesis for all n ∈ ℕ is fine since `a 0 = b 0 = 1` are already positive; and `∃ B, ∀ n, |b n| ≤ B` is boundedness (equivalent to informal \"bounded\" since $b_n > 0$). For the sum, since `i : Fin n` coerces to ℕ, `Fin (i + 1)` gives indices 0 through i, and the product `∏ j : Fin (i+1), a j = a 0 · a 1 · … · a i`, matching $a_1 \\cdots a_{i+1}$ in informal notation. Thus `∑ i : Fin n, 1/(∏ j : Fin (i+1), a j)` is the n-th partial sum $\\sum_{k=1}^{n} 1/(a_1 \\cdots a_k)$, and `Tendsto ... atTop (𝓝 3/2)` simultaneously expresses convergence and the value 3/2. All hypotheses and conclusion align faithfully.",
+  "duration_ms": 289557,
+  "cost_usd": 0.74164325
+}

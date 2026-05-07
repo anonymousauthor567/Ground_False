@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that A/B is abelian, given A is an abelian group and B is a subgroup. The Lean statement takes `[CommGroup A]` (abelian group), `B : Subgroup A` (subgroup), and concludes `∀ a b : A ⧸ B, a*b = b*a`. In Mathlib, `Subgroup.normal_of_comm` is an instance making every subgroup of a `CommGroup` automatically normal, so `A ⧸ B` inherits a group structure via `Quotient.group`, and `*` is the induced quotient multiplication. The universally quantified commutativity `∀ a b, a*b = b*a` on the quotient group is precisely the definition of A/B being abelian. Hypotheses, quantifier structure, and conclusion match exactly.",
+  "duration_ms": 77629,
+  "cost_usd": 0.3321155
+}

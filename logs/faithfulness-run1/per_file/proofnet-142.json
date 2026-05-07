@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "theorem_name": "Putnam_exercise_1998_a3",
+  "informal": "Let $f$ be a real function on the real line with continuous third derivative. Prove that there exists a point $a$ such that $f(a) \\cdot f^{\\prime}(a) \\cdot f^{\\prime \\prime}(a) \\cdot f^{\\prime \\prime \\prime}(a) \\geq 0$.",
+  "lean": "\ntheorem Putnam_exercise_1998_a3 (f : ℝ → ℝ) (hf : ContDiff ℝ 3 f) :\n  ∃ a : ℝ, (f a) * (deriv f a) * (iteratedDeriv 2 f a) * (iteratedDeriv 3 f a) ≥ 0",
+  "verdict": "faithful",
+  "reasoning": "The informal hypothesis \"f has continuous third derivative on ℝ\" corresponds exactly to `ContDiff ℝ 3 f`, which asserts that f is three times continuously differentiable. The conclusion asks for the existence of a point a where the product f(a)·f'(a)·f''(a)·f'''(a) is nonnegative; the Lean version uses `deriv f` for the first derivative and `iteratedDeriv 2 f`, `iteratedDeriv 3 f` for the second and third derivatives, which are the standard Mathlib encodings and agree with f', f'', f''' for C^3 functions on ℝ. The quantifier structure (∃ a : ℝ) and the inequality (≥ 0) match. No extra or missing hypotheses are present.",
+  "duration_ms": 8425,
+  "cost_usd": 0.12991475000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every closed set A in a separable metric space decomposes as A = P₁ ∪ P₂ where P₁ is perfect (possibly empty) and P₂ is at most countable. The Lean signature captures exactly this: it quantifies over a separable metric space `X`, takes a closed set `A`, and asserts the existence of `P₁, P₂` with `A = P₁ ∪ P₂`, `Perfect P₁`, and `Set.Countable P₂`. Mathlib's `Perfect` definition does not require nonemptiness (the empty set vacuously satisfies `∀ x ∈ C, AccPt x (𝓟 C)`), so the \"possibly empty\" clause is correctly represented. `Set.Countable` in Mathlib means \"at most countable\" (i.e., finite or countably infinite), matching the informal \"at most countable.\" The decomposition is stated as a union (not disjoint union), matching the informal phrasing.",
+  "duration_ms": 27663,
+  "cost_usd": 0.088093
+}

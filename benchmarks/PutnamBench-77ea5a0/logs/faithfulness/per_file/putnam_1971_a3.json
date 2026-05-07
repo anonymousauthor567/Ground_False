@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a3.lean",
+  "stem": "putnam_1971_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The lattice condition `a.1 = round a.1 ∧ ...` correctly encodes that each coordinate is an integer (since `round : ℝ → ℤ` with coercion back to ℝ equals x iff x is an integer). The hypothesis `habcneq` captures the distinctness of triangle vertices, and `hR : R > 0` with `hcircle` correctly formalizes \"lie on a circle of radius R\" (with R > 0 being an implicit premise needed for a non-degenerate \"circle\" containing three distinct points). The conclusion |AB|·|AC|·|BC| ≥ 2R matches abc ≥ 2R under the standard convention that side a = |BC|, b = |AC|, c = |AB|. Three distinct points on a circle of positive radius are automatically non-collinear, so the \"triangle\" condition is fully captured. The inequality `≥` is correct (equality achievable, e.g., by the right triangle with vertices (0,0), (1,0), (0,1)).",
+  "duration_ms": 100440,
+  "cost_usd": 0.34554825
+}

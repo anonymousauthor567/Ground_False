@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: given a bounded set E ⊆ ℝ and a function f : ℝ → ℝ that is uniformly continuous on E, prove that f is bounded on E. The Lean statement takes E : Set ℝ with hypothesis `Bornology.IsBounded E`, then asserts that for every f : ℝ → ℝ with `UniformContinuousOn f E`, `Set.image f E` is bounded. `Bornology.IsBounded` on a subset of ℝ is the standard notion of boundedness, `UniformContinuousOn` matches Rudin's \"uniformly continuous on E\" (it's defined via the uniformity filter restricted to E × E), and \"f is bounded on E\" is correctly expressed as the image f(E) being bounded. The ∀ quantifier on f versus E being taken as a parameter is irrelevant: both are universally quantified in effect, and the resulting claim is logically equivalent to the informal statement.",
+  "duration_ms": 37347,
+  "cost_usd": 0.13578675
+}

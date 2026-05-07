@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a2.lean",
+  "stem": "putnam_2003_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the inequality term-for-term: `∏ i, a i` gives $a_1 \\cdots a_n$, `^ ((1 : ℝ) / n)` gives the $n$-th root via `Real.rpow` (well-defined for nonneg base), and the sum/product structure matches. The nonnegativity hypothesis `∀ i, a i ≥ 0 ∧ b i ≥ 0` matches \"nonnegative real numbers\". The added `0 < n` is not an extra narrowing hypothesis — it surfaces an implicit premise: the informal statement lists $a_1, \\ldots, a_n$ and writes the exponent $1/n$, both of which require $n \\geq 1$; without it, in Lean the empty products would give the false claim $1 + 1 \\leq 1$. Per the worked-example guideline, making an implicit truth-requiring premise explicit is faithful, not weaker.",
+  "duration_ms": 86377,
+  "cost_usd": 0.253415
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem states `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)`, which is precisely \"the polynomial x^3 - 3x - 1 viewed as an element of ℚ[x] is irreducible.\" The polynomial expression matches the informal `x^3 - 3x - 1` exactly, the ambient ring `Polynomial ℚ` is ℚ[x], and Mathlib's `Irreducible` (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) is the standard notion: not a unit, and any factorization has a unit factor. Over the field ℚ, this is exactly the classical notion of irreducibility of a polynomial. No hypotheses are added or dropped, and the quantifier/type structure is correct.",
+  "duration_ms": 39359,
+  "cost_usd": 0.13628125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "55.lean",
+  "stem": "55",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. (1) `¬ CharP K 2` correctly expresses char(K) ≠ 2 for a field. (2) `[IsGalois K L]` matches \"L/K is Galois\". (3) `IsKleinFour (L ≃ₐ[K] L)` is exactly \"Gal(L/K) ≅ (ℤ/2ℤ)²\" (Mathlib defines IsKleinFour as order 4, exponent 2). (4) The existential `∃ a b : Kˣ, ∃ x y : L, x² = a ∧ y² = b ∧ K⟮x,y⟯ = ⊤` is the standard Lean encoding of \"L = K(√a, √b) for some a, b ∈ K^×\" — the square roots must be introduced as elements of L since √a is not a priori defined. (5) For nonzero a in a field, `IsSquare (a : Kˣ)` is equivalent to a being a square in K, so the three nonsquare conditions match. The biconditional is preserved in both directions. No hypotheses are silently added or dropped.",
+  "duration_ms": 558500,
+  "cost_usd": 1.4132427500000002
+}

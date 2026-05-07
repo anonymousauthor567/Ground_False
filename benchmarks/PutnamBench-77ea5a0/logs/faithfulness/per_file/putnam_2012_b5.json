@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_b5.lean",
+  "stem": "putnam_2012_b5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts `sup_s (g1(s)^x g2(s)) = max_t (x h1(t) + h2(t))`, where the RHS uses `max`, which is a substantive claim that the supremum on the RHS is *attained* by some t ∈ ℝ. The Lean formalization replaces the RHS `max` with `sSup`, so it only asserts that the two suprema are numerically equal, without requiring the RHS supremum to be attained. There exist scenarios where one could choose h1, h2 making the two suprema equal while the RHS sup is never attained — such a choice would satisfy the Lean statement but falsify the informal one. Hence the Lean statement is logically implied by the informal statement but does not imply it: it is strictly weaker.",
+  "duration_ms": 274665,
+  "cost_usd": 0.76855825
+}

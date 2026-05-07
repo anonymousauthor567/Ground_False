@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p53.lean",
+  "stem": "calculus__p53",
+  "verdict": "stronger",
+  "reasoning": "The informal statement is a specific claim: the definite integral from 100 to 200 of 4/(x²-7x+12) equals 4·log(196/96) - 4·log(197/97). The Lean file declares `variable {a b : ℝ} (h_a : a = 100) (h_b : b = 200)` and then writes `theorem integral_of_rational_function : ∫ x in a..b, ... = ... := by sorry`, but the theorem body does not reference `h_a` or `h_b`. In Lean 4, variables declared with `variable` are auto-included only when they are referenced in the declaration (this is confirmed by Mathlib's own comment in `Mathlib/Algebra/Module/Equiv.lean` line 332: \"Lean 4 aggressively removes unused variables declared using `variable`\"). Type dependencies only flow in the direction \"types of included variables bring in more variables\", not the reverse: including `a` does not auto-include `h_a` merely because `h_a`'s type mentions `a`. Therefore the actual statement elaborated is `∀ {a b : ℝ}, ∫ x in a..b, 4/(x²-7x+12) = 4·log(196/96) - 4·log(197/97)`, a false universal claim that logically implies the informal claim (specialize to a=100, b=200) but is strictly stronger than it.",
+  "duration_ms": 1481537,
+  "cost_usd": 3.75205325
+}

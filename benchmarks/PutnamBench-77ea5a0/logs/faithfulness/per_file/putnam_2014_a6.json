@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a6.lean",
+  "stem": "putnam_2014_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. The n×n real matrices are encoded as `Matrix (Fin n) (Fin n) ℝ`, positive n is captured by `npos : n > 0`, and the matrix product `M i * N j` correctly gives the matrix product (verified via Matrix.mul_apply: `(M * N) i k = ∑ j, M i j * N j k`). The condition \"MᵢNⱼ has a zero entry somewhere on its diagonal iff i ≠ j\" is faithfully encoded as `(∃ p : Fin n, (M i * N j) p p = 0) ↔ i ≠ j`. The \"largest k\" is correctly captured by the conjunction of achievability (`kex (solution)`) and upper bound (`∀ k ≥ 1, kex k → k ≤ solution`). The restriction `k ≥ 1` does not change the answer since the solution n^n ≥ 1 for n ≥ 1, and k=1 is always achievable (e.g., with identity matrices), so the largest-k over k ≥ 1 matches the informal \"largest k\".",
+  "duration_ms": 223485,
+  "cost_usd": 0.5326580000000001
+}

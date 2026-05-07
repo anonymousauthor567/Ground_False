@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_b5.lean",
+  "stem": "putnam_2018_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The domain/codomain (Fin 2 → ℝ) encodes ℝ². `ContDiff ℝ 1 f` encodes the \"continuous partial derivatives\" hypothesis (equivalent to C¹ in finite dimensions). In `h₂`, the quantifier `∀ x i j, 0 < fderiv ℝ f x (Pi.single i 1) j` correctly states that all four partial derivatives ∂f_j/∂x_i are positive everywhere (since Pi.single i 1 is the i-th standard basis vector). In `h₃`, `![1, 0]` = Pi.single 0 1 and `![0, 1]` = Pi.single 1 1 are the standard basis vectors, so `fderiv ℝ f x ![1,0] 0 * fderiv ℝ f x ![0,1] 1 - (1/4) * (fderiv ℝ f x ![1,0] 1 + fderiv ℝ f x ![0,1] 0)^2` computes exactly ∂f₁/∂x₁ · ∂f₂/∂x₂ − (1/4)(∂f₂/∂x₁ + ∂f₁/∂x₂)², matching the informal discriminant condition. `Injective f` matches \"one-to-one\".",
+  "duration_ms": 217633,
+  "cost_usd": 0.7281517500000001
+}

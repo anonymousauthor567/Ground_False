@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the classical Ireland-Rosen 4.11 statement. The sum `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` correctly encodes $1^k + 2^k + \\cdots + (p-1)^k$ since coercing `n : Fin (p-1)` to ℕ yields 0..p-2, so (n+1) ranges over 1..p-1. The hypothesis `p.Prime` matches \"p prime\". The two-case conjunction `(¬ p-1 ∣ k → s ≡ 0 [MOD p]) ∧ (p-1 ∣ k → s ≡ -1 [ZMOD p])` directly mirrors the informal statement; using `Nat.ModEq` for the 0 case and `Int.ModEq` for the -1 case (where -1 is not expressible as a Nat) is a standard and logically equivalent encoding. The introduction of `s` via an equality hypothesis is cosmetic. Edge cases (p=2, k=0) check out under both readings.",
+  "duration_ms": 132591,
+  "cost_usd": 0.4705789999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for arbitrary groups A and B, the direct products A × B and B × A are isomorphic as groups. The Lean statement universally quantifies over types A and B with Group instances (via implicit binders), and asserts `Nonempty (A × B ≃* B × A)`, which is the standard Mathlib encoding of \"there exists a multiplicative group isomorphism between A × B and B × A\". The product types `A × B` and `B × A` carry the componentwise group structure automatically. The `Nonempty` wrapper correctly captures \"is isomorphic to\" (asserting existence of an isomorphism rather than providing one). No extra hypotheses are added and none are dropped, so the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 29572,
+  "cost_usd": 0.08173325000000001
+}

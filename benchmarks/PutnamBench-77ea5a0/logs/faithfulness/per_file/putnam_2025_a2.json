@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a2.lean",
+  "stem": "putnam_2025_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the largest `a` such that `ax(π-x) ≤ sin x` on `[0,π]` and the smallest `b` such that `sin x ≤ bx(π-x)` on `[0,π]`. The Lean statement encodes this as: `(a,b) = solution ↔ IsGreatest {a' | ∀ x ∈ [0,π], a'·x·(π-x) ≤ sin x} a ∧ IsLeast {b' | ∀ x ∈ [0,π], sin x ≤ b'·x·(π-x)} b`. `IsGreatest` means the element belongs to the set and is an upper bound (i.e., the maximum), and `IsLeast` means the element is the minimum — exactly the \"largest/smallest\" requirement. The sets are defined using the exact same inequalities and the same interval `Set.Icc 0 π = [0,π]`. The biconditional correctly characterizes the unique answer pair. The answer `(1/π, 4/π²)` is provided as the solution. This is the standard idiomatic Lean encoding of a \"find the value\" problem and matches the informal statement.",
+  "duration_ms": 146502,
+  "cost_usd": 0.25498299999999996
+}

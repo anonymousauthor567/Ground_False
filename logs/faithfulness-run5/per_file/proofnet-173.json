@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes both parts of the informal statement. The hypothesis `∑ i ∈ range (n+1), (C i) / (i + 1) = 0` unfolds to C_0/1 + C_1/2 + ... + C_n/(n+1) = 0, matching the informal premise exactly (with `i + 1` coerced to ℝ via the real division). The conclusion `∃ x ∈ Set.Ioo (0 : ℝ) 1, ∑ i ∈ range (n+1), (C i) * x^i = 0` correctly states the existence of a real root strictly between 0 and 1 for the polynomial C_0 + C_1 x + ... + C_n x^n. The universal quantification over `{n : ℕ}` is the natural reading, and the n = 0 case is trivially true (hypothesis forces C_0 = 0, conclusion holds for any x). No hypotheses are added or dropped, no types are changed, and no definitions are silently altered.",
+  "duration_ms": 72379,
+  "cost_usd": 0.23227325000000001
+}

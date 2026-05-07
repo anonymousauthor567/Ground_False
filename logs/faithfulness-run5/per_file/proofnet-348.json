@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement: `α` with `MetricSpace α` corresponds to the metric space $X$; `f : α → ℝ` with `Continuous f` captures \"continuous real function\"; and `f⁻¹' {0}`, by definition `{a | f a ∈ {0}} = {a | f a = 0}`, is exactly the zero set $Z(f)$. The conclusion `IsClosed z` matches \"Z(f) is closed\". The slightly indirect phrasing, where `z` is introduced as a separate set variable together with the hypothesis `z = f⁻¹' {0}`, is logically equivalent to directly asserting `IsClosed (f⁻¹' {0})`. No hypotheses are added or dropped, and no quantifiers or types are altered.",
+  "duration_ms": 21631,
+  "cost_usd": 0.08926625
+}

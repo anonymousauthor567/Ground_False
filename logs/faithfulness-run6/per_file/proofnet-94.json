@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"for every odd n, 8 | n^2 - 1\". Although Ireland-Rosen typically works with integers, the ℕ version is logically equivalent to the ℤ version: for any odd integer m, m^2 = |m|^2 and |m| is an odd natural number, so divisibility of m^2 - 1 by 8 is determined entirely by the natural-number case. Truncated subtraction causes no issue since odd n ∈ ℕ implies n ≥ 1, hence n^2 ≥ 1. Mathlib's `Odd a := ∃ k, a = 2*k+1` matches the standard mathematical meaning of \"odd\", and the divisibility conclusion `8 ∣ (n^2 - 1)` directly matches the informal claim. The formalization neither drops nor adds hypotheses and preserves the quantifier structure.",
+  "duration_ms": 105073,
+  "cost_usd": 0.34469275
+}

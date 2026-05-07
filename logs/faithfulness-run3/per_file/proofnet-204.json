@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler's exercise 5.13. The hypothesis `∀ U, finrank F U = finrank F V - 1 → Submodule.map T U ≤ U` correctly encodes \"every subspace of dimension dim V - 1 is T-invariant\" (`Submodule.map T U ≤ U` is the standard Mathlib idiom for T(U) ⊆ U). The conclusion `∃ c : F, T = c • LinearMap.id` precisely matches \"T is a scalar multiple of the identity operator.\" The `[FiniteDimensional F V]` instance is an implicit premise from the context of Axler's book (which deals with finite-dimensional spaces and uses dim V - 1) and is needed for finrank to be meaningful — surfacing it is appropriate, not a narrowing. The types and quantifier structure align exactly with the informal claim.",
+  "duration_ms": 47537,
+  "cost_usd": 0.14572449999999998
+}

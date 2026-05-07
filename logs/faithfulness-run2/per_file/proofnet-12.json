@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove $x^2+1$ is irreducible in $\\mathbb{F}_7$. The Lean statement quantifies over any field $F$ of cardinality 7 and claims $X^2+1$ is irreducible in $F[X]$. Since all finite fields of the same cardinality are isomorphic (any field of order 7 is isomorphic to $\\mathbb{Z}/7\\mathbb{Z} = \\mathbb{F}_7$), and irreducibility of a polynomial transfers through ring isomorphisms, the two formulations are logically equivalent. The Lean signature correctly captures the claim without adding or dropping meaningful hypotheses.",
+  "duration_ms": 9009,
+  "cost_usd": 0.039618
+}

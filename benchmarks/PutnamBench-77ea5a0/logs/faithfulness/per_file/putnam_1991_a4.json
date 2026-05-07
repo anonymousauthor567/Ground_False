@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_a4.lean",
+  "stem": "putnam_1991_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all three conditions correctly: (1) `c : ℕ → EuclideanSpace ℝ (Fin 2)` gives an infinite sequence of centers in ℝ² with no cluster point via `¬ ∃ p, MapClusterPt p atTop c`, which means no subsequence converges — the standard reading of \"no limit point in the finite plane\". (2) `Summable (fun i ↦ r i ^ 2)` is equivalent to finite sum of areas (areas = π r_i² differ only by the positive constant π); even if Lean allows r_i ∈ ℝ (not just ≥ 0), the squaring and the `closedBall` behavior (empty for r < 0) makes the existence statement equivalent to the informal one by replacing negative radii with 0. (3) `AffineSubspace ℝ (EuclideanSpace ℝ (Fin 2))` with `Module.finrank ℝ L.direction = 1` exactly picks out lines: the empty subspace ⊥ has direction ⊥ with finrank 0, so the finrank-1 constraint forces a non-empty 1-dimensional affine subspace (a line). The encoding as `statement ↔ putnam_1991_a4_solution` (with solution to be `True`) is the standard Putnam \"does there exist\" framing.",
+  "duration_ms": 176623,
+  "cost_usd": 0.44648345
+}

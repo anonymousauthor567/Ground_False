@@ -1,0 +1,8 @@
+{
+  "file": "21.lean",
+  "stem": "21",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses match exactly: F is a field, f is an irreducible polynomial, K is a splitting field of f over F, and α, α+1 are both roots of f in K (via `f.aeval · = 0`). The conclusion `∃ E : IntermediateField F K, Module.rank E K = ringChar F` corresponds exactly to \"there exists an intermediate field E such that [K:E] = char(F)\": `IntermediateField F K` is Mathlib's standard type for fields E with F ⊆ E ⊆ K, `Module.rank E K` is the standard formalization of [K:E] as a Cardinal, and `ringChar F` gives char(F) coerced to Cardinal. The parenthetical remark \"the characteristic of F is not zero\" is a logical consequence of the main statement (since Module.rank E K ≥ 1 always holds for a nontrivial field extension), so it is automatically captured — not a separate conjunct that needs formalizing. No hypotheses are silently added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 528454,
+  "cost_usd": 1.201214
+}

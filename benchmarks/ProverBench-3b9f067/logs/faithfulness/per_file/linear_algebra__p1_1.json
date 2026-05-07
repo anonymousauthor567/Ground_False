@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p1_1.lean",
+  "stem": "linear_algebra__p1_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts row-multilinearity of the determinant at row i: D1 = D2 + D3 where the three matrices share all rows except row i (which is A_i + A'_i, A_i, and A'_i respectively). The Lean formalization defines D1, D2, D3 using `updateRow A i ...`, so the non-i rows always come from A — exactly matching what the informal pictures depict (the off-row entries are written as a_{jk}, not a'_{jk}). The clause \"A' differs from A only in row i\" in the informal statement is descriptive (it reconciles D3's picture with A'); it is not a hypothesis the conclusion depends on, because the claim is purely about linearity in a single row. The Lean `row_decomposition` statement captures precisely Mathlib's `det_updateRow_add`, which is the exact mathematical content of the informal claim. No hypotheses are dropped or added in a way that changes the mathematical claim; the conclusion, quantifier structure, and ambient types all match.",
+  "duration_ms": 259568,
+  "cost_usd": 0.4777995
+}

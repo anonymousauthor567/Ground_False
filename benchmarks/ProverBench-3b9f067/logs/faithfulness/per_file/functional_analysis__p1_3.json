@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_3.lean",
+  "stem": "functional_analysis__p1_3",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a three-part problem: given f satisfying conditions 1 and 2, prove (a) ∂g/∂x = (4x-2y)e^{-y}, (b) f has the explicit form (u²+v²)e^{-(u+v)}, and (c) f has a unique global minimum at (0,0). The Lean file formalizes only one lemma, `partial_g_x`, which corresponds only to part (a). Parts (b) and (c) are not formalized as theorems — instead, the explicit form from part (b) is taken as the definition of `f`, and part (c) is entirely absent. Additionally, the Lean proves (a) for one specific function rather than for any f satisfying the conditions (though this is arguably equivalent since the conditions uniquely determine f). Since the Lean only captures part (a) of a three-part conclusion and omits parts (b) and (c), the formalization is logically implied by the informal statement but does not imply the full informal claim.",
+  "duration_ms": 542073,
+  "cost_usd": 0.15924975000000002
+}

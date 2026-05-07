@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-47.lean",
+  "stem": "proofnet-47",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly. \"Composite order\" is correctly encoded as `¬ (card G).Prime ∧ card G ≠ 1`, since for a finite group `card G ≥ 1`, so this restricts `card G` to {4, 6, 8, 9, 10, ...} — precisely the composite numbers. The divisor hypothesis `∀ k : ℕ, k ∣ card G → ∃ H : Subgroup G, card H = k` matches \"for each positive integer k dividing n\": k = 0 is vacuously covered because 0 does not divide card G (which is ≥ 1). The conclusion `¬ IsSimpleGroup G` corresponds to \"G is not simple\". The extra `fH : Fintype H` is redundant (an instance already exists) but does not alter the mathematical content.",
+  "duration_ms": 34593,
+  "cost_usd": 0.1246175
+}

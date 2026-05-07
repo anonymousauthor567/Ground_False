@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_b5.lean",
+  "stem": "putnam_1985_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean integral `∫ t in Set.Ioi 0, t ^ (- (1 : ℝ) / 2) * exp (-1985 * (t + t ^ (-(1 : ℝ))))` matches the informal $\\int_0^\\infty t^{-1/2} e^{-1985(t+t^{-1})} dt$ exactly, with `t ^ (-(1:ℝ))` correctly encoding $t^{-1}$ as a real power. The solution `sqrt(π/1985) * exp(-3970)` is mathematically correct via the substitution $t = u^2$ and the $u \\mapsto 1/u$ symmetry trick, yielding $e^{-2a}\\sqrt{\\pi/a}$ with $a = 1985$. The `fact` hypothesis `∫ x in univ, exp (- x ^ 2) = sqrt (Real.pi)` correctly represents $\\int_{-\\infty}^{\\infty} e^{-x^2} dx = \\sqrt{\\pi}$ since `univ : Set ℝ` is all of ℝ. This hypothesis is an actual Mathlib theorem (`integral_gaussian` with b=1), so including it does not weaken the theorem — the Lean statement is logically equivalent to the informal one, with the hypothesis faithfully reflecting the \"You may assume\" clause.",
+  "duration_ms": 180608,
+  "cost_usd": 0.56744775
+}

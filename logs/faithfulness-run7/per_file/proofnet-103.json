@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim: p, q are primes (ℕ with Fact), a : ℤ is negative (a < 0), the congruence p ≡ q [ZMOD 4*a] correctly encodes p ≡ q (mod 4a) via Int.ModEq, p ∤ a matches the informal p ∤ a, and legendreSym p a = legendreSym q a is Mathlib's standard formalization of (a/p) = (a/q). The informal statement does not require q ∤ a because it's implied by the other hypotheses (4a | p−q and q | a would force q | p = p, contradicting p ∤ a). Although Mathlib's legendreSym extends to p = 2 while the classical notation is for odd primes, the hypothesis |4a| ≥ 4 combined with p ≡ q mod 4a precludes mixed parity between p and q, so the even-prime edge case is trivially consistent. No hypotheses have been added or dropped relative to the intended content.",
+  "duration_ms": 136295,
+  "cost_usd": 0.366094
+}

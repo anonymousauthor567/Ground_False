@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"if X is regular, every pair of points of X have neighborhoods whose closures are disjoint.\" In Mathlib, `RegularSpace` is defined as the point-vs-closed-set separation axiom only (not automatically including T1). Without T1, the claim is false: e.g., the indiscrete topology on {0,1} satisfies Mathlib's `RegularSpace` vacuously (only closed sets are ∅ and X), but two distinct points cannot have neighborhoods with disjoint closures since every nonempty open set has closure X. Many topology textbooks build T1 into the definition of \"regular\", so adding `[T1Space X]` surfaces the implicit premise needed for the statement to be true — analogous to the worked example in the rubric. The conclusion (existence of open U ∋ x and V ∋ y with `closure U ∩ closure V = ∅`) matches \"neighborhoods whose closures are disjoint\" (using open neighborhoods, which is standard), and `hxy : x ≠ y` captures \"pair of points\" sensibly (since for x = y the conclusion cannot hold). Hence the formalization is faithful.",
+  "duration_ms": 183363,
+  "cost_usd": 0.5371265
+}

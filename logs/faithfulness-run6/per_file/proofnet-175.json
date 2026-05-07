@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures: (1) twice-differentiability on (a,∞) via DifferentiableOn for both f and deriv f on Set.Ioi a; (2) the three least upper bounds via sSup of the respective absolute-value image sets; (3) the conclusion M₁² ≤ 4M₀M₂. The bddAbove hypotheses are necessary because Lean's sSup returns 0 (not +∞) for unbounded sets — so these are needed to make M₀, M₁, M₂ actually equal the \"least upper bounds\" described informally as real numbers. This is surfacing an implicit premise needed for the real-number encoding to match the informal LUBs. Moreover, hbdd1 is a consequence of the other two hypotheses plus the conclusion, so it doesn't narrow the scope. The formalization is a faithful reading.",
+  "duration_ms": 93339,
+  "cost_usd": 0.2889804999999999
+}

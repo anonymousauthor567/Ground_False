@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that \"S connected\" does not in general imply \"interior S connected\" — a counterexample claim. The Lean signature formalizes this as ∃ S : Set (ℝ × ℝ), IsConnected S ∧ ¬ IsConnected (interior S), which is exactly the existential counterexample. The choice of ambient space ℝ × ℝ is appropriate given this is Pugh Exercise 2.57, set in ℝⁿ, and the standard counterexample (e.g., two tangent closed disks) lives in ℝ². IsConnected's nonempty+preconnected definition matches the standard reading of \"connected\" in Pugh. Producing a counterexample in ℝ² suffices to refute the general implication, so the formalization captures the intended meaning precisely.",
+  "duration_ms": 32298,
+  "cost_usd": 0.07679949999999999
+}

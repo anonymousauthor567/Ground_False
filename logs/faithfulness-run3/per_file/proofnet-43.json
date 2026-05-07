@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-43.lean",
+  "stem": "proofnet-43",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℚ (as an additive group) has no proper subgroups of finite index. The Lean statement quantifies over all `AddSubgroup ℚ` with `H ≠ ⊤` (i.e., proper subgroups) and concludes `H.index = 0`. In Mathlib, `AddSubgroup.index` is defined via `Nat.card (G ⧸ H)`, which returns 0 precisely when the quotient is infinite — i.e., when H has infinite index. Thus `H ≠ ⊤ → H.index = 0` is logically equivalent to \"every proper subgroup has infinite index,\" which matches the informal claim exactly.",
+  "duration_ms": 36691,
+  "cost_usd": 0.1410825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any groups $A$ and $B$, the product group $A \\times B$ is isomorphic to $B \\times A$. The Lean signature takes `A B : Type*` with `[Group A]` and `[Group B]` instances (universally quantified over all groups) and asserts `Nonempty (A × B ≃* B × A)`. The `≃*` is `MulEquiv`, which on groups is a group isomorphism, and wrapping in `Nonempty` is the standard way to express \"there exists an isomorphism\" (i.e., $\\cong$). The quantifier structure, hypotheses, and conclusion all match the informal claim exactly.",
+  "duration_ms": 7266,
+  "cost_usd": 0.0337095
+}

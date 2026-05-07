@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024i_p2.lean",
+  "stem": "aime_2024i_p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. The hypotheses `1 < x`, `1 < y` match \"$x, y > 1$\". The chained equality $\\log_x(y^x) = \\log_y(x^{4y}) = 10$ is equivalent to the conjunction expressed in `h₁` and `h₂`. `Real.logb x z` is defined as `log z / log x`, which is $\\log_x z$. With `x y : ℝ`, the expressions `y ^ x` and `x ^ (4 * y)` use `Real.rpow`, matching $y^x$ and $x^{4y}$. The conclusion `x * y = 25` matches \"$xy = 25$\". Types, quantifier structure, hypotheses, and conclusion all match the informal statement.",
+  "duration_ms": 78072,
+  "cost_usd": 0.26023674999999996
+}

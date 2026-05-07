@@ -1,0 +1,8 @@
+{
+  "file": "S_0027.lean",
+  "stem": "S_0027",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for f an endofunctor of ℤ (viewed as the poset category), f has a left adjoint iff f has a right adjoint. In Mathlib, `ℤ ⥤ ℤ` with the default `Preorder.smallCategory` instance is exactly the poset category of ℤ, matching \"ℤ regarded as a category\". Mathlib defines `Functor.IsLeftAdjoint f` as \"∃ g, f ⊣ g\" (f has a right adjoint) and `Functor.IsRightAdjoint f` as \"∃ g, g ⊣ f\" (f has a left adjoint). So \"f has a left adjoint ↔ f has a right adjoint\" corresponds precisely to `f.IsRightAdjoint ↔ f.IsLeftAdjoint`, which is exactly what the Lean statement asserts. Furthermore, because the claim is a biconditional, the order of the two sides is immaterial. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 120116,
+  "cost_usd": 0.41872624999999997
+}

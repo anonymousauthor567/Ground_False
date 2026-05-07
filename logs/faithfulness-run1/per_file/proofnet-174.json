@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-174.lean",
+  "stem": "proofnet-174",
+  "informal": "Suppose (a) $f$ is continuous for $x \\geq 0$, (b) $f^{\\prime}(x)$ exists for $x>0$, (c) $f(0)=0$, (d) $f^{\\prime}$ is monotonically increasing. Put $g(x)=\\frac{f(x)}{x} \\quad(x>0)$ and prove that $g$ is monotonically increasing.",
+  "lean": "\ntheorem Rudin_exercise_5_6\n  {f : ℝ → ℝ}\n  (hf1 : ContinuousOn f (Set.Ici 0))\n  (hf2 : DifferentiableOn ℝ f (Set.Ioi 0))\n  (hf3 : f 0 = 0)\n  (hf4 : MonotoneOn (deriv f) (Set.Ioi 0)) :\n  MonotoneOn (λ x => f x / x) (Set.Ioi 0)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement closely: ContinuousOn f (Set.Ici 0) corresponds to (a) \"f is continuous for x ≥ 0\"; DifferentiableOn ℝ f (Set.Ioi 0) corresponds to (b) \"f'(x) exists for x > 0\"; hf3 f 0 = 0 matches (c); MonotoneOn (deriv f) (Set.Ioi 0) matches (d) \"f' is monotonically increasing\" (since on the open set Ioi 0 where f is differentiable, deriv f equals f'). The conclusion MonotoneOn (λ x => f x / x) (Set.Ioi 0) is exactly that g(x) = f(x)/x is monotone on x > 0. Quantifier structure, types (ℝ → ℝ), and domains all align with Rudin's intent.",
+  "duration_ms": 7803,
+  "cost_usd": 0.05001449999999999
+}

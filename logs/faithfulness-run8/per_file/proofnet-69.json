@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `p.Prime ∧ p > 2` exactly captures \"odd prime\" in ℕ. The expression `f = (X+2)^p` together with the sum `∑ n ∈ (f.support \\ {0}), (f.coeff n) * X^(n-1)` precisely represents $\\frac{(x+2)^p - 2^p}{x}$: since all binomial coefficients $\\binom{p}{n}2^{p-n}$ are positive, the support is $\\{0, 1, \\ldots, p\\}$, and excluding 0 and shifting the exponent by 1 yields exactly $\\sum_{n=1}^{p} \\binom{p}{n} 2^{p-n} X^{n-1}$. The coercion `(f.coeff n : Polynomial ℤ)` produces the constant polynomial (via `Int.cast` = `C ∘ id`), so the term is a proper monomial. `Irreducible` is Mathlib's standard notion, appropriate for ℤ[X]; since the resulting polynomial is monic with degree $p-1 \\geq 2$, irreducibility in ℤ[X] is the intended claim. No hypotheses are added or omitted beyond making \"odd\" explicit.",
+  "duration_ms": 168777,
+  "cost_usd": 0.6013915
+}

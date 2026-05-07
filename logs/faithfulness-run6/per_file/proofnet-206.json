@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts a Cauchy-Schwarz-like inequality for real sequences indexed 1 to n with coefficient j on the a-side and divisor j on the b-side. The Lean formalization uses Fin n indexing (0 to n-1) with coefficient (i + 1). Because the expected type of (i + 1) * a i ^ 2 is ℝ, Lean elaborates (i + 1) as (↑i : ℝ) + 1 where i coerces through Fin n → ℕ → ℝ, so (i + 1) ranges over {1, 2, ..., n} exactly matching j in the informal statement. Under the reindexing j = i.val + 1, the Lean inequality is identical to the informal one; dividing by (i + 1) also avoids division by zero since it starts at 1. Hypotheses (arbitrary real sequences a, b), conclusion, and quantifier structure all match.",
+  "duration_ms": 223802,
+  "cost_usd": 0.7494580000000001
+}

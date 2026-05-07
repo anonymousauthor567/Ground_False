@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-149.lean",
+  "stem": "proofnet-149",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that no rational number has square equal to 12. The Lean signature states ¬ ∃ (x : ℚ), x ^ 2 = 12, which is precisely the negation of the existence of a rational x with x² = 12. The type ℚ correctly represents the rationals, the quantifier structure (negated existential) matches, and the conclusion x^2 = 12 matches \"whose square is 12\". No hypotheses are added or omitted. This is a faithful formalization.",
+  "duration_ms": 6400,
+  "cost_usd": 0.031740750000000005
+}

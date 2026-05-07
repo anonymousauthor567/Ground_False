@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-34.lean",
+  "stem": "proofnet-34",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"x has infinite order\" is correctly expressed as `orderOf x = 0`, since Mathlib's `orderOf_eq_zero_iff` gives `orderOf x = 0 ↔ ¬IsOfFinOrder x` (verified in OrderOfElement.lean line 204). The conclusion \"the elements x^n, n ∈ ℤ are all distinct\" is precisely the injectivity statement `∀ n m : ℤ, n ≠ m → x ^ n ≠ x ^ m`, which is exactly what the Lean theorem states (with n, m as the universally quantified arguments). The group G is arbitrary, and `x ^ n` with `n : ℤ` correctly invokes `zpow`. No hypotheses are added or dropped.",
+  "duration_ms": 29009,
+  "cost_usd": 0.11298725
+}

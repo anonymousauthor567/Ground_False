@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p11.lean",
+  "stem": "elementary_algebra__p11",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says the positive integers n with 5^n > n! \"belong to\" the set {1,...,11}, which literally asserts only the subset/containment direction: ∀ n > 0, 5^n > n! → n ≤ 11. The Lean statement uses an iff, so it additionally asserts the reverse direction: ∀ n > 0, n ≤ 11 → 5^n > n! (i.e., every positive integer up through 11 actually satisfies 5^n > n!). This reverse direction is true mathematically, but it is not claimed by the literal informal text — the informal only requires that solutions lie within {1,...,11}, not that every element of {1,...,11} is a solution. Hence the Lean statement implies the informal one but is strictly stronger.",
+  "duration_ms": 155206,
+  "cost_usd": 0.31588975
+}

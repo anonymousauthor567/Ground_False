@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-214.lean",
+  "stem": "proofnet-214",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The positive integer n is encoded as ℕ+, the condition |x| = n matches orderOf x = n (with implicit coercion from ℕ+ to ℕ), and the conclusion x⁻¹ = x^(n-1) uses the natural-number power (n-1 : ℕ), which is the standard interpretation. The edge case n = 1 works correctly (forcing x = 1 and x⁻¹ = x^0 = 1). No hypotheses are dropped or added beyond what the informal statement specifies.",
+  "duration_ms": 20584,
+  "cost_usd": 0.08826925000000001
+}

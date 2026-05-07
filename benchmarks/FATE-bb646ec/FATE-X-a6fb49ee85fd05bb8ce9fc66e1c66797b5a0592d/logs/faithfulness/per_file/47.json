@@ -1,0 +1,8 @@
+{
+  "file": "47.lean",
+  "stem": "47",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal statement. Hypotheses match precisely: `[Field k]` encodes \"k is a field\"; `¬ CharP k 2` encodes \"characteristic ≠ 2\" (since field characteristic is unique); `n ≥ 3` and `Odd n` match \"n ≥ 3 odd integer\"; `Function.Injective t` with `t : Fin n → k` encodes \"t₁,...,tₙ distinct\". The ring `A t := MvPolynomial (Fin 2) k ⧸ Ideal.span {X 1 ^ 2 - ∏ (X 0 - C (t m))}` correctly represents k[x,y]/(y² - f(x)) with f(x) = ∏(x - t_m). The conclusion `∃ _ : IsDedekindDomain (A t), Nontrivial (ClassGroup (A t))` is logically equivalent to the conjunction \"A is a Dedekind domain AND ClassGroup(A) is nontrivial\", since IsDedekindDomain is a Prop and its witness supplies the IsDomain instance needed to form ClassGroup(A t).",
+  "duration_ms": 887402,
+  "cost_usd": 2.00027075
+}

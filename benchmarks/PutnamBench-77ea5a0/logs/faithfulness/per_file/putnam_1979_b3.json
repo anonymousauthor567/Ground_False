@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1979_b3.lean",
+  "stem": "putnam_1979_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The finite field F with n elements is encoded via `Field F`, `Fintype F`, and `hn : n = Fintype.card F`. The odd-cardinality hypothesis is `Odd n`. The irreducible quadratic x² + bx + c is encoded as `p = X^2 + C b * X + C c ∧ Irreducible p`. The expression `p + C d` equals `X² + C b * X + C(c+d)`, matching \"x² + bx + c + d\". The count `{d : F | Irreducible (p + C d)}.ncard` correctly counts such d. The solution `(n-1)/2` matches the mathematical answer: since n is odd the characteristic is not 2, discriminants b² - 4(c+d) cover all of F as d varies, and exactly (n-1)/2 elements of F are non-squares, giving exactly (n-1)/2 irreducible shifts. The ℕ-to-ℤ coercion on the ncard side is standard and produces the same integer value.",
+  "duration_ms": 150643,
+  "cost_usd": 0.48021425
+}

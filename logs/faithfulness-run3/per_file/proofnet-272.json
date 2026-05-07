@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence of a Finset of (p-1)/2 nonzero squares (QRs) and a Finset of (p-1)/2 nonzero non-squares (non-QRs) in ZMod p. While each conjunct on its own is only a \"≥\" lower bound, together with the fact that for odd p the nonzero elements of ZMod p partition into QRs and non-QRs totaling p-1 = (p-1)/2 + (p-1)/2, the two lower bounds force exact equality |QRs| = |non-QRs| = (p-1)/2. Thus the Lean statement is logically equivalent to the informal claim. The explicit hypothesis `hodd : p % 2 = 1` surfaces the implicit assumption that p is odd, which is needed for (p-1)/2 to be meaningful in the informal statement (for p=2 the informal reading breaks down). Per the system prompt's guidance, making such an implicit premise explicit is a faithful formalization.",
+  "duration_ms": 398450,
+  "cost_usd": 0.31268975
+}

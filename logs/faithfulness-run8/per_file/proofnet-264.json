@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement directly: G and G' are arbitrary groups, φ : G →* G' is a group homomorphism, hφ asserts surjectivity (\"onto\"), N is a subgroup of G with the [N.Normal] instance encoding \"N ⊴ G\", and the conclusion `(Subgroup.map φ N).Normal` says that φ(N), the image subgroup of G', is normal in G'. `Subgroup.map φ N` is Mathlib's standard encoding of the image of a subgroup under a group homomorphism, and `.Normal` refers to normality in the ambient group (here G'). No hypotheses are added or dropped, and no quantifiers are changed.",
+  "duration_ms": 33062,
+  "cost_usd": 0.12387474999999999
+}

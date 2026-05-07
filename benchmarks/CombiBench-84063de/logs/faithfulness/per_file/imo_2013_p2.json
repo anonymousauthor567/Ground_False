@@ -1,0 +1,8 @@
+{
+  "file": "imo_2013_p2.lean",
+  "stem": "imo_2013_p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures IMO 2013 Problem 2. The `Colombian_config` structure enforces 2013 red + 2014 blue disjoint points with no-three-collinear (the `t ≠ 0, t·(q-p) = (r-p)` condition correctly characterizes collinearity of three distinct points since the distinctness hypotheses ensure the difference vectors are non-zero). Lines are encoded as triples `(a, b, c)` representing `ax + by + c = 0` with `a ≠ 0 ∨ b ≠ 0` excluding degenerate cases. `Good_arrange` correctly captures condition (1) (no line passes through a configuration point) and condition (2) (no region contains both colors — two points are in the same region iff they have matching sign of the linear form for every line, and `Real.sign` with ±1 values when points avoid all lines correctly represents \"same side\"). The triple encoding doesn't change the minimum k because scalar-multiple duplicates don't affect the Good_arrange condition, so L.card = k triples give ≤ k geometric lines and the minimum matches. `IsLeast` over ℕ correctly expresses \"the least value of k\".",
+  "duration_ms": 350696,
+  "cost_usd": 1.0306015000000002
+}

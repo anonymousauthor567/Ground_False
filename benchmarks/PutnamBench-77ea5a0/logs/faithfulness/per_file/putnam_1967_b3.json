@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b3.lean",
+  "stem": "putnam_1967_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. `Function.Periodic f 1` unfolds to `∀ x, f (x+1) = f x`, exactly \"period 1\". Continuity is captured correctly. The integrals over `Set.Ioo 0 1` equal the standard $\\int_0^1$ (Lebesgue integral, endpoints have measure zero). The limit `Tendsto (fun n : ℤ => ...) atTop (𝓝 ...)` expresses $n \\to +\\infty$ through integers, which for tail behavior is equivalent to $n \\to \\infty$ through positive integers as meant informally. The integrand `f x * g (n * x)` directly matches $f(x)g(nx)$, and the limit value $(\\int f)(\\int g)$ matches. No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 108283,
+  "cost_usd": 0.33369725
+}

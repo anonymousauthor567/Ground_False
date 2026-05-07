@@ -1,0 +1,8 @@
+{
+  "file": "S_0066.lean",
+  "stem": "S_0066",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement well. `IsIntersectionOf` encodes the meet/infimum in the subobject poset: (1) A ≤ each member of S (A's arrow factors through each i_n), and (2) any subobject A' below all members is ≤ A. While the informal condition (2) quantifies over any morphism f:z→c, rather than just monos/subobjects, these two formulations of \"intersection of subobjects\" are the standard equivalent notions in category theory (equivalence holds in categories with image factorizations, which always holds in strongly complete categories — the setting being considered). `HasIntersections`, `StronglyComplete`, and `StronglyCocomplete` (via `StronglyComplete Cᵒᵖ`) correctly mirror the informal definitions. The theorem asserts `∃ C, StronglyCocomplete C ∧ HasSeparator C ∧ ¬WellPowered C ∧ ¬WellPowered Cᵒᵖ`, which directly matches \"there exists a strongly cocomplete category with a separator that is neither wellpowered nor co-wellpowered\" (co-wellpowered = wellpowered in the opposite category, following Mathlib convention). The existential structure and universe handling are standard for asserting existence of a category.",
+  "duration_ms": 1265000,
+  "cost_usd": 4.0556335
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `H.index = K.index * H.relindex K` under `H ≤ K` precisely encodes $[G:H] = [G:K] \\cdot [K:H]$. In Mathlib, `Subgroup.index H = Nat.card (G ⧸ H)` and `H.relIndex K = (H.subgroupOf K).index`, which equals $[K:H]$ when $H \\le K$; the file-local `relindex` is just an alias for `relIndex`. No finiteness hypothesis is assumed on `G`, matching the \"do not assume $G$ is finite\" clause — Mathlib's `Nat.card`-based `index` returns 0 for infinite quotients, and the equation still holds in that case (this is exactly Mathlib's `relIndex_mul_index` lemma). Hypothesis structure, conclusion, and generality all match the informal claim.",
+  "duration_ms": 77229,
+  "cost_usd": 0.3059945
+}

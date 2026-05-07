@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the intersection of two normal subgroups of a group is itself a normal subgroup. The Lean signature takes an arbitrary group G, two subgroups H and K with `[Normal H]` and `[Normal K]` as typeclass hypotheses, and concludes `Normal (H ⊓ K)`. In Mathlib, `H ⊓ K` for `Subgroup G` is exactly the subgroup intersection (as sets and as subgroups), so `Normal (H ⊓ K)` precisely captures \"H ∩ K is a normal subgroup of G\". Hypotheses, conclusion, and quantification over G, H, K all match the informal statement without addition or omission.",
+  "duration_ms": 20136,
+  "cost_usd": 0.0414
+}

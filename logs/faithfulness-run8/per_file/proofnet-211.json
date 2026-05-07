@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks us to prove that the operation a⋆b = a−b on ℤ is not commutative. \"Not commutative\" is the negation of \"∀ a b, a⋆b = b⋆a\", which is classically equivalent to \"∃ a b, a⋆b ≠ b⋆a\". The Lean statement `∃ a b : ℤ, a - b ≠ b - a` expresses exactly this: there exist integers a and b for which the operation fails to commute. The types (ℤ) and the operation (subtraction) match the informal statement. Hence the formalization is strictly faithful.",
+  "duration_ms": 9338,
+  "cost_usd": 0.0364945
+}

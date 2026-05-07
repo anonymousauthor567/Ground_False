@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is from Rudin Exercise 2.19(a). In Rudin (Def. 2.45), two subsets A, B of a metric space are \"separated\" iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅. The Lean formalization unfolds this definition directly in the conclusion: `A ∩ closure B = ∅ ∧ closure A ∩ B = ∅`. The hypotheses (MetricSpace X, IsClosed A, IsClosed B, Disjoint A B) match the informal \"disjoint closed sets in a metric space\" — noting that `Disjoint A B` on sets in Mathlib is definitionally equivalent to `A ∩ B = ∅`. No hypotheses are added or dropped, and the conclusion precisely captures Rudin's notion of \"separated.\" Hence the formalization is strictly faithful.",
+  "duration_ms": 67685,
+  "cost_usd": 0.23356575000000002
+}

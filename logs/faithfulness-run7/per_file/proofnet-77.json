@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. \"Nonabelian group of order 6\" is captured by `[Group G]`, `[Fintype G]`, `card G = 6`, and `∃ a b : G, a * b ≠ b * a` (the negation of commutativity, i.e., nonabelian). The conclusion \"$G \\simeq S_3$\" is encoded as `Nonempty (G ≃* Equiv.Perm (Fin 3))`, where `Equiv.Perm (Fin 3)` is the symmetric group S_3 and `≃*` is group isomorphism. Wrapping the `MulEquiv` in `Nonempty` is the standard way to assert existence of an isomorphism as a Prop. No hypotheses are added or dropped, and the conclusion is logically equivalent to the informal claim.",
+  "duration_ms": 41878,
+  "cost_usd": 0.16909975
+}

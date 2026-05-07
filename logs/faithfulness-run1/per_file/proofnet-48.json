@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "theorem_name": "Dummit_Foote_exercise_4_3_26_corrected",
+  "informal": "Let $G$ be a transitive permutation group on the finite set $A$ with $|A|>1$. Show that there is some $\\sigma \\in G$ such that $\\sigma(a) \\neq a$ for all $a \\in A$.",
+  "lean": "\n\ntheorem Dummit_Foote_exercise_4_3_26_corrected {α : Type*} [Fintype α] (ha : Fintype.card α > 1)\n  (G : Subgroup (Equiv.Perm α))\n  (h_tran : ∀ a b : α, ∃ σ : G, (σ : Equiv.Perm α) a = b) :\n  ∃ σ : G, ∀ a : α, (σ : Equiv.Perm α) a ≠ a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely: α is a finite type with |α|>1, G is a subgroup of Perm α (a permutation group on α), and h_tran encodes transitivity as the standard \"for all a, b there exists σ ∈ G with σ(a)=b\". The conclusion ∃ σ ∈ G, ∀ a, σ a ≠ a is exactly the existence of a fixed-point-free element. The quantifier structure, hypotheses, and ambient objects match the informal statement, so this is a strictly faithful formalization.",
+  "duration_ms": 7140,
+  "cost_usd": 0.12872325
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-162.lean",
+  "stem": "proofnet-162",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes all parts of the informal claim correctly: `X` is a metric space, `p : ℕ → X` is a sequence, `hp : CauchySeq p` says it is Cauchy, `φ : ℕ → ℕ` with `hφ : StrictMono φ` is the standard Mathlib encoding of subsequence indexing (strictly increasing), `hpl : Tendsto (p ∘ φ) atTop (𝓝 r)` says the subsequence converges to r, and the conclusion `Tendsto p atTop (𝓝 r)` says the whole sequence converges to r. Types and quantifier structure match Rudin's statement exactly, and no extra or missing hypotheses are introduced.",
+  "duration_ms": 40904,
+  "cost_usd": 0.049230750000000004
+}

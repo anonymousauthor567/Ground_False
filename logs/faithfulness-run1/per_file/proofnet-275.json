@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "informal": "If $F$ is a field of characteristic $p \\neq 0$, show that $(a + b)^m = a^m + b^m$, where $m = p^n$, for all $a, b \\in F$ and any positive integer $n$.",
+  "lean": "\ntheorem Herstein_exercise_5_1_8 {p m n: ℕ} {F : Type*} [Field F]\n  (hp : p ≠ 0) (hn : n > 0)\n  (hF : CharP F p) (a b : F) (hm : m = p ^ n) :\n  (a + b) ^ m = a^m + b^m",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the essential elements: F is a field, p is its characteristic with p ≠ 0 (and since CharP F p for a field forces p to be 0 or prime, hp : p ≠ 0 implies p is prime, matching the informal characteristic p ≠ 0), n is a positive natural number (n > 0 corresponds to \"positive integer n\"), m = p^n, and a, b are arbitrary elements of F. The conclusion (a+b)^m = a^m + b^m is exactly the Freshman's Dream identity stated informally. The quantifier structure (universal in a, b, F, n) is preserved. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 9939,
+  "cost_usd": 0.05310175
+}

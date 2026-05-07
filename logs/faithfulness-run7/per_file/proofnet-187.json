@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `[Field K] [Infinite K]` captures \"infinite field F\"; `[AddCommGroup V] [Module K V]` is the standard encoding of a vector space over K. The finite family of proper subspaces is encoded as `γ : ι → Submodule K V` with `[Fintype ι]` and the hypothesis `∀ i, γ i ≠ ⊤` (a submodule is proper iff it is not the whole space, i.e., ≠ ⊤). The conclusion `(⋃ i, (γ i : Set V)) ≠ ⊤` asserts the union is not all of V, since `(⊤ : Set V) = Set.univ` and `((⊤ : Submodule K V) : Set V) = Set.univ`. The universal quantification over K, V, ι, γ correctly matches \"for any finite collection of proper subspaces of any vector space over any infinite field\". No hypothesis is silently added or dropped.",
+  "duration_ms": 105042,
+  "cost_usd": 0.39369325000000005
+}

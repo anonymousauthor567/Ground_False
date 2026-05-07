@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes \"product of nonzero elements of a finite field K is -1\". The hypothesis `[Field K] [Fintype Kˣ]` is equivalent to \"K is a finite field\" since for a field, Kˣ finite ↔ K finite (K = Kˣ ∪ {0}). The nonzero elements of a field are exactly its units, so `∏ x : Kˣ, x` captures \"product of nonzero elements\". The target `-1` is `-1 : Kˣ`, which is well-defined since `Kˣ` has a `HasDistribNeg` instance; this is equivalent (via the injective monoid hom `Kˣ → K`) to the product being -1 in K. This matches Mathlib's `prod_univ_units_id_eq_neg_one` under the (here slightly stronger) `Field K` assumption.",
+  "duration_ms": 63247,
+  "cost_usd": 0.25421175
+}

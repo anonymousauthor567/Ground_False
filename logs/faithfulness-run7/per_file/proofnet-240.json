@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-240.lean",
+  "stem": "proofnet-240",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says: for any finite group G with |G| = 462, G is not simple. This is exactly what the informal statement asserts. The `[Fintype G]` typeclass is a natural encoding companion needed to state `card G = 462`; the informal \"|G| = 462\" already implies finiteness, so this is not an extra hypothesis. Mathlib's `IsSimpleGroup` (from `Mathlib/GroupTheory/Subgroup/Simple.lean`) is defined as `Nontrivial G` together with \"every normal subgroup is ⊥ or ⊤\", which matches the standard definition of a simple group. The universal quantification over G, the hypothesis, and the negated conclusion all match the informal statement precisely.",
+  "duration_ms": 39255,
+  "cost_usd": 0.192644
+}

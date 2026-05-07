@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group of order 5 must be abelian. The Lean statement takes an arbitrary type G with a group structure and Fintype instance, hypothesizes that its cardinality is 5, and concludes that every pair of elements commutes (∀ a b : G, a*b = b*a). \"Order 5\" for a finite group correctly corresponds to `card G = 5`, and \"abelian\" is exactly the condition that all pairs of elements commute. The quantifier structure (universal over G, then universal over a, b) is preserved. This is a standard and strictly faithful encoding.",
+  "duration_ms": 20221,
+  "cost_usd": 0.03312125
+}

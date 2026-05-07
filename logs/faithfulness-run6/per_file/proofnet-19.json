@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Axler Exercise 5.4. The hypothesis `S ∘ T = T ∘ S` encodes $ST = TS$ (since equality of underlying functions of linear maps is equivalent to equality as linear maps). The free variable `c : F` corresponds to \"for every $\\lambda \\in \\mathbf{F}$\". The expression `ker (T - c • LinearMap.id)` is exactly $\\operatorname{null}(T - \\lambda I)$, i.e., the $\\lambda$-eigenspace (including 0). The conclusion `Submodule.map S (ker ...) ≤ ker ...` is precisely the statement that this kernel is invariant under $S$, i.e., $S(U) \\subseteq U$. The lack of a finite-dimensionality hypothesis is not a defect: the exercise's claim holds for arbitrary modules over a field, and the informal statement itself does not invoke finite-dimensionality.",
+  "duration_ms": 225687,
+  "cost_usd": 0.6678125
+}

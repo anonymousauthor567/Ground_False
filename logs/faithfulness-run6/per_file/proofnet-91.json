@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-91.lean",
+  "stem": "proofnet-91",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. `[Infinite F] [Field F]` captures \"infinite field\"; `[AddCommGroup V] [Module F V]` is the standard encoding of a vector space over F; `[Finite ι]` with family `u : ι → Submodule F V` represents \"a finite number of subspaces\"; `hu : ∀ i, u i ≠ ⊤` expresses that each subspace is proper (standard meaning: not equal to V); and the conclusion `(⋃ i, (u i : Set V)) ≠ ⊤` says the set-theoretic union of their underlying sets is not all of V (since `⊤ : Set V = Set.univ`). The universal quantification over families matches the informal \"cannot be\" claim. Edge cases (empty ι, trivial V) are handled consistently and do not break the equivalence.",
+  "duration_ms": 82206,
+  "cost_usd": 0.29464300000000004
+}

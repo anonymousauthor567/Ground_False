@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-352.lean",
+  "stem": "proofnet-352",
+  "informal": "Suppose $f$ is a uniformly continuous mapping of a metric space $X$ into a metric space $Y$ and prove that $\\left\\{f\\left(x_{n}\\right)\\right\\}$ is a Cauchy sequence in $Y$ for every Cauchy sequence $\\{x_n\\}$ in $X$.",
+  "lean": "\ntheorem Rudin_exercise_4_11a\n  {X : Type*} [MetricSpace X]\n  {Y : Type*} [MetricSpace Y]\n  (f : X → Y) (hf : UniformContinuous f)\n  (x : ℕ → X) (hx : CauchySeq x) :\n  CauchySeq (λ n => f (x n))",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes arbitrary metric spaces X and Y, a uniformly continuous function f, and an arbitrary Cauchy sequence x in X, and concludes that f ∘ x is a Cauchy sequence in Y. This matches the informal statement exactly: same hypotheses (uniform continuity, metric spaces, Cauchy sequence), same conclusion (image is Cauchy), and the universal quantification over Cauchy sequences is captured by taking an arbitrary x with hx : CauchySeq x. No extra assumptions (like completeness or finiteness) are added, and none are dropped.",
+  "duration_ms": 6505,
+  "cost_usd": 0.04328649999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch2_11.lean",
+  "stem": "brualdi_ch2_11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement counts 3-element subsets of Icc 1 20 = {1, ..., 20} satisfying the filter ∀ a ∈ S, a-1 ∉ S ∧ a+1 ∉ S. This condition is logically equivalent to \"no two consecutive integers in S\": forward, if two consecutive elements x, x+1 existed in S, taking a = x+1 would violate a-1 ∉ S; backward, the condition is directly implied by non-consecutiveness. The natural subtraction edge cases are harmless: a ∈ S ⊆ Icc 1 20 ensures a ≥ 1 so a-1 is genuine subtraction, and a-1 = 0 or a+1 = 21 are trivially not in S. The type (ℕ), the range {1..20}, the cardinality 3, and the non-consecutive constraint all match the informal problem. This is a faithful formalization.",
+  "duration_ms": 79361,
+  "cost_usd": 0.29443949999999997
+}

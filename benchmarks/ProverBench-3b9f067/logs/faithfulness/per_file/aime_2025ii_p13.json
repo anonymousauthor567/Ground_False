@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025ii_p13.lean",
+  "stem": "aime_2025ii_p13",
+  "verdict": "faithful",
+  "reasoning": "The informal sequence uses 1-based indexing with x₁ = 25/11 and asks for x₂₀₂₅; the Lean `x_seq` uses 0-based indexing with `x_seq 0 = 25/11`, so `x_seq 2024` correctly corresponds to x₂₀₂₅. The recursion `(1/3) * (x_seq k + 1/x_seq k - 1)` matches the informal formula exactly. Since all terms of the sequence are positive (AM–GM gives x_k + 1/x_k ≥ 2, so x_{k+1} ≥ 1/3 > 0), the Mathlib invariants on `Rat.num : Int` and `Rat.den : Nat` (reduced, coprime, positive denominator) guarantee that `(x_seq 2024).num = m` and `(x_seq 2024).den = n` where m, n are the relatively prime positive integers from the informal statement. The expression `(↑den + num) % 1000` coerces den to Int and uses Int.emod; by commutativity this equals (m+n) mod 1000, which the informal solution asserts is 248. Hence the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 186568,
+  "cost_usd": 0.5687907500000001
+}

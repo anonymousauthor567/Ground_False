@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes all components of the informal statement: `[MetricSpace X]` captures \"metric space\", `[ConnectedSpace X]` captures \"connected\", `∃ x y : X, x ≠ y` captures \"having more than one point\", and `¬ Countable (univ : Set X)` captures \"uncountable\". The expression `Countable (univ : Set X)` elaborates to `Countable ↥univ`, which by `countable_univ_iff` is equivalent to `Countable X`, so its negation correctly expresses uncountability. Although `ConnectedSpace` in Mathlib includes `Nonempty X`, this is automatically implied by the \"more than one point\" hypothesis, so this does not introduce any mismatch with the informal statement.",
+  "duration_ms": 101575,
+  "cost_usd": 0.33434325
+}

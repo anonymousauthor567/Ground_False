@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "theorem_name": "Munkres_exercise_31_1_corrected",
+  "informal": "Show that if $X$ is regular, every pair of points of $X$ have neighborhoods whose closures are disjoint.",
+  "lean": "\ntheorem Munkres_exercise_31_1_corrected {X : Type*} [TopologicalSpace X] [T25Space X]\n    (x y : X) (hxy : x ≠ y) :\n    ∃ U V : Set X, IsOpen U ∧ IsOpen V ∧ x ∈ U ∧ y ∈ V ∧\n      closure U ∩ closure V = (∅ : Set X)",
+  "verdict": "different",
+  "reasoning": "The informal statement's hypothesis is that X is regular (in Munkres' sense, T1 + regular, i.e. T3), and the conclusion is that any two distinct points have neighborhoods with disjoint closures (the T2.5 property). The Lean signature replaces the hypothesis \"regular\" with `[T25Space X]`, which already asserts exactly the conclusion of the theorem. So the Lean statement is essentially \"T2.5 implies T2.5\" — a near-tautology obtainable by unfolding the definition — rather than the substantive content \"regular implies T2.5\". This is a genuine change in mathematical meaning: the Lean theorem neither requires regularity nor establishes the informal implication from regularity. Hence the hypothesis has been swapped for something incomparable in spirit, making the formalization not a faithful encoding.",
+  "duration_ms": 30518,
+  "cost_usd": 0.10650874999999999
+}

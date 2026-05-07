@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch7_7.lean",
+  "stem": "brualdi_ch7_7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly formalizes the informal claim. `m n d : ℕ+` captures \"positive integers\"; `hmd : d = Nat.gcd m n` (via PNat→ℕ coercion) states \"d is the gcd of m and n\"; the conclusion `Nat.gcd (Nat.fib m) (Nat.fib n) = Nat.fib d` says \"gcd(f_m, f_n) = f_d\". Mathlib's `Nat.fib` satisfies `fib 1 = 1, fib 2 = 1, fib 3 = 2, ...`, matching the standard Brualdi Fibonacci convention for positive indices. Indeed, Mathlib proves essentially this exact theorem as `Nat.fib_gcd : fib (gcd m n) = gcd (fib m) (fib n)`. There are no added/dropped hypotheses, no quantifier change, and no type mismatch—the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 106251,
+  "cost_usd": 0.42043975
+}

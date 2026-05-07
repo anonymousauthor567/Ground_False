@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1990_a2.lean",
+  "stem": "putnam_1990_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal question. The predicate `numform x` captures numbers of the form $\\sqrt[3]{n}-\\sqrt[3]{m}$: since `n m : ℕ` and the exponent `(1:ℝ)/3` is a real number, `n ^ ((1:ℝ)/3)` coerces `n` to ℝ and uses `Real.rpow`, giving the real cube root for non-negative naturals. The range `n, m = 0, 1, 2, ...` corresponds exactly to `ℕ`. The conclusion `∃ s : ℕ → ℝ, (∀ i, numform (s i)) ∧ Tendsto s atTop (𝓝 (Real.sqrt 2))` captures the existence of a sequence of such numbers converging to √2, which is the natural reading of \"Is √2 the limit of a sequence of numbers of the form ...?\". The solution is `True`, matching the known Putnam answer. Hypotheses, types, and quantifier structure all match.",
+  "duration_ms": 98345,
+  "cost_usd": 0.34249
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the holomorphic hypothesis (`DifferentiableOn ℂ f Ω`), the openness of Ω, the \"Re(f) is constant\" hypothesis, and the conclusion \"f is constant\" as the universally-quantified `f a = f b` for a, b ∈ Ω. The added `IsPreconnected Ω` hypothesis is surfacing an implicit premise needed for truth: without connectedness, the statement is false (f could be different constants on different components of Ω while Re(f) remains globally constant, e.g., f = i on one disk and f = 2i on another). In Shakarchi's complex analysis context, \"f is constant on an open set\" implicitly assumes or is understood on each connected component, so making this explicit is a faithful reading per the system prompt's worked-example guidance (analogous to adding `1 ≤ r`). Hence the formalization is faithful.",
+  "duration_ms": 65724,
+  "cost_usd": 0.21627175
+}

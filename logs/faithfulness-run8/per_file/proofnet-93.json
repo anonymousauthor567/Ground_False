@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove $x^3 - 3x - 1$ is irreducible over ℚ. The Lean signature `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)` asserts exactly this: Mathlib's `Irreducible` (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) requires the element to be a non-unit with no nontrivial factorizations, which over a UFD like `Polynomial ℚ` matches the standard notion of polynomial irreducibility over ℚ. The polynomial `X^3 - 3*X - 1` in `Polynomial ℚ` correctly represents $x^3 - 3x - 1$ over ℚ. No hypotheses are added or dropped, and the conclusion matches.",
+  "duration_ms": 40164,
+  "cost_usd": 0.15766275
+}

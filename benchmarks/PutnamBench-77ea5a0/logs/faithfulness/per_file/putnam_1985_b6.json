@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_b6.lean",
+  "stem": "putnam_1985_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes: (1) G as a finite set of real n×n matrices via `Finset (Matrix (Fin n) (Fin n) ℝ)`, (2) the group structure via closure, identity `1 ∈ G`, and right inverses — which, combined with the associativity of matrix multiplication and the fact that `1` is the two-sided identity of the matrix monoid, is equivalent to G being a group under matrix multiplication, (3) the trace-sum hypothesis using `Matrix.trace` (standard sum of diagonal entries), and (4) the conclusion that the sum equals the zero matrix. The `npos : n > 0` hypothesis merely surfaces an implicit premise (Putnam problems implicitly assume positive n); the n=0 case is trivial anyway, so this does not meaningfully restrict the theorem. The encoding preserves the exact mathematical content of the informal statement.",
+  "duration_ms": 169223,
+  "cost_usd": 0.48294349999999997
+}

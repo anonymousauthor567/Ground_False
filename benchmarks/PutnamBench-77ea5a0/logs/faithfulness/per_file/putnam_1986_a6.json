@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a6.lean",
+  "stem": "putnam_1986_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 1986 A6. The hypothesis `n > 0` is an implicit premise (the informal statement \"Let a_1, ..., a_n\" with sum from 1 to n presumes n ≥ 1). The hypotheses `bpos` and `binj` correctly encode \"distinct positive integers b_i\" for i ∈ {1,...,n}. The function `a : ℕ → ℝ` is used only for indices in Finset.Icc 1 n via the sum, matching \"real numbers a_1, ..., a_n\". The polynomial identity `(1 - x) ^ n * f.eval x = 1 + ∑ i : Finset.Icc 1 n, (a i) * x ^ (b i)` correctly formalizes the equation, with `∑ i : Finset.Icc 1 n` being the standard Mathlib coercion-based sum over {1,...,n} (via Finset.sum_coe_sort). The conclusion asks for `f.eval 1` expressed via `b` and `n`, and the solution `(∏ i : Finset.Icc 1 n, b i) / n!` is the known correct answer. No hypotheses are dropped or added beyond what the informal statement requires.",
+  "duration_ms": 244181,
+  "cost_usd": 0.76495075
+}

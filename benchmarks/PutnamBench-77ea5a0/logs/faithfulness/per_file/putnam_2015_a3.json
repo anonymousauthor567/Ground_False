@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a3.lean",
+  "stem": "putnam_2015_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly captures the informal statement: (1) `Fin 2015` with `a.1 + 1` and `b.1 + 1` gives indices 1 through 2015 matching the informal product ranges; (2) the expression `1 + Complex.exp (2 * Real.pi * Complex.I * (a.1 + 1) * (b.1 + 1) / 2015)` correctly represents $1 + e^{2\\pi i(a+1)(b+1)/2015}$ in ℂ (Real.pi and natural numbers are coerced to ℂ correctly); (3) `Complex.log X / Complex.log 2` is the standard principal-branch complex base-2 logarithm, which agrees with the usual real log₂ when the argument is a positive real. Since 2015 is odd, the double product evaluates to $2^{13725}$ (a positive real), so the complex log gives a real result equal to $13725$. No factor is zero (would require $e^{2\\pi iab/2015}=-1$, impossible for odd denominator). The answer `putnam_2015_a3_solution : ℂ = 13725` matches. Logically equivalent to the informal claim.",
+  "duration_ms": 162167,
+  "cost_usd": 0.37828349999999994
+}

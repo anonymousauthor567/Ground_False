@@ -1,0 +1,8 @@
+{
+  "file": "135.lean",
+  "stem": "135",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement sums i^3 over Finset.range (n+1) = {0, 1, ..., n}, which equals 1^3 + 2^3 + ... + n^3 since 0^3 = 0. The sum is cast to ℚ so that the RHS fractions n^4/4 + n^3/2 + n^2/4 are well-defined, which corresponds exactly to (1/4)n^4 + (1/2)n^3 + (1/4)n^2 in the informal statement. Numerical checks confirm equivalence (e.g., n=3: LHS = 36, RHS = 81/4 + 27/2 + 9/4 = 36). For n=0, both sides give 0, matching the empty-sum convention. The quantifier (∀ n : ℕ) matches the universal reading of the informal statement. This is a faithful formalization.",
+  "duration_ms": 40116,
+  "cost_usd": 0.10501999999999999
+}

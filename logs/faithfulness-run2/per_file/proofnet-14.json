@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the standard reading of the informal claim. The hypothesis `1 ≤ r` is the conventional implicit assumption in \"prime of the form $2^r+1$\" — it is needed because $r=0$ gives $p=2$, which is prime but not of the form $2^{2^k}+1$ (smallest such is $3$). So the informal statement is only mathematically true under this reading, and the Lean version makes that explicit. Types ($\\mathbb{N}$), primality hypothesis, and the existential conclusion $\\exists k, p = 2^{2^k}+1$ all align directly with the informal claim. No hidden strengthening or weakening beyond making the natural convention explicit.",
+  "duration_ms": 69620,
+  "cost_usd": 0.24265625
+}

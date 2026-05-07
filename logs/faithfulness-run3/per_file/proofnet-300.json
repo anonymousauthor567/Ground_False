@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The informal statement gives: X, Y topological spaces, p : X → Y continuous, and asks to prove that the existence of a continuous section f : Y → X with p ∘ f = id_Y implies p is a quotient map. The Lean signature encodes exactly this: `X Y` are topological spaces, `p : X → Y` with `h : Continuous p`, and the goal is `(∃ f : Y → X, Continuous f ∧ p ∘ f = id) → IsQuotientMap p`. Here `id : Y → Y` is inferred from the composition `p ∘ f : Y → Y`, matching \"identity map of Y\". Mathlib's `IsQuotientMap` is precisely Munkres's notion (surjective with the topology coinduced by p, equivalently: U open in Y ↔ p⁻¹ U open in X), as confirmed by `isQuotientMap_iff` in `Mathlib/Topology/Maps/Basic.lean`. No hypothesis is added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 141742,
+  "cost_usd": 0.23264949999999998
+}

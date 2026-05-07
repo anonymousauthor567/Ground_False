@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the informal claim faithfully: `[Group G]` and `[Fintype G]` capture \"G is a finite group\", and `∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1` matches \"there exists an integer m > 0 such that a^m = e for all a ∈ G\". Using `ℕ` rather than `ℤ` for m is inconsequential because m > 0 is required, so positive integers and positive naturals coincide, and `a ^ m` with `m : ℕ` is the standard group power giving the identity `1`. Quantifier structure, hypotheses, and conclusion all match the informal statement exactly.",
+  "duration_ms": 15852,
+  "cost_usd": 0.04211625
+}

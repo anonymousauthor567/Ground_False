@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes each component of the informal claim. The hypothesis `∃ s : Set X, Countable s ∧ Dense s` expresses \"X has a countable dense subset\" using Mathlib's standard `Dense` and the countability typeclass on the subtype. The collection `U : Set (Set X)` with `hU` saying distinct members have empty intersection correctly encodes \"pairwise disjoint\", and `hUopen` correctly asserts each member is open. The conclusion `Countable U` matches \"U is countable\". No extra hypotheses narrow the scope, and no hypotheses are dropped. This is a strictly faithful formalization of Munkres exercise 30.13.",
+  "duration_ms": 126455,
+  "cost_usd": 0.314642
+}

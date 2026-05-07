@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-148.lean",
+  "stem": "proofnet-148",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly: `x : ℝ` with `Irrational x` represents the irrational number, `y : ℚ` with `hy : y ≠ 0` represents the nonzero rational, and the conclusion `Irrational (x + y)` (with automatic coercion from ℚ to ℝ) matches \"r+x is irrational\" (since addition in ℝ is commutative). The types, hypotheses, and conclusion correspond directly, and Mathlib's `Irrational` is the standard notion (not in the range of ℚ → ℝ). The universal quantification over x and y matches the informal \"for all\" reading.",
+  "duration_ms": 24782,
+  "cost_usd": 0.07949099999999999
+}

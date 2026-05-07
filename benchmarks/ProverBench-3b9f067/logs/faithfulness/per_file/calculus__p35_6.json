@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p35_6.lean",
+  "stem": "calculus__p35_6",
+  "verdict": "weaker",
+  "reasoning": "The informal statement specifies that f has a local maximum at the specific point x=2 and a local minimum at the specific point x=4. The Lean `local_extrema` theorem (the only one with `sorry`; the others are axioms) only asserts `∃ x, IsLocalMax f x` and `∃ x, IsLocalMin f x`, together with the constraint that all local extrema lie in {2, 4}. This is strictly weaker: it does not pin down that x=2 is the maximum and x=4 is the minimum — a hypothetical function with a local min at 2 and a local max at 4 would satisfy the Lean theorem but violate the informal claim. The specific location assignments `IsLocalMax f 2` and `IsLocalMin f 4` appear only as separate axioms, not as part of the main theorem's conclusion that needs to be proven.",
+  "duration_ms": 104088,
+  "cost_usd": 0.32950125
+}

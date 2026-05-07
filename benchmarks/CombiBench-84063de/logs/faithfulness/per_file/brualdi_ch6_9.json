@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch6_9.lean",
+  "stem": "brualdi_ch6_9",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the counting problem. Using `Fin 4 → ℕ` instead of ℤ does not change the count because all constraints have non-negative lower bounds ($x_1 \\geq 1$, $x_2 \\geq 0$, $x_3 \\geq 4$, $x_4 \\geq 2$), so integer solutions and natural-number solutions coincide. The sum `∑ i, x i = 20` matches $x_1+x_2+x_3+x_4=20$, and `x i ∈ Icc a b` unfolds via `mem_Icc` to `a ≤ x i ∧ x i ≤ b`, matching each constraint exactly. The indexing 0-3 in `Fin 4` corresponds to $x_1$ through $x_4$. Using `.ncard` equal to a `sorry` abbrev is the standard pattern for \"determine the number of\" problems. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 67219,
+  "cost_usd": 0.2442805
+}

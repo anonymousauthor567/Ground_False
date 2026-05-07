@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the Ireland-Rosen exercise: `a : ℤ` with `ha : a < 0` matches \"a is negative\"; `p ≡ q [ZMOD 4*a]` matches `p ≡ q (4a)` (Int.ModEq is defined via divisibility and is sign-insensitive, so negative modulus is fine); `¬ ((p : ℤ) ∣ a)` matches `p ∤ a`; and `legendreSym p a = legendreSym q a` matches `(a/p) = (a/q)`. The informal statement doesn't explicitly require `q ∤ a`, but this is implied by the hypotheses (if `q | a`, then `q | p - q | p`, forcing `q = p`, contradicting `p ∤ a`). The `p = 2` edge case is vacuously handled: `2 ∤ a` forces `a` odd, which combined with `2 ≡ q (mod 4a)` forces `q = 2 = p`.",
+  "duration_ms": 50209,
+  "cost_usd": 0.18257824999999997
+}

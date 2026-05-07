@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement exactly. G is a finite group with |G| = pm (encoded via `Fintype G` and `card G = p*m`), p is prime (`Nat.Prime p`), p ∤ m (`¬ p ∣ m`), and H is a normal subgroup of order p (`[H.Normal]` and `card H = p`). The conclusion `Subgroup.Characteristic H` uses Mathlib's definition \"fixed by all automorphisms\", which is the standard meaning of a characteristic subgroup. No hypotheses are added or dropped, no types are changed, and the quantifier structure matches the implicit universal quantification over G, p, m, H in the informal statement.",
+  "duration_ms": 42478,
+  "cost_usd": 0.17744100000000002
+}

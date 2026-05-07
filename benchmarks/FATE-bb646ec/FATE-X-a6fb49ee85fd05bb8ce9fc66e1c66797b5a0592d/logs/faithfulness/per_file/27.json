@@ -1,0 +1,8 @@
+{
+  "file": "27.lean",
+  "stem": "27",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes each piece of the informal claim: `p.Prime` captures \"p prime\"; `Field K` + `NumberField K` captures \"K/ℚ finite extension\" (since NumberField bundles CharZero and FiniteDimensional ℚ K); `IsPrimitiveRoot ζ (p^2)` captures \"K contains the p²-th root of unity\" (standard mathematical reading meaning a primitive one); `IntermediateField K (AlgebraicClosure K)` with `IsGalois K L` and `Module.rank K L = p` is a standard and logically equivalent encoding of \"L/K is a Galois extension of degree p\" (the coercion of ℕ to Cardinal forces finite-dimensionality with dim = p). The conclusion existentially introduces L' as a field with compatible K- and L-algebra structure (via IsScalarTower), asserting `IsGalois L L'`, `Module.rank L L' = p`, and `IsGalois K L'`, which together state exactly \"there exists a Galois L'/L of degree p such that L'/K is also Galois\". No hypothesis is added or dropped, and no quantifier structure changed.",
+  "duration_ms": 513529,
+  "cost_usd": 1.0870412500000002
+}

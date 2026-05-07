@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-358.lean",
+  "stem": "proofnet-358",
+  "theorem_name": "Rudin_exercise_5_7_corrected",
+  "informal": "Suppose $f^{\\prime}(x), g^{\\prime}(x)$ exist, $g^{\\prime}(x) \\neq 0$, and $f(x)=g(x)=0$. Prove that $\\lim _{t \\rightarrow x} \\frac{f(t)}{g(t)}=\\frac{f^{\\prime}(x)}{g^{\\prime}(x)}.$",
+  "lean": "theorem Rudin_exercise_5_7_corrected\n  {f g : ℝ → ℝ} {x : ℝ}\n  (hf' : DifferentiableAt ℝ f x)\n  (hg' : DifferentiableAt ℝ g x)\n  (hg'_ne_0 : deriv g x ≠ 0)\n  (f0 : f x = 0) (g0 : g x = 0) :\n  Tendsto (λ t => f t / g t) (𝓝[≠] x) (𝓝 (deriv f x / deriv g x))",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the hypotheses of the informal statement: `DifferentiableAt ℝ f x` and `DifferentiableAt ℝ g x` correspond to existence of f'(x) and g'(x); `deriv g x ≠ 0` matches g'(x) ≠ 0; and `f x = 0`, `g x = 0` match f(x)=g(x)=0. The conclusion uses `Tendsto ... (𝓝[≠] x) (𝓝 (deriv f x / deriv g x))`, i.e. the limit through the punctured neighborhood of x, which is exactly Rudin's convention for lim_{t→x} (t ≠ x). The value of the limit f'(x)/g'(x) is encoded as `deriv f x / deriv g x`, which equals the Fréchet derivative under `DifferentiableAt`. No hypothesis is added or dropped, so this is a strictly faithful formalization.",
+  "duration_ms": 9293,
+  "cost_usd": 0.053155499999999994
+}

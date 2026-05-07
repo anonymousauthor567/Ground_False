@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p19_2.lean",
+  "stem": "linear_algebra__p19_2",
+  "verdict": "stronger",
+  "reasoning": "The Lean formalization correctly splits the informal iff into two directions (given axiom for the forward direction, lemma for the reverse direction), and the use of `Matrix.rank` plus `fromColumns` appropriately models \"r(A) = r(A,B)\". However, the Lean statement quantifies over arbitrary `[CommRing R]`, while the classical Rouché–Capelli theorem requires R to be a field (or at least a ring with cancellation/division properties). Counterexample over ℤ (a CommRing): with A = (2), B = (1), one has rank A = rank [A|B] = 1, yet 2X = 1 has no integer solution, so the `solutionExistsIfRankCondition` lemma is actually FALSE as stated. The Lean claim logically implies the informal (standard) claim when specialized to fields, but also asserts it for non-field CommRings where it fails — this is a strictly stronger (and unprovable) claim. This is not merely surfacing an implicit premise; rather, the Lean formalization drops the implicit \"over a field\" hypothesis needed for truth.",
+  "duration_ms": 1204923,
+  "cost_usd": 2.4247777499999996
+}

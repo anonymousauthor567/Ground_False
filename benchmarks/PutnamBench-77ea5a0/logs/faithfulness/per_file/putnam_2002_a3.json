@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_a3.lean",
+  "stem": "putnam_2002_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all elements of the informal claim: n ≥ 2 is preserved; subsets of {1,...,n} are encoded as `S ⊆ Set.Icc 1 n` in ℤ; nonemptiness via `Nonempty S` is equivalent to `S.Nonempty` via `Set.nonempty_coe_sort`; the \"average is an integer\" condition is encoded as `∃ k : ℤ, k = (1/|S|) * (sum)` in ℝ (with `s.1 : ℤ` coerced to ℝ in the tsum since the expected type is ℝ), which is equivalent to saying the real-valued average equals an integer; Tn counts such sets via Set.ncard (well-defined since there are at most 2^n such subsets); and the conclusion `Even (Tn - n)` matches \"T_n - n is always even\" with n universally quantified. The coercion of Tn from ℕ to ℤ is lossless, and the tsum reduces to a finite sum because S is finite.",
+  "duration_ms": 284680,
+  "cost_usd": 0.8281005000000002
+}

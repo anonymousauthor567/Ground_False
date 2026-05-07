@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "informal": "Prove that $\\lim_{n \\rightarrow \\infty} \\sum_{i < n} a_i = \\infty$, where $a_i = \\sqrt{i + 1} -\\sqrt{i}$.",
+  "lean": "\ntheorem Rudin_exercise_3_6a\n: Tendsto (λ (n : ℕ) => (∑ i ∈ range n, g i)) atTop atTop",
+  "verdict": "faithful",
+  "reasoning": "Assuming `g` is defined elsewhere as `g i = √(i+1) − √i` (standard ProofNet convention), the Lean statement asserts that the partial sums `∑ i < n, g i` tend to `+∞` as `n → ∞`, which is exactly the informal claim that `lim_{n→∞} ∑_{i<n} a_i = ∞`. The use of `Tendsto … atTop atTop` is the standard Mathlib encoding of \"diverges to +∞\", and `Finset.range n` corresponds to `i < n`. No extra hypotheses are added and no quantifier structure is changed.",
+  "duration_ms": 9878,
+  "cost_usd": 0.05159175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a5.lean",
+  "stem": "putnam_1986_a5",
+  "verdict": "faithful",
+  "reasoning": "The informal statement's explicit definition of \"linear\" ($a_0 + a_1 x_1 + \\ldots + a_n x_n$) is actually affine (includes constant), while the Lean uses `IsLinearMap ℝ` (strict linear, no constant). However, the two existential claims are logically equivalent: strict linear trivially implies affine, and given any $g$ satisfying the affine property with $(f_i + \\partial g/\\partial x_i)(x) = b_i + \\sum_j a_{ij}x_j$, one can define $g'(x) = g(x) - \\sum_i b_i x_i$ so that $f_i + \\partial g'/\\partial x_i = \\sum_j a_{ij}x_j$ is strict linear. This modification works in every model, so the two ∃-statements are equivalent under standard mathematical reading. Other components (ContDiff 2, fderiv with Pi.single for partial derivatives, constants $c_{ij}$, quantifier structure) correctly match the informal statement.",
+  "duration_ms": 429970,
+  "cost_usd": 1.0617925000000001
+}

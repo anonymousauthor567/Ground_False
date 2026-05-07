@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches Munkres's claim precisely. Munkres defines \"X is locally compact at x\" as: there exists a compact subspace C containing a neighborhood of x, which is exactly what `hx : ∃ U, x ∈ U ∧ IsOpen U ∧ (∃ K, U ⊆ K ∧ IsCompact K)` expresses. Munkres's convention treats \"neighborhood of x\" as an open set containing x, which matches both the way U is encoded (IsOpen U ∧ x ∈ U) and the way V is produced (IsOpen V ∧ x ∈ V). The conclusion `IsCompact (closure V) ∧ closure V ⊆ U` literally transcribes \"V̄ is compact and V̄ ⊂ U\". The Hausdorff hypothesis is encoded via T2Space. Quantifier structure (∀ U, ∃ V) is preserved. There is no weakening or strengthening.",
+  "duration_ms": 129529,
+  "cost_usd": 0.380217
+}

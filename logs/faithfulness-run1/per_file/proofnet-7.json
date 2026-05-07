@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-7.lean",
+  "stem": "proofnet-7",
+  "informal": "Prove that two elements $a, b$ of a group generate the same subgroup as $b a b^2, b a b^3$.",
+  "lean": "\ntheorem Artin_exercise_6_8_1 {G : Type*} [Group G]\n  (a b : G) : closure ({a, b} : Set G) = Subgroup.closure {b*a*b^2, b*a*b^3}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that {a, b} and {bab², bab³} generate the same subgroup of G. The Lean signature states exactly this: the subgroup closure of {a, b} equals the subgroup closure of {b*a*b^2, b*a*b^3} in an arbitrary group G. Both sides use `Subgroup.closure` (the unqualified `closure` on the left resolves to `Subgroup.closure` in this context), the universal quantification over arbitrary groups is preserved via `{G : Type*} [Group G]`, and a, b are arbitrary elements. No extra hypotheses (like finiteness or commutativity) are introduced, and no direction of the equality is dropped.",
+  "duration_ms": 9093,
+  "cost_usd": 0.048240000000000005
+}

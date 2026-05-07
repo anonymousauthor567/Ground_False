@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "informal": "Let $f$ and $g$ be continuous mappings of a metric space $X$ into a metric space $Y$, and let $P$ be a dense subset of $X$. Prove that if $g(p) = f(p)$ for all $p \\in P$ then $g(p) = f(p)$ for all $p \\in X$.",
+  "lean": "\ntheorem Rudin_exercise_4_4b\n  {α : Type} [MetricSpace α]\n  {β : Type} [MetricSpace β]\n  (f g : α → β)\n  (s : Set α)\n  (h₁ : Continuous f)\n  (h₂ : Continuous g)\n  (h₃ : Dense s)\n  (h₄ : ∀ x ∈ s, f x = g x)\n  : f = g",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show f(p) = g(p) for all p ∈ X given that f, g are continuous maps between metric spaces and agree on a dense subset P. The Lean signature introduces metric spaces α and β, continuous functions f and g, a set s with `Dense s`, and the hypothesis that f x = g x on s, concluding `f = g`. By function extensionality, `f = g` is equivalent to ∀ x, f x = g x, matching the informal conclusion. All hypotheses (continuity of both, density of s, agreement on s) correspond exactly. No extra or missing assumptions.",
+  "duration_ms": 7078,
+  "cost_usd": 0.04531650000000001
+}

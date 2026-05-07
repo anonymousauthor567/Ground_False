@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "theorem_name": "Dummit_Foote_exercise_2_1_13_corrected",
+  "informal": "Let $H$ be a subgroup of the additive group of rational numbers with the property that $1 / x \\in H$ for every nonzero element $x$ of $H$. Prove that $H=0$ or $\\mathbb{Q}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_2_1_13_corrected (H : AddSubgroup ℚ)\n    (hH : ∀ ⦃x : ℚ⦄, x ∈ H → x ≠ 0 → (1 / x) ∈ H) :\n    H = ⊥ ∨ H = ⊤",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"H is an additive subgroup of ℚ\" via `AddSubgroup ℚ`, matching the informal hypothesis exactly. The closure condition `∀ x ∈ H, x ≠ 0 → 1/x ∈ H` precisely mirrors \"1/x ∈ H for every nonzero x ∈ H\". The conclusion `H = ⊥ ∨ H = ⊤` corresponds to \"H is the trivial subgroup {0} or all of ℚ\", which matches \"H = 0 or H = ℚ\". No extra hypotheses (finiteness, decidability, etc.) are imposed and none are dropped, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 11994,
+  "cost_usd": 0.066561
+}

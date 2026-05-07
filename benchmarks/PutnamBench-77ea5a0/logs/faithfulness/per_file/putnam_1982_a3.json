@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1982_a3.lean",
+  "stem": "putnam_1982_a3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to evaluate $\\int_0^{\\infty} \\frac{\\tan^{-1}(\\pi x) - \\tan^{-1} x}{x} dx$. The Lean formalization encodes this as the limit $\\lim_{t \\to \\infty} \\int_0^t \\frac{\\arctan(\\pi x) - \\arctan x}{x} dx$, which is the standard definition of the improper integral $\\int_0^\\infty$. The integrand matches literally, and the claimed value $(\\pi/2)\\log\\pi$ is the correct Frullani integral value. Since the integrand is absolutely integrable on $(0,\\infty)$, the improper Riemann interpretation coincides with the Lebesgue interpretation, so using `Tendsto ... atTop` is faithful. The `intervalIntegral` from 0 to t with t → ∞ is the conventional encoding of $\\int_0^\\infty$ in Mathlib.",
+  "duration_ms": 77576,
+  "cost_usd": 0.27543674999999995
+}

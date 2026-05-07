@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the Hardy-Ramanujan taxicab problem faithfully. It asserts 1729 = sInf of the set of positive natural numbers n admitting two representations n = x³+y³ = z³+w³ with x≠y, z≠w, and {x,y}∩{z,w}=∅. The disjointness conditions (x≠z, x≠w, y≠z, y≠w) are equivalent to \"two different unordered pairs\" in ℕ, since if two pairs of distinct positive integers share one element and their cube-sums are equal, they must coincide. The use of ℕ with positivity instead of a literal reading of \"integral cubes\" as ℤ is making an implicit premise explicit: without positivity, the literal statement is false (e.g., 0 = 1³+(-1)³ = 2³+(-2)³, or 91 = 6³+(-5)³ = 4³+3³ in ℤ). The standard convention of the taxicab problem requires positive integers, so this is the worked-example pattern of surfacing an implicit assumption needed for truth, not a weakening.",
+  "duration_ms": 225034,
+  "cost_usd": 0.5917657500000001
+}

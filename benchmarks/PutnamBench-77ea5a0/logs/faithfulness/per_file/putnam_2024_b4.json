@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2024_b4.lean",
+  "stem": "putnam_2024_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal problem. `pdf.IsUniform (m n k) (Set.Icc 1 n) ℙ (uniformOn (Set.Icc 1 n))` correctly states that m_{n,k} is uniformly distributed on {1,...,n} ⊂ ℤ (since conditioning `cond count S` on `S` again yields the same measure). The recursion in h₂ matches the three-case definition verbatim. The hypothesis `a n 0 = 1` (as functions Ω → ℤ) matches a_{n,0}=1. The conclusion `(∫ ω, a n n ω : ℝ)/n` with type ascription correctly computes E[a_{n,n}]/n as a real via coercion, and `Filter.Tendsto ... atTop` captures the n → ∞ limit. The `iIndepFun m.uncurry` assumes joint independence across all (n,k), which is stronger than needed per-n but does not change the value of E[a_{n,n}] (which depends only on the marginals for the specific n), so the limit is unchanged. The `0 < n` guards are natural since {1,...,0} is empty, and n=0 is irrelevant for the limit at infinity.",
+  "duration_ms": 458237,
+  "cost_usd": 1.3468282499999997
+}

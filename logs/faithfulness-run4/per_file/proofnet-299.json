@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly. `I := Icc 0 1` used as a subtype makes `f : ℕ → I → ℝ` match $f_n : [0,1] \\to \\mathbb{R}$, and `h : ∀ x n, f n x = ↑x ^ n` specifies the defining equation $f_n(x) = x^n$ (with `↑x : ℝ` and the usual `ℝ → ℕ → ℝ` power). Per Mathlib's definition (`TendstoUniformly F f p := ∀ u ∈ 𝓤 β, ∀ᶠ n in p, ∀ x, (f x, F n x) ∈ u`), `TendstoUniformly f f₀ atTop` on the subtype `I` is exactly uniform convergence of $f_n$ to $f_0$ on $[0,1]$. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` precisely expresses \"the sequence does not converge uniformly\" — i.e., no limit function exists. No hypotheses are added or omitted, and no quantifier structure is altered.",
+  "duration_ms": 84677,
+  "cost_usd": 0.25690225
+}

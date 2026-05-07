@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "informal": "Prove that if $G$ is an abelian group of order $p q$, where $p$ and $q$ are distinct primes, then $G$ is cyclic.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_4_2 {G : Type*} [Fintype G] [CommGroup G]\n  {p q : Nat.Primes} (hpq : p ≠ q) (hG : card G = p*q) :\n  IsCyclic G",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes G to be a finite (Fintype) commutative group (CommGroup), with p and q ranging over Nat.Primes (so they are primes), assumes p ≠ q (distinct), and that |G| = p*q, concluding IsCyclic G. This matches the informal hypotheses (abelian group of order pq, p and q distinct primes) and the informal conclusion (G is cyclic) exactly. Finiteness is implicit in the informal statement since |G| = pq is finite, so adding [Fintype G] is not an extra assumption. No hypothesis is missing or added beyond what the informal statement requires.",
+  "duration_ms": 7740,
+  "cost_usd": 0.045209250000000006
+}

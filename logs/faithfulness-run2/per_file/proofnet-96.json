@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `hl` and `hl1` together uniquely determine `l` to be the von Mangoldt function Λ: `hl` pins down the value log p on every prime power p^n (n ≥ 1), and `hl1` forces the value 0 on every non-prime-power (including 0 and 1, since Mathlib's `IsPrimePow` requires the exponent to be positive). By unique factorization, p^n with n ≥ 1 uniquely determines the prime p, so `hl` is well-defined. The conclusion states the function equality l = (n ↦ ∑_{d ∣ n} μ(n/d) log d), which is exactly the identity Λ(n) = ∑_{d ∣ n} μ(n/d) log d claimed informally (for n = 0 both sides are 0 since `Nat.divisors 0 = ∅`). No extra hypotheses are added and none are dropped, and the quantifier structure matches.",
+  "duration_ms": 45249,
+  "cost_usd": 0.17776674999999997
+}

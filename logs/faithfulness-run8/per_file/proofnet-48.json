@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim exactly. The ambient set A is encoded as `α` with `[Fintype α]` and `Fintype.card α > 1` captures |A|>1. The permutation group G is `Subgroup (Equiv.Perm α)`. Transitivity is encoded as `∀ a b, ∃ σ : G, (σ : Equiv.Perm α) a = b`, which is precisely the Mathlib definition `MulAction.IsPretransitive.exists_smul_eq`; since |A|>1 implies α nonempty, this coincides with classical transitivity. The conclusion `∃ σ : G, ∀ a : α, (σ : Equiv.Perm α) a ≠ a` is a literal rendering of \"some σ ∈ G with σ(a) ≠ a for all a ∈ A\". No hypothesis is added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 56800,
+  "cost_usd": 0.19814174999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "S_0056.lean",
+  "stem": "S_0056",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the classical theorem that $G : D \\to C$ has a left adjoint iff $R = \\mathrm{Ran}_G \\mathrm{Id}_D$ exists and is preserved by $G$. (1) `G.IsRightAdjoint` is Mathlib's \"G has a left adjoint\" (line 121 of Adjunction/Basic.lean). (2) The existence `∃ R α, R.IsRightKanExtension α` with `α : G ⋙ R ⟶ 𝟭 D` correctly encodes existence of the right Kan extension $R : C \\to D$ of $\\mathrm{Id}_D$ along $G$. (3) `(R ⋙ G).IsRightKanExtension β`, where β is the whiskered $\\alpha$ composed with the associator/unitor, says that $(R \\circ G)$ with the induced natural transformation is a right Kan extension of $G$ along $G$ — this is the standard definition of \"G preserves the Kan extension\" (equivalent to the comparison map $G \\circ R \\to \\mathrm{Ran}_G G$ being iso). The types, direction of natural transformations, and quantifier structure all match the informal statement.",
+  "duration_ms": 223165,
+  "cost_usd": 1.0577135000000002
+}

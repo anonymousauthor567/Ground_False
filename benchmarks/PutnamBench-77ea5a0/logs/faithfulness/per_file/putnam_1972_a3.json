@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_a3.lean",
+  "stem": "putnam_1972_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. Although f is typed as ℝ → ℝ instead of [0,1] → ℝ, the `supercontinuous` predicate only examines f on sequences with values in Icc 0 1, and the solution set `{f | ∃ A B, ∀ x ∈ Icc 0 1, f x = A*x + B}` only constrains f on [0,1] — so the behavior outside [0,1] is irrelevant on both sides, making this equivalent to the informal problem about functions on [0,1]. The climit_exists definition (∑_{i<n} x_i)/n → C matches the standard Cesaro-limit convention (consistent with Mathlib's `Filter.Tendsto.cesaro`). The supercontinuous condition \"for any x-sequence in [0,1] with Cesaro limit, f∘x has a Cesaro limit\" directly encodes the informal definition. The restriction `x i ∈ Icc 0 1` surfaces the implicit premise that the sequence must lie in the domain of f.",
+  "duration_ms": 117461,
+  "cost_usd": 0.41006850000000006
+}

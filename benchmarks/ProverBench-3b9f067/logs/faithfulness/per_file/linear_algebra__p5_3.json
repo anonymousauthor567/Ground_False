@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p5_3.lean",
+  "stem": "linear_algebra__p5_3",
+  "verdict": "incomparable",
+  "reasoning": "The `swapRows` definition is buggy: when `k = i`, it returns `A k j` (a single element `A i j`) instead of `A j l` (the j-th row's l-th entry). Concretely, for A = !![1,2;3,4] with i=0, j=1, the definition produces !![2,2;3,3] — a matrix with constant rows and determinant 0, not the actual row-swapped matrix !![3,4;1,2] with determinant 2. Therefore the first conjunct `det (swapRows A i j) = -det A` is a claim about a broken operation that does NOT correspond to \"interchanging two rows\" and is generally false. (The `swapColumns` definition is actually correct.) Since the Lean theorem asserts a claim about a mathematically different (and broken) operation rather than actual row interchange, it is not a faithful formalization: the informal claim is true but the Lean's first conjunct makes a semantically different and generally false assertion about a non-row-swap operation, so the two statements are not in a meaningful implication relationship.",
+  "duration_ms": 892944,
+  "cost_usd": 0.9213925000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `countably_compact X` quantifies over sequences `U : ℕ → Set X` of opens covering the universe and asserts the existence of a finite subcover — equivalent to \"every countable open cover has a finite subcover\" since any countable collection can be enumerated by ℕ with repetition. The definition `limit_point_compact_strong X` says every infinite subset U has some x with `ClusterPt x (𝓟 (U \\ {x}))`, which unfolds to: every neighborhood of x meets U \\ {x} — exactly Munkres's \"x is a limit point of U.\" The theorem's hypothesis `T1Space X` is the standard T1 axiom, and the conclusion is the iff asserted in the exercise. All quantifier structures, types, and mathematical objects match the informal claim.",
+  "duration_ms": 44528,
+  "cost_usd": 0.16406125
+}

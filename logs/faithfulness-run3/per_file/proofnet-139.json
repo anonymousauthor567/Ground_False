@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that an uncountable subset E of ℝ has a condensation point — a point p such that every neighborhood of p contains uncountably many points of E. The Lean signature encodes this exactly: the hypothesis `¬ Set.Countable E` matches \"E is uncountable\", and the conclusion `∃ p : ℝ, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E)` is precisely the standard definition of a condensation point (every neighborhood intersects E in an uncountable set). The quantifier structure, ambient type (ℝ), and mathematical content all match. No hypotheses are added or dropped, and the conclusion neither strengthens nor weakens the claim.",
+  "duration_ms": 13480,
+  "cost_usd": 0.06262050000000001
+}

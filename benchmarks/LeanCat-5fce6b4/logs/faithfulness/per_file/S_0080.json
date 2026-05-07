@@ -1,0 +1,8 @@
+{
+  "file": "S_0080.lean",
+  "stem": "S_0080",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in an abelian category, a morphism is an isomorphism iff it is both monic and epic. The Lean signature fixes `C` with `[Category C] [Abelian C]`, takes an arbitrary morphism `f : X ⟶ Y`, and states `IsIso f ↔ (Mono f ∧ Epi f)`. These correspond exactly: `IsIso` is \"isomorphism\", `Mono f` is \"monic\", `Epi f` is \"epic\", and `↔` is \"if and only if\". Abelian categories are balanced in Mathlib (via `IsNormalMonoCategory` → `IsRegularMonoCategory` → `StrongMonoCategory` → `Balanced`), so this is the standard encoding. No hypotheses are added or dropped, no types are altered, and quantification over `f` is preserved. This is a direct, logically equivalent formalization.",
+  "duration_ms": 127439,
+  "cost_usd": 0.8645515
+}

@@ -1,0 +1,8 @@
+{
+  "file": "59.lean",
+  "stem": "59",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts unique existence of an additive valuation on FractionRing(MvPolynomial(Fin 2) k) = k(X,Y) whose restriction to polynomials matches the formula min{n+mα : c_{n,m}≠0} (via Finset.inf over the image in WithTop ℝ, which correctly gives ⊤ for zero and min otherwise). The informal \"determines a valuation\" is captured by existence; uniqueness is a free consequence of valuation extension to a fraction field. The value group claim (Z+Zα) is not explicitly stated in Lean, but it is a direct logical consequence of the existence: v(X)=1, v(Y)=α, v(f/g)=v(f)-v(g), and v(f)∈Z+Zα for polynomials, so image(v) on k(X,Y)^× equals exactly Z+Zα. Thus the Lean statement is logically equivalent to the informal claim — neither strictly weaker nor stronger.",
+  "duration_ms": 1212992,
+  "cost_usd": 2.651898
+}

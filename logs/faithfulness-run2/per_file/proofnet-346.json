@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches each component of the informal statement: complete metric space (`[MetricSpace X] [CompleteSpace X]`), closed (`IsClosed`), nonempty (`Nonempty`), bounded (`Bornology.IsBounded`), nested with `E n ⊇ E (n+1)`, and `Metric.diam` tending to 0. The conclusion `∃ a, Set.iInter E = {a}` correctly encodes \"the intersection consists of exactly one point\" as a singleton set. The indexing difference (informal starts at 1, Lean ℕ starts at 0) is irrelevant since the sequence is decreasing so the intersections coincide. All hypotheses and conclusions match in quantifier structure and content.",
+  "duration_ms": 39257,
+  "cost_usd": 0.09728224999999999
+}

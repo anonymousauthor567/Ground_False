@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: holomorphic is formalized as `DifferentiableOn ℂ f Ω`, \"Im(f) is constant\" is `∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c`, and \"f is constant\" is `∀ a b : Ω, f a = f b`. The only notable addition is `IsPreconnected Ω`. Without connectedness, the claim is literally false (take Ω to be two disjoint open disks with f = 0 on one and f = 1 on the other; Im(f) = 0 is constant but f is not). In complex analysis, statements of the form \"f holomorphic on Ω and [property] implies f constant\" implicitly require Ω to be a domain (open and connected), so adding `IsPreconnected` makes an implicit premise explicit that is needed for the theorem to be true. This qualifies as a faithful formalization per the guidance on surfacing implicit premises.",
+  "duration_ms": 98533,
+  "cost_usd": 0.321283
+}

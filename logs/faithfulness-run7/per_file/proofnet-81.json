@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement fixes cyclic groups G₁, G₂ of orders m, n and claims G₁×G₂ is cyclic iff gcd(m,n)=1. The Lean version introduces finite groups G, H with `Fintype` instances and hypotheses `IsCyclic G`, `IsCyclic H`, then states `IsCyclic (G × H) ↔ (card G).Coprime (card H)`. The `Fintype` assumption is the implicit premise of the informal statement (\"orders m and n\" are natural numbers, so the groups are finite). With `open Fintype`, `card G = Fintype.card G` equals the group order m, and `Nat.Coprime` expresses relative primality. This matches Mathlib's `Group.isCyclic_prod_iff`: given `IsCyclic G` and `IsCyclic H`, the product's cyclicity is equivalent to coprimality of the orders. No hypotheses are dropped or added beyond what the informal statement presupposes, and the conclusion is a literal encoding of the iff.",
+  "duration_ms": 64717,
+  "cost_usd": 0.27885325
+}

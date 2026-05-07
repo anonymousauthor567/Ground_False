@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly captures \"no group of order pq, p, q prime, is simple.\" The implicit universal quantifier over G, p, q is encoded via implicit/explicit parameters. `[Fintype G]` together with `hG : card G = p*q` (where `card` is `Fintype.card` due to `open Fintype`) encodes \"finite group of order pq\". The hypotheses `hp : Nat.Prime p` and `hq : Nat.Prime q` capture \"p, q prime\". The conclusion `IsSimpleGroup G → false` uses the Bool→Prop coercion (interpreting `false` as `false = true`), which is logically equivalent to `¬ IsSimpleGroup G`, matching \"G is not simple\". The case p = q is correctly included (groups of order p² are indeed not simple, which matches both the informal statement and the proof). There are no extra or missing hypotheses, and the quantifier structure is correct.",
+  "duration_ms": 298336,
+  "cost_usd": 0.99293225
+}

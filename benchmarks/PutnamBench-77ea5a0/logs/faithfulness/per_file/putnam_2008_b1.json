@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b1.lean",
+  "stem": "putnam_2008_b1",
+  "verdict": "faithful",
+  "reasoning": "The informal problem asks for the maximum number of rational points that can lie on a circle in ℝ² with a non-rational center. The Lean statement uses `IsGreatest` on the set of cardinalities `n` such that there exists a center `c` (with `¬ is_rational_point c`) and radius `r` such that the set of rational points on the circle `{p | dist p c = r}` has `Set.ncard = n`. `IsGreatest S x` means `x ∈ S ∧ x ∈ upperBounds S`, which precisely encodes \"maximum\": there exists a circle achieving `n = putnam_2008_b1_solution` rational points, and no circle exceeds this. The types (`EuclideanSpace ℝ (Fin 2)` as ℝ², rational point defined as having both coordinates rational) match. Although `Set.ncard` returns 0 on infinite sets, this does not affect correctness: the actual maximum (2) is achieved and is an upper bound in the standard mathematical interpretation. Edge cases (r ≤ 0) only contribute small counts and do not change the supremum. This is a faithful formalization.",
+  "duration_ms": 445658,
+  "cost_usd": 1.6127410000000002
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "informal": "Show that $\\sum^{\\prime} 1 / n$, the sum being over square free integers, diverges.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_2_27a :\n  ¬ Summable (λ i : {p : ℤ // Squarefree p} => (1 : ℚ) / i)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim states that the sum of 1/n over (positive) squarefree integers diverges. The Lean encoding asserts that 1/i is not Summable over the subtype of squarefree integers in ℤ. Although the Lean version ranges over all of ℤ (including negative squarefree integers and ±1), this does not change the mathematical content: Summable in this context is equivalent to absolute (unconditional) summability, and the squarefree integers in ℤ are just ±(squarefree positive ℕ), so Σ |1/i| over squarefree ℤ equals 2·Σ_{n squarefree, n≥1} 1/n. Thus ¬Summable over squarefree ℤ holds iff the informal series diverges. The use of ℚ as the codomain doesn't matter for the (non-)summability claim. So the encoding faithfully captures the divergence statement.",
+  "duration_ms": 29204,
+  "cost_usd": 0.0912395
+}

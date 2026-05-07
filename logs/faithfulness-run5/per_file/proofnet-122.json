@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-122.lean",
+  "stem": "proofnet-122",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: if X is locally path connected, then every connected open set in X is path connected. The Lean formalization declares X as a `TopologicalSpace` with `[LocPathConnectedSpace X]`, takes a set U with `hU : IsOpen U` and `hcU : IsConnected U`, and concludes `IsPathConnected U`. This matches the informal claim exactly: locally path-connected space, open + connected set, path-connected conclusion. Mathlib's `IsConnected` is `Nonempty ∧ IsPreconnected` and `IsPathConnected` similarly requires a witness point, so the nonemptiness convention is consistent on both sides. The universal quantification over open connected sets is captured by the free variable U. No extra or missing hypotheses. This is a strictly faithful formalization.",
+  "duration_ms": 117992,
+  "cost_usd": 0.4365935
+}

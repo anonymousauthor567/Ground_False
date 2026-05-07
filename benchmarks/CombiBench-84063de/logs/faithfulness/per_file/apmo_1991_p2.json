@@ -1,0 +1,8 @@
+{
+  "file": "apmo_1991_p2.lean",
+  "stem": "apmo_1991_p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"997 points in a plane\" becomes `points : Fin 997 → ℝ × ℝ` with `Function.Injective points`, which makes explicit the standard implicit convention that \"997 points\" means 997 distinct points—a premise needed for the statement to be true (if all points coincide, there is only 1 red point). The `red_points` definition correctly takes midpoints (via Mathlib's `midpoint ℝ`, which on `ℝ × ℝ` is the usual Euclidean midpoint) over all pairs (i, j) with i ≠ j (by removing the diagonal from `Finset.univ`), and `Finset.card ≥ 1991` correctly expresses \"at least 1991 distinct red points.\" The bound 1991 = 2·997 − 3 is the standard tight bound for this APMO problem. No hypotheses are silently added or dropped beyond the implicit distinctness premise.",
+  "duration_ms": 157380,
+  "cost_usd": 0.40513775
+}

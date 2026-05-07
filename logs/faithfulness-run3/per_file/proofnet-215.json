@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over an arbitrary group `G` and an arbitrary element `x : G`, and asserts `orderOf x = orderOf x⁻¹`. This is exactly the claim of the informal statement: $x$ and $x^{-1}$ have the same order. Mathlib's `orderOf` correctly encodes \"order of an element\" (returning 0 for infinite order), so the equality captures the claim in both finite and infinite cases. No hypotheses are added or dropped.",
+  "duration_ms": 38066,
+  "cost_usd": 0.04561025
+}

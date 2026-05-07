@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely encodes Abel's test as stated. `h1` captures \"Σaₙ converges\" as convergence of the partial sums `∑ i ∈ range n, a i`. `h2 : Monotone b ∨ Antitone b` is exactly the real-analysis notion of \"monotonic\" (non-decreasing or non-increasing). `h3 : Bornology.IsBounded (Set.range b)` captures \"{bₙ} is bounded\" in the metric-space sense, which for ℝ matches the standard notion |bₙ| ≤ M. The conclusion asserts convergence of the partial sums of aₙbₙ, matching \"Σaₙbₙ converges\". Types (ℕ → ℝ) are correct. No extra or missing hypotheses; no change to quantifier structure or conclusion.",
+  "duration_ms": 36817,
+  "cost_usd": 0.1533095
+}

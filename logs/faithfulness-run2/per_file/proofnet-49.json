@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the universal claim \"every characteristic subgroup is normal.\" The Lean signature quantifies (implicitly) over an arbitrary group `G` and an arbitrary subgroup `H`, assumes the typeclass `Characteristic H` (Mathlib's standard definition: invariance under all automorphisms), and concludes `Normal H` (Mathlib's standard normal subgroup predicate). This is exactly the claim \"characteristic ⇒ normal\" for arbitrary G and H, with no extra or missing hypotheses. Hence it is a faithful formalization.",
+  "duration_ms": 11960,
+  "cost_usd": 0.03608475
+}

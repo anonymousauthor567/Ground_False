@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_b2.lean",
+  "stem": "putnam_2018_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding matches the informal statement exactly. The sum `∑ i ∈ Finset.range n, (n - i) * z^i` expands as $n + (n-1)z + \\cdots + 1 \\cdot z^{n-1}$ (since for $i < n$, the coerced subtraction `(n : ℂ) - (i : ℂ)` equals the natural-number difference). The hypothesis `n > 0` corresponds to \"positive integer\", and `‖z‖ ≤ 1` on `ℂ` is the standard modulus, matching the closed unit disk. The conclusion `f n z ≠ 0` captures \"no roots\". The encoding pattern where `f : ℕ → ℂ → ℂ` is given abstractly with `hf` only constraining `f n` is standard and logically equivalent to stating the claim directly about the defined polynomial.",
+  "duration_ms": 148117,
+  "cost_usd": 0.22729
+}

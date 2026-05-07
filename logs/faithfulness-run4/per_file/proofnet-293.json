@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-293.lean",
+  "stem": "proofnet-293",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `IsTopologicalBasis` applied to the set of intervals `Ioo ↑a ↑b` with `a b : ℚ` and `a < b`. Mathlib's `IsTopologicalBasis` structure requires the topology on the ambient space to equal `generateFrom s` (the third field `eq_generateFrom`), which precisely captures \"generates the standard topology\" since ℝ carries its standard topology as the default `TopologicalSpace` instance. The collection `{S : Set ℝ | ∃ a b : ℚ, a < b ∧ S = Ioo ↑a ↑b}` correctly formalizes \"open intervals (a,b) with a, b rational, a < b\" via the coercion from ℚ to ℝ. No hypotheses are dropped or added, quantifier structure matches, and the types are appropriate. This is a strictly faithful formalization.",
+  "duration_ms": 45295,
+  "cost_usd": 0.14970574999999997
+}

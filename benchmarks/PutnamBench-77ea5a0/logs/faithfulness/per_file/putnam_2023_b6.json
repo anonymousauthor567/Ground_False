@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_b6.lean",
+  "stem": "putnam_2023_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The positive integer $n$ is encoded via `n : ℕ` with `npos : n > 0`. The indices $i, j \\in \\{1,\\ldots,n\\}$ are encoded as `Fin n` with `i.1 + 1` and `j.1 + 1` giving the 1-indexed values. The count $s(i,j)$ is correctly formalized as a double tsum of an indicator: for fixed $a$, the inner tsum is 0 or 1 (since $b$ is uniquely determined), and the outer tsum has finite support (bounded $a$), so together they compute the number of nonnegative integer pairs $(a,b)$ with $a(i+1)+b(j+1)=n$. The types ℕ for $a, b$ correctly represent nonnegative integers, and the coercion to ℤ in the equation preserves the condition. The conclusion `S.det = putnam_2023_b6_solution n` correctly formalizes \"compute the determinant\".",
+  "duration_ms": 1656256,
+  "cost_usd": 0.33000749999999995
+}

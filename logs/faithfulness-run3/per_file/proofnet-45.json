@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature says: for an arbitrary group G and an arbitrary subgroup H of G, if G is solvable then H is solvable. This is exactly the informal claim \"subgroups of a solvable group are solvable.\" Mathlib's `IsSolvable` is the standard definition (derived series eventually trivial), and no hypotheses are added or dropped (no finiteness, normality, or other restrictions). The universal quantification over the ambient group G and the subgroup H is preserved via type-class/implicit arguments. Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 34569,
+  "cost_usd": 0.10569200000000001
+}

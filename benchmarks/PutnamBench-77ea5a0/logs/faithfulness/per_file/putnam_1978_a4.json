@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_a4.lean",
+  "stem": "putnam_1978_a4",
+  "verdict": "stronger",
+  "reasoning": "Part 1 of the Lean (the universal claim about bypass operations) correctly combines informal sub-items (1) and (2) into a single implication `a*b = c → (c*c = c ∧ ∀ d, a*d = c*d)`, which is logically equivalent to the informal. However, Part 2 of the Lean adds `(_ : Fintype S)` to the existential witness, requiring that the exhibited set S be finite. The informal statement merely says \"Find a set S\" with properties bypass, (A), (B), (C), without any finiteness requirement. Logically, `∃ S, ∃ Mul S, ∃ Fintype S, ...` implies `∃ S, ∃ Mul S, ...` but not conversely, so the Lean version is a strictly stronger existential claim. Since finiteness is not a premise needed for the informal statement to be true (it is an existence claim that is true regardless), this is a genuine strengthening rather than the surfacing of an implicit premise. Overall, the Lean statement implies the informal one but demands more.",
+  "duration_ms": 449738,
+  "cost_usd": 0.87590925
+}

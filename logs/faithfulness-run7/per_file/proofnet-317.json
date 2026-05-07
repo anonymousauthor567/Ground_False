@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-317.lean",
+  "stem": "proofnet-317",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely encodes the informal statement. \"Compact Hausdorff space\" is rendered as `CompactSpace X` + `T2Space X`. \"X is the union of the closed subspaces X1 and X2\" is rendered as `IsClosed X1`, `IsClosed X2`, and `X1 ∪ X2 = univ`. \"X1 and X2 are metrizable\" is encoded via `MetrizableSpace X1` and `MetrizableSpace X2`, where `X1 X2 : Set X` carry the subspace topology automatically — this correctly captures metrizability of the subspaces. The conclusion `MetrizableSpace X` matches \"X is metrizable\". Mathlib's `MetrizableSpace` class extends `PseudoMetrizableSpace` and `T0Space`, so it corresponds to the standard notion of metrizability. No hypotheses are added or dropped and no quantifier structure is changed.",
+  "duration_ms": 42839,
+  "cost_usd": 0.15455324999999998
+}

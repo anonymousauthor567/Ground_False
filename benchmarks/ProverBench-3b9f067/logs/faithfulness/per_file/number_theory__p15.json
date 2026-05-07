@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p15.lean",
+  "stem": "number_theory__p15",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully captures the informal claim. The polynomial n^8 - n^4 + 1 is correctly defined on ℕ (truncated subtraction is well-defined here since n^8 ≥ n^4). The implicit auto-bound variable `n` gives the universal quantification over ℕ as in \"For any n ∈ ℕ\". `Prime p` for p : ℕ is equivalent to Nat.Prime via Mathlib's `Nat.prime_iff`. The conclusion `∃ k : ℕ, p = 24 * k + 1` exactly matches \"of the form 24k+1, k ∈ ℕ\". The proof sketch content (about residues mod 24, quadratic residues) appropriately does not leak into the statement. No hypotheses are silently added or removed, and edge cases (n = 0 or 1 where polynomial = 1) make the theorem vacuously true, consistent with the informal claim.",
+  "duration_ms": 373665,
+  "cost_usd": 0.68666
+}

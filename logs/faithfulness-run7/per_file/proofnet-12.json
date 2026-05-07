@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts irreducibility of $x^2+1$ in $\\mathbb{F}_7$. The Lean statement quantifies over any field F with `Fintype` and `card F = 7`; any such field is (uniquely, up to isomorphism) $\\mathbb{F}_7$, and `Irreducible` on `Polynomial F` for `X^2 + 1` is preserved by ring isomorphism, so this is logically equivalent to the claim over $\\mathbb{F}_7$ specifically. The polynomial `X^2 + 1 : Polynomial F` correctly encodes $x^2+1$, and `Irreducible` in Mathlib is the standard notion of irreducibility in a monoid, which for polynomials over a field matches the textbook notion. No hypotheses are added or removed beyond what is needed to specify $\\mathbb{F}_7$.",
+  "duration_ms": 104849,
+  "cost_usd": 0.35086449999999997
+}

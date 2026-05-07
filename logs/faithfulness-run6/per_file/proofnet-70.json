@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for irreducibility of $x^2+y^2-1$ in $\\mathbb{Q}[x,y]$. The Lean formalization uses `MvPolynomial (Fin 2) ℚ`, which is exactly the polynomial ring in two variables over ℚ, with `MvPolynomial.X 0` and `MvPolynomial.X 1` as the two indeterminates. The polynomial `(MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1` correctly encodes $x^2+y^2-1$. Mathlib's `Irreducible` predicate (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) means \"not a unit and cannot be written as a product of two non-units\", which is the standard mathematical notion of irreducibility for polynomials. No hypotheses are added or omitted, and the ambient ring and element are faithfully represented. This is a strictly faithful formalization.",
+  "duration_ms": 47474,
+  "cost_usd": 0.191342
+}

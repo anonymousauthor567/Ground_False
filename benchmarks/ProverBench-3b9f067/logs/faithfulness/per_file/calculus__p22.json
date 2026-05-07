@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p22.lean",
+  "stem": "calculus__p22",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that ∫₃^9 (x² - 3) dx = 216. The Lean statement defines `f x = x^2 - 3` (matching the integrand), and formalizes the integral as `∫ x in Set.Icc 3 9, f x` — this uses the Mathlib Bochner-integral notation which unfolds to `integral (Measure.restrict volume (Set.Icc 3 9)) f`. For a continuous function on a compact interval, this Lebesgue/Bochner integral over [3, 9] coincides with the Riemann integral from 3 to 9. The claimed value 216 matches the correct antiderivative computation [x³/3 - 3x] from 3 to 9 = (243 - 27) - (9 - 9) = 216. No hypotheses are added or dropped, and the integrand, bounds, and value all correspond exactly to the informal statement.",
+  "duration_ms": 85326,
+  "cost_usd": 0.20925375000000002
+}

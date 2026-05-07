@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `MvPolynomial (Fin 2) ℚ`, which is the standard Mathlib encoding of ℚ[x,y] as a polynomial ring in two variables over ℚ. `MvPolynomial.X 0` and `MvPolynomial.X 1` correctly represent the two variables x and y, and the expression `(X 0)^2 + (X 1)^2 - 1` is exactly x²+y²-1. The `Irreducible` predicate in Mathlib captures the standard definition of irreducibility in a commutative ring (not a unit, and any factorization has a unit factor), which matches the informal notion of irreducibility for polynomials. The formalization matches the informal statement exactly.",
+  "duration_ms": 28384,
+  "cost_usd": 0.053628999999999996
+}

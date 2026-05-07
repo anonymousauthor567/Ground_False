@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-114.lean",
+  "stem": "proofnet-114",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature states exactly the informal claim. `x : ℕ → Π a, f a` is a sequence in the product space; with `[Π a, TopologicalSpace (f a)]`, `𝓝 y` automatically uses `Pi.topologicalSpace` (the standard product topology, defined as the infimum of topologies induced by the projections). `Tendsto x atTop (𝓝 y)` expresses convergence of the sequence to `y`, and `∀ i, Tendsto (λ j => (x j) i) atTop (𝓝 (y i))` expresses convergence of every coordinate/projection sequence. Both directions of the iff are present, matching \"if and only if\". No extra or missing hypotheses; this is essentially Mathlib's `tendsto_pi_nhds` at the filter `atTop` on `ℕ`.",
+  "duration_ms": 63556,
+  "cost_usd": 0.209785
+}

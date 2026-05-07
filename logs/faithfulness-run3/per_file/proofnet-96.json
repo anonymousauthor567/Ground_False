@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the von Mangoldt function via its defining properties: `hl` captures \"l(p^n) = log p for prime power p^n with n > 0\" and `hl1` captures \"l(m) = 0 if m is not a prime power\". These two hypotheses uniquely determine l as the von Mangoldt function Λ (since Mathlib's `IsPrimePow` means p^k with k ≥ 1, matching the standard convention). The conclusion asserts pointwise equality with ∑_{d|n} μ(n/d) log d, which is precisely the informal claim. The sign is correct: ∑_{d|n} μ(n/d) log d = Λ(n) (not -Λ(n)), by Möbius inversion of log n = ∑_{d|n} Λ(d). Edge cases (n=0, n=1) also match on both sides. This is a faithful formalization using abstract characterization rather than the Mathlib `vonMangoldt` definition.",
+  "duration_ms": 302476,
+  "cost_usd": 0.382237
+}

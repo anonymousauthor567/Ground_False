@@ -1,0 +1,8 @@
+{
+  "file": "91.lean",
+  "stem": "91",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The local abbreviation `CommRing.Pic R := (Skeleton <| ModuleCat.{0} R)ˣ` encodes the Picard group correctly: `Skeleton (ModuleCat R)` is a Monoid under tensor product (per `Mathlib/CategoryTheory/Monoidal/Skeleton.lean`), and its units are precisely isomorphism classes of invertible R-modules — equivalent to Mathlib's `CommRing.Pic` up to the `Shrink` universe adjustment. The ring `MvPolynomial (Fin 2) k ⧸ Ideal.span {X 0 * X 1 * (X 0 + X 1 - 1)}` is exactly $k[x,y]/(xy(x+y-1))$. The `Nonempty (... ≃* kˣ)` wrapper asserts the existence of a multiplicative/group isomorphism, which is the standard reading of \"$\\cong$\" between groups. The hypotheses (`k` is a field) and conclusion match the informal statement with no added or dropped assumptions.",
+  "duration_ms": 331271,
+  "cost_usd": 0.6353174999999999
+}

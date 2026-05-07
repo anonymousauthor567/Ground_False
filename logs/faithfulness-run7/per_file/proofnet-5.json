@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. The hypothesis `IsCyclic (G ⧸ center G)` faithfully encodes \"G/Z is cyclic\", where Z = center G. The conclusion `center G = ⊤` means Z = G, which is precisely \"G = Z\" from the informal statement. By Mathlib's `CommGroup.center_eq_top` (and the converse `Group.commGroupOfCenterEqTop`), `center G = ⊤` is equivalent to G being abelian, so the single Lean conclusion captures both \"G is abelian\" and \"G = Z\" (which are equivalent). The universal quantification over groups is preserved, and no extraneous hypotheses (Fintype, Nonempty, etc.) are added or needed.",
+  "duration_ms": 36444,
+  "cost_usd": 0.17663574999999998
+}

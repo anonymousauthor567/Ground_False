@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely: F is a field, p ≠ 0 and CharP F p together correctly encode \"characteristic p ≠ 0\" (for a field this automatically forces p to be prime), n > 0 matches \"positive integer n\", m = p^n matches the definition of m, and a, b are universally quantified over F with the conclusion (a+b)^m = a^m + b^m. The hypotheses and conclusion match exactly, with no extra or missing constraints. This is the standard \"freshman's dream\"/Frobenius statement and the formalization captures its logical content faithfully.",
+  "duration_ms": 38177,
+  "cost_usd": 0.11308275000000001
+}

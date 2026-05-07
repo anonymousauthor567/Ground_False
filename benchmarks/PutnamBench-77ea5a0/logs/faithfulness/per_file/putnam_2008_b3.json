@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b3.lean",
+  "stem": "putnam_2008_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal Putnam problem. H is the 4D unit hypercube centered at origin ({P | ∀ i, |P i| ≤ 1/2}, side length 1). A \"circle of radius r contained in H\" is encoded as: there is a 2D affine subspace A (via Module.finrank ℝ A.direction = 2) with a point C ∈ A such that sphere C r ∩ A ⊆ H. Since C ∈ A and A is 2-dimensional, the intersection sphere C r ∩ A = {y ∈ A | dist y C = r} is precisely a circle of radius r in the plane A. IsGreatest contains (√2/2) states that √2/2 is in contains and is an upper bound — correctly capturing \"the largest possible radius\". The hypercube placement is arbitrary by translation/rotation invariance, so using the centered hypercube is faithful. Degenerate cases (r ≤ 0) don't affect the maximum.",
+  "duration_ms": 185032,
+  "cost_usd": 0.409909
+}

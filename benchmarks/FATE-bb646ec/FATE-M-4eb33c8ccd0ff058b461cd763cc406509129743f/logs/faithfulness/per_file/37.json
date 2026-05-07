@@ -1,0 +1,8 @@
+{
+  "file": "37.lean",
+  "stem": "37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the biconditional: R is a P.I.D. iff R is a U.F.D. and a Bezout Domain. The Lean encoding uses `[CommRing R] [IsDomain R]` as ambient hypotheses, which correctly captures the \"Domain\" part common to all three notions (P.I.D., U.F.D., Bezout Domain). The conclusions are: `IsPrincipalIdealRing R` (Mathlib's definition: all ideals are principal — combined with IsDomain gives PID), `UniqueFactorizationMonoid R` (Mathlib's UFD notion under IsDomain), and `IsBezout R` (every finitely generated ideal is principal — combined with IsDomain gives Bezout domain). The logical structure (iff between PID and the conjunction of UFD and Bezout) and all the mathematical objects match exactly. This is a standard and faithful formalization; indeed Mathlib's own `IsBezout.TFAE` confirms this equivalence.",
+  "duration_ms": 84196,
+  "cost_usd": 0.3514735
+}

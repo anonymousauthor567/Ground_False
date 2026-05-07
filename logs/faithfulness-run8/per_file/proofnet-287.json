@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. The informal phrasing \"x^4 ≡ 2 (p) has a solution for p ≡ 1 (4) iff p is of the form A^2 + 64B^2\" is from Ireland-Rosen's chapter on biquadratic residues, where \"p\" conventionally denotes a prime; making `p.Prime` explicit surfaces that implicit premise (needed for the statement to be meaningful and true). The hypothesis `p ≡ 1 [MOD 4]` faithfully captures \"p ≡ 1 (4)\". The existential `∃ x, x^4 ≡ 2 [MOD p]` with x : ℕ is equivalent to the same existence over ℤ (any integer solution reduces mod p to a natural representative). The conclusion `∃ A B, p = A^2 + 64*B^2` with A, B : ℕ is equivalent to the same over ℤ because squaring eliminates signs. The iff structure matches. No hypotheses are silently dropped or strengthened beyond what the informal statement implicitly requires.",
+  "duration_ms": 232579,
+  "cost_usd": 1.1245947500000002
+}

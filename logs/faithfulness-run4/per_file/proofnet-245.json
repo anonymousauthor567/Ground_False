@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each element of the informal claim exactly. `[Ring R] [Ring S]` with `φ : R →+* S` encodes \"homomorphism of rings\"; `Function.Surjective φ` encodes \"surjective\"; and `φ '' (center R) ⊆ center S` (with `center` from `Set` due to `open Set`) expresses \"the image of the center of R is contained in the center of S\". `Set.center` for a (non-unital, non-associative) ring is defined as `{z | IsMulCentral z}`, which coincides with the standard ring-theoretic center. No hypotheses are added or dropped, and the conclusion is neither weaker nor stronger than asked.",
+  "duration_ms": 76652,
+  "cost_usd": 0.2284625
+}

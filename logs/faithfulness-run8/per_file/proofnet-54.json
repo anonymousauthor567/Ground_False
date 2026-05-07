@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-54.lean",
+  "stem": "proofnet-54",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `[Fintype G] [Group G]` with `hG : card G = 200` (where `card` resolves to `Fintype.card` via `open Fintype`) exactly expresses 'a group of order 200'. The conclusion `∃ N : Sylow 5 G, N.Normal` says there exists a Sylow 5-subgroup that is normal — which is precisely 'has a normal Sylow 5-subgroup'. The `Sylow 5 G` structure from Mathlib's GroupTheory/Sylow.lean encodes maximal 5-subgroups, and `N.Normal` is the standard normality predicate inherited via the coercion to `Subgroup G`. The implicit universal quantification over G is captured by the theorem's type variables. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 85086,
+  "cost_usd": 0.27892025
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "theorem_name": "Ireland_Rosen_exercise_4_5_corrected",
+  "informal": "Consider a prime $p$ of the form $4 t+3$. Show that $a$ is a primitive root modulo $p$ iff $-a$ has order $(p-1) / 2$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_4_5_corrected {p t : ℕ} (hp0 : p.Prime) (hp1 : p = 4 * t + 3)\n  (a : (ZMod p)ˣ) :\n  IsPrimitiveRoot (a : ZMod p) (p - 1) ↔\n    IsPrimitiveRoot (- (a : ZMod p)) ((p - 1) / 2)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes p is prime and equals 4t+3 (matching the informal hypothesis that p is a prime of form 4t+3). It then states the iff: `IsPrimitiveRoot a (p-1)` (a has order p-1, i.e., a is a primitive root mod p) iff `IsPrimitiveRoot (-a) ((p-1)/2)` (-a has order (p-1)/2). The element a is given as a unit of ZMod p, which is appropriate since being a primitive root requires a to be a unit (and -a a unit follows). The biconditional and quantifier structure faithfully match \"a is a primitive root iff -a has order (p-1)/2\". No extra or missing hypotheses materially alter the claim.",
+  "duration_ms": 14443,
+  "cost_usd": 0.060713500000000004
+}

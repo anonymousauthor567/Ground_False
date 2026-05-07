@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal statement: G is a commutative group, there exist elements of orders m and n (via `orderOf g = m/n`), m and n are coprime (`Nat.Coprime`), and the conclusion is the existence of an element of order m·n. The types, quantifier structure, and logical form all match. Edge cases where m or n is 0 (which in Mathlib means infinite order) are constrained by coprimality (forcing the other to be 1), and the statement remains consistent in those cases. This is a strictly faithful formalization.",
+  "duration_ms": 27466,
+  "cost_usd": 0.08131125000000002
+}

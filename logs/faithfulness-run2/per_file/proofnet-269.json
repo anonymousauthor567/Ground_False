@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the group of invertible 2×2 matrices over Z_2 is isomorphic to S_3. In Lean, `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)` is exactly GL(2, Z_2), i.e. the group of 2×2 matrices over Z_2 that are invertible (equivalent to having nonzero determinant, since Z_2 is a field). `Equiv.Perm (Fin 3)` is S_3, the symmetric group on 3 elements. The connective `≃*` is `MulEquiv`, which is group isomorphism, and wrapping it in `Nonempty` expresses \"there exists such an isomorphism,\" which is the standard meaning of \"is isomorphic to.\" So the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 9094,
+  "cost_usd": 0.050293250000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement takes arbitrary metric spaces α and β, continuous functions f, g : α → β, a dense subset s, and the hypothesis that f = g on s, and concludes f = g. The conclusion `f = g` is equivalent by function extensionality to \"f(p) = g(p) for all p ∈ X\", matching the informal conclusion. `Dense s` in Mathlib (`∀ x, x ∈ closure s`) is exactly the standard notion of dense subset. Hypotheses and quantifier structure match the informal statement exactly, with no extra or missing assumptions.",
+  "duration_ms": 29416,
+  "cost_usd": 0.11761
+}

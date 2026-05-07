@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. Polynomials f and g have rational coefficients (Polynomial ℚ). The hypothesis `∀ n : ℕ, ∃ a : ℤ, (f * g).coeff n = a` states that every coefficient of f·g is (equal to the ℤ→ℚ coercion of) an integer — exactly \"f(x)g(x) has integer coefficients\". Indices i, j are taken as parameters before the hypothesis, giving effective universal quantification over \"any coefficient of f\" and \"any coefficient of g\". The conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` asserts that the product is an integer (via the standard ℤ→ℚ coercion pattern). The quantifier structure, types, hypothesis, and conclusion all align with the informal claim.",
+  "duration_ms": 64951,
+  "cost_usd": 0.18790924999999997
+}

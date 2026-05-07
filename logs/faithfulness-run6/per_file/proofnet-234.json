@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `H.subgroupOf K` is defined as `H.comap K.subtype` in Mathlib, which under `H ≤ K` corresponds to viewing H as a subgroup of K. The typeclass `(H.subgroupOf K).Characteristic` thus precisely encodes \"H is characteristic in K\" (every automorphism of K fixes H as a subset of K). `K.Normal` and the conclusion `H.Normal` express normality in the ambient group G. The hypothesis `H ≤ K` is explicitly supplied, matching the informal setup. There are no extra or missing hypotheses, and no drift in the conclusion or quantifier structure.",
+  "duration_ms": 75919,
+  "cost_usd": 0.284304
+}

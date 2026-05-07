@@ -1,0 +1,8 @@
+{
+  "file": "61.lean",
+  "stem": "61",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that X^4+1 is not irreducible over any field of positive characteristic. The Lean formalization universally quantifies over a field F and a prime p with [Fact p.Prime] and [CharP F p], and concludes ¬ Irreducible (X^4 + C 1 : F[X]). Since the characteristic of a field is always 0 or prime, \"field of positive characteristic\" is exactly equivalent to \"field F for which there exists a prime p with CharP F p\". The universal quantification in the Lean signature (over both F and p) captures the informal \"any field\". The polynomial X^4 + C 1 is literally X^4 + 1 in F[X] since C 1 = 1. `Irreducible` is the standard Mathlib irreducibility notion. No hypotheses are added or omitted beyond what the informal statement implicitly requires.",
+  "duration_ms": 131593,
+  "cost_usd": 0.3427515
+}

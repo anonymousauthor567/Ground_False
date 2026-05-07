@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "theorem_name": "Dummit_Foote_exercise_7_2_2_corrected",
+  "informal": "Let $p(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\\cdots+a_{1} x+a_{0}$ be an element of the polynomial ring $R[x]$. Prove that $p(x)$ is a zero divisor in $R[x]$ if and only if there is a nonzero $b \\in R$ such that $b p(x)=0$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_2_2_corrected {R : Type*} [CommRing R] (p : Polynomial R) :\n    (∃ q : Polynomial R, q ≠ 0 ∧ p * q = 0) ↔\n      (∃ b : R, b ≠ 0 ∧ b • p = 0)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is McCoy's theorem: in R[x] (R commutative), p(x) is a zero divisor iff some nonzero constant b kills it. The Lean signature encodes \"p is a zero divisor\" as ∃ q ≠ 0, p*q = 0, which is the standard definition (a left/two-sided zero divisor in a commutative ring), and encodes \"there is a nonzero b ∈ R with b·p(x) = 0\" as ∃ b ≠ 0, b • p = 0, where scalar multiplication of a polynomial by an element of R is the natural action and is equivalent to multiplication by the constant polynomial C b. The CommRing R hypothesis matches the standard ambient setting (Dummit & Foote work in commutative rings here, and McCoy's theorem requires commutativity). The biconditional, the quantifier structure, and the types all match the informal claim.",
+  "duration_ms": 14517,
+  "cost_usd": 0.06233875000000001
+}

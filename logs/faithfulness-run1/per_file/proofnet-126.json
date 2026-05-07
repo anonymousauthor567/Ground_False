@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "informal": "Show that the rationals $\\mathbb{Q}$ are not locally compact.",
+  "lean": "\ntheorem Munkres_exercise_29_1 : ¬ LocallyCompactSpace ℚ",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that ℚ (with its standard topology as a subspace of ℝ) is not locally compact. The Lean signature asserts ¬ LocallyCompactSpace ℚ, where ℚ carries its standard topological space instance from Mathlib (the subspace topology from ℝ, equivalently the order topology). LocallyCompactSpace is the standard Mathlib notion of local compactness. This matches the informal claim exactly.",
+  "duration_ms": 5512,
+  "cost_usd": 0.04035475
+}

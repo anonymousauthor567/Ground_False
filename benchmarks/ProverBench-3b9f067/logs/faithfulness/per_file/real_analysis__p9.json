@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p9.lean",
+  "stem": "real_analysis__p9",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that if there exists M > 0 with |f(x)| ≤ M for all x ∈ X, then f is bounded on X. The Lean formalization defines `BoundedOn f X` as `BddAbove (f '' X) ∧ BddBelow (f '' X)`, which is the standard Mathlib encoding of \"the image f(X) is bounded in ℝ\" — logically equivalent to the standard real-analysis definition of a bounded function on X. The hypothesis `∃ M > 0, ∀ x ∈ X, |f x| ≤ M` directly translates the informal hypothesis, and the conclusion matches the informal \"f is bounded on X\". No extra hypotheses or stronger conclusions are imposed, and the quantifier structure is preserved.",
+  "duration_ms": 103494,
+  "cost_usd": 0.210209
+}

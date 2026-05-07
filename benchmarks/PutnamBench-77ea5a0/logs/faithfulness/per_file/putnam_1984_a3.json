@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_a3.lean",
+  "stem": "putnam_1984_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. The matrix definition `if i = j then x else if Even (i.1 + j.1) then a else b` matches the informal definition—while Fin indices are 0-based versus the informal's implicit 1-based indexing, the parity of i+j is preserved under a uniform shift by 2, so both descriptions yield identical matrices (verified against the $M_2$ example). The hypotheses `npos : n > 0` and `aneb : a ≠ b` match \"n a positive integer\" and \"a ≠ b\". The filter `𝓝[≠] a` correctly encodes the punctured neighborhood limit $\\lim_{x \\to a}$. The requirement to \"express ... as a polynomial in a, b, and n\" is faithfully encoded via `MvPolynomial (Fin 3) ℝ` with `polyabn` mapping variables 0,1,2 to a,b,n respectively, and then evaluating this polynomial. The natural-number subtraction `2 * n - 2` is well-defined since n > 0. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 204362,
+  "cost_usd": 0.5720105
+}

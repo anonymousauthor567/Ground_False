@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-27.lean",
+  "stem": "proofnet-27",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement on all relevant points: T is a self-adjoint endomorphism on a finite-dimensional inner product space over 𝕜 (RCLike covers Axler's F ∈ {ℝ, ℂ}); λ is an arbitrary scalar; ε > 0. The hypothesis ∃ v with ‖v‖=1 and ‖Tv - λv‖ < ε is encoded verbatim (with l • v being scalar multiplication). The conclusion uses T.Eigenvalues, the subtype of 𝕜 consisting of genuine eigenvalues of T, so ∃ l' : T.Eigenvalues with ‖l - l'‖ < ε means T has an eigenvalue λ' with |λ - λ'| < ε (the RCLike norm is the absolute value). FiniteDimensional is Axler's ambient assumption for Chapter 7 and is appropriate here. No hypotheses are added or dropped and the quantifier structure is preserved.",
+  "duration_ms": 31073,
+  "cost_usd": 0.12899575
+}

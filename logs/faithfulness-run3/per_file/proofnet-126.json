@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ℚ (with its standard topology inherited from ℝ) is not locally compact. The Lean statement `¬ LocallyCompactSpace ℚ` uses the canonical Mathlib topology instance on ℚ (derived from its `MetricSpace` structure induced from ℝ) and negates the standard `LocallyCompactSpace` typeclass. This is a direct, one-to-one translation with no added or dropped hypotheses, no change of quantifier structure, and no change of the ambient object. It is logically equivalent to the informal claim.",
+  "duration_ms": 75622,
+  "cost_usd": 0.156087
+}

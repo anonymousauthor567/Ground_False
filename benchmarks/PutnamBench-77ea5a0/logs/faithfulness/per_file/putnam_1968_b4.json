@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_b4.lean",
+  "stem": "putnam_1968_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes both improper integrals using principal-value-style symmetric limits: ∫_{ball 0 y} f = ∫_{-y}^{y} f for the RHS, and ∫_{ball 0 y \\ ball 0 (1/y)} f(x-1/x) = ∫_{1/y<|x|<y} f(x-1/x) for the LHS (handling the singularity at x=0 with the natural coupled limit ε=1/y, A=y). This coupled limit is exactly what the standard substitution proof produces: via x↦-1/x and u=x-1/x, the integral transforms to ∫_{-(y-1/y)}^{y-1/y} f(u) du, which approaches the PV ∫f. The conclusion's second conjunct (∫_{ball 0 y} f → r) combined with the hypothesis forces the common r value by limit uniqueness, correctly asserting the equality of the two improper integrals. Continuity and the existence hypothesis are properly captured. While one could alternatively interpret \"integral exists\" as the classical independent double-limit improper integral, the PV formalization chosen here is a standard, self-consistent, and mathematically natural interpretation for this identity.",
+  "duration_ms": 832803,
+  "cost_usd": 2.3125375000000004
+}

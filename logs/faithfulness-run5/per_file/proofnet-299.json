@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The sequence `f : ℕ → I → ℝ` with `f n x = ↑x ^ n` corresponds to $f_n: [0,1] \\to \\mathbb{R}$, $f_n(x) = x^n$ (via the subtype coercion from `I = Icc 0 1`). The negation `¬ ∃ f₀, TendstoUniformly f f₀ atTop` precisely expresses \"does not converge uniformly (to any function)\" using Mathlib's `TendstoUniformly`, which is defined as uniform convergence on the entire domain with respect to the filter `atTop` (the standard filter for sequences indexed by ℕ). The types match exactly and no hypotheses are added or dropped.",
+  "duration_ms": 66318,
+  "cost_usd": 0.2369985
+}

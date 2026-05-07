@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature `(p : ℕ) (hp : Nat.Prime p) (a : ℤ) : a ^ p ≡ a [ZMOD p]` is logically equivalent to the informal claim \"if p is a prime then a^p ≡ a (mod p) for all a ∈ ℤ\". The notation `[ZMOD p]` unfolds to `Int.ModEq p (a^p) a`, which is exactly the congruence a^p ≡ a (mod p). Using `p : ℕ` with `Nat.Prime p` matches the standard convention that \"prime\" means a positive prime modulus. The quantification over all integers a is captured by the free variable `a : ℤ`. This is exactly Mathlib's `Int.ModEq.pow_prime_eq_self` in `FieldTheory/Finite/Basic.lean`. The informal statement's mention of Lagrange's Theorem is a hint about the proof method, not a semantic constraint on the statement itself.",
+  "duration_ms": 29222,
+  "cost_usd": 0.12553575
+}

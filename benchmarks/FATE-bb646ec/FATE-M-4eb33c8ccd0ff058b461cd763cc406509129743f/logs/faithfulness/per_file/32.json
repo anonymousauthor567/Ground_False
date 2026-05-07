@@ -1,0 +1,8 @@
+{
+  "file": "32.lean",
+  "stem": "32",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `[Group G] [Finite G]` corresponds to \"finite group\"; `σ : MulEquiv G G` is exactly a group automorphism of G (Mathlib's `MulAut G` is defined as `G ≃* G`); `∀ g, σ g = g ↔ g = 1` is the fixed-point-free condition verbatim; `σ ∘ σ = id` (via the coercion of MulEquiv to a function) says σ² is the identity map from G to G; and `∀ a b : G, a * b = b * a` is the standard way to express that G is abelian without requiring a `CommGroup` instance. All hypotheses and the conclusion match exactly, with no drift in quantifiers, types, or strength.",
+  "duration_ms": 218829,
+  "cost_usd": 0.5696255
+}

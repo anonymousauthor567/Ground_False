@@ -1,0 +1,8 @@
+{
+  "file": "S_0098.lean",
+  "stem": "S_0098",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement defines Adj_T with strict equalities: objects are adjunctions inducing the same monad T (equality), and morphisms are functors K satisfying KF = F' and G'K = G (strict equalities). The Lean formalization replaces all three of these equalities with isomorphisms: `monad_eq : T ≅ Adjunction.toMonad adj`, `comm_left : X.F ⋙ K ≅ Y.F`, and `comm_right : K ⋙ Y.U ≅ X.U`. This defines a pseudo/bicategorical version of Adj_T rather than the strict category in the informal statement. These are genuinely different categories: the pseudo version has more objects (monad_eq is only required up to iso) and morphisms carry extra iso data. Neither \"Kleisli initial in strict Adj_T\" nor \"Kleisli initial in pseudo AdjCat T\" straightforwardly implies the other — pseudo uniqueness must distinguish morphisms with different iso components, while strict uniqueness considers fewer morphisms but over a different class of objects. The initiality/terminality claims are therefore about different mathematical structures.",
+  "duration_ms": 1099547,
+  "cost_usd": 2.82823025
+}

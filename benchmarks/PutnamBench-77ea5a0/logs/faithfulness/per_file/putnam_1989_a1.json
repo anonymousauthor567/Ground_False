@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_a1.lean",
+  "stem": "putnam_1989_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes \"primes whose base-10 representation alternates 1's and 0's, beginning and ending with 1\" as follows: `Nat.digits 10 p` returns the base-10 digits in little-endian order, but such alternating-pattern numbers are palindromes, so little-endian and big-endian representations coincide. The predicate `pdigalt l` requires (a) `Odd l.length` — ensuring both the first and last digits lie at even indices, and (b) every even-indexed position is 1, every odd-indexed position is 0. This produces lists [1], [1,0,1], [1,0,1,0,1], ..., representing 1, 101, 10101, .... Since `p.Prime` excludes 0 and 1, the set counts exactly the primes with the described decimal pattern. The `.encard` in `ℕ∞` properly captures the \"how many\" count, matching the solution value 1 (only 101 is prime among these numbers).",
+  "duration_ms": 125331,
+  "cost_usd": 0.32453750000000003
+}

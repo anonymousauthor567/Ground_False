@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal claim. `P : Sylow p G` encodes \"P is a p-Sylow subgroup of G\", `hP : P.Normal` encodes \"P ◁ G\", and `Subgroup.Characteristic (P : Subgroup G)` (defined in Mathlib as `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`) precisely captures \"φ(P) = P for every automorphism φ of G\". The added `hp : Nat.Prime p` is a standard implicit premise that any mathematician reading \"p-Sylow subgroup\" would assume; surfacing it explicitly is allowed by the faithfulness rubric. The literal informal text does not mention finiteness, so not assuming it in the Lean statement matches the literal claim. All quantifier structure, hypotheses, and the conclusion correspond exactly.",
+  "duration_ms": 265934,
+  "cost_usd": 0.8587665
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_a5.lean",
+  "stem": "putnam_2001_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal claim. The pair type `ℤ × ℕ` with constraints `a > 0` (where `a : ℤ`) and `n > 0` (where `n : ℕ`) correctly encodes \"positive integers a, n\" — both constraints yield values ≥ 1. The use of `∃!` over the product type is the standard Mathlib idiom for asserting existence of a unique pair, matching the informal \"unique positive integers a, n\" which mathematically means a unique pair. The equation `a^(n+1) - (a+1)^n = 2001` is computed in ℤ (since `a : ℤ`), correctly matching the problem (the solution is a=13, n=2, giving 13³ - 14² = 2001). There is no drift in hypotheses, conclusion, quantifier structure, or ambient types.",
+  "duration_ms": 112834,
+  "cost_usd": 0.332022
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that $[0,1]^\\omega$ with the uniform topology is not locally compact. In the Lean formalization, `ℕ →ᵇ I` (bounded continuous functions from ℕ to the unit interval) equals the set of all functions ℕ → I, since ℕ has discrete topology (so continuity is automatic) and I = [0,1] is bounded (so boundedness is automatic). The metric instance on `α →ᵇ β` in Mathlib is the uniform (supremum) distance `sInf {C | 0 ≤ C ∧ ∀ x, dist (f x) (g x) ≤ C}`, which induces exactly the uniform topology. Thus `ℕ →ᵇ I` with its induced topology is the standard encoding of $I^\\omega$ with the uniform topology. The Lean statement `¬ LocallyCompactSpace (ℕ →ᵇ I)` expresses precisely the claim that this space is not locally compact.",
+  "duration_ms": 146852,
+  "cost_usd": 0.4615065
+}

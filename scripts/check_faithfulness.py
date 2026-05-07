@@ -1,0 +1,496 @@
+#!/usr/bin/env python3
+"""
+Check whether each Lean theorem in `proofnet_verified/` is a strictly
+faithful formalization of its informal statement (neither stronger nor weaker).
+
+Unlike the legacy script, this version sends the entire Lean file content
+directly to Claude — no extraction of informal/formal statements is performed.
+
+Drives the `claude` CLI in `--print` mode, billed against your Claude Code
+login. Calls are parallelized with a thread pool.
+
+Each judgement is written to `<out_dir>/per_file/<stem>.json` so the run is
+resumable. When all files are processed we render a markdown report.
+
+Usage:
+    python3 scripts/check_faithfulness.py
+    python3 scripts/check_faithfulness.py --workers 16
+    python3 scripts/check_faithfulness.py --limit 10            # smoke test
+    python3 scripts/check_faithfulness.py --only proofnet-4 --force
+"""
+
+from __future__ import annotations
+
+import argparse
+import concurrent.futures as cf
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import threading
+import time
+from pathlib import Path
+from typing import Optional
+
+SCRIPT_ROOT = Path(__file__).resolve().parent.parent
+
+CLAUDE_BIN = os.environ.get("CLAUDE_BIN", "claude")
+MODEL = os.environ.get("CLAUDE_MODEL", "global.anthropic.claude-opus-4-7")
+EFFORT = os.environ.get("CLAUDE_EFFORT", "max")
+CLAUDE_TIMEOUT_S = int(os.environ.get("CLAUDE_TIMEOUT_S", "1800"))
+MAX_RETRIES = int(os.environ.get("CLAUDE_MAX_RETRIES", "10"))
+
+VERDICTS = ["faithful", "weaker", "stronger", "incomparable", "unclear", "error"]
+
+SYSTEM_PROMPT_TEMPLATE = """You are an expert in Lean 4 / Mathlib formalization and in
+mathematical logic. Your job is to read a Lean 4 file that contains both an
+informal mathematical statement (in a comment block) and a Lean 4 theorem
+signature, and decide whether the Lean signature is a STRICTLY FAITHFUL
+formalization of the informal statement.
+
+IMPORTANT CONTEXT: All informal statements in this dataset are meant to be
+provably TRUE — they all come with informal proofs. However, informal
+mathematical writing often relies on implicit premises that are clear from
+context (e.g., the chapter, the problem setup, or mathematical convention) but
+are not explicitly stated in the exercise text itself. Without these implicit
+premises, the literal statement may actually be FALSE. If the Lean formalization
+makes such an implicit premise EXPLICIT (i.e., adds a hypothesis that the
+informal statement implicitly assumes but does not literally state), this is NOT
+a faithfulness error — it is a correct and faithful reading of the intended
+mathematical content. Do NOT mark such cases as "weaker".
+
+WORKED EXAMPLE: Consider the informal statement "Prove that if a prime integer p
+has the form 2^r+1, then it actually has the form 2^{2^k}+1." The literal text
+does not say r ≥ 1, but without that assumption the claim is false: p = 2 with
+r = 0 is a counterexample (2 = 2^0 + 1 is prime, but 2 cannot be written as
+2^{2^k}+1 for any k). A Lean formalization that adds the hypothesis `1 ≤ r` is
+surfacing an implicit premise needed for truth — this should be judged
+"faithful", NOT "weaker".
+
+"Strictly faithful" means the Lean statement asserts exactly the same
+mathematical claim as the informal statement: it is neither logically weaker
+(implied by the informal claim but does not imply it) nor logically stronger
+(implies the informal claim but more than what was asked), and it does not
+silently change the hypotheses, the conclusion, the quantifier structure, the
+ambient mathematical objects, or the implicit assumptions.
+
+IMPORTANT: The theorem name (identifier) in the Lean file may carry meaningful
+information (e.g., referencing a textbook problem number or a named theorem).
+However, you must NEVER let the theorem name influence your faithfulness
+judgement. Do NOT use any external knowledge you may have about the source
+(e.g., "this is from chapter X of textbook Y, so the context must be Z").
+Your judgement must be based SOLELY on the pure content of the informal
+statement (as written in the comment block) and the Lean formalization. Nothing
+else.
+
+Common ways a Lean statement can drift from the informal one:
+  * dropping or adding hypotheses (e.g. assuming Fintype, Nonempty, finiteness,
+    decidability, characteristic zero, commutativity, etc., that the informal
+    statement does not require, or omitting hypotheses it does require)
+  * changing the conclusion (e.g. proving an inequality instead of an equality,
+    proving for one direction of an iff, replacing `∀` by `∃`)
+  * changing the type of an object (e.g. `ℕ` vs `ℤ`, `Set` vs `Finset`, a
+    specific group vs an arbitrary group)
+  * encoding a "for all groups G" statement as a statement about a specific G
+    given as a hypothesis, when the universal quantification matters
+  * using `Subgroup.closure {a, b}` style encodings that may or may not match
+    "the subgroup generated by a and b"
+  * using stricter / looser notions (e.g. `Surjective` vs `SurjOn`,
+    `IsOpen` vs `IsClosed`, `LinearIndependent` over the wrong ring)
+  * replacing a definition with an equivalent-looking but not actually
+    equivalent Mathlib notion
+
+Think very carefully. It is fine — and common — for a Lean encoding to look
+slightly different but be logically equivalent; in that case it is faithful.
+Only flag genuine semantic mismatches.
+
+You MUST reply with a single JSON object matching the provided schema, and
+nothing else. Use one of these verdicts:
+  * "faithful"   — the Lean statement is logically equivalent to the informal
+                   statement under standard mathematical reading. This includes
+                   cases where the Lean formalization makes implicit premises
+                   explicit (premises that are needed for the statement to be
+                   true and would be understood by any mathematician reading the
+                   informal statement in context).
+  * "weaker"     — the Lean statement is logically implied by the informal one but does
+                   not imply it (e.g. proves only one direction of an iff,
+                   proves a special case, or adds an extra hypothesis that
+                   narrows the scope beyond what the informal statement
+                   intends — NOT merely surfacing an implicit premise needed
+                   for the statement to be true).
+  * "stronger"   — the Lean statement logically implies the informal one but is more
+                   than what was asked (e.g. extra conclusion, proves both directions when only one was asked, 
+                   claims the result for extra cases,
+                   or drops a hypothesis that the informal statement explicitly requires).
+  * "incomparable"  — the Lean statement is not comparable: it changes the
+                   meaning so it neither logically implies nor is implied by the
+                   informal claim i.e. there exists a model where the informal claim is true and the Lean statement is false AND vice versa.
+  * "unclear"    — the informal statement is ambiguous or you cannot tell.
+
+In `reasoning`, give a focused (3-8 sentence) justification that names the
+specific hypothesis / conclusion / type that does or does not match.
+
+You **MUST** judge impartially and objectively and without any bias!!! **ultra think**, and do **deep research** in the local {{project_root}}/.lake/packages/mathlib folder to confirm specific Mathlib API usage!!!
+
+Even if you're confident, you **MUST** use the search and bash tools to double check by looking into the local mathlib files!!! **ultra think**, **ultra think**, **ultra think**!!!
+
+If you are not sure about some mathematical terminology or convention, you **MUST** use the web search tool to confirm!!!
+
+When necessary, **write some Lean code and compile it** to test and double check your understanding of the problem or Mathlib API usage!!! You can use **ALL** the tools available to you!!!
+"""
+
+USER_PROMPT_TEMPLATE = """Please carefully read the following Lean 4 file. It contains an informal
+mathematical statement (in a comment block) and a Lean 4 theorem signature.
+Determine whether the Lean theorem signature is a strictly faithful
+formalization of the informal statement.
+
+```lean
+{lean_file}
+```
+
+Decide whether the Lean signature is a strictly faithful formalization of the
+informal statement (neither weaker nor stronger). Reply with a single JSON
+object as described in the system prompt.
+"""
+
+JSON_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["verdict", "reasoning"],
+    "properties": {
+        "verdict": {"type": "string", "enum": VERDICTS},
+        "reasoning": {"type": "string"},
+    },
+}
+
+
+# ---------------------------------------------------------------------- #
+# Claude call                                                             #
+# ---------------------------------------------------------------------- #
+
+
+class ClaudeError(RuntimeError):
+    pass
+
+
+def call_claude(user_prompt: str, project_root: Path) -> dict:
+    system_prompt = SYSTEM_PROMPT_TEMPLATE.replace("{{project_root}}", str(project_root))
+    cmd = [
+        CLAUDE_BIN,
+        "-p",
+        "--effort", EFFORT,
+        "--system-prompt", system_prompt,
+        "--disable-slash-commands",
+        "--no-session-persistence",
+        "--output-format", "json",
+        "--input-format", "text",
+        "--json-schema", json.dumps(JSON_SCHEMA),
+        "--model", MODEL,
+    ]
+    try:
+        proc = subprocess.run(
+            cmd,
+            input=user_prompt,
+            cwd=str(project_root),
+            capture_output=True,
+            text=True,
+            timeout=CLAUDE_TIMEOUT_S,
+        )
+    except subprocess.TimeoutExpired as e:
+        raise ClaudeError(f"claude timeout after {CLAUDE_TIMEOUT_S}s") from e
+
+    if proc.returncode != 0:
+        raise ClaudeError(
+            f"claude exited {proc.returncode}; stderr:\n{proc.stderr[-2000:]}"
+        )
+
+    try:
+        envelope = json.loads(proc.stdout)
+    except json.JSONDecodeError as e:
+        raise ClaudeError(
+            f"could not parse claude envelope: {e}\nstdout head:\n{proc.stdout[:500]}"
+        ) from e
+
+    verdict_obj = envelope.get("structured_output")
+    if verdict_obj is None:
+        text = envelope.get("result") or ""
+        if not text:
+            raise ClaudeError(
+                f"no structured_output and empty result. raw: "
+                f"{json.dumps(envelope)[:500]}"
+            )
+        try:
+            verdict_obj = json.loads(text)
+        except json.JSONDecodeError:
+            m = re.search(r"\{.*\}", text, re.DOTALL)
+            if not m:
+                raise ClaudeError(f"no JSON in claude output: {text[:500]}")
+            verdict_obj = json.loads(m.group(0))
+
+    if verdict_obj.get("verdict") not in VERDICTS:
+        raise ClaudeError(f"unexpected verdict: {verdict_obj!r}")
+    return {
+        "verdict": verdict_obj["verdict"],
+        "reasoning": verdict_obj["reasoning"],
+        "duration_ms": envelope.get("duration_ms"),
+        "cost_usd": envelope.get("total_cost_usd"),
+    }
+
+
+# ---------------------------------------------------------------------- #
+# Driver                                                                  #
+# ---------------------------------------------------------------------- #
+
+
+def proofnet_key(path: Path) -> tuple:
+    m = re.match(r"proofnet-(\d+)", path.stem)
+    return (int(m.group(1)),) if m else (10**9, path.stem)
+
+
+def process_file(
+    path: Path,
+    out_dir: Path,
+    force: bool,
+    counter: dict,
+    counter_lock: threading.Lock,
+    project_root: Path,
+) -> dict:
+    per_file = out_dir / "per_file" / f"{path.stem}.json"
+    if per_file.exists() and not force:
+        try:
+            cached = json.loads(per_file.read_text())
+            with counter_lock:
+                counter["cached"] += 1
+            return cached
+        except Exception:
+            pass
+
+    lean_file = path.read_text()
+
+    record = {
+        "file": path.name,
+        "stem": path.stem,
+    }
+
+    if not lean_file.strip():
+        record["verdict"] = "error"
+        record["reasoning"] = f"empty file: {path.name}"
+    else:
+        prompt = USER_PROMPT_TEMPLATE.format(lean_file=lean_file)
+        last_err: Optional[ClaudeError] = None
+        for attempt in range(1, MAX_RETRIES + 1):
+            try:
+                judgement = call_claude(prompt, project_root=project_root)
+                record.update(judgement)
+                last_err = None
+                break
+            except ClaudeError as e:
+                last_err = e
+                if attempt < MAX_RETRIES:
+                    backoff = 2 ** attempt
+                    print(
+                        f"  retry {attempt}/{MAX_RETRIES} for {path.stem} "
+                        f"(backoff {backoff}s): {e}",
+                        file=sys.stderr,
+                        flush=True,
+                    )
+                    time.sleep(backoff)
+        if last_err is not None:
+            record["verdict"] = "error"
+            record["reasoning"] = f"claude error after {MAX_RETRIES} retries: {last_err}"
+
+    per_file.parent.mkdir(parents=True, exist_ok=True)
+    per_file.write_text(json.dumps(record, indent=2, ensure_ascii=False))
+
+    with counter_lock:
+        counter["done"] += 1
+        n = counter["done"] + counter["cached"]
+        total = counter["total"]
+        print(
+            f"[{n:>3}/{total}] {path.stem:<20} -> {record['verdict']}",
+            file=sys.stderr,
+            flush=True,
+        )
+    return record
+
+
+def render_markdown(records: list[dict], out_path: Path) -> None:
+    by_verdict: dict[str, list[dict]] = {v: [] for v in VERDICTS}
+    for r in records:
+        by_verdict.setdefault(r.get("verdict", "unclear"), []).append(r)
+
+    lines: list[str] = []
+    lines.append("# Faithfulness audit of `proofnet_verified/`")
+    lines.append("")
+    lines.append(
+        "For each Lean file we asked Claude to read the full file content "
+        "(informal statement + Lean theorem signature) and decide whether the "
+        "Lean encoding is a *strictly faithful* formalization (neither stronger "
+        "nor weaker)."
+    )
+    lines.append("")
+    lines.append("## Summary")
+    lines.append("")
+    lines.append("| verdict | count |")
+    lines.append("|---|---|")
+    for v in VERDICTS:
+        lines.append(f"| {v} | {len(by_verdict.get(v, []))} |")
+    lines.append(f"| **total** | **{len(records)}** |")
+    lines.append("")
+
+    for v in VERDICTS:
+        bucket = by_verdict.get(v, [])
+        if not bucket:
+            continue
+        lines.append(f"## {v} ({len(bucket)})")
+        lines.append("")
+        bucket.sort(key=lambda r: proofnet_key(Path(r["file"])))
+        for r in bucket:
+            lines.append(f"### {r['stem']}")
+            lines.append("")
+            lines.append(f"**Verdict:** `{r.get('verdict')}`")
+            lines.append("")
+            lines.append("**Reasoning**")
+            lines.append("")
+            lines.append(r.get("reasoning") or "_(none)_")
+            lines.append("")
+
+    out_path.write_text("\n".join(lines))
+
+
+def render_list(records: list[dict], out_path: Path) -> None:
+    by_verdict: dict[str, list[int]] = {}
+    for r in records:
+        v = r.get("verdict", "unclear")
+        if v == "faithful":
+            continue
+        m = re.match(r"proofnet-(\d+)", r["stem"])
+        if not m:
+            continue
+        num = int(m.group(1))
+        by_verdict.setdefault(v, []).append(num)
+
+    lines: list[str] = []
+    lines.append("")
+    for v in ["weaker", "stronger", "incomparable", "unclear"]:
+        nums = by_verdict.get(v)
+        if not nums:
+            continue
+        nums.sort()
+        lines.append(f"{v} ({len(nums)}):")
+        chunks = []
+        for i in range(0, len(nums), 5):
+            chunk = nums[i:i+5]
+            chunks.append(", ".join(str(n) for n in chunk))
+        lines.append("  " + ",\n  ".join(chunks))
+        lines.append("")
+        lines.append("")
+
+    out_path.write_text("\n".join(lines))
+
+
+def main() -> int:
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--source", type=Path, required=True,
+                   help="Folder containing .lean files to check")
+    p.add_argument("--out-dir", type=Path, default=None,
+                   help="Output directory for results "
+                        "(default: <script-root>/logs/faithfulness)")
+    p.add_argument("--project-root", type=Path, required=True,
+                   help="Root directory of the Lean project (where lakefile.lean "
+                        "and .lake/ live). The Claude agent will search "
+                        ".lake/packages/mathlib under this path.")
+    p.add_argument("--workers", type=int, default=24,
+                   help="parallel claude CLI calls (default: 24)")
+    p.add_argument("--limit", type=int, default=None,
+                   help="only process this many files (after sorting)")
+    p.add_argument("--only", action="append", default=[],
+                   help="restrict to specific stems (e.g. proofnet-4); repeatable")
+    p.add_argument("--force", action="store_true",
+                   help="re-run files that already have a cached judgement")
+    p.add_argument("--render-only", action="store_true",
+                   help="skip Claude calls, just rebuild the markdown from cache")
+    args = p.parse_args()
+
+    project_root = args.project_root.resolve()
+    if args.out_dir is None:
+        args.out_dir = SCRIPT_ROOT / "logs" / "faithfulness"
+
+    if shutil.which(CLAUDE_BIN) is None and not args.render_only:
+        print(f"claude CLI not found on PATH (looked for {CLAUDE_BIN!r}). "
+              f"Install it or set CLAUDE_BIN.", file=sys.stderr)
+        return 2
+
+    files = sorted(args.source.glob("*.lean"), key=proofnet_key)
+    if args.only:
+        wanted = set(args.only)
+        files = [f for f in files if f.stem in wanted]
+    if args.limit:
+        files = files[: args.limit]
+
+    if not files:
+        print("no input files matched", file=sys.stderr)
+        return 1
+
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    (args.out_dir / "per_file").mkdir(exist_ok=True)
+    md_path = args.out_dir / "faithfulness_report.md"
+    list_path = args.out_dir / "list.md"
+    jsonl_path = args.out_dir / "faithfulness.jsonl"
+
+    if args.render_only:
+        records = []
+        for f in files:
+            per = args.out_dir / "per_file" / f"{f.stem}.json"
+            if per.exists():
+                records.append(json.loads(per.read_text()))
+    else:
+        counter = {"done": 0, "cached": 0, "total": len(files)}
+        counter_lock = threading.Lock()
+
+        records = []
+        t0 = time.time()
+        with cf.ThreadPoolExecutor(max_workers=args.workers) as ex:
+            futures = {
+                ex.submit(
+                    process_file, f, args.out_dir, args.force,
+                    counter, counter_lock, project_root,
+                ): f
+                for f in files
+            }
+            for fut in cf.as_completed(futures):
+                f = futures[fut]
+                try:
+                    records.append(fut.result())
+                except Exception as e:
+                    print(f"!! {f.name}: {e}", file=sys.stderr)
+                    records.append({
+                        "file": f.name,
+                        "stem": f.stem,
+                        "verdict": "error",
+                        "reasoning": f"worker exception: {e}",
+                    })
+        dt = time.time() - t0
+        print(
+            f"\nprocessed {counter['done']} (+{counter['cached']} cached) "
+            f"in {dt:.1f}s",
+            file=sys.stderr,
+        )
+
+    records.sort(key=lambda r: proofnet_key(Path(r["file"])))
+    with jsonl_path.open("w") as fh:
+        for r in records:
+            fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+
+    render_markdown(records, md_path)
+    render_list(records, list_path)
+    print(f"\nwrote {md_path}", file=sys.stderr)
+    print(f"wrote {list_path}", file=sys.stderr)
+    print(f"wrote {jsonl_path}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

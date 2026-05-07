@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim: \"group of order 105\" is encoded by `[Group G] [Fintype G]` with `card G = 105`; \"a Sylow 3-subgroup is normal\" is encoded by taking any `P : Sylow 3 G` with `[hP : P.Normal]` (equivalent to \"there exists a normal Sylow 3-subgroup\" since all Sylow subgroups are conjugate); and \"G is abelian\" is encoded by `∀ a b : G, a*b = b*a`, the standard meaning of commutativity. The Mathlib `Sylow` structure from `Mathlib/GroupTheory/Sylow.lean` indeed encodes a maximal p-subgroup, and `P.Normal` asserts the underlying subgroup is normal in G. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 78634,
+  "cost_usd": 0.30190649999999997
+}

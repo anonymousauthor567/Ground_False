@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-37.lean",
+  "stem": "proofnet-37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that a finite group G with |G| > 2 has no subgroup of order |G| - 1. The Lean signature takes an arbitrary type G with a Group and Fintype instance (encoding finiteness), assumes card G > 2, quantifies over any subgroup H of G, and concludes card H ≠ card G - 1. The universal quantification over subgroups is correctly captured by taking H as a parameter. The extra [Fintype H] instance is automatically derivable from [Fintype G] and is not an additional mathematical hypothesis. All types, quantifier structure, hypotheses, and conclusion match the informal claim exactly.",
+  "duration_ms": 9174,
+  "cost_usd": 0.047257
+}

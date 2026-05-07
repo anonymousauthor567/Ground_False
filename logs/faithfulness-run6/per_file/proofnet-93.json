@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-93.lean",
+  "stem": "proofnet-93",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims irreducibility of the polynomial $x^3 - 3x - 1$ over $\\mathbb{Q}$. The Lean formalization uses `Irreducible (X^3 - 3*X - 1 : Polynomial ℚ)`, which is exactly Mathlib's standard `Irreducible` predicate applied to the polynomial in `Polynomial ℚ`. Mathlib's `Irreducible` for a monoid element means non-unit and only factorizations into units; over the polynomial ring `Polynomial ℚ` (a UFD over a field) this matches the textbook definition of \"irreducible over ℚ\". The polynomial expression `X^3 - 3*X - 1` matches $x^3 - 3x - 1$ literally. No hypotheses are added or omitted, and the conclusion is identical. This is a strictly faithful formalization.",
+  "duration_ms": 25953,
+  "cost_usd": 0.15854825000000003
+}

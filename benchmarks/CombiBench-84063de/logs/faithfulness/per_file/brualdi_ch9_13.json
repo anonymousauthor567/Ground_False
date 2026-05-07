@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch9_13.lean",
+  "stem": "brualdi_ch9_13",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all elements of the informal statement: a matrix with m rows and n columns, entries in {1,...,k} (via `Finset.Icc 1 k`), the hypothesis that each i ∈ S occurs exactly n*r_i times in A, and the conclusion of row-wise permutations producing a matrix where each i ∈ S appears r_i times in each column (encoded via `rσ : Fin m → Equiv.Perm (Fin n)` with the count `∑ x, if A x (rσ x j) = i then 1 else 0 = r i`). The extra positivity hypotheses `hn : n > 0`, `hm : m > 0`, and `hk : k ≥ 1` make explicit the implicit premises a mathematician would assume (a meaningful matrix with a non-empty index set); excluding these degenerate cases removes only vacuously-true cases, so the statement is logically equivalent to the informal one. Using `r : ℕ → ℕ` is consistent with \"r_i is an integer\" since counts force r_i ≥ 0.",
+  "duration_ms": 254162,
+  "cost_usd": 0.5431172499999999
+}

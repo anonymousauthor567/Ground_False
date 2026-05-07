@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_b5.lean",
+  "stem": "putnam_1962_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. The hypothesis `n : ℤ` with `n > 1` matches \"integer n greater than 1\". The lower bound `(3n+1)/(2n+2)` and upper bound `2` are encoded verbatim as real expressions. The sum `∑ i : Finset.Icc 1 n, ((i : ℝ) / n) ^ (n : ℝ)` uses Finset's CoeSort to make `i` range over the subtype of integers in [1, n], which is equivalent (by `Finset.sum_coe_sort`) to summing over `i ∈ Finset.Icc 1 n`, i.e., i from 1 to n. The exponent `(n : ℝ)` invokes `Real.rpow`, but since i ≥ 1 and n > 1 imply the base i/n > 0, this matches ordinary exponentiation $(i/n)^n$. The conjunction encodes the double inequality correctly.",
+  "duration_ms": 526214,
+  "cost_usd": 0.39762925
+}

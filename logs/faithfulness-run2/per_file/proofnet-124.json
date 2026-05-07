@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-124.lean",
+  "stem": "proofnet-124",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each component of the informal claim precisely: `[MetricSpace X]` gives the metric space structure, `[ConnectedSpace X]` gives connectedness, `∃ x y : X, x ≠ y` is the standard encoding of \"more than one point\" (i.e., at least two distinct points), and `¬ Countable (univ : Set X)` expresses uncountability of X (via the subtype coercion, this is equivalent to `¬ Countable X`). There are no extra hypotheses (no Fintype, Nonempty, etc.) and no weakening of the conclusion. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 22173,
+  "cost_usd": 0.07089949999999999
+}

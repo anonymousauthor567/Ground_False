@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-298.lean",
+  "stem": "proofnet-298",
+  "verdict": "faithful",
+  "reasoning": "`ℝ ×ₗ ℝ` denotes `Lex (ℝ × ℝ)` in Mathlib, which carries the lexicographic (dictionary) order. The typeclass pair `[TopologicalSpace (ℝ ×ₗ ℝ)] [OrderTopology (ℝ ×ₗ ℝ)]` is the standard Mathlib idiom asserting that the topology on this space is the order topology — since the order topology associated with a linear order is uniquely determined, these hypotheses effectively fix the topology to be the dictionary-order topology. The conclusion `MetrizableSpace (ℝ ×ₗ ℝ)` directly encodes \"is metrizable\". The quantifier structure, the underlying set, the order, the topology, and the conclusion all match the informal claim, so the formalization is logically equivalent.",
+  "duration_ms": 40645,
+  "cost_usd": 0.13020475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Axler 5.13. The hypothesis `∀ U : Submodule F V, finrank F U = finrank F V - 1 → Submodule.map T U ≤ U` correctly encodes \"every subspace of dimension dim V - 1 is T-invariant\" (since `Submodule.map T U ≤ U` is exactly `T(U) ⊆ U`). The conclusion `∃ c : F, T = c • LinearMap.id` correctly encodes \"T is a scalar multiple of the identity\". The `[FiniteDimensional F V]` assumption makes explicit the implicit premise needed for `dim V - 1` to make sense (Axler's Chapter 5 assumes finite dimension throughout). Using an arbitrary field F rather than ℝ/ℂ does not change the mathematical content since the statement holds over any field. The quantifier structure (T fixed, U universal in hypothesis, c existential in conclusion) matches the informal statement exactly.",
+  "duration_ms": 113210,
+  "cost_usd": 0.35953274999999996
+}

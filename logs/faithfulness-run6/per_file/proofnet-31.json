@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a chain of equivalences \"A iff B iff C\" where A = (xy = yx), B = (y⁻¹xy = x), C = (x⁻¹y⁻¹xy = 1). The standard reading of such a chain is (A ↔ B) ∧ (B ↔ C), which is precisely what the Lean statement asserts as a conjunction of two iffs. The three propositions are encoded exactly as written: `x * y = y * x`, `y⁻¹ * x * y = x`, and `x⁻¹ * y⁻¹ * x * y = 1`. The elements x, y are taken from an arbitrary group G, matching the informal framing. No hypotheses are added or dropped, and the conjunction of the two iffs is logically equivalent to the chain (by transitivity of ↔, this also captures A ↔ C).",
+  "duration_ms": 18914,
+  "cost_usd": 0.065292
+}

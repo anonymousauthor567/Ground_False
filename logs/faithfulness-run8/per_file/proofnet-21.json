@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. (1) `card (T.Eigenvalues) = finrank F V` correctly expresses \"T has dim V distinct eigenvalues\" since `T.Eigenvalues` is the subtype of distinct eigenvalues in Mathlib and `finrank F V` is dim V in the finite-dimensional setting. (2) The hypothesis `∀ v : V, (∃ c : F, v ∈ eigenspace S c) ↔ (∃ c : F, v ∈ eigenspace T c)` correctly expresses \"S has the same eigenvectors as T\": for nonzero v this says v is eigenvector of S iff eigenvector of T, and for v = 0 both sides are trivially true (0 lies in every eigenspace), so including 0 doesn't alter the meaning. (3) `S * T = T * S` is the standard encoding of ST = TS for endomorphisms. (4) The FiniteDimensional hypothesis is an implicit premise needed for \"dim V\" to be well-defined — surfacing it is appropriate and faithful, not weaker.",
+  "duration_ms": 174424,
+  "cost_usd": 0.6217174999999999
+}

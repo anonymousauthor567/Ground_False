@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that if f : ℕ → ℕ is injective, then the limit of the sequence (p_n) is unaffected by the rearrangement q_k = p_{f(k)}. The Lean statement captures exactly this: given an injective f : ℕ → ℕ and a sequence p : ℕ → α with Tendsto p atTop (𝓝 a), it concludes Tendsto (λ n => p (f n)) atTop (𝓝 a), which says the rearranged sequence converges to the same limit. The hypothesis \"Injective f\" matches \"f is an injection\", the rearrangement p ∘ f matches q_k = p_{f(k)}, and preserving the limit matches \"unaffected by rearrangement\". The informal statement does not specify the codomain of the sequence, so formalizing over an arbitrary topological space α is the natural general setting where \"limit of a sequence\" is defined (via Tendsto ... (𝓝 a)). The theorem is indeed true in this generality (since `Function.Injective.nat_tendsto_atTop` ensures f tends to infinity at infinity), so this is a faithful encoding of the mathematical content.",
+  "duration_ms": 145156,
+  "cost_usd": 0.4669627500000001
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "informal": "Prove that the intersection of an arbitrary nonempty collection of normal subgroups of a group is a normal subgroup (do not assume the collection is countable).",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_1_22b {G : Type*} [Group G] (I : Type*) [Nonempty I]\n  (H : I → Subgroup G) (hH : ∀ i : I, Normal (H i)) :\n  Normal (⨅ (i : I), H i)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary group G, takes an index type I with [Nonempty I] (matching \"nonempty collection\"), and a family H : I → Subgroup G of subgroups each of which is Normal. The conclusion `Normal (⨅ (i : I), H i)` asserts that the infimum (which in Subgroup G is the intersection of underlying sets) is normal. There is no cardinality restriction on I, so it covers arbitrary (possibly uncountable) collections, exactly as the informal statement specifies. This matches the informal claim precisely, neither stronger nor weaker.",
+  "duration_ms": 7511,
+  "cost_usd": 0.04544975
+}

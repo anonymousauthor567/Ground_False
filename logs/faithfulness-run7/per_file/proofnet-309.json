@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that an isometry f on a compact metric space is bijective and hence a homeomorphism. The Lean statement concludes `Continuous f ∧ Bijective f ∧ IsOpenMap f`, which is exactly the unbundled definition of `IsHomeomorph f` in Mathlib (as documented in `Mathlib/Topology/Homeomorph/Defs.lean`, where `IsHomeomorph` is a structure with fields `continuous`, `isOpenMap`, and `bijective`). So the Lean conclusion precisely captures \"f is bijective and f is a homeomorphism\". The hypotheses (`MetricSpace X`, `CompactSpace X`, `Isometry f`) correctly match the informal premises. Although continuity follows automatically from `Isometry f`, including it in the conclusion is faithful since it is part of the meaning of \"homeomorphism\". The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 63488,
+  "cost_usd": 0.20479699999999998
+}

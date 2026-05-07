@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a3.lean",
+  "stem": "putnam_2014_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The sequence `a : ℕ → ℝ` with `a 0 = 5/2` and `∀ k ≥ 1, a k = (a (k-1))^2 - 2` exactly matches the recursive definition. The conclusion `Tendsto (fun n => ∏ k ∈ Finset.range n, (1 - 1/a k)) atTop (𝓝 (3/7))` is the standard formalization of the infinite product $\\prod_{k=0}^{\\infty}(1 - 1/a_k) = 3/7$, since `Finset.range n = {0,...,n-1}` gives the partial product $\\prod_{k=0}^{n-1}(1-1/a_k)$, whose limit defines the infinite product. The answer `3/7` is placed in `putnam_2014_a3_solution`, which is the standard Putnam formalization pattern for \"compute in closed form\". No hypotheses are silently added or dropped; types and quantifiers match.",
+  "duration_ms": 35951,
+  "cost_usd": 0.14088475
+}

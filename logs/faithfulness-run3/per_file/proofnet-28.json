@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts associativity of addition in ℤ/nℤ. The Lean statement uses `ZMod n`, Mathlib's standard encoding of ℤ/nℤ, and asserts exactly the associativity law (x + y) + z = x + (y + z) for all x, y, z : ZMod n. The quantification over all n : ℕ captures the \"for any n\" reading of the informal statement. Even the edge case n = 0 (where ZMod 0 = ℤ) still satisfies associativity, so no spurious restriction or extension is introduced. The types, hypotheses, and conclusion all match the informal claim.",
+  "duration_ms": 27945,
+  "cost_usd": 0.052892
+}

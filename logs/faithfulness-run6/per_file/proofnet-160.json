@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The definition `g n := Real.sqrt (n + 1) - Real.sqrt n` exactly matches $a_i = \\sqrt{i+1} - \\sqrt{i}$. The Finset expression `∑ i ∈ range n, g i` encodes $\\sum_{i<n} a_i$ since `Finset.range n = {0, 1, ..., n-1}`. The filter statement `Tendsto (fun n => ∑ i ∈ range n, g i) atTop atTop` is the standard Lean encoding of \"the limit as $n \\to \\infty$ of the partial sum equals $+\\infty$\" (i.e., the partial sums are eventually arbitrarily large). There is no drift in hypotheses, types, quantifiers, or conclusion.",
+  "duration_ms": 38751,
+  "cost_usd": 0.1514835
+}

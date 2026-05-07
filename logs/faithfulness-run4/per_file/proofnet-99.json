@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one component-for-component. 'Odd prime' is correctly encoded as `p.Prime ∧ p > 2` (equivalent since 2 is the only even prime, so prime > 2 ↔ odd prime). Same for q. Distinctness is `p ≠ q`. The divisibility `p-1 ∣ q-1` in ℕ is well-defined because p, q > 2 ensures p-1, q-1 ≥ 2 (no truncated-subtraction issue). Coprimality `(n, pq)=1` is faithfully encoded as `n.gcd (p*q) = 1`. The conclusion `n^(q-1) ≡ 1 [MOD p*q]` uses Mathlib's `Nat.ModEq`, which unfolds to `n^(q-1) % (p*q) = 1 % (p*q)`, the standard congruence. No hypotheses are added, dropped, or altered, and the implicit universal quantification is preserved.",
+  "duration_ms": 44457,
+  "cost_usd": 0.1803675
+}

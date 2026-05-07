@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that the set L(a) = {x ∈ R | xa = 0} (the left annihilator of a) is an ideal of R. The Lean statement says there exists an ideal I of R such that the set {x : R | x*a = 0} equals (the underlying set of) I. This is the standard idiomatic way in Mathlib to express \"this set is an ideal\" — since `Ideal R` is a bundled structure, asserting that a set coincides with some ideal's carrier is equivalent to asserting the set satisfies the ideal axioms. The ring hypothesis (CommRing), the element a, and the defining set match the informal statement exactly. Hence the Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 40335,
+  "cost_usd": 0.14973250000000002
+}

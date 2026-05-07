@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-289.lean",
+  "stem": "proofnet-289",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The collection `T_inf := {t | Set.Infinite tᶜ ∨ t = ∅ ∨ t = univ}` matches $\\{U \\mid X-U \\text{ is infinite or empty or all of } X\\}$, since $U^c = \\emptyset \\iff U = \\text{univ}$ and $U^c = \\text{univ} \\iff U = \\emptyset$. The three conjuncts (univ ∈ T_inf, closed under sUnion, closed under pairwise intersection) are exactly Mathlib's `TopologicalSpace` axioms. The phrase \"does not need to be a topology\" is naturally formalized as `∃ X, ¬(axioms hold)`, i.e., there is some X where T_inf fails to be a topology — and this is true (e.g., X = ℕ, where evens and odds-from-3 both have infinite complements but their union has finite non-empty complement {0,1}). Nothing is dropped, added, strengthened or weakened.",
+  "duration_ms": 318710,
+  "cost_usd": 1.01108275
+}

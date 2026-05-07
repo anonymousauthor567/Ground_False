@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p20.lean",
+  "stem": "abstract_algebra__p20",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely encodes the informal statement. The correspondence is: `P.natDegree` = k (the degree), `P.leadingCoeff` = a_0 (the leading coefficient), `∀ x : ℤ, m ∣ P.eval x` matches \"p(x) divisible by m for all integers x\", and `m ∣ Nat.factorial (P.natDegree) * P.leadingCoeff` matches \"m ∣ k!·a_0\". The `variable {P : Polynomial ℤ} {m : ℤ}` declaration correctly makes P and m universally quantified (as implicit arguments in the theorem). Edge cases are consistent: for a constant polynomial p = c, natDegree = 0 and leadingCoeff = c, giving 0!·c = c, matching the informal. For the zero polynomial the statement holds trivially, which is compatible with the informal reading. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 96153,
+  "cost_usd": 0.30653725
+}

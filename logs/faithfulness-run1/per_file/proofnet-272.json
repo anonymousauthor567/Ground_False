@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "informal": "Show that $(p - 1)/2$ of the numbers $1, 2, \\ldots, p - 1$ are quadratic residues and $(p - 1)/2$ are quadratic nonresidues $\\mod p$.",
+  "lean": "\ntheorem Herstein_exercise_4_4_9 (p : ℕ) (hp : Nat.Prime p) (hodd : p % 2 = 1) :\n  (∃ S : Finset (ZMod p), 0 ∉ S ∧ S.card = (p-1)/2 ∧ ∀ q ∈ S, ∃ x : ZMod p, x^2 = q) ∧\n  (∃ S : Finset (ZMod p), 0 ∉ S ∧ S.card = (p-1)/2 ∧ ∀ q ∈ S, ¬ ∃ x : ZMod p, x^2 = q)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence of a Finset S ⊆ ZMod p of size (p-1)/2, not containing 0, all of whose elements are squares, AND existence of another such Finset of size (p-1)/2 not containing 0 of nonsquares. Individually, each conjunct only says \"at least (p-1)/2 nonzero QRs\" and \"at least (p-1)/2 nonzero non-QRs\". However, the nonzero squares and nonzero non-squares are disjoint subsets of (ZMod p) \\ {0}, which has cardinality p-1. So having at least (p-1)/2 of each forces exactly (p-1)/2 of each, matching the informal claim. The identification of {1,...,p-1} with the nonzero elements of ZMod p is the standard one. Hence the two formulations are logically equivalent.",
+  "duration_ms": 25812,
+  "cost_usd": 0.10104225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "62.lean",
+  "stem": "62",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement component-by-component. The ring map φ is encoded as `algebraMap R S` via `[Algebra R S]`, and `Algebra.Smooth R S` is Mathlib's standard definition (formally smooth + finite presentation), matching \"smooth ring map\". `Function.LeftInverse σ (algebraMap R S)` unfolds to `∀ r, σ(algebraMap R S r) = r`, precisely σ∘φ = id_R. `I = Ker(σ)` becomes `RingHom.ker σ`, and `(RingHom.ker σ).Cotangent` is `I⧸(I•⊤)` = I/I², with `Module.Free R` the natural R-module freeness (R-module structure arises via `Algebra R S` and the derived scalar tower on Cotangent). The conclusion `∃ d : ℕ, Nonempty (AdicCompletion (RingHom.ker σ) S ≃ₐ[R] MvPowerSeries (Fin d) R)` matches \"S^ ≅ R[[t₁,…,t_d]] as R-algebras\"; the existential for d is appropriate because the informal statement leaves d implicit (it's the rank of I/I², which is finite since smoothness entails finite presentation). No hypotheses are silently added or dropped.",
+  "duration_ms": 1111389,
+  "cost_usd": 1.8581374999999998
+}

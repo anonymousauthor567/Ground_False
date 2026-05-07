@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p35_3.lean",
+  "stem": "calculus__p35_3",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts three claims: (1) f has a local max at x=2, (2) f has a local min at x=4, and (3) these are the only local extrema on ℝ. The Lean theorem `local_max_at_2 : IsLocalMax f 2` only formalizes claim (1). It does not state the local minimum at x=4, nor does it state the uniqueness of these extrema. The `axiom` declarations for `critical_points` and `second_derivative_test` are unproven hypotheses, not conclusions of the theorem. Therefore the Lean statement is logically implied by the informal statement (if all three claims hold, so does claim 1) but does not imply it back, making it strictly weaker.",
+  "duration_ms": 34171,
+  "cost_usd": 0.11768725
+}

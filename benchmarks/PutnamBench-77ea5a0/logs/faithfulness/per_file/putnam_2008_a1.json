@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_a1.lean",
+  "stem": "putnam_2008_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses the curried form `f : ℝ → ℝ → ℝ` for the informal `f : ℝ² → ℝ`, which is the standard equivalent encoding. The hypothesis `∀ x y z : ℝ, f x y + f y z + f z x = 0` exactly captures the cyclic sum condition. The conclusion `∃ g : ℝ → ℝ, ∀ x y : ℝ, f x y = g x - g y` matches the informal conclusion precisely, including quantifier structure and the form g(x) - g(y). No hidden extra hypotheses or missing conditions.",
+  "duration_ms": 19474,
+  "cost_usd": 0.05261500000000001
+}

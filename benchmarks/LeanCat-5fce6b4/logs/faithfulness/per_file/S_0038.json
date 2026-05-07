@@ -1,0 +1,8 @@
+{
+  "file": "S_0038.lean",
+  "stem": "S_0038",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures each component of the informal statement: (1) `IsConcretizable (Type u) C` expands to `∃ (U : C ⥤ Type u), U.Faithful`, matching \"C has a faithful functor to Set\"; (2) `RegularWellPowered C` requires that for each X : C, the subtype `{P : Subobject X // Nonempty (RegularMono P.arrow)}` is Small, correctly capturing \"the collection of regular subobjects is a set\" — RegularMono is preserved under pre-composition with isomorphisms so the filter is well-defined on equivalence classes; (3) the `HasFiniteLimits C` hypothesis is included via the `variable` declaration; (4) `U.Faithful`, `Subobject`, and `RegularMono` all match standard Mathlib definitions. The free universe `v` in `Small.{v}` is a standard Mathlib convention (cf. `WellPowered.{w}`) for parameterizing smallness universes and does not misrepresent the informal mathematical content — the biconditional structure and logical content match the classical Freyd-style theorem being stated.",
+  "duration_ms": 1449411,
+  "cost_usd": 3.8689922500000002
+}

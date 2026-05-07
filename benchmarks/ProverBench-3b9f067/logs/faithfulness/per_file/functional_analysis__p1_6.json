@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p1_6.lean",
+  "stem": "functional_analysis__p1_6",
+  "verdict": "weaker",
+  "reasoning": "The informal statement has three claims (a), (b), (c), but the Lean file axiomatizes (a) and (b) and defines f directly as the answer from (b), so they aren't actually formalized as theorems. The only actual theorem to prove is `f_global_minimum`, which states `IsMinOn (fun p => f p.1 p.2) Set.univ (0, 0)`. In Mathlib, `IsMinOn f s a` means `∀ x ∈ s, f a ≤ f x` — i.e., (0,0) is *a* global minimum. However, the informal statement (c) claims f has a **unique** global minimum at (0,0) **with value f(0,0) = 0**. The Lean theorem captures neither the uniqueness claim nor the specific value f(0,0) = 0. Therefore the Lean formalization is strictly weaker than the informal statement.",
+  "duration_ms": 232779,
+  "cost_usd": 0.41807175
+}

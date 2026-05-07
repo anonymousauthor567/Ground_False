@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-79.lean",
+  "stem": "proofnet-79",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely: `[CommGroup G]` corresponds to \"abelian group\"; the two existential hypotheses `∃ g, orderOf g = m` and `∃ g, orderOf g = n` correspond to \"has an element of order m\" and \"has an element of order n\"; `m.Coprime n` (defined as `Nat.gcd m n = 1`) corresponds to \"relatively prime\"; and the conclusion `∃ g, orderOf g = m * n` matches \"has an element of order mn\". The quantifier structure (universally quantified over G, existentially over witnesses) is faithful. Edge cases where m or n might be 0 (meaning infinite order in Mathlib's convention) remain consistent with coprimality constraints and the conclusion still holds. No hypotheses are added or dropped beyond what the informal statement asserts.",
+  "duration_ms": 47135,
+  "cost_usd": 0.1378025
+}

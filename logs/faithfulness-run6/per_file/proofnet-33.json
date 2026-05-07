@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if every element of a group G satisfies x² = 1, then G is abelian. The Lean statement takes an arbitrary group G (universally quantified via `{G : Type*} [Group G]`), assumes the hypothesis `∀ x : G, x ^ 2 = 1`, and concludes `∀ a b : G, a*b = b*a`, which is precisely the definition of G being abelian (commutativity of the group operation). The hypothesis, conclusion, and quantifier structure all match the informal claim exactly.",
+  "duration_ms": 5887,
+  "cost_usd": 0.031360250000000006
+}

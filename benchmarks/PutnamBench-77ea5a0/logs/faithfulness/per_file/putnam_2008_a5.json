@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_a5.lean",
+  "stem": "putnam_2008_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes \"vertices of a regular n-gon in counterclockwise order\". The parameterization $f(k)+ig(k) = O + z\\cdot e^{i\\cdot 2\\pi k/n}$ with $z\\neq 0$ is exactly the general form of a regular $n$-gon's vertices in $\\mathbb{C}$: $O$ is the center, $|z|$ is the circumradius, $\\arg(z)$ is the starting orientation, and as $k$ increases the angle increases (counterclockwise). The condition $z \\neq 0$ correctly ensures non-degeneracy. Using $k \\in [1,n]$ rather than $[0,n-1]$ gives the same set of vertices since $e^{2\\pi i n/n}=1=e^{0}$. The real-to-complex identification $(f(k),g(k)) \\mapsto f(k)+ig(k)$ is standard. The conclusion `natDegree ≥ n-1` matches \"degree ≥ n-1\" since under the hypothesis neither polynomial is zero/constant (so natDegree coincides with the usual degree). The operator precedence in `Complex.I * 2 * Real.pi * k / n` correctly produces $2\\pi i k/n$.",
+  "duration_ms": 116124,
+  "cost_usd": 0.30481699999999995
+}

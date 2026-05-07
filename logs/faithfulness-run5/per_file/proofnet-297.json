@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely. Hypotheses match: A is a subset of X, f is continuous on A (ContinuousOn f A), Y is Hausdorff (T2Space Y), g is a continuous extension to closure A (ContinuousOn g (closure A) together with g x = f x on A). The conclusion quantifies over any other such extension g' and asserts g and g' agree on closure A — which is exactly \"g is uniquely determined by f\". The use of total functions X → Y combined with ContinuousOn on subsets is the standard Lean idiom for encoding functions defined only on A (or closure A), and agreement is required only on closure A, not outside it. No hypothesis has been silently added or dropped, and the quantifier structure (∀ other extensions ⇒ equal on closure A) correctly expresses uniqueness.",
+  "duration_ms": 68317,
+  "cost_usd": 0.24224125
+}

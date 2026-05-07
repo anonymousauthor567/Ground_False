@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_b3.lean",
+  "stem": "putnam_1989_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement on all key points. The hypotheses correctly encode: differentiability of f (extended to all of ℝ as a standard formalization convenience since conclusions only depend on x ≥ 0 values), the ODE f'(x) = -3f(x) + 6f(2x) for x > 0, and the decay bound |f(x)| ≤ e^(-√x) for x ≥ 0. The moments μ_n are correctly defined as ∫_{(0,∞)} x^n f(x) dx. Part (a) is encoded via an explicit solution formula μ_0 · n!/(3^n · ∏_{m=1}^n(1-2^{-m})), which is the correct closed form derivable via integration by parts. Part (b) correctly encodes both claims: existence of a limit (convergence) via ∃ L, Tendsto..., and \"limit is 0 only if μ_0 = 0\" as an implication from Tendsto-to-0 to μ_0 = 0 (matching standard English \"A only if B\" = A → B). The extension of f from [0,∞) to all of ℝ is a routine formalization technique that doesn't alter the mathematical content.",
+  "duration_ms": 309181,
+  "cost_usd": 0.7338817499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p54.lean",
+  "stem": "calculus__p54",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `∀ x ∈ Set.Icc (π/2) 200, f(4π/3) ≤ f(x)` is exactly the unfolding of Mathlib's `IsMinOn f (Set.Icc (π/2) 200) (4π/3)`, which is the standard encoding of \"f attains its minimum at 4π/3 on [π/2, 200]\". The function f is correctly defined as x + 2·sin(x), and Set.Icc (π/2) 200 matches the closed interval [π/2, 200]. Note that 4π/3 ≈ 4.19 is clearly in [π/2, 200], so the implicit \"attainment\" condition (point being in the domain) holds trivially; Mathlib's own IsMinOn definition also does not require a ∈ s. Hence the Lean signature is a faithful rendering of the informal claim.",
+  "duration_ms": 282994,
+  "cost_usd": 0.69758875
+}

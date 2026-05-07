@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `MvPolynomial (Fin 2) ℚ`, which is the standard Mathlib encoding of $\\mathbb{Q}[x, y]$ (polynomials in two variables over ℚ). The polynomial `(MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1` correctly represents $x^2 + y^2 - 1$ with the two variables indexed by `Fin 2`. The predicate `Irreducible` is Mathlib's standard irreducibility predicate for elements of a commutative ring, which matches the informal claim of irreducibility in the polynomial ring. No hypotheses are missing or extra, and the conclusion is exactly the stated claim.",
+  "duration_ms": 22733,
+  "cost_usd": 0.08978649999999999
+}

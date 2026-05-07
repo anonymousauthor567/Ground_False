@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-181.lean",
+  "stem": "proofnet-181",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the two-sided improper integral of cos(x)/(x²+a²) over ℝ equals π·e^(-a)/a for a > 0. The Lean formalization encodes this as the limit of the symmetric interval integral ∫_{-y}^{y} as y → ∞ via Tendsto atTop. Since the integrand is absolutely integrable on ℝ (bounded above by the integrable function 1/(x²+a²)), the symmetric limit, the improper Riemann integral, and the Lebesgue integral all agree and equal the same value. The hypothesis 0 < a is correctly preserved, and the target value Real.pi * (Real.exp (-a) / a) matches π·e^{-a}/a. Therefore the Lean statement is logically equivalent to the informal claim for this specific integrable function.",
+  "duration_ms": 123450,
+  "cost_usd": 0.43718925
+}

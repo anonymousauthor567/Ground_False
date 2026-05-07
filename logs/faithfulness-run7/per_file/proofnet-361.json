@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The hypothesis `‖z‖ = 1` on `z : ℂ` matches \"any point of the unit circle\" (complex norm equals |z|). The sequence `s n = ∑ i ∈ range n, i * z^i` is the standard partial sum $\\sum_{i=0}^{n-1} i z^i$ of the power series $\\sum n z^n$ (the $i=0$ term vanishes, matching the usual convention). The conclusion `¬ ∃ y, Tendsto s atTop (𝓝 y)` is the standard formalization of \"the series does not converge\" — i.e., the sequence of partial sums has no limit. The universal quantification over `z` via the theorem parameter with hypothesis `hz` correctly encodes \"on any point of the unit circle\". The extra hypothesis `h : s = ...` merely defines `s`, which is logically equivalent to inlining.",
+  "duration_ms": 85335,
+  "cost_usd": 0.30788600000000005
+}

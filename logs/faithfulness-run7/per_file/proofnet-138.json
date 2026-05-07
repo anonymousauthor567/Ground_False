@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for the existence of a counterexample: a connected set whose interior is not connected. The Lean statement `∃ S : Set (ℝ × ℝ), IsConnected S ∧ ¬ IsConnected (interior S)` captures exactly this by exhibiting the existence in ℝ². Mathlib's `IsConnected` is defined as `Nonempty ∧ IsPreconnected`, matching Pugh's standard convention that connected sets are nonempty. The choice of ℝ² as the ambient space is a natural instantiation — a counterexample there suffices to disprove the universal claim \"connectedness is preserved under interior\", which is what \"not true in general\" means. The standard counterexample (e.g., two closed disks joined by a thin segment) naturally lives in ℝ². The quantifier structure (∃ connected S with not-connected interior) directly matches the informal negation.",
+  "duration_ms": 192067,
+  "cost_usd": 0.5522435
+}

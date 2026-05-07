@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1997_b2.lean",
+  "stem": "putnam_1997_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. \"Twice-differentiable\" is encoded via `ContDiff ℝ 1 f` (f is C¹) combined with `Differentiable ℝ (deriv f)` (f' is differentiable); since a differentiable function is continuous, this combined pair is equivalent to \"f differentiable everywhere and f' differentiable everywhere\", which is exactly twice-differentiability. The hypothesis `∀ x, g x ≥ 0` matches, and the ODE `f x + iteratedDeriv 2 f x = -x * g x * deriv f x` correctly represents f(x)+f''(x)=-xg(x)f'(x) because iteratedDeriv 2 f = deriv (deriv f) agrees with f'' under the differentiability assumptions. The conclusion `IsBounded (range (fun x => |f x|))` precisely states that |f(x)| is bounded as a function on ℝ.",
+  "duration_ms": 328455,
+  "cost_usd": 1.04747525
+}

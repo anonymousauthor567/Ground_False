@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-191.lean",
+  "stem": "proofnet-191",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: it takes two ideals I, J of a ring R, assumes I + J = ⊤ (the whole ring R), and concludes I * J = I ⊓ J (i.e., IJ = I ∩ J). The `CommRing` assumption is standard for this Artin exercise, as the book's ideal theory is set in the commutative context, and the statement \"IJ = I ∩ J\" is the standard commutative-ring formulation (in non-commutative rings one would typically need IJ + JI). The hypothesis `I + J = ⊤` correctly encodes `I + J = R`, and `I * J` and `I ⊓ J` are the correct Mathlib encodings of the ideal product and intersection. No hypotheses have been silently added or dropped relative to the standard reading.",
+  "duration_ms": 13423,
+  "cost_usd": 0.05142225
+}

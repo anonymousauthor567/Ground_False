@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the reverse triangle inequality for complex numbers: ||x|-|y|| ≤ |x-y|. In the Lean statement, ‖·‖ on ℂ is the complex norm, which equals Complex.abs and corresponds to |·| in the informal statement. Thus ‖x‖ and ‖y‖ are real numbers matching |x| and |y|, and the outer |·| on the real number ‖x‖ - ‖y‖ is the real absolute value, matching ||x|-|y||. The RHS ‖x-y‖ matches |x-y|. The quantifier structure (universally quantified over x y : ℂ) matches, and no extra hypotheses are added or omitted. This is a standard, logically equivalent encoding.",
+  "duration_ms": 33548,
+  "cost_usd": 0.10143150000000001
+}

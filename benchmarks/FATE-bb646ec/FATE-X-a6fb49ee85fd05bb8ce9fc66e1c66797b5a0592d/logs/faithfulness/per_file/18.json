@@ -1,0 +1,8 @@
+{
+  "file": "18.lean",
+  "stem": "18",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal statement. E : Subfield ℝ matches \"subfield of ℝ\"; [Field K] [Algebra E K] [IsGalois E K] captures \"Galois extension\"; the rank condition Module.rank E K = n with n : ℕ, Odd n, n > 1 encodes \"finite Galois extension of odd degree > 1\" (the natural-number target forces finiteness via Cardinal coercion). K' : IntermediateField E ℝ with IsRadicalTower E K' correctly captures \"radical tower that is a subfield of ℝ\" (containing E). The conclusion IsEmpty (K →ₐ[E] K') is equivalent to \"no E-embedding from K\" since field homomorphisms are automatically injective. The custom IsRadicalExtension definition (simple extension by x with x^n = e, n ≥ 1) and inductive IsRadicalTower (composition of radical extensions via subalgebras) match the informal definitions. The n ≥ 1 in IsRadicalExtension is a reasonable implicit premise. The universal quantification over K' correctly expresses \"cannot be embedded into any such tower\".",
+  "duration_ms": 729715,
+  "cost_usd": 1.44028875
+}

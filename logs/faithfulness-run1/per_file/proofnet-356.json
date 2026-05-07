@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "theorem_name": "Rudin_exercise_5_3_corrected",
+  "informal": "Suppose $g$ is a real function on $R^{1}$, with bounded derivative (say $\\left|g^{\\prime}\\right| \\leq M$ ). Fix $\\varepsilon>0$, and define $f(x)=x+\\varepsilon g(x)$. Prove that $f$ is one-to-one if $\\varepsilon$ is small enough.",
+  "lean": "theorem Rudin_exercise_5_3_corrected\n  {g : ℝ → ℝ} (hgDiff : Differentiable ℝ g)\n  (hg' : ∃ M : ℝ, ∀ x : ℝ, |deriv g x| ≤ M) :\n  ∃ N, ∀ ε > 0, ε < N → Function.Injective (λ x : ℝ => x + ε * g x)",
+  "verdict": "weaker",
+  "reasoning": "The hypotheses (g differentiable on ℝ, |g'| bounded by some M) and the structure \"for ε small enough, f is injective\" are encoded with the right shape. However, the existential `∃ N, ∀ ε > 0, ε < N → Injective …` does not require N to be positive. Taking N = 0 (or any N ≤ 0) makes the implication `ε > 0 ∧ ε < N` vacuously false, so the Lean statement is trivially true regardless of g. This makes the formalization strictly weaker than the informal claim, which asserts the existence of a genuine positive threshold below which f is injective.",
+  "duration_ms": 15323,
+  "cost_usd": 0.05583949999999999
+}

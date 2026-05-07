@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The function `f : ℝ → ℝ` corresponds to \"$f$ defined for all real $x$\". The hypothesis `∀ x y : ℝ, |(f x - f y)| ≤ (x - y) ^ 2` is a direct transcription of $|f(x)-f(y)| \\leq (x-y)^2$ for all real $x, y$. The conclusion `∃ c, f = λ _x => c` expresses \"there exists a real $c$ such that $f$ equals the constant function with value $c$\", which by function extensionality is equivalent to $\\exists c, \\forall x, f(x) = c$ — the standard meaning of \"$f$ is constant\". No hypotheses were added or dropped, and the quantifier structure matches.",
+  "duration_ms": 22216,
+  "cost_usd": 0.09826825
+}

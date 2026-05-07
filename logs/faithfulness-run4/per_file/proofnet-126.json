@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says ℚ (with its standard topology inherited from ℝ) is not locally compact. The Lean statement `¬ LocallyCompactSpace ℚ` uses Mathlib's `LocallyCompactSpace` class, which states every neighborhood of every point contains a compact neighborhood. Since ℚ in Mathlib comes with the metric topology induced from ℝ (see `Mathlib/Topology/Instances/Rat.lean`), it is Hausdorff, and in Hausdorff spaces Mathlib's `LocallyCompactSpace` is equivalent to Munkres' definition (\"every point has a compact neighborhood\"). Thus the Lean encoding captures precisely the informal claim with no added or missing hypotheses.",
+  "duration_ms": 45182,
+  "cost_usd": 0.17498724999999998
+}

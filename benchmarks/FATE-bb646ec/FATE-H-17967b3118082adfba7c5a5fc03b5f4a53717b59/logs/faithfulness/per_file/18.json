@@ -1,0 +1,8 @@
+{
+  "file": "18.lean",
+  "stem": "18",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement claims `Irreducible ((X 0)^2 + (X 1)^2 - 1 : MvPolynomial (Fin 2) ℚ)`. The ring `MvPolynomial (Fin 2) ℚ` is ℚ[X₀, X₁], which is canonically the same ring as ℚ[x, y]; `X 0` and `X 1` are the two indeterminates. The element `(X 0)^2 + (X 1)^2 - 1` corresponds exactly to `x^2 + y^2 - 1`. Mathlib's `Irreducible` predicate (from `Mathlib/Algebra/Group/Irreducible/Defs.lean`) requires `p` to be a non-unit that only factors as a unit times something, which matches the standard mathematical definition of irreducibility used informally. No hypotheses are added or omitted and no types are changed. This is a strictly faithful formalization.",
+  "duration_ms": 56356,
+  "cost_usd": 0.17245025000000003
+}

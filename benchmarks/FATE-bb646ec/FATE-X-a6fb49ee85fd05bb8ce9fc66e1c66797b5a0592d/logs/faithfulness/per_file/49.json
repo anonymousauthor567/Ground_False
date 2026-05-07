@@ -1,0 +1,8 @@
+{
+  "file": "49.lean",
+  "stem": "49",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. LHS: \"every principal ideal is idempotent\" becomes `∀ I, I.IsPrincipal → I^2 = I`, which is the standard definition of an idempotent ideal (I·I = I, since I^2 in Mathlib's ideal monoid is I*I). RHS: \"every finitely generated ideal is a direct summand of A\" becomes `∀ I, I.FG → ∃ J, I ⊔ J = ⊤ ∧ I ⊓ J = ⊥`. The two conditions I+J=A and I∩J=0 are exactly the IsCompl condition giving A = I ⊕ J as A-modules (the natural meaning of \"direct summand of A\" for an ideal, since ideals are not subrings). Note that although J is required to be an ideal (not just a submodule), this is equivalent: if a submodule complement J exists, then 1 = e+f decomposition forces J = fA which is automatically an ideal. The quantification over an arbitrary CommRing A is correct, and the overall biconditional structure matches.",
+  "duration_ms": 194851,
+  "cost_usd": 0.527758
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. X is an arbitrary topological space, A is an arbitrary subset of X. The hypothesis `h1` says that for every x ∈ A, there exists a set U that (a) contains x, (b) is open, and (c) is a subset of A — precisely the informal \"for each x ∈ A there is an open set U containing x such that U ⊂ A.\" The conclusion `IsOpen A` matches \"A is open in X.\" No hypotheses are added or dropped, types and quantifier structure are preserved, and the conjunction order inside the existential is semantically equivalent to the informal phrasing.",
+  "duration_ms": 9392,
+  "cost_usd": 0.039966
+}

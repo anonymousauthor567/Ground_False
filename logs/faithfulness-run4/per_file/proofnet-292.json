@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-292.lean",
+  "stem": "proofnet-292",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature `generateFrom A = generateFrom (sInter {T | is_topology X T ∧ A ⊆ T})` is logically equivalent to the informal claim. The RHS `sInter S` (intersection of all topologies containing A) is itself a topology, since topology axioms are preserved under arbitrary intersection of collections of open sets. Thus `generateFrom (sInter S)` equals the topology whose opens are `sInter S` (via `generateFrom_setOf_isOpen`), so the Lean equality is equivalent to \"open sets of `generateFrom A` = `sInter S`\", which is exactly what the informal asserts. The \"subbasis\" framing in Munkres adds at most a covering condition ⋃₀A = X, but this is not actually used in the conclusion — the claim holds for arbitrary collections A — so omitting it is not a faithfulness loss. The GT version (proofnet-292) uses the identical signature.",
+  "duration_ms": 529273,
+  "cost_usd": 1.5670022499999998
+}

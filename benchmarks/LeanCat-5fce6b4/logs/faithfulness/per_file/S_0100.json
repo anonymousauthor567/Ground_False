@@ -1,0 +1,8 @@
+{
+  "file": "S_0100.lean",
+  "stem": "S_0100",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes all three conditions correctly and asserts their mutual equivalence via `List.TFAE`. (1) `cond1` uses `K.Full ∧ K.Faithful`, which is Mathlib's standard way to express fully faithful, and `K` is defined as `Monad.comparison adj : D ⥤ adj.toMonad.Algebra`, matching K : D → C^T. (2) `cond2` correctly defines the cofork: `epsFG d = adj.counit.app (FG.obj d) = ε_{FG(d)}` and `FGeps d = FG.map (adj.counit.app d) = FG(ε_d)`, both FGFG(d) → FG(d), with π = ε_d, and asserts this is a colimit — exactly \"ε_d is a coequalizer of ε_{FG(d)} and FG(ε_d)\". (3) `cond3` encodes \"G reflects split epis to regular epis\" as: for every f : X → Y in D, if G.map f is a split epi (in C), then f is a regular epi (in D), which is the standard reading. `IsRegularEpi' f := Nonempty (RegularEpi f)` correctly propositionalizes Mathlib's data-carrying `RegularEpi` class. The quantifier structure, types, and cofork orientation all match the informal claim.",
+  "duration_ms": 278295,
+  "cost_usd": 0.8682749999999999
+}

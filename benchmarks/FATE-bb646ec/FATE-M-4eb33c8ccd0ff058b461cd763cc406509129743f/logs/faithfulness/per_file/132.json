@@ -1,0 +1,8 @@
+{
+  "file": "132.lean",
+  "stem": "132",
+  "verdict": "faithful",
+  "reasoning": "The Lean LHS `∀ x, ∀ k, x ≠ 0 → x^k ≠ 0` is (by contrapositive) equivalent to `∀ x, (∃ k, x^k = 0) → x = 0`, which is exactly Mathlib's `IsNilpotent x → x = 0` — i.e., R has no nonzero nilpotent element. Including k=0 is harmless: in a nontrivial ring x^0 = 1 ≠ 0, and in the trivial ring x ≠ 0 is vacuously false. The RHS `∀ x, x^2 = 0 → x = 0` precisely formalizes \"0 is the only solution of x² = 0\". The biconditional captures both directions of the informal iff, and `[Ring R]` matches the informal \"ring\" (not assuming commutativity; the classical proof works in any associative ring with unity). This is a faithful formalization.",
+  "duration_ms": 224739,
+  "cost_usd": 0.5634897499999999
+}

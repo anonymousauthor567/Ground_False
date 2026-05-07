@@ -1,0 +1,8 @@
+{
+  "file": "S_0031.lean",
+  "stem": "S_0031",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a conjunction covering two categories: \"Neither Set nor Top has a proper iso-closed full subcategory that is both reflective and coreflective.\" The Lean formalization only covers the Set case — it quantifies `P : ObjectProperty (Type u)` where `Type u` is Mathlib's category of sets (per `Mathlib/CategoryTheory/Types.lean`'s `instance types : LargeCategory (Type u)`). There is no corresponding statement about `TopCat` (the category of topological spaces). The Set-half of the statement is correctly formalized (iso-closed via `IsClosedUnderIsomorphisms`, proper via `∃ X, ¬ P X`, and the \"not both reflective and coreflective\" via the disjunction of `IsEmpty`), but the omission of the topological spaces half makes the Lean statement strictly weaker than the informal claim.",
+  "duration_ms": 179359,
+  "cost_usd": 0.6341517499999999
+}

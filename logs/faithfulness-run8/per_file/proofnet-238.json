@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-238.lean",
+  "stem": "proofnet-238",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. `Fintype.card G = 6545` corresponds to |G| = 6545 (since `open Fintype` is in scope and `[Fintype G]` is assumed), and `¬ IsSimpleGroup G` matches 'G is not simple' — Mathlib's `IsSimpleGroup` is defined as a `Nontrivial` group whose only normal subgroups are ⊥ and ⊤, which is the standard definition of a simple group. The universal quantification over `{G : Type*}` with `[Group G] [Fintype G]` correctly captures 'for any finite group G'. Since 6545 > 1, the Nontrivial component of Mathlib's definition is automatically satisfied and introduces no mismatch with the informal statement.",
+  "duration_ms": 26991,
+  "cost_usd": 0.125299
+}

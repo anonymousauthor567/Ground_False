@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely. `h1` (existence of a limit of the partial sums of `a`) is exactly \"Σaₙ converges\"; `h2 : Monotone b ∨ Antitone b` correctly encodes \"monotonic\" in the Rudin sense (either monotonically increasing or monotonically decreasing, per Rudin Definition 3.13); `h3 : Bornology.IsBounded (Set.range b)` correctly encodes boundedness of the sequence; and the conclusion is existence of a limit of the partial sums of `a i * b i`, i.e., \"Σaₙbₙ converges\". The types (ℕ → ℝ) are appropriate. No hypotheses are added or dropped beyond the informal content, and the quantifier structure is preserved.",
+  "duration_ms": 55431,
+  "cost_usd": 0.2081215
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-89.lean",
+  "stem": "proofnet-89",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. The hypothesis `hp : Nat.Prime p` corresponds exactly to \"p is a prime\". The sum `∑ i ∈ Finset.range p, X^i` in `Polynomial ℚ` unfolds to `X^0 + X^1 + ... + X^(p-1)`, i.e., `1 + x + x^2 + ... + x^(p-1)`, matching q(x). The conclusion `Irreducible` in `Polynomial ℚ` matches \"irreducible in ℚ[x]\". The universal quantification over primes p is preserved via the implicit argument. There are no dropped or added hypotheses and no type mismatches.",
+  "duration_ms": 22290,
+  "cost_usd": 0.05763825
+}

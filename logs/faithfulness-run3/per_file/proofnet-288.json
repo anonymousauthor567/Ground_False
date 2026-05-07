@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-288.lean",
+  "stem": "proofnet-288",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that sin(π/12) is an algebraic number. By standard convention, \"algebraic number\" means algebraic over ℚ (as a real/complex number). The Lean signature `IsAlgebraic ℚ (sin (Real.pi/12))` uses Mathlib's `IsAlgebraic` predicate, which is defined as the existence of a nonzero polynomial p ∈ ℚ[X] with aeval x p = 0 — precisely the definition of an algebraic number. The argument `sin (Real.pi/12)` is a real number, and ℝ is a ℚ-algebra, so this correctly formalizes the claim with no added or dropped hypotheses.",
+  "duration_ms": 70589,
+  "cost_usd": 0.0895875
+}

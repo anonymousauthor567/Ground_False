@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "informal": "Suppose that $G$ is an abelian group of order $p^nm$ where $p \\nmid m$ is a prime.  If $H$ is a subgroup of $G$ of order $p^n$, prove that $H$ is a characteristic subgroup of $G$.",
+  "lean": "\ntheorem Herstein_exercise_2_5_31 {G : Type*} [CommGroup G] [Fintype G]\n  {p m n : ℕ} (hp : Nat.Prime p) (hp1 : ¬ p ∣ m) (hG : card G = p^n*m)\n  {H : Subgroup G} [Fintype H] (hH : card H = p^n) :\n  Subgroup.Characteristic H",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully: G is a finite abelian group (CommGroup + Fintype), p is prime, p does not divide m, |G| = p^n * m, H is a subgroup of order p^n, and the conclusion is that H is characteristic. The types and quantifier structure match the informal claim, and no extra hypotheses or weakened conclusions are introduced.",
+  "duration_ms": 4871,
+  "cost_usd": 0.040936
+}

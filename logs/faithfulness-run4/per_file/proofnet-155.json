@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely. Rudin's \"limit point\" of a set E is a point p such that every neighborhood of p meets E at some point distinct from p; this is exactly Mathlib's `AccPt p (𝓟 A)` (defined as `NeBot (𝓝[≠] p ⊓ 𝓟 A)`, equivalent by `accPt_iff_nhds` to \"every neighborhood of p contains some y ∈ A with y ≠ p\"). The point p is quantified over X (the ambient metric space), matching Rudin's convention that limit points need not belong to the set. The hypothesis is a universal statement over all infinite subsets. The conclusion `SeparableSpace X` is Mathlib's standard \"there exists a countable dense subset\". No hidden hypotheses or type mismatches.",
+  "duration_ms": 66181,
+  "cost_usd": 0.27479675
+}

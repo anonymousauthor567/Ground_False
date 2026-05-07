@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "theorem_name": "Rudin_exercise_4_5a",
+  "informal": "If $f$ is a real continuous function defined on a closed set $E \\subset \\mathbb{R}$, prove that there exist continuous real functions $g$ on $\\mathbb{R}$ such that $g(x)=f(x)$ for all $x \\in E$.",
+  "lean": "\ntheorem Rudin_exercise_4_5a\n  (f : ℝ → ℝ)\n  (E : Set ℝ)\n  (h₁ : IsClosed E)\n  (h₂ : ContinuousOn f E)\n  : ∃ (g : ℝ → ℝ), Continuous g ∧ ∀ x ∈ E, f x = g x",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: given a continuous real function f on a closed set E ⊂ ℝ, show there exists a continuous extension g on ℝ agreeing with f on E. The Lean signature takes f : ℝ → ℝ with ContinuousOn f E, E closed, and asserts existence of a continuous g : ℝ → ℝ with f x = g x for all x ∈ E. ContinuousOn f E captures \"f is continuous on E\" (only the values on E matter for the conclusion, since g need only agree on E). The conclusion ∀ x ∈ E, f x = g x matches exactly. This is a faithful encoding of Rudin's Exercise 4.5(a).",
+  "duration_ms": 6682,
+  "cost_usd": 0.04229125
+}

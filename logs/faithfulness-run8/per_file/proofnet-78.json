@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully matches the informal claim. A \"group of order p²\" is encoded as `[Group G] [Fintype G]` with `card G = p^2`, which is equivalent (any group of order p² is automatically finite). \"p a prime\" is `Nat.Prime p`. The conclusion `∃ N, card N = p ∧ N.Normal` using Mathlib's standard `Subgroup.Normal` exactly expresses \"has a normal subgroup of order p\". The existentially-bound `Fintype N` instance is trivially satisfiable since any subgroup of a finite group is finite, so it does not change the logical content. No hypotheses are silently added or dropped, and there is no change in quantifier structure or types.",
+  "duration_ms": 83250,
+  "cost_usd": 0.2810725
+}

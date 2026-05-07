@@ -1,0 +1,8 @@
+{
+  "file": "9.lean",
+  "stem": "9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. (1) G is a finite group with prime p, and S, T are distinct Sylow p-subgroups. (2) The maximality hypothesis `∀ S' T', S' ≠ T' → |S' ∩ T'| ≤ |S ∩ T|` matches \"S ∩ T has maximal size among intersections of distinct Sylow p-subgroups\" — note that `(S' : Set G) ⊓ T'` as sets equals the subgroup intersection as a set, so `Set.ncard` gives the right order. (3) The conclusion `∀ (P : Sylow p (S ⊓ T).normalizer), ¬ P.Normal` faithfully captures \"N_G(S ∩ T) does not admit a normal Sylow p-subgroup\" — in Mathlib, `P.Normal` for `P : Sylow p H` means the underlying subgroup is normal in H, so universally quantifying over Sylow p-subgroups of N_G(S ∩ T) and negating normality correctly expresses the claim. Types, quantifier structure, and hypotheses all match the informal statement.",
+  "duration_ms": 421771,
+  "cost_usd": 0.8741675
+}

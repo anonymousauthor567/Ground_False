@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately captures the informal claim. In Mathlib, `GaussianInt` is defined as `Zsqrtd (-1)` (i.e., ℤ[i]), and `ofInt a : GaussianInt` equals `⟨a, 0⟩`, which is the canonical embedding of the integer a into ℤ[i] (confirmed by `ofInt_eq_intCast : (ofInt n : ℤ√d) = n`). Hence the premise `(ofInt a : GaussianInt) ∣ ofInt b` expresses exactly 'a divides b in the ring of Gaussian integers', and the conclusion `a ∣ b` is ordinary integer divisibility. The universal quantification over integers a, b matches the informal statement. No hypotheses are added or dropped.",
+  "duration_ms": 85013,
+  "cost_usd": 0.26004524999999995
+}

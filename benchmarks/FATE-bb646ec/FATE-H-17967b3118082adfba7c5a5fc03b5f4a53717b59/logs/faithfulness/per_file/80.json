@@ -1,0 +1,8 @@
+{
+  "file": "80.lean",
+  "stem": "80",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. The two integral domains R ⊂ R' are encoded as R, S with [CommRing, IsDomain] plus [Algebra R S] and [NoZeroSMulDivisors R S]; the latter makes the algebra map R → S injective (since for domains, algebraMap r = 0 forces r = 0 via r • 1 = 0), which is exactly the \"R ⊂ R'\" subring interpretation — a faithful surfacing of an implicit premise. The hypothesis `f * g ∈ lifts (algebraMap R S)` means f·g is in the image of R[X] → S[X], i.e., its coefficients lie in R, matching \"f·g ∈ R[t]\". The conclusion `f, g ∈ lifts (integralClosure R S).subtype` means their coefficients lie in integralClosure R S, which is exactly \\overline{R}[t]. The monic hypotheses and polynomial types all match. No hypothesis or conclusion is altered in scope or strength.",
+  "duration_ms": 392604,
+  "cost_usd": 1.063841
+}

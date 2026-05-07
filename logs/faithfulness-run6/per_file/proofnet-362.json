@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-362.lean",
+  "stem": "proofnet-362",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal claim. The sequence `s n = ∑ i ∈ range n, z^(i+1)/(i+1)` produces the partial sums $z + z^2/2 + \\cdots + z^n/n$ of the power series $\\sum_{k=1}^\\infty z^k/k$, and `∃ z₀, Tendsto s atTop (𝓝 z₀)` is the standard definition of the series converging. The hypothesis `‖z‖ = 1` restricts to the unit circle, and the `↔ z ≠ 1` captures \"converges at every point except $z=1$\" — forward direction rules out $z=1$ (harmonic series diverges), backward direction gives convergence for $z \\neq 1$ on the unit circle (Dirichlet test). The stylistic choice of introducing `s` as a bound variable with an equality hypothesis is logically equivalent to writing the sum directly. Types match: $i+1$ is coerced from ℕ to ℂ for the division, giving the correct $z^k/k$ terms.",
+  "duration_ms": 67600,
+  "cost_usd": 0.21286525
+}

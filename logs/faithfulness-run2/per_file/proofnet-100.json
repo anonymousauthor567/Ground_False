@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for a prime p ≡ 3 (mod 4) and a unit a modulo p, a is a primitive root mod p iff −a has order (p−1)/2. The Lean signature takes p prime with p = 4t+3 (which is exactly p ≡ 3 mod 4) and a ∈ (ZMod p)ˣ, and states IsPrimitiveRoot a (p−1) ↔ IsPrimitiveRoot (−a) ((p−1)/2). `IsPrimitiveRoot x n` in Mathlib (for n ≥ 1) is logically equivalent to \"x has order n\" — it asserts x^n = 1 and that n divides every l with x^l = 1. So the left side says a has order p−1 (i.e., is a primitive root), and the right side says −a has order (p−1)/2. The universal quantification over a is captured by a being a free variable. There is no added or dropped hypothesis, no type mismatch, and the iff structure matches.",
+  "duration_ms": 39750,
+  "cost_usd": 0.1522355
+}

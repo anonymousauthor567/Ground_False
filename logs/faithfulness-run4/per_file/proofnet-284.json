@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately captures the exercise. Hypotheses `hp0 : p.Prime` and `hp1 : p = 4 * t + 1` correctly encode \"prime of the form 4t+1\". The element `a : ZMod p` is the standard setting for \"a mod p\". Using Mathlib's `IsPrimitiveRoot a (p - 1)` in `ZMod p` is equivalent to saying `a` has multiplicative order exactly `p-1`, which is the standard definition of primitive root mod p (the `a = 0` case correctly falls outside since `0^(p-1) ≠ 1` for p ≥ 2). The conclusion is an iff statement in both directions, matching the informal \"iff\". Nothing is dropped or added relative to the informal claim.",
+  "duration_ms": 85890,
+  "cost_usd": 0.27900825000000007
+}

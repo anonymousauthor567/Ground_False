@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "informal": "If $P \\triangleleft G$, $P$ a $p$-Sylow subgroup of $G$, prove that $\\varphi(P) = P$ for every automorphism $\\varphi$ of $G$.",
+  "lean": "\ntheorem Herstein_exercise_2_11_7 {G : Type*} [Group G] {p : ℕ} (_hp : Nat.Prime p)\n  {P : Sylow p G} (hP : P.Normal) :\n  Subgroup.Characteristic (P : Subgroup G)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for a normal p-Sylow subgroup P of G, every automorphism φ of G satisfies φ(P) = P. This is precisely the definition of a characteristic subgroup: invariance under all automorphisms of the ambient group. The Lean signature takes a Sylow p-subgroup P with hypothesis P.Normal and concludes Subgroup.Characteristic (P : Subgroup G), which by Mathlib's definition means P is fixed setwise by every automorphism of G. The prime hypothesis is included (as `_hp`), and the universal quantification over automorphisms is captured inside the Characteristic definition. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 8706,
+  "cost_usd": 0.05766375000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_b4.lean",
+  "stem": "putnam_1998_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal problem. The sum `∑ i ∈ Finset.range (m * n), (-1)^(i/m + i/n)` matches ∑_{i=0}^{mn-1} (-1)^(⌊i/m⌋+⌊i/n⌋) (natural number division equals floor for nonneg integers). The hypothesis `n > 0 ∧ m > 0` matches \"positive integers m and n\". The \"find necessary and sufficient conditions\" is encoded as an iff between the sum equaling 0 and membership in the explicit solution set `putnam_1998_b4_solution`, following the standard PutnamBench pattern for \"find\" problems. The solution set `multiplicity 2 n ≠ multiplicity 2 m` uses Mathlib's `multiplicity` which, for positive naturals, gives the 2-adic valuation — matching the known answer. The problem and solution condition are symmetric in m,n, so the pairing order does not matter. No hypotheses are silently added or dropped.",
+  "duration_ms": 147330,
+  "cost_usd": 0.45388675000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-187.lean",
+  "stem": "proofnet-187",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim. The vector space over an infinite field is encoded as `[Field K] [Infinite K] [AddCommGroup V] [Module K V]`. \"Finitely many proper subspaces\" is encoded as a family `γ : ι → Submodule K V` over a `Fintype ι` with hypothesis `∀ i, γ i ≠ ⊤` (each is a proper submodule). The conclusion `(⋃ i, (γ i : Set V)) ≠ ⊤` uses `⊤` in `Set V`, which is `Set.univ`, correctly expressing \"the set-theoretic union is not all of V\". The contrapositive form (for any such family, the union isn't all of V) is logically equivalent to \"V is not a finite union of proper subspaces\". This matches the existing Mathlib lemma `Submodule.exists_forall_notMem_of_forall_ne_top` which uses identical hypotheses. No hypotheses are silently added or dropped, and the quantifier structure is correct.",
+  "duration_ms": 93187,
+  "cost_usd": 0.3430765
+}

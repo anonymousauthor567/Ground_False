@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-316.lean",
+  "stem": "proofnet-316",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly transcribes the informal claim: `LocallyCompactSpace X` corresponds to \"locally compact\", `T2Space X` corresponds to \"Hausdorff\", and `CompletelyRegularSpace X` in Mathlib encodes the standard definition that any point can be separated from a disjoint closed set by a continuous [0,1]-valued function. Although Munkres sometimes bundles T₁ into \"completely regular\" (matching Mathlib's `T35Space`), the T₂ hypothesis already supplies T₀/T₁, so concluding `CompletelyRegularSpace X` is equivalent to concluding `T35Space X` under this hypothesis. No hypotheses are added or dropped, and the quantifier structure over `X` is correctly captured.",
+  "duration_ms": 129848,
+  "cost_usd": 0.42817775
+}

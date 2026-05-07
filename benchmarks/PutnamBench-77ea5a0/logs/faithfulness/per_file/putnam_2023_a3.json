@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_a3.lean",
+  "stem": "putnam_2023_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the set {r > 0 : there exist differentiable f,g satisfying (a)-(e)} via Mathlib's binder predicate syntax (which desugars to {r : ℝ | r > 0 ∧ ∃ f g, ...}), and asserts its infimum equals π/2. All five conditions are faithfully transcribed: f(0)>0, g(0)=0, the two derivative bounds conjoined under ∀x, and f(r)=0. Differentiability of both f and g is captured via `Differentiable ℝ f ∧ Differentiable ℝ g`. Using `sInf` to encode \"smallest\" is the standard Mathlib/PutnamBench convention: when a minimum exists (which it does here, attained by f(x)=cos x, g(x)=-sin x at r=π/2), sInf equals the minimum, so asserting sInf = π/2 correctly captures the determination problem.",
+  "duration_ms": 298269,
+  "cost_usd": 0.6429195000000001
+}

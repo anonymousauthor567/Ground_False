@@ -1,0 +1,8 @@
+{
+  "file": "24.lean",
+  "stem": "24",
+  "verdict": "faithful",
+  "reasoning": "The informal biconditional \"p is prime iff ⟨p⟩ is a nonzero prime ideal\" is equivalent to the Lean formulation, which assumes p ≠ 0 and states ⟨p⟩ is prime ↔ p is prime. For p = 0 the informal biconditional is trivially false-iff-false (0 is not Prime in Mathlib and ⟨0⟩ is the zero ideal), and for p ≠ 0 the ideal ⟨p⟩ is automatically nonzero, so the informal claim reduces exactly to the Lean conclusion. The p ≠ 0 hypothesis is needed because in an integral domain ⟨0⟩ is itself a prime ideal while 0 is not a Prime element, so without this hypothesis the Lean iff would fail; this is surfacing an implicit premise (matching the \"nonzero ideal\" side of the informal iff). This matches Mathlib's canonical `Ideal.span_singleton_prime` in `RingTheory/Ideal/Maximal.lean` essentially verbatim. The ambient structure (CommRing + IsDomain) matches \"integral domain\". Faithful.",
+  "duration_ms": 135969,
+  "cost_usd": 0.4121202500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-302.lean",
+  "stem": "proofnet-302",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal one. The collection {A_α} becomes a family A : α → Set X with each A a connected (hAa), the connected subset A becomes A₀ with IsConnected A₀ (hA), the nonempty-intersection hypothesis A ∩ A_α ≠ ∅ is expressed as `∀ a, A₀ ∩ A a ≠ ∅` (equivalent to Set.Nonempty), and the conclusion `IsConnected (A₀ ∪ (⋃ a, A a))` matches \"A ∪ (⋃ A_α) is connected\". Mathlib's `IsConnected` means nonempty ∧ IsPreconnected, which aligns with Munkres' standard convention that connected subspaces are nonempty. No hypotheses are added or dropped; types, quantifier structure, and set-theoretic operations all match.",
+  "duration_ms": 104761,
+  "cost_usd": 0.35658775000000004
+}

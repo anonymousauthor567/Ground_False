@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_b2.lean",
+  "stem": "putnam_1985_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal definition and question. (1) `f 0 = 1`, `f n` vanishing at 0 for n ≥ 1, and the recurrence `derivative (f (n+1)) = (n+1) * (f n).comp (X+1)` exactly encode $f_0=1$, $f_n(0)=0$, and $f'_{n+1}(x)=(n+1)f_n(x+1)$. (2) Using `Polynomial ℕ` is legitimate because induction shows all $f_n$ have natural coefficients, and these hypotheses uniquely determine f. (3) The conclusion `Nat.factorization ((f 100).eval 1) = putnam_1985_b2_solution` uses Mathlib's standard Finsupp encoding of prime factorization; equating it (via FunLike coercion) with `fun n ↦ ite (n = 101) 99 0` correctly asserts $f_{100}(1) = 101^{99}$, which is the factorization into powers of distinct primes requested. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 320190,
+  "cost_usd": 0.849191
+}

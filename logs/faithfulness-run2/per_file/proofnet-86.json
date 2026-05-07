@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-86.lean",
+  "stem": "proofnet-86",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for odd prime p, if the harmonic sum 1 + 1/2 + ... + 1/(p-1) equals a/b with a, b integers, then p divides a. The Lean statement quantifies over all integers a, b such that (a/b : ℚ) equals the sum, and concludes p ∣ a. Since every integer representation a/b of a rational H = A/B (in lowest terms) has a = kA for some integer k, the universal claim \"p ∣ a for all such a\" is equivalent to \"p ∣ A\" (the numerator in lowest terms), which is the standard meaning of the informal statement. The hypotheses (Nat.Prime p, Odd p) correctly capture \"odd prime\", the sum Finset.range (p-1) with term 1/(i+1) correctly gives 1 + 1/2 + ... + 1/(p-1), and edge cases like b = 0 are handled vacuously since the harmonic sum is nonzero. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 155740,
+  "cost_usd": 0.132641
+}

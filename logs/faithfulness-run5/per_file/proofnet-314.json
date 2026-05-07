@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement precisely. Hypotheses: `h : ∀ i, Nonempty (X i)` corresponds to \"each X_α is nonempty\", and `h2 : T2Space (Π i, X i)` corresponds to \"∏ X_α is Hausdorff\" (using Mathlib's standard `T2Space` class from `Topology/Separation/Hausdorff.lean` and the standard product topology on `Π i, X i`). The conclusion `∀ i, T2Space (X i)` captures \"so is X_α\" read universally over the index set. The quantifier structure, hypotheses, and conclusion all align with the informal claim, so this is a strictly faithful formalization.",
+  "duration_ms": 42972,
+  "cost_usd": 0.19636949999999997
+}

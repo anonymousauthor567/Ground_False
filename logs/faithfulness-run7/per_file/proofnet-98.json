@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-98.lean",
+  "stem": "proofnet-98",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that 7x³ + 2 = y³ has no integer solutions. The Lean statement `¬ ∃ x y : ℤ, 7*x^3 + 2 = y^3` precisely asserts that there do not exist integers x and y satisfying this equation. The types (ℤ), the equation, and the quantifier structure (negation of existential) all match the informal claim exactly. No hypotheses are added or dropped.",
+  "duration_ms": 10643,
+  "cost_usd": 0.032371
+}

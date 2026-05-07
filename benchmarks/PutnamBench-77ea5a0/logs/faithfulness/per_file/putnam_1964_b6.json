@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1964_b6.lean",
+  "stem": "putnam_1964_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the Putnam 1964 B6 problem. D is defined as the closed unit disk {v | dist 0 v ≤ 1} in the Euclidean plane EuclideanSpace ℝ (Fin 2), which matches \"the unit disk in the plane\". The relation `cong A B` is defined as the existence of a function f : ℝ² → ℝ² that preserves all distances (∀ v w, dist v w = dist (f v) (f w)) with B = f '' A — this is precisely the standard definition of congruent subsets: A and B are related by an isometry of the ambient plane. Since any distance-preserving map on a finite-dimensional Euclidean space is automatically a bijective isometry (by Mazur-Ulam), this captures \"there exists an isometry taking A onto B\", and the relation is symmetric. The conclusion ¬∃ A B, cong A B ∧ A ∩ B = ∅ ∧ A ∪ B = D exactly mirrors the informal \"we cannot find congruent sets A, B with A ∩ B = ∅ and A ∪ B = D\".",
+  "duration_ms": 175002,
+  "cost_usd": 0.55417025
+}

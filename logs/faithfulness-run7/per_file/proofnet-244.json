@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes Dummit & Foote 7.2.2 (McCoy's theorem). `CommRing R` matches the D&F context where R[x] is the commutative polynomial ring. The LHS `∃ q ≠ 0, p * q = 0` encodes \"p is a zero divisor\" in Mathlib's convention (complement of `nonZeroDivisors`), and `b • p` for `b : R` is definitionally `C b * p` in `Polynomial R`, matching the informal `bp(x) = 0`. The iff is symmetric in how it handles the p = 0 edge case (both sides agree trivially there), so quantified over all p the statement is equivalent to the informal McCoy claim. Types, quantifier structure, and the hypothesis/conclusion all match; this is a standard faithful encoding.",
+  "duration_ms": 158833,
+  "cost_usd": 0.5111597499999999
+}

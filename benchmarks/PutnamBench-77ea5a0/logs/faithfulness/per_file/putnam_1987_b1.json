@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_b1.lean",
+  "stem": "putnam_1987_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Real.log` (via `open Real`), matching the informal `ln`, and `Real.sqrt` for square roots. The integrand `sqrt (log (9 - x)) / (sqrt (log (9 - x)) + sqrt (log (x + 3)))` encodes exactly (√ln(9-x))/(√ln(9-x)+√ln(x+3)), and the interval integral `∫ x in (2)..4, ...` matches the bounds [2,4]. The result is asserted equal to the solution constant of type ℝ, so the Lean statement says precisely: the value of the given integral equals this constant. No hypotheses are added or dropped; no quantifiers are changed; types and ambient objects match. This is a faithful formalization.",
+  "duration_ms": 39236,
+  "cost_usd": 0.15072525
+}

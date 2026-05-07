@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025i_p9.lean",
+  "stem": "aime_2025i_p9",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes all elements of the informal problem. The rotation formulas (x' = x·cos(π/3) + y·sin(π/3), y' = -x·sin(π/3) + y·cos(π/3)) give the clockwise rotation by 60°, which is exactly R⁻¹ for the CCW 60° rotation R — so h₁ (y' = x'² - 4) correctly expresses that (x,y) lies on the rotated image R(P), while h₀ places (x,y) on the original parabola. The hypotheses hx: 0 < x and hy: y < 0 specify the fourth quadrant. The conclusion ∃ a b c d : ℕ with 0 < a, 0 < b, 0 < c, Nat.Coprime a c, y = (a-√b)/c, and a+b+c = 62 matches the AIME-style formalization of \"positive integers with gcd(a,c)=1, find a+b+c = 62\". The unused existential variable `d : ℕ` is logically vacuous (ℕ is inhabited and d does not appear in the body), so it does not weaken or strengthen the statement. All pieces match the informal statement under standard mathematical reading.",
+  "duration_ms": 516787,
+  "cost_usd": 1.3908692500000002
+}

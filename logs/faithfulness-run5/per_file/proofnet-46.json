@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one. `[IsSolvable G]` captures G solvable; `(hH : H ≠ ⊥) [H.Normal]` captures H nontrivial and normal in G. The existential `∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a` correctly unfolds to: A is a subgroup of G contained in H, nontrivial, normal in G (since A : Subgroup G so A.Normal means normal in G), and abelian (the ∀ a b : A, a*b = b*a statement on the subgroup's inherited group operation is exactly the abelian condition). No hypotheses are added or dropped, and no conclusion is changed, so the formalization is strictly faithful.",
+  "duration_ms": 96002,
+  "cost_usd": 0.29865125000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1995_a5.lean",
+  "stem": "putnam_1995_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes Putnam 1995 A5 faithfully. The ODE system `deriv (x i) t = ∑ j, a i j * x j t`, positivity `a i j > 0`, differentiability `Differentiable ℝ (x i)`, and limit `Tendsto (x i) atTop (𝓝 0)` all match the informal hypotheses. The conclusion `¬(∀ b, (∀ t, ∑ b i * x i t = 0) → ∀ i, b i = 0)` is exactly the standard definition of \"linearly dependent\" for a family of functions. The solution being `True` matches the informal \"yes, they are necessarily linearly dependent.\" The `0 < n` hypothesis surfaces an implicit premise needed for truth (n=0 would make the empty family vacuously linearly independent), which is allowed per the faithfulness guidelines. The universal quantification over n, x, a correctly captures \"for any such system.\"",
+  "duration_ms": 161192,
+  "cost_usd": 0.46284650000000005
+}

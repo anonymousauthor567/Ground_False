@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "theorem_name": "Shakarchi_exercise_1_26_corrected",
+  "informal": "Suppose $f$ is continuous in a region $\\Omega$. Prove that any two primitives of $f$ (if they exist) differ by a constant.",
+  "lean": "\ntheorem Shakarchi_exercise_1_26_corrected :\n    ∀ (f F₁ F₂ : ℂ → ℂ) (Ω : Set ℂ),\n      Nonempty Ω → IsOpen Ω → IsConnected Ω →\n      ContinuousOn f Ω → DifferentiableOn ℂ F₁ Ω → DifferentiableOn ℂ F₂ Ω →\n      (∀ x ∈ Ω, deriv F₁ x = f x) → (∀ x ∈ Ω, deriv F₂ x = f x) →\n      ∃ c : ℂ, ∀ x ∈ Ω, F₁ x = F₂ x + c",
+  "verdict": "faithful",
+  "reasoning": "A \"region\" in complex analysis standardly means a nonempty open connected subset of ℂ, which is exactly captured by IsOpen Ω ∧ IsConnected Ω (and the redundant Nonempty Ω, since IsConnected in Mathlib already implies nonemptiness). The hypothesis that f is continuous on Ω is encoded as ContinuousOn f Ω. \"Primitives of f\" are functions F₁, F₂ that are differentiable on Ω with derivative equal to f, which the Lean statement spells out with DifferentiableOn ℂ F_i Ω together with deriv F_i x = f x for x ∈ Ω. The conclusion ∃ c, ∀ x ∈ Ω, F₁ x = F₂ x + c is exactly \"F₁ and F₂ differ by a constant on Ω\". No extra hypotheses (like analyticity) are imposed and none of the needed ones are dropped, so the Lean theorem matches the informal claim.",
+  "duration_ms": 9975,
+  "cost_usd": 0.055146749999999994
+}

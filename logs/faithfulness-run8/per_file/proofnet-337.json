@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "The informal statement fixes k = 1, so R^k is canonically identified with ℝ, and the dot product x·y in ℝ^1 reduces to ordinary multiplication x*y. The Lean statement asserts: for all real x ≠ 0, there is no real y ≠ 0 with x*y = 0 — exactly the specialization of the informal claim at k = 1. The quantifier structure (∀ x, hypothesis → ¬∃ y, ...) matches the informal phrasing, the types are correct (ℝ corresponds to R^1), and no extra or missing hypotheses appear. Hence the Lean signature is logically equivalent to the informal statement.",
+  "duration_ms": 12954,
+  "cost_usd": 0.04840025
+}

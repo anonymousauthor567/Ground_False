@@ -1,0 +1,8 @@
+{
+  "file": "78.lean",
+  "stem": "78",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement: (1) `[IsCohenMacaulayLocalRing A]` encodes \"A is a local CM ring\"; (2) `[IsRegularLocalRing B]` together with `{f : B →+* A}` and `hf : Function.Surjective f` encode \"A is a quotient of a regular local ring\" — this universal-over-B,f form is logically equivalent to an existential since the conclusion doesn't depend on B or f; (3) `[IsDomain A]` + `[UniqueFactorizationMonoid A]` is the standard Mathlib encoding of \"UFD\" (since `UniqueFactorizationMonoid` alone doesn't imply `Nontrivial`); (4) `IsGorensteinRing A` is defined via localization at every maximal ideal, but since A is local with a unique maximal ideal whose localization is isomorphic to A, this is logically equivalent to `IsGorensteinLocalRing A`, matching the informal \"A is Gorenstein\". No hypotheses are silently added or dropped.",
+  "duration_ms": 621346,
+  "cost_usd": 1.60746225
+}

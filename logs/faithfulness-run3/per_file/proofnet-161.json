@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin Exercise 3.8. The hypothesis `h1` encodes convergence of $\\Sigma a_n$ as the partial sums `∑ i ∈ range n, a i` tending to some limit, which is the standard definition. `h2 : Monotone b ∨ Antitone b` matches Rudin's notion of \"monotonic\" (either monotonically non-decreasing or non-increasing). `h3 : Bornology.IsBounded (Set.range b)` correctly encodes boundedness of $\\{b_n\\}$. The conclusion is the analogous convergence statement for $\\Sigma a_n b_n$. Types are consistent (ℕ → ℝ throughout), and no hypotheses are silently added or dropped.",
+  "duration_ms": 23260,
+  "cost_usd": 0.076165
+}

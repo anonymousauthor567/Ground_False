@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p14_1.lean",
+  "stem": "elementary_algebra__p14_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $\\frac{q^3 r^2 (2p^2q^2r^3)^2}{2p^3} = 2q^7r^8p$ for non-zero real p, q, r. The Lean signature asserts $q^3 r^2 (2p^2q^2r^3)^2 = 4p^4q^7r^8$ under the hypotheses Fact(p≠0), Fact(q≠0), Fact(r≠0). These two equations are logically equivalent under the given hypotheses: multiplying both sides of the informal equation by $2p^3$ yields the Lean equation, and dividing both sides of the Lean equation by $2p^3$ (requires p ≠ 0) yields the informal equation. The variables (all three over ℝ) and hypotheses (all three non-zero) match. Since the two formulations are logically equivalent under the hypotheses, the Lean formalization is faithful — it simply uses the cleared-denominator form of the identity.",
+  "duration_ms": 1359486,
+  "cost_usd": 2.7430089999999994
+}

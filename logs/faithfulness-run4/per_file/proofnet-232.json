@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim: G is a finite (`Fintype`) abelian (`CommGroup`) group of order p·q where p, q are distinct primes (encoded via `Nat.Primes` subtype and `hpq : p ≠ q`), and the conclusion is that G is cyclic (`IsCyclic G`). The product `p*q` on the RHS of `hG : card G = p*q` elaborates via the `Coe Nat.Primes ℕ` instance, so the hypothesis reads |G| = (↑p)(↑q) as expected. All hypotheses of the informal statement — abelian, finite (implicit in \"order\"), distinct primes, order is their product — are present, and no extra hypotheses narrow or broaden the scope. The conclusion matches exactly.",
+  "duration_ms": 68779,
+  "cost_usd": 0.21563100000000002
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "informal": "Show that there are infinitely many primes congruent to $-1$ modulo 6 .",
+  "lean": "\ntheorem Ireland_Rosen_exercise_3_1 : Infinite {p : Nat.Primes // p ≡ -1 [ZMOD 6]}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts there are infinitely many primes p with p ≡ -1 (mod 6), equivalently p ≡ 5 (mod 6). The Lean signature uses `Nat.Primes` (the type of prime natural numbers) and asserts the subtype of primes satisfying `p ≡ -1 [ZMOD 6]` is `Infinite`. The notation `[ZMOD 6]` denotes equality in `ZMod 6`, so this says (p : ZMod 6) = -1, which is exactly p ≡ 5 (mod 6). `Infinite` on the subtype correctly captures \"infinitely many such primes.\" No extra hypotheses or weakening are introduced.",
+  "duration_ms": 11471,
+  "cost_usd": 0.054696749999999995
+}

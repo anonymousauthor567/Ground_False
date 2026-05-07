@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_b2.lean",
+  "stem": "putnam_1998_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the problem: parameterizing the x-axis vertex as (c, 0) and the y=x vertex as (x, x), summing the three Euclidean side-lengths, and taking sInf over this set. The strict triangle inequalities are a standard encoding of \"triangle\" being non-degenerate (three distinct non-collinear points), which is the conventional mathematical meaning. The hypothesis `0 < b ∧ b < a` exactly matches `0 < b < a`. The solution `if a > b then sqrt(2a²+2b²) else 0` yields sqrt(2a²+2b²) under the given hypothesis, which is the classical reflection-argument answer (reflecting (a,b) over the x-axis and over y=x gives points whose distance is sqrt((a-b)²+(a+b)²) = sqrt(2a²+2b²)). Since the minimum is achieved at a non-degenerate triangle, the strict triangle inequalities don't alter the infimum value, so sInf equals the minimum as the informal problem states.",
+  "duration_ms": 301028,
+  "cost_usd": 0.720989
+}

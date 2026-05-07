@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. ℝ^k is encoded as `EuclideanSpace ℝ (Fin k)` (standard Mathlib). \"E uncountable\" is `¬ Set.Countable E`, which correctly means neither finite nor countably infinite. The set P of condensation points is defined as `{x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}`; quantifying over the neighborhood filter `𝓝 x` is equivalent to quantifying over open neighborhoods (any neighborhood contains an open one, so intersections with E have the same countability behavior). The conclusion `Set.Countable (E \\ P)` matches \"at most countably many points of E are not in P\". The statement is universally quantified over k and E as the informal reading demands, with no extra or missing hypotheses.",
+  "duration_ms": 109116,
+  "cost_usd": 0.36601
+}

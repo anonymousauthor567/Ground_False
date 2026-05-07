@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-68.lean",
+  "stem": "proofnet-68",
+  "informal": "Prove that $x^6+30x^5-15x^3 + 6x-120$ is irreducible in $\\mathbb{Z}[x]$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_9_4_2b : Irreducible\n  (X^6 + 30*X^5 - 15*X^3 + 6*X - 120 : Polynomial ℤ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature states `Irreducible (X^6 + 30*X^5 - 15*X^3 + 6*X - 120 : Polynomial ℤ)`, which is exactly the claim that the polynomial $x^6+30x^5-15x^3+6x-120$ is irreducible in $\\mathbb{Z}[x]$. The polynomial coefficients and the ambient ring match the informal statement, and `Irreducible` in Mathlib applied to `Polynomial ℤ` is the standard notion of irreducibility in $\\mathbb{Z}[x]$ (non-unit, non-zero, and any factorization has a unit factor). No hypotheses are added or removed.",
+  "duration_ms": 6963,
+  "cost_usd": 0.04490475000000001
+}

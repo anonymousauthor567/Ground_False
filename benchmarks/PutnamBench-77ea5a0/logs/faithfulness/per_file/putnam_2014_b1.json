@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_b1.lean",
+  "stem": "putnam_2014_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding represents an over-expansion as a little-endian list `d` where `d.get i` is the coefficient of 10^i. The sum `∑ i : Fin d.length, d.get i * 10^i.1` correctly computes `d_0·10^0 + d_1·10^1 + ... + d_k·10^k`. The constraint `d.getLastI ≠ 0` corresponds to `d_k ≠ 0` (the leading coefficient condition), and `∀ a ∈ d, a ∈ Finset.range 11` correctly constrains each digit to `{0,1,...,10}`. There is a clean bijection between informal over-expansions (with specific k and coefficients) and valid Lean lists, so uniqueness in one matches uniqueness in the other. The set S is defined as positive integers with a unique over-expansion, matching the informal question. Testing N=10 confirms two valid lists ([10] and [0,1]), consistent with the informal example.",
+  "duration_ms": 253986,
+  "cost_usd": 0.56774175
+}

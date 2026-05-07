@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a6.lean",
+  "stem": "putnam_1966_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures Ramanujan's nested radical via a standard truncation. For each n ≥ 1, a_n is defined by backward recursion: a_n(n) = n as the base case, and a_n(m) = m·√(1 + a_n(m+1)) for 1 ≤ m < n. Unrolling gives a_n(1) = √(1 + 2·√(1 + 3·√(1 + ... + (n-1)·√(1+n)))), exactly matching the coefficient pattern 2, 3, 4, 5, ... in the informal statement. The informal \"...\" denotes an infinite nested radical, which is standardly interpreted as the limit of finite truncations; the Lean's Tendsto (fun n => a n 1) atTop (𝓝 3) expresses this interpretation correctly. Using Ramanujan's identity m(m+2) = m·√(1 + (m+1)(m+3)), one verifies a_n(1) increases monotonically to 3, so the Lean claim is both true and the natural formalization. The hypothesis structure properly constrains a_n only on {1,...,n}, which is sufficient.",
+  "duration_ms": 372526,
+  "cost_usd": 1.1577374999999999
+}

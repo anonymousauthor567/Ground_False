@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_b6.lean",
+  "stem": "putnam_1991_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement: the hypothesis `a > 0 ∧ b > 0` captures \"positive numbers\"; the set `{c | ∀ u, (0 < |u| ∧ |u| ≤ c) → ∀ x ∈ Set.Ioo 0 1, ...}` correctly encodes \"for all u with 0 < |u| ≤ c and for all x with 0 < x < 1\"; `IsGreatest` over this set expresses \"the largest c\"; and the inequality `a^x * b^(1-x) ≤ a * (sinh(u*x)/sinh u) + b * (sinh(u*(1-x))/sinh u)` matches literally. The constraint 0 < |u| ensures sinh u ≠ 0, and `a^x` via `Real.rpow` is well-defined because a > 0. The solution is expressed as a function of a and b via `putnam_1991_b6_solution a b`, matching \"in terms of a and b\".",
+  "duration_ms": 235940,
+  "cost_usd": 0.6805895
+}

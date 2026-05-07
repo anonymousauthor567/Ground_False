@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-346.lean",
+  "stem": "proofnet-346",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches every part of the informal statement: a complete metric space (`MetricSpace X`, `CompleteSpace X`), a sequence E : ℕ → Set X, each E n closed, nonempty, and bounded (`Bornology.IsBounded` coincides with metric boundedness in a metric space), nested via `E n ⊇ E (n+1)`, diameter tending to 0 via `Metric.diam` (the standard real-valued diameter in Mathlib defined as ENNReal.toReal of ediam), and the conclusion `∃ a, Set.iInter E = {a}` is exactly 'the intersection consists of exactly one point'. The informal ∩₁^∞ vs Lean ∩₀^∞ difference is immaterial since the sequence is decreasing so both intersections yield the same set.",
+  "duration_ms": 67502,
+  "cost_usd": 0.2545455
+}

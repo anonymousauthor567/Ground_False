@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-80.lean",
+  "stem": "proofnet-80",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes \"any two nonabelian groups of order 21 are isomorphic.\" The universal quantification over `G` and `H` captures \"any two\"; `[Fintype G] [Group G]` plus `card G = 21` correctly encodes \"group of order 21\" (using `Fintype.card`); `∃ a b : G, a * b ≠ b * a` is the standard negation of commutativity, correctly expressing \"nonabelian\"; and `Nonempty (G ≃* H)` uses `MulEquiv` to assert the existence of a group isomorphism, matching \"are isomorphic.\" Hypotheses and conclusion match the informal statement exactly, with no added or missing premises.",
+  "duration_ms": 85434,
+  "cost_usd": 0.29029974999999997
+}

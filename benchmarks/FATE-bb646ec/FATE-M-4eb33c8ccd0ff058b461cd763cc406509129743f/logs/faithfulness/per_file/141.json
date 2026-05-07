@@ -1,0 +1,8 @@
+{
+  "file": "141.lean",
+  "stem": "141",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal claim \"every subgroup of a solvable group is solvable.\" The universal quantifier over groups G is captured by `{G : Type*} [Group G]`, the solvability hypothesis by `[IsSolvable G]`, the universal quantifier over subgroups by `(H : Subgroup G)`, and the conclusion `IsSolvable H` states that H (viewed as a group via Mathlib's subgroup instance) is solvable. This is exactly Mathlib's `subgroup_solvable_of_solvable` instance in `Mathlib/GroupTheory/Solvable.lean`. No extra hypotheses are added and none are omitted, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 87057,
+  "cost_usd": 0.1573655
+}

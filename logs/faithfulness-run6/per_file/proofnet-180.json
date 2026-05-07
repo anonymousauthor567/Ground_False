@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization adds `IsPreconnected Ω`, which is an implicit premise needed for the statement to be true. Without connectedness, the claim fails: e.g., Ω = D(0,1) ∪ D(10,1) with φ(z) = z on the first disk and φ(z) = 10 + (z-10)²/10 on the second satisfies all stated hypotheses (bounded, open, holomorphic, maps into itself, with z₀ = 0 giving φ(0)=0 and φ'(0)=1), yet φ is not globally linear on Ω. Shakarchi's convention (and the standard proof using Taylor expansion, iterates, and Cauchy estimates + identity theorem) require connectedness of Ω. This is a surfacing of an implicit premise, matching the worked example pattern — not weakening. The conclusion `∃ f_lin : ℂ →L[ℂ] ℂ, f = f_lin on Ω` is equivalent to \"f is linear\" under the hypotheses: both force f = id on Ω (since f(z₀) = a·z₀ = z₀ and f'(z₀) = a = 1 determine the ℂ-linear map). Other encodings (DifferentiableOn, MapsTo, Bornology.IsBounded, subtype z₀ : Ω, deriv) are standard faithful Mathlib idioms.",
+  "duration_ms": 345033,
+  "cost_usd": 1.00455525
+}

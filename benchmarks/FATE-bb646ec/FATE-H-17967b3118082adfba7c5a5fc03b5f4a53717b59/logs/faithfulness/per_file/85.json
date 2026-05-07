@@ -1,0 +1,8 @@
+{
+  "file": "85.lean",
+  "stem": "85",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: A is a Noetherian commutative ring (CommRing + IsNoetherianRing), 𝒜 and ℬ are ideals of A, M is a finitely generated A-module (Module.Finite A M corresponds exactly to \"finitely generated\"), and the conclusion is an A-linear equivalence between the 𝔟-adic completion of the 𝔞-adic completion and the (𝔞+𝔟)-adic completion, wrapped in Nonempty to assert existence. The Mathlib `AdicCompletion` is the standard inverse-limit construction, and `≃ₗ[A]` is the natural interpretation of \"≅\" (as A-modules). The quantifier structure and hypotheses all match the informal statement.",
+  "duration_ms": 148975,
+  "cost_usd": 0.36618875
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "informal": "Prove the the operation $\\star$ on $\\mathbb{Z}$ defined by $a\\star b=a-b$ is not commutative.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_2a : ∃ a b : ℤ, a - b ≠ b - a",
+  "verdict": "faithful",
+  "reasoning": "Non-commutativity of the operation a⋆b = a−b on ℤ means ¬∀ a b ∈ ℤ, a−b = b−a, which is classically equivalent to ∃ a b ∈ ℤ, a−b ≠ b−a. The Lean statement asserts exactly this existential, with the correct type ℤ and the correct operation. No extra hypotheses are added and none are missing, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 6225,
+  "cost_usd": 0.04329074999999999
+}

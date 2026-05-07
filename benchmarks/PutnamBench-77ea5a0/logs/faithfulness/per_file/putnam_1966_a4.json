@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1966_a4.lean",
+  "stem": "putnam_1966_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. The hypotheses `a 1 = 2` and the recursion `a (n+1) = if ∃ m : ℤ, m^2 = a n + 1 = True then a n + 2 else a n + 1` uniquely define `a` (for n ≥ 1) as the sequence of non-perfect-square positive integers: since `=` is left-associative at precedence 50, `m^2 = a n + 1 = True` parses as `(m^2 = a n + 1) = True`, which by propext is equivalent to `m^2 = a n + 1`, i.e., `a n + 1` is a perfect square — in which case we skip it. Starting from 2, this generates 2, 3, 5, 6, 7, 8, 10, ... matching the non-squares. The conclusion `a n = n + round (Real.sqrt n)` uses Mathlib's `round` (nearest integer, ties toward +∞), which agrees with \"closest integer\" in this problem since √n for non-square n is irrational (no tie cases). Types align properly (all in ℤ with appropriate coercions from ℕ). The formalization neither adds nor drops hypotheses beyond what the informal statement intends.",
+  "duration_ms": 528153,
+  "cost_usd": 1.6487712500000002
+}

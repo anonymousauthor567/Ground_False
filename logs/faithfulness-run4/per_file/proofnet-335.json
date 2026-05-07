@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-335.lean",
+  "stem": "proofnet-335",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the finite sequence z_1, ..., z_n as a function f : ℕ → ℂ evaluated on range n = {0, ..., n-1}, which gives a sum of n complex numbers — equivalent to the informal sequence. For z : ℂ, `‖z‖` in Mathlib is the complex absolute value, matching |z|. Both sides express ‖∑ f i‖ ≤ ∑ ‖f i‖, the standard triangle inequality. Values of f outside range n do not affect either side, so the ℕ → ℂ encoding is harmless. The n = 0 case gives 0 ≤ 0, a trivially true and conventional vacuous case. This is a strictly faithful formalization.",
+  "duration_ms": 45495,
+  "cost_usd": 0.09412775
+}

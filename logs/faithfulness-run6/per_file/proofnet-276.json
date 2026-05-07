@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal claim exactly. `K` is a field, `F : Subfield K` represents a subfield, and `a : K`. The `IsAlgebraic F (a^2)` hypothesis correctly expresses \"a² is algebraic over F\" via the canonical `Subfield.toAlgebra : Algebra F K` instance (confirmed in `Mathlib/Algebra/Field/Subfield/Basic.lean:547`), and `IsAlgebraic` is the standard definition `∃ p : R[X], p ≠ 0 ∧ aeval x p = 0` (from `Mathlib/RingTheory/Algebraic/Defs.lean:45`). The conclusion `IsAlgebraic F a` matches \"a is algebraic over F\". No hypotheses are silently added or dropped, and the types, quantifier structure, and ambient objects all match the informal statement.",
+  "duration_ms": 95222,
+  "cost_usd": 0.35353475
+}

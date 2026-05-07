@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-126.lean",
+  "stem": "proofnet-126",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that ℚ is not locally compact. The Lean signature `¬ LocallyCompactSpace ℚ` directly asserts exactly this: the rationals (with their default topology inherited as a subspace of ℝ in Mathlib) do not form a locally compact space. There are no added or omitted hypotheses, the conclusion matches, and `LocallyCompactSpace` is the standard Mathlib notion of local compactness. This is a direct, logically equivalent formalization.",
+  "duration_ms": 8246,
+  "cost_usd": 0.03144775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_a2.lean",
+  "stem": "putnam_2007_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal problem. The plane is encoded as `Fin 2 → ℝ`, which receives the 2D Lebesgue product measure via `MeasureSpace.pi`, so `volume S` is exactly the area. The four existential conditions each pick out a point on one of the four branches: xy=1 with (x>0,y>0), xy=1 with (x<0,y<0), xy=-1 with (x<0,y>0), and xy=-1 with (x>0,y<0) — these are precisely the two branches of each hyperbola. The conditions `∃ p ∈ S, ...` correctly express \"S intersects each branch\". `Convex ℝ S` is the standard convexity condition, and `IsLeast` correctly formalizes \"least possible area\" (the value is both achieved and a lower bound), with the solution 4 matching the Putnam answer. No hypotheses are added or dropped, and the quantifier structure over sets S is correct.",
+  "duration_ms": 267228,
+  "cost_usd": 0.31879275
+}

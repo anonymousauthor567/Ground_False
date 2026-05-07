@@ -1,0 +1,8 @@
+{
+  "file": "11.lean",
+  "stem": "11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal claim. `Nat.card G = 3825` captures \"G has order 3825\" and implicitly forces G to be finite (since `Nat.card` returns 0 for infinite types). `[H.Normal]` encodes that H is normal, `Nat.card H = 17` gives H order 17, and `Subgroup.center G` is Mathlib's definition of Z(G). The conclusion `H ≤ Subgroup.center G` is exactly `H ≤ Z(G)`. No hypothesis has been added or dropped, and no conclusion has been strengthened or weakened.",
+  "duration_ms": 63978,
+  "cost_usd": 0.14891700000000002
+}

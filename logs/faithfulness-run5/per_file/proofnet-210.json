@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: V is a complex inner product space, T is a normal operator (expressed via the literal definition T * adjoint T = adjoint T * T, equivalent to IsStarNormal), and the conclusion ∃ S, S^2 = T matches the informal definition of \"square root\" exactly. The only added hypothesis is [FiniteDimensional ℂ V], which is an implicit premise: Mathlib's LinearMap.adjoint is only defined for finite-dimensional spaces (verified in Mathlib/Analysis/InnerProductSpace/Adjoint.lean where adjoint is declared under [FiniteDimensional 𝕜 E]), so the statement wouldn't even typecheck otherwise. Furthermore, the standard proof (via spectral decomposition of normal operators) requires finite-dimensionality, so this assumption surfaces a needed implicit premise rather than narrowing the intended scope.",
+  "duration_ms": 264298,
+  "cost_usd": 0.7778495000000001
+}

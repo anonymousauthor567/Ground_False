@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if U is open and A is closed in a topological space X, then U−A is open and A−U is closed. The Lean formalization introduces X as a topological space, takes U and A as subsets with hypotheses `IsOpen U` and `IsClosed A`, and concludes `IsOpen (U \\ A) ∧ IsClosed (A \\ U)`. The set-theoretic minus (−) corresponds exactly to `\\` (set difference) in Lean/Mathlib. The hypotheses, types, and both conjuncts of the conclusion match the informal claim precisely, with no added or missing assumptions.",
+  "duration_ms": 8132,
+  "cost_usd": 0.039946
+}

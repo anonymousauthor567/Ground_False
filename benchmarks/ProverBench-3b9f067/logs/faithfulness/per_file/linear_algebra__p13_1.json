@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p13_1.lean",
+  "stem": "linear_algebra__p13_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement describes a linear function T: ℤ × ℤ → ℤ with T(1,0)=3 and T(0,1)=-5, and concludes T(x,y) = 3x - 5y. The Lean formalization uses `T : ℤ × ℤ →+ ℤ` (an additive group homomorphism). For ℤ-modules (abelian groups), every additive group homomorphism is automatically ℤ-linear and vice versa, so `AddMonoidHom` faithfully captures \"linear function\" between ℤ-modules. The axioms T10 and T01 correctly encode the hypotheses T(1,0)=3 and T(0,1)=-5, and the conclusion `∀ x y, T (x, y) = 3 * x - 5 * y` exactly matches the informal conclusion. The quantifier structure, types, hypotheses, and conclusion all align with the informal statement.",
+  "duration_ms": 561714,
+  "cost_usd": 0.51018625
+}

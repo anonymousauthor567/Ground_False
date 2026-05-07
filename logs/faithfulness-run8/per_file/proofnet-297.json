@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-297.lean",
+  "stem": "proofnet-297",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes all components of the informal statement: Y being Hausdorff as `[T2Space Y]`, A ⊂ X as `A : Set X`, f continuous on A via the standard `ContinuousOn f A` encoding, g being a continuous extension of f to Ā via `ContinuousOn g (closure A)` plus `∀ x : A, g x = f x`. The uniqueness conclusion — that g is uniquely determined by f — is faithfully rendered as: any other continuous extension g' must agree with g on closure A. This is logically equivalent to saying the extension (as a function on Ā) is unique, since values outside Ā are irrelevant to the informal claim about g: Ā → Y. The use of subtype coercion `x : A` and `x : closure A` correctly quantifies over the relevant domains. No extra or missing hypotheses.",
+  "duration_ms": 91635,
+  "cost_usd": 0.30082875000000003
+}

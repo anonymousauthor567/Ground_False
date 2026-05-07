@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely mirrors the informal statement. The hypothesis `[Fintype G]` captures \"finite group\", and `hH : H ≠ ⊤` captures \"H is a proper subgroup\" (i.e., H ≠ G). The conclusion unfolds the informal definition of \"maximal subgroup\" directly and literally: `M ≠ ⊤` (M ≠ G) and `∀ K, M ≤ K → K = M ∨ K = ⊤` (the only subgroups of G containing M are M and G), together with `H ≤ M` (M contains H). No hypothesis is dropped or added beyond what the informal statement specifies, the types match (Subgroup G throughout), and the quantifier structure — an existential over subgroups with the three-part conjunction — matches the informal claim exactly.",
+  "duration_ms": 50980,
+  "cost_usd": 0.22893375
+}

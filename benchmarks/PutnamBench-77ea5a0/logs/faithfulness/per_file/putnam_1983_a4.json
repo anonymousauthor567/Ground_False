@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1983_a4.lean",
+  "stem": "putnam_1983_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The parameterization $m = 6k - 1$ with $k > 0$ gives exactly $m \\in \\{5, 11, 17, \\ldots\\}$, which matches $m \\equiv 5 \\pmod 6$ for non-negative integers $m$ (the natural domain for binomial coefficients). The sum indexing over $j \\in [1, 2k-1]$ produces lower binomial indices $3j - 1 \\in \\{2, 5, 8, \\ldots, m-3\\}$ as required, and $(-1)^{j+1}$ yields the alternating signs $+, -, +, \\ldots, -, +$ matching the informal pattern (verified: last term $j = 2k-1$ gives $+\\binom{m}{m-3}$, second-to-last $j = 2k-2$ gives $-\\binom{m}{m-6}$). The conclusion $S \\neq 0$ is stated identically. No hypotheses are silently added or dropped beyond what is needed for the statement to be well-typed and meaningful.",
+  "duration_ms": 63055,
+  "cost_usd": 0.22070075
+}

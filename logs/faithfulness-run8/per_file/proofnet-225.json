@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if H, K are finite subgroups of G with coprime orders, then H ∩ K is trivial. The Lean statement captures each piece exactly: `[Group G]` gives the ambient group, `H K : Subgroup G` gives the two subgroups, `[Fintype H] [Fintype K]` encodes \"finite subgroups\", `Nat.Coprime (card H) (card K)` (with `open Fintype`, so `card` is `Fintype.card`, which for a finite subgroup equals its order) encodes \"orders are relatively prime\", and `H ⊓ K = ⊥` is the Mathlib way to state that the intersection is the trivial subgroup {1}. This matches the existing Mathlib lemma `Subgroup.inf_eq_bot_of_coprime`. No hypotheses are dropped or added; the claim is logically equivalent.",
+  "duration_ms": 36342,
+  "cost_usd": 0.1790835
+}

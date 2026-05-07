@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-298.lean",
+  "stem": "proofnet-298",
+  "informal": "Show that $\\mathbb{R} \\times \\mathbb{R}$ in the dictionary order topology is metrizable.",
+  "lean": "theorem Munkres_exercise_20_2\n  [TopologicalSpace (ℝ ×ₗ ℝ)] [OrderTopology (ℝ ×ₗ ℝ)]\n  : MetrizableSpace (ℝ ×ₗ ℝ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean uses `ℝ ×ₗ ℝ` (the Lex/lexicographic product of ℝ with itself), and constrains its topology via `[OrderTopology (ℝ ×ₗ ℝ)]`, which is exactly the dictionary order topology on ℝ × ℝ. The conclusion `MetrizableSpace (ℝ ×ₗ ℝ)` matches the informal claim of metrizability. Taking `TopologicalSpace` as a parameter is fine because `OrderTopology` pins it down to the order topology. No extra hypotheses are added, none are dropped, and the conclusion is exactly what was asked.",
+  "duration_ms": 9088,
+  "cost_usd": 0.05161425000000001
+}

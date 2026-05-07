@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim: `V` is a complex inner-product space (`InnerProductSpace ℂ V`), the hypothesis `T * adjoint T = adjoint T * T` is exactly the standard definition of a normal operator (T commutes with T*), and the conclusion `∃ S : End ℂ V, S ^ 2 = T` matches the informal definition of a square root (S² = T) over the space of linear operators `End ℂ V = V →ₗ[ℂ] V = L(V)`. The added `FiniteDimensional ℂ V` hypothesis surfaces an implicit premise: Mathlib's `LinearMap.adjoint` is only defined for finite-dimensional spaces, so without it the hypothesis statement would not even be well-formed, and more fundamentally the existence-of-square-root claim for normal operators is the standard finite-dimensional spectral-theorem result (and is not literally a theorem over arbitrary incomplete complex inner-product spaces). This matches the rule that making implicit premises explicit counts as faithful.",
+  "duration_ms": 337304,
+  "cost_usd": 1.1201922500000001
+}

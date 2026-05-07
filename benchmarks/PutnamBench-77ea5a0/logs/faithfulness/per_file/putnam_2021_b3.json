@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_b3.lean",
+  "stem": "putnam_2021_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the Putnam 2021 B3 problem. (1) ρ is correctly defined: `(p 1) * deriv (fun x' => h !₂[x', p 1]) (p 0)` is y·h_x(x,y) and `(p 0) * deriv (fun y' => h !₂[p 0, y']) (p 1)` is x·h_y(x,y), giving ρ = y·h_x − x·h_y. (2) `ContDiff ℝ 2 h` corresponds to \"twice continuously differentiable throughout ℝ²\". (3) The quantifier structure \"∀ d>0, ∀ r>0, d>r → ∃ c, dist c 0 = d ∧ ...\" exactly captures \"for any positive constants d and r with d>r, there is a circle of radius r with center at distance d from the origin\". (4) `Metric.ball c r` is the open disk, matching \"interior of the circle\". (5) The integral is over the disk as asked. The solution being `True` matches the \"Prove or disprove\" form. No hypotheses are added or dropped.",
+  "duration_ms": 171773,
+  "cost_usd": 0.3686542499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-87.lean",
+  "stem": "proofnet-87",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the only ideals of the ring R = M_2(ℝ) are 0 and R — this is the classical simplicity-of-matrix-rings result. In Herstein's textbook (and standard algebra usage), \"ideal\" in this context means two-sided ideal; indeed the analogous claim fails for one-sided ideals (e.g., the left ideal of matrices with a fixed zero column). The Lean encoding quantifies over `TwoSidedIdeal (Matrix (Fin 2) (Fin 2) ℝ)`, which is exactly the right notion, and concludes `I = ⊥ ∨ I = ⊤`, where ⊥ and ⊤ are the zero ideal and the whole ring. The type `Matrix (Fin 2) (Fin 2) ℝ` is the standard Mathlib encoding of 2×2 real matrices. The universal quantifier over I is captured by making I a free variable in the theorem. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 67415,
+  "cost_usd": 0.22813625
+}

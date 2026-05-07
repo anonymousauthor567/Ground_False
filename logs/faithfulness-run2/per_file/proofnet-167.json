@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-167.lean",
+  "stem": "proofnet-167",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures the informal claim precisely: E is hypothesized to be compact (h₁), the graph G is defined as {(x, f x) | x ∈ E} (h₂), and the conclusion is the biconditional ContinuousOn f E ↔ IsCompact G. Although f is typed as ℝ → ℝ (total) rather than a partial function on E, this is immaterial because ContinuousOn f E only uses f's values on E, and the graph definition also only uses values on E — so the statement is mathematically identical to the informal \"f defined on E\" reading. All relevant quantifiers, types, and the iff structure match.",
+  "duration_ms": 17839,
+  "cost_usd": 0.05529
+}

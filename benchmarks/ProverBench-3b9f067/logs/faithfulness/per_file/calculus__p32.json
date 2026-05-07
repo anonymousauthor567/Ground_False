@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p32.lean",
+  "stem": "calculus__p32",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement \"∫ 1/cos²x dx = tan x + C\" is the standard antiderivative identity, equivalent to `HasDerivAt tan (1/cos²x) x` on the domain where cos x ≠ 0 — a true statement. The Lean statement uses Mathlib's `∫ x, f x` notation which (per `MeasureTheory/Integral/Bochner.lean` line 804) is the *definite* Bochner integral `integral volume (fun x => f x)` over all of ℝ, yielding a single real number. Because `1/cos²y` has non-integrable singularities at π/2 + kπ, the LHS is `0` by `integral_undef`, so the Lean claim `∀ x C : ℝ, 0 = tan(x) + C` is plainly false. Moreover, the `x` inside the integral is bound by the integral binder while `tan x` on the RHS refers to the outer parameter `x : ℝ`, so the two occurrences are unrelated. The Lean statement does not encode the antiderivative identity at all — it is a different (and false) mathematical claim, making it incomparable with the informal statement.",
+  "duration_ms": 308154,
+  "cost_usd": 0.7619060000000001
+}

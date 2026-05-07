@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a direct, faithful encoding of the informal statement. \"Homomorphism of G onto G'\" is captured by `φ : G →* G'` together with `hφ : Function.Surjective φ`. \"N ⊴ G\" is captured by `N : Subgroup G` with the `[N.Normal]` instance hypothesis. The conclusion \"φ(N) ⊴ G'\" is captured by `(Subgroup.map φ N).Normal`, where `Subgroup.map φ N` is the image of N under φ. The groups G and G' are arbitrary (Type* with Group instances), matching the generality of the informal claim. This exactly mirrors Mathlib's own `Subgroup.Normal.map` theorem in `Algebra/Group/Subgroup/Basic.lean`.",
+  "duration_ms": 59199,
+  "cost_usd": 0.30428325
+}

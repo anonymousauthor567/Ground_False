@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_b1.lean",
+  "stem": "putnam_1976_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean expression captures the informal limit faithfully. Inside the sum, `k : ℤ` from `Finset.Icc (1 : ℤ) n`, so `(2*n)/k` elaborates to `ℤ`-valued Euclidean integer division (with `n` coerced from ℕ to ℤ); since `Int.floor` on an integer is the identity (Mathlib's `Int.floor_int`), `Int.floor ((2*n)/k)` just returns `(2*n) / k : ℤ`. For positive `k, n` (guaranteed by the summation range `[1, n]`), `Int.ediv` equals the mathematical floor `⌊2n/k⌋`, so the summand `Int.floor ((2*n)/k) - 2*Int.floor (n/k)` exactly encodes `⌊2n/k⌋ - 2⌊n/k⌋`. The outer `((1 : ℝ)/n) * (sum)` coerces the integer sum to ℝ, matching `(1/n) Σ_{k=1}^n (...)`. The `Tendsto ... atTop` correctly encodes the limit as `n → ∞`, and the conclusion `Real.log solution.1 - solution.2` with the solution living in `ℕ × ℕ` encodes the `ln(a) - b` form (though ℕ technically allows 0, the solution `(4,1)` has both positive, matching the \"positive integers\" requirement).",
+  "duration_ms": 320291,
+  "cost_usd": 1.0839225
+}

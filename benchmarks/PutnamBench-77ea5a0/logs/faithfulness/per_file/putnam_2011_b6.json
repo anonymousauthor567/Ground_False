@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_b6.lean",
+  "stem": "putnam_2011_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures every component of the informal Putnam 2011 B6. The hypothesis `Odd p ∧ Nat.Prime p` matches \"odd prime\". `Finset.range p` is exactly $\\{0, 1, \\ldots, p-1\\}$, used both for the range of $n$ and for the summation index $k$. The inner sum `∑ k : Finset.range p, Nat.factorial k * n^(k : ℕ)` sums over the subtype coercion of `Finset.range p` and equals $\\sum_{k=0}^{p-1} k! \\cdot n^k$ by `Finset.sum_coe_sort`. The filtered set counts $n \\in \\{0, \\ldots, p-1\\}$ for which $p \\nmid \\sum_{k=0}^{p-1} k! n^k$, and `.card ≥ (p + 1)/2` gives the \"at least $(p+1)/2$\" bound (exact since $p$ odd makes $p+1$ even, so the nat division is precise). No hypotheses are added or omitted, and the conclusion matches exactly.",
+  "duration_ms": 199146,
+  "cost_usd": 0.44687375
+}

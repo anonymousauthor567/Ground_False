@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "stronger",
+  "reasoning": "The informal statement is literally existential: \"there exists a real function f such that f is uniformly continuous and is bounded on E\" — i.e. ∃ f, UC(f) ∧ f bounded on E. This is trivially true (take f ≡ 0). The Lean statement is universal: ∀ f, UniformContinuousOn f E → f(E) is bounded. The Lean universal implies the informal existential (the constant 0 is a witness), but the informal existential does not imply the Lean universal. So the Lean encodes strictly more than the literal informal claim. (It is clearly intended to be Rudin 4.8(a), whose correct form is the universal in the Lean; the informal statement appears garbled, but judged literally, the Lean is stronger.)",
+  "duration_ms": 65932,
+  "cost_usd": 0.19495825
+}

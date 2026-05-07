@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_b4.lean",
+  "stem": "putnam_2010_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal \"find all pairs\" problem. The identity `p(x)q(x+1) - p(x+1)q(x) = 1` is translated as a universally quantified pointwise equality over ℝ, which is equivalent to polynomial equality since ℝ is infinite. The solution set correctly characterizes the answer: pairs (p, q) with both `p.degree ≤ 1` and `q.degree ≤ 1` (covering linear/constant/zero polynomials via the WithBot ℕ ordering) satisfying `p.coeff 0 * q.coeff 1 - p.coeff 1 * q.coeff 0 = 1`. Writing p = ax+b, q = cx+d, direct expansion gives (ax+b)(cx+c+d) - (ax+a+b)(cx+d) = bc - ad, which in terms of coeffs (a = p.coeff 1, b = p.coeff 0, c = q.coeff 1, d = q.coeff 0) equals b·c - a·d = p.coeff 0 * q.coeff 1 - p.coeff 1 * q.coeff 0, matching exactly. The iff structure properly encodes \"find all\".",
+  "duration_ms": 224313,
+  "cost_usd": 0.5664645
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-290.lean",
+  "stem": "proofnet-290",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the union of a family of topologies \"does not need to be a topology,\" which is standardly interpreted as the existence of a counterexample. The Lean statement ∃ X I T, (∀ i, is_topology X (T i)) ∧ ¬ is_topology X (⋃ i : I, T i) exactly captures this: there exist a space X, an index type I, and a family of topologies T i on X such that their union is not a topology. The definition is_topology matches the three axioms (universe membership, closure under binary intersections, closure under arbitrary unions), and ⋃ i : I, T i is the indexed union of sets of sets, the correct type for a candidate topology. The quantifier structure (existence of a counterexample) and the types involved all align with the informal claim, making this a faithful formalization.",
+  "duration_ms": 12932,
+  "cost_usd": 0.0527165
+}

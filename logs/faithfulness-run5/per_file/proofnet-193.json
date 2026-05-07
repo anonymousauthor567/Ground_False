@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-193.lean",
+  "stem": "proofnet-193",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that if integers a, b satisfy a ∣ b in the Gaussian integers, then a ∣ b in ℤ. The Lean statement takes a b : ℤ and asserts (ofInt a : GaussianInt) ∣ (ofInt b) → a ∣ b. From Mathlib's Zsqrtd/Basic.lean, `ofInt n = ⟨n, 0⟩` and this is definitionally the integer-cast of n into ℤ√d (it is used to define `intCast`), so `(ofInt a : GaussianInt)` is the standard embedding of a into ℤ[i]. The hypothesis therefore expresses exactly \"a divides b in ℤ[i]\", and the conclusion `a ∣ b` at type ℤ expresses \"a divides b in ℤ\". Hypotheses, types, and conclusion match the informal claim precisely.",
+  "duration_ms": 41796,
+  "cost_usd": 0.16752025
+}

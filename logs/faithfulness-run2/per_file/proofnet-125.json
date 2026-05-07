@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The Lean `countably_compact` definition—every ℕ-indexed open cover admits a finite subcover—is equivalent to the standard \"every countable open cover has a finite subcover\" (any countable cover can be enumerated by ℕ with repetition). The RHS of the iff correctly encodes \"nested sequence of closed nonempty sets has nonempty intersection\": `IsClosed (C n)` captures closed, `C n ≠ ∅` captures nonempty, `C (n+1) ⊆ C n` captures the nesting (indexing from 0 vs 1 is immaterial), and `∃ x, ∀ n, x ∈ C n` captures that the intersection ⋂ₙ Cₙ is nonempty. No hypotheses are silently added or dropped, and both directions of the iff are stated, matching the informal claim exactly.",
+  "duration_ms": 37164,
+  "cost_usd": 0.14461700000000002
+}

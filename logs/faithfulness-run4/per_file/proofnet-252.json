@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that x^4+4x^3+6x^2+2x+1 is irreducible in ℤ[x]. The Lean theorem states `Irreducible (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ)`, where `Polynomial ℤ` is exactly ℤ[x] and Mathlib's `Irreducible` (defined in `Mathlib/Algebra/Group/Irreducible/Defs.lean`) captures the standard notion \"not a unit and every factorization has a unit factor\". The polynomial expression and the ambient ring match exactly, and no hypotheses are added or dropped. Therefore the Lean signature is a strictly faithful formalization of the informal statement.",
+  "duration_ms": 41460,
+  "cost_usd": 0.14532899999999999
+}

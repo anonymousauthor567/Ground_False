@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim. `Zsqrtd (-n)` is Mathlib's $\\mathbb{Z}[\\sqrt{-n}]$; the elements $\\langle 0, 1\\rangle$ and $1 + \\langle 0, 1\\rangle$ correspond precisely to $\\sqrt{-n}$ and $1+\\sqrt{-n}$ (and `2` coerces to the correct ring element). The two hypotheses `n > 3` and `Squarefree n` together are equivalent to \"squarefree integer greater than 3\". The conclusion is a conjunction of three `Irreducible` assertions, matching the informal conjunction. No hypothesis is silently added or dropped, and no notion is replaced by a non-equivalent one.",
+  "duration_ms": 41703,
+  "cost_usd": 0.14058025000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-365.lean",
+  "stem": "proofnet-365",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes the improper integral as a symmetric principal-value limit `lim_{y→∞} ∫_{-y}^{y} x·sin(x)/(x²+a²) dx = π·e^{-a}`, which is the standard (and necessary) interpretation because the integrand is not absolutely integrable on ℝ — so a Bochner integral `∫ x, f x` would give an incorrect value. The integrand is even (x·sin x is even, x²+a² is even), so the symmetric limit coincides with the improper Riemann integral in any standard sense. The hypothesis `0 < a`, the integrand `x * Real.sin x / (x^2 + a^2)` (correctly parsed as `(x·sin x)/(x²+a²)` by Lean precedence), and the target value `π·exp(-a)` all match the informal statement exactly. This is a faithful formalization of the standard reading of the improper integral notation in this complex-analysis context.",
+  "duration_ms": 121703,
+  "cost_usd": 0.6733015
+}

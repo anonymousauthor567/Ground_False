@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes V as a vector space over field F via `[AddCommGroup V] [Field F] [Module F V]`, and models \"any collection of subspaces\" as an arbitrary indexed family `u : ι → Submodule F V` over an unconstrained index type ι. The conclusion `∃ U : Submodule F V, (⋂ i, (u i).carrier) = ↑U` asserts that the set-theoretic intersection of the subspaces coincides with the carrier of some submodule, which is exactly the claim that the intersection is a subspace. The empty-ι case also works (intersection = V, which is a submodule). This matches the informal claim without adding or dropping hypotheses.",
+  "duration_ms": 14795,
+  "cost_usd": 0.07139424999999999
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "informal": "If $P$ is a $p$-Sylow subgroup of $G$ and $P \\triangleleft G$, prove that $P$ is the only $p$-Sylow subgroup of $G$.",
+  "lean": "\ntheorem Herstein_exercise_2_11_6 {G : Type*} [Group G] {p : ℕ} (hp : Nat.Prime p)\n  {P : Sylow p G} (hP : P.Normal) :\n  ∀ (Q : Sylow p G), P = Q",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that for every Sylow p-subgroup Q of G, P equals Q, given that P is normal. This is exactly the informal claim that a normal p-Sylow subgroup is the unique p-Sylow subgroup. The `Sylow p G` type encodes p-Sylow subgroups, `P.Normal` matches \"P ◁ G\", and the prime hypothesis `hp` is standard (and harmless even if redundant since `Sylow p G` is well-defined regardless). The universal quantifier over Q correctly captures uniqueness.",
+  "duration_ms": 7317,
+  "cost_usd": 0.04547825
+}

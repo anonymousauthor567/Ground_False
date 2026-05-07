@@ -1,0 +1,8 @@
+{
+  "file": "87.lean",
+  "stem": "87",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim: it asserts the existence of two commutative rings R, S (given via `CommRing R`, `CommRing S`) with a ring isomorphism between their polynomial rings (`Nonempty ((Polynomial R) ≃+* (Polynomial S))`) and no ring isomorphism between R and S themselves (`IsEmpty (R ≃+* S)`). `Polynomial R` is Mathlib's standard R[x], `≃+*` is the standard ring equivalence, `Nonempty` encodes \"there exists an isomorphism\" and `IsEmpty` encodes \"there is no isomorphism\". The use of `Type` (universe 0) is a standard, benign convention — known counterexamples (e.g., Hochster's) exist in small universes, so the mathematical content is unchanged.",
+  "duration_ms": 189555,
+  "cost_usd": 0.42182849999999994
+}

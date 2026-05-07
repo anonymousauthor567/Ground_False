@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `RegularSpace` is defined as exactly the pure regular separation property (disjoint neighborhoods of a point and a disjoint closed set), with NO T0/T1 axiom attached (confirmed in `Mathlib/Topology/Separation/Regular.lean` line 79). This matches Munkres's parenthetical \"(separation property only)\", which deliberately excludes the T1 requirement that Munkres normally bundles into \"regular\". The hypothesis `h : ∀ i, Nonempty (X i)` directly encodes \"each $X_\\alpha$ is nonempty\", which is genuinely needed (otherwise an empty factor would make the product vacuously regular while other factors could fail to be regular). The product type `Π i, X i` with pi-type topology encodes the product $\\prod X_\\alpha$, and the conclusion `∀ i, RegularSpace (X i)` encodes \"each $X_\\alpha$ is regular\". Types, quantifier structure, hypotheses, and conclusion all correspond.",
+  "duration_ms": 97414,
+  "cost_usd": 0.30786925
+}

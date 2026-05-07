@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_a4.lean",
+  "stem": "putnam_1968_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately captures the informal statement. `EuclideanSpace ℝ (Fin 3)` is standard 3D Euclidean space, and `dist 0 (S i) = 1` correctly encodes \"on the unit sphere\" since the Euclidean distance from the origin equals √(x² + y² + z²), so setting it to 1 gives x² + y² + z² = 1. The double sum `∑ i, ∑ j, if i < j then (dist (S i) (S j))^2 else 0` computes exactly ∑_{i<j} d(Pᵢ, Pⱼ)², which is the natural reading of \"the sum of the squares of the distances between any n points\" (each unordered pair counted once). The bound n² matches, and the universal quantification over n and S faithfully encodes \"any n points\". No extra hypotheses or weakened/strengthened conclusions.",
+  "duration_ms": 66763,
+  "cost_usd": 0.31775
+}

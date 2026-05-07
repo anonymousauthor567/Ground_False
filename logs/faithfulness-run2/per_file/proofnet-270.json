@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-270.lean",
+  "stem": "proofnet-270",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"$ax+xa$ commutes with $a$\" translates exactly to $a(ax+xa) = (ax+xa)a$, which is precisely the Lean conclusion. The hypothesis $a^2 = 0$ is encoded as `a ^ 2 = 0`, and the universal quantification over the ring $R$ and elements $a, x$ is faithfully captured. The `Ring R` typeclass corresponds to the ambient ring in the exercise, and no extra assumptions (e.g., commutativity, finiteness) are introduced. The statement is logically equivalent to the informal one.",
+  "duration_ms": 32159,
+  "cost_usd": 0.067237
+}

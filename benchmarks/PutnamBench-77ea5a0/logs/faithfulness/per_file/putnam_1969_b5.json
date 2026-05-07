@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b5.lean",
+  "stem": "putnam_1969_b5",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly specifies that $a_1 < a_2 < \\ldots$ is a sequence of positive **integers**. The Lean formalization uses `a : ℕ → ℝ` with only `StrictMono a ∧ (∀ x, a x > 0)`, which allows any strictly increasing sequence of positive reals (e.g., $a_n = n + 0.5$ or $a_n = \\pi \\cdot n$). The conclusion $k(x)/x \\to 0$ still follows for such real sequences by the standard Abel-type argument (splitting the convergent tail of $\\sum 1/a_n$), so the Lean statement is true in this more general setting. Since integer sequences form a strict subset of such real sequences, the Lean version implies the informal claim but not vice versa: the Lean version drops the integrality hypothesis and thereby asserts a strictly stronger theorem than the informal statement requests.",
+  "duration_ms": 421035,
+  "cost_usd": 1.1141235
+}

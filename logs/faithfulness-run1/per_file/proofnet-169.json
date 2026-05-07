@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-169.lean",
+  "stem": "proofnet-169",
+  "informal": "A uniformly continuous function of a uniformly continuous function is uniformly continuous.",
+  "lean": "\ntheorem Rudin_exercise_4_12\n  {α β γ : Type*} [UniformSpace α] [UniformSpace β] [UniformSpace γ]\n  {f : α → β} {g : β → γ}\n  (hf : UniformContinuous f) (hg : UniformContinuous g) :\n  UniformContinuous (g ∘ f)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement says: for any uniform spaces α, β, γ, if f : α → β and g : β → γ are uniformly continuous, then g ∘ f is uniformly continuous. This is exactly the informal claim that the composition of two uniformly continuous functions is uniformly continuous. Uniform continuity in Mathlib's `UniformContinuous` for `UniformSpace` matches the standard notion (and reduces to the metric-space ε-δ definition that Rudin uses, since metric spaces are uniform spaces). No extra hypotheses (e.g. completeness, boundedness) are added, and no hypotheses are dropped. The quantification over the three spaces and the two functions correctly captures the universal nature of the informal statement.",
+  "duration_ms": 6673,
+  "cost_usd": 0.044862250000000006
+}

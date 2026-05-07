@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim. `card T.Eigenvalues = finrank F V` correctly captures \"T has dim V distinct eigenvalues\" since `T.Eigenvalues` is the subtype of distinct eigenvalues of T. The hypothesis `h2 : ∀ v, (∃ c, v ∈ eigenspace S c) ↔ (∃ c, v ∈ eigenspace T c)` captures \"S has the same eigenvectors as T\": at v = 0 both sides are trivially true (0 ∈ every eigenspace), and for v ≠ 0, `∃ c, v ∈ eigenspace f c` exactly means v is an eigenvector of f (in Axler's sense). The conclusion `S * T = T * S` in `End F V` is precisely the composition-commutation `ST = TS`. The `[FiniteDimensional F V]` hypothesis makes explicit the implicit premise that V is finite-dimensional (needed for `dim V` to be a finite number equal to a count of eigenvalues). The generalization to an arbitrary field F rather than ℝ/ℂ is the natural abstraction since the informal text does not specify the field.",
+  "duration_ms": 93591,
+  "cost_usd": 0.34496350000000003
+}

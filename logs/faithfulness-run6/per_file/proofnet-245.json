@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes rings `R S`, a ring homomorphism `φ : R →+* S`, and the surjectivity hypothesis `Function.Surjective φ`, matching the informal \"surjective homomorphism of rings\". With `Set` opened (and since `Subgroup.center` requires a Group instance that `Ring R` does not provide), `center R` resolves to `Set.center R`, the standard center of the ring (elements commuting with everything). The conclusion `φ '' (center R) ⊆ center S` literally states that the image of the center of R is contained in the center of S, exactly matching the informal claim. No hypotheses are silently added or dropped, and the types and quantifier structure correspond.",
+  "duration_ms": 97978,
+  "cost_usd": 0.37033925
+}

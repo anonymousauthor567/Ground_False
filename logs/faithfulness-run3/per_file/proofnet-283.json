@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim correctly. The use of `ℕ+` instead of `ℕ` excludes n = 0, which is an implicit premise of the informal statement (Ireland-Rosen works with positive integers in Chapter 3; without this restriction, n = 0 would be a non-prime where the claim fails since 0! = 1 ≢ 0 mod 0). The `¬ n.Prime` hypothesis matches \"n is not a prime\" via PNat.Prime = Nat.Prime on the coercion. The iff encoding of \"except when n=4\" is the standard faithful formalization: the backward direction is the main mathematical content, and the forward direction (that n=4 really is an exception, i.e., 3! = 6 ≢ 0 mod 4) is trivially true and implied by the word \"except\". Typing of `Nat.factorial (n-1)` and `[MOD n]` elaborates correctly via coercion of n : ℕ+ to ℕ.",
+  "duration_ms": 264669,
+  "cost_usd": 0.7559125
+}

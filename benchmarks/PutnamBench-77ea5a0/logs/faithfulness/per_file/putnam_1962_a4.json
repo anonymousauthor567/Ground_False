@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a4.lean",
+  "stem": "putnam_1962_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim. `iteratedDeriv 1 f` equals `deriv f` (f') and `iteratedDeriv 2 f` equals `deriv (deriv f)` (f''), as confirmed in Mathlib's `IteratedDeriv/Defs.lean`. The hypotheses `|f x| ≤ 1` and `|iteratedDeriv 2 f x| ≤ 1` on `Set.Icc a b`, with `b - a ≥ 2`, match \"an interval of length at least 2\" where the bounds hold. The conclusion `|iteratedDeriv 1 f x| ≤ 2` on the same interval matches $|f'(x)| \\le 2$. The explicit `Differentiable ℝ f ∧ Differentiable ℝ (deriv f)` hypothesis makes explicit the implicit premise that $f$ is twice differentiable (needed for $|f''|$ to be meaningful); encoding this on all of ℝ rather than just $[a,b]$ is the standard, benign Lean convention, and is logically equivalent via standard $C^2$ extension arguments.",
+  "duration_ms": 247239,
+  "cost_usd": 0.78317425
+}

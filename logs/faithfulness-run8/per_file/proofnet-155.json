@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Rudin 2.24) is: in a metric space X where every infinite subset has a limit point, X is separable. Rudin's \"limit point\" of E is a point p such that every neighborhood of p contains a point q ≠ p with q ∈ E. Mathlib's `AccPt p (𝓟 A)` is equivalent (by `accPt_iff_nhds`) to exactly this condition: `∀ U ∈ 𝓝 p, ∃ y ∈ U ∩ A, y ≠ p`. The hypothesis `∀ A : Set X, A.Infinite → ∃ p : X, AccPt p (𝓟 A)` precisely expresses \"every infinite subset has a limit point\", with `A.Infinite` meaning `¬A.Finite`. The conclusion `SeparableSpace X` is the standard definition (countable dense subset). The quantification over `p : X` is correct since any limit point in a topological space X is an element of X. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 81035,
+  "cost_usd": 0.26292925
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a2.lean",
+  "stem": "putnam_1962_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim through a bidirectional characterization: every function satisfying the average-equals-geometric-mean condition on a valid domain equals (on that domain) some element of the solution set, and conversely every solution-set element satisfies the condition on some valid domain. The encoding choices are principled: `Ico 0 x` vs closed `[0, x]` for integration is measure-theoretically identical (single point has Lebesgue measure zero); `Real.sqrt` is the geometric mean of nonneg numbers; and the `0 ≤ f` hypothesis makes explicit the implicit premise needed for the geometric mean to be well-defined (a standard reading surfacing of a necessary premise). The domain stratification into `Ioi 0` (infinite case) and `Ioo 0 e` (finite half-open case) covers the essential cases — the closed finite case `[0, e]` reduces to the half-open case since any solution on `[0, e]` restricts to one on `[0, e)` and the solution-set formulas extend naturally. This is a reasonable, equivalent formalization of \"find every function.\"",
+  "duration_ms": 719192,
+  "cost_usd": 2.0024147500000002
+}

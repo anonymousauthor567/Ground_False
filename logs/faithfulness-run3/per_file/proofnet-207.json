@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes Axler Exercise 6.13. `[RCLike F]` captures \"scalar field is ℝ or ℂ\" (Axler's standing assumption); `[NormedAddCommGroup V] [InnerProductSpace F V]` is the standard Mathlib setup for a (positive-definite) inner product space. `e : Fin n → V` with `Orthonormal F e` represents the orthonormal list (e₁,...,eₙ). For RCLike F, `‖·‖` equals the absolute value/modulus, so `‖⟪v, e i⟫_F‖^2` is exactly `|⟨v,eᵢ⟩|²`, and the finite sum matches the informal RHS. `Submodule.span F (e '' Set.univ)` equals `Submodule.span F (Set.range e)`, which is the span of {e₁,...,eₙ}. The biconditional `↔` mirrors the \"if and only if\". Mathlib's conjugate convention doesn't affect absolute values. No hypotheses are added or dropped beyond what is needed.",
+  "duration_ms": 138037,
+  "cost_usd": 0.54258475
+}

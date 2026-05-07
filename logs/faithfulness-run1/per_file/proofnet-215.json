@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "informal": "For $x$ an element in $G$ show that $x$ and $x^{-1}$ have the same order.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_1_20 {G : Type*} [Group G] {x : G} :\n  orderOf x = orderOf x⁻¹",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for any element x in a group G, x and x⁻¹ have the same order. The Lean signature takes an arbitrary group G and an arbitrary element x : G, and states orderOf x = orderOf x⁻¹. In Mathlib, `orderOf` returns 0 when the element has infinite order, so the equality correctly captures \"same order\" in both finite and infinite cases. The quantification over G and x is implicit but universal, matching the informal claim. No extra hypotheses (like Fintype or finite order) are imposed, and no weaker variant is used.",
+  "duration_ms": 6794,
+  "cost_usd": 0.04184125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly. `[CommGroup G] [Fintype G]` encodes \"finite abelian group\", and `n ∣ card G` with `card G ≥ 1` (since G contains 1) forces `n > 0`, matching \"positive divisor n of its order\". The conclusion `∃ (H : Subgroup G) (H_fin : Fintype H), @card H H_fin = n` asserts the existence of a subgroup of order n; the explicit `Fintype H` is superfluous (it would be derived from `Fintype G`) but Fintype instances are unique up to Subsingleton so the mathematical content is unchanged. The phrase \"Use Cauchy's Theorem and induction\" is merely a proof hint, not part of the claim being formalized.",
+  "duration_ms": 100367,
+  "cost_usd": 0.32532075000000005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-349.lean",
+  "stem": "proofnet-349",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. Metric spaces α, β correspond to X, Y; f, g : α → β are the continuous maps; s is the dense subset P with `Dense s`; the hypothesis `∀ x ∈ s, f x = g x` matches agreement on P (order of f and g doesn't matter by symmetry of equality); and the conclusion `f = g` is equivalent by function extensionality to `∀ x, f x = g x`, which is exactly \"g(p) = f(p) for all p ∈ X\". No hypothesis is added or dropped, and types align.",
+  "duration_ms": 13084,
+  "cost_usd": 0.057603249999999995
+}

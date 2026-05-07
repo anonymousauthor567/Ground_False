@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-166.lean",
+  "stem": "proofnet-166",
+  "verdict": "faithful",
+  "reasoning": "This is Tietze's extension theorem (Rudin Exercise 4.5a) for ℝ. The Lean statement captures the same claim: given a closed set E ⊂ ℝ and a function continuous on E (encoded as f : ℝ → ℝ with ContinuousOn f E, which is the standard Lean/Mathlib idiom for a function \"defined on E\" since values outside E are irrelevant), there exists a globally continuous g : ℝ → ℝ that agrees with f on E. The hypotheses (E closed, f continuous on E), the existential conclusion, and the equality condition restricted to E all match. The ℝ → ℝ encoding is equivalent to a function on E since any extension outside E preserves ContinuousOn, and conversely any function on E can be extended arbitrarily to ℝ. No extra assumptions are added and none are dropped.",
+  "duration_ms": 17164,
+  "cost_usd": 0.054195749999999994
+}

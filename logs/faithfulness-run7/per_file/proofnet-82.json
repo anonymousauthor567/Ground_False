@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-82.lean",
+  "stem": "proofnet-82",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: `P : Sylow p G` matches \"p-Sylow subgroup of G\", `hP : P.Normal` matches \"P ◁ G\", and the conclusion `∀ Q : Sylow p G, P = Q` is precisely the statement that P is the only p-Sylow subgroup. The group G is arbitrary in both. The `Nat.Prime p` hypothesis mirrors the implicit primality in the term \"p-Sylow\". No finiteness hypothesis is added beyond what the informal statement implies, and no quantifier or conclusion is altered. Thus the two statements are logically equivalent.",
+  "duration_ms": 268491,
+  "cost_usd": 0.94215525
+}

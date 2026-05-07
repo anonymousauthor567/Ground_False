@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_b4.lean",
+  "stem": "putnam_1999_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `ContDiff ℝ 3 f` encodes \"continuous third derivative\". The quantifier `∀ n ≤ 3, ∀ x, iteratedDeriv n f x > 0` runs over `n : ℕ ∈ {0,1,2,3}` (required by `iteratedDeriv`'s `ℕ` argument), and Mathlib's `iteratedDeriv_zero`, `iteratedDeriv_one`, etc., reduce these to `f x, deriv f x, f''(x), f'''(x) > 0`, matching \"f(x), f'(x), f''(x), f'''(x) are positive for all x\". The hypothesis `iteratedDeriv 3 f x ≤ f x` is precisely \"f'''(x) ≤ f(x)\". The conclusion `deriv f x < 2 * f x` is precisely \"f'(x) < 2f(x)\". No hypotheses are added or dropped and no quantifier structure is altered.",
+  "duration_ms": 82335,
+  "cost_usd": 0.31274775
+}

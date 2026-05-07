@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-161.lean",
+  "stem": "proofnet-161",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all three ingredients of Rudin's Exercise 3.8 exactly. The hypothesis `h1` encodes \"$\\Sigma a_n$ converges\" as convergence of the partial sums — this is Rudin's notion of series convergence. `h2 : Monotone b ∨ Antitone b` correctly formalizes \"monotonic\" (either monotonically increasing or decreasing), matching Rudin's definition. `h3` uses `Bornology.IsBounded (Set.range b)`, which is the standard Mathlib way of saying \"$\\{b_n\\}$ is bounded\". The conclusion correctly encodes the convergence of $\\Sigma a_n b_n$ as convergence of its partial sums. No hypotheses are silently added or dropped, and the conclusion matches the informal one exactly.",
+  "duration_ms": 83824,
+  "cost_usd": 0.19821249999999996
+}

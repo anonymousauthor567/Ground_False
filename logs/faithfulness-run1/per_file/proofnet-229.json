@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-229.lean",
+  "stem": "proofnet-229",
+  "informal": "Prove that quotient groups of a solvable group are solvable.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_4_5b {G : Type*} [Group G] [IsSolvable G]\n  (H : Subgroup G) [Normal H] :\n  IsSolvable (G ⧸ H)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any quotient of a solvable group is solvable. The Lean signature takes an arbitrary group G with [IsSolvable G] and an arbitrary normal subgroup H, then concludes IsSolvable (G ⧸ H). Quotient groups of G are precisely G ⧸ H for normal subgroups H, so the universal quantification over quotients is correctly captured by the universally quantified G and H. The hypotheses (solvable, normal) and conclusion (solvability of the quotient) match exactly, with no extra or missing assumptions.",
+  "duration_ms": 16928,
+  "cost_usd": 0.044341500000000006
+}

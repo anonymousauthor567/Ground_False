@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-208.lean",
+  "stem": "proofnet-208",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that when dim V ≥ 2, the set of normal operators is not a subspace of L(V). In Lean, the set of normal operators is correctly encoded as {T | T * adjoint T = adjoint T * T} (using composition in End F V and Mathlib's LinearMap.adjoint, which is defined in finite-dimensional inner product spaces). The assertion \"is not a subspace\" is formalized as \"∀ U : Submodule F (End F V), U.carrier ≠ S\", which is logically equivalent to \"S is not a subspace\" since a set is a subspace iff there exists a submodule whose carrier equals it. The typeclass setup (RCLike F, InnerProductSpace F V, FiniteDimensional F V) matches Axler's ambient setting, and finrank F V ≥ 2 matches the dim V ≥ 2 hypothesis. No hypotheses are added or dropped, and the quantifier structure correctly captures the negative existential.",
+  "duration_ms": 24959,
+  "cost_usd": 0.09555525
+}

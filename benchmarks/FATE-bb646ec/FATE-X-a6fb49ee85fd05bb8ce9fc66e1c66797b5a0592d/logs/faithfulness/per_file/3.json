@@ -1,0 +1,8 @@
+{
+  "file": "3.lean",
+  "stem": "3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. The hypothesis `[H.FiniteIndex]` matches \"subgroup of finite index\". In Mathlib, `Subgroup.IsComplement S H` means the multiplication map `S × H → G` is a bijection, which is equivalent to S containing exactly one representative of each left coset (Mathlib's `LeftTransversal H` is literally defined as `{S // IsComplement S H}`). Symmetrically, `Subgroup.IsComplement H S` means S is a right-coset representative system (Mathlib's `RightTransversal H = {T // IsComplement H T}`). The conjunction `IsComplement S H ∧ IsComplement H S` therefore asserts exactly that S is simultaneously a set of left-coset and right-coset representatives, matching the informal statement exactly. Types (Group G, Subgroup G, Set G) are also appropriate.",
+  "duration_ms": 107247,
+  "cost_usd": 0.28047075
+}

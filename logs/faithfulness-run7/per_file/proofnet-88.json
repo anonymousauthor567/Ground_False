@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-88.lean",
+  "stem": "proofnet-88",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `F = ℤ_p` with p prime becomes `ZMod p` with `hp : Nat.Prime p`; \"q irreducible of degree n\" becomes `hq : Irreducible q` plus `hn : q.degree = n` (with `n : ℕ` coerced into `WithBot ℕ`, which forces q ≠ 0 and degree = n); the quotient `F[x]/(q(x))` is `Polynomial (ZMod p) ⧸ span {q}` where `span` resolves to `Ideal.span` via `open Ideal`. The conjunction asserts both (a) there exists a Fintype instance on the quotient whose card equals p^n (equivalent to finiteness with cardinality p^n since `Fintype.card` is instance-independent), and (b) `IsField` of the quotient — exactly matching \"a field with exactly p^n elements\". No extra hypotheses narrow the scope and no required hypotheses are dropped.",
+  "duration_ms": 254325,
+  "cost_usd": 0.8367230000000001
+}

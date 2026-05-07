@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-168.lean",
+  "stem": "proofnet-168",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. The hypothesis `Bornology.IsBounded E` on `E : Set ℝ` captures \"the bounded set E in R^1\", and `UniformContinuousOn f E` (from Mathlib's `Topology/UniformSpace/Defs.lean`) is the standard definition of uniform continuity on a set. The conclusion `Bornology.IsBounded (Set.image f E)` captures \"f is bounded on E\" — i.e., the image f(E) is a bounded subset of ℝ. Whether f is taken as a theorem parameter or a universally-quantified variable is logically equivalent: the statement ∀ E (h : IsBounded E), ∀ f, UniformContinuousOn f E → IsBounded (f '' E) is the correct universal claim asked by the exercise. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 95053,
+  "cost_usd": 0.30722299999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1978_b2.lean",
+  "stem": "putnam_1978_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely: (1) `ℕ+` correctly encodes indices starting at i=1 and j=1; (2) the denominator `i^2*j + 2*i*j + i*j^2` is algebraically identical to the informal `i²j + 2ij + ij²`; (3) the nested `∑'` over positive integers captures the iterated double series — since all terms are positive, this agrees with the informal iterated sum; (4) the answer is set to 7/4 as a ℚ, consistent with the informal problem asking to find the value. Using ℚ is appropriate since every term and the limit are rational. No hypotheses are added or dropped, and the conclusion is an exact equality, so the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 161881,
+  "cost_usd": 0.4359955
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a6.lean",
+  "stem": "putnam_1962_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal Putnam 1962 A6 problem. The closure conditions `hSadd` and `hSprod` directly match \"a+b ∈ S\" and \"ab ∈ S\" whenever a, b ∈ S. The \"exactly one of three\" condition is correctly encoded as the conjunction of \"at least one\" (r ∈ S ∨ -r ∈ S ∨ r = 0) and three pairwise mutual-exclusion clauses (¬(r ∈ S ∧ -r ∈ S), ¬(r ∈ S ∧ r = 0), ¬(-r ∈ S ∧ r = 0)), which is logically equivalent to \"exactly one of the three holds\". The conclusion `S = { r : ℚ | r > 0 }` correctly represents \"S is the set of all positive rational numbers\". No hypotheses are added, omitted, or modified, and no types are changed.",
+  "duration_ms": 37719,
+  "cost_usd": 0.13032025
+}

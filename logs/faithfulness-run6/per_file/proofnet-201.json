@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-201.lean",
+  "stem": "proofnet-201",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. V is finite-dimensional over a field F, and L : V →ₗ[F] W is a linear map. The existential asserts a subspace U with two conditions: (1) `U ⊓ (ker L) = ⊥`, which is exactly \"U ∩ null T = {0}\"; and (2) `range L = range (domRestrict L U)`. Since `LinearMap.domRestrict L U = L ∘ U.subtype`, its range as a submodule of W is precisely `{L u | u ∈ U}`, so this equality expresses \"range T = {Tu : u ∈ U}\". The use of an arbitrary field F with FiniteDimensional F V matches Axler's setup, and no hypotheses are added or dropped.",
+  "duration_ms": 69216,
+  "cost_usd": 0.24145325
+}

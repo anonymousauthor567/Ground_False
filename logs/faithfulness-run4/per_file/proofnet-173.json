@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∑ i ∈ range (n+1), C i / (i+1) = 0` expands to C₀/1 + C₁/2 + ⋯ + Cₙ/(n+1) = 0, exactly matching the informal hypothesis. The Lean conclusion asserts existence of x ∈ (0,1) (via `Set.Ioo 0 1`) satisfying `∑ i ∈ range (n+1), C i * x^i = 0`, which expands to C₀ + C₁x + ⋯ + Cₙxⁿ = 0 — matching the informal polynomial equation. The function C : ℕ → ℝ correctly represents real constants (unused indices don't affect the finite sums). The quantifier structure (universal over C and n, existential over x) matches the informal reading. No hypotheses are added or dropped.",
+  "duration_ms": 35302,
+  "cost_usd": 0.15868675000000002
+}

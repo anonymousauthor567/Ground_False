@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b5.lean",
+  "stem": "putnam_1994_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: (1) n : ℕ with n > 0 matches \"n is a positive integer\"; (2) f α x = Int.floor (α * x) matches f_α(x) = ⌊αx⌋ — the restriction of the domain to ℤ is immaterial because n² and all iterates are integers anyway; (3) the existential `∃ α : ℝ` and universal `∀ k ∈ Set.Icc 1 n` match \"there exists α such that for 1 ≤ k ≤ n\"; (4) `(f α)^[k]` is Function.iterate, correctly encoding the iteration $f_\\alpha^k$; (5) the conjunction of `(f α)^[k] (n^2) = n^2 - k` and `f (α^k) (n^2) = n^2 - k` correctly unpacks the chained equality $f_\\alpha^k(n^2) = n^2 - k = f_{\\alpha^k}(n^2)$. No hypotheses are added or dropped, and quantifier structure is preserved.",
+  "duration_ms": 192523,
+  "cost_usd": 0.59161275
+}

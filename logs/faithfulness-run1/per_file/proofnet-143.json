@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "theorem_name": "Putnam_exercise_2000_a2",
+  "informal": "Prove that there exist infinitely many integers $n$ such that $n, n+1, n+2$ are each the sum of the squares of two integers.",
+  "lean": "\ntheorem Putnam_exercise_2000_a2 :\n  ∀ N : ℕ, ∃ n : ℕ, n > N ∧ ∃ i : Fin 6 → ℕ, n = (i 0)^2 + (i 1)^2 ∧\n  n + 1 = (i 2)^2 + (i 3)^2 ∧ n + 2 = (i 4)^2 + (i 5)^2",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding \"∀ N, ∃ n > N, P(n)\" is the standard way to express \"there exist infinitely many n satisfying P\". Although the informal statement says \"integers\" while Lean uses ℕ, any integer that is a sum of two integer squares is necessarily non-negative, so the set of relevant n coincides with a subset of ℕ. Likewise, an integer m is a sum of two integer squares iff it is a sum of two natural-number squares (take absolute values), so writing the squares with i : Fin 6 → ℕ does not change the assertion. The three conditions n = a²+b², n+1 = c²+d², n+2 = e²+f² match exactly the informal requirement that n, n+1, n+2 are each sums of two squares. Therefore the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 12075,
+  "cost_usd": 0.05563149999999999
+}

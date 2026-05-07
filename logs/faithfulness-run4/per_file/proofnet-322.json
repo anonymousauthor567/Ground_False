@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-322.lean",
+  "stem": "proofnet-322",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes a nested decreasing sequence `s : ℕ → Set α` of nonempty compact sets with `s i ⊇ s (i+1)` and concludes `(⋂ i, s i).Nonempty`, matching the informal claim. The added `[T2Space α]` hypothesis is surfacing an implicit premise: Pugh's Chapter 2 is set in metric spaces (which are Hausdorff), and without T2 the literal statement is actually false — the ground-truth file `proofnet_verified_gt/proofnet-322.lean` explicitly provides a cofinite-topology counterexample (`Pugh_exercise_2_92_neg`) and then presents a `Pugh_exercise_2_92_corrected` with `[T2Space α]` that is identical to the candidate. Per the system prompt's worked example (the `1 ≤ r` case), adding a hypothesis needed for truth that reflects the implicit context is not a faithfulness error. Hypotheses, conclusion, types, and quantifier structure all match the intended mathematical content.",
+  "duration_ms": 722913,
+  "cost_usd": 0.9765012500000001
+}

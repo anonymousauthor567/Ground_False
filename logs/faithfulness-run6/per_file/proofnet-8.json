@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-8.lean",
+  "stem": "proofnet-8",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the ring ℤ[x] as `Polynomial ℤ`. With `open Ideal`, `span {2}`, `span {X}`, and `span {2 * X}` resolve to `Ideal.span` applied to singleton sets (since `Submodule.span` requires the ring as an explicit first argument, it cannot apply here), giving exactly the ideals (2), (x), and (2x) in ℤ[x]. The `⊓` operation on the ideal lattice is the set-theoretic intersection of ideals, so `span {2} ⊓ span {X}` represents (2) ∩ (x). The equality asserted matches the informal claim exactly, with no extra hypotheses, no weaker/stronger quantifiers, and no type mismatches.",
+  "duration_ms": 152547,
+  "cost_usd": 0.50816875
+}

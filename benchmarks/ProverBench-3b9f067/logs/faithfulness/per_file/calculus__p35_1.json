@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p35_1.lean",
+  "stem": "calculus__p35_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts three things about f(x) = x³ - 9x² + 24x: (1) it has a local maximum at x=2, (2) it has a local minimum at x=4, and (3) these are the ONLY local extrema on ℝ. The Lean lemma `critical_points` only states that a separately-defined polynomial `f_deriv x = 3x² - 18x + 24` equals zero iff x=2 or x=4. This is substantially weaker: it does not establish that f_deriv is actually the derivative of f, does not prove that x=2 is a local maximum (vs. just a critical point), does not prove that x=4 is a local minimum, and does not prove these are the only local extrema. The Lean formalization is essentially just a root-finding lemma about an arbitrary quadratic polynomial, which is logically implied by (but far from equivalent to) the informal claim about local extrema.",
+  "duration_ms": 22061,
+  "cost_usd": 0.05369325
+}

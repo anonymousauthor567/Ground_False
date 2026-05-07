@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-5.lean",
+  "stem": "proofnet-5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over any group G and assumes the quotient G ⧸ center G is cyclic, then concludes center G = ⊤. In Mathlib, `Subgroup.center G` is exactly the center of G, and `center G = ⊤` is logically equivalent to both \"G is abelian\" and \"G = Z(G)\" — these three formulations are interchangeable. The informal statement's conclusion \"G is abelian and hence G = Z\" is therefore captured exactly by `center G = ⊤`. The hypothesis `IsCyclic (G ⧸ center G)` correctly expresses \"G/Z is a cyclic group\". No hypotheses are added or dropped, and no scope is narrowed or widened.",
+  "duration_ms": 41347,
+  "cost_usd": 0.13656400000000002
+}

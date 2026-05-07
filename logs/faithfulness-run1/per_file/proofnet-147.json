@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "theorem_name": "Putnam_exercise_2020_b5",
+  "informal": "For $j \\in\\{1,2,3,4\\}$, let $z_{j}$ be a complex number with $\\left|z_{j}\\right|=1$ and $z_{j} \\neq 1$. Prove that $3-z_{1}-z_{2}-z_{3}-z_{4}+z_{1} z_{2} z_{3} z_{4} \\neq 0 .$",
+  "lean": "\ntheorem Putnam_exercise_2020_b5 (z : Fin 4 → ℂ) (hz0 : ∀ n, ‖z n‖ = 1)\n  (hz1 : ∀ n, z n ≠ 1) :\n  3 - z 0 - z 1 - z 2 - z 3 + (z 0) * (z 1) * (z 2) * (z 3) ≠ 0",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the four complex numbers as a function `z : Fin 4 → ℂ`, with hypotheses `‖z n‖ = 1` (unit modulus) and `z n ≠ 1` for every index, matching the informal conditions on $z_1, z_2, z_3, z_4$. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0)*(z 1)*(z 2)*(z 3) ≠ 0` is exactly the claim that $3 - z_1 - z_2 - z_3 - z_4 + z_1 z_2 z_3 z_4 \\neq 0$ (with 0-based indexing). No extra hypotheses or conclusions are added, and none are dropped. So the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 8829,
+  "cost_usd": 0.04406425
+}

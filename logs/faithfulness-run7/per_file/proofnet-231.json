@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-231.lean",
+  "stem": "proofnet-231",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one component-for-component: `[Fintype G] [Group G]` with `card G = p ^ α` encodes \"G is a (finite) group of order $p^\\alpha$\"; `hp : p.Prime` encodes \"p is prime\"; `ha : α > 0` encodes $\\alpha \\in \\mathbb{Z}^+$ (a positive natural number is ≥ 1); and `∀ H : Subgroup G, H.index = p → H.Normal` faithfully captures \"every subgroup of index p is normal\". Mathlib's `Subgroup.index` is defined as `Nat.card (G ⧸ H)`, which agrees with the standard textbook notion of subgroup index. No hypotheses are added or dropped, no quantifiers are altered, and the conclusion asserts exactly what the informal statement claims.",
+  "duration_ms": 55386,
+  "cost_usd": 0.157447
+}

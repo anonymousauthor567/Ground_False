@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-55.lean",
+  "stem": "proofnet-55",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over a finite group G (via the type variable with `[Fintype G] [Group G]` instances), asserts `Fintype.card G = 1365` (from `open Fintype`, matching |G| = 1365), and concludes `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is the standard notion (Nontrivial and every normal subgroup is ⊥ or ⊤), which is the standard definition of a simple group. No hypotheses have been added or dropped, and the conclusion matches \"G is not simple\" exactly. This is a logically equivalent, strictly faithful formalization of the informal statement.",
+  "duration_ms": 69234,
+  "cost_usd": 0.21507949999999998
+}

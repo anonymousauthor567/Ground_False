@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-303.lean",
+  "stem": "proofnet-303",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: `IsConnected C` matches \"connected subspace\" (Mathlib's IsConnected = nonempty + preconnected, and Munkres treats connected subspaces as nonempty; additionally C∩A ≠ ∅ forces nonemptiness anyway). The hypotheses `C ∩ A ≠ ∅` and `C ∩ Aᶜ ≠ ∅` exactly encode \"C intersects both A and X−A\". Mathlib's `frontier A` is defined as `closure A ∩ closure Aᶜ`, which coincides with Munkres's Bd A. The conclusion `C ∩ frontier A ≠ ∅` means \"C intersects Bd A\". All types (Set X), quantifiers, and hypotheses line up, so the formalization is strictly faithful.",
+  "duration_ms": 41137,
+  "cost_usd": 0.17543899999999998
+}

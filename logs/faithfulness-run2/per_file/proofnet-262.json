@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-262.lean",
+  "stem": "proofnet-262",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that the given group operation on any order-9 group G is commutative. The Lean statement `Nonempty (CommGroup G)` only asserts that the underlying type G admits some commutative group structure, which is unrelated to the given `[Group G]` instance since `CommGroup` is a structure carrying its own `mul`/`one`/`inv`. For any 9-element type (indeed any finite type), one can trivially transport a `ZMod n` commutative group structure via a bijection, so `Nonempty (CommGroup G)` is provable from `card G = 9` alone without using the `[Group G]` hypothesis. Thus the informal claim implies the Lean claim (the given structure witnesses it), but the Lean claim does not imply the given group operation is commutative, making the Lean statement strictly weaker.",
+  "duration_ms": 48571,
+  "cost_usd": 0.14201125
+}

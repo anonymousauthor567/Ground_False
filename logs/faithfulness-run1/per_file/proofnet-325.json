@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "informal": "A continuous, strictly increasing function $\\mu \\colon (0, \\infty) \\rightarrow (0, \\infty)$ is a modulus of continuity if $\\mu(s) \\rightarrow 0$ as $s \\rightarrow 0$. A function $f \\colon [a, b] \\rightarrow \\mathbb{R}$ has modulus of continuity $\\mu$ if $|f(s) - f(t)| \\leq \\mu(|s - t|)$ for all $s, t \\in [a, b]$. Prove that a function is uniformly continuous if and only if it has a modulus of continuity.",
+  "lean": "\ntheorem Pugh_exercise_4_15a (a b : ℝ) (hab : a ≤ b) (f : Icc a b → ℝ) :\n  UniformContinuous f ↔ ∃ (μ : ℝ → ℝ), ∀ (x : ℝ), (x > 0 → μ x > 0) ∧\n  StrictMonoOn μ (Ioi 0) ∧ Tendsto μ (𝓝 0) (𝓝 0) ∧\n  (∀ s t : Icc a b, |f s - f t| ≤ μ (|s - t|))",
+  "verdict": "different",
+  "reasoning": "The informal definition of \"modulus of continuity\" requires μ to be continuous on (0,∞), but the Lean signature only encodes strict monotonicity on (0,∞), positivity, and Tendsto at 0 — it omits continuity on (0,∞) entirely (strict monotonicity does not imply continuity). This makes the existential RHS strictly weaker than the informal one. As a result, the forward direction (UC → ∃μ) of Lean is weaker than the informal one, while the backward direction (∃μ → UC) of Lean is stronger (concludes UC from a weaker hypothesis). Since one direction is weaker and the other is stronger, the overall iff in Lean is not comparable to the informal iff.",
+  "duration_ms": 44819,
+  "cost_usd": 0.14533925
+}

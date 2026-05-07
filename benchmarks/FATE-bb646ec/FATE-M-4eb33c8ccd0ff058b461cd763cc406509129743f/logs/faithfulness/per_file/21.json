@@ -1,0 +1,8 @@
+{
+  "file": "21.lean",
+  "stem": "21",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in a field F, for a ∈ F^× (the multiplicative group of units, which in a field equals F \\ {0}) and b ∈ F, the equation ax+b=0 has a unique solution. The Lean formalization uses `{F : Type*} [Field F]` for the field, `{a : Fˣ}` which is Mathlib notation (postfix ˣ) for `Units F` — exactly F^× in mathematical notation — and `{b : F}`. The conclusion `∃! x, a * x + b = 0` precisely encodes \"unique solution\", with the unit a being coerced to F via the standard CoeHead instance (verified in Mathlib/Algebra/Group/Units/Defs.lean). The implicit universal quantification over F, a, b matches the informal statement. All hypotheses, the conclusion, types, and quantifier structure match; this is a faithful formalization.",
+  "duration_ms": 147988,
+  "cost_usd": 0.43504525
+}

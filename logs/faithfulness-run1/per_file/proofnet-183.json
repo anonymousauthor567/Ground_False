@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "informal": "Show that there is no holomorphic function $f$ in the unit disc $D$ that extends continuously to $\\partial D$ such that $f(z) = 1/z$ for $z \\in \\partial D$.",
+  "lean": "\ntheorem Shakarchi_exercise_3_22 (D : Set ℂ) (hD : D = ball 0 1) (f : ℂ → ℂ)\n    (hf : DifferentiableOn ℂ f D) (hfc : ContinuousOn f (closure D)) :\n    ¬ ∀ z ∈ (sphere (0 : ℂ) 1), f z = 1 / z",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says no holomorphic function on the open unit disc, continuous on the closed disc, satisfies f(z)=1/z on the boundary. The Lean signature takes an arbitrary f that is differentiable on D=ball 0 1 and continuous on closure D, and concludes ¬ ∀ z ∈ sphere 0 1, f z = 1/z, i.e., f cannot equal 1/z on the entire unit circle. This is logically equivalent to the non-existence claim: for all such f, the boundary identity fails. The hypotheses (DifferentiableOn = holomorphic on the open disc, ContinuousOn on closure = continuous extension to ∂D) and conclusion (negation of the boundary equation on the unit circle) match the informal statement exactly.",
+  "duration_ms": 8730,
+  "cost_usd": 0.050413
+}

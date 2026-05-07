@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-202.lean",
+  "stem": "proofnet-202",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. T ∈ L(V) is represented as `T : V →ₗ[F] V`, the finite family U_1,...,U_m is represented by `U : Fin n → Submodule F V` with n universally quantified, and \"U_i invariant under T\" is correctly captured by `Submodule.map T (U i) ≤ U i` (i.e., T(U_i) ⊆ U_i). The sum U_1 + ⋯ + U_m is expressed via `∑ i : Fin n, U i`, which by Mathlib's `Submodule.add_eq_sup` and the pointwise AddCommMonoid instance on submodules coincides with the supremum ⨆ i, U i — i.e., the standard notion of the sum of subspaces. The conclusion `Submodule.map T (∑ i, U i) ≤ ∑ i, U i` is exactly \"the sum is T-invariant.\" All quantifiers (F, V, T, n, U) are universal at the theorem level, matching the informal \"Suppose T ∈ L(V). If U_1,...,U_m are invariant, then...\".",
+  "duration_ms": 99708,
+  "cost_usd": 0.37617325
+}

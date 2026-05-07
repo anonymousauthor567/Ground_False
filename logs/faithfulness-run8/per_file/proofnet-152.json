@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-152.lean",
+  "stem": "proofnet-152",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $||x|-|y|| \\leq |x-y|$ for all complex $x, y$, where $|\\cdot|$ denotes the complex modulus (and the outermost one is the real absolute value of a real number). The Lean signature uses `‖·‖` for the complex norm, which on `ℂ` coincides exactly with the complex modulus (Mathlib's `NormedField ℂ` instance), and `|·|` for the outer real absolute value. Both variables are universally quantified over `ℂ`, no extra hypotheses are added or dropped, and the conclusion `|‖x‖ - ‖y‖| ≤ ‖x-y‖` is literally the standard reverse triangle inequality (`abs_norm_sub_norm_le` in Mathlib). The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 69319,
+  "cost_usd": 0.26268575
+}

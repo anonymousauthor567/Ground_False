@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-249.lean",
+  "stem": "proofnet-249",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. Using q : ℕ with Nat.Prime instead of q : ℤ reflects the standard mathematical convention that \"prime integer\" refers to a positive prime (the ideal (↑q) in ℤ[i] depends only on |q|, so this is mathematically equivalent to the positive-prime reading, which is the only reading under which the theorem is true). The hypothesis `q ≡ 3 [ZMOD 4]` is exactly Int.ModEq 4 q 3, matching q ≡ 3 mod 4. `IsField (GaussianInt ⧸ span {↑q})` captures \"ℤ[i]/(q) is a field\", and `∃ finR : Fintype (…), Fintype.card = q^2` is equivalent to saying the quotient is finite with q² elements (since Fintype.card is determined by the underlying type). The conjunction with ∧ properly captures \"is a field with q² elements\".",
+  "duration_ms": 223090,
+  "cost_usd": 0.7724175
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-241.lean",
+  "stem": "proofnet-241",
+  "verdict": "faithful",
+  "reasoning": "The Lean conjunction captures both existence and uniqueness of the Sylow p-subgroup of H equal to P ∩ H. The first conjunct (∀ R, R.toSubgroup = (H ⊓ P).subgroupOf H) gives uniqueness, and together with Nonempty (Sylow p H) it forces (H ∩ P).subgroupOf H to actually be a Sylow p-subgroup of H (by taking any witness R and using the equation). The encoding (H ⊓ P.toSubgroup).subgroupOf H correctly realizes \"P ∩ H viewed as a subgroup of H,\" matching Sylow p H. The Fintype G hypothesis aligns with the finite-group context of Dummit-Foote Chapter 4. No hypotheses are silently added or dropped, and the two directions of the equivalence to (a ∧ b) both hold.",
+  "duration_ms": 77934,
+  "cost_usd": 0.22256199999999998
+}

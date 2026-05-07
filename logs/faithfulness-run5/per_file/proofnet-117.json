@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the definition of a retraction (continuous `r : X → A` with `r x = x` for all `x ∈ A`) and concludes `IsQuotientMap r`. Mathlib's `IsQuotientMap` (in `Topology/Defs/Induced.lean`) requires surjectivity and that the codomain topology is coinduced by `f`, equivalent to \"U is open iff preimage is open\" — exactly Munkres's definition of quotient map. The subtype `↥A` automatically carries the subspace topology via `instTopologicalSpaceSubtype`, matching the informal treatment of A as a topological subspace. The hypothesis `h : ∀ x : A, r x = x` faithfully captures \"r(a) = a for each a ∈ A\", and surjectivity of r is implied by this. No extra or missing hypotheses; the quantifier structure and types align with the informal statement.",
+  "duration_ms": 137311,
+  "cost_usd": 0.39922874999999997
+}

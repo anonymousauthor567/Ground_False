@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in ℂ, convergence of {s_n} implies convergence of {|s_n|}. The Lean signature takes a sequence f : ℕ → ℂ, assumes it converges (∃ a : ℂ, Tendsto f atTop (𝓝 a)), and concludes that the sequence of norms ‖f n‖ converges to some real number. In Mathlib, the norm on ℂ coincides with the complex absolute value |·|, so ‖f n‖ is exactly |s_n|, and the limit is real-valued as expected. The hypothesis and conclusion match the informal claim in quantifier structure, types, and mathematical content.",
+  "duration_ms": 21129,
+  "cost_usd": 0.04212225
+}

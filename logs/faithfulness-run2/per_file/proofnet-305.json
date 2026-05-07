@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any continuous self-map of [0,1] has a fixed point. The Lean file defines `I := Icc 0 1` (the closed unit interval as a subset of ℝ), takes `f : I → I` with `Continuous f`, and concludes `∃ x : I, f x = x`. The type `I` correctly encodes X = [0,1], the function has the right domain/codomain, continuity is imposed, and the existential over a fixed point in I matches the informal conclusion. No extra hypotheses (e.g. differentiability, monotonicity) are added and none are missing. This is a standard, logically equivalent encoding.",
+  "duration_ms": 9930,
+  "cost_usd": 0.03693275
+}

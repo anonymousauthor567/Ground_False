@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a standard Cauchy-Schwarz-type inequality for real sequences of length n. The Lean statement encodes sequences as `a b : Fin n → ℝ`, and sums over `Fin n` (0-indexed). The coefficients `(i + 1)` appear in contexts where the other operand is ℝ (`a i ^ 2` or `b i ^ 2`), so Lean's `binop%` elaborator unifies types to ℝ, producing `(↑i : ℝ) + 1` rather than `Fin n` modular arithmetic. Reindexing with $j = i + 1$ (so $j$ ranges from 1 to n), the Lean sums become exactly $\\sum_{j=1}^n j a'_j{}^2$ and $\\sum_{j=1}^n (b'_j)^2/j$, matching the informal claim. The quantifier structure (universal over $a, b$ and $n$) also matches.",
+  "duration_ms": 117422,
+  "cost_usd": 0.35615125
+}

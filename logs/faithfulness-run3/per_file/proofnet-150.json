@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses match exactly: A is a nonempty set of reals bounded below. The set `minus_A = {x | -x ∈ A}` equals `{-x : x ∈ A}` as defined informally (since y = -x with x ∈ A iff -y ∈ A). Under the hypothesis that A is nonempty and bounded below, minus_A is nonempty and bounded above, so `sInf A` and `sSup minus_A` give the genuine infimum and supremum in Mathlib's convention. The conclusion `sInf A = - sSup minus_A` directly matches $\\inf A = -\\sup(-A)$.",
+  "duration_ms": 28490,
+  "cost_usd": 0.09537599999999999
+}

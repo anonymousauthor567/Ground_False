@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-345.lean",
+  "stem": "proofnet-345",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses encode absolute convergence of both series (partial sums of |a i| and |b i| converge). The expression ∑ j ∈ range (i+1), a j * b (i-j) is exactly the Cauchy product c_i = Σ_{j=0}^{i} a_j · b_{i-j}. The conclusion asserts that the partial sums of |c_i| converge, which is the standard definition of absolute convergence of the Cauchy product series. Using ℝ as the ambient type is a natural reading of Rudin Exercise 3.13 (Chapter 3, numerical series), and no extraneous hypotheses are added nor required ones dropped. The quantifier structure and mathematical content match the informal claim.",
+  "duration_ms": 78456,
+  "cost_usd": 0.21870925000000002
+}

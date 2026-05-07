@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-298.lean",
+  "stem": "proofnet-298",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Munkres Exercise 20.2. `ℝ ×ₗ ℝ` is Mathlib notation for `Lex (Prod ℝ ℝ)`, which equips `ℝ × ℝ` with the lexicographic (= dictionary) order. The `[OrderTopology (ℝ ×ₗ ℝ)]` hypothesis, whose defining axiom is `t = generateFrom { s | ∃ a, s = Ioi a ∨ s = Iio a }`, uniquely pins down the `[TopologicalSpace (ℝ ×ₗ ℝ)]` instance to be exactly the dictionary order topology. The conclusion `MetrizableSpace (ℝ ×ₗ ℝ)` expresses metrizability. So the theorem asserts precisely: the dictionary order topology on ℝ × ℝ is metrizable. The parameterization over a `TopologicalSpace`/`OrderTopology` instance pair is a standard Mathlib idiom and does not add or drop any content relative to the informal claim.",
+  "duration_ms": 191626,
+  "cost_usd": 0.6144687500000001
+}

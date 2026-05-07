@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1976_b3.lean",
+  "stem": "putnam_1976_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement's components: the initial conditions and recurrence for $u_k$, the positivity (explicitly \"assumed as known\"), event probabilities ≥ $1-a$, and the conclusion $\\mu(\\bigcap A_i) \\geq u_n$. The added `0 ≤ a` is an implicit premise needed for $1-a$ to be a valid probability lower bound. The independence condition encodes σ($A_i$) ⫫ σ($\\{A_j : j < i-1\\}$) for each $i$, which captures the informal \"$A_i$ and $A_j$ mutually independent if $|i-j|>1$\" in the standard probabilistic sense used for \"1-dependent\" processes — this is the natural/intended reading that makes the theorem provably true (the proof requires $A_i$ to be independent of the joint σ-algebra of earlier events beyond distance 1, not merely pairwise). Measurability is a natural implicit hypothesis. Overall, this is a faithful formalization making necessary implicit premises explicit.",
+  "duration_ms": 488495,
+  "cost_usd": 1.4103145
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts the classical Dirichlet integral $\\int_0^\\infty \\frac{\\sin x}{x} dx = \\pi/2$. Since $\\sin x/x$ is not Lebesgue integrable on $(0,\\infty)$, the standard mathematical interpretation of this improper integral is $\\lim_{y\\to\\infty}\\int_0^y \\frac{\\sin x}{x} dx = \\pi/2$. The Lean statement `Tendsto (fun y => ∫ x in (0:ℝ)..y, Real.sin x / x) atTop (𝓝 (Real.pi / 2))` captures exactly this limit using the interval integral, which is the conventional Mathlib encoding of this improper integral. The removable singularity at $x=0$ (where Lean defines $\\sin 0 / 0 = 0$) is a measure-zero issue that does not affect the integral. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 41151,
+  "cost_usd": 0.11086399999999999
+}

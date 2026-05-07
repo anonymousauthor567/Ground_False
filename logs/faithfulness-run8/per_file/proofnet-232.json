@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes every part of the informal claim precisely: `[CommGroup G]` encodes \"abelian group\", `[Fintype G]` together with `card G = p*q` encodes \"of order pq\" (finiteness is implicit in the informal \"order pq\"), `{p q : Nat.Primes}` with `hpq : p ≠ q` encodes \"p and q are distinct primes\" (via the coercion `Nat.Primes → ℕ` used in `p*q`), and `IsCyclic G` matches \"G is cyclic\". No extra hypothesis is added beyond what the informal statement requires, and no hypothesis is dropped. The formalization is logically equivalent to the informal statement under standard mathematical reading.",
+  "duration_ms": 65756,
+  "cost_usd": 0.22206825000000002
+}

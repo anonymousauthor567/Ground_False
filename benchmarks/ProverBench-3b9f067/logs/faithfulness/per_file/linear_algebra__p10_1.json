@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p10_1.lean",
+  "stem": "linear_algebra__p10_1",
+  "verdict": "incomparable",
+  "reasoning": "The Lean definition `column_full_rank A := LinearIndependent K (fun i => A i)` with `A : Matrix m n K = m → n → K` expresses linear independence of the ROWS of A (since `fun i => A i` with `i : m` gives the family of rows, each a vector in `n → K`), not the columns. This is confirmed by Mathlib's `rank_eq_finrank_span_row` which uses `Set.range A` for rows. The resulting theorem thus asserts \"rows LI ↔ rank = |n|\", which is equivalent to \"rank = |m| ↔ rank = |n|\" and is FALSE in general (e.g., for the 2×1 matrix [[1];[0]], rank = 1 = n but rows are not LI). The informal claim (cols LI ↔ rank = n) is always true. The two statements assert different conditions — row-full-rank vs. column-full-rank — which coincide only for square matrices, making them genuinely different mathematical assertions.",
+  "duration_ms": 1045166,
+  "cost_usd": 2.5113707499999998
+}

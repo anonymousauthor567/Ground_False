@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-305.lean",
+  "stem": "proofnet-305",
+  "verdict": "faithful",
+  "reasoning": "The abbreviation `I = Icc 0 1 : Set ℝ` coerces (via `Set.Elem`) to the subtype `{x : ℝ // x ∈ [0,1]}`, which carries the subspace topology from ℝ — precisely the standard topology on $[0,1]$. Thus `f : I → I` with `Continuous f` corresponds exactly to a continuous self-map of $[0,1]$, and `∃ x : I, f x = x` is exactly the existence of a fixed point in $[0,1]$. No extra hypotheses are assumed and nothing is omitted; the quantifier structure and the types match the informal statement. This is the standard formalization of the 1D fixed-point/IVT claim.",
+  "duration_ms": 58103,
+  "cost_usd": 0.22282575
+}

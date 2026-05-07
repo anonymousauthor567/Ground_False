@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-14.lean",
+  "stem": "proofnet-14",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for a prime p, if p = 2^r + 1 for some r ≥ 1, then p = 2^(2^k) + 1 for some k. The informal statement does not literally write r ≥ 1, but without this hypothesis the claim would be false: r = 0 gives p = 2, which is prime but cannot be written as 2^(2^k) + 1 for any k ∈ ℕ. The hypothesis 1 ≤ r is exactly the kind of implicit premise a mathematician would assume (indeed it matches the classical characterization of Fermat primes). Adding it makes the implicit premise explicit rather than narrowing the scope, which the system prompt explicitly calls out as faithful (this is the worked example). The types (ℕ), the prime condition, the existential in the conclusion (∃ k : ℕ), and the quantifier structure all match.",
+  "duration_ms": 10179,
+  "cost_usd": 0.0440465
+}

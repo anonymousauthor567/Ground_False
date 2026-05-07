@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The orthonormal list $(e_1,\\ldots,e_m)$ corresponds to an orthonormal family `e : Fin n → V`. Under RCLike, `‖·‖` on a scalar equals the absolute value, so `‖⟪v, e i⟫_F‖^2 = |⟨v, e_i⟩|^2`. The potential inner-product convention mismatch between Axler and Mathlib (linear in first vs. second slot) is neutralized by taking the modulus. `Submodule.span F (e '' Set.univ)` equals the span of `{e_0,…,e_{n-1}}`, matching `span(e_1,…,e_m)`. The iff is preserved with both directions intact. Hypotheses (orthonormality, inner product space over ℝ or ℂ) faithfully reflect the informal setup.",
+  "duration_ms": 31497,
+  "cost_usd": 0.11026649999999999
+}

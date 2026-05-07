@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2011_a5.lean",
+  "stem": "putnam_2011_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all the hypotheses and conclusion of Putnam 2011 A5 correctly. F as (Fin 2 → ℝ) → ℝ represents ℝ² → ℝ, and both F and g are required to be C² via ContDiff ℝ 2. The properties F(u,u)=0, g(x)>0, and x²g(x)≤1 are all correctly encoded. The auxiliary `vec` is uniquely determined by hvec (since Fin 2 has only two elements) as the pair function, and `Fgrad` is uniquely determined by hFgrad as the partial-derivative vector (which agrees with the true gradient since F is C²). The parallel condition `∃ c, u = c • v` combined with the disjunction \"Fgrad uv = 0 ∨ parallel...\" is equivalent to \"∇F is a scalar multiple of ⟨g(u),-g(v)⟩\", matching the informal statement (and noting that ⟨g(u),-g(v)⟩ is nonzero since g>0). The conclusion uses x : Fin (n+1) → ℝ providing n+1 values, and sInf over the finite nonempty set of |F(xᵢ,xⱼ)| for i≠j equals the minimum. All quantifiers and the C/n bound are preserved.",
+  "duration_ms": 278234,
+  "cost_usd": 0.7902257500000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a5.lean",
+  "stem": "putnam_1962_a5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks for a closed form of ∑_{k=1}^n C(n,k)·k², valid for all positive integers n (where the sum is defined). The closed form n(n+1)·2^(n-2) works mathematically for all n ≥ 1 (e.g., for n=1: 1·2·(1/2) = 1 matches the sum). The Lean formalization encodes this over ℕ with truncated subtraction, causing `n*(n+1)*2^(n-2)` at n=1 to evaluate to 2 instead of 1. To compensate, it adds the hypothesis `n ≥ 2`, which excludes the valid n=1 case. This is not surfacing an implicit mathematical premise (since the claim for n=1 is mathematically true); it is a technical narrowing forced by the ℕ encoding choice. The Lean theorem is therefore strictly weaker than the informal claim.",
+  "duration_ms": 241842,
+  "cost_usd": 0.7337985000000001
+}

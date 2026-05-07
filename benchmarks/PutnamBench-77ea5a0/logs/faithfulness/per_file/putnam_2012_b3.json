@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_b3.lean",
+  "stem": "putnam_2012_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal Putnam 2012 B3 statement. The matchup structure is encoded as a fixed-point-free involution on each day (a perfect matching of 2n teams into n games), and the \"every pair plays exactly once\" condition is given as \"at least once\" (`nmatchupsall`), which combined with the perfect-matching structure over 2n-1 days is equivalent to \"exactly once\" by a simple counting argument: n(2n-1) = C(2n,2). The `wins d t = !(wins d (matchups d t))` condition correctly encodes \"exactly one winner per game\". The conclusion `nmatchupswinschoices` asks for an injective choice function selecting a winning team per day, matching the informal question. The `n ≥ 1` hypothesis is a natural domain premise needed to avoid degenerate Nat subtraction (and n=0 is vacuously true anyway). The answer being `True` correctly indicates the tournament-question has a positive answer.",
+  "duration_ms": 239364,
+  "cost_usd": 0.41544725000000005
+}

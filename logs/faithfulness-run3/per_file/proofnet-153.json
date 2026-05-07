@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "All hypotheses of the informal statement are rendered correctly: n ≥ 3, x, y in R^n (as EuclideanSpace ℝ (Fin n)), ‖x - y‖ = d, d > 0, r > 0, 2r > d. The conclusion \"infinitely many z with |z-x|=|z-y|=r\" is faithfully encoded as Set.Infinite of the set of such z. The only oddity is an unused parameter `z` in the binder list, but since the `z` in the set-builder is locally bound and EuclideanSpace is always inhabited, this extra universally-quantified unused variable is logically equivalent to the statement without it — it neither strengthens nor weakens the claim.",
+  "duration_ms": 33220,
+  "cost_usd": 0.11784100000000002
+}

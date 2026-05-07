@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely. \"Bounded derivative\" is encoded as `∃ M, ∀ x, |deriv g x| ≤ M`, which is equivalent. The `Differentiable ℝ g` hypothesis surfaces an implicit premise (needed since Mathlib's `deriv` returns 0 at non-differentiable points, so \"bounded derivative\" only has its intended meaning when g is differentiable). \"f is one-to-one if ε is small enough\" is correctly encoded as `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (λ x => x + ε * g x)`. The function f(x) = x + εg(x) and the use of `Function.Injective` for \"one-to-one\" match standard formalization conventions. No hypothesis is dropped or added beyond surfacing implicit premises, and the conclusion matches exactly.",
+  "duration_ms": 35537,
+  "cost_usd": 0.095553
+}

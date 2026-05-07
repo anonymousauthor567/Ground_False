@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. `[Fintype G]` captures \"finite group\"; `H ≠ ⊤` captures \"H is a proper subgroup\"; and the conclusion unfolds the definition of \"maximal subgroup\" exactly as given in the informal statement: `M ≠ ⊤` (M ≠ G) together with `∀ K, M ≤ K → K = M ∨ K = ⊤` (the only subgroups containing M are M and G), plus `H ≤ M` (M contains H). There is no drift in hypotheses, conclusion, quantifier structure, or types. This is a direct, logically equivalent translation.",
+  "duration_ms": 60695,
+  "cost_usd": 0.16343875000000002
+}

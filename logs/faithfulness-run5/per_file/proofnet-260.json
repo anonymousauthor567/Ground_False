@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes G is a group in which every subgroup is normal, and asserts that for any a, b ∈ G there exists some j with ba = a^j b. The Lean signature encodes G as an arbitrary `Group` with the hypothesis `∀ (H : Subgroup G), H.Normal`, which is exactly \"every subgroup is normal.\" It takes arbitrary elements `a b : G` and concludes `∃ (j : ℤ), b*a = a^j * b`. Using `ℤ` for the exponent is the standard reading of \"a^j for some j\" in group theory, since ⟨a⟩ being normal gives bab⁻¹ = a^j for some integer j (negative exponents are needed when a has infinite order). The quantifier structure, hypotheses, conclusion, and ambient types all match the informal statement precisely.",
+  "duration_ms": 29481,
+  "cost_usd": 0.08569650000000001
+}

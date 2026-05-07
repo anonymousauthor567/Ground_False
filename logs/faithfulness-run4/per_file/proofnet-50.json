@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-50.lean",
+  "stem": "proofnet-50",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that if H is the unique subgroup of G of a given order, then H is characteristic. The Lean statement encodes exactly this: H has a Fintype instance (so a specific finite order), the hypothesis `hH` asserts that any subgroup K with the same finite cardinality must equal H (the uniqueness condition), and the conclusion `H.Characteristic` uses Mathlib's standard definition (fixed by every G ≃* G automorphism via comap). Restricting K to carry a Fintype instance is not a real restriction, since any subgroup K with |K| = |H| is automatically finite when H is. The finiteness hypothesis on H is the natural reading of \"a given order\" in the context of this Dummit–Foote exercise (chapter on Automorphisms). Hypothesis, conclusion, and quantifier structure all match.",
+  "duration_ms": 84700,
+  "cost_usd": 0.2906695
+}

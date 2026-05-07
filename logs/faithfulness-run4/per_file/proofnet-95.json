@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"2 is divisible by (1+i)² in ℤ[i]\" means (1+i)² divides 2 in the Gaussian integers. In Mathlib, `GaussianInt` is defined as `Zsqrtd (-1)`, whose elements are pairs ⟨re, im⟩ representing `re + im·√(-1) = re + im·i`. Thus `⟨1, 1⟩ : GaussianInt` denotes `1 + i`, and the Lean goal `(⟨1, 1⟩ : GaussianInt) ^ 2 ∣ 2` expresses exactly `(1+i)² ∣ 2` in ℤ[i]. The quantifier structure, types, and conclusion match the informal statement precisely with no added or missing hypotheses.",
+  "duration_ms": 89683,
+  "cost_usd": 0.25255025
+}

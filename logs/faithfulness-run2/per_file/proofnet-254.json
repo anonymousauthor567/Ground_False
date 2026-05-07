@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. `ℕ+` corresponds to ℤ⁺ (positive integers), `Fin n → ℝ` is the standard Mathlib encoding of ℝⁿ, and `≃ₗ[ℚ] ℝ` is a ℚ-linear equivalence, matching \"isomorphic as vector spaces over ℚ\". Wrapping in `Nonempty` correctly expresses existence of such an isomorphism. The (implicit) universal quantification over n : ℕ+ matches \"for all n ∈ ℤ⁺\". No hypotheses are added or dropped and the conclusion is logically equivalent.",
+  "duration_ms": 13273,
+  "cost_usd": 0.0533705
+}

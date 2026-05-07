@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "weaker",
+  "reasoning": "The Lean signature takes `hsumm : Summable fun n => (1 - ‖zeros n‖)` as a hypothesis — but this is exactly the conclusion the informal statement asks us to prove. The Lean conclusion (existence of a limit for the partial sums) then follows trivially from `Summable`, independently of the holomorphy/boundedness hypotheses. Thus the Lean statement is essentially tautological and does not assert the Blaschke-type summability result the informal statement demands. The informal claim implies the Lean claim (summability ⇒ partial-sum convergence), but the Lean claim does not imply the informal one, so the formalization is strictly weaker.",
+  "duration_ms": 33042,
+  "cost_usd": 0.114353
+}

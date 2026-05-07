@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis matches: a^5 + √2·a^3 + √5·a^2 + √7·a + √11 = 0 in ℂ is exactly p(a) = 0. The conclusion \"a is algebraic over ℚ of degree at most 80\" is logically equivalent to the Lean statement \"there exists a nonzero q ∈ ℚ[x] with natDegree ≤ 80 and aeval a q = 0\": if the minimal polynomial has degree d ≤ 80 it serves as such q, and conversely if any nonzero q of degree ≤ 80 annihilates a, then the minimal polynomial divides q and has degree ≤ 80. The bound 80 = 16·5 correctly reflects [ℚ(√2,√5,√7,√11):ℚ] = 16 times the degree-5 relation. No extra hypotheses (like a priori algebraicity, Fintype, etc.) are silently added, and none are dropped.",
+  "duration_ms": 18891,
+  "cost_usd": 0.08825725
+}

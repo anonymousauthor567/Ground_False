@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p3_3.lean",
+  "stem": "number_theory__p3_3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says 8 is the smallest positive integer satisfying n ≡ 2 (mod 3), n ≡ 3 (mod 5), n ≡ 1 (mod 7). The Lean theorem asserts: (1) a positive-integer solution exists, (2) every positive-integer solution is ≥ 8, and (3) 8 itself satisfies all three congruences. Parts (2) and (3) together exactly say \"8 is the least positive integer satisfying the system,\" and part (1) is a redundant-but-true consequence of (3). The congruence predicates correctly encode n % k = r, and using ℕ+ correctly captures \"positive integer.\" So the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 96414,
+  "cost_usd": 0.270701
+}

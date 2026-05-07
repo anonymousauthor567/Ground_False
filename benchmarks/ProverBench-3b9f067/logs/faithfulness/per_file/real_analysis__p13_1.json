@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p13_1.lean",
+  "stem": "real_analysis__p13_1",
+  "verdict": "incomparable",
+  "reasoning": "The Lean signature `log_le_zero_iff : log x ≤ 0 ↔ x ≤ 1` (for x > 0) is a simple auxiliary fact about logarithms, while the informal statement asserts the characterization `ln(x²) ≤ (ln x)² ↔ x ∈ (0,1] ∪ [e², ∞)` for x > 0. These are entirely different mathematical claims: the Lean statement does not mention x², squaring of log, or e² at all. The comment \"Assuming these lemmas are not available in the imported libraries\" makes clear this is intended as a helper lemma, but the main theorem is missing from the file. Neither statement implies the other via logical implication of their content, so the formalization is incomparable with the informal claim.",
+  "duration_ms": 52388,
+  "cost_usd": 0.11105375
+}

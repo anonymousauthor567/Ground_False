@@ -1,0 +1,8 @@
+{
+  "file": "S_0019.lean",
+  "stem": "S_0019",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal one. \"$G$ has a left adjoint\" is exactly `G.IsRightAdjoint` in Mathlib (defined as `∃ left, Nonempty (left ⊣ G)`). The comma category $(c \\downarrow G)$, whose objects are morphisms $c \\to G(Y)$, is precisely `StructuredArrow c G` in Mathlib. The universal quantifier \"for each $c \\in \\mathcal{C}$\" matches `∀ c : C`, and \"has an initial object\" matches `HasInitial`. In fact, this is essentially `Mathlib.CategoryTheory.Adjunction.Comma.isRightAdjoint_iff_hasInitial_structuredArrow` verbatim. The formalization is faithful.",
+  "duration_ms": 62486,
+  "cost_usd": 0.279333
+}

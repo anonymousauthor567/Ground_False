@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "informal": "Prove that no group of order $p q$, where $p$ and $q$ are prime, is simple.",
+  "lean": "\ntheorem Artin_exercise_6_4_2 {G : Type*} [Group G] [Fintype G] {p q : ℕ}\n  (hp : Nat.Prime p) (hq : Nat.Prime q) (hG : card G = p*q) :\n  IsSimpleGroup G → false",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that any group of order pq (p, q prime) fails to be simple. The Lean signature fixes a finite group G with `Fintype.card G = p*q` for primes p, q, and concludes `IsSimpleGroup G → False` (interpreting `false` charitably as the proposition `False`), i.e. G is not simple. This matches the informal statement: universally quantifying over G via `{G : Type*}` corresponds to \"no group\", the hypotheses on p and q being prime are present, and the order condition is exactly `card G = p*q`. The `Fintype` instance is harmless because a group of order pq is finite by definition. Mathlib's `IsSimpleGroup` requires nontriviality, but pq ≥ 4 makes this automatic, so no genuine extra hypothesis is added. Hence the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 18070,
+  "cost_usd": 0.06852725000000001
+}

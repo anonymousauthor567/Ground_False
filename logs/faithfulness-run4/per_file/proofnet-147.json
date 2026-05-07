@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the four complex numbers as `z : Fin 4 → ℂ` with indices 0..3 (a standard reindexing of {1,2,3,4}). The hypothesis `‖z n‖ = 1` is equivalent to `|z_j| = 1` for complex numbers since the norm on ℂ in Mathlib is the absolute value (`Complex.norm_eq_abs`). The hypothesis `z n ≠ 1` matches `z_j ≠ 1`. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0) * (z 1) * (z 2) * (z 3) ≠ 0` exactly matches the informal claim `3 - z_1 - z_2 - z_3 - z_4 + z_1 z_2 z_3 z_4 ≠ 0`. No hypotheses are added or omitted, and no quantifier structure is changed.",
+  "duration_ms": 24786,
+  "cost_usd": 0.10069925
+}

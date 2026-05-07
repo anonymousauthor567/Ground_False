@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement expresses exactly that the polynomial x² − √2 is irreducible as an element of Polynomial (Zsqrtd 2). Here `Zsqrtd 2` is Mathlib's definition of ℤ[√2] (structure with integer re/im components), `Zsqrtd.sqrtd` is the element ⟨0,1⟩ representing √2, and `C Zsqrtd.sqrtd` embeds it as a constant polynomial, so `X^2 - C Zsqrtd.sqrtd` is precisely x² − √2. Mathlib's `Irreducible` is the standard \"not a unit and every factorization has a unit factor\" notion appropriate here. The informal hint that ℤ[√2] is a UFD is a proof strategy aid, not an added hypothesis — ℤ[√2] being a UFD is an intrinsic fact about the ring, so no extra assumption is needed. No hypotheses are weakened or strengthened.",
+  "duration_ms": 55048,
+  "cost_usd": 0.243055
+}

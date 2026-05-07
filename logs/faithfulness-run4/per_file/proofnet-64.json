@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over `n : ℤ` and `r s : ℚ` satisfying `r^2 + s^2 = n` (with the integer `n` coerced to ℚ), and concludes the existence of integers `a b` with `a^2 + b^2 = n`. This is logically equivalent to \"for every integer n, if n is expressible as a sum of two rational squares then n is expressible as a sum of two integer squares\" — the ∀ over the rational witnesses in the hypothesis position is the standard currying of \"∃ r s, r²+s² = n → …\". Types align correctly (ℤ for the integer, ℚ for the rational witnesses, ℤ for the conclusion), and the coercion in `r^2 + s^2 = n` is the natural one.",
+  "duration_ms": 32431,
+  "cost_usd": 0.120694
+}

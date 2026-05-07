@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch4_9.lean",
+  "stem": "brualdi_ch4_9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `invNum σ` uses Mathlib's `finPairsLT n` (pairs ⟨a, b⟩ with b < a) and counts those with σ(a) ≤ σ(b); since σ is injective, this is equivalent to σ(b) > σ(a), i.e., the standard count of inversions (pairs (i, j) with i < j and σ(i) > σ(j)) after relabeling i=b, j=a. `IsGreatest {k | ∃ σ, k = invNum σ} (n*(n-1)/2)` expresses exactly that n(n-1)/2 is the maximum inversion count: it is attained by some permutation and is an upper bound. The identification of \"permutations of {1,...,n}\" with `Equiv.Perm (Fin n)` is the standard encoding of S_n, preserving inversion counts. Edge cases (n=0, n=1) work correctly under truncated natural subtraction.",
+  "duration_ms": 131497,
+  "cost_usd": 0.43158025
+}

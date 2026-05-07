@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `H.subgroupOf K` is defined as `H.comap K.subtype`, which represents H ⊓ K as a subgroup of K; since the hypothesis `H ≤ K` is given, this is exactly H viewed as a subgroup of K. Thus `(H.subgroupOf K).Characteristic` precisely means \"H is characteristic in K\", fixed by all automorphisms of K. The remaining hypotheses (`K.Normal`) and conclusion (`H.Normal`) match verbatim, and the universal quantification over G, H, K is preserved via the type-level binders. No hypothesis is added or dropped beyond what the informal statement requires.",
+  "duration_ms": 58203,
+  "cost_usd": 0.23756875
+}

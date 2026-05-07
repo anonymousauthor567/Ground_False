@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p2_2.lean",
+  "stem": "linear_algebra__p2_2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that A = [[0,1],[5,3]] is invertible and its inverse is [[-3/5, 1/5], [1, 0]]. The Lean theorem states ∃ inv, A * inv = 1 ∧ inv * A = 1 ∧ A_inv = inv. Because the third conjunct A_inv = inv forces inv to equal A_inv, this existential is logically equivalent to the conjunction A * A_inv = 1 ∧ A_inv * A = 1. This is precisely the standard definition that A_inv is a two-sided inverse of A, which (given uniqueness of matrix inverses) is equivalent to \"A is invertible and A⁻¹ = A_inv\". The definition of A_inv in the Lean file matches the informal matrix exactly. Thus the theorem signature asserts the same mathematical claim as the informal statement. (The presence of the separate axiom `verify_inverse` is a proof-level concern, not part of the theorem statement being evaluated.)",
+  "duration_ms": 1324215,
+  "cost_usd": 0.25653725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "34.lean",
+  "stem": "34",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims C_G(A) = {g ∈ G | g⁻¹ a g = a for all a ∈ A}. In Mathlib, `Subgroup.centralizer A` is defined via `Set.centralizer` as {c | ∀ m ∈ A, m * c = c * m}, which is equivalent to {g | g⁻¹ * a * g = a for all a ∈ A} (multiplying a*g = g*a on the left by g⁻¹ yields g⁻¹*a*g = a, and vice versa). The RHS of the Lean equation `{g : G | ∀ a ∈ A, g⁻¹ * a * g = a}` matches the informal RHS literally. The equality typechecks via the `SetLike` coercion from `Subgroup G` to `Set G`. The universal quantification over G (any group) and any subset A is preserved, and no hypotheses are added or dropped. This is a faithful formalization.",
+  "duration_ms": 273122,
+  "cost_usd": 0.7402832500000001
+}

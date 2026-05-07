@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-279.lean",
+  "stem": "proofnet-279",
+  "verdict": "faithful",
+  "reasoning": "The Lean sum `(Finset.range (n-1)).sum (fun i => 1/(i+2))` iterates i over {0,...,n-2}, giving terms 1/2, 1/3, ..., 1/n, which exactly matches the informal sum. The hypothesis `2 ≤ n` is the natural implicit requirement for the informal expression (otherwise the sum would be empty). The conclusion `¬ ∃ a : ℤ, sum = (a : ℚ)` precisely encodes \"the sum is not an integer\" by stating no integer equals it when coerced to ℚ. The quantifier structure (universal over n ≥ 2) matches the informal universal claim. No hypotheses are added or dropped, and no types are changed in a way that affects meaning.",
+  "duration_ms": 15110,
+  "cost_usd": 0.07653274999999998
+}

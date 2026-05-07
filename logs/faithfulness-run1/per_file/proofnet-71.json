@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "informal": "Show that a group of order 5 must be abelian.",
+  "lean": "\ntheorem Herstein_exercise_2_1_21 (G : Type*) [Group G] [Fintype G]\n  (hG : card G = 5) :\n  ∀ a b : G, a*b = b*a",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary type G equipped with a group structure and finite cardinality 5, then concludes that every pair of elements commutes — which is precisely the definition of being abelian. The Fintype instance together with `card G = 5` correctly encodes \"group of order 5\", and `∀ a b : G, a*b = b*a` correctly encodes \"abelian\". No extra hypotheses (e.g. commutativity assumed) and none missing. This matches the informal claim exactly.",
+  "duration_ms": 6927,
+  "cost_usd": 0.0428995
+}

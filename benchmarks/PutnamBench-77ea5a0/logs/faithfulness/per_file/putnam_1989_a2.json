@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_a2.lean",
+  "stem": "putnam_1989_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The hypothesis `a > 0 ∧ b > 0` matches \"where a and b are positive.\" The nested integrals `∫ x in Set.Ioo 0 a, ∫ y in Set.Ioo 0 b, ...` correctly reflect the informal `∫_0^a ∫_0^b ... dy dx` (outer in x, inner in y). The integrand `Real.exp (max (b^2 * x^2) (a^2 * y^2))` matches $e^{\\max\\{b^2x^2, a^2y^2\\}}$. Using `Set.Ioo` vs closed intervals is immaterial since they differ by a measure-zero set. The solution `(e^(a²b²) - 1)/(ab)` is correct (verified via region-splitting at $y = bx/a$ and symmetry).",
+  "duration_ms": 68658,
+  "cost_usd": 0.22650975000000004
+}

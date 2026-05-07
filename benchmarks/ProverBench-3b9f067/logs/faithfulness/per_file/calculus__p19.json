@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p19.lean",
+  "stem": "calculus__p19",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `Real.log` is the natural logarithm (ln), `sin` matches sin, and `Set.Icc 0 (π/2)` is the closed interval [0, π/2] — which is equivalent to the open interval (0, π/2) for Lebesgue integration since the endpoints have measure zero. The RHS `- (π / 2) * log 2` parses as (-(π/2)) · ln 2, matching the informal -π/2 · ln 2. The integrand is Lebesgue-integrable on this interval (the singularity at 0 is mild, behaving like ln x), so the equation genuinely asserts the integral's value. No hypotheses are added or dropped, and no quantifier structure is changed.",
+  "duration_ms": 92001,
+  "cost_usd": 0.22049275000000002
+}

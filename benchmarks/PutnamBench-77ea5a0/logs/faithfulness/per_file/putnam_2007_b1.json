@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_b1.lean",
+  "stem": "putnam_2007_b1",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says \"polynomial with positive integer coefficients,\" which in standard olympiad/Putnam usage means every coefficient from degree 0 to degree d is strictly positive (> 0), excluding polynomials like x^2 + 1, x^2, or x where some intermediate or constant coefficient is 0. However, the Lean hypothesis `∀ n : ℕ, f.coeff n ≥ 0` only requires non-negative coefficients, and `hfnconst` merely requires some positive coefficient at positive degree. The Lean hypothesis class is strictly larger (contains all polynomials the informal describes, plus polynomials with missing/zero coefficients like x^2 + 1). The conclusion happens to hold for this broader class, so Lean's theorem is provable and implies the informal theorem, but it is strictly stronger — it proves the claim for polynomials that the informal statement's literal hypothesis excludes. This is not an implicit premise being made explicit (the Lean weakens, not strengthens, the hypothesis), so it qualifies as \"stronger\" rather than \"faithful\".",
+  "duration_ms": 1050572,
+  "cost_usd": 2.86362225
+}

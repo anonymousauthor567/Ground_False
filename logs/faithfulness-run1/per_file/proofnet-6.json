@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "informal": "Prove that no group of order $p^2 q$, where $p$ and $q$ are prime, is simple.",
+  "lean": "\ntheorem Artin_exercise_6_4_3 {G : Type*} [Group G] [Fintype G] {p q : ℕ}\n  (hp : Prime p) (hq : Prime q) (hG : card G = p^2 * q) :\n  IsSimpleGroup G → False",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says no group of order p^2 q (with p, q prime) is simple. The Lean signature takes a finite group G of order p^2 * q with p and q prime, and concludes that G being simple leads to False — i.e., G is not simple. The hypotheses match (p, q prime; |G| = p^2 q), and the conclusion (not simple) matches. Note that the informal statement doesn't explicitly require p ≠ q, but neither does the Lean version, so they match on that point. The use of Nat.Prime via `Prime p` is standard. This is a faithful formalization.",
+  "duration_ms": 6651,
+  "cost_usd": 0.04213
+}

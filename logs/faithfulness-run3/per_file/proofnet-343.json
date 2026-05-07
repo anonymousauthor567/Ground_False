@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures Rudin's inequality limsup(aₙ+bₙ) ≤ limsup aₙ + limsup bₙ with the correct \"not ∞−∞\" side condition. In EReal, the indeterminate sum \"∞ − ∞\" arises precisely when one limsup equals ⊤ and the other equals ⊥. The hypothesis h1 (limsup a ≠ ⊥ ∨ limsup b ≠ ⊤) rules out (⊥, ⊤), and h2 (limsup a ≠ ⊤ ∨ limsup b ≠ ⊥) rules out (⊤, ⊥); their conjunction is logically equivalent to \"the sum on the right is not of the form ∞−∞\". The conclusion correctly coerces the real-valued sequences into EReal and states the inequality as limsup of the pointwise sum ≤ sum of limsups, matching the standard interpretation of limsup of a real sequence in the extended reals used throughout Rudin.",
+  "duration_ms": 138557,
+  "cost_usd": 0.27330075
+}

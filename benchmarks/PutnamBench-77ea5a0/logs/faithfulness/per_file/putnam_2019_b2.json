@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_b2.lean",
+  "stem": "putnam_2019_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The sum `∑ k : Icc (1 : ℤ) (n - 1), ...` uses integer subtraction (forced by `Icc (1 : ℤ) ...`), so for n = 0 or n = 1 it is the empty sum and for n ≥ 2 it ranges over 1, ..., n-1, matching the informal definition of a_n. The summand expression exactly mirrors sin((2k-1)π/(2n)) / (cos²((k-1)π/(2n)) · cos²(kπ/(2n))). The limit `Tendsto (fun n => (a n)/n^3) atTop (𝓝 (8/π^3))` captures lim_{n→∞} a_n/n^3 = 8/π³ — finitely many boundary values (n = 0 where 0/0 = 0) don't affect the `atTop` filter limit. The solution value 8/π³ matches the known Putnam 2019 B2 answer. No hypotheses are added, dropped, or weakened.",
+  "duration_ms": 381014,
+  "cost_usd": 0.87332275
+}

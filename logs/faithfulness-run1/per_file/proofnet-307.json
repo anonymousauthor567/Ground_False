@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "informal": "Let $p: X \\rightarrow Y$ be a closed continuous surjective map such that $p^{-1}(\\{y\\})$ is compact, for each $y \\in Y$. (Such a map is called a perfect map.) Show that if $Y$ is compact, then $X$ is compact.",
+  "lean": "\ntheorem Munkres_exercise_26_12 {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]\n  (p : X → Y) (_h : Function.Surjective p) (_hc : Continuous p)\n  (hp : IsClosedMap p) (hp : ∀ y, IsCompact (p ⁻¹' {y}))\n  (hY : CompactSpace Y) : CompactSpace X",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all the hypotheses of the informal statement: p is surjective, continuous, a closed map, has compact fibers, and Y is compact (CompactSpace Y). The conclusion CompactSpace X matches \"X is compact\". The types X and Y are arbitrary topological spaces, matching the informal generality. The hypothesis names are duplicated (`hp` used twice) but this is just a naming issue and doesn't change the logical content. This is a faithful formalization.",
+  "duration_ms": 6384,
+  "cost_usd": 0.0419775
+}

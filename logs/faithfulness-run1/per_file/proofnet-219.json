@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "informal": "Let $A$ and $B$ be groups. Prove that $A \\times B \\cong B \\times A$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_1_6_11 {A B : Type*} [Group A] [Group B] :\n  Nonempty (A × B ≃* B × A)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for arbitrary groups A and B, the direct product A × B is isomorphic to B × A. The Lean signature takes A and B as arbitrary types with Group instances and asserts the existence (via Nonempty) of a multiplicative equivalence A × B ≃* B × A, which is exactly a group isomorphism between the product groups. The use of Nonempty correctly captures \"there exists an isomorphism\" rather than constructing a specific one. The hypotheses and conclusion match the informal statement exactly.",
+  "duration_ms": 5899,
+  "cost_usd": 0.04143425
+}

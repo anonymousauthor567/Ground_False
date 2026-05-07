@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says there are infinitely many integers a for which f(x) = x^7 + 15x^2 − 30x + a is irreducible in ℚ[x]. The Lean statement expresses precisely this: `{a : ℤ | Irreducible (X^7 + 15*X^2 - 30*X + (a : Polynomial ℚ))}` is `Infinite`. The integer a is coerced into `Polynomial ℚ` (via ℚ), the polynomial and its coefficients match, the ambient ring for irreducibility is `Polynomial ℚ`, and `Infinite` on the set-as-subtype correctly captures \"infinitely many such integers\". No hypotheses are added or removed, and no quantifier/type drift occurs.",
+  "duration_ms": 57278,
+  "cost_usd": 0.20752900000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "85.lean",
+  "stem": "85",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds `[Fintype G]`, requiring the entire ambient group G to be finite, while the informal statement only says \"a group G\". The implicit premise in \"if |H| and |K| are relatively prime\" is merely that H and K are finite (so their orders are natural numbers) — NOT that G itself is finite. Mathlib's own proof of this exact result (`Subgroup.inf_eq_bot_of_coprime` in `GroupTheory/Index.lean`) works for arbitrary groups G using `Nat.card` and does not require `[Fintype G]`. Since infinite groups can have finite subgroups with coprime orders, the Lean statement only covers a strict special case of the informal claim: the informal claim implies the Lean claim, but not vice versa. A faithful formalization would use `Nat.card` (or explicit `[Finite H] [Finite K]` instances) instead of `[Fintype G]`.",
+  "duration_ms": 339803,
+  "cost_usd": 0.82575025
+}

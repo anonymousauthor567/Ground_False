@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p23_1.lean",
+  "stem": "linear_algebra__p23_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is the non-trivial theorem that rank(A) = rank(Aᵀ), i.e., dim(row_space A) = dim(column_space A). The Lean lemma instead proves `row_space A = column_space Aᵀ ∧ column_space A = row_space Aᵀ`. Unfolding the user-supplied definitions, `column_space Aᵀ = Submodule.span F (Set.range (fun j i => Aᵀ i j)) = Submodule.span F (Set.range (fun j i => A j i))`, which is definitionally the same as `row_space A = Submodule.span F (Set.range (fun i => A i))`. So the Lean statement is a definitional tautology — it holds for trivial reasons from the definitions of transpose, row_space, and column_space, with no mathematical content about dimensions. It does not imply the equality of ranks/dimensions that the informal statement asserts, and is merely a trivially-true consequence of the informal claim, making it strictly weaker.",
+  "duration_ms": 436775,
+  "cost_usd": 0.93657625
+}

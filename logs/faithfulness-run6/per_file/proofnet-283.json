@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"(n-1)! ≡ 0 (mod n), except when n=4\" under the hypothesis that n is not prime. The phrasing \"except when n=4\" naturally asserts that n=4 is the unique exception: the congruence holds for all non-prime n ≠ 4, and fails at n=4 (otherwise mentioning the exception would be gratuitous). This is faithfully captured by the Lean iff `Nat.factorial (n-1) ≡ 0 [MOD n] ↔ n ≠ 4` under `¬ n.Prime`. The Mathlib definition `a ≡ b [MOD n]` means `a % n = b % n`, matching the standard congruence. The type `ℕ+` excludes n=0 (where the claim is ill-posed), and for n=1 both sides are true, for n=4 both false, for composite n ≥ 6 both true — all correctly aligning with the informal claim.",
+  "duration_ms": 216406,
+  "cost_usd": 0.7066742500000001
+}

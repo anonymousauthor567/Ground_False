@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. `DifferentiableOn ℝ f (Ioi 0)` encodes \"f is differentiable for every x > 0\" (f : ℝ → ℝ being total handles \"defined\"; values at x ≤ 0 are irrelevant). Since Ioi 0 is open, `deriv f x` coincides with the usual derivative at every x > 0, so `Tendsto (deriv f) atTop (𝓝 0)` correctly expresses f'(x) → 0 as x → +∞ (only large positive x matter for atTop). The conclusion `Tendsto (λ x => f (x + 1) - f x) atTop (𝓝 0)` exactly states g(x) → 0 as x → +∞. No hypotheses are silently added or omitted, and the types and quantifier structure match the informal statement.",
+  "duration_ms": 74368,
+  "cost_usd": 0.2660715
+}

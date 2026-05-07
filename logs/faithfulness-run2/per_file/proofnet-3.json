@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every finite group of even order contains an element of order 2. The Lean signature takes a type G with Group and Fintype instances, assumes Even (card G), and concludes ∃ x : G, orderOf x = 2. The Fintype assumption is necessary to make sense of \"even order\" (card G) and matches the implicit finiteness in the informal statement. The conclusion ∃ x, orderOf x = 2 exactly captures \"contains an element of order 2\". The universal quantification over G is expressed by the type-class-polymorphic theorem signature. This is a standard and faithful encoding.",
+  "duration_ms": 8538,
+  "cost_usd": 0.0334445
+}

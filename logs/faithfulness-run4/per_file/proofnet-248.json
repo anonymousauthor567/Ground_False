@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `Zsqrtd (-n)` in Mathlib is ℤ[√(-n)], with `⟨0, 1⟩` being exactly the element √(-n) (Mathlib's `sqrtd`). The three conjuncts `Irreducible 2`, `Irreducible ⟨0,1⟩`, `Irreducible (1 + ⟨0,1⟩)` assert irreducibility of 2, √(-n), and 1+√(-n) in ℤ[√(-n)] — matching the three elements listed informally. The hypotheses `n > 3` (integer > 3) and `Squarefree n` (standard Mathlib definition for ℤ, agreeing with the usual squarefree notion since n > 0) correctly express \"squarefree integer greater than 3.\" No hypothesis is added or dropped, and the types match the informal objects, so this is strictly faithful.",
+  "duration_ms": 170483,
+  "cost_usd": 0.5125280000000001
+}

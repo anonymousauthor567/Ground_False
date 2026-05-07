@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement from Axler asks to prove `-(-v) = v` for every `v` in a vector space `V`. The Lean signature sets up `V` as an additive commutative group that is a module over a field `F`, which is the standard Mathlib encoding of a vector space matching Axler's context. The implicit variable `{v : V}` universally quantifies over `v`, matching \"for every $v \\in V$\". The conclusion `-(-v) = v` is exactly the claim. There is no added or dropped hypothesis and no change in quantifier structure or types, so this is a faithful formalization.",
+  "duration_ms": 8619,
+  "cost_usd": 0.03878575000000001
+}

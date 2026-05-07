@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p2.lean",
+  "stem": "abstract_algebra__p2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary real polynomial P (via the implicit variable), assumes ∀ x : ℝ, P.eval (cos x) = P.eval (sin x), and concludes the existence of Q : Polynomial ℝ such that ∀ x : ℝ, P.eval x = Q.eval (x^4 - x^2). The hypothesis exactly matches \"P(cos x) = P(sin x) for all x\" and the conclusion exactly matches \"there exists a polynomial Q such that P(x) = Q(x^4 - x^2) for all x\". The polynomial types (ℝ → ℝ), the Mathlib API `Polynomial.eval`, and the quantifier structure all match. The existential is stated before the universal in x, which matches \"there exists Q such that for all x\" precisely. No hypotheses are added or dropped, and no types are changed.",
+  "duration_ms": 39201,
+  "cost_usd": 0.14619975
+}

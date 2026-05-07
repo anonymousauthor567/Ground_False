@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_a4.lean",
+  "stem": "putnam_1986_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The transversal is properly encoded as ∑ i, A i (ϕ i) for ϕ : Perm (Fin n), which selects exactly one entry per row and per column. The condition that all transversals have the same sum is faithfully encoded as ∃ S, ∀ ϕ, sum = S. The matrix type Matrix (Fin n) (Fin n) ℤ with entries constrained to {-1, 0, 1} matches the informal statement. The tuple destructuring gives the formula 1·4^n + 2·3^n + (-4)·2^n + 1 = 4^n + 2·3^n - 4·2^n + 1 (correct for Putnam 1986 A4, verified by n=1 giving 3). The restriction to n > 0 is a necessary implicit premise: the formula gives 0 at n=0 while f(0)=1 (the empty matrix vacuously satisfies conditions), and the informal statement clearly intends positive n (the example uses a 3×3 matrix).",
+  "duration_ms": 242650,
+  "cost_usd": 0.76052575
+}

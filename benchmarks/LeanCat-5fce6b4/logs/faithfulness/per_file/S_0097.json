@@ -1,0 +1,8 @@
+{
+  "file": "S_0097.lean",
+  "stem": "S_0097",
+  "verdict": "stronger",
+  "reasoning": "The informal statement assumes \"D admits coequalizers\" — standardly meaning D has all coequalizers (HasCoequalizers D, i.e., for every parallel pair). The Lean formalization instead assumes only that for each monad algebra A, the specific \"main pair\" (F.map A.a, adj.counit.app (F.obj A.A)) has a coequalizer. This is a strictly weaker hypothesis: having all coequalizers trivially gives these particular ones, but many categories have these specific coequalizers without having all coequalizers. Because the Lean theorem derives the same conclusion (existence of a left adjoint to the comparison functor) from a weaker hypothesis, the Lean statement logically implies the informal one but is not implied by it. Thus the Lean formalization is stronger than what was asked — it proves the minimal-hypothesis version rather than the textbook version literally stated.",
+  "duration_ms": 161548,
+  "cost_usd": 0.5258360000000001
+}

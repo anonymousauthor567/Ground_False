@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-22.lean",
+  "stem": "proofnet-22",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors Axler Exercise 6.2 exactly. V is a normed additive commutative group with an InnerProductSpace F V structure, where F is RCLike (i.e., ℝ or ℂ), matching Axler's convention that F is the real or complex scalar field. The biconditional `⟪u, v⟫_F = 0 ↔ ∀ (a : F), ‖u‖ ≤ ‖u + a • v‖` faithfully encodes \"⟨u,v⟩ = 0 iff ‖u‖ ≤ ‖u + av‖ for all a ∈ F\". The quantifier structure (universally quantified over a : F inside the RHS of the iff), the scalar type, the inner product valued in F, and the norm inequality all match. No hypotheses are added or omitted beyond the standard ambient structure required to state the claim.",
+  "duration_ms": 141803,
+  "cost_usd": 0.37680825
+}

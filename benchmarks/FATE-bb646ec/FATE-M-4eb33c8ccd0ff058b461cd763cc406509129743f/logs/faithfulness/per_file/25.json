@@ -1,0 +1,8 @@
+{
+  "file": "25.lean",
+  "stem": "25",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding uses `Fin (m + 1) → Ideal R` to index the family of prime ideals, ensuring at least one prime, which matches the standard reading of \"$P_1, \\dots, P_m$\" (which implicitly assumes $m \\geq 1$; if $m = 0$, the informal hypothesis $A \\subseteq \\emptyset$ is impossible since $0 \\in A$, so that edge case is vacuous anyway). The hypothesis `A.carrier ⊆ ⋃ (i : Fin (m+1)), P i` captures \"$A \\subseteq P_1 \\cup \\cdots \\cup P_m$\", `(P i).IsPrime` captures primality, and `A.carrier ⊆ P i` is equivalent to $A \\subseteq P_i$ via the `SetLike` coercion. The quantifier structure (∀ ring, family, ideal; ∃ index) and the `CommRing R` typeclass match the informal statement exactly. This is the standard prime avoidance lemma, stated faithfully.",
+  "duration_ms": 179960,
+  "cost_usd": 0.4838010000000001
+}

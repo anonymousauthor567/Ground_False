@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a bijective function `f : O → C` where O and C are (via Set.CoeSort coercion) the types of open and closed subsets of a metric space M, respectively. The hypotheses `hO : O = {s | IsOpen s}` and `hC : C = {s | IsClosed s}` make O and C represent exactly the collections 𝒯 and 𝒦 from the informal statement. The type `O → C` becomes `{s : Set M // IsOpen s} → {s : Set M // IsClosed s}`, and `Bijective f` (defined as `Injective f ∧ Surjective f`) expresses precisely that f is a bijection. This matches the informal claim \"there is a bijection from 𝒯 onto 𝒦\" exactly—no extra hypotheses are added and no conclusion is weakened. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 86681,
+  "cost_usd": 0.290423
+}

@@ -1,0 +1,8 @@
+{
+  "file": "58.lean",
+  "stem": "58",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim accurately. `IsCycle f` matches \"σ is a cycle\" (Mathlib's IsCycle is the standard cyclic-permutation notion). \"Odd length\" is correctly encoded as `Odd (orderOf f)`, because for a cycle in Mathlib, `IsCycle.orderOf` gives orderOf f = #f.support, i.e., the cycle length. The conclusion `IsCycle (f ^ 2)` matches \"σ² is a cycle\". The universal quantification over n : ℕ with f : Equiv.Perm (Fin n) covers all finite cycles up to isomorphism, which is exactly what the informal statement is about (and Odd (orderOf f) already forces finite order in Mathlib, since Odd 0 is false). No extra or missing hypotheses beyond what the informal statement requires.",
+  "duration_ms": 318379,
+  "cost_usd": 0.777536
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-71.lean",
+  "stem": "proofnet-71",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that a group of order 5 is abelian. The Lean formalization takes a group `G` with `[Fintype G]` and `card G = 5` (which is the standard way to say \"order 5\" for a finite group) and concludes `∀ a b : G, a*b = b*a`, which is exactly the definition of an abelian group. There are no missing or added hypotheses, and the conclusion is a direct unfolding of \"abelian\". This is a logically equivalent, faithful formalization.",
+  "duration_ms": 9931,
+  "cost_usd": 0.04334625
+}

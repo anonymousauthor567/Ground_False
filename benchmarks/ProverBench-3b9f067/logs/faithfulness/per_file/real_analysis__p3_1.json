@@ -1,0 +1,8 @@
+{
+  "file": "real_analysis__p3_1.lean",
+  "stem": "real_analysis__p3_1",
+  "verdict": "weaker",
+  "reasoning": "The Lean statement adds an extra hypothesis `hf : ContinuousOn f open_unit_interval` that is not present in the informal statement. The informal statement only requires f to be a function on (-1,1), to have limit 0 at x=0, and to be differentiable at 0 — it does not require continuity on the whole interval. This extra hypothesis is also not an implicit premise needed for truth: the result follows from differentiability at 0 alone (which yields continuity at 0, hence f(0)=0, hence f'(0) = lim f(x)/x = m). Therefore the Lean theorem only proves a special case — functions that also happen to be continuous on all of (-1,1) — making it strictly weaker than the informal claim. The other hypotheses and the conclusion (using the punctured neighborhood filter 𝓝[≠] 0) match the informal statement correctly.",
+  "duration_ms": 209127,
+  "cost_usd": 0.6273695
+}

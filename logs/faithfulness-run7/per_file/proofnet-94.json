@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. Although the informal statement doesn't specify the type of n, the choice of ℕ is mathematically equivalent to ℤ here because n² is invariant under negation, making the claim for negative odd integers reducible to positive ones. Since `Odd n` in ℕ implies n ≥ 1, we have n² ≥ 1, so the truncated subtraction `n^2 - 1` in ℕ behaves as ordinary subtraction and captures the intended expression. The hypothesis `Odd n` corresponds exactly to \"n is odd\", and the conclusion `8 ∣ (n^2 - 1)` corresponds exactly to \"8 divides n² - 1\". No hypotheses are added or dropped.",
+  "duration_ms": 72690,
+  "cost_usd": 0.14926650000000002
+}

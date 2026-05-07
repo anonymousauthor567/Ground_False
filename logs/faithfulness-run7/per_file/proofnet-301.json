@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly: `hp : IsOpenMap p` captures \"p is an open map\", `hA : IsOpen A` captures \"A is open in X\", and `Set.MapsTo.restrict p A (p '' A) (Set.mapsTo_image p A)` is precisely the restriction q : A → p(A), where both A and p '' A carry the subspace topology via Mathlib's default `instTopologicalSpaceSubtype`. The conclusion `IsOpenMap` of this restriction is exactly what the informal statement asserts. No hypotheses are dropped or added, and no types are changed.",
+  "duration_ms": 72414,
+  "cost_usd": 0.2540175
+}

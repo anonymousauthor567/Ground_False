@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p7.lean",
+  "stem": "abstract_algebra__p7",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal biconditional. `Polynomial.C a` correctly represents the constant polynomial with value a, so `P = Polynomial.C a` matches \"P(x) = a\". The functional equation `∀ x, P.eval x ^ 2 - 2 = 2 * P.eval (2 * x ^ 2 - 1)` precisely mirrors \"P(x)² − 2 = 2P(2x²−1)\" via Mathlib's `Polynomial.eval`. The existential quantifier `∃ a : ℝ, a^2 - 2*a - 2 = 0 ∧ ...` matches \"where a is [a] root of a²−2a−2=0\". The choice of ℝ is a natural ambient ring since the roots (1 ± √3) are real, and the iff direction, hypotheses, and conclusion all align with the informal statement. I verified the characterization is indeed mathematically correct: constant solutions satisfy a² = 2a + 2, and one can check no non-constant polynomial solutions exist.",
+  "duration_ms": 275770,
+  "cost_usd": 0.72335175
+}

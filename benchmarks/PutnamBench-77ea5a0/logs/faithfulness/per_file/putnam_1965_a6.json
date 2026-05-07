@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_a6.lean",
+  "stem": "putnam_1965_a6",
+  "verdict": "weaker",
+  "reasoning": "The informal statement explicitly uses the non-strict inequalities \"u ≥ 0 and v ≥ 0\", while Lean uses strict \"0 < u\" and \"0 < v\". The boundary cases (u,v) = (1,0) and (0,1) are genuine, non-trivial instances of the informal iff: at (1,0) the curve x^m+y^m=1 has a vertical tangent x=1 (matching u=1, v=0), and the RHS 1^n + 0^n = 1 also holds with n = m/(m-1). Thus the informal iff truly holds in these boundary cases. The Lean formalization excludes them both via the strict hypotheses and via its tangency encoding, which requires the tangent point to satisfy x > 0, y > 0. This is a real narrowing of scope, not a surfacing of an implicit premise (the informal statement is not false at the boundary). Hence the Lean version is logically implied by but does not imply the informal statement.",
+  "duration_ms": 246535,
+  "cost_usd": 0.7314279999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2004_a1.lean",
+  "stem": "putnam_2004_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 2004 A1. The attempts sequence `ℕ → Fin 2` properly models success/miss, and while Lean's `S` is defined as the ratio (∑ successes)/N rather than the raw count S(N), this is mathematically equivalent to comparing S(N) to 0.8·N (for N ≥ 1). The hypothesis `1 ≤ a` is a necessary implicit premise so that S is meaningfully defined (S attempts 0 would be 0/0). The strict inequalities `S attempts a < 0.8` and `S attempts b > 0.8` match \"less than 80%\" and \"more than 80%\", and the conclusion `∃ c, a < c < b ∧ S attempts c = 0.8` correctly captures \"a moment in between when S(N) was exactly 80% of N\" (c must be strictly between a and b since the values at the endpoints are not equal to 0.8). The universal quantification over attempts, a, and b correctly formalizes \"necessarily\", and the iff with `putnam_2004_a1_solution = True` asserts the affirmative answer.",
+  "duration_ms": 344390,
+  "cost_usd": 0.9394309999999999
+}

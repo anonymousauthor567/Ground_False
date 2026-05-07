@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a2.lean",
+  "stem": "putnam_1977_a2",
+  "verdict": "faithful",
+  "reasoning": "The informal problem asks for all real solutions of a+b+c=d and 1/a+1/b+1/c=1/d. The algebra yields (a+b)(b+c)(c+a)=0 combined with d=a+b+c, which gives exactly three cases: (a=-b, d=c), (b=-c, d=a), and (a=-c, d=b) — matching the three disjuncts of `putnam_1977_a2_solution` verbatim. The Lean statement encodes \"find all solutions\" as an iff between the solution predicate and the equations, quantified universally over reals. The nonzero hypotheses a,b,c,d ≠ 0 surface an implicit premise of the informal problem: the expressions 1/a, 1/b, 1/c, 1/d only make mathematical sense when their denominators are nonzero. In Lean, since 1/0 = 0 by convention, without these hypotheses the equations would admit spurious \"solutions\" (e.g., a=1, b=-1, c=0, d=0) that no mathematician would consider valid. Surfacing such a premise needed for the statement to be mathematically meaningful is explicitly described as a faithful formalization in the guidelines.",
+  "duration_ms": 89105,
+  "cost_usd": 0.31904825
+}

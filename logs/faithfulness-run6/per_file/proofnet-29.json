@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says (ZMod n, ·) is not a group for n > 1. Since ZMod n already carries a commutative monoid structure under multiplication (associativity and the identity 1 are automatic), the ONLY group axiom that can possibly fail is the existence of two-sided inverses. Hence \"(ZMod n, ·) is a group\" is logically equivalent to \"every x ∈ ZMod n has a y with x·y = 1 and y·x = 1\". Negating both sides gives exactly the Lean statement: ¬ (∀ x, ∃ y, x·y = 1 ∧ y·x = 1). The Lean formalization is logically equivalent to the informal claim under the standard reading, so it is strictly faithful.",
+  "duration_ms": 70934,
+  "cost_usd": 0.24155374999999998
+}

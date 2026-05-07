@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-225.lean",
+  "stem": "proofnet-225",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem takes an arbitrary group G, two subgroups H and K with Fintype instances (encoding \"finite subgroups\"), a hypothesis `Nat.Coprime (card H) (card K)` that says their orders are coprime (with `open Fintype`, `card` is `Fintype.card`), and concludes `H ⊓ K = ⊥`, which is the standard Mathlib encoding of \"H ∩ K is the trivial subgroup {1}\". This matches the informal statement precisely. Indeed, Mathlib has the lemma `Subgroup.inf_eq_bot_of_coprime` in `Mathlib/GroupTheory/Index.lean` stating essentially the same thing. No hypotheses are silently added or dropped, and the quantifier structure (universal over G, H, K) is preserved.",
+  "duration_ms": 73358,
+  "cost_usd": 0.3212415
+}

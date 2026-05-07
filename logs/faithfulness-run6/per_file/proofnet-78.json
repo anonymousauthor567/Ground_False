@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all parts of the informal claim: G is a finite group (via [Group G] [Fintype G]) of order p² (via card G = p^2), p is prime (via Nat.Prime p), and the conclusion asserts the existence of a subgroup N whose cardinality is p and which is Normal (closed under conjugation, per Mathlib's Subgroup.Normal). The extra existential ∃ (Fin : Fintype N) is a cosmetic artifact — a subgroup of a Fintype group always admits a canonical Fintype instance, and Fintype.card is invariant across instances — so the statement is equivalent to \"∃ N : Subgroup G, Fintype.card N = p ∧ N.Normal\", which is exactly the informal assertion.",
+  "duration_ms": 100346,
+  "cost_usd": 0.2483365
+}

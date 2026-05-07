@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. The hypotheses `hp0 : p.Prime` and `hp1 : p = 4 * t + 3` correctly express \"p is a prime of form 4t+3\". The type `(ZMod p)ˣ` for a captures \"a coprime to p\", which is necessary for a to be a primitive root (and for non-units the iff would trivially hold false↔false, so this is not a meaningful restriction). `IsPrimitiveRoot (a : ZMod p) (p - 1)` is equivalent to orderOf a = p-1 (via Mathlib's `IsPrimitiveRoot.iff_orderOf`), which is exactly \"a is a primitive root mod p\" since |(ZMod p)ˣ| = p-1. Similarly `IsPrimitiveRoot (-a) ((p-1)/2)` exactly encodes \"-a has order (p-1)/2\". The universal quantification over a and the iff direction match the informal claim.",
+  "duration_ms": 170915,
+  "cost_usd": 0.50501725
+}

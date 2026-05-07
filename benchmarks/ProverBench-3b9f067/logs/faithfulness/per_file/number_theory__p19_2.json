@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p19_2.lean",
+  "stem": "number_theory__p19_2",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts two claims: (a) infinitely many primes ≡ 1 (mod 4) AND (b) infinitely many primes ≡ 9 (mod 10). The Lean theorem `infinitely_many_primes_10k_plus_9` only formalizes part (b), which it does correctly via `Set.Infinite S ∧ ∀ p ∈ S, Nat.Prime p ∧ p ≡ 9 [MOD 10]`. Part (a) is provided only as an `axiom` whose statement `∃ P : ℕ → Prop, ∀ n, P n → ∃ p, Nat.Prime p ∧ p % 4 = 1` is vacuously true (take `P := fun _ => False`), so it fails to capture \"infinitely many primes of form 4k+1\". The conjunction of the axiom and the theorem is strictly weaker than the informal conjunctive claim: the informal statement implies the Lean formalization, but the Lean formalization does not imply the informal statement's claim about primes ≡ 1 (mod 4).",
+  "duration_ms": 162227,
+  "cost_usd": 0.47382375
+}

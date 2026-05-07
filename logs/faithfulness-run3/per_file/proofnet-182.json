@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-182.lean",
+  "stem": "proofnet-182",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature is a direct translation of the informal statement: the interval integral `∫ x in (0:ℝ)..(1:ℝ)` corresponds exactly to $\\int_0^1$, `Real.log (Real.sin (Real.pi * x))` corresponds to $\\log(\\sin \\pi x)$, and `- Real.log 2` corresponds to $-\\log 2$. The integrand has integrable logarithmic singularities at the endpoints, so the Bochner/intervalIntegral value equals the classical value. No hypotheses are added or dropped, and no types are changed. This is a strictly faithful formalization.",
+  "duration_ms": 20032,
+  "cost_usd": 0.06474524999999999
+}

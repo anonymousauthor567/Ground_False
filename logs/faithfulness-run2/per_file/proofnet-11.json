@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-11.lean",
+  "stem": "proofnet-11",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says to prove that $x^3 + 6x + 12$ is irreducible in $\\mathbb{Q}$ (i.e., in $\\mathbb{Q}[x]$). The Lean statement asserts `Irreducible (12 + 6 * X + X ^ 3 : Polynomial ℚ)`, which is exactly the same polynomial (by commutativity of addition) in `Polynomial ℚ`. Mathlib's `Irreducible` predicate on elements of the polynomial ring `Polynomial ℚ` is exactly the standard notion of irreducibility in $\\mathbb{Q}[x]$. There are no added or dropped hypotheses, and the type and conclusion match the informal claim.",
+  "duration_ms": 14304,
+  "cost_usd": 0.03561675
+}

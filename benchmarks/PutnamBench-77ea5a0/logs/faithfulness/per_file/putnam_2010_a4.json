@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a4.lean",
+  "stem": "putnam_2010_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. In Lean 4, `^` is right-associative, so `10^10^10^n` parses as `10^(10^(10^n))` matching $10^{10^{10^n}}$, and `10^10^n` matches $10^{10^n}$. The quantifier \"for each positive integer n\" is encoded as `∀ n : ℕ, n > 0 → ...`. The conclusion \"is not prime\" is `¬Nat.Prime (...)`. The natural number subtraction `- 1` behaves correctly because for `n > 0` the sum is well above 1, so no truncation issue arises. All components match the informal statement.",
+  "duration_ms": 55643,
+  "cost_usd": 0.2086675
+}

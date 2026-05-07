@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-123.lean",
+  "stem": "proofnet-123",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal Munkres exercise. The chain condition `∀ a b ∈ A, a ⊆ b ∨ b ⊆ a` is logically equivalent to \"simply ordered by proper inclusion\" (totally ordered under ⊆). The hypotheses `IsClosed a` and `IsConnected a` (each a is closed, connected) match \"closed connected subsets\" under standard convention where connected implies nonempty. The conclusion `IsConnected (⋂₀ A)` matches \"Y is connected\" — the nonemptiness component is automatic from compactness + FIP given the other hypotheses. The added `A.Nonempty` hypothesis surfaces an implicit premise: without it, A = ∅ would give ⋂₀ A = univ = X, for which connectedness is not guaranteed by any other hypothesis, so the statement would be literally false in that corner case. Per the system prompt, making such an implicit premise explicit is a faithful reading, not a weakening.",
+  "duration_ms": 219801,
+  "cost_usd": 0.68402475
+}

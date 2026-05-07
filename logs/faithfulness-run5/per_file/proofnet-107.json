@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence and uniqueness of a topology T' on X such that (a) T' contains every T i (as a set of open sets, via ⊆), and (b) T' is contained in every other topology T'' that contains all T i. This is exactly the standard encoding of \"smallest topology containing all T_α\". The use of ∃! is appropriate because the property \"smallest element of a poset\" uniquely determines T' whenever it holds (by antisymmetry of ⊆), so existence-with-uniqueness matches the informal \"unique smallest\". Types match: topologies as Set (Set X), containment as ⊆, family indexed by I. No hypotheses are added or dropped relative to the informal claim.",
+  "duration_ms": 48262,
+  "cost_usd": 0.16279549999999998
+}

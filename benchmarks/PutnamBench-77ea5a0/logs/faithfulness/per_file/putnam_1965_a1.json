@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1965_a1.lean",
+  "stem": "putnam_1965_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the planar geometry problem. The external angle bisector at A is characterized by the angle condition ∠XAB = (π - ∠CAB)/2, which is half the external angle at A. Combined with X lying on line BC and dist A X = dist A B (encoding AP = AB), this faithfully captures the informal constraint. Similarly for Y at vertex B. The angle ordering constraints and the conclusion ∠CAB = π/15 match the informal statement exactly.",
+  "duration_ms": null,
+  "cost_usd": null
+}

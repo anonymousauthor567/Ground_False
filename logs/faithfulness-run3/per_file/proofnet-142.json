@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: given f : ℝ → ℝ with continuous third derivative, show ∃ a with f(a)·f'(a)·f''(a)·f'''(a) ≥ 0. The Lean statement uses `f : ℝ → ℝ`, the hypothesis `ContDiff ℝ 3 f` which in Mathlib means f is C^3 (i.e., all derivatives up to order 3 exist and are continuous), matching \"continuous third derivative\". The conclusion `∃ a : ℝ, f a * deriv f a * iteratedDeriv 2 f a * iteratedDeriv 3 f a ≥ 0` correctly encodes the product f(a)·f'(a)·f''(a)·f'''(a) ≥ 0, where `deriv f` is f', `iteratedDeriv 2 f` is f'', and `iteratedDeriv 3 f` is f'''. The types, hypotheses, quantifier structure, and conclusion all align with the informal statement.",
+  "duration_ms": 35235,
+  "cost_usd": 0.051650749999999995
+}

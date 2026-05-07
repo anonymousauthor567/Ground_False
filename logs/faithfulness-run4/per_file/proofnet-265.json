@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. It universally quantifies over two finite groups G, H (via Type* parameters with Fintype/Group instances), each assumed nonabelian via `∃ x y, x * y ≠ y * x` (logically equivalent to ¬commutative), with primes p > q satisfying q ∣ p - 1, and both having cardinality p*q. The conclusion `Nonempty (G ≃* H)` is the standard encoding of \"G and H are isomorphic as groups\". No hypotheses are added or dropped, and the quantifier structure (for all pairs of such groups) matches the informal \"any two nonabelian groups of order pq\".",
+  "duration_ms": 33080,
+  "cost_usd": 0.11415025
+}

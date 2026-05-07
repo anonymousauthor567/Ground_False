@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-343.lean",
+  "stem": "proofnet-343",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is exactly the standard Mathlib lemma `EReal.limsup_add_le`. The informal \"provided the sum on the right is not of the form ∞−∞\" is faithfully encoded by the two disjunctive hypotheses: `h1` rules out the case (limsup a = −∞ ∧ limsup b = +∞) and `h2` rules out (limsup a = +∞ ∧ limsup b = −∞). Together these are exactly the cases where the EReal sum would be \"∞−∞\". The sequences are real (ℕ → ℝ), coerced to EReal so the limsup lives in EReal, matching the informal notion where the limsup can be ±∞. The conclusion `limsup (a+b) ≤ limsup a + limsup b` matches precisely. No hypothesis is dropped or added beyond what the informal statement specifies.",
+  "duration_ms": 77228,
+  "cost_usd": 0.31645924999999997
+}

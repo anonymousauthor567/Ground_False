@@ -1,0 +1,8 @@
+{
+  "file": "1.lean",
+  "stem": "1",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `Subgroup.index` returns `Nat.card (G ⧸ H)`, which is 0 when the quotient is infinite. The informal phrase \"subgroup of index n\" mathematically presumes n is a specific finite positive integer; adding `hn : n ≠ 0` alongside `H.index = n` correctly encodes \"H has finite index n\" under Mathlib's convention. Similarly, the informal \"[G:K] ≤ n!\" implicitly assumes K has finite index (since the inequality is only meaningful for a finite index); the conjunct `K.index ≠ 0` in the conclusion makes this explicit — it is necessary because `K ≤ H` with `H.index ≠ 0` does not automatically imply `K.index ≠ 0` (e.g., take G = ℤ, H = G, K = {0}). So both the `n ≠ 0` hypothesis and the `K.index ≠ 0` conclusion simply match Mathlib's \"0 means infinite\" convention to the informal's implicit finiteness, without changing the mathematical content. The ambient group is arbitrary (no extra finiteness or commutativity), quantifier structure matches, and K is asserted to be normal, ≤ H, and of index ≤ n! — exactly what the informal states.",
+  "duration_ms": 204594,
+  "cost_usd": 0.4902785
+}

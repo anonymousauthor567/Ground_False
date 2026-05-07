@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the quantifier structure (∀ a,b,c ∈ ℤ, ∃ positive n) exactly, with n : ℤ, n > 0 correctly encoding \"positive integer n\". The cubic expression n³ + an² + bn + c is coerced to ℝ for Real.sqrt, and \"not an integer\" is rendered as ¬∃ m : ℤ, Real.sqrt(...) = m. Under the standard mathematical reading of \"√x is not an integer\" (i.e., x is not a non-negative perfect square of an integer), this matches the Lean encoding: Real.sqrt returns a non-negative integer iff the argument is a non-negative perfect square. The one minor semantic subtlety is that Real.sqrt(x) = 0 for x < 0, but in this Putnam context the intended interpretation and standard proofs provide witnesses with P(n) > 0 non-square, so the two statements agree.",
+  "duration_ms": 204642,
+  "cost_usd": 0.62499525
+}

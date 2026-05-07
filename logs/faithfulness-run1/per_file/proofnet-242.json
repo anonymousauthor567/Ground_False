@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-242.lean",
+  "stem": "proofnet-242",
+  "informal": "Prove that if $u$ is a unit in $R$ then so is $-u$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_7_1_2 {R : Type*} [Ring R] {u : R}\n  (hu : IsUnit u) : IsUnit (-u)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in a ring R, if u is a unit then -u is a unit. The Lean signature takes an arbitrary type R with a Ring instance, an element u : R with hypothesis IsUnit u, and concludes IsUnit (-u). This matches the informal claim exactly: same hypothesis (u is a unit), same conclusion (-u is a unit), same ambient setting (a ring). No extra assumptions like commutativity or finiteness are added, and none required are dropped. The encoding is faithful.",
+  "duration_ms": 5986,
+  "cost_usd": 0.0411735
+}

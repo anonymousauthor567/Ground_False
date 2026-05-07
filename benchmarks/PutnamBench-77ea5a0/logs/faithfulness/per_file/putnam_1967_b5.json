@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b5.lean",
+  "stem": "putnam_1967_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the claim. Expanding $(2-1)^{-n}$ via the generalized binomial series with maximal exponent of 2 first gives $\\sum_{k\\geq 0}\\binom{-n}{k}2^{-n-k}(-1)^k = \\sum_{k\\geq 0}\\binom{n+k-1}{k}2^{-n-k}$; summing the first $n$ terms equals $\\sum_{i=0}^{n-1}\\binom{n+i-1}{i}2^{-n-i}$, which I verified equals $1/2$ for $n=1,2,3$. The Lean encoding: `Finset.range n` yields $n$ terms indexed $0..n-1$ starting from the maximal-exponent term ($i=0$ gives $2^{-n}$); `Nat.choose (n+i-1) i` matches the binomial coefficient (nat subtraction is safe since $n\\geq 1$); `(2:ℚ)^(-(n:ℤ)-i)` correctly gives $2^{-n-i}$ via the zpow instance on ℚ. The hypothesis `hn : n > 0` is required (for $n=0$, `Finset.range 0` is empty and the sum would be $0 \\neq 1/2$), and it matches the informal \"positive integer $n$\". All quantifier structure, types, and the conclusion match.",
+  "duration_ms": 61715,
+  "cost_usd": 0.24124900000000002
+}

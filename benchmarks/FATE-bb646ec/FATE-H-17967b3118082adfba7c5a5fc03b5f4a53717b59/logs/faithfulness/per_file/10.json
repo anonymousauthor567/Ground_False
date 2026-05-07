@@ -1,0 +1,8 @@
+{
+  "file": "10.lean",
+  "stem": "10",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"the last two digits of 3^(3^100) is 03\" is mathematically equivalent to 3^(3^100) ≡ 3 (mod 100). The Lean expression `3 ^ (3 ^ 100) % 100 = 3` parses (since `^` binds tighter than `%`) as `(3 ^ (3 ^ 100)) % 100 = 3`, which at the default type ℕ is exactly this modular claim. Since 3^(3^100) ≫ 100, asserting `... % 100 = 3` indeed says the decimal expansion ends in \"03\". No hypotheses are added or omitted, and the types are correct, so the formalization is strictly faithful.",
+  "duration_ms": 48620,
+  "cost_usd": 0.15324725
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in ℂ, convergence of {s_n} implies convergence of {|s_n|}. The Lean hypothesis `∃ a : ℂ, Tendsto f atTop (𝓝 a)` encodes \"{s_n} converges\" (to some complex limit). The Lean conclusion `∃ a : ℝ, Tendsto (fun n => ‖f n‖) atTop (𝓝 a)` encodes \"{|s_n|} converges\" (to some real limit). For `z : ℂ`, Mathlib's `‖z‖` coincides with the complex modulus `|z|` (i.e., `Complex.norm_eq_abs`), so `‖f n‖` is exactly `|s_n|`. Both the informal and Lean statements use the existential form of convergence without specifying the limit value. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 73114,
+  "cost_usd": 0.20529600000000003
+}

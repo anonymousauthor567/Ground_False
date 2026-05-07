@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "theorem_name": "Rudin_exercise_5_2_corrected",
+  "informal": "Suppose $f^{\\prime}(x)>0$ in $(a, b)$. Prove that $f$ is strictly increasing in $(a, b)$, and let $g$ be its inverse function. Prove that $g$ is differentiable, and that $g^{\\prime}(f(x))=\\frac{1}{f^{\\prime}(x)} \\quad(a < x < b)$.",
+  "lean": "\ntheorem Rudin_exercise_5_2_corrected :\n    ∀ (a b : ℝ) (f g : ℝ → ℝ),\n      (∀ x ∈ Set.Ioo a b, deriv f x > 0) →\n      (∀ x ∈ Set.Ioo a b, g (f x) = x) →\n      (∀ x ∈ Set.Ioo a b, ContinuousAt g (f x)) →\n      (∀ x ∈ Set.Ioo a b, ∀ᶠ y in 𝓝 (f x), f (g y) = y) →\n      StrictMonoOn f (Set.Ioo a b) ∧\n        DifferentiableOn ℝ g (f '' Set.Ioo a b) ∧\n          ∀ x ∈ Set.Ioo a b, deriv g (f x) = 1 / deriv f x",
+  "verdict": "weaker",
+  "reasoning": "The informal statement only assumes f'(x) > 0 on (a,b); from this one must derive that f is strictly increasing, that an inverse g exists, that g is continuous, and that g is differentiable with the stated derivative. The Lean signature instead takes as additional hypotheses that g is a left inverse of f on (a,b), that g is continuous at each f(x), and that f∘g equals the identity in a neighborhood of f(x) (a local right-inverse condition). These continuity and inverse-function facts are precisely what the informal exercise asks the prover to establish; assuming them turns the theorem into a substantially easier claim. Hence the Lean version is implied by the informal statement (under those assumptions the conclusions follow) but does not imply it, so it is logically weaker.",
+  "duration_ms": 10192,
+  "cost_usd": 0.05433900000000001
+}

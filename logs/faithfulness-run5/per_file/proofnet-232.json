@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-232.lean",
+  "stem": "proofnet-232",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `[CommGroup G]` encodes \"abelian\"; `[Fintype G]` together with `card G = p*q` (where `p q : Nat.Primes` are coerced to ℕ via the `Subtype.val` coercion) encodes \"of order pq\"; `p q : Nat.Primes` encodes \"p and q are primes\" via the subtype `{p : ℕ // p.Prime}`; `hpq : p ≠ q` encodes \"distinct\" (equivalent to inequality of underlying naturals via `coe_nat_inj`); and `IsCyclic G` encodes the conclusion. The `Fintype` assumption is not extra baggage — it is inherent in \"having order pq\". No hypotheses are added or dropped, and no type mismatch occurs.",
+  "duration_ms": 130459,
+  "cost_usd": 0.47039075
+}

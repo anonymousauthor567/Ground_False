@@ -1,0 +1,8 @@
+{
+  "file": "69.lean",
+  "stem": "69",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal claim precisely. The local `IsRegularLocalRing` class correctly encodes \"regular local ring\" via Mathlib's `CotangentSpace` (= m/m²) equipped with `ResidueField R`-module structure, and equates its `finrank` to `ringKrullDim R`, which is the standard definition. The hypothesis `[P.LiesOver (maximalIdeal R)]` unfolds (via `Ideal.LiesOver.over`) to `maximalIdeal R = P.comap (algebraMap R R[X])`, i.e., m = P ∩ R. The conclusion `IsRegularLocalRing (Localization.AtPrime P)` correctly formalizes \"R[x]_P is regular\". The introductory phrase \"Let A be a Noetherian ring\" in the informal text introduces an unused variable A and is vestigial; omitting it does not alter the claim (regular local rings are Noetherian by definition, captured by `extends IsNoetherianRing R`). No hypothesis is silently dropped or added beyond what the informal text implies.",
+  "duration_ms": 287645,
+  "cost_usd": 0.602527
+}

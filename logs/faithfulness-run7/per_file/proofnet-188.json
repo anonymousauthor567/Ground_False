@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for any finite group G with `card G = p*q` where p and q are primes (via `Nat.Prime`), G is not simple. The conclusion `IsSimpleGroup G → false` uses lowercase `false : Bool`, which is coerced to the proposition `false = true` (equivalent to `False`), making the conclusion `¬ IsSimpleGroup G`. This matches the informal claim \"no group of order pq is simple\" — the universal quantification over G is encoded by making G a type parameter with hypotheses. No extra hypotheses like p ≠ q are imposed, and the formalization correctly covers the p = q case (order p²) as well, which the ground-truth proof handles. The types and quantifier structure all align with the informal statement.",
+  "duration_ms": 215638,
+  "cost_usd": 0.74367775
+}

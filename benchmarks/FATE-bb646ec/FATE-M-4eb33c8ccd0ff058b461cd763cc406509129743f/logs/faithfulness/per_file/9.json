@@ -1,0 +1,8 @@
+{
+  "file": "9.lean",
+  "stem": "9",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: for a group homomorphism f: G → H, if f(a) is not of finite order, then a is not of finite order. The Lean statement uses `f : G →* H` (a monoid/group homomorphism between groups) and expresses \"not of finite order\" via `orderOf _ = 0`. By Mathlib's `orderOf_eq_zero_iff : orderOf x = 0 ↔ ¬IsOfFinOrder x`, this encoding is exactly equivalent to \"not of finite order\" in a group (Mathlib's convention for infinite order). The quantifier structure (implicit universal over G, H, f, a), hypothesis, and conclusion all match the informal statement precisely. No extra or missing assumptions.",
+  "duration_ms": 63727,
+  "cost_usd": 0.15567825
+}

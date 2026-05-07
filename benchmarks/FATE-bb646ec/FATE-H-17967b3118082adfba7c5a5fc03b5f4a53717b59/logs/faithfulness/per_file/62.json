@@ -1,0 +1,8 @@
+{
+  "file": "62.lean",
+  "stem": "62",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes each component of the informal claim: F is a field, E is an F-algebra that is the splitting field of irreducible f, a ∈ E is a root of f, n ≥ 1, g is irreducible with g(a^n) = 0, and the conclusion asserts E contains a primitive nth root of unity. The degree condition deg(f)/deg(g) = n is correctly encoded as f.degree = g.degree * n (valid since irreducibility of g ensures g ≠ 0 and deg(g) ≥ 1). The characteristic hypothesis \"char(F) does not divide n\" is correctly encoded as (n : F) ≠ 0, which captures the standard convention both in characteristic 0 and p > 0. The conclusion primitiveRoots n E ≠ ∅ expresses existence of a primitive nth root of unity in E, matching the informal. No hypotheses are added, dropped, or modified.",
+  "duration_ms": 312594,
+  "cost_usd": 0.80502425
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-26.lean",
+  "stem": "proofnet-26",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each component of the informal claim. V is a complex inner product space (`InnerProductSpace ℂ V`), T is an operator on V (`T : End ℂ V`), the normality hypothesis `T * adjoint T = adjoint T * T` is exactly the definition of a normal operator (equivalent to `IsStarNormal T` via `Commute (star T) T` in Mathlib), and `T^9 = T^8` matches the informal hypothesis. The conclusion `IsSelfAdjoint T ∧ T^2 = T` precisely matches \"T is self-adjoint and T² = T\". The `FiniteDimensional ℂ V` assumption is an implicit premise standard to Axler's Chapter 7 (where all spaces are finite-dimensional) and is necessary for the adjoint theory and spectral theorem used in the proof, so making it explicit is a faithful reading.",
+  "duration_ms": 52064,
+  "cost_usd": 0.17992400000000003
+}

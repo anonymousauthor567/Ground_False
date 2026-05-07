@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes exactly the informal claim: `∑ g : G, MonoidAlgebra.of R G g` is N = g_1 + ... + g_n in R[G] (since `MonoidAlgebra.of R G g = single g 1`), and `center (MonoidAlgebra R G)` resolves to `Subring.center`, which is precisely the set of elements commuting with every element of the group ring. `[Fintype G]` captures the finiteness of G. The only subtle point is `[Ring R]` vs `[CommRing R]`: Dummit-Foote's chapter context assumes R is commutative, but the exercise text itself does not state this explicitly, and the claim holds without commutativity (the product `x * N = (∑_g c_g) · N = N * x` does not use commutativity of R). This is a natural Mathlib abstraction that faithfully captures the mathematical content being asked, not a genuine strengthening beyond the stated claim.",
+  "duration_ms": 390015,
+  "cost_usd": 0.975517
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∀ A : Set X, A.Infinite → ∃ p : X, AccPt p (𝓟 A)` precisely captures \"every infinite subset has a limit point\": Mathlib's `AccPt p (𝓟 A)` unfolds (via `accPt_iff_nhds`) to \"every neighborhood of p contains a point of A other than p\", which is Rudin's Definition 2.18(b) of a limit point — and the limit point is allowed to be any point of X, matching Rudin's convention. The conclusion `SeparableSpace X` matches the standard definition (existence of a countable dense subset). The metric space structure is given as `[MetricSpace X]`, matching \"Let X be a metric space\". No hypothesis is added or dropped, and the quantifier structure matches.",
+  "duration_ms": 63872,
+  "cost_usd": 0.28067125000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (\"f holomorphic on an open set Ω, |f| constant ⇒ f constant\") is literally false without connectedness: on Ω = two disjoint disks, f = 1 on one and f = -1 on the other is holomorphic with |f| = 1 but not constant. In Shakarchi's text (Chapter 1), \"open set Ω\" in this context implicitly refers to a region/domain (connected open set), so adding `IsPreconnected Ω` surfaces an implicit premise needed for truth — per the worked-example rule, this is faithful, not weaker. `DifferentiableOn ℂ f Ω` is the standard Mathlib encoding of \"holomorphic on Ω\", `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c` correctly expresses \"|f| is constant on Ω\", and proving `f a = f b` for arbitrary `a b : Ω` is the standard pointwise encoding of \"f is constant on Ω\". No hypothesis has been silently strengthened or weakened beyond the implicit-premise allowance.",
+  "duration_ms": 60326,
+  "cost_usd": 0.140739
+}

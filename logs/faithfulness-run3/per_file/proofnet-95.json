@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"2 is divisible by (1+i)^2 in ℤ[i]\" means (1+i)^2 ∣ 2 in the Gaussian integers. The Lean signature `(⟨1, 1⟩ : GaussianInt) ^ 2 ∣ 2` directly encodes this: `GaussianInt = Zsqrtd (-1)` with `⟨1, 1⟩` being `1 + 1·i`, squared, and `∣ 2` asserts it divides 2 (with `2` coerced to GaussianInt via OfNat). Lean's divisibility `a ∣ b` is \"a divides b\", matching \"b is divisible by a\". No hypotheses are added or dropped, and the ambient ring and operations are precisely ℤ[i], squaring, and divisibility of 2 — exactly the informal claim.",
+  "duration_ms": 181547,
+  "cost_usd": 0.2771915
+}

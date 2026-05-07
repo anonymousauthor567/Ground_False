@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `IsTopologicalBasis` of the collection `{Ioo a b ×ˢ Ioo c d | a, b, c, d ∈ ℚ, a < b, c < d}` on the ambient space `ℝ × ℝ` with its standard product topology. This matches the informal claim exactly: (1) `Set.image2 (fun s t => s ×ˢ t) S T` expands to products of elements of S and T; (2) each `S`/`T` is the set of open intervals `Ioo (↑a) (↑b)` for rational `a < b` (the second argument is auto-coerced from ℚ to ℝ to match `(a : ℝ)`); (3) Mathlib's `IsTopologicalBasis` requires the collection to generate the ambient topology, which for `ℝ × ℝ` is the standard topology of ℝ². The rationality conditions, the strict inequalities, the product structure, and the \"basis for ℝ²\" conclusion are all faithfully preserved.",
+  "duration_ms": 175709,
+  "cost_usd": 0.637413
+}

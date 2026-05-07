@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly the informal claim: given an injection `f : ℕ → ℕ` and a convergent sequence `p : ℕ → α` with limit `a`, the rearranged sequence `n ↦ p (f n)` has the same limit `a`. The quantifier structure, hypotheses (`Injective f`, `Tendsto p atTop (𝓝 a)`), and conclusion all match the informal statement. The informal text does not specify the ambient space, and the Lean formalization uses a general `TopologicalSpace α`, which is the natural setting where the claim makes sense and holds — this is a standard and faithful reading. Notably, this matches the ground-truth formalization in `proofnet_verified_gt/proofnet-135.lean` exactly.",
+  "duration_ms": 141289,
+  "cost_usd": 0.42479425000000004
+}

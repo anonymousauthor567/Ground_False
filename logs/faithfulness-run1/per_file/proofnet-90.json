@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "informal": "Show that there is an infinite number of integers a such that $f(x) = x^7 + 15x^2 - 30x + a$ is irreducible in $Q[x]$.",
+  "lean": "\ntheorem Herstein_exercise_4_6_3 :\n  Infinite {a : ℤ | Irreducible (X^7 + 15*X^2 - 30*X + (a : Polynomial ℚ) : Polynomial ℚ)}",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims there are infinitely many integers a such that f(x) = x^7 + 15x^2 - 30x + a is irreducible in Q[x]. The Lean signature asserts that the set {a : ℤ | the polynomial X^7 + 15X^2 - 30X + a viewed in ℚ[X] is irreducible} is Infinite. The coercion (a : Polynomial ℚ) correctly embeds the integer a into the rational polynomial ring, the polynomial matches exactly, and Irreducible in Polynomial ℚ corresponds to irreducibility in Q[x]. \"Infinite\" on the set captures \"infinitely many integers a.\" No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 9494,
+  "cost_usd": 0.05870925
+}

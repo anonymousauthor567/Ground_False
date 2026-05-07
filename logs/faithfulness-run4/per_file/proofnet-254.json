@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-254.lean",
+  "stem": "proofnet-254",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully expresses the informal claim. `Fin n → ℝ` is the standard Mathlib encoding of ℝⁿ; `≃ₗ[ℚ]` is ℚ-linear equivalence, matching \"isomorphic as ℚ-vector spaces\"; and `Nonempty (A ≃ₗ[ℚ] B)` is the idiomatic way to state \"A ≅ B as ℚ-vector spaces\". The universal quantifier \"for all n ∈ ℤ⁺\" is captured by the theorem being parameterized over `{n : ℕ+}`, where `ℕ+` (PNat) correctly encodes positive integers — this matters because for n = 0 the claim would be false (the trivial space is not ℚ-isomorphic to ℝ). No hypotheses are dropped or added beyond what the informal statement requires.",
+  "duration_ms": 46835,
+  "cost_usd": 0.18084725000000001
+}

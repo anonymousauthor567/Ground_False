@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-58.lean",
+  "stem": "proofnet-58",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. `H.Normal` is the standard normality predicate, and `⁅(⊤ : Subgroup G), H⁆` is Mathlib's commutator bracket between the full subgroup (⊤, which is G viewed as a subgroup of itself) and H, which is exactly the commutator subgroup [G, H] in the informal sense. The biconditional matches the \"if and only if\" of the informal statement, and there are no extra or missing hypotheses beyond G being a group and H being a subgroup. This is a logically equivalent formalization.",
+  "duration_ms": 10629,
+  "cost_usd": 0.046414250000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-215.lean",
+  "stem": "proofnet-215",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for any element x in a group G, x and x⁻¹ have the same order. The Lean statement quantifies implicitly over any type G with a Group instance and any element x : G, and concludes `orderOf x = orderOf x⁻¹`. This matches the informal claim exactly: the ambient object (an arbitrary group), the element, and the equality of orders all correspond precisely. No extra hypotheses (like Fintype or finite order) are introduced, and none are omitted. Hence the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 6819,
+  "cost_usd": 0.032604
+}

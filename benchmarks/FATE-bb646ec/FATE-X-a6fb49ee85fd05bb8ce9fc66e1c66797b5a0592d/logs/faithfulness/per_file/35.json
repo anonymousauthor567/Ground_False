@@ -1,0 +1,8 @@
+{
+  "file": "35.lean",
+  "stem": "35",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely formalizes \"A commutative ring whose prime ideals are finitely generated is Noetherian.\" It takes a `CommRing R`, assumes that for every ideal `p : Ideal R`, if `p.IsPrime` then `p.FG` (finitely generated), and concludes `IsNoetherianRing R`. This is exactly Cohen's theorem, and it matches Mathlib's own `IsNoetherianRing.of_prime` in `Mathlib/RingTheory/Noetherian/OfPrime.lean`. The Mathlib notions `Ideal.IsPrime`, `Submodule.FG`, and `IsNoetherianRing` correspond to the standard mathematical definitions. The universe choice `Type` instead of `Type*` is a minor formalization convention that does not alter the mathematical claim.",
+  "duration_ms": 86929,
+  "cost_usd": 0.15168175
+}

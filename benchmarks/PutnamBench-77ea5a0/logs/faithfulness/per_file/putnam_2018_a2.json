@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2018_a2.lean",
+  "stem": "putnam_2018_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The hypothesis `hS : Set.range S = (Set.Icc 1 n).powerset \\ {∅}` correctly encodes \"S_1,...,S_{2^n-1} are the nonempty subsets of {1,...,n} in some order\" — since the domain Fin (2^n - 1) and target set both have cardinality 2^n - 1, the range equality forces S to be a bijection. The matrix definition `M i j = if (S i ∩ S j = ∅) = True then 0 else 1` is equivalent to the informal rule (via propext, `(P = True) ↔ P`, with classical decidability from Mathlib). The `npos : n ≥ 1` hypothesis surfaces an implicit premise — for n = 0, the empty matrix has det = 1 but the solution `if n = 1 then 1 else -1` gives -1, so n ≥ 1 is needed for truth and is the mathematically intended scope. The conclusion `M.det = putnam_2018_a2_solution n` is the standard encoding of \"calculate det(M)\".",
+  "duration_ms": 298927,
+  "cost_usd": 0.6478195000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-94.lean",
+  "stem": "proofnet-94",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: for all odd n : ℕ, 8 divides n^2 - 1. The informal statement makes exactly the same claim. The choice of ℕ is mathematically equivalent to ℤ here because for negative odd n, (-n)^2 = n^2, so the result over ℕ implies the result over ℤ and vice versa. Natural number subtraction is not an issue: since n is odd, n ≥ 1, hence n^2 ≥ 1, so n^2 - 1 is genuine (non-truncated) arithmetic. Mathlib's `Odd n` unfolds to `∃ k, n = 2*k + 1`, which is the standard definition. The hypothesis, conclusion, and quantifier structure all align with the informal statement.",
+  "duration_ms": 70589,
+  "cost_usd": 0.24634375
+}

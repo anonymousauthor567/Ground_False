@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"there is no such f\" as a universal statement: ∀ f holomorphic on D and continuous on closure D, it is not the case that f(z) = 1/z on sphere 0 1. This is logically equivalent to the informal \"no such f exists\" by pushing negation through the existential. The correspondences are standard: `ball 0 1` is the open unit disc D, `closure D = closedBall 0 1` is D̄ (where \"extends continuously to ∂D\" means continuous on D̄), `sphere 0 1` is the boundary ∂D (confirmed by the Mathlib lemmas `closure_ball` and `frontier_ball`). `DifferentiableOn ℂ f D` is the Mathlib expression for holomorphic on D. Representing f as `ℂ → ℂ` with constraints only over D and D̄ is equivalent to having f defined on D̄, since any extension to ℂ preserves the relevant hypotheses. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 87466,
+  "cost_usd": 0.362041
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2020_a2.lean",
+  "stem": "putnam_2020_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `k : ℕ` corresponds to \"nonnegative integer\"; `Finset.Icc 0 k` correctly encodes the summation range j=0 to k; `2 ^ (k - j)` is correct since j ≤ k means natural subtraction gives the intended value; `Nat.choose (k + j) j` correctly represents the binomial coefficient $\\binom{k+j}{j}$. The solution function `fun k => 4^k` matches the actual value of the sum (verified for small k: k=0→1, k=1→4, k=2→16). The statement is an equality claim evaluating the sum, which is exactly what the informal statement asks.",
+  "duration_ms": 41886,
+  "cost_usd": 0.10759625
+}

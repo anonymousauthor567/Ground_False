@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that null(T-λI) is invariant under S, where \"invariant under S\" in standard linear algebra (and specifically in Axler) means S(U) ⊆ U, not equality. The Lean formalization encodes this via `Submodule.map S (ker (T - c • LinearMap.id)) ≤ ker (T - c • LinearMap.id)`, which is precisely the ⊆ relation. The commutation `S ∘ T = T ∘ S` correctly captures ST = TS. The universal quantification over c : F corresponds to \"for every λ ∈ F\", and `ker (T - c • LinearMap.id)` is the null space of T - cI. The ground truth file itself demonstrates that using `=` would be incorrect (via an explicit counterexample) and provides the `≤` version as the correct formalization. Hence this is a faithful encoding of the informal claim.",
+  "duration_ms": 143147,
+  "cost_usd": 0.49219299999999994
+}

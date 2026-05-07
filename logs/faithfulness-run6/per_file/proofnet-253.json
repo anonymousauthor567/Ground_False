@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-253.lean",
+  "stem": "proofnet-253",
+  "verdict": "faithful",
+  "reasoning": "`Zsqrtd 2` in Mathlib is exactly the ring $\\mathbb{Z}[\\sqrt{2}]$ (elements $a + b\\sqrt{2}$ with $a,b\\in\\mathbb{Z}$), `Zsqrtd.sqrtd` is the element $\\sqrt{2}$ (with `sqrtd * sqrtd = 2`), and `X^2 - C Zsqrtd.sqrtd : Polynomial (Zsqrtd 2)` is the polynomial $X^2 - \\sqrt{2}$ in $\\mathbb{Z}[\\sqrt{2}][X]$. `Irreducible` is Mathlib's standard irreducibility predicate (non-unit whose factorizations contain a unit). The informal remark \"you may assume $\\mathbb{Z}[\\sqrt{2}]$ is a U.F.D.\" is a proof hint, not an extra hypothesis on the claim, so its omission from the Lean signature is correct. The Lean theorem matches the informal statement exactly.",
+  "duration_ms": 69191,
+  "cost_usd": 0.25542925
+}

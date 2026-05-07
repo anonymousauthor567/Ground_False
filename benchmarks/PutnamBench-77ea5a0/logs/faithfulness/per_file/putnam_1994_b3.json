@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1994_b3.lean",
+  "stem": "putnam_1994_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. Type inference gives f : ℝ → ℝ (forced by `Real.exp (k * x) < f x` and `deriv f`). The hypothesis `(∀ x, 0 < f x ∧ f x < deriv f x) ∧ Differentiable ℝ f` encodes \"positive, differentiable function with f'(x) > f(x) for all x\" — matching the three informal conditions. The conclusion `∃ N, ∀ x > N, Real.exp (k * x) < f x` captures \"there is some N such that f(x) > e^(kx) for all x > N\". The outer set equality `{k | ...} = putnam_1994_b3_solution` faithfully represents \"find the set of all real numbers k with the property\". No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 246309,
+  "cost_usd": 0.5818150000000001
+}

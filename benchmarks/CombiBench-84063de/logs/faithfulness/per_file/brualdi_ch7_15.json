@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch7_15.lean",
+  "stem": "brualdi_ch7_15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to determine the generating function for the sequence (n³)_{n≥0}. The Lean encoding uses the standard \"solution placeholder\" pattern: `brualdi_ch7_15_solution` is an abbrev of type `PowerSeries ℝ` left as `sorry` to be filled with the closed form, and the theorem asserts that the power series with coefficients n³ (i.e., `PowerSeries.mk (fun n => (n : ℝ)^3)`, whose nth coefficient is n³ per Mathlib's `coeff_mk`) equals this solution. This correctly captures \"find a closed-form expression equal to ∑ n³ Xⁿ.\" The ring ℝ is a reasonable standard choice for the coefficient ring, matching the textbook convention for such generating function problems. The formalization is faithful.",
+  "duration_ms": 95113,
+  "cost_usd": 0.23406000000000002
+}

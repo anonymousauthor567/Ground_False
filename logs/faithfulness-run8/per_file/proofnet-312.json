@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "In Munkres's textbook (the source of this exercise), \"regular\" by definition includes the T1 axiom: singletons are closed AND points can be separated from disjoint closed sets by disjoint open sets. However, Mathlib's `RegularSpace` only captures the second condition — it does NOT include T1. Adding `[T1Space X]` surfaces the implicit premise needed to match Munkres's notion of \"regular\"; without it the informal claim is literally false (e.g., the indiscrete topology on a 2-point set is Mathlib-regular but has no pair of points with neighborhoods whose closures are disjoint). The additional `hxy : x ≠ y` correctly captures \"pair of points\" as distinct (otherwise vacuously false). The conclusion `∃ U V, IsOpen U ∧ IsOpen V ∧ x ∈ U ∧ y ∈ V ∧ closure U ∩ closure V = ∅` matches Munkres's usage of \"neighborhood\" (open set containing the point) and \"closures are disjoint\". This is a faithful formalization.",
+  "duration_ms": 140539,
+  "cost_usd": 0.44631024999999996
+}

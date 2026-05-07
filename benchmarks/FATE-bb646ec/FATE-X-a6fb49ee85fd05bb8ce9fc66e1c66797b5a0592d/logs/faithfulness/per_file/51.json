@@ -1,0 +1,8 @@
+{
+  "file": "51.lean",
+  "stem": "51",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines a Zariski ring as a Noetherian topological ring whose topology is defined by an ideal contained in the Jacobson radical. Given A is Noetherian with the 𝔞-adic topology (defined by the ideal 𝔞), the condition \"A is a Zariski ring for the 𝔞-topology\" reduces exactly to 𝔞 ⊆ Jac(A). The Lean statement encodes: A commutative Noetherian ring (CommRing + IsNoetherianRing), an ideal I (= 𝔞), the 𝔞-adic completion AdicCompletion I A, faithfully flat as an A-module (Module.FaithfullyFlat A (AdicCompletion I A)), iff I ≤ Ring.jacobson A. Verified in Mathlib: Ring.jacobson is the Jacobson radical of the ring, AdicCompletion I A is the standard 𝔞-adic completion, and Module.FaithfullyFlat matches the textbook notion. Both directions of the iff correspond exactly to the informal biconditional. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 163414,
+  "cost_usd": 0.4255565
+}

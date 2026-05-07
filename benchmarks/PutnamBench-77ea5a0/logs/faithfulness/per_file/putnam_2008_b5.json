@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2008_b5.lean",
+  "stem": "putnam_2008_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim correctly: `ContDiff ℝ 1 f` is the standard encoding of \"continuously differentiable\" (C¹). The condition `∃ p : ℚ, p = f q ∧ p.den = q.den` uses the coercion from ℚ to ℝ (since p : ℚ and f q : ℝ) to express that f(q) is rational (equals some rational p as a real), and since Mathlib's Rat is in reduced form, p.den is well-defined and p is unique, correctly capturing \"same denominator as q\". The `ContDiff` conjunct lives under `∀ q`, but since it doesn't depend on q and ℚ is inhabited, this is logically equivalent to placing it outside. The outer `∀ f, (∀ q, fqsat f q) ↔ f ∈ solution` faithfully encodes \"find all such f\". No hypotheses are silently added or dropped.",
+  "duration_ms": 118612,
+  "cost_usd": 0.4054455
+}

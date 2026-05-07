@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-236.lean",
+  "stem": "proofnet-236",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim closely. It takes an arbitrary finite group G with |G| = 351, and asserts the existence of a prime p dividing |G| together with a Sylow p-subgroup P of G that is normal. The conditions `p.Prime` and `p ∣ card G` together correspond exactly to \"a prime p dividing its order\", and `P.Normal` for `P : Sylow p G` is the standard Mathlib encoding of \"a normal Sylow p-subgroup\". The quantifier structure (∃ p, ∃ P, prime ∧ divides ∧ normal) aligns with the informal \"for some prime p … a normal Sylow p-subgroup\". No hidden extra hypotheses or weakenings appear.",
+  "duration_ms": 14934,
+  "cost_usd": 0.05090225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `∃! p : ℕ × ℕ` with `p.1 > 0 ∧ p.2 > 0` correctly capturing \"unique positive integers $a, n$\". The equation `p.1^(p.2+1) - (p.1+1)^p.2 = 2001` encodes $a^{n+1} - (a+1)^n = 2001$. Although ℕ subtraction is truncated, this does not change the solution set: if $a^{n+1} \\geq (a+1)^n$ the ℕ subtraction agrees with integer subtraction, and if $a^{n+1} < (a+1)^n$ it yields 0 ≠ 2001, so no spurious solutions are introduced and none are lost. The intended solution $(13, 2)$ (where $13^3 - 14^2 = 2001$) satisfies both formulations identically. The Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 46570,
+  "cost_usd": 0.16336474999999998
+}

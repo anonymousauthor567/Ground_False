@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem universally quantifies over a topological space X and arbitrary subsets U, A, assuming exactly the informal hypotheses (U open, A closed) and concluding exactly the two claims: U \\ A is open and A \\ U is closed. Set difference `\\` is the correct formalization of \"U - A\" in the set-theoretic sense used by Munkres. The statement matches Mathlib's `IsOpen.sdiff` and `IsClosed.sdiff` lemmas verbatim (confirmed in Mathlib/Topology/Basic.lean lines 159 and 167). No hypotheses are added or dropped, and the conclusion is neither weakened nor strengthened.",
+  "duration_ms": 21272,
+  "cost_usd": 0.10294475
+}

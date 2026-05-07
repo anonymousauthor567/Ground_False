@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "Both formulas state the polarization identity for complex inner-product spaces. The informal formula is written in Axler's convention (inner product linear in the first argument), while Mathlib uses the opposite convention (linear in the second argument — confirmed via `inner_smul_right`). The Lean formula matches Mathlib's `inner_eq_sum_norm_sq_div_four` verbatim, which is the correct form of the polarization identity under Mathlib's convention. The sign flip on the imaginary-part terms (Lean has `‖u−I·v‖² − ‖u+I·v‖²` where informal has `‖u+iv‖² − ‖u−iv‖²`) is exactly the adjustment required to translate Axler's convention into Mathlib's — the two formulas are conjugates and express the same theorem. This is a standard convention adaptation, not a semantic change, so the formalization is faithful.",
+  "duration_ms": 236214,
+  "cost_usd": 0.8108205
+}

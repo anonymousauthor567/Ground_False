@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "informal": "Prove that a group of even order contains an element of order $2 .$",
+  "lean": "\ntheorem Artin_exercise_2_11_3 {G : Type*} [Group G] [Fintype G]\n  (hG : Even (card G)) : ∃ x : G, orderOf x = 2",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says a group of even order has an element of order 2. \"Even order\" implicitly means the group is finite with even cardinality, which is exactly captured by `[Fintype G]` together with `Even (card G)`. The conclusion `∃ x : G, orderOf x = 2` matches \"contains an element of order 2\" precisely. No extra hypotheses (like commutativity) are added, and no part of the claim is weakened. This is a faithful formalization.",
+  "duration_ms": 6611,
+  "cost_usd": 0.042386
+}

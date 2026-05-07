@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement cleanly. The informal \"arbitrary nonempty collection\" (with the explicit instruction not to assume countability) is captured by an arbitrary type `I : Type*` with `[Nonempty I]` as an instance. The family of normal subgroups is `H : I → Subgroup G` together with `hH : ∀ i, Normal (H i)`. The \"intersection\" corresponds to `⨅ (i : I), H i`, which in Mathlib's Subgroup lattice is literally the set-theoretic intersection (via `Subgroup.coe_iInf`). The conclusion `Normal (⨅ i, H i)` is the standard Mathlib predicate `Subgroup.Normal`. No hypotheses are added or dropped beyond what the informal statement specifies, and the quantifier structure (universal over the family, existence/nonemptiness of the index) is preserved. This is a faithful formalization.",
+  "duration_ms": 78583,
+  "cost_usd": 0.311797
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-76.lean",
+  "stem": "proofnet-76",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim term-by-term: G is a finite group with `card G = p*m`, `p` is prime, `¬ p ∣ m`, H is a subgroup of G with `[H.Normal]` and `card H = p`, and the conclusion is `Subgroup.Characteristic H`. I confirmed that `Subgroup.Characteristic` in Mathlib (Mathlib/Algebra/Group/Subgroup/Basic.lean) is the standard definition — the subgroup is fixed by every automorphism of G — which matches the standard meaning of \"characteristic subgroup\". The `[Fintype H]` instance is automatic given `[Fintype G]` and does not alter the claim. No hypothesis is added, dropped, or changed, and the quantifier/type structure is preserved.",
+  "duration_ms": 59748,
+  "cost_usd": 0.2732195
+}

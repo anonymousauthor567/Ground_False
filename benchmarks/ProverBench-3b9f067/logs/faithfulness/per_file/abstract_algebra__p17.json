@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p17.lean",
+  "stem": "abstract_algebra__p17",
+  "verdict": "faithful",
+  "reasoning": "The polynomial f has degree 4 (expanding gives 2x⁴ - 28x³ + ...). The informal claim states that all (complex) zeros of f are real, with one in each of four specified disjoint intervals — a total of 4 real zeros. For a degree-4 polynomial, \"all zeros are real and there are 4 of them in 4 disjoint intervals\" is logically equivalent to \"f has exactly 4 distinct real zeros.\" The Lean statement asserts precisely that: there exists a Finset s ⊂ ℝ with |s|=4 that is exactly the set of real roots of f (both containment directions are stated). Although the Lean version doesn't mention the specific intervals, those were used as the IVT argument to establish the count — the ultimate claim \"f has 4 distinct real zeros\" (equivalently, all zeros are real) is faithfully captured.",
+  "duration_ms": 182796,
+  "cost_usd": 0.555589
+}

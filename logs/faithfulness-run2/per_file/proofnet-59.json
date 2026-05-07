@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-59.lean",
+  "stem": "proofnet-59",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. `[CommRing R] [IsDomain R]` together assert that R is a commutative ring with 1 ≠ 0 and no zero divisors — the standard Dummit & Foote definition of integral domain. The hypothesis `x^2 = 1` matches, and the conclusion `x = 1 ∨ x = -1` is the standard encoding of \"x = ±1\". No hypotheses are silently added (no finiteness, characteristic, or decidability assumptions) or dropped, and the quantifier structure over the implicit x is preserved.",
+  "duration_ms": 12536,
+  "cost_usd": 0.05097624999999999
+}

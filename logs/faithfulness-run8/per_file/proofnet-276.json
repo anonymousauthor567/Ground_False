@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-276.lean",
+  "stem": "proofnet-276",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for any field K, any subfield F of K, and any a ∈ K, if a² is algebraic over F then a is algebraic over F. The Lean signature captures this exactly. `K` is a field, `F : Subfield K` is the subfield, `a : K` is the element, `IsAlgebraic F (a^2)` expresses that a² is algebraic over F, and the conclusion `IsAlgebraic F a` says a is algebraic over F. In Mathlib, `IsAlgebraic R x` unfolds to `∃ p : R[X], p ≠ 0 ∧ aeval x p = 0`, which is the standard definition, and the required `Algebra F K` instance is automatically provided via `Algebra.ofSubsemiring` since `Subfield K` is a `SubsemiringClass`. Quantifier structure (universal over K, F, a) is preserved through the implicit arguments. No hypotheses are added, dropped, or modified.",
+  "duration_ms": 170748,
+  "cost_usd": 0.899766
+}

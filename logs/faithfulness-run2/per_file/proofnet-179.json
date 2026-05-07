@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-179.lean",
+  "stem": "proofnet-179",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"region\" as an open connected set (Nonempty is redundant but harmless, since IsConnected already implies nonemptiness). It states the continuity hypothesis on f via ContinuousOn, captures \"F₁ and F₂ are primitives\" via DifferentiableOn combined with deriv = f on Ω (well-defined because Ω is open), and concludes with the existence of a constant c such that F₁ x = F₂ x + c for all x ∈ Ω. The universal quantification over f, F₁, F₂, Ω correctly reflects the general claim \"any two primitives.\" No hypothesis is silently added or omitted, and the conclusion matches \"differ by a constant.\"",
+  "duration_ms": 34471,
+  "cost_usd": 0.135449
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-272.lean",
+  "stem": "proofnet-272",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence of a (p-1)/2-sized set S₁ of nonzero squares and a (p-1)/2-sized set S₂ of nonzero non-squares in ZMod p. Since squares and non-squares are disjoint, and (p-1)/2 + (p-1)/2 = p-1 equals the total number of nonzero elements, S₁ and S₂ must partition ZMod p \\ {0}. This forces #{nonzero squares} = (p-1)/2 and #{non-squares} = (p-1)/2, which is exactly the informal claim (under the natural bijection between {1,...,p-1} and nonzero elements of ZMod p). Conversely, if the informal counts hold, take S₁, S₂ to be those exact sets. The `hodd` hypothesis makes the implicit \"odd prime\" premise explicit — this is needed for (p-1)/2 to be exact and to exclude p=2 where the claim fails; this is a standard implicit assumption in quadratic residue discussions, not a weakening. The two formulations are logically equivalent.",
+  "duration_ms": 176053,
+  "cost_usd": 0.5724555
+}

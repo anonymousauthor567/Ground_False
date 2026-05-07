@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1988_b6.lean",
+  "stem": "putnam_1988_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The triangular numbers are defined as {t : ℤ | ∃ n : ℤ, t ≥ 0 ∧ t = n(n+1)/2}; though the informal uses n ∈ ℕ, using n ∈ ℤ yields the same set since n(n+1)/2 = (-n-1)(-n)/2, and n(n+1)/2 ≥ 0 for all integers n (so the t ≥ 0 is redundant but harmless). Integer division works exactly because n(n+1) is always even. The condition ∀ t > 0 on ℤ matches \"every positive integer t\", the iff matches \"if and only if\", and `.encard = ⊤` correctly encodes \"infinitely many\" (by Set.encard_eq_top_iff ↔ Infinite). The ambient type ℤ × ℤ matches \"ordered pairs of integers\".",
+  "duration_ms": 144172,
+  "cost_usd": 0.4355875
+}

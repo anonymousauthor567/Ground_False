@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says ℤ/nℤ is not a group under multiplication for n > 1. The Lean formalization asserts ¬(∀ x : ZMod n, ∃ y, x*y = 1 ∧ y*x = 1), i.e., not every element has a two-sided multiplicative inverse. Since ZMod n with multiplication is automatically a (commutative) monoid — associativity and the identity 1 hold in Mathlib's CommRing instance — the only group axiom that can fail is existence of inverses. Hence \"ZMod n is not a group under ·\" is logically equivalent to \"not every element has a multiplicative inverse\", which is exactly what the Lean statement says. The hypothesis n > 1 is preserved, and both quantifier structures match. This is a faithful formalization.",
+  "duration_ms": 93204,
+  "cost_usd": 0.278324
+}

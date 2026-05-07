@@ -1,0 +1,8 @@
+{
+  "file": "19.lean",
+  "stem": "19",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly restricts the claim to \"positive integer n ≥ 2\", whereas the Lean theorem universally quantifies over all `n : ℕ` without any hypothesis. The Lean statement is in fact true for the dropped cases (n=0: `ZMod 0 = ℤ` is not a field, and `Nat.Prime 0` is false; n=1: `ZMod 1` is `Unique` so fails `exists_pair_ne`, and `Nat.Prime 1` is false — both iffs hold trivially), but establishing these cases requires extra facts (`ZMod 0 ≅ ℤ`, `Subsingleton (ZMod 1)`) that the informal statement neither asserts nor implies logically. Thus the Lean statement logically implies the informal one but is strictly stronger: it drops the explicit `n ≥ 2` hypothesis and claims the biconditional for additional cases the informal statement excluded from its scope. Per the rubric, this is \"stronger — drops a hypothesis that the informal statement explicitly requires / claims the result for extra cases.\"",
+  "duration_ms": 151223,
+  "cost_usd": 0.46039125
+}

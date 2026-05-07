@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-53.lean",
+  "stem": "proofnet-53",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature precisely captures the informal statement. The hypotheses match: p < q ∧ q < r encodes \"p < q < r\"; the three primality assumptions correspond to \"p, q, r primes\"; `Fintype.card G = p*q*r` (via `open Fintype`) encodes \"|G| = pqr\"; and `[Fintype G]` merely surfaces the finiteness implicitly assumed by the notation |G|=pqr. The conclusion as a three-way disjunction over `∃ P : Sylow s G, P.Normal` for s ∈ {p,q,r} is exactly \"G has a normal Sylow subgroup for either p, q, or r\", since `Sylow s G` is Mathlib's type of Sylow s-subgroups and `P.Normal` asserts the underlying subgroup is normal. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 63195,
+  "cost_usd": 0.262962
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any group G with subgroups H ≤ K, if H is characteristic in K and K is normal in G, then H is normal in G. The Lean signature captures this precisely: G is an arbitrary group, H and K are arbitrary subgroups of G, `hHK : H ≤ K` encodes H ≤ K, `(H.subgroupOf K).Characteristic` is the standard Mathlib idiom for \"H is characteristic in K\" (since `subgroupOf` equals `H.comap K.subtype`, which under `H ≤ K` represents H as a subgroup of K, and Characteristic on it means invariance under all automorphisms of K), `K.Normal` encodes K normal in G, and the conclusion `H.Normal` encodes H normal in G. No hypotheses are added or dropped, types match, and the universal quantification over G is preserved.",
+  "duration_ms": 46682,
+  "cost_usd": 0.21048275000000002
+}

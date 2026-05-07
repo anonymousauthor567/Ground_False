@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. V is a complex inner product space; T is a linear operator (End ℂ V); the hypothesis `T * adjoint T = adjoint T * T` is precisely the definition of a normal operator; and the conclusion `∃ S, S^2 = T` states exactly that T has a square root as defined in the problem. The `[FiniteDimensional ℂ V]` assumption surfaces the implicit premise of Axler's Chapter 7, which works exclusively with finite-dimensional complex inner product spaces (the standard proof via the spectral theorem requires this). This is a correct surfacing of an implicit premise rather than a weakening.",
+  "duration_ms": 67129,
+  "cost_usd": 0.26268775
+}

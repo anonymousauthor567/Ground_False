@@ -1,0 +1,8 @@
+{
+  "file": "63.lean",
+  "stem": "63",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal claim. \"ξ is a root of unity in ℂ\" means ∃ n ≥ 1 with ξ^n = 1, equivalently ∃ n ≥ 1 with ξ ∈ rootsOfUnity n ℂ (viewed as a unit, which is automatic since ξ^n = 1 implies ξ ≠ 0). The Lean formulation universally quantifies over such (n, ξ) pairs with n ≥ 1, which yields the same claim as quantifying over all roots of unity. The right-hand side `(2:ℂ)^((1:ℂ)/4)` uses Complex.cpow, giving exp(log(2)·1/4) = 2^(1/4) (the positive real fourth root of 2), matching the informal 2^(1/4). The use of `eval₂ (algebraMap ℚ ℂ)` with coercion ξ : ℂˣ → ℂ correctly represents f(ξ). No hypothesis is added or omitted beyond what is required by the definition of \"root of unity\" itself.",
+  "duration_ms": 207958,
+  "cost_usd": 0.46992
+}

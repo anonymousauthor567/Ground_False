@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes $R = \\mathbb{Z}[\\sqrt{-n}]$ as `Zsqrtd (-n)` (Mathlib's `Zsqrtd d` is precisely $\\mathbb{Z}[\\sqrt{d}]$ with multiplication using `d`). The three elements are faithfully represented: `(2 : Zsqrtd $ -n)` is 2, `⟨0, 1⟩` has re=0, im=1 representing $\\sqrt{-n}$, and `1 + ⟨0, 1⟩` represents $1 + \\sqrt{-n}$. The hypotheses `n > 3` and `Squarefree n` match \"squarefree integer greater than 3\", and Mathlib's `Irreducible` matches the standard algebraic irreducibility notion. The conjunction of three claims mirrors the informal claim that all three elements are irreducible. No hypotheses are silently added or dropped.",
+  "duration_ms": 115127,
+  "cost_usd": 0.41399949999999996
+}

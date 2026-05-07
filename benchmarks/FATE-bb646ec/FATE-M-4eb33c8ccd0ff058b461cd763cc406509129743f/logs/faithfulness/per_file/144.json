@@ -1,0 +1,8 @@
+{
+  "file": "144.lean",
+  "stem": "144",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. \"G finite group\" is encoded by `[Group G] [Fintype G]`; \"H, K subgroups\" by `H K : Subgroup G`; \"both have order the same prime p\" by `[Fact p.Prime]`, `Fintype.card H = p`, `Fintype.card K = p`; and \"H ≠ K\" directly as `H ≠ K`. The conclusion \"H ∩ K = {e}\" is encoded as `H ⊓ K = ⊥`, which is the standard Mathlib idiom — `coe_inf` confirms `(H ⊓ K : Set G) = H ∩ K`, and `coe_bot` confirms `(⊥ : Subgroup G) = {1}`. No extra hypotheses are added and none are dropped; quantifier structure and types match.",
+  "duration_ms": 71790,
+  "cost_usd": 0.12590074999999998
+}

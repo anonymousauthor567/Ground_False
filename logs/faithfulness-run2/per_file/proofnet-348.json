@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes α is a MetricSpace, f : α → ℝ is continuous, and defines z = f⁻¹' {0}, which is exactly {p ∈ α | f(p) = 0}, matching the informal definition of Z(f). The conclusion IsClosed z matches the informal claim that Z(f) is closed. The universal quantification over α and f is captured by the implicit/explicit arguments. The encoding is logically equivalent to the informal statement.",
+  "duration_ms": 13946,
+  "cost_usd": 0.03568625
+}

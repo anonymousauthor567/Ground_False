@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: for a prime p, a finite group G of order p^n, and a subgroup K of order p^{n-1}, K is normal. The prime hypothesis is made explicit (standard reading of \"order p^n\"), the cardinality conditions match, and the conclusion `K.Normal` matches \"normal in G\". Universal quantification over K is encoded correctly via hypothesis binding. The redundant `[Fintype K]` is derivable from G finite and does not add or remove content. Edge cases (n = 0 with Nat truncation) resolve consistently to a trivial subgroup, which is normal.",
+  "duration_ms": 21420,
+  "cost_usd": 0.07586799999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "30.lean",
+  "stem": "30",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all elements of the informal statement: E is modeled as the 7th cyclotomic extension of ℚ (via `IsCyclotomicExtension {7} ℚ E`), which is the splitting field of (x^7-1)/(x-1); ζ is a primitive 7th root of 1; and β = ζ + ζ^2 + ζ^4. The conclusion \"ℚ(β) is ℚ(√(-7))\" is rendered as a ring equivalence `ℚ⟮β⟯ ≃+* AdjoinRoot (X^2+7)`, where AdjoinRoot(X^2+7) = ℚ[X]/(X^2+7) is the abstract ℚ(√(-7)). Although `≃+*` is just a ring equivalence (not `≃ₐ[ℚ]`), for fields of characteristic 0 containing ℚ this automatically preserves ℚ, so ring and ℚ-algebra equivalences coincide. In this cyclotomic setting, the two readings (\"abstract isomorphism\" and \"subfield equality within E\") are logically equivalent, since ℚ(β) is a 2-dimensional ℚ-subspace of E that contains a root of X^2+7 iff it is isomorphic to ℚ[X]/(X^2+7).",
+  "duration_ms": 404063,
+  "cost_usd": 0.8483514999999999
+}

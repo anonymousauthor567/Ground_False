@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-125.lean",
+  "stem": "proofnet-125",
+  "verdict": "faithful",
+  "reasoning": "The user-defined `countably_compact` matches the standard textbook definition (every countable open cover has a finite subcover). The theorem's iff condition faithfully encodes \"every nested sequence of closed nonempty sets has nonempty intersection\": `IsClosed (C n)` captures \"closed\", `C n ≠ ∅` captures \"nonempty\", `C (n+1) ⊆ C n` captures the nesting $C_1 \\supset C_2 \\supset \\cdots$, and `∃ x, ∀ n, x ∈ C n` is exactly the statement that ⋂ₙ C n is nonempty. The ℕ-indexed sequence encoding correctly captures a countable sequence. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 36637,
+  "cost_usd": 0.119491
+}

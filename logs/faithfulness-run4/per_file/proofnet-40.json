@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `[CommGroup A]` encodes \"A is an abelian group\" and `B : Subgroup A` is an arbitrary subgroup. The quotient `A ⧸ B` is well-defined via Mathlib's `instHasQuotientSubgroup` (for any subgroup), and in a CommGroup every subgroup is normal (`Subgroup.normal_of_comm`), so `A ⧸ B` inherits multiplication from `QuotientGroup.Quotient.commGroup`. The conclusion `∀ a b : A ⧸ B, a*b = b*a` is literally the commutativity of multiplication on the quotient, which is precisely what \"A/B is abelian\" means. No hypotheses are dropped or added beyond what the informal statement asserts.",
+  "duration_ms": 112677,
+  "cost_usd": 0.28203924999999996
+}

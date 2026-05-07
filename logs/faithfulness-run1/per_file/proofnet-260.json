@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "informal": "Let $G$ be a group such that all subgroups of $G$ are normal in $G$. If $a, b \\in G$, prove that $ba = a^jb$ for some $j$.",
+  "lean": "\ntheorem Herstein_exercise_2_5_23 {G : Type*} [Group G]\n  (hG : ∀ (H : Subgroup G), H.Normal) (a b : G) :\n  ∃ (j : ℤ) , b*a = a^j * b",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully. It quantifies over an arbitrary group G with the hypothesis that every subgroup is normal (Hamiltonian/Dedekind condition), takes arbitrary elements a, b ∈ G, and asserts the existence of an integer j with ba = a^j b. The informal \"for some j\" is naturally read as an integer exponent (since the cyclic subgroup ⟨a⟩ is normal, conjugates of a lie in ⟨a⟩, giving an integer power), which matches the Lean ℤ. No hypotheses are added or dropped, and the conclusion matches.",
+  "duration_ms": 7641,
+  "cost_usd": 0.044511249999999995
+}

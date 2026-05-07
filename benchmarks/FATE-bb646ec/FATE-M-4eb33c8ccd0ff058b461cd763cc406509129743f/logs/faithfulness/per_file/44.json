@@ -1,0 +1,8 @@
+{
+  "file": "44.lean",
+  "stem": "44",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all elements of the informal statement: `[CommRing A] [IsDomain A]` encodes \"integral domain\", `[CharP A p]` encodes \"A has characteristic p\", `n • a = 0` (with n auto-bound to ℕ from the `p ∣ n` constraint) matches n-fold addition \"n·a = 0\", `¬ p ∣ n` matches \"n not a multiple of p\", and the conclusion `a = 0` matches. The `[Fact p.Prime]` hypothesis surfaces the standard mathematical convention that the letter \"p\" in \"characteristic p\" denotes a prime (as opposed to characteristic 0); this is a standard implicit premise in algebraic contexts. The use of `n • a` with natural number scalar action is the natural reading of \"n·a\" as repeated addition, and in a CommRing this equals (n:A)*a as expected.",
+  "duration_ms": 568096,
+  "cost_usd": 1.0837065
+}

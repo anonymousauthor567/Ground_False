@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the informal claim directly. The hypothesis `[Fintype G]` matches \"finite group $G$\", and `hH : H ≠ ⊤` matches \"$H$ is a proper subgroup\". The conclusion asserts existence of a subgroup $M$ with three conjuncts: `M ≠ ⊤` (i.e., $M \\neq G$), `∀ K, M ≤ K → K = M ∨ K = ⊤` (the only subgroups containing $M$ are $M$ and $G$), and `H ≤ M` ($M$ contains $H$). These three conjuncts inline the informal definition of \"maximal subgroup containing $H$\" precisely. No hypotheses are dropped or added, and the quantifier structure matches.",
+  "duration_ms": 39045,
+  "cost_usd": 0.1119975
+}

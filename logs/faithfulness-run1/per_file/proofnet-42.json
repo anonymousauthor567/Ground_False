@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "informal": "Let $H \\leq K \\leq G$. Prove that $|G: H|=|G: K| \\cdot|K: H|$ (do not assume $G$ is finite).",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_2_11 {G : Type*} [Group G] {H K : Subgroup G}\n  (hHK : H ≤ K) :\n  H.index = K.index * H.relindex K",
+  "verdict": "faithful",
+  "reasoning": "In Mathlib, `Subgroup.index H` denotes |G : H|, `K.index` denotes |G : K|, and `H.relindex K` denotes |K : H ∩ K|, which equals |K : H| under the hypothesis `H ≤ K`. The Lean statement therefore asserts |G:H| = |G:K| · |K:H| for arbitrary (not necessarily finite) groups, with no extra finiteness assumption (the index is defined as 0 when infinite, and the identity holds in the natural-number arithmetic, matching the cardinal-arithmetic claim). The hypothesis `H ≤ K` matches the informal \"H ≤ K ≤ G\". This is logically equivalent to the informal claim.",
+  "duration_ms": 8004,
+  "cost_usd": 0.047493999999999995
+}

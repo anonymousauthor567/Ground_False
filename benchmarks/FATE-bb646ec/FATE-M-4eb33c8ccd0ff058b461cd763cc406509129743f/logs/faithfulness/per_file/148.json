@@ -1,0 +1,8 @@
+{
+  "file": "148.lean",
+  "stem": "148",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim exactly. `CommRing R` encodes \"commutative ring\", `¬IsUnit a` encodes \"non-unit element\", and `∃ (I : Ideal R), a ∈ I ∧ Ideal.IsMaximal I` encodes \"there exists a maximal ideal containing a\". Mathlib's `Ideal.IsMaximal` is defined as `IsCoatom I` on the ideal lattice, which is the standard notion of a maximal ideal (proper ideal with no proper ideals strictly containing it). Using `{h₁ : ¬IsUnit a}` as an implicit rather than explicit argument is a style choice — the hypothesis is still required to apply the theorem, so the logical content is unchanged. No hypotheses or conclusions have been silently added, dropped, or altered.",
+  "duration_ms": 63283,
+  "cost_usd": 0.19895975
+}

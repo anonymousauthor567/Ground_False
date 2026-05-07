@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-20.lean",
+  "stem": "proofnet-20",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes Axler 5.12. Using Mathlib's `eigenspace S c = {x | S x = c • x}`, the hypothesis `∀ v, ∃ c, v ∈ eigenspace S c` states that every vector satisfies `S v = c • v` for some c — this is equivalent to \"every (nonzero) vector is an eigenvector\" since the v=0 case is trivially in every eigenspace. The conclusion `∃ c : F, S = c • LinearMap.id` is precisely \"S is a scalar multiple of the identity operator\". The statement uses arbitrary field F and arbitrary F-module V, without assuming finite-dimensionality — this matches the informal statement, which does not require finite-dimensionality (and the claim indeed holds without it). No hypotheses are silently added or dropped, and the quantifier structure matches exactly.",
+  "duration_ms": 174718,
+  "cost_usd": 0.6494315
+}

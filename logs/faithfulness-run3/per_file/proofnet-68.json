@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-68.lean",
+  "stem": "proofnet-68",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly mirrors the informal claim. The polynomial `X^6 + 30*X^5 - 15*X^3 + 6*X - 120` in `Polynomial ℤ` has exactly the same coefficients as $x^6+30x^5-15x^3+6x-120$ in $\\mathbb{Z}[x]$ (with implicit 0 coefficients for $x^4$ and $x^2$). The ring `Polynomial ℤ` corresponds precisely to $\\mathbb{Z}[x]$, and Mathlib's `Irreducible` predicate captures the standard notion of irreducibility (nonzero, non-unit, and only trivial factorizations). No hypotheses are added or dropped, and neither the type nor the conclusion is altered.",
+  "duration_ms": 24971,
+  "cost_usd": 0.08899425000000001
+}

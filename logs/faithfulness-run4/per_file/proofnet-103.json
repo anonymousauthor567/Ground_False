@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-103.lean",
+  "stem": "proofnet-103",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement component by component: `ha : a < 0` encodes \"a is negative\"; `h0 : p ≡ q [ZMOD 4*a]` encodes $p \\equiv q \\pmod{4a}$ (Int.ModEq handles negative moduli via divisibility, matching the usual convention); `h1 : ¬ ((p : ℤ) ∣ a)` encodes $p \\nmid a$; the `[Fact (p.Prime)] [Fact (q.Prime)]` instances correspond to the implicit primality assumptions inherent in the Legendre symbol notation $(a/p), (a/q)$; and `legendreSym p a = legendreSym q a` encodes $(a/p) = (a/q)$ via Mathlib's `legendreSym p a = quadraticChar (ZMod p) a`. No hypothesis is added or dropped, and the conclusion is the same equality. Note $q \\nmid a$ follows automatically from the hypotheses, so its absence is not an issue.",
+  "duration_ms": 125726,
+  "cost_usd": 0.4317129999999999
+}

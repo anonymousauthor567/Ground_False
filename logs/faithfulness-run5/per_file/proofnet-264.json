@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-264.lean",
+  "stem": "proofnet-264",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. \"φ is a homomorphism of G onto G'\" is encoded as `φ : G →* G'` together with `hφ : Function.Surjective φ`, which is the standard way to express \"onto\". \"N ⊲ G\" is captured by `N : Subgroup G` with the `[N.Normal]` instance. The conclusion \"φ(N) ⊲ G'\" is correctly encoded as `(Subgroup.map φ N).Normal`, since `Subgroup.map φ N` is Mathlib's image of a subgroup under a homomorphism. The universal quantification over G, G', φ, and N is properly expressed via the implicit type parameters and explicit hypotheses. No hypotheses are dropped or added, and the types match standard mathematical reading.",
+  "duration_ms": 26832,
+  "cost_usd": 0.1344245
+}

@@ -1,0 +1,8 @@
+{
+  "file": "5.lean",
+  "stem": "5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The informal hypothesis \"R is a ring with 1 ≠ 0\" is encoded as `[Ring R] [Nontrivial R]`. In Mathlib, `Nontrivial α` asserts `∃ x y : α, x ≠ y`, and in any ring this is equivalent to `1 ≠ 0` (if `1 = 0` then every `x = x·1 = x·0 = 0`, making R trivial; conversely `1 ≠ 0` gives a pair of distinct elements). The Mathlib docstring for `Nontrivial` even confirms \"In rings, this is equivalent to `0 ≠ 1`.\" The elements `a, b : R`, hypothesis `IsUnit (1 - a * b)`, and conclusion `IsUnit (1 - b * a)` are all a direct match to the informal statement. No hypotheses have been added or dropped, no types changed, and the logical structure is preserved.",
+  "duration_ms": 125248,
+  "cost_usd": 0.37638950000000004
+}

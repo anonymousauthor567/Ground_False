@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_a2.lean",
+  "stem": "putnam_1996_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement works in `EuclideanSpace ℝ (Fin 2)` (the 2D plane), where `sphere O r = {y | dist y O = r}` precisely corresponds to a circle of radius r centered at O. The hypotheses `C1 = sphere O1 1`, `C2 = sphere O2 3`, and `dist O1 O2 = 10` match the informal setup. The conclusion expresses the locus `{M | ∃ X Y, X ∈ C1 ∧ Y ∈ C2 ∧ M = midpoint ℝ X Y}` as a set equality with the solution, which is the standard encoding of \"find the locus\". The solution `{p | 1 ≤ dist p (midpoint ℝ O1 O2) ≤ 2}` is the correct closed annulus (inner radius |3-1|/2=1, outer radius (3+1)/2=2, center at midpoint of O1, O2). All quantifiers, types, and hypotheses align with the informal statement.",
+  "duration_ms": 108547,
+  "cost_usd": 0.28681249999999997
+}

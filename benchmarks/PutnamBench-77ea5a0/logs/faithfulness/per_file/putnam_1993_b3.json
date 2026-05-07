@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1993_b3.lean",
+  "stem": "putnam_1993_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement computes `MeasureTheory.volume` of the set of `p : Fin 2 → ℝ` satisfying `0 < p ∧ p < 1 ∧ Even (round (p 0 / p 1))` and equates its real value to `r + s*π` where `(r,s) = (5/4, -1/4)`. Under the Pi ordering, `0 < p ∧ p < 1` differs from the strict open square `(0,1)²` only on a measure-zero subset of the boundary (the inclusion of points like `(0,1)` or exclusion of `(0,0)`), so the 2D Lebesgue volume agrees exactly with the probability under the uniform distribution on `(0,1)²` (whose density is 1). Mathlib's `round` rounds to the nearest integer (with ties broken towards +∞), which matches \"closest integer\" up to a measure-zero set of ties. The answer `(5-π)/4` matches the known Putnam 1993 B3 solution and the requested form `r + s·π`. The minor measure-zero discrepancies do not affect the claimed equality, so the formalization is logically equivalent to the informal problem.",
+  "duration_ms": 186797,
+  "cost_usd": 0.5790785
+}

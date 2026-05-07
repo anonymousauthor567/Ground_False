@@ -1,0 +1,8 @@
+{
+  "file": "usamo_2000_p4.lean",
+  "stem": "usamo_2000_p4",
+  "verdict": "faithful",
+  "reasoning": "The set valid_n captures exactly: \"every n-subset of the 1000×1000 grid contains three distinct points forming a right triangle with axis-parallel legs\" — where a is the right-angle vertex (a.1 = b.1 gives a vertical leg to b, a.2 = c.2 gives a horizontal leg to c, and the distinctness conditions force non-degenerate legs). IsLeast valid_n k (from Mathlib) means k ∈ valid_n and k is a lower bound, matching \"smallest n\". Since 0, 1, 2 are trivially not in valid_n (can't select 3 distinct elements), the minimum over ℕ coincides with the smallest positive integer, so specifying the witness as ℕ+ (and using .1) does not introduce semantic divergence. The types (Fin 1000 × Fin 1000, Finset, card = n) correctly encode the chessboard and coloring. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 149584,
+  "cost_usd": 0.3275902499999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1996_a6.lean",
+  "stem": "putnam_1996_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal \"give a complete description\" problem via the standard pattern: for arbitrary c > 0 and f : ℝ → ℝ, the predicate \"f is continuous and f(x) = f(x²+c) for all x\" is equivalent to f being in an explicit solution set (`putnam_1996_a6_solution c`). The hypothesis `cgt0 : c > 0` matches \"Let c > 0 be a constant\"; `Continuous f` for f : ℝ → ℝ means continuous on all of ℝ, matching the informal \"continuous functions f:ℝ→ℝ\"; and `∀ x : ℝ, f x = f (x ^ 2 + c)` exactly captures the functional equation. No hypotheses are dropped or added, no quantifiers are changed, and types match. The `sorry`-ed solution is the standard ProofNet pattern for \"describe the set\" problems and does not affect faithfulness of the statement.",
+  "duration_ms": 214765,
+  "cost_usd": 0.6363130000000001
+}

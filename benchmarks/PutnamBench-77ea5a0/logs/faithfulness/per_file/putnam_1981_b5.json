@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_b5.lean",
+  "stem": "putnam_1981_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal statement. B(n) is defined as the sum of binary digits of n via `sumbits (Nat.digits 2 n)`; since base-2 digits are 0 or 1 (by `Nat.digits_lt_base`), this sum equals the count of 1's, matching the informal definition. The infinite sum `∑' n : Set.Ici 1, B n / ((n : ℝ) * ((n : ℝ) + 1))` correctly indexes from n = 1 to ∞. The conclusion `∃ q : ℚ, Real.exp (...) = q ↔ putnam_1981_b5_solution` with solution `True` asserts exp of the sum is rational, matching the informal \"determine whether or not ... is rational.\" B being constrained only for n > 0 is fine since the sum only uses n ≥ 1. The standard Putnam answer is that the value equals 4 (from sum = 2ln2), so `True` is correct.",
+  "duration_ms": 121959,
+  "cost_usd": 0.38531200000000004
+}

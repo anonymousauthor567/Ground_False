@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes each piece of the informal claim correctly: μ : ℝ → ℝ with positivity on Ioi 0 captures μ taking values in (0,∞); ContinuousOn μ (Ioi 0) and StrictMonoOn μ (Ioi 0) capture continuity and strict monotonicity on (0,∞); Tendsto μ (𝓝[>] 0) (𝓝 0) captures μ(s) → 0 as s → 0⁺. The modulus inequality ∀ s t : Icc a b, |f s - f t| ≤ μ(|s-t|) is the standard formulation. The only nominal difference — μ being defined on all of ℝ rather than only on (0,∞) — is immaterial: the positivity/continuity/monotonicity/limit conditions are all restricted to Ioi 0, and the s=t case only requires μ(0) ≥ 0 which is trivially arrangeable. Both directions of the biconditional are logically equivalent to the informal biconditional.",
+  "duration_ms": 156521,
+  "cost_usd": 0.5186385
+}

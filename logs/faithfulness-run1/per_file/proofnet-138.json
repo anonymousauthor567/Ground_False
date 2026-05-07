@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "theorem_name": "Pugh_exercise_2_57_corrected",
+  "informal": "Show that if $S$ is connected, it is not true in general that its interior is connected.",
+  "lean": "theorem Pugh_exercise_2_57_corrected :\n    ∃ S : Set (ℝ × ℝ), IsConnected S ∧ ¬ IsConnected (interior S)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim \"it is not true in general that the interior of a connected set is connected\" is exactly the negation of \"for all connected S, interior S is connected\", which is equivalent to \"there exists a connected S whose interior is disconnected\". The Lean signature asserts the existence of such an S in ℝ×ℝ. Pugh's exercise 2.57 is set in Euclidean space (ℝ²), so restricting to ℝ×ℝ matches the intended ambient space. The use of IsConnected (which in Mathlib also requires nonemptiness) is consistent on both sides — the counterexample S must be nonempty, and its interior being \"not connected\" includes the empty case as well as disconnected cases, matching the informal reading. Hence the formalization is faithful.",
+  "duration_ms": 11329,
+  "cost_usd": 0.05075075
+}

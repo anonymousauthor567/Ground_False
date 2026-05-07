@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch12_37.lean",
+  "stem": "brualdi_ch12_37",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to determine the domination number of Q_3, the 3-dimensional cube graph. The Lean formalization correctly defines: (1) Q_3 as the box product of three copies of pathGraph 2, which equals K_2 □ K_2 □ K_2 — the standard 3-hypercube (since pathGraph 2 = ⊤ in Mathlib); (2) IsDominatingSet by the standard condition that every non-member has a neighbor in the set; (3) dominationNum as the minimum cardinality of a finite dominating set via an iInf over Finset V with .toNat. The \"determine\" problem is encoded using the standard pattern of an abbreviated solution constant (brualdi_ch12_37_solution : ℕ := sorry) that the solver will instantiate with the numeric answer. This is a faithful encoding of the informal statement.",
+  "duration_ms": 206355,
+  "cost_usd": 0.61535475
+}

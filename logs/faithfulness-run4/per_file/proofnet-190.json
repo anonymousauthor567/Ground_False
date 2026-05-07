@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-190.lean",
+  "stem": "proofnet-190",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines nilpotent as \"some power of x is zero\" and asks to prove that 1+x is a unit in R. The Lean signature uses Mathlib's `IsNilpotent x`, which is defined as `∃ n : ℕ, x ^ n = 0`, exactly matching the informal definition. `[Ring R]` in Mathlib provides a ring with multiplicative identity 1, which is Artin's standard convention for rings. The conclusion `IsUnit (1 + x)` literally asserts that `1 + x` is a unit. The quantifier structure (implicit over R and x, with hypothesis on x) matches the informal \"if x is nilpotent then 1+x is a unit\". No hypotheses are added or dropped, and the types align.",
+  "duration_ms": 110549,
+  "cost_usd": 0.3193955
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one: the hypothesis `hM` corresponds to \"every element not in M is a unit\", and the conclusion captures both \"M is maximal\" and \"M is the only maximal ideal\" via `IsMaximal M ∧ ∀ N, IsMaximal N → N = M`. The extra hypothesis `hProper : ∃ x : R, x ∉ M` (i.e., M ≠ ⊤) is an implicit premise needed for truth: in Mathlib (`RingTheory/Ideal/Maximal.lean`), `IsMaximal` requires `IsCoatom`, so M = ⊤ cannot be maximal, yet M = ⊤ would vacuously satisfy `hM`. Without `hProper`, the statement is literally false. Any mathematician reading Artin's problem implicitly understands M to be a proper ideal, since the conclusion \"M is a maximal ideal\" requires it. This is analogous to the worked example about 2^r+1 — surfacing an implicit premise needed for the claim to be true is faithful, not weaker.",
+  "duration_ms": 125730,
+  "cost_usd": 0.43915499999999996
+}

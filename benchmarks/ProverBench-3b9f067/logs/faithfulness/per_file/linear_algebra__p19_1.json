@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p19_1.lean",
+  "stem": "linear_algebra__p19_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is an \"if and only if\" (biconditional): AX = B has a solution ⟺ r(A) = r(A, B). The Lean signature uses a one-way implication `→`, formalizing only the forward direction: if a solution exists, then rank A = rank (fromColumns A B). The converse direction (the substantive part — rank equality implies existence of a solution) is omitted entirely. The types and concepts used (Matrix.rank as defined in Mathlib/Data/Matrix/Rank.lean, and fromColumns as the column-concatenation encoding the augmented matrix [A | B] from Mathlib/Data/Matrix/ColumnRowPartitioned.lean) correctly match the informal content, but the overall logical form is a strict weakening of an iff to a single implication. Hence the Lean statement is logically implied by the informal claim but does not imply it.",
+  "duration_ms": 63307,
+  "cost_usd": 0.16965600000000003
+}

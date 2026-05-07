@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for infinitely many integers n such that n, n+1, n+2 are each sums of two squares of integers. The Lean statement uses ℕ for n and the witnesses, but this is equivalent: (a) since squares are nonnegative, any integer that is a sum of two squares of integers must itself be nonnegative, so \"integers n\" effectively means natural numbers; (b) since (-a)² = a², the sum of squares of two integers equals the sum of squares of their absolute values, which are natural numbers. The \"infinitely many\" is correctly expressed via the standard ∀ N, ∃ n > N formulation over ℕ. The Fin 6 → ℕ encoding faithfully provides six witnesses for the three sum-of-two-squares decompositions. No hypotheses are added or dropped beyond this equivalent reformulation.",
+  "duration_ms": 15615,
+  "cost_usd": 0.058025499999999994
+}

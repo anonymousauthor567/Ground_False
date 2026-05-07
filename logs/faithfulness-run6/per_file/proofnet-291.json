@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The local definition `is_topology` matches the standard topology axioms (univ ∈ T, closed under binary intersection, closed under arbitrary unions), consistent with Mathlib's `TopologicalSpace` class. The Lean signature correctly encodes: (1) an arbitrary family of topologies on X indexed by I, (2) existence (and uniqueness via `∃!`) of a topology T' that (3) is contained in every T i, and (4) contains every other topology contained in all T i — i.e., it is the largest such. This is exactly the informal claim of a unique largest topology contained in all T_α. Uniqueness from `∃!` is automatically implied by the \"largest\" universal property (by antisymmetry of ⊆), so using `∃!` vs `∃` is logically equivalent here and does not make the statement stronger. The quantifier structure, types, and content all align.",
+  "duration_ms": 194169,
+  "cost_usd": 0.2682475
+}

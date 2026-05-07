@@ -1,0 +1,8 @@
+{
+  "file": "52.lean",
+  "stem": "52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the claim. `RatFunc (GaloisField p m)` is $\\mathbb{F}_q(X)$, and `(GaloisField p m)⟮X^n⟯` is the intermediate subfield $\\mathbb{F}_q(X^n)$. Setting $t := X^n$, we have $X$ is an $n$-th root of $t$, so $\\mathbb{F}_q(X)/\\mathbb{F}_q(X^n)$ is precisely $\\mathbb{F}_q(t^{1/n})/\\mathbb{F}_q(t)$ — a standard realization. `IsGalois F E` means E/F is Galois, with arguments in the correct order (intermediate field as base, full rational function field as extension). The RHS `p^m ≡ 1 [MOD n]` correctly expresses $q \\equiv 1 \\pmod n$ with $q = p^m$. The biconditional holds mathematically: if $\\gcd(n,p)=1$ then Galois iff $n | q-1$; if $p | n$ then neither separability nor the congruence holds. The hypotheses `1 ≤ n` and `1 ≤ m` merely surface implicit premises (that $t^{1/n}$ is defined and $q$ is a genuine prime power), not narrowing the intended scope.",
+  "duration_ms": 164396,
+  "cost_usd": 0.48206099999999996
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "informal": "Let $X$ be a topological space; let $A$ be a subset of $X$. Suppose that for each $x \\in A$ there is an open set $U$ containing $x$ such that $U \\subset A$. Show that $A$ is open in $X$.",
+  "lean": "\ntheorem Munkres_exercise_13_1 (X : Type*) [TopologicalSpace X] (A : Set X)\n  (h1 : ∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A) :\n  IsOpen A",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature introduces a topological space X, a subset A, and the hypothesis that for every x in A there exists an open set U containing x with U ⊆ A, then concludes IsOpen A. This matches the informal statement exactly: same hypothesis (pointwise local openness), same conclusion (A is open), and no extra assumptions like nonemptiness or finiteness. This is a standard, faithful encoding.",
+  "duration_ms": 5196,
+  "cost_usd": 0.040848
+}

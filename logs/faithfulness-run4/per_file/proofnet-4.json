@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-4.lean",
+  "stem": "proofnet-4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal claim. The hypothesis `Set.Countable S ∧ S.Infinite ∧ span K S = ⊤` precisely captures \"V is spanned by a countably infinite set\". The conclusion `Countable ι` for an arbitrary linearly independent family `R : ι → V` corresponds to \"finite or countably infinite\", since Mathlib's `Countable` typeclass includes both finite types and countably infinite types (it asserts existence of an injection into ℕ). Since K is a field (hence nontrivial), `LinearIndependent K R` forces `R` to be injective (`LinearIndependent.injective`), so the family encoding is equivalent to the subset encoding: any linearly independent subset T ⊆ V corresponds to the injective family `Subtype.val : T → V`, and conversely the range of any linearly independent family is a linearly independent subset of the same cardinality as ι. The universal quantification over ι and R matches \"every linearly independent subset\".",
+  "duration_ms": 319565,
+  "cost_usd": 0.9000597499999999
+}

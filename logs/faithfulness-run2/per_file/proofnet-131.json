@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-131.lean",
+  "stem": "proofnet-131",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if the product ∏ X_α is regular (assuming each X_α is nonempty), then each X_α is regular. The Lean signature takes an index type ι, a family of topological spaces X i, the hypothesis that each X i is Nonempty, and the hypothesis that the product Π i, X i is a RegularSpace, then concludes ∀ i, RegularSpace (X i). All of the hypotheses and the conclusion correspond directly: the nonempty assumption, the regularity of the product, and the regularity of each factor. The universal quantification over the index i is also preserved. This is a faithful formalization.",
+  "duration_ms": 40621,
+  "cost_usd": 0.035812250000000004
+}

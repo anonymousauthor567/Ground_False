@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: if H has finite index n, there exists a normal subgroup K of G with K ≤ H and |G:K| ≤ n!. In Mathlib, `Subgroup.index` returns 0 when the index is infinite, so \"H has finite index n\" is correctly encoded by `H.index = n` together with `n > 0` — this is making explicit the implicit premise that n is the actual (positive) finite index. The conclusion `∃ K ≤ H, K.Normal ∧ 0 < K.index ∧ K.index ≤ n.factorial` matches \"there is a normal subgroup K ≤ H with |G:K| ≤ n!\"; the `0 < K.index` condition again makes explicit the implicit premise that K has finite index (without it, the inequality would be trivially satisfied by any subgroup with infinite index in Mathlib's convention, e.g., K = ⊥ for infinite G, making the theorem vacuous). The quantifier structure, types, and mathematical content all align, and the added hypotheses serve only to surface premises inherent to the mathematical meaning of \"finite index\" notation.",
+  "duration_ms": 193768,
+  "cost_usd": 0.6423365
+}

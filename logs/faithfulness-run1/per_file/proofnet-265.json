@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-265.lean",
+  "stem": "proofnet-265",
+  "informal": "Prove that if $p > q$ are two primes such that $q \\mid p - 1$, then any two nonabelian groups of order $pq$ are isomorphic.",
+  "lean": "\ntheorem Herstein_exercise_2_8_15 {G H: Type*} [Fintype G] [Group G] [Fintype H] [Group H]\n  (hG_nonab : ∃ x y : G, x * y ≠ y * x) (hH_nonab : ∃ x y : H, x * y ≠ y * x)\n  {p q : ℕ} (hp : Nat.Prime p) (hq : Nat.Prime q)\n  (h : p > q) (h1 : q ∣ p - 1) (hG : card G = p*q) (hH : card H = p*q) :\n  Nonempty (G ≃* H)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: G and H are finite groups (Fintype + Group), both nonabelian (encoded as existence of non-commuting elements, which is the standard negation of commutativity), p and q are primes with p > q and q ∣ p − 1, and both groups have order pq. The conclusion Nonempty (G ≃* H) gives a multiplicative isomorphism, matching \"isomorphic.\" The quantifier structure (\"any two nonabelian groups\") is correctly rendered by taking arbitrary G and H with these properties and concluding they are isomorphic. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 8559,
+  "cost_usd": 0.04773575000000001
+}

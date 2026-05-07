@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1985_b3.lean",
+  "stem": "putnam_1985_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures the informal claim. The informal matrix indexed by positive integers is encoded as `a : ℕ → ℕ → ℕ` with the constraint `m > 0 ∧ n > 0` applied in the counting hypothesis `ha` and in the conclusion, effectively ignoring the \"phantom\" row/column at index 0. The hypothesis `apos` adds positivity for all ℕ×ℕ entries (including the phantoms), but this does not affect the informal content since the phantom entries are not used in `ha` or the conclusion; any informal matrix extends trivially to such an `a` and vice versa. The counting hypothesis `{(m, n) | m > 0 ∧ n > 0 ∧ a m n = k}.encard = 8` correctly formalizes \"each positive integer appears exactly eight times\" using `Set.encard` (the ℕ∞-valued cardinality). The conclusion `∃ m n, m > 0 ∧ n > 0 ∧ a m n > m * n` matches the informal conclusion exactly.",
+  "duration_ms": 128894,
+  "cost_usd": 0.334384
+}

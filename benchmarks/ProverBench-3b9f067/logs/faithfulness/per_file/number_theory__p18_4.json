@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_4.lean",
+  "stem": "number_theory__p18_4",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asserts that -4 is the greatest negative element of B, which requires: (a) -4 ∈ B, (b) -4 < 0, and (c) for all b ∈ B with b < 0, b ≤ -4. The only non-axiom theorem in the Lean file is `neg_four_in_B : -4 ∈ B`, which only establishes part (a). It does not encode the maximality/greatest-negative property, so the Lean statement is strictly weaker: it is implied by the informal claim but does not imply it (one could have -4 ∈ B while, say, -3 or -2 were also in B and would be \"greater negative\" elements). The auxiliary axioms are not the theorem being proved, and in any case they do not express the \"greatest negative element\" claim either.",
+  "duration_ms": 18032,
+  "cost_usd": 0.05718625
+}

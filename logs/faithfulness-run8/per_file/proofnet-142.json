@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one faithfully. `ContDiff ℝ 3 f` expresses that f is C^3, which is exactly \"continuous third derivative\" (since having a continuous f''' implies f'', f', f are all continuous and differentiable). The conclusion `∃ a : ℝ, (f a) * (deriv f a) * (iteratedDeriv 2 f a) * (iteratedDeriv 3 f a) ≥ 0` correctly encodes $\\exists a, f(a) \\cdot f'(a) \\cdot f''(a) \\cdot f'''(a) \\geq 0$, since `deriv f a` equals `iteratedDeriv 1 f a` by Mathlib's `iteratedDeriv_one`, and `iteratedDeriv 2 f`, `iteratedDeriv 3 f` correspond to $f''$ and $f'''$ respectively. Quantifier structure, hypothesis, conclusion, and types all align exactly.",
+  "duration_ms": 78990,
+  "cost_usd": 0.30325625
+}

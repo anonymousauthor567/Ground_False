@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that ∑ 1/n over squarefree integers diverges. The Lean formalization uses the subtype {p : ℤ // Squarefree p}, which spans all nonzero squarefree integers in ℤ (including negatives and ±1, excluding 0 since 0 is not squarefree). While the informal proof uses positive squarefree integers ℕ*, the two claims are logically equivalent: `Summable` in ℚ amounts to unconditional/absolute convergence, so Summable over all squarefree ℤ is equivalent (up to a factor of 2) to Summable over positive squarefree. One direction uses `Summable.comp_injective` to restrict to positive squarefree; the other uses that absolute summability over ℤ-squarefree equals 2 × positive squarefree harmonic. The types differ but the mathematical content is identical — the ground truth proof in fact establishes the Lean claim by noting that primes (a subset of squarefree integers) already have divergent reciprocal sum.",
+  "duration_ms": 316140,
+  "cost_usd": 0.8504809999999999
+}

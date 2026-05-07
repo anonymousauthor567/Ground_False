@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "theorem_name": "Shakarchi_exercise_2_9_corrected",
+  "informal": "Let $\\Omega$ be a bounded open subset of $\\mathbb{C}$, and $\\varphi: \\Omega \\rightarrow \\Omega$ a holomorphic function. Prove that if there exists a point $z_{0} \\in \\Omega$ such that $\\varphi\\left(z_{0}\\right)=z_{0} \\quad \\text { and } \\quad \\varphi^{\\prime}\\left(z_{0}\\right)=1$ then $\\varphi$ is linear.",
+  "lean": "theorem Shakarchi_exercise_2_9_corrected\n    {f : ℂ → ℂ} {c : ℂ} {R : ℝ} (hR : 0 < R)\n    (hf : DifferentiableOn ℂ f (Metric.ball c R))\n    (h_maps : Set.MapsTo f (Metric.ball c R) (Metric.ball c R))\n    (hfix : f c = c) (hderiv : deriv f c = 1) :\n    ∃ (f_lin : ℂ →L[ℂ] ℂ), ∀ x ∈ Metric.ball c R, f x = f_lin x",
+  "verdict": "weaker",
+  "reasoning": "The informal statement assumes Ω is an arbitrary bounded open subset of ℂ. The Lean signature replaces this generality with a metric ball `Metric.ball c R` of radius R > 0 around c, which is a very special kind of bounded open set. So the Lean theorem is a special case of the informal claim and does not establish the result for arbitrary bounded open Ω. Additionally, the conclusion \"f equals some ℂ-linear continuous map on the ball\" is logically equivalent (given f(c)=c) to f being the identity, which matches the standard reading of \"φ is linear\" in this exercise, so the conclusion is fine. The strict mismatch is on the domain hypothesis: ball vs. arbitrary bounded open set, making the Lean version strictly weaker.",
+  "duration_ms": 28479,
+  "cost_usd": 0.105717
+}

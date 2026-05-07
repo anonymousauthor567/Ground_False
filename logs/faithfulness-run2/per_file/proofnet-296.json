@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-296.lean",
+  "stem": "proofnet-296",
+  "verdict": "faithful",
+  "reasoning": "The informal statement from Munkres refers to Y as an \"ordered set\" (which in Munkres means a simply/linearly ordered set) equipped with the order topology. The Lean signature encodes this with `LinearOrder Y` and `OrderTopology Y`, which is the standard Mathlib representation. The hypotheses `Continuous f` and `Continuous g` match, and the conclusion `IsClosed {x | f x ≤ g x}` is exactly the set described informally. No extra assumptions (e.g., Fintype, T2, density) are added, and no required assumptions are dropped. This is a faithful formalization.",
+  "duration_ms": 8380,
+  "cost_usd": 0.03656125
+}

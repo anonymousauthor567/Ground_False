@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that no finite group of order pq (with p, q prime) is simple. The Lean statement universally quantifies over a finite group G with hypotheses that p and q are prime and that |G| = p*q, and concludes `IsSimpleGroup G → false`, i.e. that G is not simple. Modulo the minor syntactic quirk of lowercase `false` (which, read as the proposition `False`, makes the conclusion exactly `¬ IsSimpleGroup G`), this matches the informal claim. It does not require p ≠ q (so it covers the p² case as the informal statement does), and Mathlib's `IsSimpleGroup` includes nontriviality, which aligns with the standard informal reading. No extra or missing hypotheses, and the quantifier structure over G is correct.",
+  "duration_ms": 40337,
+  "cost_usd": 0.140276
+}

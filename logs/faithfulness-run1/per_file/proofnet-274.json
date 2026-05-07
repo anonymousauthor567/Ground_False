@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-274.lean",
+  "stem": "proofnet-274",
+  "informal": "Prove that $f(x) = x^3 + 3x + 2$ is irreducible in $Q[x]$.",
+  "lean": "\ntheorem Herstein_exercise_4_6_2 : Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the polynomial x^3 + 3x + 2 is irreducible in ℚ[x]. The Lean signature states `Irreducible (X^3 + 3*X + 2 : Polynomial ℚ)`, which is exactly the assertion that this polynomial, viewed in ℚ[x], is irreducible. The polynomial expression and the ambient ring match. Mathlib's `Irreducible` predicate for polynomials over a field corresponds to the standard mathematical notion of irreducibility. There are no extra hypotheses or missing assumptions.",
+  "duration_ms": 5462,
+  "cost_usd": 0.04189625
+}

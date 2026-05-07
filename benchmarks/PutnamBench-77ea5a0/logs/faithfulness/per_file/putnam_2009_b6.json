@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b6.lean",
+  "stem": "putnam_2009_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely. The sequence a : ℕ → ℤ with a 0 = 0 and a 2009 = n matches the requirement \"sequence of integers a_0, ..., a_2009 with a_0 = 0 and a_{2009} = n\". The quantifier \"∀ i : Icc 1 2009\" covers exactly the terms after a_0. Case (1) \"earlier term plus 2^k\" is encoded as ∃ j k : ℕ, j < i ∧ a i = a j + 2^k, with k : ℕ enforcing the \"nonnegative integer\" condition automatically. Case (2) \"b mod c for earlier positive terms b and c\" is encoded as ∃ b c : ℕ with b < i, c < i, a b > 0, a c > 0, and a i = a b % a c — the b, c in Lean are indices while their values a b, a c play the role of the informal \"b\" and \"c\" (positive terms), which is a naming difference but semantically identical. The integer `%` in Lean (`Int.emod`) with a c > 0 yields a value in [0, a c), matching the bracket comment \"0 ≤ (b mod c) < c\". No hypotheses are added or dropped.",
+  "duration_ms": 319483,
+  "cost_usd": 0.9369567499999999
+}

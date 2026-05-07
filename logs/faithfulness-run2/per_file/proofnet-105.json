@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-105.lean",
+  "stem": "proofnet-105",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. The ambient setup (topological space X, subset A) matches. The hypothesis `∀ x ∈ A, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ U ⊆ A` directly encodes \"for each x ∈ A there is an open set U containing x such that U ⊆ A\", with the correct quantifier order and all three conjuncts (x ∈ U, U open, U ⊆ A). The conclusion `IsOpen A` matches \"A is open in X\". No extra hypotheses (e.g., no Fintype, T2, etc.) are assumed, and none are dropped.",
+  "duration_ms": 7168,
+  "cost_usd": 0.03480975
+}

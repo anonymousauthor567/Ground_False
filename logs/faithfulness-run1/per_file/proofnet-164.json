@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "informal": "If $f$ is a continuous mapping of a metric space $X$ into a metric space $Y$, prove that $f(\\overline{E}) \\subset \\overline{f(E)}$ for every set $E \\subset X$. ($\\overline{E}$ denotes the closure of $E$).",
+  "lean": "\ntheorem Rudin_exercise_4_2a\n  {α : Type} [MetricSpace α]\n  {β : Type} [MetricSpace β]\n  (f : α → β)\n  (h₁ : Continuous f)\n  : ∀ (x : Set α), f '' (closure x) ⊆ closure (f '' x)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature states: for metric spaces α and β, a continuous function f, and every set x ⊆ α, f(closure x) ⊆ closure(f(x)). This matches the informal statement exactly: continuous map between metric spaces, universal quantification over subsets E ⊆ X, and the conclusion f(Ē) ⊆ closure(f(E)). The image notation `f '' x` correctly represents f(E), and `closure` matches the topological closure. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 5468,
+  "cost_usd": 0.042042249999999996
+}

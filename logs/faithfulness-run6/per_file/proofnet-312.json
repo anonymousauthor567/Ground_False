@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-312.lean",
+  "stem": "proofnet-312",
+  "verdict": "faithful",
+  "reasoning": "Munkres defines \"regular space\" to include the T₁ axiom (\"suppose one-point sets are closed... X is said to be regular if...\"), whereas Mathlib's `RegularSpace` class (at `Mathlib/Topology/Separation/Regular.lean:79`) only asserts the separation of closed sets from points and does NOT include T₁. So to faithfully capture Munkres' notion of \"regular,\" one needs `[RegularSpace X] [T1Space X]` — this is surfacing an implicit premise in Munkres' definition, not adding an extra restriction. Without T₁ the claim is actually false (consider the indiscrete topology on two points, which is `RegularSpace` but where closures of any nonempty opens are not disjoint). The `x ≠ y` hypothesis matches \"pair of points\" (which implicitly means distinct, else the conclusion is impossible). The conclusion `∃ U V open, x ∈ U, y ∈ V, closure U ∩ closure V = ∅` correctly captures \"neighborhoods whose closures are disjoint.\" Thus the formalization is faithful.",
+  "duration_ms": 132443,
+  "cost_usd": 0.401897
+}

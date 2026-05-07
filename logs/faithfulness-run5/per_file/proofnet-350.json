@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-350.lean",
+  "stem": "proofnet-350",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks for E ⊂ ℝ and a continuous f : E → ℝ with no continuous extension g : ℝ → ℝ. The Lean statement uses a total f : ℝ → ℝ with `ContinuousOn f E`, which is equivalent to saying the restriction f|E : E → ℝ is continuous (per Mathlib's `continuousOn_iff_continuous_restrict`). The two encodings are equivalent: given a partial continuous f : E → ℝ, we can extend arbitrarily to a total f' : ℝ → ℝ that is ContinuousOn E, and the non-existence of a continuous g : ℝ → ℝ agreeing on E is preserved in both directions. The non-extension condition \"∀ x ∈ E, f x = g x\" captures \"g extends f on E\" correctly. This is a standard and faithful way to encode \"partial function on E\" using a total function restricted to E.",
+  "duration_ms": 99371,
+  "cost_usd": 0.4583157500000001
+}

@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-308.lean",
+  "stem": "proofnet-308",
+  "theorem_name": "Munkres_exercise_28_4_corrected",
+  "informal": "A space $X$ is said to be countably compact if every countable open covering of $X$ contains a finite subcollection that covers $X$. Show that for a $T_1$ space $X$, countable compactness is equivalent to limit point compactness.",
+  "lean": "\ntheorem Munkres_exercise_28_4_corrected {X : Type*} [TopologicalSpace X]\n    (hT1 : T1Space X) : countably_compact X → limit_point_compact_strong X",
+  "verdict": "weaker",
+  "reasoning": "The informal statement asks to show that countable compactness is *equivalent* to limit point compactness for a T1 space, i.e., a biconditional. The Lean signature only states one direction: `countably_compact X → limit_point_compact_strong X`. The reverse implication (limit point compactness implies countable compactness in a T1 space) is omitted. Hence the Lean statement is implied by the informal one but does not imply it, making it strictly weaker.",
+  "duration_ms": 5976,
+  "cost_usd": 0.0426665
+}

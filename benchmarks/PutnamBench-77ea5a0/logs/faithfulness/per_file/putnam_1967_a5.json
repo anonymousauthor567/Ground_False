@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_a5.lean",
+  "stem": "putnam_1967_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean encodes the Euclidean plane as `EuclideanSpace ℝ (Fin 2)`, convexity via `Convex ℝ R`, and \"exactly 1 unit apart\" via `dist P Q = 1` — all standard and correct. The hypothesis `(MeasureTheory.volume R).toReal > Real.pi / 4` uses the standard Mathlib idiom for \"finite area > π/4\" (since `ENNReal.toReal ∞ = 0`, this implicitly excludes infinite-measure sets). In competition context, \"area greater than π/4\" naturally refers to a finite positive real area — infinite-area convex regions (e.g., half-planes) trivially contain points at distance 1 and are not the intended content of the problem. The existential conclusion `∃ P ∈ R, ∃ Q ∈ R, dist P Q = 1` matches \"contains a pair of points exactly 1 unit apart\" (dist = 1 automatically forces P ≠ Q). The formalization captures the intended mathematical claim without meaningful drift.",
+  "duration_ms": 432115,
+  "cost_usd": 1.18190675
+}

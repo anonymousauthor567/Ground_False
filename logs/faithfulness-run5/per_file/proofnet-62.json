@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-62.lean",
+  "stem": "proofnet-62",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `IsNilpotent` (defined as `∃ n, x^n = 0`), which for ideals matches the informal definition \"N^n is zero for some n ≥ 1\" (since in a non-trivial ring the n=0 case gives ⊤ ≠ ⊥, and in the trivial ring both conditions coincide). The ideal `span ({↑p} : Set (ZMod (p^m)))` is precisely the image of `pℤ` in `ZMod (p^m) ≅ ℤ/p^mℤ`, i.e., the ideal `pℤ/p^mℤ` described in the informal statement. The hypothesis `p.Prime` mirrors the informal \"prime p\". No extra hypotheses are dropped or added (m is left as an arbitrary natural number, which is fine since the claim holds trivially when m = 0 and is the non-trivial case when m ≥ 1). Types, quantifier structure, and conclusion all align exactly with the informal claim.",
+  "duration_ms": 137024,
+  "cost_usd": 0.38868850000000005
+}

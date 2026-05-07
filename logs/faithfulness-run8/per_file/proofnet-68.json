@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-68.lean",
+  "stem": "proofnet-68",
+  "verdict": "faithful",
+  "reasoning": "The polynomial expression `X^6 + 30*X^5 - 15*X^3 + 6*X - 120` exactly matches the informal polynomial $x^6+30x^5-15x^3+6x-120$. The type `Polynomial ℤ` corresponds exactly to $\\mathbb{Z}[x]$. Mathlib's `Irreducible` on a commutative monoid is defined as \"not a unit, and every factorization p = a*b has a or b a unit\", which is precisely the standard definition of irreducibility in the ring $\\mathbb{Z}[x]$ (the units of $\\mathbb{Z}[x]$ are $\\pm 1$). There are no added or dropped hypotheses, and no quantifier-structure changes. The Lean statement asserts exactly what the informal statement does.",
+  "duration_ms": 37736,
+  "cost_usd": 0.13642224999999997
+}

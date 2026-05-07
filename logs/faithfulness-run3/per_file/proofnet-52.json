@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each element of the informal claim exactly: a finite group G with card G = 312 (the order 312 hypothesis), the existential over a prime p (p.Prime) dividing the order (p ∣ card G), and the existence of a Sylow p-subgroup P of G that is normal (P.Normal). The quantifier structure ∃ p, ∃ P : Sylow p G matches \"for some prime p... has a normal Sylow p-subgroup.\" The `p.Prime ∧ p ∣ card G` conditions correctly restrict p to the primes 2, 3, 13 dividing 312, which is the standard reading of \"prime p dividing its order.\" No hypotheses are added or dropped, and no quantifier or type has drifted.",
+  "duration_ms": 50498,
+  "cost_usd": 0.20534875
+}

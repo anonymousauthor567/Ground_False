@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-277.lean",
+  "stem": "proofnet-277",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"a is algebraic over ℚ of degree at most 80\" as the existence of a nonzero polynomial q : Polynomial ℚ with q.natDegree ≤ 80 and aeval a q = 0. This matches Mathlib's definition of IsAlgebraic (∃ p ≠ 0, aeval x p = 0) with the additional degree bound, which is the standard mathematical meaning of \"algebraic of degree ≤ n\" — equivalent to the minimal polynomial having degree ≤ n. For nonzero polynomials, natDegree agrees with the usual notion of degree. The hypothesis correctly encodes the polynomial equation p(a) = 0 using (Real.sqrt 2 : ℂ), etc., for the irrational coefficients. The quantifier structure is preserved: for any a satisfying the equation, the degree bound holds.",
+  "duration_ms": 68430,
+  "cost_usd": 0.23743550000000002
+}

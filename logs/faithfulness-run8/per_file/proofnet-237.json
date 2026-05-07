@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-237.lean",
+  "stem": "proofnet-237",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if |G|=105 then G has a normal Sylow 5-subgroup and a normal Sylow 7-subgroup. The Lean signature takes `{G : Type*} [Fintype G] [Group G]` with `card G = 105` (where `card` is `Fintype.card` due to `open Fintype`), matching |G|=105 for a finite group. The conclusion `(∃ P : Sylow 5 G, P.Normal) ∧ (∃ P : Sylow 7 G, P.Normal)` asserts the existence of a normal Sylow 5-subgroup and a normal Sylow 7-subgroup. In Mathlib, `Sylow p G` is a structure extending `Subgroup G`, so `P.Normal` is `Subgroup.Normal` applied to the underlying subgroup — exactly \"normal Sylow p-subgroup\". This matches the informal claim exactly (and is equivalent, via Sylow's theorems, to uniqueness of the Sylow p-subgroup).",
+  "duration_ms": 101674,
+  "cost_usd": 0.44359925
+}

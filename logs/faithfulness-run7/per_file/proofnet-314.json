@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary index type `ι` and family `X : ι → Type*` with topologies, assumes each factor is nonempty (`∀ i, Nonempty (X i)`) and that the product (which automatically carries the product topology via `Pi.topologicalSpace`) is Hausdorff (`T2Space (Π i, X i)`), and concludes that each factor is Hausdorff (`∀ i, T2Space (X i)`). Mathlib's `T2Space` is exactly the Hausdorff axiom. The hypotheses, conclusion, and quantifier structure precisely match the informal \"if $\\prod X_\\alpha$ is Hausdorff and each $X_\\alpha$ is nonempty, then each $X_\\alpha$ is Hausdorff\". Nothing has been added or dropped.",
+  "duration_ms": 57282,
+  "cost_usd": 0.232736
+}

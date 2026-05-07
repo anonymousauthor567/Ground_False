@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"U⊥ = {0} ↔ U = V\" taken literally in an arbitrary inner product space is false: in infinite-dimensional Hilbert space, any dense proper subspace (e.g. finitely-supported sequences in ℓ²) has trivial orthogonal complement but is not the whole space. For the iff to hold, one needs either finite-dimensionality (Axler's textbook context, where every subspace is automatically closed and V is complete) or the Hilbert + closed subspace assumption. The Lean formalization uses the latter via `CompleteSpace V` and `IsClosed (U : Set V)`, which is exactly the hypothesis under which Mathlib's `Submodule.orthogonal_eq_bot_iff` (Kᗮ = ⊥ ↔ K = ⊤ under `HasOrthogonalProjection`) is stated. These added hypotheses surface the implicit premise needed for the statement to be true, rather than narrowing its scope. The conclusion `U.orthogonal = ⊥ ↔ U = ⊤` matches \"U⊥ = {0} ↔ U = V\" exactly.",
+  "duration_ms": 348114,
+  "cost_usd": 1.0106435
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-287.lean",
+  "stem": "proofnet-287",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures Ireland-Rosen exercise 5.28: for a prime p ≡ 1 (mod 4), 2 is a biquadratic residue mod p iff p = A² + 64B². The primality of p is an implicit premise from the context (the chapter on quadratic/biquadratic reciprocity where p conventionally denotes a prime), which the Lean version correctly surfaces. The use of ℕ for x is equivalent to ℤ since Nat.ModEq captures residue classes faithfully. Using ℕ for A, B is equivalent to ℤ because A² = (-A)², so sign doesn't matter in a sum-of-squares representation. The iff structure matches, and no hypothesis is silently added or removed beyond making the prime assumption explicit.",
+  "duration_ms": 40169,
+  "cost_usd": 0.13298600000000002
+}

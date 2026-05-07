@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-18.lean",
+  "stem": "proofnet-18",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Axler 4.4. The hypothesis `hm : m = p.degree` (with m : ℕ coerced into WithBot ℕ) correctly encodes \"p has degree m\" and automatically forces p ≠ 0, so the extra `hp : p ≠ 0` is redundant rather than restrictive. The LHS `card (p.rootSet ℂ) = m` expresses \"p has m distinct roots\" because Mathlib's `rootSet` is defined as the `toFinset` of `aroots`, i.e., the set of distinct roots. The RHS `Disjoint (p.rootSet ℂ) ((derivative p).rootSet ℂ)` expresses that p and p' have no common roots (empty intersection). Both directions of the iff match the informal biconditional, and edge cases (m = 0 giving a nonzero constant polynomial) work correctly.",
+  "duration_ms": 170482,
+  "cost_usd": 0.4536175
+}

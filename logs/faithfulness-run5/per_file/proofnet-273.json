@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-273.lean",
+  "stem": "proofnet-273",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes `p = X^3 - 2` and `q = X^3 + 2` in `Polynomial (ZMod 7)`, matching $F = \\mathbb{Z}_7$ and the two polynomials in the informal statement. The conjunction `Irreducible p ∧ Irreducible q` captures both irreducibility claims. The third conjunct `Nonempty (Polynomial (ZMod 7) ⧸ Ideal.span {p} ≃+* Polynomial (ZMod 7) ⧸ span {q})` asserts the existence of a ring isomorphism between the quotient rings $F[x]/(p)$ and $F[x]/(q)$; since irreducibility (also asserted) makes these quotients fields, a `RingEquiv` between them is a field isomorphism, matching \"the fields are isomorphic.\" No hypotheses are added or omitted beyond what is stated, and the types and quantifier structure align, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 124994,
+  "cost_usd": 0.36945449999999996
+}

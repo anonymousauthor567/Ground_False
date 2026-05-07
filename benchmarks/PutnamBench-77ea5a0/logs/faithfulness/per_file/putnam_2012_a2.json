@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a2.lean",
+  "stem": "putnam_2012_a2",
+  "verdict": "faithful",
+  "reasoning": "`[CommSemigroup S]` precisely encodes \"a commutative and associative binary operation on the set S\" (the Mathlib `CommSemigroup` class extends `Semigroup` and `CommMagma`, giving associativity and commutativity of `*`). The hypothesis `hS : ∀ x y : S, ∃ z : S, x * z = y` is a verbatim translation of the divisibility assumption. The conclusion `a * c = b * c → a = b` for arbitrary `a b c : S` matches the claim exactly. No extra hypotheses (e.g., Nonempty, Fintype) are imposed, and no needed hypotheses are omitted; the quantifier structure and typing are identical to the informal statement.",
+  "duration_ms": 29117,
+  "cost_usd": 0.1045405
+}

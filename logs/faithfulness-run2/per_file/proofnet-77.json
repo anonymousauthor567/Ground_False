@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-77.lean",
+  "stem": "proofnet-77",
+  "verdict": "faithful",
+  "reasoning": "The informal statement has three components: (1) G is a group of order 6, (2) G is nonabelian, (3) G ≅ S_3. The Lean signature captures each faithfully: `[Group G] [Fintype G]` with `card G = 6` expresses \"finite group of order 6\"; `∃ a b : G, a * b ≠ b * a` is exactly the negation of commutativity, i.e. nonabelian; and `Nonempty (G ≃* Equiv.Perm (Fin 3))` expresses that there exists a group isomorphism between G and the symmetric group on 3 elements (S_3 = Sym({1,2,3}) = Perm (Fin 3)). The quantifier structure, types, and hypotheses all match the informal claim, so this is a strictly faithful formalization.",
+  "duration_ms": 9335,
+  "cost_usd": 0.04192075
+}

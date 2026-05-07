@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: if f is an isometry on a compact metric space X, then f is bijective and hence a homeomorphism. The Lean statement sets up X as a compact metric space and f : X → X an isometry (matching the informal hypotheses exactly), and concludes `Continuous f ∧ Bijective f ∧ IsOpenMap f`. For a self-map between topological spaces, the conjunction \"continuous + bijective + open map\" is logically equivalent to \"is a homeomorphism\" (since a continuous bijection has continuous inverse iff it is an open map). Thus the Lean conclusion exactly captures \"f is a bijection and a homeomorphism\" — it is a standard packaging of the homeomorphism condition rather than a strengthening or weakening. Hence the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 84267,
+  "cost_usd": 0.3116325
+}

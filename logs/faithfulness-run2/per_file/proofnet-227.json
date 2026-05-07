@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim on every component: H is a normal subgroup with index equal to a prime p (encoded via `p : Nat.Primes` and `H.index = p`); the quantification is over all subgroups K of G; the first disjunct `K ≤ H` is verbatim; the condition \"G = HK\" is correctly encoded as `H ⊔ K = ⊤` because H normal makes HK a subgroup equal to the join H ⊔ K; and \"|K : K ∩ H| = p\" corresponds to `(K ⊓ H).relIndex K = p`, since `relIndex` is defined as the index of the subgroupOf-image, giving exactly the index of K ∩ H in K. The logical structure \"A ∨ (B ∧ C)\" is preserved.",
+  "duration_ms": 33211,
+  "cost_usd": 0.139642
+}

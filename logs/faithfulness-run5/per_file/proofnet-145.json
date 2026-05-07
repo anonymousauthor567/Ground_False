@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-145.lean",
+  "stem": "proofnet-145",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim precisely. The function `f : ℝ → ℝ` is defined via `f x = ∑' i, c i * x^i` (tsum), coefficients `c : ℕ → ℝ` are constrained by `hc` to be 0 or 1, the hypothesis `f (2/3) = 3/2` matches, and the conclusion `Irrational (f (1/2))` uses Mathlib's standard `Irrational` predicate (defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`). Since the coefficients are bounded by 1 and |2/3|, |1/2| < 1, the tsum converges absolutely at both points, so f(2/3) and f(1/2) carry their standard mathematical meaning. Defining f globally via tsum does not introduce additional content outside the radius of convergence since only evaluations at 2/3 and 1/2 are used. No hypotheses are dropped or added, and the quantifier structure and types are correct.",
+  "duration_ms": 67662,
+  "cost_usd": 0.238369
+}

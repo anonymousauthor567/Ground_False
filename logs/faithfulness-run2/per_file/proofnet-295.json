@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-295.lean",
+  "stem": "proofnet-295",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes precisely the informal claim. The inner union `⋃ (a b : ℚ) (_ : a < b), {Set.Ioo (a : ℝ) b}` produces exactly the set of nonempty open intervals with rational endpoints, and `Set.image2 (· ×ˢ ·) _ _` produces exactly the collection of products `(a,b) × (c,d)` with `a,b,c,d ∈ ℚ`, `a<b`, `c<d`. `IsTopologicalBasis` on subsets of `ℝ × ℝ` asserts this collection is a basis for the ambient standard product topology, which is the topology on ℝ². Types, quantifier structure, and conclusion all align with the informal statement.",
+  "duration_ms": 26318,
+  "cost_usd": 0.09965974999999998
+}

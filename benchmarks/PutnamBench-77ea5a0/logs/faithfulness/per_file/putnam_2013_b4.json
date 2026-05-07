@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_b4.lean",
+  "stem": "putnam_2013_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces μ, Var, M as abstract ℝ-valued functions characterized by hypotheses that match the informal definitions exactly: (1) `hμ` gives μ f as ∫ x, f x, where the default MeasureSpace on ↥(Icc 0 1) — registered in Mathlib/MeasureTheory/Constructions/UnitInterval.lean as Measure.Subtype.measureSpace, which is a probability measure — yields ∫₀¹ f(x) dx; (2) `hVar` gives Var f = ∫ x, (f x - μ f)² as required; (3) `hM` uses IsGreatest on range (abs ∘ f), which on ℝ uniquely determines M f as max_{x ∈ [0,1]} |f(x)| (the max exists since f is continuous on a compact nonempty set). The final inequality Var(f*g) ≤ 2·Var f·(M g)² + 2·Var g·(M f)² matches the informal conclusion verbatim, using pointwise multiplication on C(Icc 0 1, ℝ). No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 291207,
+  "cost_usd": 1.13032475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. G is an arbitrary group, H and K are arbitrary subgroups with H ≤ K. The phrase \"H is characteristic in K\" is correctly encoded as `(H.subgroupOf K).Characteristic` — in Mathlib, `H.subgroupOf K := H.comap K.subtype`, which views H ∩ K as a subgroup of K; under the hypothesis H ≤ K this is exactly H viewed as a subgroup of K, so asserting it is characteristic in K is the standard, correct translation of \"H is characteristic in K\". \"K is normal in G\" and the conclusion \"H is normal in G\" are directly encoded via `K.Normal` and `H.Normal`. Hypotheses, quantifier structure, and conclusion all match the informal claim.",
+  "duration_ms": 71557,
+  "cost_usd": 0.3772225
+}

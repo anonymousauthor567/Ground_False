@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p10.lean",
+  "stem": "calculus__p10",
+  "verdict": "incomparable",
+  "reasoning": "The Lean statement does not faithfully encode the informal antiderivative claim. In Mathlib, `∫ x, 1 / sqrt (81 - x^2)` is the Bochner integral over all of ℝ with Lebesgue measure (per `Bochner.lean`), which is a definite integral yielding a specific constant (π in this case), not an antiderivative. Moreover, the `x` inside `∫ x, ...` shadows the outer `x` from the signature, so the integrand's `x` is bound while the `x` in `arcsin (x / 9)` is the outer free variable. The resulting statement \"∀ x C : ℝ, (definite integral constant) = arcsin(x/9) + C\" is actually false, while the informal antiderivative claim is true. The two statements describe different mathematical objects (a definite integral value versus a derivative/antiderivative relationship), making them incomparable rather than a strengthening or weakening.",
+  "duration_ms": 258560,
+  "cost_usd": 0.67293275
+}

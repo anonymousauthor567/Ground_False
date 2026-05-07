@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-303.lean",
+  "stem": "proofnet-303",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal claim. `IsConnected C` in Mathlib is `C.Nonempty ∧ IsPreconnected C`; although Munkres's definition of \"connected\" does not explicitly require nonemptiness, the hypothesis `C ∩ A ≠ ∅` already forces `C` to be nonempty, so this distinction does not matter. The two hypotheses `C ∩ A ≠ ∅` and `C ∩ Aᶜ ≠ ∅` correctly encode \"$C$ intersects both $A$ and $X-A$.\" Mathlib's `frontier A = closure A \\ interior A = closure A ∩ closure Aᶜ`, which coincides with Munkres's $\\operatorname{Bd} A$. The conclusion `C ∩ frontier A ≠ ∅` matches \"$C$ intersects $\\operatorname{Bd} A$\". The quantifier structure over the topological space `X`, the set `A`, and the set `C` is correctly preserved.",
+  "duration_ms": 73952,
+  "cost_usd": 0.3459135
+}

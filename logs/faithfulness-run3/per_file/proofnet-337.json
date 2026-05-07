@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "The informal statement concerns the case k=1 in Rudin's exercise, where vectors in R^1 are identified with real numbers, and the dot product reduces to ordinary multiplication. The Lean statement quantifies universally over x : ℝ with x ≠ 0, and denies the existence of y : ℝ with y ≠ 0 and x * y = 0. This matches the informal claim exactly: the hypothesis (x ≠ 0), the quantifier structure (∀ x, ¬∃ y), and the conclusion (y ≠ 0 ∧ x * y = 0 is impossible) all correspond faithfully to the informal statement under the standard identification ℝ^1 ≅ ℝ with dot product as multiplication.",
+  "duration_ms": 11562,
+  "cost_usd": 0.04656125
+}

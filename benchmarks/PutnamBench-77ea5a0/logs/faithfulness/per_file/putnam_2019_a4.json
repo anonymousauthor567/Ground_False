@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_a4.lean",
+  "stem": "putnam_2019_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes Putnam 2019 A4. The domain `EuclideanSpace ℝ (Fin 3)` is $\\mathbb{R}^3$ with Euclidean structure, `Continuous f` matches continuity, and `sphere C 1` in Mathlib is `{y | dist y C = 1}` — the sphere surface (not a ball), matching \"the surface of S\". The 2-dimensional Hausdorff measure `μH[2]` on a 2-sphere in $\\mathbb{R}^3$ gives the standard surface measure (up to a constant that does not affect the \"integral = 0\" condition). Quantifying over all centers `C` captures \"every sphere of radius 1\". The conclusion `f = 0` means pointwise zero (identically 0). Since the solution is `False`, the Lean statement asserts the negation of the question, matching the actual answer \"No, f need not be identically 0\".",
+  "duration_ms": 230864,
+  "cost_usd": 0.40233925
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all components of the informal statement: n ≥ 3 matches k ≥ 3; x, y : EuclideanSpace ℝ (Fin n) represents ℝ^k; ‖x - y‖ = d with d > 0 matches |x - y| = d > 0; r > 0 and 2r > d match the premises; and Set.Infinite {z | ‖z-x‖ = r ∧ ‖z-y‖ = r} precisely encodes \"infinitely many z with |z-x| = |z-y| = r\". The outer `z : EuclideanSpace ℝ (Fin n)` hypothesis is an unused variable that gets shadowed by the bound variable in the set-builder notation; since EuclideanSpace ℝ (Fin n) is always nonempty, this redundant binding doesn't alter the logical strength. The statement is a strictly faithful formalization.",
+  "duration_ms": 115100,
+  "cost_usd": 0.354852
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-115.lean",
+  "stem": "proofnet-115",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal one. The domain [0,1] is encoded as `I := Icc 0 1` with `x : I` coerced to ℝ, and f is typed `ℕ → I → ℝ`. The hypothesis `h : ∀ x n, f n x = ↑x ^ n` completely determines f as $x \\mapsto x^n$, so taking f as an arbitrary function satisfying h is logically equivalent to defining $f_n(x) := x^n$. The conclusion `∀ x, ∃ y, Tendsto (λ n => f n x) atTop (𝓝 y)` precisely captures \"the sequence converges for each x ∈ [0,1]\". No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 33146,
+  "cost_usd": 0.1255095
+}

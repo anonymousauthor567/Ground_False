@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-222.lean",
+  "stem": "proofnet-222",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes all three pieces of the informal claim precisely. `[Fintype G]` encodes \"finite group G\"; `H ≠ ⊤` encodes \"H is a proper subgroup\" (since `⊤` is the whole group in the Subgroup lattice); and the conclusion asserts the existence of M with `M ≠ ⊤` (M ≠ G), `∀ K, M ≤ K → K = M ∨ K = ⊤` (the only subgroups containing M are M and G — this exactly matches the informal definition of maximal subgroup given in the problem), and `H ≤ M` (M contains H). The `M ≤ K → K = M ∨ K = ⊤` formulation is equivalent to `IsCoatom M` in Mathlib (`M ≠ ⊤ ∧ ∀ b, M < b → b = ⊤`). No hypothesis is dropped, added, or altered.",
+  "duration_ms": 73059,
+  "cost_usd": 0.2822075
+}

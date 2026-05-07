@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-332.lean",
+  "stem": "proofnet-332",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over `x : ℝ` and `y : ℚ` with `y ≠ 0`, and concludes that `Irrational x → Irrational (x * y)` (with `y` coerced to ℝ). Mathlib defines `Irrational x := x ∉ Set.range ((↑) : ℚ → ℝ)`, which matches the standard meaning. The `y : ℚ` typing captures exactly \"r is rational\", `h : y ≠ 0` captures \"r ≠ 0\", and `x * y` equals `r * x` up to commutativity of multiplication in ℝ. The quantifier structure and hypotheses match the informal claim exactly, so the formalization is logically equivalent.",
+  "duration_ms": 67488,
+  "cost_usd": 0.2606615
+}

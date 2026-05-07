@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-207.lean",
+  "stem": "proofnet-207",
+  "informal": "Suppose $\\left(e_{1}, \\ldots, e_{m}\\right)$ is an orthonormal list of vectors in $V$. Let $v \\in V$. Prove that $\\|v\\|^{2}=\\left|\\left\\langle v, e_{1}\\right\\rangle\\right|^{2}+\\cdots+\\left|\\left\\langle v, e_{m}\\right\\rangle\\right|^{2}$ if and only if $v \\in \\operatorname{span}\\left(e_{1}, \\ldots, e_{m}\\right)$.",
+  "lean": "\ntheorem Axler_exercise_6_13 {V : Type*} [NormedAddCommGroup V] [RCLike F] [InnerProductSpace F V] {n : ℕ}\n  {e : Fin n → V} (he : Orthonormal F e) (v : V) :\n  ‖v‖^2 = ∑ i : Fin n, ‖⟪v, e i⟫_F‖^2 ↔ v ∈ Submodule.span F (e '' Set.univ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The hypothesis `Orthonormal F e` for `e : Fin n → V` corresponds to \"(e_1, ..., e_m) is an orthonormal list\", v is an arbitrary vector, and the conclusion is the desired iff. On the LHS of the iff, `∑ i : Fin n, ‖⟪v, e i⟫_F‖^2` uses the norm on the scalar field F (with `RCLike F`), which equals |⟨v, e_i⟩|, so this is exactly Σ |⟨v, e_i⟩|². On the RHS, `Submodule.span F (e '' Set.univ)` is the span of the set {e i | i : Fin n}, i.e. span(e_1, ..., e_m). The setup over `RCLike F` correctly covers both real and complex inner product spaces as in Axler.",
+  "duration_ms": 15151,
+  "cost_usd": 0.0749705
+}

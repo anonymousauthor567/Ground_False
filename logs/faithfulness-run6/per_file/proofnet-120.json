@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-120.lean",
+  "stem": "proofnet-120",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal Munkres statement precisely. `A ⊂ (Set.univ : Set X)` in Lean denotes `HasSSubset.SSubset`, i.e., strict subset `A ⊊ univ`, which is exactly \"A is a proper subset of X\" in Munkres's convention. `IsConnected (univ : Set X)` is equivalent to `ConnectedSpace X` via `connectedSpace_iff_univ`, correctly encoding \"X is connected\"; the nonempty component built into `IsConnected` is automatically implied by the existence of a proper subset. The conclusion `IsConnected ((univ : Set (X × Y)) \\ (A ×ˢ B))` correctly represents `(X×Y)−(A×B)` being connected, since `A ×ˢ B` is the set-theoretic product and `univ \\ S = Sᶜ`. Types, quantifier structure (X, Y arbitrary), and set operations all match; no hidden hypotheses are added or dropped.",
+  "duration_ms": 197257,
+  "cost_usd": 0.670173
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "informal": "If $n$ is not a prime, show that $(n-1) ! \\equiv 0(n)$, except when $n=4$.",
+  "lean": "\ntheorem Ireland_Rosen_exercise_3_10 {n : ℕ+} (hn0 : ¬ n.Prime) :\n  Nat.factorial (n-1) ≡ 0 [MOD n] ↔ n ≠ 4",
+  "verdict": "faithful",
+  "reasoning": "The informal claim says: for non-prime n, (n-1)! ≡ 0 (mod n), with n=4 being the sole exception. The Lean signature, under the hypothesis that n is not prime, asserts the biconditional (n-1)! ≡ 0 [MOD n] ↔ n ≠ 4. The forward direction encodes \"if the congruence holds, then n ≠ 4\" (true, since 3! = 6 ≢ 0 mod 4), and the backward direction encodes \"if n ≠ 4 then (n-1)! ≡ 0 mod n\", which is exactly the informal claim. The \"except when n=4\" phrasing naturally means n=4 is a genuine exception where the conclusion fails, matching the iff. Using ℕ+ rather than ℕ is a benign encoding — factorials are defined on ℕ and n must be positive for the statement to make sense; PNat.Prime excludes 1 and the n=1 case is vacuously satisfied. No hypotheses are silently added or removed.",
+  "duration_ms": 20459,
+  "cost_usd": 0.07575775000000001
+}

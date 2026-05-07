@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-206.lean",
+  "stem": "proofnet-206",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal Cauchy–Schwarz-type inequality. With `i : Fin n` in contexts that require ℝ (multiplied by `a i ^ 2 : ℝ` or dividing `b i ^ 2 : ℝ`), Mathlib's binop elaborator propagates the expected type, so `(i + 1)` elaborates as `((↑i : ℝ) + 1)` via the standard `Fin n → ℕ → ℝ` coercion — not Fin's modular addition. As `i.val` ranges over {0,...,n−1}, `(i+1)` ranges over {1,...,n} in ℝ, so the three sums match the informal sums exactly under the reindexing j = i.val + 1: ∑ a_j b_j, ∑ j·a_j², ∑ b_j²/j. The universal quantification over n, a, b is captured by implicit `{n : ℕ}` and `a b : Fin n → ℝ`. The n = 0 case is trivial (0 ≤ 0), so including it does not strengthen the claim. The conclusion is an identical inequality.",
+  "duration_ms": 331645,
+  "cost_usd": 1.20373725
+}

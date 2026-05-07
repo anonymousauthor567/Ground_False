@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2022_b1.lean",
+  "stem": "putnam_2022_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal Putnam 2022 B1. `P : Polynomial ℤ` matches \"polynomial with integer coefficients\"; `Pconst : P.coeff 0 = 0` encodes the implicit \"no constant term\" since the informal P(x) = a₁x + a₂x² + ... + aₙxⁿ starts at x¹; `Podd : Odd (P.coeff 1)` encodes \"a₁ is odd\" since a₁ is precisely the coefficient of x¹; `hB` encodes \"e^{P(x)} = b₀ + b₁x + b₂x² + ... for all x\" as pointwise convergence of the series to Real.exp(aeval x P), where `aeval` correctly lifts the integer polynomial to ℝ via the algebra map; and the conclusion `∀ k : ℕ, b k ≠ 0` matches \"b_k is nonzero for all k ≥ 0\". No hypothesis or conclusion is strengthened or weakened relative to the informal statement.",
+  "duration_ms": 258400,
+  "cost_usd": 0.482324
+}

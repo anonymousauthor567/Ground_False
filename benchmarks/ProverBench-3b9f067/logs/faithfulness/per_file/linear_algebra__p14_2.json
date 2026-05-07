@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p14_2.lean",
+  "stem": "linear_algebra__p14_2",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement claims that similar matrices have equal determinants: ∀ A B, similar A B → det A = det B. However, the Lean `theorem` being stated is `det_inverse`, which says `det(P⁻¹) = (det P)⁻¹` for an invertible matrix P. This is an entirely different proposition — it does not involve A, B, or similarity at all. While the file does define `similar` and includes an axiom `det_product_eq` (which would be useful intermediate facts for proving the informal claim), the only actual theorem stated is a helper lemma about the determinant of an inverse. The informal claim does not imply `det(P⁻¹) = (det P)⁻¹`, nor does that lemma imply the claim about similar matrices having equal determinants. Hence the two statements are logically incomparable.",
+  "duration_ms": 52243,
+  "cost_usd": 0.16173325
+}

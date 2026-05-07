@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1992_b3.lean",
+  "stem": "putnam_1992_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes pairs (x,y) as `Fin 2 → ℝ` with `p 0 = x` and `p 1 = y`. The hypothesis `ha` gives `a p 0 = p 0 = x` and `a p (n+1) = ((a p n)^2 + (p 1)^2) / 2 = (a_n^2 + y^2)/2`, matching the informal recurrence exactly (and uniquely determining `a p` by induction). The volume on `Fin 2 → ℝ` is the product Lebesgue measure, which is the standard 2D area. The set `{p | ∃ L, Tendsto (a p) atTop (𝓝 L)}` is precisely \"the sequence converges\". Since the answer 4 + π is finite, `.toReal` correctly returns the area as a real number. The formalization faithfully captures the informal statement.",
+  "duration_ms": 721368,
+  "cost_usd": 0.4034055
+}

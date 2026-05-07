@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes all three informal ingredients: (1) \"finite set A with |A|>1\" is captured by `[Fintype α]` together with `Fintype.card α > 1`; (2) \"transitive permutation group G on A\" is captured by `G : Subgroup (Equiv.Perm α)` (a permutation group on α) together with `h_tran` which is the standard definition of a transitive action (for every pair a, b there is σ ∈ G mapping a to b); (3) the conclusion \"there is σ ∈ G with σ(a) ≠ a for all a ∈ A\" is directly `∃ σ : G, ∀ a : α, (σ : Equiv.Perm α) a ≠ a`, i.e., G contains a derangement. No extra hypotheses or conclusions are added, and nothing is omitted. This is the standard Jordan theorem and the formalization matches the informal claim exactly.",
+  "duration_ms": 39720,
+  "cost_usd": 0.13106975
+}

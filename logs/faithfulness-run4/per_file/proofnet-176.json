@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-176.lean",
+  "stem": "proofnet-176",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all four components of the informal claim: Ω is open (`IsOpen Ω`), f is holomorphic on Ω (`DifferentiableOn ℂ f Ω`), Re(f) is constant on Ω (`∃ c : ℝ, ∀ z ∈ Ω, (f z).re = c`), and f is constant (`∀ a b : Ω, f a = f b`, which is equivalent to constancy on Ω). The only added hypothesis is `IsPreconnected Ω`, but this is a necessary implicit premise: without connectedness the claim is literally false (e.g., two disjoint disks with f = 0 on one and f = i on the other gives Re(f) constant but f non-constant). In Stein–Shakarchi, the standing convention is that \"Ω\" denotes a region (open and connected); the Lean formalization simply surfaces this convention as `IsPreconnected`, which per the system prompt's worked example is a faithful reading rather than a weakening.",
+  "duration_ms": 69370,
+  "cost_usd": 0.21941699999999997
+}

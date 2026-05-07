@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement introduces two metric spaces α and β, a continuous function f : α → β, and asserts that for every set x ⊆ α, f '' (closure x) ⊆ closure (f '' x). This exactly mirrors the informal claim: X and Y are metric spaces, f is continuous, and f(closure E) ⊆ closure(f(E)) for every E ⊆ X. The universal quantification over sets, the image notation (`f ''`), and `closure` from Mathlib's topology library correctly encode the mathematical content. The only minor difference is using `Type` instead of `Type*`, but this does not affect the mathematical content of the statement. No hypotheses are added or omitted, and the conclusion matches exactly.",
+  "duration_ms": 9853,
+  "cost_usd": 0.043931250000000005
+}

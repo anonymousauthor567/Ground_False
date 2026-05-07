@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-250.lean",
+  "stem": "proofnet-250",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the ring ℤ[x₁,x₂,...]/(x₁x₂, x₃x₄, ...) as MvPolynomial ℕ ℤ ⧸ Ideal.span (range f) where f i = X(2i)·X(2i+1). The 0-indexed pairing (X₀X₁, X₂X₃, X₄X₅, ...) in Lean corresponds to the 1-indexed pairing in the informal statement via the obvious shift of variable indices, yielding isomorphic quotient rings with the same cardinality of minimal primes. `minimalPrimes R` in Mathlib (`Mathlib/RingTheory/Ideal/MinimalPrime/Basic.lean`) is defined as `Ideal.minimalPrimes ⊥`, the set of minimal prime ideals of the ring R. `Infinite` applied to this Set uses subtype coercion and correctly expresses \"infinitely many minimal primes\". The hypothesis `hf` merely binds `f` to the intended function, so no extra premises are added or removed.",
+  "duration_ms": 196792,
+  "cost_usd": 0.5323875
+}

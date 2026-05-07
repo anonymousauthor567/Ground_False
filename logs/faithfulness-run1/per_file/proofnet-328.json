@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-328.lean",
+  "stem": "proofnet-328",
+  "theorem_name": "Putnam_exercise_2001_a5",
+  "informal": "Prove that there are unique positive integers $a, n$ such that $a^{n+1}-(a+1)^n=2001$.",
+  "lean": "theorem Putnam_exercise_2001_a5 :\n    ∃! p : ℕ × ℕ, p.1 > 0 ∧ p.2 > 0 ∧ p.1^(p.2 + 1) - (p.1 + 1)^(p.2) = 2001",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes the pair (a, n) as p : ℕ × ℕ with p.1, p.2 > 0, exactly matching \"positive integers a, n\". The equation a^(n+1) - (a+1)^n = 2001 uses ℕ truncated subtraction, but since the required value is the positive number 2001, any solution in ℕ must satisfy a^(n+1) ≥ (a+1)^n + 2001, in which case the truncated subtraction agrees with integer subtraction; conversely any integer solution gives a ℕ solution. So the solution sets coincide. The use of ∃! correctly captures \"unique\" existence of such a pair. No extra hypotheses are added and none are dropped.",
+  "duration_ms": 14366,
+  "cost_usd": 0.05265874999999999
+}

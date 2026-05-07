@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-310.lean",
+  "stem": "proofnet-310",
+  "verdict": "faithful",
+  "reasoning": "The Lean type `ℕ →ᵇ I` (with `I = Icc 0 1`) represents bounded continuous functions from ℕ (with discrete topology, per Mathlib's default instance in `Topology/Order.lean`) to the unit interval. Because ℕ is discrete, every function ℕ → I is continuous, and because I has bounded diameter, every function is automatically bounded; hence `ℕ →ᵇ I` is in natural bijection with `I^ω = [0,1]^ω`. The metric on bounded continuous functions is `dist f g = ⨆ x, dist (f x) (g x)` (see `dist_eq_iSup` in `Mathlib/Topology/ContinuousMap/Bounded/Basic.lean`), which restricted to [0,1]-valued functions is `sup_n |f(n) − g(n)|` — precisely the uniform metric on [0,1]^ω. The induced topology is thus the uniform topology. `LocallyCompactSpace` is Mathlib's standard notion matching Munkres. Hence the Lean signature faithfully captures \"$[0,1]^\\omega$ is not locally compact in the uniform topology.\"",
+  "duration_ms": 123577,
+  "cost_usd": 0.439234
+}

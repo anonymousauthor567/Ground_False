@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the parallelogram law in R^k. The Lean signature quantifies over `n : ℕ` (corresponding to Rudin's arbitrary k) and takes `x y : EuclideanSpace ℝ (Fin n)`, which is Mathlib's standard R^n equipped with the Euclidean (L²) norm matching Rudin's |·|. The conclusion `‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2` is exactly the parallelogram identity as stated. No hypotheses are added or dropped; the renaming of k to n is immaterial.",
+  "duration_ms": 22088,
+  "cost_usd": 0.08393800000000001
+}

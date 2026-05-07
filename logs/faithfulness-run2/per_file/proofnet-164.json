@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-164.lean",
+  "stem": "proofnet-164",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. Both α and β are metric spaces, f is a function between them with the continuity hypothesis, and the conclusion ∀ (x : Set α), f '' (closure x) ⊆ closure (f '' x) directly encodes \"f(closure E) ⊂ closure(f(E)) for every set E ⊂ X\". The universal quantifier over subsets, the image operation `f ''`, the `closure` operation, and the subset relation all align exactly with the informal statement. No extra hypotheses (e.g., completeness, compactness) are imposed, and none are silently dropped.",
+  "duration_ms": 12262,
+  "cost_usd": 0.0380435
+}

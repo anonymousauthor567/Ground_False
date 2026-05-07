@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-10.lean",
+  "stem": "proofnet-10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: hM encodes \"every element not in M is a unit\", and the conclusion encodes both \"M is maximal\" and \"M is the unique maximal ideal\". The additional `hProper` hypothesis surfaces an implicit premise — that M is a proper ideal — which is necessary for truth: if M = R, the hypothesis `∀ x ∉ M, IsUnit x` is vacuously satisfied but `Ideal.IsMaximal M` fails (Mathlib's `IsMaximal` requires properness). Any mathematician reading \"prove M is a maximal ideal\" implicitly understands M ≠ R, so this matches the worked example in the instructions. Using `Ring R` rather than `CommRing R` is fine since the argument works for left ideals in non-commutative rings. The types and quantifier structure match.",
+  "duration_ms": 67108,
+  "cost_usd": 0.16373875000000002
+}

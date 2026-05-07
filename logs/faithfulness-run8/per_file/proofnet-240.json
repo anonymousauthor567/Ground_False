@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-240.lean",
+  "stem": "proofnet-240",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is \"if |G| = 462 then G is not simple\". The Lean signature takes an arbitrary group G with a Fintype instance, assumes card G = 462, and concludes ¬ IsSimpleGroup G. The Fintype assumption is needed only to make `card G` well-typed, and card G = 462 already implies finiteness, so this is not an added constraint. Mathlib's `IsSimpleGroup` is defined as a `Nontrivial` group whose only normal subgroups are ⊥ and ⊤, exactly matching the standard definition of a simple group. The quantification over G is universal (via the type variable), matching the \"for every group of order 462\" reading of the informal claim. Hypotheses, conclusion, and types all match.",
+  "duration_ms": 31005,
+  "cost_usd": 0.10431625
+}

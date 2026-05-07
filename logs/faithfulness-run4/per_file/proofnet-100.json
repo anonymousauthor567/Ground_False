@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-100.lean",
+  "stem": "proofnet-100",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `IsPrimitiveRoot x n` in Mathlib means exactly \"x has order n\" (for n > 0): it requires x^n = 1 and that every exponent annihilating x is divisible by n. Thus `IsPrimitiveRoot (a : ZMod p) (p-1)` correctly captures \"a is a primitive root mod p\" (since (ZMod p)ˣ has order p-1), and `IsPrimitiveRoot (-a) ((p-1)/2)` captures \"-a has order (p-1)/2\". The hypothesis `a : (ZMod p)ˣ` properly ensures a is a unit, which is implicit in \"primitive root modulo p\". Since t : ℕ gives p ≥ 3, automatically ruling out p = 2 (which couldn't be written as 4t+3 with t ∈ ℕ anyway). The bidirectional iff matches the informal \"iff\", and no extraneous hypotheses are added.",
+  "duration_ms": 60453,
+  "cost_usd": 0.24558825
+}

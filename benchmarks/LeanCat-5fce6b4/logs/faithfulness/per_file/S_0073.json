@@ -1,0 +1,8 @@
+{
+  "file": "S_0073.lean",
+  "stem": "S_0073",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `LiftsLimits (forget TopCat) ∧ IsEmpty (ReflectsLimits (forget TopCat))` matches the informal claim \"U : Top → Set lifts limits, but not reflects limits.\" The locally-defined `LiftsLimit` class correctly encodes the standard categorical notion: for every limit cone c of K ⋙ F, there exists a cone c' over K that is a limit and whose image F.mapCone c' is (cone-)isomorphic to c — this matches the informal \"F(L') ≅ L\" reading under the standard categorical convention (despite the informal statement's minor typo writing \"L' ∈ D\" instead of L' ∈ C). The `LiftsLimitsOfShape`/`LiftsLimitsOfSize`/`LiftsLimits` hierarchy then quantifies over all small diagrams, which matches \"for every diagram\". Since `ReflectsLimits` is a `Prop` (as `ReflectsLimitsOfSize` is declared `: Prop`), `IsEmpty (ReflectsLimits _)` is logically equivalent to `¬ ReflectsLimits _` by `IsEmpty.prop_iff` in Mathlib, correctly encoding \"not reflects limits\". The universe choice `.{v₂, v₂}` for both `LiftsLimits` and `ReflectsLimits` resolves to `.{u, u}` for `forget TopCat : TopCat.{u} ⥤ Type u`, a standard convention for \"all small limits\". No hypotheses are added or dropped, and the conjunction faithfully captures both clauses of the informal theorem.",
+  "duration_ms": 497712,
+  "cost_usd": 1.7332840000000005
+}

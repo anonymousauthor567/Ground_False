@@ -1,0 +1,8 @@
+{
+  "file": "100.lean",
+  "stem": "100",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement precisely. The hypothesis `0 < orderOf a` is equivalent to `IsOfFinOrder a` (via Mathlib's `orderOf_pos_iff`), which correctly encodes \"a has finite order.\" `[H.Normal]` captures `H ⊲ G`, and `QuotientGroup.mk (s := H) a` is exactly the coset `Ha` in `G/H`. The conclusion `orderOf (QuotientGroup.mk a) ∣ orderOf a` states that the order of `Ha` divides `o(a)`. Since `orderOf a > 0` and in `ℕ` we have `0 ∣ n ↔ n = 0`, the divisibility conclusion forces `orderOf (Ha) > 0`, so \"Ha has finite order m\" is implicitly captured. No extra or missing hypotheses.",
+  "duration_ms": 185182,
+  "cost_usd": 0.47826775000000005
+}

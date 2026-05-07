@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p11.lean",
+  "stem": "number_theory__p11",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over all primes `p : ℕ` (via `Nat.Prime p`), asserts existence of integer `a b : ℤ`, and states `(a^2 + b^2 + 1) % p = 0`. With `a^2 + b^2 + 1 : ℤ` and `p : ℕ`, Lean coerces `p` to ℤ and uses `Int.emod`; by `Int.dvd_iff_emod_eq_zero`, this is equivalent to `(p : ℤ) ∣ (a^2 + b^2 + 1)`, i.e., \"a² + b² + 1 is a multiple of p.\" The types (ℤ for a, b; natural prime for p), quantifier structure, and conclusion all correspond to the informal claim with no added or missing hypotheses.",
+  "duration_ms": 131844,
+  "cost_usd": 0.35644450000000005
+}

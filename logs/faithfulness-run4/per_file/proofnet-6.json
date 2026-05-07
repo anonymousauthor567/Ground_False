@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-6.lean",
+  "stem": "proofnet-6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim precisely: `[Fintype G]` encodes finiteness (implicit in \"order p²q\"); `Prime p` and `Prime q` for `p q : ℕ` correctly expresses primality (equivalent to `Nat.Prime`); `card G = p^2 * q` (with `open Fintype`) asserts |G| = p²q; and `IsSimpleGroup G → False` is the standard formulation of \"G is not simple.\" Note that `IsSimpleGroup` in Mathlib extends `Nontrivial`, which is consistent with the conventional definition. The theorem is true even without requiring p ≠ q (since a group of order p³ is a p-group with nontrivial center, hence not simple), so omitting a distinctness hypothesis is appropriate. No hidden strengthening or weakening.",
+  "duration_ms": 142601,
+  "cost_usd": 0.39227475
+}

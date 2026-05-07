@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-39.lean",
+  "stem": "proofnet-39",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all three components of the informal statement: (1) `Subgroup.closure {DihedralGroup.r 1}` is indeed the subgroup of all rotations, since rotations in Mathlib's `DihedralGroup n` are exactly elements `r i`, and `(r 1)^k = r k`; (2) the conclusion `R ≠ ⊤ ∧ ∀ K, R ≤ K → K = R ∨ K = ⊤` is precisely the standard definition of a maximal subgroup, equivalent to `IsCoatom R`; (3) the hypothesis `hn : n ≠ 0` surfaces the implicit premise that \"a dihedral group\" refers to a finite dihedral group — Mathlib's convention encodes the infinite dihedral group as `DihedralGroup 0`, which is not what \"a dihedral group\" in Dummit-Foote Chapter 2.4 denotes. This is a faithful reading of the intended mathematical content rather than a weakening.",
+  "duration_ms": 355856,
+  "cost_usd": 1.213332
+}

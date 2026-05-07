@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-313.lean",
+  "stem": "proofnet-313",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Munkres Exercise 31.3. In Munkres, the \"order topology\" is defined only on a simply (i.e., linearly) ordered set, so `LinearOrder α` is an implicit premise of the informal claim; making it explicit in Lean is faithful, not a weakening. The ground-truth file for this exercise confirms this: with only `PartialOrder`, the statement is literally false (a three-point poset counterexample is given), which demonstrates that `LinearOrder` is needed for truth. Mathlib's `RegularSpace` captures Munkres's regularity condition (disjoint open separation of points from closed sets); under `[LinearOrder α] [OrderTopology α]` the space is automatically `T2` (via `OrderClosedTopology.to_t2Space`), so `RegularSpace α` coincides with `T3Space α` here, matching Munkres's regular-plus-T1 convention. Therefore the Lean signature asserts exactly what Munkres intends.",
+  "duration_ms": 670187,
+  "cost_usd": 0.8989615000000002
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-257.lean",
+  "stem": "proofnet-257",
+  "informal": "If $G$ is a group in which $(a b)^{i}=a^{i} b^{i}$ for three consecutive integers $i$, prove that $G$ is abelian.",
+  "lean": "\ntheorem Herstein_exercise_2_2_3 {G : Type*} [Group G]\n  {P : ℕ → Prop} {hP : P = λ i => ∀ a b : G, (a*b)^i = a^i * b^i}\n  (hP1 : ∃ n : ℕ, P n ∧ P (n+1) ∧ P (n+2)) : \n  ∀ a b : G, a*b = b*a",
+  "verdict": "weaker",
+  "reasoning": "The informal statement quantifies over \"three consecutive integers\", i.e. ∃ i ∈ ℤ such that the identity holds for i, i+1, i+2. The Lean signature instead uses ∃ n : ℕ, restricting the witness to a non-negative starting point. Every ℕ-witness is also a ℤ-witness, so the Lean hypothesis is a strict special case of the informal one; therefore the informal theorem implies the Lean theorem, but not conversely (the Lean version says nothing about cases where the three consecutive integers are e.g. -2, -1, 0). The conclusion \"G is abelian\" matches, and the typeclass [Group G] with universal quantification over a, b is fine. The mismatch is solely in the type of the index i (ℕ vs ℤ), which makes the Lean statement logically weaker than the informal claim.",
+  "duration_ms": 30853,
+  "cost_usd": 0.09879125
+}

@@ -1,0 +1,8 @@
+{
+  "file": "imo_2002_p1.lean",
+  "stem": "imo_2002_p1",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement defines a type 1 subset as having \"n blue elements with different first member,\" which naturally describes a subset consisting of n blue elements with distinct first coordinates (matching the standard IMO 2002 C5 formulation). The Lean definition `is_type_1`, however, only checks that the image of first coordinates of blue elements has cardinality n — equivalently, that every first coordinate in Fin n is represented by at least one blue element in the subset. This allows arbitrary finsets of any size (including ones with red elements, or multiple blue elements sharing the same first coordinate). For example, with n=2 and all-blue coloring, Lean counts 3 type-1 subsets while the natural reading counts only 2 (since the full 3-element subset {(0,0),(0,1),(1,0)} does not consist of n=2 elements with distinct first coordinates). Therefore the Lean theorem asserts equality of different counts than the informal statement, and neither assertion implies the other in general.",
+  "duration_ms": 1506363,
+  "cost_usd": 3.9808089999999994
+}

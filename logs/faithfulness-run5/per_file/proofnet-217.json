@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that A × B is an abelian group iff both A and B are abelian. Talking about \"abelian\" presupposes a group structure, so the `[Group A] [Group B]` assumptions are implicit premises. Given those, A × B automatically has a group structure in Mathlib, and \"A × B is abelian\" reduces precisely to `∀ x y : A × B, x * y = y * x`, which is what the Lean statement uses. The right-hand side similarly encodes \"A abelian ∧ B abelian\" as commutativity of the respective group operations. The biconditional and quantifier structure match the informal claim exactly, so this is a faithful formalization.",
+  "duration_ms": 25833,
+  "cost_usd": 0.1228575
+}

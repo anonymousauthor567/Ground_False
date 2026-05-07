@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes all four hypotheses of the informal statement: surjectivity (`Function.Surjective p`), continuity (`Continuous p`), closedness (`IsClosedMap p`), compactness of fibers (`∀ y, IsCompact (p ⁻¹' {y})`), and compactness of Y (`CompactSpace Y`), and concludes `CompactSpace X`, exactly matching \"X is compact\". Although two hypotheses are both named `hp` (the second shadows the first inside the proof), both still appear in the theorem's type signature, so a caller must supply both `IsClosedMap p` and the fiber-compactness assumption. This is a proof-internal naming issue, not a logical mismatch. The Mathlib notions (`IsClosedMap`, `IsCompact`, `CompactSpace`, `Continuous`, `Function.Surjective`) align with the standard mathematical definitions used in Munkres.",
+  "duration_ms": 58794,
+  "cost_usd": 0.2034585
+}

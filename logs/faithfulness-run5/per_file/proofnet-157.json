@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-157.lean",
+  "stem": "proofnet-157",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the content of Rudin 2.28. The hypotheses are `MetricSpace X` and `SeparableSpace X` together with `IsClosed A`, matching \"closed set in a separable metric space\". The conclusion asserts the existence of sets P₁, P₂ with A = P₁ ∪ P₂, `Perfect P₁`, and `Set.Countable P₂`. Mathlib's `Perfect` does not require nonemptiness (the docstring explicitly notes this), matching \"(possibly empty) perfect set\". `Set.Countable` includes finite sets, matching \"at most countable\". The equation A = P₁ ∪ P₂ correctly forces both components to lie within A. This is a direct and logically equivalent formalization.",
+  "duration_ms": 60708,
+  "cost_usd": 0.199198
+}

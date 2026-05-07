@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-306.lean",
+  "stem": "proofnet-306",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The topological group hypothesis is captured by `[TopologicalSpace G] [Group G] [IsTopologicalGroup G]` (the standard Mathlib mixin). The identity element `e` corresponds to `1 : G` in multiplicative notation, and `C = connectedComponent (1 : G)` exactly matches \"the component of G containing e\". The conclusion `∃ H : Subgroup G, (H : Set G) = C ∧ H.Normal` is the standard way to express \"the set C is a normal subgroup of G\": since a `Subgroup G` is a set with closure properties, asserting the existence of a Subgroup whose carrier equals C and which is normal is logically equivalent to saying C itself is a normal subgroup. Mathlib's own `Subgroup.connectedComponentOfOne` definition confirms this encoding pattern.",
+  "duration_ms": 40638,
+  "cost_usd": 0.18507325000000002
+}

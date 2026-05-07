@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p21.lean",
+  "stem": "calculus__p21",
+  "verdict": "stronger",
+  "reasoning": "The informal statement says the maximum value 1 \"occurs when x=y=z=1/√3\" — a natural reading is that this is a point where the maximum is achieved (existence), not that it is the unique such point. The Lean statement encodes this as an iff: `f(x,y,z) = 1 ↔ x = 1/√3 ∧ y = 1/√3 ∧ z = 1/√3`, which asserts uniqueness. This is strictly more than what the informal asks. In fact, the uniqueness claim is mathematically false: (-1/√3, -1/√3, -1/√3) also satisfies x²+y²+z²=1 and gives f = 1/3 + 1/3 + 1/3 = 1. So the Lean statement implies the informal (via the upper bound plus instantiation at (1/√3)³ establishing that the max is attained there), but goes beyond it by adding a uniqueness-of-maximizer claim not present in the informal.",
+  "duration_ms": 137158,
+  "cost_usd": 0.3911725
+}

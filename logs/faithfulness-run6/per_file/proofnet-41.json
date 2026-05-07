@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes a nonempty indexed family `H : I → Subgroup G` with `[Nonempty I]` and each `H i` normal, concluding that `⨅ (i : I), H i` (the indexed infimum, which is the intersection for subgroups) is normal. This precisely matches the informal claim about the intersection of an arbitrary nonempty collection of normal subgroups. The parenthetical \"do not assume the collection is countable\" is honored by using `(I : Type*)`, an arbitrary index type. The `[Nonempty I]` hypothesis matches the literal \"nonempty collection\" in the informal statement. This mirrors Mathlib's own `Subgroup.normal_iInf_normal` lemma.",
+  "duration_ms": 56801,
+  "cost_usd": 0.22804774999999997
+}

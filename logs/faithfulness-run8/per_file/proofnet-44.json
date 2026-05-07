@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The hypotheses `[CommGroup G] [IsSimpleGroup G]` faithfully represent \"G is an abelian simple group\". The conclusion `IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (@card G G_fin)` is logically equivalent to \"G ≅ Z_p for some prime p\": forward, any Z/pZ is cyclic and of prime order; backward, any group of prime order is cyclic and isomorphic to Z/pZ. The `IsCyclic G` conjunct is technically redundant (implied by prime cardinality) but doesn't change the logical content. The \"do not assume G is finite\" caveat from the informal statement is correctly respected — no `[Fintype G]` appears among the hypotheses; finiteness is derived as part of the conclusion via `∃ G_fin : Fintype G`. Since `Fintype` is a subsingleton in Mathlib, the existential correctly captures \"G is finite with prime cardinality\". Thus the formalization is neither weaker nor stronger than the informal claim.",
+  "duration_ms": 121864,
+  "cost_usd": 0.411054
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a chain of equivalences: $xy = yx \\iff y^{-1}xy = x \\iff x^{-1}y^{-1}xy = 1$. The standard reading of such a chain is the conjunction of adjacent equivalences: $(A \\iff B) \\land (B \\iff C)$, which is exactly what the Lean statement asserts. Since transitivity of iff gives $A \\iff C$ automatically, this conjunction captures all three pairwise equivalences. The types match (arbitrary group $G$, elements $x, y : G$), the group operation and inverse notation correspond exactly, and left-associative parsing of `y⁻¹ * x * y` and `x⁻¹ * y⁻¹ * x * y` matches the informal expressions. No hypotheses are added or dropped.",
+  "duration_ms": 20186,
+  "cost_usd": 0.04698575000000001
+}

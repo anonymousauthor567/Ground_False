@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: an arbitrary indexed family `X : ι → Type*` of topological spaces, with the explicit nonemptiness hypothesis `∀ i, Nonempty (X i)` matching \"Assume that each X_α is nonempty\", the hypothesis `T2Space (Π i, X i)` matching \"∏ X_α is Hausdorff\" (using Mathlib's standard Pi product topology instance), and the conclusion `∀ i, T2Space (X i)` matching \"X_α is Hausdorff\". The Mathlib class `T2Space` is precisely the Hausdorff condition. No hypothesis is added or removed relative to the informal statement, and the quantifier structure (universal over all factors) is preserved.",
+  "duration_ms": 188224,
+  "cost_usd": 0.225642
+}

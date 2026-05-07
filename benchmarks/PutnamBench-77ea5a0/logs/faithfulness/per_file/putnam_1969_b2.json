@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b2.lean",
+  "stem": "putnam_1969_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `P n` correctly encodes \"for any finite group G and any n proper subgroups, their union is proper\": `[Finite G]` matches \"finite group\", `H i < ⊤` on Subgroup G means H i is a proper subgroup, and `⋃ i, (H i : Set G) < ⊤` (with ⊤ = Set.univ) means the union doesn't cover G. The claim `P 2` corresponds to the first assertion (cannot be union of two proper subgroups), and `P 3 ↔ False` (with solution = False) correctly captures \"no, the statement does not remain true for three\", since a counterexample exists (e.g., Klein four group as union of three order-2 subgroups). The encoding via `Fin n → Subgroup G` allows repetitions, but this doesn't change the truth value of the claims. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 149631,
+  "cost_usd": 0.43653025
+}

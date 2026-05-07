@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-336.lean",
+  "stem": "proofnet-336",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `EuclideanSpace ℝ (Fin n)`, which Mathlib defines as `PiLp 2 fun _ : n => ℝ` — the standard n-dimensional real Euclidean space with the L² norm. This exactly corresponds to $\\mathbb{R}^k$ in the informal statement. The universal quantification over `n : ℕ` matches the informal \"if x ∈ R^k and y ∈ R^k\" which implicitly quantifies over k. The equation `‖x + y‖^2 + ‖x - y‖^2 = 2*‖x‖^2 + 2*‖y‖^2` is the parallelogram law, matching the informal statement verbatim with `‖·‖` being the Euclidean norm. No hypotheses are added or dropped.",
+  "duration_ms": 70552,
+  "cost_usd": 0.247803
+}

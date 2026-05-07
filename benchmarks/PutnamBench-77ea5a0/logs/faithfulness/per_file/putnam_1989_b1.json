@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1989_b1.lean",
+  "stem": "putnam_1989_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the geometric setup: `square` is the unit [0,1]², `perimeter` is the union of four edges, `center` is (1/2, 1/2) in EuclideanSpace ℝ (Fin 2). The set `Scloser = {p ∈ square | ∀ q ∈ perimeter, dist p center < dist p q}` captures \"nearer to center than to any edge\" because, by compactness of the perimeter, requiring strictly less distance than every perimeter point is equivalent to dist(p, center) < dist(p, perimeter) = min over all four edges. The volume ratio `volume(Scloser)/volume(square)` equals volume(Scloser) since volume([0,1]²)=1, yielding (4√2-5)/3 matching (a,b,c,d)=(4,2,-5,3). The added constraint \"b is not a perfect square\" is a natural canonical-form disambiguation consistent with the intended answer (the probability is irrational, so b must be non-square) and does not narrow the problem beyond what was asked. The strict inequality and boundary of measure zero don't affect the probability.",
+  "duration_ms": 471924,
+  "cost_usd": 1.1865955000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely matches the informal statement. The sequence `A : ℕ → Set X` corresponds to $\\{A_n\\}$, `IsConnected (A n)` captures \"connected subspaces\" (Mathlib's `IsConnected` means nonempty + preconnected, which is the standard notion; and nonemptiness is implied by $A_n \\cap A_{n+1} \\neq \\emptyset$ anyway). The hypothesis `A n ∩ A (n + 1) ≠ ∅` is equivalent to `(A n ∩ A (n+1)).Nonempty` via Mathlib's `Set.nonempty_iff_ne_empty`, directly matching $A_n \\cap A_{n+1} \\neq \\emptyset$. The conclusion `IsConnected (⋃ n, A n)` matches \"⋃ A_n is connected\". This is essentially the statement of `IsConnected.iUnion_of_chain` in `Mathlib/Topology/Connected/Basic.lean`.",
+  "duration_ms": 151818,
+  "cost_usd": 0.52995875
+}

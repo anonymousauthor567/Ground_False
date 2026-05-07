@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that the subtype of `Nat.Primes` (primes as naturals) satisfying `p ≡ -1 [ZMOD 6]` is `Infinite`. Here `Nat.Primes = {p : ℕ // p.Prime}` with a coercion to ℕ (and hence ℤ), and `a ≡ b [ZMOD n]` is `Int.ModEq n a b`, so the condition means p (as an integer) is congruent to -1 modulo 6. This exactly matches the informal claim \"there are infinitely many primes congruent to -1 modulo 6\": the primality, the congruence -1 mod 6, and the infiniteness are each captured directly without weakening or strengthening. No implicit hypothesis is added or dropped.",
+  "duration_ms": 90752,
+  "cost_usd": 0.3289277500000001
+}

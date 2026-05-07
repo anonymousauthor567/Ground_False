@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-107.lean",
+  "stem": "proofnet-107",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that given a family {T_α} of topologies on X, there exists a unique smallest topology on X containing all the T_α. The Lean signature formalizes this as ∃! T' such that: (a) T' is a topology, (b) T' ⊇ each T i (i.e., contains every open set of each T_α — \"contains all the collections\"), and (c) T' is contained in every other topology T'' satisfying (a) and (b) (the \"smallest\" property). Clauses (a)+(b)+(c) correctly encode \"smallest topology containing all T_α\", and the uniqueness in ∃! matches \"unique\" (which is in any case automatic from the minimality condition). The is_topology definition (contains univ, closed under binary intersection and arbitrary union) is the standard one; ∅ arises as sUnion ∅. The family is indexed by an arbitrary type I, matching \"family\". No hypotheses are silently added or dropped, and the quantifier structure matches.",
+  "duration_ms": 20827,
+  "cost_usd": 0.09067449999999999
+}

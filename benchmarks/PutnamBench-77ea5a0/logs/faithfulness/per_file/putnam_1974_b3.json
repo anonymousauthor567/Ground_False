@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1974_b3.lean",
+  "stem": "putnam_1974_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary real α, assumes Real.cos (Real.pi * α) = 1/3, and concludes Irrational α. Mathlib's `Irrational` is defined as `x ∉ Set.range ((↑) : ℚ → ℝ)`, i.e., the real number is not rational — exactly the informal meaning. The hypothesis `Real.cos (Real.pi * α) = 1/3` directly encodes `cos(πα) = 1/3`, and the universal quantification over α is implicit via Lean's argument. No extra hypotheses are added and none are dropped, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 15505,
+  "cost_usd": 0.07861850000000001
+}

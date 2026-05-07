@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-90.lean",
+  "stem": "proofnet-90",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement defines the set of integers `a : ℤ` for which the polynomial `X^7 + 15X^2 - 30X + a` in `Polynomial ℚ` is irreducible, and asserts this set is infinite. This matches the informal claim exactly: the parameter `a` ranges over integers, the polynomial is considered in ℚ[x] (via the coercion to `Polynomial ℚ`), irreducibility is the standard Mathlib notion, and `Infinite` on the set captures \"infinite number\". No hypotheses are added or dropped, and the types (ℤ for the parameter, Polynomial ℚ for the polynomial) align with the informal statement.",
+  "duration_ms": 21416,
+  "cost_usd": 0.08100124999999998
+}

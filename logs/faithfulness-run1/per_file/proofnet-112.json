@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-112.lean",
+  "stem": "proofnet-112",
+  "informal": "Show that if $U$ is open in $X$ and $A$ is closed in $X$, then $U-A$ is open in $X$, and $A-U$ is closed in $X$.",
+  "lean": "\ntheorem Munkres_exercise_17_4 {X : Type*} [TopologicalSpace X]\n  (U A : Set X) (hU : IsOpen U) (hA : IsClosed A) :\n  IsOpen (U \\ A) ∧ IsClosed (A \\ U)",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary topological space X, an open set U, and a closed set A, and concludes that U \\ A is open and A \\ U is closed. This matches the informal statement exactly: both conjuncts are stated, the hypotheses (U open, A closed) match, and the set difference U - A is correctly encoded as U \\ A. No extra assumptions (like finiteness or T2) are imposed, and nothing is missing.",
+  "duration_ms": 5333,
+  "cost_usd": 0.04076475
+}

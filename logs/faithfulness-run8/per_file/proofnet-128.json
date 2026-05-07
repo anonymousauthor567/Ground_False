@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-128.lean",
+  "stem": "proofnet-128",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `∃ s : Set X, Countable s ∧ Dense s` correctly encodes \"X has a countable dense subset\" (since `Countable s` on a `Set` coerces to countability of the subtype, equivalent to `Set.Countable s`). The collection `U : Set (Set X)` together with `hU` (pairwise disjointness: `x ≠ y → x ∩ y = ∅`) and `hUopen` (each member is open) correctly encodes \"collection of disjoint open sets\". The conclusion `Countable U` means `U` is countable as a collection (via subtype coercion). All hypotheses, types, and quantifier structures match the informal mathematical claim with no strengthening or weakening.",
+  "duration_ms": 103898,
+  "cost_usd": 0.392524
+}

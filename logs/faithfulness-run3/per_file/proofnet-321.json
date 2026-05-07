@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-321.lean",
+  "stem": "proofnet-321",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all four hypotheses from the informal statement: M is a metric space, A and B are compact (`IsCompact A`, `IsCompact B`), disjoint (`Disjoint A B`), and nonempty (`A ≠ ∅`, `B ≠ ∅`). The conclusion existentially quantifies over a₀ and b₀ in M, asserts membership in A and B respectively, and universally quantifies over a ∈ A and b ∈ B with the inequality `dist a₀ b₀ ≤ dist a b`. The quantifier structure (∃...∀) and the inequality direction match the informal statement exactly. Note that `a₀ b₀` are implicitly typed as `M` via unification with `A B : Set M`, which is the intended interpretation. No hypotheses are added or dropped beyond what the informal statement specifies.",
+  "duration_ms": 14576,
+  "cost_usd": 0.06225725
+}

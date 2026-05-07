@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-348.lean",
+  "stem": "proofnet-348",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes a metric space α, a continuous function f : α → ℝ, and introduces z as a set equal to f⁻¹' {0} (which unfolds to {p : α | f p = 0}, exactly the zero set Z(f)). The conclusion IsClosed z is logically equivalent to IsClosed (f⁻¹' {0}), i.e., the zero set is closed. The stylistic choice to name the zero set via an auxiliary variable z with an equality hypothesis does not change the mathematical content — it is logically equivalent to directly asserting IsClosed (f⁻¹' {0}). All hypotheses and the conclusion match the informal statement.",
+  "duration_ms": 27832,
+  "cost_usd": 0.08988650000000001
+}

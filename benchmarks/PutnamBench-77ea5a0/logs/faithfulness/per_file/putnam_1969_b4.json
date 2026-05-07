@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_b4.lean",
+  "stem": "putnam_1969_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim faithfully. (1) \"Plane curve\" → `Γ : ℝ → EuclideanSpace ℝ (Fin 2)`; continuity via `ContinuousOn Γ [0,1]` surfaces the standard implicit premise for \"curve\". (2) \"Length 1\" → `eVariationOn Γ (Set.Icc 0 1) = 1`, which equals the arc length for a rectifiable curve. (3) \"Closed rectangle\" is encoded by four vertices a,b,c,d whose four oriented angles `∡abc, ∡bcd, ∡cda, ∡dab` all equal π/2; Mathlib's `oangle = π/2` guarantees non-degeneracy (adjacent vertices are distinct and the vectors are perpendicular with consistent orientation), so a convex quadrilateral with four right angles is a genuine rectangle. (4) \"Area 1/4\" matches `dist a b * dist b c = 1/4`, the product of adjacent side lengths. (5) \"Covers Γ\" matches `Γ '' (Set.Icc 0 1) ⊆ convexHull ℝ {a,b,c,d}`, i.e., the closed rectangular region. No hypotheses are silently dropped or added beyond the standard reading of \"plane curve\".",
+  "duration_ms": 418354,
+  "cost_usd": 1.046299
+}

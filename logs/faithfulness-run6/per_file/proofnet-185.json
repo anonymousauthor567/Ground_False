@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that for any two groups, the center of their product equals the product of their centers. The Lean signature quantifies implicitly over arbitrary `G H : Type*` with `[Group G] [Group H]`, matching the universal \"for any two groups\" reading. The left side `Subgroup.center (G × H)` is the standard Mathlib center of the product group, and the right side `(Subgroup.center G).prod (Subgroup.center H)` is the Mathlib `Subgroup.prod` construction whose underlying set is `(center G) × (center H)` — exactly the product-of-centers subgroup of `G × H`. Both sides live in `Subgroup (G × H)`, no extra hypotheses (finiteness, commutativity, etc.) are added, and nothing is dropped. This is a direct and logically equivalent formalization.",
+  "duration_ms": 36619,
+  "cost_usd": 0.19552899999999998
+}

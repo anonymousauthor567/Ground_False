@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes a normal operator via `T * adjoint T = adjoint T * T`, expresses \"all eigenvalues are real\" as the imaginary part being zero, and uses `IsSelfAdjoint` with an iff matching the informal \"if and only if.\" The `FiniteDimensional ℂ V` hypothesis is the standard implicit assumption in Axler's book (where Exercise 7.9 is from), and the theorem indeed relies on finite-dimensionality for the non-trivial direction (via the spectral theorem for normal operators). The quantification over `T.Eigenvalues` with `(e : ℂ).im = 0` is logically equivalent to saying every eigenvalue is real. All types and quantifier structures match the informal claim.",
+  "duration_ms": 21317,
+  "cost_usd": 0.0906105
+}

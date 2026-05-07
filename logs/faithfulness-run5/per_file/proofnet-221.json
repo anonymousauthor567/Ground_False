@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: H is an AddSubgroup of ℚ, the hypothesis `∀ ⦃x : ℚ⦄, x ∈ H → x ≠ 0 → (1/x) ∈ H` precisely encodes \"1/x ∈ H for every nonzero x of H\", and the conclusion `H = ⊥ ∨ H = ⊤` is the standard Mathlib encoding of \"H = {0} or H = ℚ\" (⊥ is the trivial additive subgroup {0} and ⊤ is all of ℚ). The quantifier structure, the ambient type (ℚ), and the division by x in ℚ all match the informal reading. No hypotheses are silently added or dropped.",
+  "duration_ms": 33797,
+  "cost_usd": 0.09570825
+}

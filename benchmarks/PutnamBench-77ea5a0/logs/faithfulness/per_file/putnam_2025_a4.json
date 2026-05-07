@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2025_a4.lean",
+  "stem": "putnam_2025_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The 2025 matrices are indexed by Fin 2025 (relabeling the informal indices 1..2025 to 0..2024, which preserves the set of differences {0,1,2024}). The Lean uses natural subtraction `j.val - i.val` with hypothesis `i ≤ j`, which equals |i-j|; restricting to i ≤ j is sufficient because both commutation (A_iA_j = A_jA_i) and the absolute difference are symmetric in i,j. `IsLeast` correctly encodes \"the minimal value of k\" as the minimum of the set of k for which such matrices exist. The types (k-by-k real matrices) match exactly.",
+  "duration_ms": 205690,
+  "cost_usd": 0.40446075000000004
+}

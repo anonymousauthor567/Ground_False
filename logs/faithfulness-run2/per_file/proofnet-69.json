@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-69.lean",
+  "stem": "proofnet-69",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding correctly captures $\\frac{(X+2)^p - 2^p}{X}$: with $f = (X+2)^p$, the coefficients $\\binom{p}{n} 2^{p-n}$ are all nonzero, so $f.\\text{support} \\setminus \\{0\\} = \\{1,\\ldots,p\\}$, and the sum $\\sum_{n=1}^{p} f.\\text{coeff}(n) \\cdot X^{n-1}$ equals $\\sum_{n=1}^{p} \\binom{p}{n} 2^{p-n} X^{n-1} = ((X+2)^p - 2^p)/X$. The hypothesis `p.Prime ∧ p > 2` for $p : \\mathbb{N}$ is equivalent to \"$p$ is an odd prime\". `Irreducible` over `Polynomial ℤ` matches irreducibility in $\\mathbb{Z}[X]$ (and since the polynomial has degree $p-1 \\ge 2$, this coincides with the standard notion of irreducible polynomial). The quantifier structure and conclusion are as stated.",
+  "duration_ms": 33653,
+  "cost_usd": 0.13889125
+}

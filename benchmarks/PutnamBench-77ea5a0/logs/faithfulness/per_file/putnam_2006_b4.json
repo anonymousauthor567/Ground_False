@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2006_b4.lean",
+  "stem": "putnam_2006_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes all key elements: Z is defined as the set of points with all coordinates in {0,1} (the hypercube vertices), V ranges over ℝ-subspaces of (Fin n → ℝ) ≃ ℝⁿ with Module.rank = k (capturing \"dimension k\"), (Z ∩ V).ncard correctly counts hypercube vertices in V, and IsGreatest captures \"the maximum\" (achievable value that is an upper bound). The solution 2^k depends only on k, matching the informal problem. The `npos : n > 0` hypothesis surfaces an implicit premise that is natural from the problem's phrasing about \"vertices of a unit hypercube in ℝⁿ\" — Putnam contexts implicitly assume n ≥ 1 for such geometric setups. The hypothesis `hk : k ≤ n` matches the informal `0 ≤ k ≤ n` (the lower bound is automatic since k : ℕ). No quantifier, hypothesis, or conclusion drift is present.",
+  "duration_ms": 166283,
+  "cost_usd": 0.42726675000000003
+}

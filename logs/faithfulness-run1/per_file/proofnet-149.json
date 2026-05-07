@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-149.lean",
+  "stem": "proofnet-149",
+  "informal": "Prove that there is no rational number whose square is $12$.",
+  "lean": "\ntheorem Rudin_exercise_1_2 : ¬ ∃ (x : ℚ), ( x ^ 2 = 12 )",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says there is no rational number whose square equals 12. The Lean signature asserts ¬ ∃ (x : ℚ), x^2 = 12, which is exactly the negation of the existence of a rational x with x² = 12. The type ℚ matches \"rational number\", and the squaring and equality are standard. This is a direct, logically equivalent encoding.",
+  "duration_ms": 4739,
+  "cost_usd": 0.039438
+}

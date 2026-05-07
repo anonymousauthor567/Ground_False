@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-307.lean",
+  "stem": "proofnet-307",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures all components of the informal claim: p is surjective (h), continuous (hc), closed (hp : IsClosedMap p), and has compact fibers (∀ y, IsCompact (p ⁻¹' {y})), plus Y is compact (CompactSpace Y), with conclusion that X is compact (CompactSpace X). The definitions match: IsClosedMap means images of closed sets are closed, and CompactSpace matches \"compact\" in the topological sense. Although two hypotheses are both named `hp` (a naming shadow), both are still present as typed parameters that must be supplied, so the logical content is unchanged. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 55262,
+  "cost_usd": 0.17321475000000003
+}

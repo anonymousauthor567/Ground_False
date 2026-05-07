@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-142.lean",
+  "stem": "proofnet-142",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the informal Putnam problem. `f : ℝ → ℝ` matches \"real function on the real line\"; `ContDiff ℝ 3 f` is the standard Mathlib encoding of C³ (three continuous derivatives), which is the natural reading of \"continuous third derivative\" since the existence and continuity of f''' implies continuity of f, f', and f''. The conclusion uses `deriv f a` for f'(a), `iteratedDeriv 2 f a` for f''(a), and `iteratedDeriv 3 f a` for f'''(a), producing exactly the product f(a)·f'(a)·f''(a)·f'''(a) ≥ 0 with the existential quantifier on a ∈ ℝ. The hypotheses, conclusion, types, and quantifier structure all match the informal statement.",
+  "duration_ms": 65300,
+  "cost_usd": 0.28307625
+}

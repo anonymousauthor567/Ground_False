@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization uses `End F V` for 𝓛(V) and `S * T` which unfolds to composition S∘T, matching the informal ST. The conclusion `(S * T).Eigenvalues = (T * S).Eigenvalues` compares the subtype `{μ : F // f.HasEigenvalue μ}` of eigenvalues; under Mathlib's standard axioms (propext + funext), equality of these subtypes is equivalent to the predicates being pointwise equivalent — precisely \"same eigenvalues\". The `FiniteDimensional F V` hypothesis is a necessary implicit premise: the claim is genuinely false in infinite dimensions (e.g., on 𝔽[x], with T = multiplication by x and S = truncation, ST = id has only eigenvalue 1, while TS has both 0 and 1). This is Axler Chapter 5, where Axler's book convention assumes V is finite-dimensional. Using `Field F` in place of ℝ/ℂ is a standard, harmless generalization. The formalization is strictly faithful.",
+  "duration_ms": 344868,
+  "cost_usd": 0.7014252500000001
+}

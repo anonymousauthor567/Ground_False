@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p1_2.lean",
+  "stem": "linear_algebra__p1_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem states det(updateRow A i (A i + A' i)) = det A + det(updateRow A i (A' i)), which unfolds exactly to D1 = D2 + D3 as defined. Although the informal statement includes the narrative hypothesis \"A' differs from A only in the i-th row\" that the Lean does not require, this hypothesis is vacuously redundant: the equality depends on A and A' only through A and the vector A' i. For any A, A' in the Lean statement, defining A'' = updateRow A i (A' i) gives matrices differing only in row i with the same A'' i = A' i, so the informal claim implies the Lean claim. Hence the two universally-quantified statements are logically equivalent. Types (CommRing R, Matrix (Fin n) (Fin n) R) and the updateRow usage match Mathlib conventions (confirmed via det_updateRow_add in Determinant/Basic.lean).",
+  "duration_ms": 197560,
+  "cost_usd": 0.53615875
+}

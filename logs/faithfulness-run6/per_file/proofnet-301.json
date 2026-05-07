@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. `IsOpenMap p` in Mathlib is defined as `∀ U, IsOpen U → IsOpen (f '' U)`, which is the standard notion of an open map. The term `Set.MapsTo.restrict p A (p '' A) (Set.mapsTo_image p A)` produces exactly the function `q : A → p(A)` obtained by restricting `p` — restricting both domain to `A` and codomain to `p '' A`. The subtypes `A` and `p '' A` automatically inherit the subspace topologies, which is the standard interpretation in the informal statement. The hypotheses (`IsOpenMap p`, `IsOpen A`) and conclusion (`IsOpenMap q`) match the informal claim precisely.",
+  "duration_ms": 32576,
+  "cost_usd": 0.137533
+}

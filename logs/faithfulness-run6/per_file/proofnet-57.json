@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-57.lean",
+  "stem": "proofnet-57",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim in all essential ways. The hypothesis `card G = 105` together with `Fintype G` encodes \"G is a group of order 105\". Introducing `P : Sylow 3 G` with `[P.Normal]` as an instance argument and then proving the conclusion for all such P is logically equivalent to \"if some Sylow 3-subgroup of G is normal, then G is abelian\" (note Sylow 3-subgroups exist since 3 ∣ 105, and by Sylow conjugacy, one being normal is equivalent to the unique one being normal). The conclusion `∀ a b : G, a*b = b*a` is the standard statement that G is abelian/commutative. No hypothesis is silently added or dropped, and neither the quantifier structure nor the ambient types have been altered.",
+  "duration_ms": 88597,
+  "cost_usd": 0.25823799999999997
+}

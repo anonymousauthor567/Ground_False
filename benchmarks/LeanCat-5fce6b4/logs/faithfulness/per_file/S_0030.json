@@ -1,0 +1,8 @@
+{
+  "file": "S_0030.lean",
+  "stem": "S_0030",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization carefully captures the informal statement. The custom `Reflective2` class is defined as `extends R.Faithful` with a left adjoint — deliberately omitting the `R.Full` requirement that Mathlib's built-in `Reflective` has, which exactly matches the note \"we do not require a reflective subcategory to be full.\" The \"subcategory\" relation is encoded as a faithful functor (`Faithful i`, `Faithful j`), which is the standard categorical encoding of a not-necessarily-full subcategory. The adjunction direction is correct: since `Reflective2 (R : D ⥤ C)` requires `L ⊣ R`, applying it to `i : C ⥤ D` gives a left adjoint to the inclusion `i`, which is the correct notion of \"C reflective in D\". The `IsEmpty`/`Nonempty` pair correctly expresses \"not reflective in D\" and \"reflective in E\" respectively. The existential quantification over categories, functors, and faithfulness witnesses matches the \"there exist\" claim in the informal statement.",
+  "duration_ms": 535682,
+  "cost_usd": 1.61602425
+}

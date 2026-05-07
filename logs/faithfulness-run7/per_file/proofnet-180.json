@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim correctly. Bounded (IsBounded), open (IsOpen), holomorphic (DifferentiableOn ℂ), and f: Ω → Ω (MapsTo) match the informal hypotheses directly. The `IsPreconnected Ω` hypothesis is an implicit mathematical premise: without connectedness the claim is literally false (a disconnected Ω with f = id on the component of z₀ and an arbitrary holomorphic map on another component is a counterexample), so surfacing this premise is faithful per the stated rubric. The existential \"∃ z₀ ∈ Ω\" is correctly uncurried into a universal over z₀ with hypotheses hz and h'z. The conclusion `∃ f_lin : ℂ →L[ℂ] ℂ, ∀ x ∈ Ω, f x = f_lin x` says f agrees on Ω with some ℂ-linear map z ↦ cz; under the hypotheses this forces c = 1 and hence f = id on Ω, the same reduction that \"φ is affine\" yields. So the conclusion is logically equivalent to the informal conclusion.",
+  "duration_ms": 289884,
+  "cost_usd": 0.876033
+}

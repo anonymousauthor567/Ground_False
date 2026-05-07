@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `Module.End.Eigenvalues`, defined in Mathlib as the subtype `{ μ : F // f.HasEigenvalue μ }`. Type equality of two subtypes over the same base type F is, under Mathlib's propext+funext, equivalent to equality of their defining predicates, hence to `∀ μ, HasEigenvalue (S*T) μ ↔ HasEigenvalue (T*S) μ` — exactly the informal claim that ST and TS have the same eigenvalues. S, T : End F V faithfully encodes S, T ∈ L(V). The `FiniteDimensional F V` hypothesis is the standing convention of Axler's Chapter 5 (making an implicit premise explicit) and is actually needed for the eigenvalue 0 case (via det(ST)=det(TS)); it is not a narrowing of scope. Working over an arbitrary Field F rather than ℝ/ℂ is a benign generalization that still matches the mathematical content.",
+  "duration_ms": 93258,
+  "cost_usd": 0.315387
+}

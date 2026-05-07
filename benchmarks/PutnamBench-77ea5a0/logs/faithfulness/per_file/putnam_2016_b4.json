@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_b4.lean",
+  "stem": "putnam_2016_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the expected value of det(A - A^t) as (sum of det(A - A^t) over all 2n×2n 0/1 matrices) divided by the total count of such matrices, which correctly computes the expectation under the uniform distribution (each entry independently 0 or 1 with probability 1/2 gives each matrix equal probability). The set mats01 correctly captures 0/1 matrices of size 2n×2n; the determinant of A - A^t is formed correctly via subtype coercion; and the solution formula (2n)!/(4^n n!) matches the known Putnam answer (e.g., verified at n=1 giving 1/2). The `npos : n ≥ 1` hypothesis reflects the conventional reading that 2n×2n matrix problems implicitly require n ≥ 1 (a 0×0 matrix being a trivial degenerate case), which matches the standard competition-math interpretation of \"as a function of n\". No quantifier structure, types, or hypotheses are silently altered beyond this conventional premise.",
+  "duration_ms": 645630,
+  "cost_usd": 1.1348695
+}

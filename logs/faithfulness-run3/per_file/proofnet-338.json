@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-338.lean",
+  "stem": "proofnet-338",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show disjoint closed sets in a metric space are \"separated\". Rudin defines sets A and B to be separated iff A ∩ closure(B) = ∅ and closure(A) ∩ B = ∅, which is exactly the conjunction in the Lean conclusion. The hypotheses [MetricSpace X], IsClosed A, IsClosed B, and Disjoint A B (which unfolds to A ∩ B = ∅ for sets in Mathlib) match the informal hypotheses precisely. The Lean statement inlines the definition of \"separated\" since Mathlib does not have a dedicated predicate for it, but the unfolded statement is logically equivalent to the informal claim.",
+  "duration_ms": 22949,
+  "cost_usd": 0.061752
+}

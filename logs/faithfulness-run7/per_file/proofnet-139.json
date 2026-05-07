@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal statement uses Pugh's standard definition: a point p condenses E iff every neighborhood of p contains uncountably many points of E. The Lean statement asserts ∃ p, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E), which says every set in the neighborhood filter of p has uncountable intersection with E — exactly the condensation-point condition. Mathlib's 𝓝 p is the filter of sets containing an open nbhd of p, which is equivalent to \"every open nbhd of p has uncountable intersection with E\" (the stronger condition for all filter members follows from the open case, and vice versa). The hypothesis `¬ Set.Countable E` correctly captures \"uncountable subset of ℝ\", and the ambient type ℝ matches. No extra hypotheses are added and no quantifier structure is altered.",
+  "duration_ms": 114889,
+  "cost_usd": 0.39059325
+}

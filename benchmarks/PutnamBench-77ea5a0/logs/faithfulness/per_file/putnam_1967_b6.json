@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b6.lean",
+  "stem": "putnam_1967_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement's conclusion exactly: existence of a point in the open unit disk (x0²+y0² < 1 correctly encodes \"interior\") where the sum of squared partial derivatives is at most 16. The hypothesis modifications are either explicitly acknowledged in the note (domain extended to ℝ², partial differentiability everywhere) or represent surfacing of implicit regularity premises — the classical Putnam 1967 B6 problem canonically requires continuous first partial derivatives (C¹), and the informal phrase \"having partial derivatives\" is a shorthand for this standard regularity setup. Adding `fcont` (joint continuity on the disk) is a mild regularity condition weaker than C¹ but needed for the classical argument, and is well within the implicit assumptions of the informal statement. The `deriv` expressions correctly capture the partial derivatives of the slice functions.",
+  "duration_ms": 609442,
+  "cost_usd": 1.6764995000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-49.lean",
+  "stem": "proofnet-49",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that every characteristic subgroup of any group is normal. The Lean signature quantifies over an arbitrary `Group G` and an arbitrary `Subgroup G`, assumes `[Characteristic H]` (Mathlib's `Subgroup.Characteristic` class, which encodes the standard definition: fixed under all automorphisms of G), and concludes `Normal H`. This is exactly the informal claim — no extra hypotheses, no weakened conclusion, no change in quantifier structure or ambient objects. In fact, Mathlib itself proves this as the instance `normal_of_characteristic` in the same file. The formalization is strictly faithful.",
+  "duration_ms": 16824,
+  "cost_usd": 0.09014675000000001
+}

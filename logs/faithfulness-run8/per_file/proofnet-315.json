@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-315.lean",
+  "stem": "proofnet-315",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The indexed family `X : ι → Type*` with `[∀ i, TopologicalSpace (X i)]` corresponds to the family $\\{X_\\alpha\\}$, `Π i, X i` with Mathlib's `Pi.topologicalSpace` is the standard product topology, and `NormalSpace` is the standard definition (disjoint closed sets have disjoint open neighborhoods). The hypothesis `∀ i, Nonempty (X i)` matches \"each $X_\\alpha$ is nonempty\", `NormalSpace (Π i, X i)` matches \"$\\prod X_\\alpha$ is normal\", and the conclusion `∀ i, NormalSpace (X i)` matches \"so is $X_\\alpha$\" (i.e., each factor is normal). Hypotheses, conclusion, types, and quantifier structure all align.",
+  "duration_ms": 54137,
+  "cost_usd": 0.199189
+}

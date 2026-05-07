@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-228.lean",
+  "stem": "proofnet-228",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. \"Finite abelian group\" matches `CommGroup G` + `Fintype G`. The \"positive divisor\" condition is correctly encoded by `n ∣ card G`: since a group always contains the identity, `card G ≥ 1`, and in ℕ, `0 ∣ m` requires `m = 0`, so any `n` with `n ∣ card G` is automatically positive. The conclusion \"has a subgroup of order n\" is encoded as the existence of a subgroup H with `card H = n`; the explicit `H_fin : Fintype H` is a technical artifact (subgroups of a Fintype inherit a Fintype instance, and cardinality doesn't depend on the chosen instance). The proof-hint \"Use Cauchy's Theorem and induction\" is methodological and not part of the claim itself. The quantifier structure, hypotheses, and conclusion match the informal statement.",
+  "duration_ms": 50269,
+  "cost_usd": 0.16735550000000002
+}

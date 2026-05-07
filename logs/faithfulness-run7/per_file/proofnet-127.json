@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-127.lean",
+  "stem": "proofnet-127",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly matches Munkres' exercise. Munkres uses \"neighborhood of x\" to mean an open set containing x, and defines \"locally compact at x\" as \"there is a compact subspace containing a neighborhood of x\". The hypothesis `hx` (∃ open U ∋ x and ∃ compact K ⊇ U) exactly expresses this definition. The universal quantification over open U containing x matches \"for each neighborhood U of x\". The conclusion produces an open V containing x with closure V compact and contained in U, matching \"there is a neighborhood V of x such that V̄ is compact and V̄ ⊆ U\". Even under Mathlib's filter-based \"neighborhood\" reading, the open-neighborhood formulation is logically equivalent since every neighborhood contains an open neighborhood.",
+  "duration_ms": 104775,
+  "cost_usd": 0.3691535
+}

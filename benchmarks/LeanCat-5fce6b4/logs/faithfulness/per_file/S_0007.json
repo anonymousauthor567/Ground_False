@@ -1,0 +1,8 @@
+{
+  "file": "S_0007.lean",
+  "stem": "S_0007",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts existence and uniqueness (up to isomorphism) of a factorization F' : Kar(C) → D of F through I. The Lean formalization splits this into two companion theorems which together capture exactly this claim: (1) existence of F' with a natural isomorphism toKaroubi C ⋙ F' ≅ F, and (2) uniqueness up to isomorphism, i.e. any two such F₁, F₂ are isomorphic. The types are correct: C, D are arbitrary categories, `[IsIdempotentComplete D]` matches \"D in which idempotents split\", `Idempotents.Karoubi C` is the idempotent completion, and `Idempotents.toKaroubi C` is the standard inclusion functor I. The use of `≅` (natural isomorphism) rather than strict equality is the standard interpretation of \"F' ∘ I = F\" in the statement of a universal property, and `Nonempty` around the iso is the standard way to express \"there exists an isomorphism\" in Lean. Together the two theorems are logically equivalent to the informal statement.",
+  "duration_ms": 249287,
+  "cost_usd": 0.8565674999999999
+}

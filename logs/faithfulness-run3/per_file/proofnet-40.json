@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim. `CommGroup A` corresponds to \"A is an abelian group\", `B : Subgroup A` corresponds to \"B is a subgroup of A\", and `∀ a b : A ⧸ B, a*b = b*a` is precisely the statement that the quotient group A/B is commutative (abelian). In Mathlib, the `CommGroup` instance automatically provides the normality needed for `A ⧸ B` to carry a group structure, so the quotient is well-defined. No hypotheses are added or omitted, and the conclusion is stated as the commutativity axiom directly, which is equivalent to \"A/B is abelian\".",
+  "duration_ms": 49730,
+  "cost_usd": 0.1352
+}

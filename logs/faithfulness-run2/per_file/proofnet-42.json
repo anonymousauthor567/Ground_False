@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the multiplicativity of indices for H ≤ K ≤ G. `H.index` is |G:H|, `K.index` is |G:K|, and under the hypothesis `H ≤ K`, `H.relindex K` (which unfolds to `H.relIndex K`, the index of `H.subgroupOf K` in `K`) equals |K:H|. The hypothesis `H ≤ K` matches the informal chain (K ≤ G is automatic since K is a subgroup of G). Mathlib's ℕ-valued `index` uses the 0-for-infinite convention, under which the equation holds in every case (both finite and infinite), correctly reflecting the \"do not assume G finite\" instruction. This is the standard Mathlib statement of the result.",
+  "duration_ms": 28555,
+  "cost_usd": 0.10570049999999999
+}

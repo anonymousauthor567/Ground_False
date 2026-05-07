@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-247.lean",
+  "stem": "proofnet-247",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization is logically equivalent to the informal statement. The `[GCDMonoid R]` typeclass, combined with `h1`, captures exactly condition (i): in an integral domain, having a GCDMonoid structure is equivalent (as a property) to every pair of nonzero elements having a gcd, and `h1` asserts the representability as ra+sb. Since gcds are unique up to units, `gcd a b = r*a+s*b` (for the chosen representative) is equivalent to \"some gcd of a and b equals ra+sb\". Condition (ii) is correctly rendered: the sequence indexed from 0 vs. 1 is a trivial reindexing, and \"positive integer N\" vs. `N : ℕ` is immaterial since the existential statement is equivalent (one can always bump N up by 1 using the chain property). The conclusion `IsPrincipalIdealRing R` under `IsDomain R` matches \"R is a PID\".",
+  "duration_ms": 135791,
+  "cost_usd": 0.3891329
+}

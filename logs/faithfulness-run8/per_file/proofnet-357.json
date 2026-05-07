@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-357.lean",
+  "stem": "proofnet-357",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The hypothesis `DifferentiableOn ℝ f (Ioi 0)` corresponds exactly to \"$f$ is differentiable for every $x > 0$\". Encoding $f$ as a total function `ℝ → ℝ` is the standard Lean convention for partial functions, and is harmless here because both the hypothesis `Tendsto (deriv f) atTop (𝓝 0)` and the conclusion `Tendsto (λ x => f (x+1) - f x) atTop (𝓝 0)` concern only large $x$, where values are in $(0,\\infty)$. Since `Ioi 0` is open, `DifferentiableOn` on it implies `DifferentiableAt` at every point, so `deriv f x` agrees with the usual derivative for $x > 0$. The conclusion expresses $g(x) = f(x+1) - f(x) \\to 0$ as $x \\to +\\infty$ verbatim. No hypotheses are added or dropped beyond standard encoding conventions.",
+  "duration_ms": 115285,
+  "cost_usd": 0.45418250000000004
+}

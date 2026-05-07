@@ -1,0 +1,8 @@
+{
+  "file": "22.lean",
+  "stem": "22",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is $\\text{Aut}(D_8) \\cong D_8$ where $D_8$ has 8 elements. In Mathlib, `DihedralGroup n` has cardinality $2n$ (see `Mathlib/GroupTheory/SpecificGroups/Dihedral.lean` line 159: `Fintype.card (DihedralGroup n) = 2 * n`), so `DihedralGroup 4` is precisely the dihedral group with 8 elements, matching the informal convention stated in the problem. `MulAut G` is Mathlib's automorphism group of `G`, and `Nonempty (A ≃* B)` is the standard encoding for \"$A$ is isomorphic to $B$\" as groups via a `MulEquiv`. Thus `Nonempty (MulAut (DihedralGroup 4) ≃* DihedralGroup 4)` asserts exactly that $\\text{Aut}(D_8) \\cong D_8$. No hypotheses are added or dropped, and the quantifier structure (pure existence of an isomorphism) matches. The formalization is faithful.",
+  "duration_ms": 94013,
+  "cost_usd": 0.181676
+}

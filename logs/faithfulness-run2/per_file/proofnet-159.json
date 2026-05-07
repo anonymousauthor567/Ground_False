@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-159.lean",
+  "stem": "proofnet-159",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `f 0 = √2` and `f (n+1) = √(2 + √(f n))` matches the informal recursion $s_1 = \\sqrt{2}$, $s_{n+1} = \\sqrt{2+\\sqrt{s_n}}$ up to a harmless index shift (Lean's `f n` = informal $s_{n+1}$). The theorem asserts both required claims: existence of a limit (`∃ x, Tendsto f atTop (𝓝 x)`) which is exactly the convergence of the sequence, and the bound `∀ n, f n < 2`, which under the index shift covers all informal indices $n \\ge 1$. The conjunction, quantifier structure, and types (ℕ → ℝ) all align with the informal claim, so the Lean signature is logically equivalent.",
+  "duration_ms": 19698,
+  "cost_usd": 0.082849
+}

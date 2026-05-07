@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-41.lean",
+  "stem": "proofnet-41",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim: G is an arbitrary group, I is an arbitrary (and explicitly nonempty) index type with no cardinality restriction (so countability is not assumed), H is an indexed family of subgroups each assumed `Normal`, and the conclusion is that `⨅ (i : I), H i` — which for subgroups is the intersection in Mathlib's complete-lattice structure — is `Normal`. The quantifier structure (\"for all such collections of normal subgroups, the intersection is normal\") is preserved by the implicit universal quantification over G, I, and H. The `Nonempty I` assumption mirrors the informal \"nonempty collection\" phrasing exactly. No hypotheses are added or dropped and the types are correct.",
+  "duration_ms": 16781,
+  "cost_usd": 0.048004500000000005
+}

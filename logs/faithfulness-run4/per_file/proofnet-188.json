@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-188.lean",
+  "stem": "proofnet-188",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature formalizes \"no group of order pq (p, q prime) is simple\" as: for any finite group G with `card G = p*q` and `p, q` natural primes, `IsSimpleGroup G → false`. In Lean 4 the Bool literal `false` is coerced to the proposition `false = true` (i.e., `False`), so this reads as `¬ IsSimpleGroup G`. The Mathlib `IsSimpleGroup` class (Nontrivial + only trivial normal subgroups) is the standard notion of simple group. `Fintype G` plus `card G = p*q` is the natural encoding of finite order pq. The informal statement does not require p ≠ q, and the Lean version likewise permits p = q (order p²); the companion GT proof explicitly handles both cases, confirming this reading. Hypotheses and conclusion match exactly — no extra assumptions, no weakened conclusion.",
+  "duration_ms": 322873,
+  "cost_usd": 0.961505
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-61.lean",
+  "stem": "proofnet-61",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that the sum of all group elements, viewed as an element of the group ring RG, lies in the center of RG, for an arbitrary finite group G and ring R. The Lean version uses `MonoidAlgebra R G` (Mathlib's standard encoding of the group ring), quantifies universally over `R : Type*` with `[Ring R]` and `G : Type*` with `[Group G] [Fintype G]` (matching \"finite group\"), and expresses N as `∑ g : G, MonoidAlgebra.of R G g`, where `MonoidAlgebra.of` is exactly the canonical embedding of group elements as basis elements of RG. The conclusion `∈ center (MonoidAlgebra R G)` matches \"in the center of the group ring\". The hypotheses, conclusion, quantifier structure, and types all match the informal statement.",
+  "duration_ms": 19201,
+  "cost_usd": 0.060103000000000004
+}

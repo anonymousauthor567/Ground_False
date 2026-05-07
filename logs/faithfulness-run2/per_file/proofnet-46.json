@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim precisely: the hypotheses assume G is a group with IsSolvable G, and H is a subgroup with H ≠ ⊥ and H.Normal (normal in G). The conclusion ∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a expresses exactly that there exists a subgroup A of G contained in H (A ≤ H corresponds to \"subgroup of H\"), nontrivial (A ≠ ⊥), normal in G (A.Normal, and since A has type Subgroup G this means normal in G), and abelian (the ∀ a b : A, a*b = b*a condition is equivalent to A being abelian). All four required properties from the informal statement are preserved without extra or missing assumptions.",
+  "duration_ms": 11787,
+  "cost_usd": 0.0634145
+}

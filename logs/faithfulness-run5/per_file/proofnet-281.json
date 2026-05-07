@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-281.lean",
+  "stem": "proofnet-281",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement indexes over {p : ℤ // Squarefree p}, which in Mathlib excludes 0 (since ¬ Squarefree 0) but includes both signs of each squarefree integer (along with ±1). Although the informal Ireland–Rosen notation Σ′ over squarefree integers is usually read as a sum over positive squarefree integers, the two formulations are logically equivalent: Summable over ℚ is equivalent to absolute summability (since ℚ ⊂ ℝ is archimedean), so the signed sum is Summable iff Σ 1/n over positive squarefree ℕ converges. Thus ¬ Summable of the signed version is equivalent to divergence of the classical Σ' 1/n over positive squarefree integers. The term (1:ℚ)/i correctly represents 1/n in ℚ, and ¬ Summable correctly captures divergence for a series of this form. No hypotheses are silently added or dropped.",
+  "duration_ms": 446129,
+  "cost_usd": 1.2832725000000003
+}

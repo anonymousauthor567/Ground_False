@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-261.lean",
+  "stem": "proofnet-261",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures each element of the informal statement. `[CommGroup G] [Fintype G]` encodes \"finite abelian group\"; `hp : Nat.Prime p`, `hp1 : ¬ p ∣ m`, and `hG : card G = p^n * m` match \"order p^n·m with p prime and p ∤ m\"; `[Fintype H]` with `hH : card H = p^n` matches \"subgroup H of order p^n\"; and `Subgroup.Characteristic H` in Mathlib is defined via `∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`, which is exactly the standard definition of a characteristic subgroup (fixed by all automorphisms). The quantifier structure (G, p, m, n, H universally quantified in outer context) matches the informal reading. Edge cases like m = 0 are excluded automatically since a Fintype group has nonzero cardinality.",
+  "duration_ms": 63774,
+  "cost_usd": 0.20675724999999998
+}

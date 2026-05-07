@@ -1,0 +1,8 @@
+{
+  "file": "100.lean",
+  "stem": "100",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a type R with a CommRing structure such that the prime spectrum (PrimeSpectrum R, which is the type of all prime ideals by its Mathlib definition) is Finite and R is not a Noetherian ring (IsNoetherianRing R is defined as IsNoetherian R R, equivalent to every ideal being finitely generated). This matches the informal claim exactly: a commutative ring with finite prime spectrum that is not Noetherian. The minor restriction to R : Type (universe 0) rather than Type* is not a faithfulness issue since the standard counterexamples (e.g., k[x₁,x₂,…]/(xᵢxⱼ)) live in Type 0, making the existence claim mathematically equivalent.",
+  "duration_ms": 128920,
+  "cost_usd": 0.335634
+}

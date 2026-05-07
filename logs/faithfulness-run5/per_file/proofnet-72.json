@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-72.lean",
+  "stem": "proofnet-72",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: for a finite group G, there exists a positive integer m such that a^m = e for all a ∈ G. The Lean formalization uses `[Group G]` and `[Fintype G]` to encode \"finite group\", which matches \"G is a finite group\". It then states `∃ (m : ℕ), m > 0 ∧ ∀ (a : G), a ^ m = 1`, which asserts the existence of a positive natural number m with a^m = 1 for all a. Using ℕ with m > 0 is equivalent to \"integer m > 0\" for an existence claim, and `1` is the standard Mathlib notation for the group identity (the e in the informal statement). The quantifier structure (∃ m, ∀ a) matches exactly. This is a faithful formalization.",
+  "duration_ms": 16646,
+  "cost_usd": 0.04237875000000001
+}

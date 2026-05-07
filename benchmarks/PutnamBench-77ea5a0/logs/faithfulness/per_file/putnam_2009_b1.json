@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_b1.lean",
+  "stem": "putnam_2009_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. The conclusion quantifies over all positive rationals q and asserts that q is a quotient of products of factorials of primes, encoded as: there exist k, m : ℕ and functions a : Fin k → ℕ, b : Fin m → ℕ with each a_i and b_j prime (via Nat.Prime), and q = ∏ Nat.factorial(a_i) / ∏ Nat.factorial(b_j). Since q : ℚ, the division elaborates as genuine rational division (the naturals are coerced to ℚ via the NatCast instance), matching the intended meaning. The k=0/m=0 cases give empty products equal to 1, correctly allowing integer representations. The biconditional hypothesis pattern for defining isquotprodprimefact is a standard encoding equivalent to directly stating the existence. The example 10/9 = (2!·5!)/(3!·3!·3!) checks out (240/216 = 10/9). No hypotheses are dropped or added beyond what the informal statement requires.",
+  "duration_ms": 542229,
+  "cost_usd": 1.8794284999999997
+}

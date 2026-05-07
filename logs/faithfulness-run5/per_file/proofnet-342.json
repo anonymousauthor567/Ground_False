@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-342.lean",
+  "stem": "proofnet-342",
+  "verdict": "faithful",
+  "reasoning": "The informal statement explicitly refers to \"the real function f(n) = √(n²+n) − n\" and asks for the limit as n → ∞ equals 1/2. The Lean statement formalizes this as `Tendsto (λ (n : ℝ) => sqrt (n^2 + n) - n) atTop (𝓝 (1/2))`, which uses `n : ℝ` matching the \"real function\" wording and uses `atTop` with `𝓝 (1/2)` which is Mathlib's standard way to express lim_{x→∞} f(x) = 1/2. The function expression `sqrt (n^2 + n) - n` exactly matches f(n) = √(n²+n) − n. There are no added or dropped hypotheses, no quantifier changes, and no domain changes. This is a faithful formalization.",
+  "duration_ms": 22747,
+  "cost_usd": 0.062055000000000006
+}

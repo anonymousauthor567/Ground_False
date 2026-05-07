@@ -1,0 +1,8 @@
+{
+  "file": "29.lean",
+  "stem": "29",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses auxiliary variables A₁, A₂, A₃ constrained by hypotheses h₁, h₂, h₃ to be Subgroup.centralizer A, Subgroup.centralizer (Subgroup.centralizer A), and Subgroup.centralizer (Subgroup.centralizer (Subgroup.centralizer A)) respectively. The conclusion `A₁ = A₃` is therefore logically equivalent to `Subgroup.centralizer A = Subgroup.centralizer (Subgroup.centralizer (Subgroup.centralizer A))`, which is exactly the informal claim $C_G(C_G(C_G(A))) = C_G(A)$ (up to symmetry of equality). The ambient object `A : Subgroup G` with an arbitrary `[Group G]` matches \"Let A ≤ G be a subgroup of G\". In Mathlib, `Subgroup.centralizer` takes a `Set G`; the `SetLike` coercion of `A : Subgroup G` yields the underlying set, so `Subgroup.centralizer A` is the usual centralizer of A in G. No hypotheses are added or dropped, and no quantifier structure is altered.",
+  "duration_ms": 303872,
+  "cost_usd": 0.510227
+}

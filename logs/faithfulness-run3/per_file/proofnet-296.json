@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-296.lean",
+  "stem": "proofnet-296",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly captures the informal claim from Munkres Exercise 18.8(a). \"Ordered set\" in Munkres means a linearly (totally) ordered set, encoded as `LinearOrder Y`; \"in the order topology\" is encoded as `[TopologicalSpace Y] [OrderTopology Y]`, which in Mathlib asserts that the topology on Y agrees with the order topology. The continuous maps f, g : X → Y are given with `Continuous f` and `Continuous g`, and the conclusion `IsClosed {x | f x ≤ g x}` exactly matches \"the set {x | f(x) ≤ g(x)} is closed in X\". X is an arbitrary topological space, as in the informal statement. The encoding is logically equivalent to the informal claim.",
+  "duration_ms": 19930,
+  "cost_usd": 0.055548749999999994
+}

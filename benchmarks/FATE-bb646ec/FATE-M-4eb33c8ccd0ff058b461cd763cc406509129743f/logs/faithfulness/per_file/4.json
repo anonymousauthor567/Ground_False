@@ -1,0 +1,8 @@
+{
+  "file": "4.lean",
+  "stem": "4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement universally quantifies over arbitrary groups G, G' and a group homomorphism f : G →* G' (Mathlib's standard encoding of a group hom given the Group instances), with a, b implicit universally quantified elements of G. The conclusion `a * b ∈ f.ker ↔ b * a ∈ f.ker` exactly matches the informal \"ab ∈ Ker φ ↔ ba ∈ Ker φ\", since `MonoidHom.ker` in `Mathlib/Algebra/Group/Subgroup/Ker.lean` is defined as `{x | f x = 1}`, i.e. the kernel of the homomorphism. No hypotheses are added or dropped, and no types are changed. This is a logically equivalent faithful formalization.",
+  "duration_ms": 30909,
+  "cost_usd": 0.1332885
+}

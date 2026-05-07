@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "weaker",
+  "reasoning": "The Lean signature adds an extra hypothesis `IsPreconnected Ω` that is not present in the informal statement. The informal statement only says \"f is holomorphic in an open set Ω\" — it does not require Ω to be connected. The Lean theorem therefore establishes a strictly weaker claim (it only proves f is constant on preconnected open sets, not on arbitrary open sets). Note that the informal claim is actually false on disconnected open sets (a locally constant function with norm c on two disjoint disks can take different values on each), so the informal author likely implicitly meant \"region\"; nevertheless, under strict logical comparison of what is literally written, the Lean version is implied by but does not imply the informal version, which is the definition of \"weaker\". The rest of the encoding (conclusion `f a = f b` for arbitrary a, b ∈ Ω, `DifferentiableOn ℂ f Ω`, and ∃c, ∀z ∈ Ω, ‖f z‖ = c) faithfully captures \"f is constant\" and \"|f| is constant\" respectively.",
+  "duration_ms": 79783,
+  "cost_usd": 0.24066725
+}

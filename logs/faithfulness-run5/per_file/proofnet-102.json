@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for any integer $x$ and any prime $p$ dividing $x^4 - x^2 + 1$, $p \\equiv 1 \\pmod{12}$. The Lean statement universally quantifies over `p : ℕ` prime and `x : ℤ`, hypothesizes `(p : ℤ) ∣ x^4 - x^2 + 1`, and concludes `(p : ℤ) ≡ 1 [ZMOD 12]`, where the `ZMOD` notation from `Mathlib/Data/Int/ModEq.lean` is `Int.ModEq 12`, i.e., agreement modulo 12. This matches the informal claim exactly — primes are taken as positive (`Nat.Prime`), the polynomial and divisibility are over ℤ, and the conclusion is the desired congruence. No hypotheses are silently added or dropped, and the cases $p = 2, 3$ hold vacuously since $x^4 - x^2 + 1$ is always odd and never divisible by 3.",
+  "duration_ms": 139938,
+  "cost_usd": 0.44314925000000005
+}

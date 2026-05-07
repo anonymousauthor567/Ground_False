@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature states: for any real p ≤ 1, the function f(k) = 1/(k·(log k)^p) on ℕ is not Summable. This is equivalent to the informal claim that ∑ 1/(k(log k)^p) diverges for p ≤ 1. The function values at k=0, 1 (where log k = 0 makes the expression 1/0 = 0 in Lean's convention, or 1 for p=0 at k=1) differ from the \"natural\" starting index, but since Summable is invariant under modification of finitely many terms, this doesn't affect the claim. For k ≥ 2, f is positive, so ¬Summable correctly means the series diverges. The universal quantification over p ≤ 1 matches \"when p ≤ 1\", and `(Real.log k)^p` with p : ℝ correctly uses Real.rpow. No hypotheses are added or dropped beyond those needed.",
+  "duration_ms": 118824,
+  "cost_usd": 0.36196675000000006
+}

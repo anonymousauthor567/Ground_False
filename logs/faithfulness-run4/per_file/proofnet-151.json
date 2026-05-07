@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly matches the informal polar decomposition claim. `z : ℂ` matches \"z is a complex number\"; `∃ (r : ℝ), r ≥ 0` captures \"there exists r ≥ 0\"; `∃ (w : ℂ), ‖w‖ = 1` captures \"a complex number w with |w| = 1\" since on ℂ the norm `‖·‖` coincides with the modulus; and `z = r * w` (with automatic coercion of r : ℝ to ℂ) expresses `z = rw`. The quantifier order and conjunctive structure mirror the informal statement, with no extra hypotheses or missing requirements.",
+  "duration_ms": 72597,
+  "cost_usd": 0.21730975000000002
+}

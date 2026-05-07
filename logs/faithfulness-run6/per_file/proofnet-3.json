@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"a group of even order contains an element of order 2.\" The Lean signature encodes this directly: `[Group G] [Fintype G]` gives an arbitrary finite group G, `hG : Even (card G)` expresses that |G| is even, and `∃ x : G, orderOf x = 2` expresses the existence of an element of order exactly 2. Mathlib's `orderOf x = 2` precisely captures \"x has order 2,\" and `card G` via `Fintype` is the cardinality/order of G. Since a group is nonempty (contains the identity), `card G ≥ 1`, so the `Even (card G)` hypothesis meaningfully enforces order ≥ 2. There are no extra or missing hypotheses, and the quantifier structure matches the informal claim.",
+  "duration_ms": 19210,
+  "cost_usd": 0.16097450000000002
+}

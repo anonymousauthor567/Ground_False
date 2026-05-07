@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-133.lean",
+  "stem": "proofnet-133",
+  "verdict": "faithful",
+  "reasoning": "Mathlib's `CompletelyRegularSpace` matches the standard Munkres definition (separation of points from closed sets by continuous functions to [0,1]). The hypotheses `IsClosed A`, `IsClosed B`, `Disjoint A B`, `IsCompact A` correctly capture \"disjoint closed subsets with A compact\". The conclusion uses literal image equality `f '' A = {0}` and `f '' B = {1}`, which matches the informal `f(A) = {0}` and `f(B) = {1}`. The added `A.Nonempty` and `B.Nonempty` are necessary implicit premises: without them, `f '' ∅ = ∅ ≠ {0}`, so the literal informal statement would be false. Per the worked example guidance, surfacing such implicit premises needed for the statement's truth is faithful rather than \"weaker\". The target type `I` (unit interval) also matches `[0,1]`.",
+  "duration_ms": 173696,
+  "cost_usd": 0.5108275
+}

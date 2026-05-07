@@ -1,0 +1,8 @@
+{
+  "file": "S_0005.lean",
+  "stem": "S_0005",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if every idempotent in C factors as an epi followed by a mono, then every idempotent splits in C. The Lean hypothesis `∀ X p, p ≫ p = p → ∃ Y e (Epi e) m (Mono m), p = e ≫ m` encodes \"every idempotent endomorphism has an epi-mono factorization\" exactly as stated. The conclusion `IsIdempotentComplete C` is the Mathlib class whose defining field `idempotents_split` literally asserts \"for every idempotent p there exists Y, i, e with i ≫ e = 𝟙 Y and e ≫ i = p\", i.e., the standard definition of all idempotents splitting. Both the hypothesis and the conclusion match the informal statement with no added or dropped premises and no shift in quantifier structure or mathematical meaning.",
+  "duration_ms": 39051,
+  "cost_usd": 0.16692200000000001
+}

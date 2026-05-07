@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-15.lean",
+  "stem": "proofnet-15",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove -(-v) = v for every v in the vector space V. The Lean signature sets up V as an AddCommGroup with F a Field and V a Module over F, which correctly captures \"vector space V over F\". The implicit argument {v : V} encodes the universal quantification \"for every v ∈ V\", and the conclusion -(-v) = v matches the informal claim exactly. While the double-negation identity technically holds in any AddCommGroup without requiring the Module/Field structure, preserving the vector space context of the informal statement is a faithful rendering, not an extraneous addition.",
+  "duration_ms": 33532,
+  "cost_usd": 0.07433075
+}

@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p10.lean",
+  "stem": "abstract_algebra__p10",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement translates each part of the informal claim precisely: a, b, c are positive reals (0 < a, 0 < b, 0 < c), the hypothesis a²/(1+a²) + b²/(1+b²) + c²/(1+c²) = 1 is encoded as-is, and the conclusion |a·b·c| ≤ 1/(2√2) matches `abs (a * b * c) ≤ 1 / (2 * Real.sqrt 2)`. Since a, b, c are positive, the absolute value in both sides collapses to the product itself, so the encoding preserves the mathematical content. No hypotheses are added or dropped, and the types/quantifiers align.",
+  "duration_ms": 38279,
+  "cost_usd": 0.10395599999999999
+}

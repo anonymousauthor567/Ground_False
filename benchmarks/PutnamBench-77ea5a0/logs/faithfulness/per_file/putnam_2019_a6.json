@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2019_a6.lean",
+  "stem": "putnam_2019_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement. The continuity and differentiability hypotheses correctly encode \"continuous on [0,1]\" and \"twice differentiable on (0,1)\" (since `DifferentiableOn ℝ (deriv g) (Ioo 0 1)` makes g' continuous, ensuring C¹, so the conjunction is equivalent to twice differentiability on the open interval). The limit hypothesis `Tendsto (fun x => g x / x^r) (𝓝[>] 0) (𝓝 0)` directly matches lim_{x→0+} g(x)/x^r = 0. The first disjunct `Tendsto (deriv g) (𝓝[>] 0) (𝓝 0)` matches lim_{x→0+} g'(x) = 0. For the second disjunct: the sSup over (0,x] in WithTop ℝ equals ⊤ iff the real set {x'^r |g''(x')| : x' ∈ (0,x]} is unbounded; since this sup is monotone non-increasing as x → 0⁺, `Tendsto ... atTop` forces the sup to equal ⊤ for all small x > 0, which by monotonicity is equivalent to sup over (0,δ) being ∞ for all δ > 0, i.e., limsup_{x→0+} x^r |g''(x)| = ∞. The `iteratedDeriv 2 g` coincides with g'' on (0,1) where g is twice differentiable. All components are logically equivalent to the informal statement.",
+  "duration_ms": 854318,
+  "cost_usd": 1.6386219999999998
+}

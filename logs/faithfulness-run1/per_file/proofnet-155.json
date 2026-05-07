@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "theorem_name": "Rudin_exercise_2_24_corrected",
+  "informal": "Let $X$ be a metric space in which every infinite subset has a limit point. Prove that $X$ is separable.",
+  "lean": "theorem Rudin_exercise_2_24_corrected\n    {X : Type*} [MetricSpace X]\n    (hTB : TotallyBounded (Set.univ : Set X)) :\n    SeparableSpace X",
+  "verdict": "stronger",
+  "reasoning": "The informal hypothesis is \"every infinite subset of X has a limit point\" (limit point compactness / Bolzano–Weierstrass property). The Lean signature instead assumes `TotallyBounded (Set.univ : Set X)`. These are not the same hypothesis. In a metric space, limit point compactness implies sequential compactness, hence compactness, hence total boundedness; so the informal hypothesis implies the Lean one. The converse fails: e.g. the open interval (0,1) is totally bounded but the infinite subset {1/n} has no limit point in (0,1). Thus the Lean statement uses a strictly weaker hypothesis to derive the same conclusion (separability), so it logically implies the informal claim but is not implied by it.",
+  "duration_ms": 19438,
+  "cost_usd": 0.0763045
+}

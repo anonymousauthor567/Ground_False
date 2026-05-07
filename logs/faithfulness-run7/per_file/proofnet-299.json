@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures exactly the informal claim. `I := Icc 0 1` coerces to the subtype for the domain of `f`, so `f : ℕ → I → ℝ` with `f n x = ↑x ^ n` correctly encodes `f_n : [0,1] → ℝ`, `f_n(x) = x^n`. Mathlib's `TendstoUniformly F f₀ atTop` is `∀ u ∈ 𝓤 β, ∀ᶠ n in p, ∀ x, (f₀ x, F n x) ∈ u`, which is uniform convergence on the whole domain — here the whole interval [0,1]. The conclusion `¬ ∃ f₀, TendstoUniformly f f₀ atTop` directly encodes \"no uniform limit exists\", which is the natural meaning of \"the sequence does not converge uniformly\". No hypotheses are added or dropped, and there is no change to quantifier structure or types.",
+  "duration_ms": 55175,
+  "cost_usd": 0.1869275
+}

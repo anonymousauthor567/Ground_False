@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Rudin Exercise 5.2. The hypothesis `deriv f x > 0` forces differentiability at x (since Mathlib's `deriv_zero_of_not_differentiableAt` makes `deriv f x = 0` when f is not differentiable at x), capturing \"f'(x) > 0 in (a,b)\". The left-inverse hypothesis `g (f x) = x` on (a,b), combined with strict monotonicity and continuity of f (which follow), uniquely determines g on the open set f '' (a,b); behavior of g outside this open set does not affect `DifferentiableOn g (f '' Ioo a b)` or `deriv g (f x)` since f '' (a,b) is open. The three conclusions — `StrictMonoOn f`, `DifferentiableOn ℝ g`, and the derivative identity `deriv g (f x) = 1 / deriv f x` — correspond precisely to Rudin's three claims. The universal quantification over a, b, f, g is the natural reading.",
+  "duration_ms": 261358,
+  "cost_usd": 0.7681202500000001
+}

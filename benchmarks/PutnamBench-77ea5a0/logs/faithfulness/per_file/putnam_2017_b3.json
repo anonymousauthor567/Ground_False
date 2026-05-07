@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2017_b3.lean",
+  "stem": "putnam_2017_b3",
+  "verdict": "incomparable",
+  "reasoning": "In Lean 4, function application binds tighter than the division operator, so `Irrational (f 1/2)` parses as `Irrational ((f 1) / 2)`, not `Irrational (f (1/2))`. Note that the hypothesis side uses `f (2/3)` with explicit parentheses, but the conclusion does not, confirming the parsing as `(f 1)/2`. The informal statement asks to prove that `f(1/2) = ∑ cᵢ·(1/2)ⁱ` is irrational, while the Lean statement asserts that `f(1)/2 = (∑ cᵢ·1ⁱ)/2` is irrational — these concern different evaluation points of f. Moreover, since each cᵢ ∈ {0,1}, f(1) is either a natural number (if finitely many cᵢ are 1) making f(1)/2 rational, or the series diverges and Mathlib's tsum returns 0 (also rational), so the Lean claim is essentially always false. The Lean statement is therefore neither implied by nor implies the informal claim.",
+  "duration_ms": 203385,
+  "cost_usd": 0.5847515
+}

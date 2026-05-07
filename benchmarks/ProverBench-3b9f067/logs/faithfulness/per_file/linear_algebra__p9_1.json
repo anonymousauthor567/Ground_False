@@ -1,0 +1,8 @@
+{
+  "file": "linear_algebra__p9_1.lean",
+  "stem": "linear_algebra__p9_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a bidirectional iff between \"f is a quadratic form\" and \"∃ symmetric matrix A with f(x) = x^T A x\". The Lean formalization defines `IsQuadraticForm f` to *already* mean \"∃ symmetric A with f = x^T A x\", so the lemma `symmetric_matrix_representation` is literally `P → P`—only one direction of a trivial tautology. The converse direction (that having a symmetric-matrix representation implies f is a quadratic form) is not stated as a separate claim. Moreover, the substantive content of the informal iff (connecting the standard notion of quadratic form, i.e., a homogeneous degree-2 polynomial or \"∃ any matrix A\", with the existence of a *symmetric* matrix representation) is eliminated by the author's choice of definition. The Lean statement is implied by the informal iff (being trivially true) but does not imply the informal's substantive claim, making it strictly weaker.",
+  "duration_ms": 288059,
+  "cost_usd": 0.7982670000000001
+}

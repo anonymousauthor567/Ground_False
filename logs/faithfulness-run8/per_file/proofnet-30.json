@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-30.lean",
+  "stem": "proofnet-30",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over arbitrary groups G and arbitrary elements x, matching the informal statement's implicit universal quantification. The notation |x| in standard group theory (Dummit-Foote) denotes the order of x, which is faithfully encoded as `orderOf x` in Mathlib. Checking the iff in both directions: if x^2 = 1 then orderOf x ∣ 2 so orderOf x ∈ {1, 2}; conversely orderOf x = 1 implies x = 1 (via `orderOf_eq_one_iff`) hence x^2 = 1, and orderOf x = 2 directly gives x^2 = 1 via `pow_orderOf_eq_one`. The statement also handles Mathlib's convention (orderOf = 0 for infinite order) correctly: infinite-order x has x^2 ≠ 1 and neither disjunct holds. No hypotheses are added, dropped, or altered.",
+  "duration_ms": 49327,
+  "cost_usd": 0.19062899999999997
+}

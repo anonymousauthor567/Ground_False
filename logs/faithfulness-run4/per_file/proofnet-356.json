@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement. The hypothesis `Differentiable ℝ g` makes explicit the implicit premise that $g$ is differentiable (required for $g'$ to even exist pointwise, as Rudin's phrasing \"$|g'| \\le M$\" presupposes). The hypothesis `∃ M, ∀ x, |deriv g x| ≤ M` is a direct encoding of \"bounded derivative.\" The conclusion `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (λ x => x + ε * g x)` is the standard formalization of \"$f$ is one-to-one if $\\varepsilon$ is small enough\" — there exists a positive threshold below which positive $\\varepsilon$ give an injective $f$. `Function.Injective` is the standard encoding of \"one-to-one.\" No hypotheses are strengthened or weakened beyond surfacing the implicit differentiability premise.",
+  "duration_ms": 71290,
+  "cost_usd": 0.27458825000000003
+}

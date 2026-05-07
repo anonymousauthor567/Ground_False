@@ -1,0 +1,8 @@
+{
+  "file": "40.lean",
+  "stem": "40",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding faithfully captures the informal claim. Irreducibility (`hf1`) and the quintic condition (`hf2 : natDegree = 5`) are explicit. `[IsSplittingField ℚ K f]` correctly encodes K as the splitting field. The three distinct roots α₁, α₂, α₃ from the informal set {α₁,...,α₅} are encoded as `a₁ a₂ a₃ ∈ rootSet f K` with pairwise distinctness (`ha2`). The hypothesis ℚ(α₁,α₂,α₃) ≠ K is precisely `IntermediateField.adjoin ℚ {a₁, a₂, a₃} ≠ ⊤`. The conclusion `Nonempty (f.Gal ≃* Equiv.Perm (Fin 5))` correctly expresses Gal(K/ℚ) ≅ S₅ (since K is ℚ-isomorphic to f.SplittingField, so f.Gal ≅ Aut(K/ℚ) as groups). Although the Lean version universally quantifies over the three roots while the informal is existentially parsed, these are logically equivalent since the conclusion does not depend on the specific choice.",
+  "duration_ms": 524039,
+  "cost_usd": 1.3148055
+}

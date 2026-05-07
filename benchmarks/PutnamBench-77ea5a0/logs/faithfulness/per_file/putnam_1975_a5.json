@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_a5.lean",
+  "stem": "putnam_1975_a5",
+  "verdict": "weaker",
+  "reasoning": "The Lean formalization is strictly weaker than the informal statement along multiple dimensions. (1) The informal statement assumes y1, y2 are solutions of y''=f(x)y on the interval I, with f continuous on I. The Lean version instead assumes `Continuous f`, `ContDiff ℝ 2 y1`, `ContDiff ℝ 2 y2`, and the ODE `hy1sol`/`hy2sol` holding for ALL x : ℝ, not just on I — these are strictly stronger premises than the informal text requires. (2) Linear independence is encoded globally (`∀ c1 c2, (∀ x : ℝ, ...)` rather than on I), which is a stronger assumption (global linear combination equals 0 everywhere is harder to satisfy than just on I, making the premise stronger and hence the theorem weaker). (3) `I : Interval ℝ` in Mathlib is `WithBot (NonemptyInterval ℝ)`, i.e. a CLOSED interval `Icc a b` (or empty), so the Lean theorem only covers closed intervals, whereas the informal \"some interval\" allows open, half-open, or unbounded intervals. Since the informal statement's weaker hypotheses and broader class of intervals imply the Lean theorem's conclusion, but not vice versa, the Lean formalization is logically weaker.",
+  "duration_ms": 1656213,
+  "cost_usd": 4.64282325
+}

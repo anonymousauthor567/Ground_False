@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p55.lean",
+  "stem": "calculus__p55",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem asserts `h 2 5 (-6) 3 = 512 ∧ m_comp 2 5 (-6) 3 = 34`. Unfolding the definitions: `h 2 5 (-6) 3 = (2:ℝ)^(5·3 + (-6)) = 2^9 = 512`, and `m_comp 2 5 (-6) 3 = 5·(2:ℝ)^3 + (-6) = 40 - 6 = 34`. These match exactly the two numerical claims in the informal statement (h(3) = 2^9 = 512 and m(3) = 5·2^3 - 6 = 34). While the Lean definitions of f, g, h, m_comp are parameterized over more variables than the informal statement describes, the theorem only uses the specific instantiation (a=2, m=5, b=-6, x=3), so the content of the theorem matches the informal claim. The use of real exponentiation (Real.rpow) agrees with the standard reading of 2^x.",
+  "duration_ms": 52387,
+  "cost_usd": 0.14508375
+}

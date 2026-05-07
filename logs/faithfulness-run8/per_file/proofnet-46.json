@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-46.lean",
+  "stem": "proofnet-46",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely matches the informal claim. The premises ([Group G], [IsSolvable G], {H : Subgroup G}, hH : H ≠ ⊥, [H.Normal]) encode \"H is a nontrivial normal subgroup of the solvable group G.\" The conclusion `∃ A ≤ H, A ≠ ⊥ ∧ A.Normal ∧ ∀ a b : A, a*b = b*a` states there exists a nontrivial subgroup A of G contained in H that is normal in G (since A has type `Subgroup G`, so `A.Normal` means normal in G, matching A ⊴ G) and abelian (elements commute). The bounded existential `∃ A ≤ H, ...` unfolds to `∃ A, A ≤ H ∧ ...`, so A is naturally a subgroup of G that sits inside H. The abelianness encoding `∀ a b : A, a*b = b*a` is logically equivalent to A being abelian. No hypotheses are added or dropped, no types are altered, and the quantifier structure matches.",
+  "duration_ms": 120895,
+  "cost_usd": 0.5411147500000001
+}

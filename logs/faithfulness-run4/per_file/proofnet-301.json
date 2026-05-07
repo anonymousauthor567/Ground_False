@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization precisely matches the informal statement from Munkres. The hypothesis `hp : IsOpenMap p` encodes \"p is an open map\", `hA : IsOpen A` encodes \"A is open in X\", and `Set.MapsTo.restrict p A (p '' A) (Set.mapsTo_image p A)` is exactly the restriction `q : ↑A → ↑(p '' A)` (since in Mathlib, `MapsTo.restrict f s t h := Subtype.map f h`). The subtypes `↑A` and `↑(p '' A)` automatically carry the subspace topology from X and Y respectively, which matches the standard topological reading. The conclusion `IsOpenMap` on this restriction is exactly the required claim. No hypothesis is added or dropped, and no type/structure differs from the informal statement.",
+  "duration_ms": 94875,
+  "cost_usd": 0.31393675
+}

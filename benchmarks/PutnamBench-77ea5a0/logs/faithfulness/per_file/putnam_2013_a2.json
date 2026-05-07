@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2013_a2.lean",
+  "stem": "putnam_2013_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding captures the informal problem accurately: (1) `S` is defined as positive integers that are not perfect squares, matching the informal $S$. (2) `P n a` captures a valid choice list with `a.length > 0` (so $r \\geq 1$), the first element greater than $n$ (`n < a[0]!`), the product $n \\cdot a_1 \\cdots a_r$ being a perfect square (`∃ m, m^2 = n * a.prod`), and strict increase (`a[i] < a[i+1]` for all valid $i$). (3) `T n` is the set of last elements of such lists, which matches $\\{a_r : (a_1, \\ldots, a_r) \\text{ valid}\\}$. (4) `hf` specifies `f n` to be the minimum of `T n` on `S` (it is in `T n` and ≤ every element of `T n`), matching \"$f(n)$ is the minimum of $a_r$\". (5) The conclusion `InjOn f S` is exactly \"$f$ is one-to-one on $S$\". The encoding takes `f` as a hypothesized minimum function — this is standard and logically equivalent to proving the specific such $f$ is injective. No hypothesis is dropped, added, or altered; no type mismatch; no weakening or strengthening.",
+  "duration_ms": 1642146,
+  "cost_usd": 3.77141525
+}

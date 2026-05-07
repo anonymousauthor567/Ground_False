@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-25.lean",
+  "stem": "proofnet-25",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes \"T is normal\" as `T * adjoint T = adjoint T * T` (composition of endomorphisms equals commutativity with the adjoint, which matches `IsStarNormal`'s defining condition). The conclusion `range T = range (adjoint T)` directly matches \"range T = range T*\" using `LinearMap.range`. The `FiniteDimensional F V` and `RCLike F` hypotheses make explicit the implicit premises from Chapter 7 of Axler's book (V is a finite-dimensional inner product space over ℝ or ℂ), which is the standing assumption throughout that chapter. The type `End F V` correctly represents T ∈ L(V). No hypothesis is silently dropped or strengthened beyond standard Axler context, so the formalization is logically equivalent to the informal statement under its intended reading.",
+  "duration_ms": 153417,
+  "cost_usd": 0.30448875
+}

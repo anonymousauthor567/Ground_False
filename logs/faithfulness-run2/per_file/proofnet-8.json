@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-8.lean",
+  "stem": "proofnet-8",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is that in ℤ[x], (2) ∩ (x) = (2x). The Lean signature takes place in `Polynomial ℤ` and uses `span` on singleton sets of type `Set (Polynomial ℤ)`. Since `Submodule.span` requires an explicit ring argument, `span {a}` here must resolve to `Ideal.span {a}`, i.e. the principal ideal (a). The `⊓` on ideals is intersection. Thus the Lean statement is `(2) ⊓ (X) = (2*X)` as ideals in ℤ[X], exactly matching the informal statement.",
+  "duration_ms": 16483,
+  "cost_usd": 0.062129750000000004
+}

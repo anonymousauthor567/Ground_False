@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-299.lean",
+  "stem": "proofnet-299",
+  "informal": "Define $f_{n}:[0,1] \\rightarrow \\mathbb{R}$ by the equation $f_{n}(x)=x^{n}$. Show that the sequence $\\left(f_{n}\\right)$ does not converge uniformly.",
+  "lean": "\ntheorem Munkres_exercise_21_6b\n  (f : ℕ → I → ℝ)\n  (h : ∀ x n, f n x = ↑x ^ n) :\n  ¬ ∃ f₀, TendstoUniformly f f₀ atTop",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature defines f : ℕ → I → ℝ where I is the unit interval [0,1], with the hypothesis that f n x = x^n (matching the informal definition). The conclusion ¬ ∃ f₀, TendstoUniformly f f₀ atTop states that there is no function to which f_n converges uniformly, which is exactly the standard meaning of \"the sequence does not converge uniformly.\" The domain, codomain, and definition of f_n match the informal statement, and the negation of existence of a uniform limit is the correct encoding.",
+  "duration_ms": 7759,
+  "cost_usd": 0.0477355
+}

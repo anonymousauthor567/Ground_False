@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` captures the informal condition `|f(t)-f(x)| ≤ |t-x|^2` for all t, x exactly (the variable names t, x vs x, y are immaterial). The conclusion `∃ c, f = λ _x => c` is the standard encoding of \"f is a constant function\" — by function extensionality it is equivalent to `∃ c, ∀ x, f x = c`, which is exactly \"f is constant\". The domain and codomain are both `ℝ`, matching the informal setup. No hypotheses have been added or dropped, and there is no narrowing or strengthening of the conclusion.",
+  "duration_ms": 21676,
+  "cost_usd": 0.07289175
+}

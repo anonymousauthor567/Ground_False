@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1987_a6.lean",
+  "stem": "putnam_1987_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal Putnam statement. The function `a` is defined as `{i | (digits 3 n).get i = 0}.ncard`, which correctly counts the number of zero digits in the base-3 representation of n (Mathlib's `digits 3 n` is little-endian with no leading zeros, matching the conventional representation). The `Summable` predicate is over n : ℕ, but at n=0 the term `x^(a 0) / 0^3 = 1/0 = 0` by Lean's division convention, so including n=0 does not affect summability — equivalent to summing from n=1 as in the informal statement. The set equality `{x : ℝ | x > 0 ∧ Summable ...} = {x : ℝ | x > 0 ∧ x < 25}` correctly asks \"for which positive x does the series converge?\" with answer (0, 25), matching the known Putnam answer derived from (2+x)/27 < 1.",
+  "duration_ms": 406867,
+  "cost_usd": 1.2954595
+}

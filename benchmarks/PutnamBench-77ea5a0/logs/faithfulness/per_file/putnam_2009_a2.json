@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2009_a2.lean",
+  "stem": "putnam_2009_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately encodes the informal statement. The hypothesis \"differentiable on some open interval around 0\" is captured by introducing parameters a, b with 0 ∈ Ioo a b and DifferentiableOn on (a,b); since (a,b) is open, deriv agrees with derivWithin here, so using deriv for the ODEs is equivalent. The three ODEs and initial conditions f(0)=g(0)=h(0)=1 are translated literally. The conclusion \"find an explicit formula valid in some open interval around 0\" is properly encoded as ∃ c d, 0 ∈ Ioo c d ∧ ∀ x ∈ Ioo c d, f x = solution x, matching the informal quantifier structure that the formula need only hold on some (possibly smaller) neighborhood of 0. The solution formula 2^(-1/12) · (sin(6x+π/4)/cos²(6x+π/4))^(1/6) evaluates to 1 at x=0, consistent with f(0)=1.",
+  "duration_ms": 132984,
+  "cost_usd": 0.4162425
+}

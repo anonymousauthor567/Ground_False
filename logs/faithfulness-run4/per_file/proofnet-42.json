@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts |G:H| = |G:K| · |K:H| under H ≤ K ≤ G without assuming finiteness. In Mathlib, `Subgroup.index` returns Nat.card of the quotient (0 if infinite), and `Subgroup.relIndex H K = (H.subgroupOf K).index`. Under the hypothesis `H ≤ K`, we have `H ∩ K = H`, so `H.relIndex K = |K : H|`. The custom `Subgroup.relindex` is merely an alias for `Subgroup.relIndex`. Thus the Lean statement `H.index = K.index * H.relindex K` precisely expresses |G:H| = |G:K| · |K:H|, and matches Mathlib's theorem `relIndex_mul_index` up to commutativity. The convention that infinite indices equal 0 correctly handles the \"do not assume G is finite\" requirement, since the product equation remains valid in all cases (infinite on one side iff infinite on the other).",
+  "duration_ms": 67543,
+  "cost_usd": 0.26376700000000003
+}

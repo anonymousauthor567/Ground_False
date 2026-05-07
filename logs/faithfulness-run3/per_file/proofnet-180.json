@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-180.lean",
+  "stem": "proofnet-180",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses match the informal ones, with `IsPreconnected Ω` added as an implicit premise (needed because the theorem can fail on components not containing z₀). The conclusion uses `ℂ →L[ℂ] ℂ` (strict ℂ-linear, f(x) = cx), whereas \"linear\" in complex analysis usually means affine (az+b). However, under the hypotheses f(z₀)=z₀ and f'(z₀)=1, both interpretations collapse to f = id on Ω: the Lean conclusion forces c=1 via f'(z₀)=c=1, giving f(z)=z; and the affine reading similarly forces a=1, b=0. Thus the Lean theorem is logically equivalent to the informal theorem, both asserting f = id on Ω. The formalization is faithful.",
+  "duration_ms": 213222,
+  "cost_usd": 0.60100175
+}

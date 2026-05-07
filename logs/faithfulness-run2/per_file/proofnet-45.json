@@ -1,0 +1,7 @@
+{
+  "file": "proofnet-45.lean",
+  "stem": "proofnet-45",
+  "verdict": "unclear",
+  "reasoning": "claude error: claude exited 1; stderr:\n",
+  "error": true
+}

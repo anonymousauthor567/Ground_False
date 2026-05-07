@@ -1,0 +1,8 @@
+{
+  "file": "106.lean",
+  "stem": "106",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. `[Group G] [Fintype G]` with `Fintype.card G = p ^ n` correctly encodes \"|G| = p^n\" (with finiteness implied by the equation). The `[Fact p.Prime]` hypothesis surfaces the standard implicit premise that p is prime (conventional when writing \"p^n\" for a group order). The bounded quantifier `∀ (m : ℕ), 1 ≤ m ∧ m ≤ n → ∃ N : Subgroup G, Fintype.card N = p ^ m` is a standard encoding of \"for all 1 ≤ m ≤ n, there is a subgroup of order p^m\". This matches Mathlib's `Sylow.exists_subgroup_card_pow_prime` up to `Fintype.card` vs `Nat.card` (which agree for Fintype). No hypotheses or conclusions are strengthened, weakened, or reinterpreted.",
+  "duration_ms": 78612,
+  "cost_usd": 0.21353075
+}

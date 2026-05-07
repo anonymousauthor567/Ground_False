@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts the existence of a group isomorphism between `Equiv.Perm (Fin 3)` (which is S_3) and `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)` (which is GL_2(Z/2Z)). Over the field Z_2, the group of invertible matrices coincides exactly with the group of 2×2 matrices with nonzero determinant, matching the definition of T in the informal statement. The `Nonempty (... ≃* ...)` encoding correctly expresses \"is isomorphic to\" as a Prop. The direction of the isomorphism is irrelevant since group isomorphism is symmetric. This is a faithful formalization.",
+  "duration_ms": 13469,
+  "cost_usd": 0.06910575
+}

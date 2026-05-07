@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-40.lean",
+  "stem": "proofnet-40",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that if A is an abelian group and B is a subgroup, then A/B is abelian. The Lean signature takes `[CommGroup A]` (matching \"abelian group A\") and `B : Subgroup A` (matching \"subgroup B\"), and concludes `∀ a b : A ⧸ B, a*b = b*a`, which is exactly the definition of commutativity of the quotient. Since A is commutative, every subgroup is automatically normal in Mathlib, so `A ⧸ B` is a well-defined group; asserting `a*b = b*a` for all elements is logically equivalent to \"A/B is abelian\". No hypotheses are added or omitted relative to the informal statement, and the conclusion matches exactly.",
+  "duration_ms": 10138,
+  "cost_usd": 0.04258975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1963_a2.lean",
+  "stem": "putnam_1963_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The function f : ℕ → ℕ with the hypothesis `hfpos : ∀ n, f n > 0` captures \"positive integers\" codomain (f(0) being positive is a harmless/vacuous extra constraint that is always satisfiable, since the informal function defined on positive integers can always be extended). `StrictMonoOn f (Set.Ici 1)` correctly captures \"strictly increasing sequence\" indexed from 1. For natural numbers, `IsRelPrime m n` is equivalent to `Nat.Coprime m n` (via `Nat.coprime_iff_isRelPrime`), matching \"gcd(m,n) = 1\". The multiplicative hypothesis requires m > 0 and n > 0, matching the informal's \"positive integers\". The conclusion `∀ n > 0, f n = n` exactly matches \"f(n) = n for every positive integer n\". The two statements are logically equivalent under the standard encoding of partial functions on positive integers as total functions on ℕ.",
+  "duration_ms": 273332,
+  "cost_usd": 0.8463945
+}

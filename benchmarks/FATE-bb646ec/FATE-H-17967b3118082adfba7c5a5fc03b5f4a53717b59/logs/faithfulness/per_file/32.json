@@ -1,0 +1,8 @@
+{
+  "file": "32.lean",
+  "stem": "32",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly captures the informal claim. `Polynomial.Gal p` is defined in Mathlib as `p.SplittingField ≃ₐ[F] p.SplittingField`, so `Gal (X^4 - 2*X^2 - 2 : ℚ[X])` is the Galois group of the splitting field of x^4 - 2x^2 - 2 over ℚ. `DihedralGroup 4` has cardinality 2·4 = 8 (confirmed by `DihedralGroup.card`), which matches \"the dihedral group with eight elements\" (D₄). `Nonempty (_ ≃* _)` is the standard way in Mathlib to assert that two groups are isomorphic. The polynomial, ambient field, Galois group, and target dihedral group all match; no hypotheses are added or dropped.",
+  "duration_ms": 92812,
+  "cost_usd": 0.26475725
+}

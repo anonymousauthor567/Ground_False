@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_b3.lean",
+  "stem": "putnam_2014_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal claim: `Matrix (Fin m) (Fin n) ℚ` is an m×n rational matrix, the set `{p : ℕ | p.Prime ∧ ∃ i j, |A i j| = p}` with `encard ≥ m + n` captures \"at least m+n distinct primes among absolute values of entries\" (via ℕ→ℚ coercion, a prime p equals |A i j| iff |A i j| is that natural prime), and `A.rank ≥ 2` matches the conclusion. The `mnpos: 0 < m ∧ 0 < n` hypothesis surfaces an implicit premise: when m = n = 0, the set of primes is empty (encard = 0 ≥ m+n = 0), but the rank is 0, so the literal statement would be false without this assumption. The convention that \"an m × n matrix\" has m, n ≥ 1 is an implicit premise being made explicit, not a narrowing of the mathematical claim.",
+  "duration_ms": 221819,
+  "cost_usd": 0.6161424999999999
+}

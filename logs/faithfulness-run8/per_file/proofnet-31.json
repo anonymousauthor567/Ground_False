@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-31.lean",
+  "stem": "proofnet-31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is a chain of equivalences \"A iff B iff C\" with A: xy=yx, B: y⁻¹xy=x, C: x⁻¹y⁻¹xy=1. The Lean encoding (A ↔ B) ∧ (B ↔ C) is the standard formalization of such a chain — it gives mutual equivalence of all three propositions (A ↔ C follows by transitivity). The group G is arbitrary with [Group G], matching the informal \"elements of G\". Parenthesization of y⁻¹*x*y and x⁻¹*y⁻¹*x*y correctly represents y⁻¹xy and x⁻¹y⁻¹xy via left-associative multiplication. No hypotheses are added or dropped, and the types match exactly.",
+  "duration_ms": 27903,
+  "cost_usd": 0.10987774999999998
+}

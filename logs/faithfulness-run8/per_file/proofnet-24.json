@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-24.lean",
+  "stem": "proofnet-24",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"U⊥ = {0} iff U = V\" is FALSE in a general inner product space without further hypotheses: (1) it fails when U is dense but not closed (e.g., U = ℓ²_fin in V = ℓ²); (2) it fails even for closed U in an incomplete inner product space (e.g., V = ℓ²_fin with U = kernel of ⟨·,v₀⟩ for v₀ ∈ ℓ²\\V has U⊥ = {0} yet U ≠ V). The Lean formalization adds exactly `CompleteSpace V` and `IsClosed U`, which are the minimal hypotheses needed to make the iff hold — these are the canonical Mathlib conditions (they give `HasOrthogonalProjection`, under which `Submodule.orthogonal_eq_bot_iff` is a true theorem). Since these hypotheses are strictly necessary for the statement's truth (not extra scope-narrowing), adding them counts as surfacing implicit premises rather than weakening. The types (Submodule K V, ⊥ for {0}, ⊤ for V, RCLike K for the scalar field of an inner product space) are the standard Mathlib encodings of the informal objects.",
+  "duration_ms": 332717,
+  "cost_usd": 1.012947
+}

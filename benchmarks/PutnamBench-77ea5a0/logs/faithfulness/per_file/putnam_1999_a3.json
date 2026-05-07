@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a3.lean",
+  "stem": "putnam_1999_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures exactly the informal statement. The hypothesis `hf'` asserts that the partial sums ∑_{n<N} a_n x^n converge to f(x) = 1/(1-2x-x²) for all x in some neighborhood of 0 (via `∀ᶠ x in 𝓝 0`), which uniquely determines a_n as the Taylor coefficients by the identity principle for power series. The conclusion `∃ m : ℕ, a_n² + a_{n+1}² = a_m` matches the informal \"there is an integer m such that a_n² + a_{n+1}² = a_m\", where m being ℕ faithfully encodes the required non-negative integer index into the sequence (m must be ≥ 0 for a_m to refer to a power series coefficient). Typing a_n as ℝ rather than ℤ is a standard and faithful choice since the values arise as real-valued coefficients (and the equation still captures the integer identity). The universal \"for each n ≥ 0\" is handled by the free variable n : ℕ.",
+  "duration_ms": 137145,
+  "cost_usd": 0.41520074999999995
+}

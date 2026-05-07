@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over all integers `x` and all primes `p : ℕ`, assumes `(p : ℤ) ∣ (x^4 - x^2 + 1)`, and concludes `(p : ℤ) ≡ 1 [ZMOD 12]`, which unfolds to `p % 12 = 1` — exactly \"p ≡ 1 mod 12\". This matches the informal \"any prime divisor of x^4 - x^2 + 1 is congruent to 1 modulo 12\" directly. Since x^4 - x^2 + 1 is always odd (x²(x²-1) is even) and always ≡ 1 mod 3, the primes 2 and 3 never appear as divisors, so no extra hypotheses are needed. The quantifier structure, hypotheses, types (ℕ prime, ℤ divisibility), and conclusion all line up with the informal statement.",
+  "duration_ms": 59571,
+  "cost_usd": 0.24842999999999998
+}

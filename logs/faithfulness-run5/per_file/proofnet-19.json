@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-19.lean",
+  "stem": "proofnet-19",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes Axler's statement. `S ∘ T = T ∘ S` (function composition equality) is equivalent to ST = TS for linear maps by extensionality. `ker (T - c • LinearMap.id)` precisely captures null(T - λI) since c • LinearMap.id is the scalar operator cI. `Submodule.map S P ≤ P` is the standard Mathlib encoding of \"P is invariant under S\" (S maps P into itself). The parameter `c : F` is equivalent to universal quantification over λ ∈ F. The Lean theorem does not impose finite-dimensionality or restrict F to ℝ/ℂ, but the literal informal text also imposes no such restriction — the claim is purely algebraic and holds over any field, so this matches the stated content exactly.",
+  "duration_ms": 147520,
+  "cost_usd": 0.34539625
+}

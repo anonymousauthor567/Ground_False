@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-291.lean",
+  "stem": "proofnet-291",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts existence and uniqueness of a topology T' on X that (a) is contained in every T_i and (b) contains every other topology contained in all T_i. This precisely matches \"unique largest topology contained in all the T_α\". The custom `is_topology` predicate (univ ∈ T, closed under binary intersection, closed under arbitrary union) is equivalent to Munkres' topology definition, since ∅ ∈ T follows from the empty union. Set inclusion T' ⊆ T_i correctly captures the informal notion of one topology being contained in another. The `∃!` is logically redundant given the maximality clause (uniqueness follows from antisymmetry), but it does not alter the mathematical content. No hypothesis is added or dropped, and the quantifier structure matches the informal claim.",
+  "duration_ms": 36701,
+  "cost_usd": 0.13554175
+}

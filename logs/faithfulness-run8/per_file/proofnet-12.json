@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-12.lean",
+  "stem": "proofnet-12",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"X^2+1 is irreducible in F_7\". The Lean encoding quantifies over any field F with a Fintype instance and card F = 7, and asserts Irreducible (X^2+1) in Polynomial F. By the classification of finite fields, any such F is (uniquely up to isomorphism) the field ZMod 7 = F_7, and ring isomorphism preserves irreducibility of polynomials. Hence \"for all fields F with |F|=7, X^2+1 is irreducible in F[X]\" is logically equivalent to \"X^2+1 is irreducible in F_7\". The conclusion uses Polynomial.Irreducible correctly on X^2+1. No hypotheses are added or dropped beyond what is needed to specify \"the\" field of order 7.",
+  "duration_ms": 48004,
+  "cost_usd": 0.162602
+}

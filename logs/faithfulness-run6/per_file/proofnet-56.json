@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary finite group `G` with `Fintype.card G = 132` (via `open Fintype`) and concludes `¬ IsSimpleGroup G`. This matches the informal claim: |G| = 132 ⇒ G is not simple. Mathlib's `IsSimpleGroup` captures the standard definition of a simple group (Nontrivial, with every normal subgroup equal to ⊥ or ⊤). The `Fintype` instance is necessary to even speak of |G| = 132 as a natural number, so it is not an added restriction beyond what the informal statement implicitly requires. Hypotheses and conclusion match exactly.",
+  "duration_ms": 39691,
+  "cost_usd": 0.18053999999999998
+}

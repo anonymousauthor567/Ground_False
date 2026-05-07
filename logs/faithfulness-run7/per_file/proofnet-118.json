@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-118.lean",
+  "stem": "proofnet-118",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement exactly: a sequence `A : ℕ → Set X` of connected subspaces, the consecutive-intersection hypothesis `A n ∩ A (n+1) ≠ ∅`, and the conclusion that `⋃ n, A n` is connected. Mathlib's `IsConnected` includes nonemptiness, matching the standard Munkres convention for connected subspaces (and in any case forced by the nonempty-intersection hypothesis). The condition `A n ∩ A (n + 1) ≠ ∅` is classically equivalent to `(A n ∩ A (n+1)).Nonempty`, which aligns with Mathlib's `IsConnected.iUnion_of_chain`. Types, quantifier structure, and conclusion correspond correctly.",
+  "duration_ms": 61626,
+  "cost_usd": 0.25837099999999996
+}

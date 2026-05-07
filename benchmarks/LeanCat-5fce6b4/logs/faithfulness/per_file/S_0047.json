@@ -1,0 +1,8 @@
+{
+  "file": "S_0047.lean",
+  "stem": "S_0047",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement negates the existence of a `CategoryTheory.Equivalence` between `Type u` and `(Type u)ᵒᵖ`. In Mathlib, the category of sets (Set) at universe u is standardly formalized as `Type u` with its `LargeCategory` instance (confirmed in Mathlib/CategoryTheory/Types.lean: `instance types : LargeCategory (Type u)`), and `(Type u)ᵒᵖ` is its opposite category (confirmed in Opposites.lean: `instance Category.opposite : Category.{v₁} Cᵒᵖ`). `CategoryTheory.Equivalence C D` is exactly the bundled notion of equivalence of categories. `¬ Nonempty (Equivalence ...)` precisely captures 'there is no equivalence of categories between Set and Set^op'. The universe polymorphism `u` matches the standard reading of 'Set'. No hypotheses are added or dropped.",
+  "duration_ms": 120394,
+  "cost_usd": 0.48924825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-326.lean",
+  "stem": "proofnet-326",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal Putnam 1998 B6 statement. It universally quantifies over integers a, b, c; asserts existence of a positive integer n (n > 0); and encodes \"√(n³+an²+bn+c) is not an integer\" as `¬ ∃ m : ℤ, Real.sqrt (...) = m`, i.e., the real square root does not equal any integer (coerced to ℝ). Although Mathlib's `Real.sqrt` returns 0 on non-positive inputs (making the Lean predicate false for n where the polynomial is ≤ 0), the informal claim is an existential over n, so only one suitable n is needed — and such n exists (for large n the polynomial is positive and non-square), so the Lean and informal claims are logically equivalent. Integer coercion and quantifier structure match precisely.",
+  "duration_ms": 177566,
+  "cost_usd": 0.568069
+}

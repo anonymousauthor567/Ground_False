@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature exactly matches the informal statement. The universal quantification over topological spaces X, Y is captured via the implicit `{X Y : Type*}` binders with `[TopologicalSpace X] [TopologicalSpace Y]`. The hypothesis that p is continuous is made explicit via `h : Continuous p`. The existential of a continuous section f with `p ∘ f = id` mirrors \"there is a continuous map f : Y → X such that p ∘ f equals the identity map of Y\" (the `id` is inferred to be `id : Y → Y` from the composition's type). The conclusion `IsQuotientMap p` uses the standard Mathlib definition (surjective plus coinduced topology equality), which is the standard definition of quotient map. No hidden hypotheses are added or dropped.",
+  "duration_ms": 64177,
+  "cost_usd": 0.25386325
+}

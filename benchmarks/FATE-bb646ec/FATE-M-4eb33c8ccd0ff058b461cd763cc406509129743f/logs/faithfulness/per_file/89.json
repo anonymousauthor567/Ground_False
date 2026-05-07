@@ -1,0 +1,8 @@
+{
+  "file": "89.lean",
+  "stem": "89",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Nat.card (AddAut (ZMod p)) = p - 1` with `[Fact p.Prime]` correctly formalizes $|\\operatorname{Aut}(\\mathbb{Z}/p\\mathbb{Z})| = p - 1$. `AddAut (ZMod p)` is the group of additive automorphisms of the cyclic group $\\mathbb{Z}/p\\mathbb{Z}$, which is the standard meaning of $\\operatorname{Aut}(\\mathbb{Z}/p\\mathbb{Z})$ when treating it as a group (the ring automorphism group would be trivial for the prime field). The primality hypothesis `[Fact p.Prime]` surfaces the implicit premise conveyed by the conventional use of letter $p$ — without primality, the claim is false (for general $n$, $|\\operatorname{Aut}(\\mathbb{Z}/n\\mathbb{Z})| = \\varphi(n)$). Making this implicit premise explicit is faithful, not weakening. The conclusion uses `Nat.card` (finite cardinality) and natural subtraction, which correctly represent $|\\cdot|$ and $p-1$ for prime $p \\geq 2$.",
+  "duration_ms": 76948,
+  "cost_usd": 0.23780524999999997
+}

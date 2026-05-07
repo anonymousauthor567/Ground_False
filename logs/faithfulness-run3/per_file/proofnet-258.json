@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-258.lean",
+  "stem": "proofnet-258",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement directly encodes the informal claim: G is an arbitrary group, n is a natural number with n > 1 (since the informal \"integer n > 1\" means n ≥ 2, representing it as ℕ is equivalent), and the hypothesis `∀ a b, (a*b)^n = a^n * b^n` exactly matches the informal assumption. The conclusion `(a * b * a⁻¹ * b⁻¹) ^ (n * (n - 1)) = 1` matches `(aba⁻¹b⁻¹)^{n(n-1)} = e` — the left-associative parenthesization `((a*b)*a⁻¹)*b⁻¹` equals `aba⁻¹b⁻¹`, and since n > 1, the natural subtraction `n - 1` does not truncate. All quantifiers match. No hypotheses are added or dropped.",
+  "duration_ms": 27710,
+  "cost_usd": 0.07162475000000001
+}

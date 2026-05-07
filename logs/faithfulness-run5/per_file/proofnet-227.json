@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-227.lean",
+  "stem": "proofnet-227",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal claim. `H.index = p` with `p : Nat.Primes` encodes \"prime index p\"; `[hH : H.Normal]` gives normality. The universal quantifier `∀ K : Subgroup G` matches \"for all K ≤ G\" (subgroups are automatically subsets of G). The disjunction matches: `K ≤ H` is \"K ≤ H\"; `H ⊔ K = ⊤` is equivalent to \"G = HK\" (since when H is normal, the join H ⊔ K equals the product set HK, so H ⊔ K = ⊤ iff HK = G); and `(K ⊓ H).relIndex K = p` correctly encodes `|K : K ∩ H| = p` since `relIndex H K = (H.subgroupOf K).index = |K : H ∩ K|` per Mathlib's definition in GroupTheory/Index.lean. The statement is logically equivalent to the informal one.",
+  "duration_ms": 52659,
+  "cost_usd": 0.2539575
+}

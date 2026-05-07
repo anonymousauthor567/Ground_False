@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `∀ x ∈ Ioo a b, deriv f x > 0` correctly captures \"f'(x) > 0 on (a,b)\" since in Mathlib `deriv` returns 0 for non-differentiable points, so positivity implies differentiability. The hypothesis `g (f x) = x` makes g a left inverse on (a,b); combined with the conclusion that f is strictly monotonic (hence injective), g agrees with the true inverse $f^{-1}$ on the image $f((a,b))$. `StrictMonoOn f (Ioo a b)` matches \"strictly increasing on (a,b)\" exactly. `DifferentiableOn ℝ g (f '' Ioo a b)` correctly expresses \"g is differentiable\" on its natural domain, and since $f((a,b))$ is open (image of open interval under continuous strictly monotonic function), `deriv g (f x)` equals the within-set derivative at interior points $f(x)$. The formula `deriv g (f x) = 1 / deriv f x` matches $g'(f(x)) = 1/f'(x)$. All types, quantifier structure, and conclusions align with the informal statement.",
+  "duration_ms": 241120,
+  "cost_usd": 0.83623975
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_a2.lean",
+  "stem": "putnam_2015_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal statement. The sequence hypotheses `a 0 = 1 ∧ a 1 = 2` together with `∀ n ≥ 2, a n = 4 * a (n - 1) - a (n - 2)` uniquely determine the same integer sequence as described informally. The conclusion asserts three properties of `putnam_2015_a2_solution : ℕ`: it is `Odd`, it is `Nat.Prime`, and (cast to ℤ) divides `a 2015`. Together these mean \"an odd prime factor of a_{2015}\", exactly matching the informal request. The cast to ℤ is necessary because `a : ℕ → ℤ` and is a standard encoding. No extra hypotheses are silently added and none are dropped.",
+  "duration_ms": 101296,
+  "cost_usd": 0.208238
+}

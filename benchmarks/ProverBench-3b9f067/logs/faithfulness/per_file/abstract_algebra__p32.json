@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p32.lean",
+  "stem": "abstract_algebra__p32",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: in a ring R of characteristic 0, if e, g, f are idempotent and e+g+f=0, then e=f=g=0. The Lean file uses `variable {R : Type _} [Ring R] [CharZero R]` for \"ring of characteristic 0\", `IsIdempotentElem` (defined in Mathlib as `p * p = p`, equivalent to `a^2 = a`) for the idempotent hypotheses, and `e + g + f = 0` for the sum condition. In Lean 4's auto-inclusion rules, because the theorem body mentions `e`, `g`, `f`, Lean auto-includes the type variables, the instances, and all Prop-valued variables whose dependencies are already included — namely `he`, `hg`, `hf`, and `hsum`. The conclusion `e = 0 ∧ g = 0 ∧ f = 0` matches the informal \"e=f=g=0\". No extra hypotheses are added, none are dropped, and the types match exactly.",
+  "duration_ms": 693159,
+  "cost_usd": 2.034382
+}

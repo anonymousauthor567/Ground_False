@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-301.lean",
+  "stem": "proofnet-301",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts that the restricted map $q: A \\to p(A)$ (with codomain $p(A)$ carrying the subspace topology from $Y$) is open, i.e., $p(U)$ is open in $p(A)$'s subspace topology for every open $U \\subseteq A$. The Lean statement instead asserts `IsOpenMap (p ∘ Subtype.val : A → Y)`, i.e., $p(U)$ is open in all of $Y$. These are different conclusions: \"open in $Y$\" strictly implies \"open in $p(A)$ subspace topology\" (since $p(U) \\subseteq p(A)$), but not conversely in general. Under the hypotheses both happen to hold, so the Lean statement implies the informal one, but the Lean conclusion is strictly stronger than what was asked — analogous to conflating `Surjective` with `SurjOn`. Therefore the formalization is stronger rather than strictly faithful.",
+  "duration_ms": 120301,
+  "cost_usd": 0.365097
+}

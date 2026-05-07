@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-169.lean",
+  "stem": "proofnet-169",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is \"the composition of uniformly continuous functions is uniformly continuous.\" The Lean signature uses Mathlib's `UniformContinuous` (defined in `Mathlib/Topology/UniformSpace/Defs.lean` as the standard uniformity-based definition) over arbitrary `UniformSpace` instances α, β, γ, with `f : α → β` and `g : β → γ` both uniformly continuous, and concludes `UniformContinuous (g ∘ f)`. This exactly matches the informal statement's hypotheses and conclusion, with the universal quantification over uniform spaces matching the unrestricted nature of the informal claim. There are no extra hypotheses and no omitted hypotheses, and the composition `g ∘ f` corresponds to \"a uniformly continuous function (g) of a uniformly continuous function (f).\"",
+  "duration_ms": 96736,
+  "cost_usd": 0.2712705
+}

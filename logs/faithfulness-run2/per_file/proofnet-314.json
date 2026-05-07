@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-314.lean",
+  "stem": "proofnet-314",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement exactly matches the informal claim: it assumes each factor `X i` is nonempty (`h : ∀ i, Nonempty (X i)`) and that the product space `Π i, X i` (with the default Mathlib product topology) is Hausdorff (`h2 : T2Space (Π i, X i)`), and concludes that every factor `X i` is Hausdorff (`∀ i, T2Space (X i)`). The quantification over the index type `ι` and the family `X` is handled via universally-bound Lean variables, which is the standard encoding. No hypotheses are silently added or dropped, and the types (Pi type as product, `T2Space` as Hausdorff) are the standard Mathlib correspondents.",
+  "duration_ms": 8948,
+  "cost_usd": 0.041152
+}

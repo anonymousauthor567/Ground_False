@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-70.lean",
+  "stem": "proofnet-70",
+  "informal": "Prove that $x^2+y^2-1$ is irreducible in $\\mathbb{Q}[x,y]$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_9_4_11 :\n  Irreducible ((MvPolynomial.X 0)^2 + (MvPolynomial.X 1)^2 - 1 : MvPolynomial (Fin 2) ℚ)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `Irreducible (X 0 ^ 2 + X 1 ^ 2 - 1)` in `MvPolynomial (Fin 2) ℚ`, which is exactly the polynomial ring ℚ[x,y] with X 0 and X 1 playing the roles of x and y. Mathlib's `Irreducible` predicate on a commutative ring matches the standard mathematical notion of irreducibility (non-unit, not a product of two non-units), which is the intended meaning in the informal statement. No extra hypotheses are added and none are missing. This is a faithful encoding.",
+  "duration_ms": 7388,
+  "cost_usd": 0.045433
+}

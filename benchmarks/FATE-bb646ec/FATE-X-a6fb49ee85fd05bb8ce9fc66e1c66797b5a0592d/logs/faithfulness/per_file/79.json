@@ -1,0 +1,8 @@
+{
+  "file": "79.lean",
+  "stem": "79",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal claim. B being a regular local ring is encoded via `[IsRegularLocalRing B]` (defined correctly as dim m/m² = dim R). I is declared as `(I : Ideal B)`. \"B/I is Gorenstein\" is encoded as `[IsGorensteinRing (B ⧸ I)]`; since B is local, B/I is local, and for local Noetherian rings the general `IsGorensteinRing` condition (localization at every maximal ideal is Gorenstein local) is equivalent to `IsGorensteinLocalRing` because B/I is isomorphic to its localization at the unique maximal ideal. \"Not a local complete intersection\" is correctly given by `¬ IsLocalCompleteIntersectionRing (B ⧸ I)` (Stacks 09Q3 formulation via completions and regular sequences). The conclusion `I.height ≠ 0 ∧ I.height ≠ 1` in `ℕ∞` precisely expresses \"I cannot have height 0 or 1\". Quantifier structure and types all match.",
+  "duration_ms": 675053,
+  "cost_usd": 1.5987702500000003
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-156.lean",
+  "stem": "proofnet-156",
+  "informal": "Suppose $E\\subset\\mathbb{R}^k$ is uncountable, and let $P$ be the set of condensation points of $E$. Prove that $P$ is perfect.",
+  "lean": "\ntheorem Rudin_exercise_2_27a (k : ℕ) (E P : Set (EuclideanSpace ℝ (Fin k)))\n  (hE : ¬ Set.Countable E)\n  (hP : P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}) :\n  Perfect P",
+  "verdict": "faithful",
+  "reasoning": "The ambient space EuclideanSpace ℝ (Fin k) is ℝ^k. E is an arbitrary subset, with the hypothesis ¬Set.Countable E corresponding to \"uncountable\". P is defined as {x | ∀ U ∈ 𝓝 x, ¬Countable (U ∩ E)}, which is the standard definition of condensation points (every neighborhood of x meets E in an uncountable set). The conclusion `Perfect P` in Mathlib means P is closed and every point is an accumulation point, matching \"P is perfect\". The quantifier structure and types align with the informal statement.",
+  "duration_ms": 9287,
+  "cost_usd": 0.05178075
+}

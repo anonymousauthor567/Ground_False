@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-130.lean",
+  "stem": "proofnet-130",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts: given a topological space X with `NormalSpace X` (passed as a hypothesis `hX` rather than an instance, which is logically equivalent) and a closed set A ⊆ X, the subtype `{x // x ∈ A}` is a normal space. In Mathlib, `NormalSpace` is the standard \"disjoint closed sets have disjoint open neighborhoods\" definition, and `{x // x ∈ A}` automatically inherits the subspace topology via `instTopologicalSpaceSubtype`. This exactly matches \"a closed subspace of a normal space is normal.\" The only non-idiomatic choice is passing `NormalSpace X` as an explicit hypothesis instead of via instance brackets, but that does not change the mathematical content. No hypothesis is added, removed, or narrowed, and the conclusion is the standard one.",
+  "duration_ms": 234190,
+  "cost_usd": 0.6616129999999999
+}

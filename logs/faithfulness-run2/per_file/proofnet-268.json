@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-268.lean",
+  "stem": "proofnet-268",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis h1 (∀ a, ¬(σ a ≠ a ∧ τ a ≠ a)) precisely encodes \"disturb no common element\". The hypothesis h2 (τ ∘ σ = id) is group-theoretically equivalent to στ = e: in any group, στ = e iff τ = σ⁻¹ iff τσ = e, so the two are interchangeable regardless of Herstein's composition convention. The conclusion σ = 1 ∧ τ = 1 matches σ = τ = e. The [Fintype α] assumption matches Herstein's context (Chapter 3.2 on permutation groups deals with S_n / finite sets of symbols), so this is a faithful formalization of the exercise as written in Herstein.",
+  "duration_ms": 70191,
+  "cost_usd": 0.19530950000000002
+}

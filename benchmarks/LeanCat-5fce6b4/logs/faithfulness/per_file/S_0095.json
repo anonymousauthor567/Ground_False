@@ -1,0 +1,8 @@
+{
+  "file": "S_0095.lean",
+  "stem": "S_0095",
+  "verdict": "stronger",
+  "reasoning": "The informal statement has four hypotheses: (i) D has coequalizers, (ii) G has a left adjoint, (iii) G is conservative, (iv) G preserves coequalizers. The Lean formalization declares `(adjFG : F ⊣ G)` as an explicit (non-instance) binder via `variable`, intending it as hypothesis (ii). However, in Lean 4 the auto-inclusion rule for `variable` only pulls an explicit `(...)` binder into a subsequent declaration when that declaration references the binder's name (or something depending on it). The theorem body is `sorry` and the signature `Nonempty (MonadicRightAdjoint G)` does not reference `adjFG` or `F`. Instance-style binders (HasCoequalizers D, G.ReflectsIsomorphisms, PreservesColimitsOfShape WalkingParallelPair G) are auto-included since their types reference the already-included `G` / `D`, but `adjFG` is not. Evidence in Mathlib confirms this behavior: authors use `include adj in` directives (e.g., Mathlib/CategoryTheory/Localization/Adjunction.lean:130) specifically because an unreferenced `(adj : G ⊣ F)` variable is otherwise omitted. Thus the elaborated theorem asserts that G is monadic (which via MonadicRightAdjoint G bundles a left adjoint) from only (i), (iii), (iv) — dropping the explicit assumption that G has a left adjoint. This is logically stronger than the informal statement, which requires (ii) as a hypothesis.",
+  "duration_ms": 1419963,
+  "cost_usd": 6.067815499999998
+}

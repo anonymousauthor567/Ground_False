@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-156.lean",
+  "stem": "proofnet-156",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches Rudin 2.27a precisely. `EuclideanSpace ℝ (Fin k)` is the standard Mathlib encoding of ℝ^k. The hypothesis `¬ Set.Countable E` captures \"E is uncountable\". The set `P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}` faithfully encodes the set of condensation points: every neighborhood U of x intersects E in an uncountable set. Mathlib's `Perfect` (closed + every point is an accumulation point of the set) matches the standard definition of a perfect set. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 76354,
+  "cost_usd": 0.320448
+}

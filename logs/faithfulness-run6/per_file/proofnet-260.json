@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal claim exactly: `G` is an arbitrary group, `hG : ∀ (H : Subgroup G), H.Normal` states that every subgroup is normal (matching Mathlib's `Subgroup.Normal` definition via conjugation closure), and `a b : G` are arbitrary elements. The conclusion `∃ (j : ℤ), b*a = a^j * b` matches \"ba = a^j b for some j\", using integer exponents which is the standard reading in group theory (since in a Dedekind/Hamiltonian group, `⟨a⟩` is normal, so `bab⁻¹ ∈ ⟨a⟩` gives an integer power). No hypotheses have been added or dropped, and there is no type-level mismatch.",
+  "duration_ms": 92670,
+  "cost_usd": 0.23688150000000002
+}

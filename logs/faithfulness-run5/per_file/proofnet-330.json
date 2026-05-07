@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-330.lean",
+  "stem": "proofnet-330",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The hypothesis `ContDiff ℝ ((⊤ : ℕ∞) : WithTop ℕ∞) f` represents C^∞ smoothness (infinite differentiability), since `⊤ : ℕ∞` is the ∞ element and coercing to WithTop ℕ∞ keeps it at ∞ (not at the analytic ω level). The hypotheses `f 0 = 0`, `f 1 = 1`, and `∀ x, f x ≥ 0` match the informal setup exactly. The conclusion `∃ (n : ℕ+) (x : ℝ), iteratedDeriv n f x < 0` correctly captures \"positive integer n\" via `ℕ+`, which coerces to ℕ for `iteratedDeriv`. Using `ℕ+` rather than `ℕ` is necessary since `iteratedDeriv 0 f = f` would make the conclusion contradict the nonnegativity hypothesis. All quantifier structure, types, and the mathematical claim match.",
+  "duration_ms": 82423,
+  "cost_usd": 0.2642225
+}

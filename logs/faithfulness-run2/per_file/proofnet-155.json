@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-155.lean",
+  "stem": "proofnet-155",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if every infinite subset of a metric space X has a limit point, then X is separable. The Lean signature requires X to be a MetricSpace, hypothesizes that every infinite subset A has some p : X with `AccPt p (𝓟 A)`, and concludes `SeparableSpace X`. In Mathlib, `AccPt p (𝓟 A)` unfolds to `NeBot (𝓝[≠] p ⊓ 𝓟 A)`, meaning every punctured neighborhood of p meets A — exactly Rudin's definition of a limit point of A (the point need not lie in A, matching the informal reading). `SeparableSpace X` is the standard \"has a countable dense subset,\" matching \"separable.\" Quantifier structure and types all align, so this is a faithful formalization.",
+  "duration_ms": 19062,
+  "cost_usd": 0.05574875
+}

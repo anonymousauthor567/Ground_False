@@ -1,0 +1,8 @@
+{
+  "file": "99.lean",
+  "stem": "99",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. R is a CommRing, n : ℕ, and `IsUnit (2 : R)` corresponds precisely to \"2 is invertible in R\". The type `A : Matrix.specialOrthogonalGroup (Fin (2 * n + 1)) R` uses Mathlib's Submonoid SetLike coercion so A is an element of SO(2n+1, R), with `A.1` the underlying matrix; in Mathlib, `specialOrthogonalGroup` is defined exactly as orthogonal matrices with det = 1 (with the noted convention that the definition only fully matches SO when 2 is invertible — which is supplied here as a hypothesis). The conclusion `(1 - A.1).det = 0` is `det(I - A) = 0` since `1` in a Matrix type is the identity matrix. The index size `Fin (2 * n + 1)` correctly encodes dimension 2n+1. No hypotheses are dropped, added, weakened, or strengthened.",
+  "duration_ms": 92310,
+  "cost_usd": 0.29363374999999997
+}

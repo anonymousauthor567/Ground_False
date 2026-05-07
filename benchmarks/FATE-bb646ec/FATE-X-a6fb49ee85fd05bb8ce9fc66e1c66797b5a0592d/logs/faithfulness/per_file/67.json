@@ -1,0 +1,8 @@
+{
+  "file": "67.lean",
+  "stem": "67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. The ring $k[[x_1,\\dots,x_n]]$ is represented by `MvPowerSeries (Fin n) k` and the 2n-variable power series ring $k[[x_1,\\dots,x_n,y_1,\\dots,y_n]]$ by `MvPowerSeries (Fin (n + n)) k`, which are the standard Mathlib encodings. The tensor product $A \\otimes_k A$ is given by `(MvPowerSeries (Fin n) k) ⊗[k] (MvPowerSeries (Fin n) k)` with the scoped TensorProduct notation. The hypothesis `hn : n ≠ 0` matches the informal $n \\neq 0$. \"No isomorphism\" is encoded as `IsEmpty (...)`, which is equivalent to asserting the type of `k`-algebra equivalences is empty — i.e., no such isomorphism exists. Using `≃ₐ[k]` (k-algebra equivalence) is the natural reading given that the tensor product is taken over $k$. All quantifier structure, types, and assumptions match.",
+  "duration_ms": 315399,
+  "cost_usd": 0.56681025
+}

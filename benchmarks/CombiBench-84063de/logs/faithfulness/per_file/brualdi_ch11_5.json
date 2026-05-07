@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch11_5.lean",
+  "stem": "brualdi_ch11_5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal claim. `SimpleGraph (Fin n)` with `n ≥ 2` encodes \"a graph of order n ≥ 2\" (order = number of vertices). The conclusion `∃ v1 v2, v1 ≠ v2 ∧ G.degree v1 = G.degree v2` correctly asserts \"two vertices of the same degree\" (with distinctness). The `DecidableRel G.Adj` typeclass is a technical requirement for Mathlib's `G.degree` definition (which uses `#(G.neighborFinset v)`) and doesn't restrict the class of graphs considered — every SimpleGraph on Fin n admits decidable adjacency classically. The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 60144,
+  "cost_usd": 0.2313825
+}

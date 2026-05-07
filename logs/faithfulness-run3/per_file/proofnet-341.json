@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-341.lean",
+  "stem": "proofnet-341",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that every open U ⊆ ℝ can be written as a union of a ℕ-indexed family of pairwise disjoint sets, each of the form {x : ℝ | a < x < b} with a, b : EReal. Using EReal endpoints captures open intervals in the broad sense (bounded, unbounded rays, all of ℝ, and ∅). This is the correct reading of Rudin's exercise: while Rudin defines \"segment\" as bounded (a,b), the theorem is false under that literal reading (e.g., (0,∞) is connected and cannot be a disjoint union of bounded segments), so the standard mathematical interpretation necessarily admits unbounded open intervals — surfacing this implicit premise is faithful, not weakening. ℕ-indexing with empty-set padding (achievable via a ≥ b) exactly captures \"at most countable.\" Pairwise disjointness and equality to the union are encoded directly. The f n ⊆ U clause is redundant given the union equality but does not change the claim. Both logical directions hold between the Lean and informal statements.",
+  "duration_ms": 138909,
+  "cost_usd": 0.35972824999999997
+}

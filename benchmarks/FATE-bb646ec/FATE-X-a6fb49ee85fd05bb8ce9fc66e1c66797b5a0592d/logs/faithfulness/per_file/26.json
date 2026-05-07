@@ -1,0 +1,8 @@
+{
+  "file": "26.lean",
+  "stem": "26",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement closely. `[Algebra ℚ K] [Module.Finite ℚ K]` correctly encodes \"K/ℚ is a finite extension\". `Field.absoluteGaloisGroup K` is Mathlib's standard definition, equipped with the Krull topology, so `Subgroup (Field.absoluteGaloisGroup K)` paired with `IsClosed (H : Set ...)` precisely captures \"closed subgroup of G(K)\". `Finite H` gives \"H is finite\" as a finite subtype, and `Nat.card H = 1 ∨ Nat.card H = 2` correctly asserts that the cardinality is one or two. No hypotheses are added or dropped, no types are changed, and the conclusion is equivalent. This is a standard consequence of the Artin-Schreier theorem, and the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 290964,
+  "cost_usd": 0.7271940000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "40.lean",
+  "stem": "40",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypotheses match: `[CommRing R] [IsLocalRing R] [IsReduced R]` encodes \"reduced local ring\"; `(minimalPrimes R).Finite` encodes \"finite set Σ of minimal primes\"; `[Module.Finite R M]` encodes \"finitely generated\". The LHS `Module.Free R M ∧ Module.rank R M = r` is equivalent to \"free of rank r\" for f.g. modules over a commutative ring (with the coercion ℕ → Cardinal being standard). The RHS correctly encodes $\\dim_k(k\\otimes_A M)=r$ using `IsLocalRing.ResidueField R` (the residue field $A/\\mathfrak{m}$), and for each minimal prime $\\mathfrak{p}$, $\\dim_{K(\\mathfrak{p})}(K(\\mathfrak{p})\\otimes_A M)=r$ using `FractionRing (R ⧸ p)` (which is the fraction field of the domain $A/\\mathfrak{p}$). The quantifier structure and iff direction match exactly.",
+  "duration_ms": 362697,
+  "cost_usd": 0.89500775
+}

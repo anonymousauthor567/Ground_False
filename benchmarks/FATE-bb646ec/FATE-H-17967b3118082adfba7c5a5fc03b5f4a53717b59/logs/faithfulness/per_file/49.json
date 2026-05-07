@@ -1,0 +1,8 @@
+{
+  "file": "49.lean",
+  "stem": "49",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the informal claim. `(⊤ : IntermediateField ℚ F).FG` is exactly Mathlib's notion of F being a finitely generated field extension of ℚ (confirmed by the Mathlib definition: `∃ t : Finset E, adjoin F ↑t = ⊤`). The conclusion `∃ f : F →ₐ[ℚ] ℂ, Function.Injective f` asserts an injective ℚ-algebra homomorphism into ℂ, which matches \"can be embedded into ℂ\". Note that over the prime field ℚ, a ring hom is automatically a ℚ-algebra hom, and a ring hom from a field is automatically injective, so `Function.Injective f` is redundant but harmless — the statement still expresses the same content. The `Type` (vs `Type*`) level is not a real restriction since finitely generated extensions of ℚ are countable, and this is a common Lean convention that doesn't alter the mathematical meaning.",
+  "duration_ms": 181166,
+  "cost_usd": 0.39891475000000004
+}

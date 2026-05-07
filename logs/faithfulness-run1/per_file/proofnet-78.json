@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "informal": "Prove that a group of order $p^2$, $p$ a prime, has a normal subgroup of order $p$.",
+  "lean": "\ntheorem Herstein_exercise_2_5_44 {G : Type*} [Group G] [Fintype G] {p : ℕ}\n  (hp : Nat.Prime p) (hG : card G = p^2) :\n  ∃ (N : Subgroup G) (Fin : Fintype N), @card N Fin = p ∧ N.Normal",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that any group of order p^2 (p prime) has a normal subgroup of order p. The Lean signature takes a finite group G with |G| = p^2 and p prime, and concludes there exists a subgroup N with |N| = p that is normal. The Fintype assumption on G is needed in Lean to talk about cardinality, matching the implicit finiteness of the informal statement (order p^2 implies finite). The existential conclusion exactly captures \"has a normal subgroup of order p\". Quantifier structure, hypotheses, and conclusion all align.",
+  "duration_ms": 8025,
+  "cost_usd": 0.04678325
+}

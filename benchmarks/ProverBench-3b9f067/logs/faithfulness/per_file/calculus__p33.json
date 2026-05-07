@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p33.lean",
+  "stem": "calculus__p33",
+  "verdict": "faithful",
+  "reasoning": "The Lean file defines u(x) = Real.sin x and v(x) = x^2, matching the informal definitions exactly. The theorem asserts `u (v x) = Real.sin (x ^ 2)` for all real x, which is precisely the informal claim u(v(x)) = sin(x²). The types (ℝ → ℝ) are the natural choice for sin and the squaring function, and the universal quantification over x matches the informal \"is\" (an equality of functions / pointwise equality). No hypotheses are added or dropped, and the conclusion matches term-for-term.",
+  "duration_ms": 13199,
+  "cost_usd": 0.04414150000000001
+}

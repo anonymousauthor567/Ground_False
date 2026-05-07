@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement negates \"every element of ZMod n has a two-sided multiplicative inverse with respect to 1,\" which is logically equivalent to \"ZMod n is not a group under multiplication.\" Associativity of multiplication is automatic, and the multiplicative identity on ZMod n must be 1 (since any identity e satisfies e·1 = 1, forcing e = 1), so specifying 1 as the identity does not narrow scope. The only way ZMod n could fail to be a group under multiplication is by failing the inverse axiom, and that is precisely what the Lean statement negates. Hence the two statements agree under any standard mathematical reading.",
+  "duration_ms": 42860,
+  "cost_usd": 0.0949465
+}

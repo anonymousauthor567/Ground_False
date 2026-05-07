@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-81.lean",
+  "stem": "proofnet-81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement describes two cyclic groups of orders m and n (implicitly finite since they have finite orders) and claims G₁ × G₂ is cyclic iff m and n are coprime. The Lean version uses `Fintype G`, `Fintype H`, `Group G`, `Group H`, `IsCyclic G`, `IsCyclic H`, making the groups finite cyclic groups. The `card G` and `card H` correspond to the orders m and n (since for a finite group, `Fintype.card` equals the group's order). The conclusion `IsCyclic (G × H) ↔ (card G).Coprime (card H)` matches the informal iff. Quantifier structure is preserved via the universe-polymorphic `{G H : Type*}`. This is a faithful encoding.",
+  "duration_ms": 11674,
+  "cost_usd": 0.05878800000000001
+}

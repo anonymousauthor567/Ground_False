@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-367.lean",
+  "stem": "proofnet-367",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement mirrors Blaschke's condition from Stein-Shakarchi: holomorphic on the open unit disk (`DifferentiableOn ℂ f (ball 0 1)`), bounded image (`IsBounded (f '' ball 0 1)`), not identically zero (`¬ Set.EqOn f 0 (ball 0 1)`). The conclusion sums over distinct zeros in the disk (as a subtype) weighted by their multiplicity `(analyticOrderAt f z).toNat` times `(1 - ‖z‖)`, which equals the classical ∑(1-|zₙ|) taken over zeros listed with multiplicity — the standard convention in complex analysis when the informal text says \"its zeros\". Since f is analytic and not identically zero, zeros are isolated with finite order, so `.toNat` returns the correct positive multiplicity. `Summable` over a non-negative real sequence correctly encodes the finiteness assertion. No hypotheses are added or dropped, and the conclusion matches semantically.",
+  "duration_ms": 188493,
+  "cost_usd": 0.6328575
+}

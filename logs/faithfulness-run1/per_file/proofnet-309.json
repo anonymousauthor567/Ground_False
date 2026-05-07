@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-309.lean",
+  "stem": "proofnet-309",
+  "informal": "Let $(X, d)$ be a metric space. If $f: X \\rightarrow X$ satisfies the condition $d(f(x), f(y))=d(x, y)$ for all $x, y \\in X$, then $f$ is called an isometry of $X$. Show that if $f$ is an isometry and $X$ is compact, then $f$ is bijective and hence a homeomorphism.",
+  "lean": "\ntheorem Munkres_exercise_28_6 {X : Type*} [MetricSpace X]\n  [CompactSpace X] {f : X → X} (hf : Isometry f) :\n  Continuous f ∧ Bijective f ∧ IsOpenMap f",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove f is bijective and a homeomorphism. The Lean signature asserts Continuous f ∧ Bijective f ∧ IsOpenMap f. A continuous bijection that is also an open map is precisely a homeomorphism (the open-map condition gives continuity of the inverse). The hypotheses match: X is a metric space, X is compact (CompactSpace), and f is an isometry. So the Lean conjunction is logically equivalent to \"f is bijective and a homeomorphism,\" matching the informal claim.",
+  "duration_ms": 8766,
+  "cost_usd": 0.049947250000000006
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement exactly. The type `G` with `[Group G]` represents an arbitrary group (matching the implicit context \"$G$ is a group\"). The hypothesis `∀ x : G, x ^ 2 = 1` is a direct transcription of \"$x^2 = 1$ for all $x \\in G$\". The conclusion `∀ a b : G, a*b = b*a` is the standard definition of being abelian/commutative — equivalent to asserting `CommGroup G` given that `Group G` is already provided. No hypotheses are added or dropped, the quantifier structure matches, and the types are correct.",
+  "duration_ms": 17714,
+  "cost_usd": 0.08824325000000001
+}

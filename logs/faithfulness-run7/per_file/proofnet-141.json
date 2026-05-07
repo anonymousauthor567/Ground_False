@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. The hypothesis `p ≤ 1` matches the informal condition, and `¬ Summable f` correctly encodes divergence. The summand `1 / (k * (Real.log k) ^ p)` uses `Real.rpow` (real-valued power), matching $1/(k(\\log k)^p)$. Although the informal sum is naturally understood to start at $k = 2$ (since $\\log 1 = 0$), while Lean's `f` is defined on all of ℕ, the values $f(0), f(1)$ evaluate to finite quantities (0 or 1) under Lean's division-by-zero and rpow conventions, and `Summable` is invariant under modification of finitely many terms. Thus `¬ Summable f` is logically equivalent to divergence of $\\sum_{k \\ge 2} 1/(k(\\log k)^p)$, which is exactly the Bertrand-series divergence for $p \\le 1$. No extra or missing hypotheses.",
+  "duration_ms": 113934,
+  "cost_usd": 0.408359
+}

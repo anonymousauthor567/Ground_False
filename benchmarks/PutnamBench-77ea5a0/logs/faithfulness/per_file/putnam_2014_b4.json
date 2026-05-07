@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_b4.lean",
+  "stem": "putnam_2014_b4",
+  "verdict": "faithful",
+  "reasoning": "The informal statement contains ambiguous LaTeX \"$2^k(n-k)$\" which admits two readings: (1) literal multiplication $2^k \\cdot (n-k)$, or (2) exponent $2^{k(n-k)}$ (with missing braces). Under reading (1), the statement is FALSE: for $n=3$ the polynomial would be $4x^2+4x+3$ with negative discriminant (complex roots). Under reading (2) — the well-known Putnam 2014 B4 — for $n=3$ we get $(x+1)(x^2+3x+1)$ with all real roots, and the general claim is true. The Lean encoding uses `P.coeff k = 2 ^ (k * (n - k))`, which is reading (2) — the unique interpretation under which the informal claim is true. Additionally, `P.degree = n` correctly fixes the leading coefficient (which equals $2^{n \\cdot 0} = 1 \\ne 0$), the complex polynomial with `r.im = 0` correctly encodes \"all roots are real\", and `npos` captures \"positive integer n\". Per the guidance on surfacing implicit premises needed for truth, this is a faithful formalization.",
+  "duration_ms": 413551,
+  "cost_usd": 1.2097204999999998
+}

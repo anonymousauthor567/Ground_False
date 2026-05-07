@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is the complex polarization identity from Axler, who uses the mathematician's convention (inner product linear in the first argument). Mathlib uses the physicist's convention (linear in the second argument, conjugate-linear in the first), so ⟪u,v⟫_ℂ in Lean equals the conjugate of Axler's ⟨u,v⟩. Conjugating Axler's formula flips the sign of its imaginary part, turning (‖u+iv‖² - ‖u-iv‖²)i into (‖u-iv‖² - ‖u+iv‖²)i — which is exactly what the Lean statement has. The Lean signature quantifies over an arbitrary complex inner product space and asserts the same underlying theorem (polarization identity), correctly adjusted for Mathlib's convention. Hypotheses, quantifier structure, and objects match; the formula change is the necessary convention translation, not a semantic drift.",
+  "duration_ms": 143457,
+  "cost_usd": 0.5010617500000001
+}

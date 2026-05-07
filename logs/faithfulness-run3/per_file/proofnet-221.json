@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-221.lean",
+  "stem": "proofnet-221",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely mirrors the informal claim. `H : AddSubgroup ℚ` represents a subgroup of the additive group of rationals. The hypothesis `∀ x, x ∈ H → x ≠ 0 → 1/x ∈ H` exactly captures \"1/x ∈ H for every nonzero element x of H\". The conclusion `H = ⊥ ∨ H = ⊤` corresponds to \"H = 0 or H = ℚ\" — `⊥` is the trivial subgroup {0} and `⊤` is all of ℚ. The use of strict-implicit binders `⦃x⦄` is merely a Lean syntactic choice and does not affect the mathematical content. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 8664,
+  "cost_usd": 0.04486475000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1998_b5.lean",
+  "stem": "putnam_1998_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the Putnam 1998 B5 problem. (1) N is defined as ∑_{i=0}^{1997} 10^i = (10^1998 - 1)/9, which is exactly the 1998-digit repunit 111...1 as stated informally. (2) The thousandth digit after the decimal point of √N is extracted as ⌊10^1000 · √N⌋ mod 10: multiplying by 10^1000 shifts the decimal expansion so the 1000th fractional digit becomes the units digit of the integer part, and mod 10 extracts it. Since N is not a perfect square, √N is irrational, so there is no ambiguity about terminating expansions or trailing 9s. (3) The solution equals 1, matching the informal request for \"the thousandth digit after the decimal point.\" The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 50405,
+  "cost_usd": 0.15590675
+}

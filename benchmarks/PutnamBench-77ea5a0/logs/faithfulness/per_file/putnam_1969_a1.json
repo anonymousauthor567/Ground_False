@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1969_a1.lean",
+  "stem": "putnam_1969_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"possible ranges of a real polynomial f(x,y)\". Using `MvPolynomial (Fin 2) ℝ` correctly represents bivariate polynomials with real coefficients, and `{z : ℝ | ∃ x : Fin 2 → ℝ, MvPolynomial.eval x f = z}` is exactly the range of f over ℝ². The outer set builder `{... | f : MvPolynomial (Fin 2) ℝ}` correctly quantifies over all such polynomials. The claimed solution set (singletons, closed half-lines Ici/Iic, open half-lines Ioi/Iio, and univ) matches the standard answer — open half-lines appear because of examples like (xy-1)²+x² whose range is (0,∞), which distinguishes the bivariate case from univariate. There is no hidden type mismatch or hypothesis drift, and the quantifier structure matches the informal reading.",
+  "duration_ms": 73670,
+  "cost_usd": 0.19810950000000002
+}

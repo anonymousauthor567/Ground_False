@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes the non-existence claim by universally quantifying over f : ℂ → ℂ with the hypotheses that f is DifferentiableOn on D = ball 0 1 (holomorphic on the open disc) and ContinuousOn on closure D (continuous on the closed disc), and concluding the negation of f z = 1/z on sphere 0 1 (the unit circle / ∂D). By standard logical equivalence (¬∃ f, P₁ ∧ P₂ ∧ P₃ ↔ ∀ f, P₁ → P₂ → ¬P₃), this matches the informal non-existence statement. The Mathlib conventions all line up correctly: `ball 0 1` is the open unit disc, `closure (ball 0 1)` is the closed disc, and `sphere (0:ℂ) 1` is exactly the unit circle ∂D. DifferentiableOn over ℂ on an open set is the standard way to encode holomorphic. The encoding is faithful.",
+  "duration_ms": 112290,
+  "cost_usd": 0.43081499999999995
+}

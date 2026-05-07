@@ -1,0 +1,8 @@
+{
+  "file": "S_0026.lean",
+  "stem": "S_0026",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies (via variables) over categories C, D and functors F : C ⥤ D, G : D ⥤ C, H : C ⥤ D, assumes the two adjunctions F ⊣ G and G ⊣ H (i.e., an adjoint triple F ⊣ G ⊣ H), and concludes (F.Full ∧ F.Faithful) ↔ (H.Full ∧ H.Faithful). In Mathlib, `Functor.Full` (F.map surjective on homs) together with `Functor.Faithful` (F.map injective on homs) is the standard propositional encoding of \"fully faithful\". So the conclusion is exactly \"F is fully faithful iff H is fully faithful\". The configuration of domains/codomains matches the adjoint triple, and this is a well-known theorem (also present in Mathlib's Adjunction/Triple.lean as `fullyFaithfulEquiv`). No hypotheses are silently added or removed. The formalization is strictly faithful.",
+  "duration_ms": 64428,
+  "cost_usd": 0.3127345
+}

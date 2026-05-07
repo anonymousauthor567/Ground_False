@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-117.lean",
+  "stem": "proofnet-117",
+  "informal": "If $A \\subset X$, a retraction of $X$ onto $A$ is a continuous map $r: X \\rightarrow A$ such that $r(a)=a$ for each $a \\in A$. Show that a retraction is a quotient map.",
+  "lean": "\ntheorem Munkres_exercise_22_2b {X : Type*} [TopologicalSpace X]\n  {A : Set X} (r : X → A) (hr : Continuous r) (h : ∀ x : A, r x = x) :\n  IsQuotientMap r",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures all components of the informal statement: X is a topological space, A is a subset of X (as `Set X`), r : X → A is continuous, and r restricted to A is the identity (∀ x : A, r x = x, where x : A is coerced to X on the input side and equality is in A). The conclusion `IsQuotientMap r` matches the claim that a retraction is a quotient map. The encoding of r as a map into the subtype A (rather than into X with image in A) is the standard Mathlib way to express a retraction onto A and is logically equivalent.",
+  "duration_ms": 8187,
+  "cost_usd": 0.046802750000000004
+}

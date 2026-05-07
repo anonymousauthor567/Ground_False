@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove X² + X + 1 is irreducible in F₂. The Lean version quantifies over any field F with Fintype F and card F = 2, asserting irreducibility of X² + X + 1 in Polynomial F. Since any field of order 2 is isomorphic to F₂, and irreducibility is preserved under ring isomorphism, the abstract \"for all F with |F| = 2\" formulation is logically equivalent to the concrete claim about F₂. This is a standard Mathlib idiom for referring to the unique field of order 2. The polynomial and the `Irreducible` predicate correctly match the informal claim, and no extra hypotheses narrow or broaden the scope.",
+  "duration_ms": 53578,
+  "cost_usd": 0.18319025000000003
+}

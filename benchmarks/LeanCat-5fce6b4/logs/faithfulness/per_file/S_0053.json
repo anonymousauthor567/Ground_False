@@ -1,0 +1,8 @@
+{
+  "file": "S_0053.lean",
+  "stem": "S_0053",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement of the General Adjoint Functor Theorem precisely. The hypotheses `[HasLimits D]` (small-complete) and `[LocallySmall.{v} D]` (locally small) match \"Let D be a small-complete locally small category\". The iff is correctly stated: `G.IsRightAdjoint` means \"G has a left adjoint\" (per Mathlib's `class IsRightAdjoint` asserting the existence of a left adjoint); `PreservesLimits G` means \"G is continuous\" (preserves all small limits at level v); and `∀ (c : C), HasInitial (StructuredArrow c G)` correctly encodes \"for each c ∈ C, the comma category (c↓G) has an initial object\" since in Mathlib `StructuredArrow c G` IS exactly the comma category (c↓G). The quantifier structure, conclusion, and hypotheses all align with the informal claim.",
+  "duration_ms": 185481,
+  "cost_usd": 0.7332200000000001
+}

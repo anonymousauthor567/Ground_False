@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-67.lean",
+  "stem": "proofnet-67",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. Polynomials are over ℚ; the hypothesis `∀ n, ∃ a : ℤ, (f*g).coeff n = a` says every coefficient of f·g is an integer (via the canonical ℤ↪ℚ coercion); and since `i j : ℕ` are universally bound as theorem parameters, the conclusion `∃ a : ℤ, f.coeff i * g.coeff j = a` is effectively \"for all i, j, the product f.coeff(i)·g.coeff(j) is an integer\". No hypothesis is added or dropped (no degree bound, no nonzero condition, no decidability assumption), the quantifier structure matches, and the types are correct. This is Dummit–Foote 9.3.2 rendered faithfully.",
+  "duration_ms": 41559,
+  "cost_usd": 0.17930725
+}

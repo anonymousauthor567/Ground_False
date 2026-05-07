@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes four complex numbers via `z : Fin 4 → ℂ` (matching $z_1,\\ldots,z_4$, just 0-indexed), hypothesizes `‖z n‖ = 1` (which for `ℂ` coincides with `|z_j| = 1` since the norm on `ℂ` is `Complex.abs`), and `z n ≠ 1` for each `n`, matching both informal hypotheses. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0)*(z 1)*(z 2)*(z 3) ≠ 0` is the literal transcription of $3 - z_1 - z_2 - z_3 - z_4 + z_1 z_2 z_3 z_4 \\neq 0$. No hypotheses are added or dropped, no quantifier structure is altered, and the types/objects all match. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 42450,
+  "cost_usd": 0.19993275
+}

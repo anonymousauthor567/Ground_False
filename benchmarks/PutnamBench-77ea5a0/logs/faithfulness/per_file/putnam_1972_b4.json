@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1972_b4.lean",
+  "stem": "putnam_1972_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal claim. The hypothesis `n > 1` on `n : ℕ` captures \"$n \\geq 2$\"; using ℕ rather than ℤ is harmless since any integer ≥ 2 is a natural and $x^n$ for $x : ℤ$ requires non-negative exponent anyway. `MvPolynomial (Fin 3) ℤ` correctly represents a three-variable polynomial with integer coefficients. The `vars`/`hvars` pair unambiguously assigns variable 0 ↦ $x^n$, variable 1 ↦ $x^{n+1}$, variable 2 ↦ $x + x^{n+2}$ (the nested `ite` resolves the `Fin 3` cases correctly). The conclusion \"∀ x : ℤ, x = eval (...) P\" is equivalent to the polynomial identity over ℤ since ℤ is an infinite integral domain. No hypotheses have been added or dropped, and the quantifier structure (∃ P, ∀ x) matches the informal claim.",
+  "duration_ms": 138240,
+  "cost_usd": 0.30630825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "50.lean",
+  "stem": "50",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. \"Complete local ring\" becomes `[IsLocalRing R] [IsAdicComplete (IsLocalRing.maximalIdeal R) R]` (standard: m-adic completeness). \"Containing a field\" becomes `[Field k] [Algebra k R] [NoZeroSMulDivisors k R]`, yielding an injective ring homomorphism k → R (and in fact `NoZeroSMulDivisors k R` is automatic from `GroupWithZero.toNoZeroSMulDivisors` given `Field k` + `Algebra k R`, plus `IsLocalRing` supplies `Nontrivial R`). \"𝔪 is finitely generated over A\" is exactly `(IsLocalRing.maximalIdeal R).FG`. The conclusion `IsNoetherianRing R` matches Mathlib's standard definition (all ideals finitely generated). The universal quantification over R with the field k as an extra parameter correctly reflects the informal \"Let A ... be a ring containing a field\". No hypothesis is silently dropped or strengthened.",
+  "duration_ms": 787038,
+  "cost_usd": 1.58263075
+}

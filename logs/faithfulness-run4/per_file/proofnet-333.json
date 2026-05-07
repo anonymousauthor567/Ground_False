@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-333.lean",
+  "stem": "proofnet-333",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature mirrors the informal statement precisely. \"Totally ordered set\" is rendered as `LinearOrder α`, which is the standard Mathlib notion of a total/linear order. The nonempty subset is encoded as `s : Set α` with hypothesis `h₀ : Set.Nonempty s`. The lower-bound and upper-bound conditions are encoded using Mathlib's `lowerBounds`/`upperBounds` sets (`x ∈ lowerBounds s`, `y ∈ upperBounds s`), which correspond exactly to \"α is a lower bound of E\" and \"β is an upper bound of E\". The conclusion `x ≤ y` is identical to α ≤ β. This is essentially Mathlib's `lowerBounds_le_upperBounds`. No hypotheses are added or dropped, and types match.",
+  "duration_ms": 44264,
+  "cost_usd": 0.14263825000000002
+}

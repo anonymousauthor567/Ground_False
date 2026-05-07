@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "theorem_name": "Pugh_exercise_3_63b_corrected",
+  "informal": "Prove that $\\sum 1/k(\\log(k))^p$ diverges when $p \\leq 1$.",
+  "lean": "\ntheorem Pugh_exercise_3_63b_corrected (p : ℝ) (f : ℕ → ℝ) (_hp : p ≤ 1)\n    (h : f = fun k : ℕ => 1 / (k * (Real.log k) ^ p)) :\n    Tendsto f atTop (𝓝 0)",
+  "verdict": "different",
+  "reasoning": "The informal statement asserts the divergence of the series ∑ 1/(k(log k)^p) for p ≤ 1. The Lean signature instead asserts that the sequence f(k) = 1/(k(log k)^p) tends to 0 at infinity. Convergence of the terms to 0 is a completely different claim from divergence of the series — it is neither implied by nor implies divergence of the series (in fact, divergence of this series is consistent with the terms going to 0, which is what makes the example interesting). So the Lean statement is not comparable to the informal one.",
+  "duration_ms": 6270,
+  "cost_usd": 0.04354175
+}

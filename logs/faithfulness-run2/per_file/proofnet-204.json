@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-204.lean",
+  "stem": "proofnet-204",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim: V is a finite-dimensional vector space over a field F, T is an endomorphism, the hypothesis quantifies over all submodules U of codimension 1 (via `finrank F U = finrank F V - 1`) with T-invariance expressed as `Submodule.map T U ≤ U`, and the conclusion `∃ c : F, T = c • LinearMap.id` is exactly \"T is a scalar multiple of the identity\". The Nat-subtraction edge case (when finrank V = 0, `finrank V - 1 = 0`) makes the hypothesis trivially satisfied and the conclusion trivially true, matching the vacuous/trivial interpretation of the informal statement in that degenerate case. No extra hypotheses are imposed and none are dropped.",
+  "duration_ms": 30358,
+  "cost_usd": 0.1032535
+}

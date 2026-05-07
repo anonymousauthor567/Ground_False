@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-224.lean",
+  "stem": "proofnet-224",
+  "informal": "Prove that if $H$ and $K$ are normal subgroups of a group $G$ then their intersection $H \\cap K$ is also a normal subgroup of $G$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_1_22a (G : Type*) [Group G] (H K : Subgroup G)\n  [Normal H] [Normal K] :\n  Normal (H ⊓ K)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over an arbitrary group G, takes two subgroups H and K both assumed Normal, and concludes that their lattice meet H ⊓ K (which is the intersection of subgroups in Mathlib) is Normal. This matches the informal claim exactly: same hypotheses (H, K normal in G), same conclusion (H ∩ K normal in G), with no extra assumptions like finiteness or commutativity. The encoding of \"intersection\" as `H ⊓ K` is definitionally the set-theoretic intersection of subgroups.",
+  "duration_ms": 6293,
+  "cost_usd": 0.04328675
+}

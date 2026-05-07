@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1999_a1.lean",
+  "stem": "putnam_1999_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully formalizes the informal statement. The piecewise function is correctly encoded: `if x < -1 then -1 else (if x ≤ 0 then 3x+2 else -2x+2)` properly matches the three cases (x<-1, -1≤x≤0, x>0). The informal problem asks to \"find polynomials f, g, h, if they exist\" — an existence question — which is captured by `∃ f g h : Polynomial ℝ, ...` with solution `True`. The quantification is over all x : ℝ, matching \"for all x\". The types (Polynomial ℝ, eval at ℝ) match the real-variable polynomials in the informal problem. The boundary values are consistent (at x=-1 both cases give -1, at x=0 both cases give 2), so the piecewise function is well-defined under either convention.",
+  "duration_ms": 39596,
+  "cost_usd": 0.12242425
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-269.lean",
+  "stem": "proofnet-269",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts that S₃ (encoded as `Equiv.Perm (Fin 3)`) is group-isomorphic to GL(2, ℤ/2) (encoded as `Matrix.GeneralLinearGroup (Fin 2) (ZMod 2)`). `Matrix.GeneralLinearGroup n R` is defined as `(Matrix n n R)ˣ`, the units in the matrix ring; since ℤ/2 is a field, these units are exactly the matrices with nonzero determinant, matching the informal group T. `Equiv.Perm (Fin 3)` is precisely the symmetric group of degree 3. `Nonempty (_ ≃* _)` expresses existence of a multiplicative (group) isomorphism, which is the standard meaning of \"is isomorphic to\". The quantifier structure and mathematical content match exactly.",
+  "duration_ms": 55896,
+  "cost_usd": 0.2896145
+}

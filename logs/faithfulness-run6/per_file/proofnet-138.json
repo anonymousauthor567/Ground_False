@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-138.lean",
+  "stem": "proofnet-138",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to demonstrate that connectedness of S does not in general imply connectedness of interior(S) — i.e., a counterexample exists. The Lean statement formalizes this as an existential: ∃ S ⊆ ℝ², IsConnected S ∧ ¬ IsConnected (interior S), which precisely captures \"a counterexample exists.\" Mathlib's `IsConnected` (Nonempty ∧ IsPreconnected) is the standard definition. The choice of ℝ × ℝ as the ambient space is a natural reading in the real-analysis context: exhibiting a counterexample in ℝ² is the standard way to show the implication fails \"in general,\" and such examples (e.g., two closed disks joined by a segment) are the canonical illustrations. The quantifier structure, the notion of connectedness, and the interior operation all match the informal claim.",
+  "duration_ms": 134215,
+  "cost_usd": 0.420111
+}

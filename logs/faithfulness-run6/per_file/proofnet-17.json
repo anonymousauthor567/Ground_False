@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-17.lean",
+  "stem": "proofnet-17",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures the informal claim exactly: F is a field, V is an F-vector space with finrank F V = 1 (matching \"dim V = 1\"), T : V →ₗ[F] V is an F-linear operator (matching \"T ∈ L(V,V)\"), and the conclusion ∃ c : F, ∀ v : V, T v = c • v matches \"∃ a ∈ F such that Tv = av for all v ∈ V\" verbatim. The [FiniteDimensional F V] typeclass is logically redundant given finrank F V = 1 (Mathlib defines finrank as 0 for non-finite-dimensional spaces, so finrank = 1 already implies FiniteDimensional), so its inclusion neither weakens nor strengthens the statement. All quantifier structure and types match the informal statement.",
+  "duration_ms": 145607,
+  "cost_usd": 0.5649547500000001
+}

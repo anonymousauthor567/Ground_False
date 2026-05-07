@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal claim. `G ≃* G` is exactly an automorphism of the finite group G. The hypothesis, though phrased via an existentially-given Finset I with `∀ x ∈ I, φ x = x⁻¹` and `(0.75 : ℚ) * card G < card I`, is equivalent to \"more than 3/4 of elements satisfy φ(x) = x⁻¹\": taking I = {x : φ(x) = x⁻¹} gives the forward direction, and any such I is contained in that set, giving the reverse. The conclusion `(∀ x, φ x = x⁻¹) ∧ (∀ x y, x*y = y*x)` directly states both required conclusions (φ inverts every element, and G is abelian). No hypotheses or conclusions are dropped, added, or weakened.",
+  "duration_ms": 34580,
+  "cost_usd": 0.14225675
+}

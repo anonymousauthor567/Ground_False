@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-234.lean",
+  "stem": "proofnet-234",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `H K : Subgroup G` with `hHK : H ≤ K` matches the two subgroups with inclusion. `(H.subgroupOf K).Characteristic` is Mathlib's standard way of expressing \"H is characteristic in K\": `subgroupOf` converts H (a subgroup of G) into a subgroup of K (via `comap K.subtype`), and when `H ≤ K` this is the right encoding, since Mathlib's `Subgroup.Characteristic` is defined relative to the ambient group (here K). `K.Normal` correctly states K is normal in G, and the conclusion `H.Normal` states H is normal in G. Types, hypotheses, and conclusion all match without extra or missing assumptions.",
+  "duration_ms": 141633,
+  "cost_usd": 0.522487
+}

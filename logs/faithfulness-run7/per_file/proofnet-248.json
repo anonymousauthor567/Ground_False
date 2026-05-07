@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-248.lean",
+  "stem": "proofnet-248",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal statement precisely. `Zsqrtd (-n)` is Mathlib's ℤ[√(-n)], the element `⟨0, 1⟩ : Zsqrtd (-n)` is exactly √(-n) (matching Mathlib's `sqrtd := ⟨0, 1⟩`), and `1 + ⟨0, 1⟩` is 1 + √(-n). The hypotheses `n > 3` and `Squarefree n` correctly encode \"squarefree integer greater than 3\", and `Irreducible` is Mathlib's standard irreducibility predicate in a monoid. The conjunction of three `Irreducible` claims faithfully encodes \"2, √(-n), and 1+√(-n) are all irreducible in R\". No hypotheses are added or dropped, no types are changed, and no quantifier structure is altered.",
+  "duration_ms": 128002,
+  "cost_usd": 0.4698
+}

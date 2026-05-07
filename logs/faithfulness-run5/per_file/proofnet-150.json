@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-150.lean",
+  "stem": "proofnet-150",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses `A.Nonempty` and `BddBelow A` correspond exactly to \"nonempty\" and \"bounded below\". The set `minus_A = {x | -x ∈ A}` is set-theoretically equal to $\\{-x : x \\in A\\}$ (since $y \\in \\{-x : x \\in A\\} \\iff -y \\in A \\iff y \\in \\{x \\mid -x \\in A\\}$), so this definition matches the informal definition of $-A$. The conclusion `sInf A = - sSup minus_A` matches $\\inf A = -\\sup(-A)$ using Mathlib's standard `sInf` and `sSup` on `ℝ`, which yield the correct infimum/supremum given the nonemptiness and boundedness (note that `minus_A` is automatically nonempty and bounded above given the hypotheses on $A$).",
+  "duration_ms": 82977,
+  "cost_usd": 0.23768275
+}

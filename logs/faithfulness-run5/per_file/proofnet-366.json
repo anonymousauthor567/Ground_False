@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-366.lean",
+  "stem": "proofnet-366",
+  "verdict": "faithful",
+  "reasoning": "The informal claim states: every entire injective function f : ℂ → ℂ has the form f(z) = az + b with a, b ∈ ℂ and a ≠ 0. The Lean statement uses `Differentiable ℂ f` for `f : ℂ → ℂ`, which in Mathlib means f is complex-differentiable at every point — exactly the definition of an entire function. `Function.Injective` matches injectivity, and the conclusion `∃ (a b : ℂ), f = (λ z => a * z + b) ∧ a ≠ 0` directly captures the required form with the condition a ≠ 0. Types (ℂ), quantifier structure, hypotheses, and conclusion all correspond precisely to the informal statement, with no added or dropped assumptions.",
+  "duration_ms": 55360,
+  "cost_usd": 0.173151
+}

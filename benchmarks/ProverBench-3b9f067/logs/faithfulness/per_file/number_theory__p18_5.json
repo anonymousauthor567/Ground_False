@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_5.lean",
+  "stem": "number_theory__p18_5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement \"the greatest negative element in B is -4\" is a conjunction: (a) -4 is a negative element of B, and (b) every negative element of B is ≤ -4. The target lemma `neg_elements_bound` only asserts part (b): for any b ∈ B with b < 0, b ≤ -4. It does not establish that -4 itself lies in B and is negative, which is essential for -4 to be the GREATEST negative element. Without that, the lemma could be vacuously true (e.g., if B had no negative elements). The fact that -4 ∈ B is stated as a separate unproved `axiom neg_four_in_B`, which is merely assumed, not proved. Therefore the theorem signature captures strictly less than the informal claim — it is logically implied by the informal statement but does not imply it.",
+  "duration_ms": 133306,
+  "cost_usd": 0.3435975
+}

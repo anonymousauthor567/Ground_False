@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem takes arbitrary groups A and B via `{A B : Type*} [Group A] [Group B]` (matching the universal nature of the informal claim) and states the iff: A × B is commutative (expressed as `∀ x y : A × B, x * y = y * x`) iff both A and B are commutative. Mathlib's `Prod.instGroup` gives A × B the standard componentwise product group structure, so the LHS is equivalent to \"A × B is an abelian group\" and the RHS is equivalent to \"A is abelian and B is abelian\". The quantifier structure, the hypotheses, and the biconditional conclusion all match the informal statement exactly. There are no extra or missing hypotheses.",
+  "duration_ms": 60589,
+  "cost_usd": 0.141462
+}

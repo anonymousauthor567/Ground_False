@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `Irreducible (X^4 + 4*X^3 + 6*X^2 + 2*X + 1 : Polynomial ℤ)`. The polynomial matches the informal one exactly, and the ring `Polynomial ℤ` is ℤ[x]. Mathlib's `Irreducible` (from `Algebra/Group/Irreducible/Defs.lean`) is defined as: not a unit, and every factorization `p = a*b` has `a` or `b` a unit — which is the standard commutative-ring notion of irreducibility, and coincides with the textbook \"cannot be factored nontrivially in ℤ[x]\" for this primitive (leading coeff and constant term both equal to 1) polynomial. No extra hypotheses are added or omitted, and the quantifier structure matches.",
+  "duration_ms": 54695,
+  "cost_usd": 0.210558
+}

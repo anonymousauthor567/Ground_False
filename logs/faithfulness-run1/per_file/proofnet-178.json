@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-178.lean",
+  "stem": "proofnet-178",
+  "informal": "Prove that the power series $\\sum z^n/n^2$ converges at every point of the unit circle.",
+  "lean": "\ntheorem Shakarchi_exercise_1_19b (z : ℂ) (hz : ‖z‖ = 1) (s : ℕ → ℂ)\n    (h : s = (λ n => ∑ i ∈ (range n), z ^ (i + 1) / (i + 1) ^ 2)) :\n    ∃ y, Tendsto s atTop (𝓝 y)",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement fixes an arbitrary z ∈ ℂ with ‖z‖ = 1 (i.e., on the unit circle) and asserts that the sequence of partial sums s_n = ∑_{i=0}^{n-1} z^(i+1)/(i+1)^2 = ∑_{k=1}^{n} z^k/k^2 tends to some limit y in ℂ. This is exactly the assertion that the power series ∑ z^n/n^2 converges at z. Universally quantifying over z on the unit circle (via the hypothesis hz) covers every point of the unit circle. The reindexing (i+1) correctly starts the sum at n=1, matching the informal series. No extra or missing hypotheses.",
+  "duration_ms": 8213,
+  "cost_usd": 0.04844275
+}

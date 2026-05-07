@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` directly matches the informal condition $|f(t)-f(x)| \\leq |t-x|^2$ for all $t, x$ (just with variables renamed). The conclusion `∃ c, f = λ _x => c` asserts that $f$ is the constant function equal to some $c$, which is the standard way to express \"$f$ is constant\" and is logically equivalent to \"$\\forall x\\, y,\\, f(x) = f(y)$\" since $\\mathbb{R}$ is nonempty. Types ($\\mathbb{R} \\to \\mathbb{R}$), quantifier structure, and the norm/absolute-value encoding all match. No hypotheses are added or dropped.",
+  "duration_ms": 12979,
+  "cost_usd": 0.0452795
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_a1.lean",
+  "stem": "putnam_1970_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal claim. `a, b > 0` matches the universal quantification. `f` is defined as `e^{ax} cos(bx)`. The hypothesis `hp` asserts that `p` is a sequence such that the power series `∑' n, p n * x^n` converges to `f` on some open ball around 0, which uniquely identifies `p` as the Taylor coefficient sequence (since `f` is real-analytic with unique power series expansion). `S` is the set of indices where the coefficient is zero. The conclusion `S = ∅ ∨ ¬Finite S` expresses \"either no zero coefficients or infinitely many zero coefficients\" — `¬Finite S` where `S : Set ℕ` coerces to the subtype and negates the `Finite` typeclass, meaning the set has infinitely many elements. The `tsum` convention gives the correct value since power series converge absolutely within their radius of convergence. The formalization is a faithful rendering of the informal statement.",
+  "duration_ms": 126956,
+  "cost_usd": 0.39908125
+}

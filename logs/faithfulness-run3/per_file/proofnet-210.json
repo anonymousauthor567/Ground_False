@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-210.lean",
+  "stem": "proofnet-210",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement faithfully. The normality hypothesis `T * adjoint T = adjoint T * T` is precisely the definition of a normal operator (T commutes with its adjoint). The conclusion `∃ S : End ℂ V, S^2 = T` matches the informal definition of a square root. The `[FiniteDimensional ℂ V]` hypothesis surfaces an implicit premise from the chapter context: this is Axler Exercise 7.11 from Chapter 7 of \"Linear Algebra Done Right,\" which operates under the standing assumption that V is finite-dimensional (Axler uses 𝓛(V) notation specifically in this context), and the result genuinely requires finite-dimensionality (the proof goes via the complex spectral theorem for normal operators). Making this implicit premise explicit is a faithful reading per the system instructions, not a weakening.",
+  "duration_ms": 80943,
+  "cost_usd": 0.20617749999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-48.lean",
+  "stem": "proofnet-48",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks: given a transitive permutation group G on a finite set A with |A| > 1, show there exists σ ∈ G with no fixed points. The Lean formalization encodes each piece correctly: `[Fintype α]` with `Fintype.card α > 1` captures the finite set of size > 1; `G : Subgroup (Equiv.Perm α)` captures \"permutation group on A\" (subgroup of Sym(A)); `h_tran : ∀ a b, ∃ σ : G, σ a = b` is precisely the standard definition of a transitive action (for any pair of points, some group element sends one to the other); and the conclusion `∃ σ : G, ∀ a, σ a ≠ a` exactly matches \"there exists σ ∈ G such that σ(a) ≠ a for all a ∈ A\" (a fixed-point-free element). The quantifier structure, types, hypotheses, and conclusion all match the informal claim with no added or missing assumptions.",
+  "duration_ms": 33876,
+  "cost_usd": 0.06315174999999999
+}

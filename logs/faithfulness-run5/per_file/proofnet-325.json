@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-325.lean",
+  "stem": "proofnet-325",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully encodes the informal iff: UniformContinuous f ↔ ∃ μ satisfying all five modulus-of-continuity properties. Specifically: `∀ x > 0 → μ x > 0` encodes the codomain (0,∞); `ContinuousOn μ (Ioi 0)` encodes continuity on (0,∞); `StrictMonoOn μ (Ioi 0)` encodes strict monotonicity on (0,∞); `Tendsto μ (𝓝[>] 0) (𝓝 0)` correctly encodes μ(s) → 0 as s → 0⁺ (the natural reading since μ's domain is (0,∞)); and the oscillation bound `|f s - f t| ≤ μ(|s-t|)` (with `|s-t|` elaborating through coercion to `|↑s - ↑t|` in ℝ) matches the informal control inequality. The hypothesis `a ≤ b` surfaces the standard convention underlying the notation [a, b]. Encoding μ : ℝ → ℝ with properties constrained only on (0,∞) is equivalent to μ : (0,∞) → (0,∞), since the values outside (0,∞) are unconstrained and irrelevant.",
+  "duration_ms": 546682,
+  "cost_usd": 1.8731370000000003
+}

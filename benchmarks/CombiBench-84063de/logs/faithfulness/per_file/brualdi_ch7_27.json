@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch7_27.lean",
+  "stem": "brualdi_ch7_27",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all aspects of the informal statement. The predicate `(Nat.digits 10 m).length = n` combined with `m < 10^n` correctly characterizes n-digit base-10 numbers (Nat.digits is in little-endian with no trailing zeros, so length equals the digit count for m ≥ 1). The condition `∀ i : Fin (...).length, Odd (... .get i)` correctly encodes \"all digits odd\". The conjunction of `Even (count 1)`, `count 1 ≠ 0`, `Even (count 3)`, `count 3 ≠ 0` precisely matches \"1 and 3 each occur a nonzero, even number of times\". The cardinality being equated to `brualdi_ch7_27_solution n` (a `sorry` placeholder) is a standard formalization convention for \"Determine the number of ...\" problems. No hypotheses are added or dropped beyond what the informal claim requires.",
+  "duration_ms": 241623,
+  "cost_usd": 0.8157502500000001
+}

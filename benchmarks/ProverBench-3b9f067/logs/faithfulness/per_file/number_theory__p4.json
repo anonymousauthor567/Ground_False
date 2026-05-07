@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p4.lean",
+  "stem": "number_theory__p4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal statement. The biconditional correctly encodes 'if ... then ..., and vice versa.' The existential quantifiers correctly formalize 'for some integer x/y.' Using Prime p over Z (which includes negative primes like -2, -3) does not affect the mathematical content because p divides n iff -p divides n in Z. The unused explicit arguments (x y : Z) in the theorem signature are dead parameters shadowed by the bound variables in the existentials — they add no logical content. The hypothesis hp : Prime p correctly universalizes over all primes.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

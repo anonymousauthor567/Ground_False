@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean formula `∑ i : Fin n, (↑i + 1) * X^i` sums over i ∈ {0,...,n-1} giving 1 + 2x + 3x² + ... + nx^(n-1), exactly matching the informal definition of P_n. The hypotheses `0 < j`, `0 < k` correctly encode \"positive integers j and k\", and `j ≠ k` matches the distinctness. The conclusion `IsCoprime (P j) (P k)` is the standard Mathlib notion for \"relatively prime\" over the polynomial ring. The choice of ℚ as base ring is a reasonable interpretation (over a field, polynomial coprimality has the standard meaning of having no common non-unit factor). The use of implicit binders `{j k : ℕ}` is purely syntactic and doesn't affect logical content.",
+  "duration_ms": 73566,
+  "cost_usd": 0.25251950000000006
+}

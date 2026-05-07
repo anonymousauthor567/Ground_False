@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-217.lean",
+  "stem": "proofnet-217",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove A × B is abelian iff both A and B are abelian (implicitly assuming A and B are groups). The Lean signature takes A and B as arbitrary types with Group instances, and states the iff between commutativity of A × B (which uses Mathlib's built-in product group structure) and the conjunction of commutativity of A and commutativity of B. The formulation \"∀ x y, x * y = y * x\" is the standard characterization of an abelian group (given a group structure), so this directly encodes \"is abelian\". The quantifier structure, types, hypotheses, and conclusion all match the informal claim exactly.",
+  "duration_ms": 12600,
+  "cost_usd": 0.0492635
+}

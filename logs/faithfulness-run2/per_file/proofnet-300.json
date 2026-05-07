@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. It takes arbitrary topological spaces X and Y, a continuous map p : X → Y, and as a hypothesis assumes the existence of a continuous f : Y → X with p ∘ f = id (where id is inferred to be id_Y). The conclusion is IsQuotientMap p, which in Mathlib matches the standard definition of a quotient map (surjective and U open iff p⁻¹(U) open). No hypotheses are silently added or removed, and the quantifier structure and types are preserved.",
+  "duration_ms": 13310,
+  "cost_usd": 0.054554500000000006
+}

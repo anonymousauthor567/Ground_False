@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "informal": "Prove that the union of two subspaces of $V$ is a subspace of $V$ if and only if one of the subspaces is contained in the other.",
+  "lean": "\ntheorem Axler_exercise_1_9 {F V : Type*} [AddCommGroup V] [Field F]\n  [Module F V] (U W : Submodule F V):\n  (∃ U' : Submodule F V, U'.carrier = ↑U ∪ ↑W) ↔ (U ≤ W ∨ W ≤ U)",
+  "verdict": "faithful",
+  "reasoning": "The informal claim states: U ∪ W is a subspace ⟺ U ⊆ W ∨ W ⊆ U. The Lean statement encodes \"U ∪ W is a subspace\" as \"there exists a submodule U' whose carrier equals U ∪ W\". This is logically equivalent to U ∪ W being a subspace: if such U' exists, then U ∪ W is the carrier of a submodule (hence a subspace), and conversely if U ∪ W is a subspace one can take U' to be that submodule. The right-hand side U ≤ W ∨ W ≤ U is exactly \"one of the subspaces is contained in the other\". Hypotheses (V an F-vector space) match standard reading. So the encoding is faithful.",
+  "duration_ms": 9653,
+  "cost_usd": 0.053852750000000005
+}

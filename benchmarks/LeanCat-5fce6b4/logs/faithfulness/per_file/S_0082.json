@@ -1,0 +1,8 @@
+{
+  "file": "S_0082.lean",
+  "stem": "S_0082",
+  "verdict": "faithful",
+  "reasoning": "The informal claim decomposes into: (a) 𝕜 is simple in Vect_𝕜, and (b) every simple 𝕜-vector space is isomorphic to 𝕜. The Lean file provides both: the instance `isSimpleModule_self` proves (a), and the theorem `unique_simple_object` asserts (b) by stating that any type M with `[AddCommGroup M] [Module 𝕜 M] [IsSimpleModule 𝕜 M]` admits a linear equivalence `M ≃ₗ[𝕜] 𝕜`. Mathlib's `IsSimpleModule R M` unfolds to `IsSimpleOrder (Submodule R M)` — the submodule lattice has only ⊥ and ⊤ and is nontrivial — which is exactly the categorical notion of a simple object in Vect_𝕜. The `Nonempty (M ≃ₗ[𝕜] 𝕜)` correctly captures \"isomorphic as 𝕜-vector spaces\" (up to isomorphism). The universal quantification over M (implicit via Lean's variable) matches the informal claim. No hidden hypotheses or type mismatches.",
+  "duration_ms": 320989,
+  "cost_usd": 0.8519702499999999
+}

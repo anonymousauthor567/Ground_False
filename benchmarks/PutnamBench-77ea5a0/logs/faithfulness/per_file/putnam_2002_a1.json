@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2002_a1.lean",
+  "stem": "putnam_2002_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The hypothesis `Pderiv` asserts that the polynomial family $P_n$ satisfies the functional equation defining it from the $n$-th iterated derivative of $1/(x^k-1)$, and the conclusion asserts $P_n(1)$ equals a specific value. At points where $x^k = 1$, both sides of the Lean equation become 0 (by Lean's convention for division by zero and non-existent derivatives), making the constraint vacuous there; but on the open set where $x^k \\neq 1$, the equation uniquely determines $P_n$ as a polynomial (since polynomials agreeing on an open set are equal). The solution $(-k)^n \\cdot n!$ elaborates to $(-1)^n k^n n!$ in $\\mathbb{R}$ via coercion, which matches the correct mathematical answer verified via Laurent expansion near $x=1$ and small cases ($n=0,1,2$). The hypothesis $k > 0$ correctly captures \"positive integer\".",
+  "duration_ms": 350285,
+  "cost_usd": 1.0466042500000001
+}

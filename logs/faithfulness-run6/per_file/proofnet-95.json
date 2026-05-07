@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-95.lean",
+  "stem": "proofnet-95",
+  "verdict": "faithful",
+  "reasoning": "`GaussianInt` is defined as `Zsqrtd (-1)` in Mathlib, so the element `⟨1, 1⟩ : GaussianInt` has `re = 1, im = 1`, which represents `1 + i` in ℤ[i]. The Lean statement `(⟨1, 1⟩ : GaussianInt) ^ 2 ∣ 2` directly asserts `(1+i)^2 ∣ 2` in the Gaussian integers, which is exactly the informal claim \"2 is divisible by (1+i)^2 in ℤ[i]\". The divisibility relation `∣` is the standard ring divisibility on ℤ[i], matching the informal reading. No hypotheses are added or dropped, and the ambient object (ℤ[i]) and conclusion match exactly.",
+  "duration_ms": 36509,
+  "cost_usd": 0.16672800000000002
+}

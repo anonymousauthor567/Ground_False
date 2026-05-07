@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-104.lean",
+  "stem": "proofnet-104",
+  "verdict": "stronger",
+  "reasoning": "The informal statement requires two representations n = a³+b³ = c³+d³ where in each representation the two cubes are different (\"sum of two different integral cubes\"). The Lean predicate enforces x ≠ z ∧ x ≠ w ∧ y ≠ z ∧ y ≠ w (pair disjointness) but does NOT require x ≠ y or z ≠ w within each pair. Thus Lean's predicate Q is strictly weaker than the informal P, making the set in which 1729 must be the infimum strictly larger. Consequently, Lean's claim \"sInf{Q} = 1729\" implies the informal claim (since P ⊆ Q and 1729 ∈ P) but is not implied by it—proving the Lean claim requires additionally ruling out any smaller n expressible as 2a³ = c³+d³ with c ≠ d, c,d ≠ a. The Lean statement is therefore logically stronger than the informal.",
+  "duration_ms": 441961,
+  "cost_usd": 1.2204814999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-139.lean",
+  "stem": "proofnet-139",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if E ⊆ ℝ is uncountable, then there exists a condensation point of E, i.e., a point p such that every neighborhood of p meets E in an uncountable set. The Lean statement uses `¬ Set.Countable E` as the hypothesis (matching \"uncountable\", since `Set.Countable` in Mathlib means \"at most countable\") and concludes `∃ p : ℝ, ∀ U ∈ 𝓝 p, ¬ Set.Countable (U ∩ E)`, which is exactly the standard definition of \"p is a condensation point of E\" (every neighborhood U of p has U ∩ E uncountable). The quantifier structure, types, hypothesis, and conclusion all match the informal claim precisely.",
+  "duration_ms": 109215,
+  "cost_usd": 0.26834075
+}

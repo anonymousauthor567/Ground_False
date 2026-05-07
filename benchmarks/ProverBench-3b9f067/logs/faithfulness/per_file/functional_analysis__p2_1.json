@@ -1,0 +1,8 @@
+{
+  "file": "functional_analysis__p2_1.lean",
+  "stem": "functional_analysis__p2_1",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims: for a sequence of positive reals converging to 1/2, the series Σ (b_n^n cos(nπ))/n is absolutely convergent. The Lean signature faithfully encodes this: `h_pos : ∀ n, b n > 0` matches \"positive real numbers\"; `h_lim : Tendsto b atTop (𝓝 (1/2))` matches \"converges to 1/2\"; and `Summable (fun n => |b n^n * cos (n * π) / n|)` is the standard Mathlib formalization of \"absolutely convergent\" (as confirmed by `summable_abs_iff` in Mathlib). The informal sum starts at n=1 while Lean sums over ℕ (starting at 0), but at n=0 the term evaluates to `1 * 1 / 0 = 0` under Lean's convention, so summability is equivalent. The conclusion and quantifier structure match exactly, with no added or dropped hypotheses.",
+  "duration_ms": 159356,
+  "cost_usd": 0.36661524999999995
+}

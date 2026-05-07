@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-363.lean",
+  "stem": "proofnet-363",
+  "verdict": "faithful",
+  "reasoning": "The informal statement $\\int_0^\\infty \\sin(x)/x\\, dx = \\pi/2$ is the classical Dirichlet integral, which is conditionally (not absolutely) convergent. The standard mathematical meaning of this improper integral is the limit of proper integrals $\\lim_{y\\to\\infty} \\int_0^y \\sin(x)/x\\, dx$, which is precisely what the Lean statement encodes via `Tendsto (fun y => ∫ x in (0 : ℝ)..y, Real.sin x / x) atTop (𝓝 (Real.pi / 2))`. The interval integral `∫ x in (0:ℝ)..y` is a proper (Bochner) integral on the bounded interval $[0,y]$, and `atTop` on $y : \\mathbb{R}$ correctly expresses $y \\to +\\infty$. The value at $x=0$ is a measure-zero issue handled by Lean's convention `Real.sin 0 / 0 = 0`. No extra or missing hypotheses, and the type (real-valued integral) matches the informal claim.",
+  "duration_ms": 47351,
+  "cost_usd": 0.18853625
+}

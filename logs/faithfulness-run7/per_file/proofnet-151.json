@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-151.lean",
+  "stem": "proofnet-151",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies over a complex number z and asserts the existence of a real r ≥ 0 and complex w with ‖w‖ = 1 such that z = r * w. The norm ‖w‖ for w : ℂ equals the complex modulus |w|, so ‖w‖ = 1 matches |w| = 1. The multiplication r * w automatically coerces r : ℝ to ℂ, matching the informal \"rw\". The quantifier structure (∀z ∃r ∃w) matches the informal statement, and the hypotheses/conclusions are exactly the same. This is the standard polar decomposition statement and the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 41061,
+  "cost_usd": 0.129578
+}

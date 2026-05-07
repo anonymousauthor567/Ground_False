@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"infinitely many primes ≡ -1 (mod 4)\" via the standard ∀ N, ∃ p ≥ N pattern, which is logically equivalent to the set of such primes being infinite in ℕ. The condition `p + 1 ≡ 0 [MOD 4]` unfolds to 4 ∣ (p+1), i.e., p ≡ -1 (mod 4), matching the informal congruence exactly. `Nat.Prime p` captures primality, and there are no extra or missing hypotheses. Hence the formalization is strictly faithful.",
+  "duration_ms": 11889,
+  "cost_usd": 0.059648
+}

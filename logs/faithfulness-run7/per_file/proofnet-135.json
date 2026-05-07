@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-135.lean",
+  "stem": "proofnet-135",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures the informal claim directly: `f : ℕ → ℕ` with `Injective f` matches \"f is an injection ℕ → ℕ\"; `p : ℕ → α` with `Tendsto p atTop (𝓝 a)` encodes \"(p_n) has limit a\"; and the conclusion `Tendsto (λ n => p (f n)) atTop (𝓝 a)` asserts exactly that the rearrangement $q_k = p_{f(k)}$ also converges to $a$. Using a general `TopologicalSpace α` is the natural ambient setting where sequence limits are defined, and the informal statement does not restrict to any particular space — it speaks of a generic sequence and its limit. The theorem is true in this generality (via `Function.Injective.nat_tendsto_atTop` composed with `hp`), so this is neither a weakening nor an inappropriate strengthening. No hypotheses are silently added or dropped, and the quantifier structure matches. This is a faithful formalization.",
+  "duration_ms": 75631,
+  "cost_usd": 0.24927500000000002
+}

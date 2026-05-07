@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-158.lean",
+  "stem": "proofnet-158",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: in ℂ, convergence of {s_n} implies convergence of {|s_n|}. The Lean statement encodes this as: if there exists a ∈ ℂ with f → a, then there exists a ∈ ℝ with ‖f n‖ → a. In Mathlib, ℂ's `NormedField` instance gives `‖z‖` equal to the complex modulus |z|, so `‖f n‖` exactly corresponds to `|s_n|`. The norm is real-valued, making ℝ the correct type for the limit of {|s_n|}. The hypothesis expresses \"{s_n} converges (to some complex number)\" and the conclusion expresses \"{|s_n|} converges (to some real number)\" — both logically equivalent to the informal claim. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 75592,
+  "cost_usd": 0.33983050000000004
+}

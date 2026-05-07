@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. For a field K, the units Kˣ are precisely the nonzero elements K \\ {0}, so `[Fintype Kˣ]` combined with `[Field K]` is equivalent to \"K is a finite field\" (since K = Kˣ ∪ {0}). The conclusion `∏ x : Kˣ, x = -1` takes the product over all units (= nonzero elements) and compares to -1 in Kˣ, which via the canonical coercion Kˣ → K corresponds to the ring element -1. The quantifier structure, hypotheses, and conclusion all match the informal claim exactly.",
+  "duration_ms": 34681,
+  "cost_usd": 0.13083175
+}

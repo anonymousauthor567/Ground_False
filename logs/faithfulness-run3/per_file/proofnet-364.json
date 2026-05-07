@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each element of the informal statement correctly. `Differentiable ℂ f` is equivalent to f being entire/analytic on ℂ. The hypothesis `∀ z₀, ∃ n, iteratedDeriv n f z₀ / n! = 0` precisely encodes \"some Taylor coefficient c_n at z₀ vanishes\", since c_n = f⁽ⁿ⁾(z₀)/n! and n! ≠ 0 in ℂ. The conclusion `∃ p : Polynomial ℂ, f = fun z => Polynomial.aeval z p` states that f is (pointwise) a polynomial function, since `Polynomial.aeval z p` coincides with standard polynomial evaluation for complex coefficients. Quantifier structure, hypotheses, and conclusion all match the informal claim with no drift.",
+  "duration_ms": 44648,
+  "cost_usd": 0.11050425
+}

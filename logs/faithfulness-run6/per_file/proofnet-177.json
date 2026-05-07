@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-177.lean",
+  "stem": "proofnet-177",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures all components of the informal statement: `IsOpen Ω` + `DifferentiableOn ℂ f Ω` encodes \"f holomorphic on open set Ω\"; `∃ c : ℝ, ∀ z ∈ Ω, ‖f z‖ = c` encodes \"|f| is constant\"; and `f a = f b` for arbitrary `a b : Ω` is the standard encoding of \"f is constant on Ω\". The extra `IsPreconnected Ω` hypothesis is a necessary implicit premise: without connectedness, the claim is literally false (e.g., Ω = D₁ ⊔ D₂ disjoint with f = 1 on D₁ and f = -1 on D₂ gives |f| constant but f not constant). In standard complex analysis (and in Shakarchi's context), \"holomorphic on an open set Ω\" in a statement like this implicitly means Ω is a region/domain. Surfacing this implicit premise explicitly is correct and faithful, not weakening.",
+  "duration_ms": 74595,
+  "cost_usd": 0.18515374999999998
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement is logically equivalent to the informal claim. `H.index` is $|G:H|$, `K.index` is $|G:K|$, and `H.relindex K` (which unfolds to Mathlib's `H.relIndex K = (H.subgroupOf K).index`) equals $|K:H|$ since `H ≤ K` makes `H ⊓ K = H`. The hypothesis `H ≤ K` captures the informal $H \\leq K$; the inclusion $K \\leq G$ is automatic from `K : Subgroup G`. The Lean signature has no finiteness hypothesis on `G`, matching the informal \"do not assume G is finite\" — Mathlib's `index`/`relIndex` return 0 for infinite indices and the equation holds uniformly (consistent with `relIndex_mul_index` in Mathlib). The multiplication order `K.index * H.relindex K` matches $|G:K| \\cdot |K:H|$. No hypotheses are added or dropped.",
+  "duration_ms": 59818,
+  "cost_usd": 0.23723175000000002
+}

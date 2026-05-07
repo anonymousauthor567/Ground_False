@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-64.lean",
+  "stem": "proofnet-64",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement quantifies universally over n : ℤ and r, s : ℚ, with hypothesis r^2 + s^2 = n (the integer n is coerced to ℚ), exactly capturing \"n is a sum of two rational squares.\" The conclusion ∃ a b : ℤ, a^2 + b^2 = n precisely captures \"n is a sum of two integer squares.\" The curried form ∀ n r s, r^2+s^2=n → ∃ a b, a^2+b^2=n is logically equivalent to ∀ n, (∃ r s, r^2+s^2=n) → (∃ a b, a^2+b^2=n), which is the informal claim. No hypotheses are added or dropped, and the types (ℤ and ℚ) match the informal statement's ambient objects.",
+  "duration_ms": 18112,
+  "cost_usd": 0.07251624999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-278.lean",
+  "stem": "proofnet-278",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"F of characteristic p ≠ 0\" via `[CharP F p]` + `hp : p ≠ 0` (which for a Field forces p to be prime), encodes \"m = p^n\" via `hm`, and encodes \"all roots of X^m - X are distinct\" via `Separable`, which is the standard Mathlib notion coinciding with \"nonzero polynomial with distinct roots\" over a field. The extra hypothesis `hn : n > 0` is not a scope restriction but a necessary implicit premise: for n = 0, m = 1, so X^m - X = 0, which is ¬Separable (by `not_separable_zero`), making the literal informal claim false without this assumption. Any mathematician reading Herstein's exercise would implicitly take n ≥ 1, so surfacing this premise is faithful per the worked-example convention. Quantifier structure (universal over F, p, n) matches the informal reading.",
+  "duration_ms": 137386,
+  "cost_usd": 0.47497350000000005
+}

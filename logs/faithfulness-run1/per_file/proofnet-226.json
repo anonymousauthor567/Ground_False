@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-226.lean",
+  "stem": "proofnet-226",
+  "informal": "Use Lagrange's Theorem in the multiplicative group $(\\mathbb{Z} / p \\mathbb{Z})^{\\times}$to prove Fermat's Little Theorem: if $p$ is a prime then $a^{p} \\equiv a(\\bmod p)$ for all $a \\in \\mathbb{Z}$.",
+  "lean": "\ntheorem Dummit_Foote_exercise_3_2_16 (p : ℕ) (hp : Nat.Prime p) (a : ℤ) :\n  a ^ p ≡ a [ZMOD p]",
+  "verdict": "faithful",
+  "reasoning": "The informal statement is Fermat's Little Theorem: for prime p and any integer a, a^p ≡ a (mod p). The Lean signature takes p : ℕ with hp : Nat.Prime p, an integer a : ℤ, and concludes a ^ p ≡ a [ZMOD p], which is integer congruence modulo p. This matches the informal claim exactly: same hypothesis (p prime), same universal quantification over a ∈ ℤ, and same conclusion (a^p ≡ a mod p). No extra or missing assumptions.",
+  "duration_ms": 5974,
+  "cost_usd": 0.04232275
+}

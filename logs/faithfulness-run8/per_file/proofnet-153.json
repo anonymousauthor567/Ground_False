@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-153.lean",
+  "stem": "proofnet-153",
+  "verdict": "faithful",
+  "reasoning": "All hypotheses match: n ≥ 3 (for k), ‖x - y‖ = d, d > 0, r > 0, and 2r > d. The type `EuclideanSpace ℝ (Fin n)` is the standard Mathlib encoding of ℝ^n with Euclidean norm. The conclusion `Set.Infinite {z | ‖z - x‖ = r ∧ ‖z - y‖ = r}` faithfully captures \"infinitely many z with |z-x|=|z-y|=r\". There is an extraneous unused parameter `z` in the signature (shadowed by the bound variable `z` in the set-builder), but since the conclusion and hypotheses do not depend on it and the type is inhabited, this does not alter the logical content of the statement. The statement is logically equivalent to the informal claim.",
+  "duration_ms": 92735,
+  "cost_usd": 0.31717275
+}

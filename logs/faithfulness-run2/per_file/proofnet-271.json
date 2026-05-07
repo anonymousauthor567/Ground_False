@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-271.lean",
+  "stem": "proofnet-271",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that L(a) = {x ∈ R | xa = 0} is an ideal of R. The Lean statement asserts the existence of an ideal I whose underlying set equals {x : R | x*a = 0}. Via the SetLike coercion from Ideal R to Set R, this is precisely the standard way to say \"the set {x | xa = 0} is an ideal\": a set is an ideal iff it is equal (as a set) to the underlying set of some Ideal R. The quantifier structure (for a given a in a commutative ring R) matches, and no extra hypotheses are introduced or dropped. Hence the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 17149,
+  "cost_usd": 0.051855750000000006
+}

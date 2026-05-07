@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p35_5.lean",
+  "stem": "calculus__p35_5",
+  "verdict": "weaker",
+  "reasoning": "The informal statement is a conjunction of three claims: (1) f has a local max at 2, (2) f has a local min at 4, and (3) these are the only local extrema. The Lean file declares only one `theorem` (`only_local_extrema`), which captures only part 3: `IsLocalMax f x ∨ IsLocalMin f x → x = 2 ∨ x = 4`. Parts 1 and 2 are declared as `axiom`s, i.e., assumed without proof — they are not theorems to be established, merely assumptions. The `only_local_extrema` signature alone does not assert that 2 actually is a local max or that 4 actually is a local min; it is consistent with f having no local extrema at all (vacuously satisfying the implication). Hence the Lean theorem signature captures strictly less than the informal claim.",
+  "duration_ms": 103242,
+  "cost_usd": 0.29064375000000003
+}

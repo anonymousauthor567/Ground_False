@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization matches the informal Putnam 2020 B5 statement. `Fin 4 → ℂ` provides four complex numbers (indexed 0-3 instead of 1-4, which is a harmless relabeling). The hypothesis `‖z n‖ = 1` corresponds to `|z_j| = 1` because for complex numbers the norm equals the absolute value in Mathlib. The hypothesis `z n ≠ 1` is a direct match. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0) * (z 1) * (z 2) * (z 3) ≠ 0` is exactly `3 - z_1 - z_2 - z_3 - z_4 + z_1 z_2 z_3 z_4 ≠ 0` given Lean's standard operator precedence (multiplication binds tighter than subtraction/addition). No hypotheses are added or dropped.",
+  "duration_ms": 31821,
+  "cost_usd": 0.10930175
+}

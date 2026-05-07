@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says the intersection of any collection of subspaces of V is a subspace of V. The Lean statement uses `u : ι → Submodule F V` (an indexed family over an arbitrary type ι, matching \"any collection\") and asserts `∃ U : Submodule F V, (⋂ i, (u i).carrier) = ↑U`, i.e., the set-theoretic intersection of the underlying carriers equals the carrier of some submodule U. Since a subset of V is a subspace iff it equals the carrier of some `Submodule F V`, this is exactly the statement \"the intersection is a subspace.\" The ambient setting (F a field, V an AddCommGroup and F-module) correctly encodes \"vector space over a field.\" The empty-ι edge case (where the intersection is `Set.univ`) is also handled correctly, since `⊤ : Submodule F V` has carrier V. Hence the Lean signature is logically equivalent to the informal claim.",
+  "duration_ms": 111835,
+  "cost_usd": 0.2369925
+}

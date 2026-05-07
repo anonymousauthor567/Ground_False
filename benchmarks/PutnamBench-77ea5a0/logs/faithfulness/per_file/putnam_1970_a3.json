@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1970_a3.lean",
+  "stem": "putnam_1970_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures all aspects of the informal statement. The function L, pinned down by the hypothesis hL, computes the longest trailing run of equal digits in base 10 (since Nat.digits lists digits least-significant-first). The condition `(Nat.digits 10 (n^2))[0]! ≠ 0` restricts to cases where the trailing digit is nonzero, which together with L's definition correctly captures \"longest run of equal nonzero terminating digits\". The conclusions assert: (1) length 3 is achievable, (2) no square with nonzero trailing digit exceeds 3, (3) 1444 is a perfect square with this property, (4) L(1444) = 3, (5) 1444's trailing digit is nonzero, and (6) 1444 is minimal among squares achieving this. These six conjuncts together faithfully express both parts of the informal question (the max length and the smallest attaining square). Edge cases like n=0 (where digits is empty and [0]! returns default 0) and squares ending in 0 are correctly excluded by the nonzero condition.",
+  "duration_ms": 415762,
+  "cost_usd": 1.2050779999999999
+}

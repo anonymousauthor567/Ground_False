@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement assumes G is a finite group with `card G = 312` and claims there exists a prime p, with p dividing card G, and a Sylow p-subgroup P of G that is normal. This directly matches the informal statement \"a group of order 312 has a normal Sylow p-subgroup for some prime p dividing its order.\" The Mathlib `Sylow p G` structure represents maximal p-subgroups, and combined with the `p.Prime` hypothesis captures the standard notion of a Sylow p-subgroup. The `P.Normal` predicate corresponds to normality of the underlying subgroup, and the quantifier structure (∃ p, ∃ P, ...) faithfully matches \"for some prime p ... normal Sylow p-subgroup\".",
+  "duration_ms": 120441,
+  "cost_usd": 0.4528165
+}

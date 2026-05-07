@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-147.lean",
+  "stem": "proofnet-147",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization encodes the four complex numbers as a function `z : Fin 4 → ℂ`, with the only cosmetic change being reindexing from {1,2,3,4} to {0,1,2,3}. The hypothesis `‖z n‖ = 1` is exactly the unit modulus condition |z_j| = 1 in ℂ, and `z n ≠ 1` matches z_j ≠ 1. The conclusion `3 - z 0 - z 1 - z 2 - z 3 + (z 0)*(z 1)*(z 2)*(z 3) ≠ 0` is identical to the informal target expression. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 17176,
+  "cost_usd": 0.06073225
+}

@@ -1,0 +1,8 @@
+{
+  "file": "77.lean",
+  "stem": "77",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. `G : Type*` with `[Group G]` is an arbitrary group; `hG : Infinite G` asserts that G is infinite; `H : Subgroup G` is a subgroup; `hH : Finite H` asserts that H has finitely many elements. The conclusion `Infinite (G ⧸ H)` states that the set of (left) cosets of H is infinite, which matches \"infinitely many distinct cosets of H\" — Mathlib's `instHasQuotientSubgroup` defines `G ⧸ H` as the quotient type representing left cosets, and by convention \"cosets\" in an informal statement refers to left cosets. No hypotheses are added or dropped, and the types match.",
+  "duration_ms": 42946,
+  "cost_usd": 0.14731500000000003
+}

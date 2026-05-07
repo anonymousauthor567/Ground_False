@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2014_a1.lean",
+  "stem": "putnam_2014_a1",
+  "verdict": "faithful",
+  "reasoning": "The function `f x = (1 - x + x^2) * Real.exp x` is correctly specified. `taylorCoeffWithin f k Set.univ 0` unfolds to `(k!)⁻¹ • iteratedDeriv k f 0 = f^(k)(0)/k!`, which is the standard k-th Taylor coefficient at 0. The `ContDiff ℝ ⊤ f` hypothesis is trivially true for this f, so it does not weaken or strengthen the claim. The rationality clause `∃ q : ℚ, c k = q` correctly asserts c k is rational (via the injective ℚ → ℝ coercion), and since Mathlib's `Rat` stores fractions in lowest terms, `q.num` is exactly the numerator in lowest terms. All nonzero coefficients of this particular function equal $(k-1)^2/k!$ (plus $c_0 = 1$), all positive, so `q.num ≥ 0` and `q.num.natAbs = q.num`; hence `q.num = 1 ∨ Prime q.num.natAbs` faithfully matches \"numerator is 1 or prime\". The conditions and quantification structure line up with the informal claim.",
+  "duration_ms": 333280,
+  "cost_usd": 0.982643
+}

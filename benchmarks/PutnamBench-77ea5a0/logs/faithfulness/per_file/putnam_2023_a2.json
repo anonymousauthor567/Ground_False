@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2023_a2.lean",
+  "stem": "putnam_2023_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization accurately encodes the informal statement. The hypotheses match: `n > 0 ∧ Even n` (even positive integer), `Monic p ∧ p.degree = 2*n` (monic polynomial of degree 2n), and `S` correctly denotes the real embeddings of integers $k$ with $1 \\leq |k| \\leq n$. The hypothesis `∀ k ∈ S, p.eval (1/k) = k^2` captures $p(1/k) = k^2$ for those integers. The conclusion uses set difference `\\ S` to correctly encode \"OTHER real numbers\" (excluding the already-given integer solutions). The `x ≠ 0` constraint merely excludes Lean's junk value `1/0 = 0` — it makes explicit the implicit mathematical requirement that $1/x$ be defined, matching the informal intent. All components align without adding or dropping any meaningful hypotheses or conclusions.",
+  "duration_ms": 249457,
+  "cost_usd": 0.6947945
+}

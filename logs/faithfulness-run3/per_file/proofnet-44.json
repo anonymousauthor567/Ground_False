@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-44.lean",
+  "stem": "proofnet-44",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if G is an abelian simple group (not assumed finite), then G ≅ Z_p for some prime p. The Lean signature takes G as a CommGroup with IsSimpleGroup (correctly NOT assuming Fintype), and concludes `IsCyclic G ∧ ∃ G_fin : Fintype G, Nat.Prime (card G)`. This precisely captures \"G ≅ Z_p for some prime p\": a group is isomorphic to Z_p for some prime p iff it is cyclic and of prime order (equivalently, finite with prime cardinality). The existential Fintype instance correctly forces G to be finite as part of the conclusion (rather than assuming it as a hypothesis), which matches the informal \"do not assume G is a finite group\" directive. While `IsCyclic G` is technically redundant given prime cardinality, its presence doesn't weaken or strengthen the statement. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 21321,
+  "cost_usd": 0.08011075000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement describes \"the real function $\\sqrt{n+1}-\\sqrt{n}$\" tending to 0 as $n \\to \\infty$. The Lean formalization uses `fun n : ℝ => sqrt (n + 1) - sqrt n` with `Real.sqrt` (from `open Real`) and `Tendsto ... atTop (𝓝 0)`, which precisely captures convergence to 0 at infinity for a real-variable real-valued function. The phrase \"real function\" in the informal statement aligns with the choice of `ℝ` as the domain. The conclusion (limit equals 0), the quantifier structure (filter convergence), and the ambient type (real numbers) all match. There is no added or dropped hypothesis, and no change in quantifier structure. The formalization is logically equivalent to the informal claim under the natural mathematical reading.",
+  "duration_ms": 88764,
+  "cost_usd": 0.3294705
+}

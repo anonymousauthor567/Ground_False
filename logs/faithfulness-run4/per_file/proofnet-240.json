@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-240.lean",
+  "stem": "proofnet-240",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature quantifies over an arbitrary finite group G with `card G = 462` (i.e., |G|=462, since `open Fintype` makes `card` mean `Fintype.card`) and concludes `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is the standard definition: `Nontrivial G` plus the condition that every normal subgroup is ⊥ or ⊤. Since 462 > 1, the nontriviality requirement is automatically satisfied for any such G and doesn't narrow the claim. The universal quantification over G matches \"if |G|=462 then G is not simple.\" No hypotheses are added or dropped, and the conclusion matches. This is a strictly faithful formalization.",
+  "duration_ms": 61089,
+  "cost_usd": 0.23348324999999995
+}

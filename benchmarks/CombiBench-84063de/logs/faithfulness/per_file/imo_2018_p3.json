@@ -1,0 +1,8 @@
+{
+  "file": "imo_2018_p3.lean",
+  "stem": "imo_2018_p3",
+  "verdict": "incomparable",
+  "reasoning": "The informal statement defines an anti-Pascal triangle as one where each non-bottom entry equals the absolute value of the DIFFERENCE of the two entries below it: |a - b|. However, in the Lean `IsAntiPascal` definition, the expression is written as `abs (values A - - values B)`. In Lean 4, binary `-` has precedence 65 and unary `-` has precedence 75, so `a - -b` parses as `a - (-b) = a + b`. Thus the Lean predicate requires `values(i,j) = |values(i+1,j) + values(i+1,j+1)|` (absolute value of the SUM), not the difference. This is a different mathematical property: even the 4-row example in the informal statement (e.g., the top entry 4 = |2−6| but ≠ |2+6|=8) does not satisfy `IsAntiPascal`. Since the truth value of \"does there exist a 2018-row Lean-IsAntiPascal triangle containing 1..T_2018\" may differ from the original IMO question, the Lean statement is incomparable to the informal one.",
+  "duration_ms": 600531,
+  "cost_usd": 2.017513
+}

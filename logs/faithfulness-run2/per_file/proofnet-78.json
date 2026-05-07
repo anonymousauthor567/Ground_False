@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-78.lean",
+  "stem": "proofnet-78",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that any group of order p² (p prime) has a normal subgroup of order p. The Lean signature takes a finite group G with `card G = p^2` and `p` prime, and concludes the existence of a subgroup N with `card N = p` that is normal. The existentially introduced `Fintype N` instance is purely a technical scaffold for stating `card N = p` (any subgroup of a finite group is finite), and doesn't change the mathematical content. The hypotheses and conclusion align exactly with the informal claim.",
+  "duration_ms": 7550,
+  "cost_usd": 0.0355875
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-56.lean",
+  "stem": "proofnet-56",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over a type `G` with `[Group G]` and `[Fintype G]` instances, imposes `card G = 132` (i.e. |G| = 132), and concludes `¬ IsSimpleGroup G`. Mathlib's `IsSimpleGroup` is the standard definition (nontrivial, and every normal subgroup is ⊥ or ⊤), matching the mathematical meaning of \"simple\". The `Fintype` assumption is not an extra restriction — |G| = 132 implicitly requires G to be finite, and this is the standard way to express a finite cardinality constraint in Lean. There is no drift in hypotheses, conclusion, quantifier structure, or types.",
+  "duration_ms": 50843,
+  "cost_usd": 0.21020475
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1986_b3.lean",
+  "stem": "putnam_1986_b3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 1986 B3. Γ is correctly rendered as `Polynomial ℤ`. The congruence relation is defined parametrically via `cong` and characterized by `hcong` as `∀ i : ℕ, m ∣ (f - g).coeff i`, which exactly matches \"every coefficient of f−g is an integer multiple of m\" (divisibility in ℤ is integer multiples). The hypotheses `n, p > 0`, `Nat.Prime p`, `rf+sg ≡ 1 (mod p)`, and `fg ≡ h (mod p)` match the informal setup (the redundancy of `p > 0` given `Nat.Prime p` is harmless). The conclusion `∃ F G, cong F f p ∧ cong G g p ∧ cong (F*G) h (p^n)` mirrors the informal goal exactly, including the modulus `p^n`. The natural-to-integer coercions for the modulus are automatic and correct. No hypotheses are added, dropped, weakened, or strengthened.",
+  "duration_ms": 161084,
+  "cost_usd": 0.42892650000000004
+}

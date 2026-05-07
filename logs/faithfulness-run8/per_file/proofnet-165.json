@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-165.lean",
+  "stem": "proofnet-165",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. \"f(E) is dense in f(X)\" (where f(X) has the subspace topology from Y) is equivalent to f(X) ⊆ closure_Y(f(E)), since f(E) ⊆ f(X) is automatic and the subspace closure equals closure_Y intersected with f(X). The Lean conclusion `f '' Set.univ ⊆ closure (f '' s)` encodes precisely this: f '' Set.univ = f(X) and closure (f '' s) = closure_Y(f(E)). The hypotheses `Continuous f` and `Dense s` (which unfolds to ∀ x, x ∈ closure s, i.e., s is dense in α) match the informal hypotheses. The metric space types match. The informal statement mentions g, but since part (a)'s conclusion only involves f, omitting g is appropriate (g is relevant only for part (b)).",
+  "duration_ms": 80815,
+  "cost_usd": 0.29452649999999997
+}

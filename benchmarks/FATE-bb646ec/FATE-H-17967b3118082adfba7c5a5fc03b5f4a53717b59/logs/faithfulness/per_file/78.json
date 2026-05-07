@@ -1,0 +1,8 @@
+{
+  "file": "78.lean",
+  "stem": "78",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: for an integral extension R'/R of commutative rings, rad(R) = rad(R') ∩ R where rad denotes the nilradical. The Lean formalization states nilradical R = Ideal.comap (algebraMap R R') (nilradical R'), which is exactly the statement that the nilradical of R equals the contraction (preimage under the structure map) of the nilradical of R'. The hypothesis Algebra.IsIntegral R R' encodes the integral extension condition. This is logically equivalent to the informal claim.",
+  "duration_ms": 0,
+  "cost_usd": 0.0
+}

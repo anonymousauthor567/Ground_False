@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-97.lean",
+  "stem": "proofnet-97",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `Infinite {p : Nat.Primes // p ≡ -1 [ZMOD 6]}` uses `Nat.Primes` (the subtype of prime naturals) and `Int.ModEq 6 p (-1)` (defined as `p % 6 = (-1) % 6 = 5` under coercion to ℤ), so the subtype precisely captures primes congruent to -1 modulo 6. `Infinite` asserts that this collection has infinitely many elements, matching \"there are infinitely many primes congruent to -1 modulo 6.\" There is no extra hypothesis, no weakening, and no changes to the ambient objects. This is a direct and correct formalization.",
+  "duration_ms": 72309,
+  "cost_usd": 0.262389
+}

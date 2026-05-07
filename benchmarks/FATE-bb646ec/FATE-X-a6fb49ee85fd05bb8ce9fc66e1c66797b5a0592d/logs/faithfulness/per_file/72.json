@@ -1,0 +1,8 @@
+{
+  "file": "72.lean",
+  "stem": "72",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses match exactly: R is a commutative Noetherian ring ([CommRing R] + [IsNoetherianRing R]), M is a Cohen-Macaulay R-module ([Module.IsCohenMacaulay R M]), and n is a natural number. The conclusion uses (MvPolynomial (Fin n) R) ⊗[R] M instead of M ⊗_R R[x_1,...,x_n], but tensor products over commutative rings are naturally symmetric and the `leftModule` instance provides the canonical polynomial-ring module structure, making them mathematically equivalent. Both hypothesis and conclusion use the same `Module.IsCohenMacaulay` class defined in the file, so the comparison is internally consistent. The universe restriction to Type 0 is a standard Lean convention that doesn't change the mathematical content.",
+  "duration_ms": 245566,
+  "cost_usd": 0.6724575
+}

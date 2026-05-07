@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-267.lean",
+  "stem": "proofnet-267",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `Subgroup.Characteristic` in Mathlib is defined as fixed by every automorphism of G (`∀ ϕ : G ≃* G, H.comap ϕ.toMonoidHom = H`), which for bijective φ is equivalent to φ(P) = P. The hypotheses — G a group, p prime (`Nat.Prime p`), P a Sylow p-subgroup (`Sylow p G`), P normal (`P.Normal`) — match the informal setup. The conclusion that P is characteristic is exactly 'φ(P) = P for every automorphism φ of G'. No extra finiteness assumption is added, which is fine mathematically since a normal Sylow p-subgroup is automatically the unique Sylow p-subgroup even in infinite groups.",
+  "duration_ms": 433926,
+  "cost_usd": 1.3229325
+}

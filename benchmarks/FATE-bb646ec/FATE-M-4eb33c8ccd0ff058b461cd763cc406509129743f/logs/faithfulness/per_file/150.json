@@ -1,0 +1,8 @@
+{
+  "file": "150.lean",
+  "stem": "150",
+  "verdict": "faithful",
+  "reasoning": "`AddSubgroup.zmultiples m` is exactly the subgroup `mℤ = {k • m | k : ℤ}` of ℤ, and `≤` on subgroups (or their `Set ℤ` coercions) is subset inclusion. The Lean statement asserts, for arbitrary integers `m n`, that `mℤ ⊆ nℤ ↔ n ∣ m`, which is exactly the informal claim. The divisibility direction is correct: `mℤ ⊆ nℤ` forces `m ∈ nℤ`, i.e. `n ∣ m`, and conversely `n ∣ m` makes every multiple of `m` a multiple of `n`. There are no extra or missing hypotheses, and the quantification matches (\"for all `m, n : ℤ`\"). Hence the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 73019,
+  "cost_usd": 0.23302025000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-160.lean",
+  "stem": "proofnet-160",
+  "verdict": "faithful",
+  "reasoning": "The definition `g n = Real.sqrt (n+1) - Real.sqrt n` matches `a_i = √(i+1) - √i`. The partial sum `∑ i ∈ range n, g i` correctly represents `∑_{i<n} a_i` (Finset.range n contains 0,1,...,n-1). `Tendsto (fun n => ...) atTop atTop` on ℕ → ℝ is the standard Mathlib encoding of \"the limit as n → ∞ is +∞\", which matches the informal claim that the sum tends to infinity. No extra hypotheses are added or dropped, and types (ℕ index, ℝ value) are appropriate. This is a faithful formalization.",
+  "duration_ms": 23273,
+  "cost_usd": 0.09236575000000001
+}

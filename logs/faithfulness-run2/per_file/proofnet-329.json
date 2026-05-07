@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean definition `P n = ∑ i : Fin n, (↑i + 1) * X^i` iterates i from 0 to n-1, yielding 1 + 2X + 3X² + ... + n·X^(n-1), exactly matching the informal P_n. The hypotheses `0 < j`, `0 < k` correspond to \"positive integers j and k\", and `j ≠ k` matches \"j ≠ k\". The conclusion `IsCoprime (P j) (P k)` in `Polynomial ℚ` means ∃ u, v with u·P_j + v·P_k = 1, which over the field ℚ (where ℚ[x] is a PID) is equivalent to the standard notion of \"relatively prime\" (no common non-constant factor). Working over ℚ rather than ℤ is appropriate; since P_n has content 1, Gauss's lemma makes ℚ-coprimality equivalent to ℤ-coprimality, so this is the intended mathematical meaning.",
+  "duration_ms": 28889,
+  "cost_usd": 0.11476900000000001
+}

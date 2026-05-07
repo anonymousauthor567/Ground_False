@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-243.lean",
+  "stem": "proofnet-243",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says any subring of a field containing 1 is an integral domain. In Mathlib, `Subring R` always contains 1 by definition (it extends `Subsemiring R` which extends `Submonoid R`), so the hypothesis `hK : (1 : F) ∈ K` is automatically satisfied and redundant — it neither weakens nor strengthens the claim. The conclusion `IsDomain K` (requiring `IsCancelMulZero` and `Nontrivial`) correctly captures \"integral domain.\" Since F is a field (hence a commutative ring with no zero divisors) and K is a subring, K inherits the no-zero-divisors property and nontriviality (0 ≠ 1 in F, both lie in K). The Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 105403,
+  "cost_usd": 0.3874365000000001
+}

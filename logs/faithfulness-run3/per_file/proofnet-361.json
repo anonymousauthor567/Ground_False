@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-361.lean",
+  "stem": "proofnet-361",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the power series ∑ n·z^n does not converge at any z with |z| = 1. The Lean theorem takes an arbitrary z : ℂ with ‖z‖ = 1, defines s(n) = ∑ i ∈ range n, i·z^i (the n-th partial sum of the series, which equals 0·z^0 + 1·z^1 + ... + (n-1)·z^(n-1), and since the i=0 term is zero this is equivalent to the usual partial sum ∑_{i=1}^{n-1} i·z^i), and asserts that no limit y exists for these partial sums as n → ∞. Convergence of a power series at a point is by definition the existence of a limit of partial sums, so ¬∃ y, Tendsto s atTop (𝓝 y) correctly captures non-convergence. The universal quantification over points of the unit circle is expressed by having z as a free variable with hypothesis ‖z‖ = 1. This is a logically equivalent formalization.",
+  "duration_ms": 27255,
+  "cost_usd": 0.07952224999999999
+}

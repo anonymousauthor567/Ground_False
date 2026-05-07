@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-132.lean",
+  "stem": "proofnet-132",
+  "informal": "Show that every locally compact Hausdorff space is regular.",
+  "lean": "\ntheorem Munkres_exercise_32_3 {X : Type*} [TopologicalSpace X]\n  (hX : LocallyCompactSpace X) (hX' : T2Space X) :\n  RegularSpace X",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature takes an arbitrary topological space X with hypotheses LocallyCompactSpace X and T2Space X (Hausdorff), and concludes RegularSpace X. This is exactly the informal claim \"every locally compact Hausdorff space is regular.\" The quantification over X is implicit via the type variable, the hypotheses correspond directly to \"locally compact\" and \"Hausdorff,\" and the conclusion matches \"regular.\" No extra hypotheses are added and none are dropped.",
+  "duration_ms": 5782,
+  "cost_usd": 0.043451500000000004
+}

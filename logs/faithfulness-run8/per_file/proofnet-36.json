@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-36.lean",
+  "stem": "proofnet-36",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. \"Let G be any group\" is faithfully rendered via `{G : Type*} [Group G]`. The map g ↦ g⁻¹ is precisely pinned down by the hypothesis `hf : f = λ g => g⁻¹`. The homomorphism condition `∀ x y, f x * f y = f (x*y)` is the standard multiplicative-homomorphism equation (symmetric to Mathlib's `f (x*y) = f x * f y`); for groups this is equivalent to being a monoid/group homomorphism since preservation of 1 follows automatically. \"G is abelian\" is correctly encoded as `∀ x y, x*y = y*x`. The overall biconditional structure matches the informal \"if and only if\". No hypotheses are added or removed, and the types and quantifier structure align.",
+  "duration_ms": 61168,
+  "cost_usd": 0.20476925
+}

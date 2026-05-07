@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes all components of the informal claim. `{G : Type*} [Group G]` matches \"Let G be a group\"; `hG : ∀ (H : Subgroup G), H.Normal` matches \"all subgroups of G are normal\" (using Mathlib's `Subgroup.Normal` which is exactly closure under conjugation); `(a b : G)` matches \"a, b ∈ G\"; and `∃ (j : ℤ), b*a = a^j * b` matches \"ba = aʲb for some j\". Using `j : ℤ` is the correct reading since for a general (possibly infinite) group, the element bab⁻¹ in the normal cyclic subgroup ⟨a⟩ is an integer power of a, and `a^j` with `j : ℤ` uses the standard group `zpow` operation. There are no extra or missing hypotheses.",
+  "duration_ms": 54798,
+  "cost_usd": 0.300421
+}

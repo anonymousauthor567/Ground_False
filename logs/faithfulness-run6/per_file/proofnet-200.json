@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes \"U ∪ W is a subspace\" as \"there exists a submodule U' whose carrier equals the set-theoretic union ↑U ∪ ↑W\", which is logically equivalent to the union being a subspace (since Submodule is a SetLike with injective coercion, such a U' exists exactly when the union is closed under the submodule operations). The biconditional with `U ≤ W ∨ W ≤ U` faithfully captures \"one of the subspaces is contained in the other\" via the submodule order, which is set inclusion. The ambient setting (Field F, AddCommGroup V, Module F V) correctly formalizes \"vector space V over a field\" as in Axler, and no extra hypotheses are added nor required ones dropped. The quantifier structure of the iff matches the informal claim.",
+  "duration_ms": 62309,
+  "cost_usd": 0.25269450000000004
+}

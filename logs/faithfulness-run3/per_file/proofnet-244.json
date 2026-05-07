@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-244.lean",
+  "stem": "proofnet-244",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem faithfully encodes McCoy's theorem (Dummit-Foote 7.2.2). The LHS \"∃ q ≠ 0, p * q = 0\" is the standard formalization of \"p is a zero divisor\" in R[x], and the RHS \"∃ b ≠ 0, b • p = 0\" matches \"∃ b ≠ 0 ∈ R, bp(x) = 0\" since scalar multiplication b • p for b : R and p : Polynomial R equals (C b) * p. The CommRing typeclass corresponds to the polynomial ring R[x] in D&F's context. At the edge case p = 0, both sides of the Lean iff agree (both true in nontrivial R, both false in trivial R), so the statement is equivalent to the informal one regardless of whether one adopts the convention that zero is or is not a zero divisor. The quantifier structure and bidirectional implication match exactly.",
+  "duration_ms": 221877,
+  "cost_usd": 0.7349887500000001
+}

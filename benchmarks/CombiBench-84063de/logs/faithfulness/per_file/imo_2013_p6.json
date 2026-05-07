@@ -1,0 +1,8 @@
+{
+  "file": "imo_2013_p6.lean",
+  "stem": "imo_2013_p6",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures each part of IMO 2013 P6. The IsBeautiful definition's six disjunctive cases precisely enumerate all 16 non-interleaving orderings (2+2+2+2+4+4) of the four positions e(a), e(b), e(c), e(d) on the circle, which is exactly the condition that the chord joining labels a,d doesn't intersect the chord joining labels b,c. M(n) = #{beautiful permutations}/(n+1) correctly counts beautiful labelings up to rotation (rotation acts freely with orbits of size n+1, and IsBeautiful is rotation-invariant since chord intersection depends only on cyclic order). N(n) counts pairs (x,y) ∈ Icc 1 n × Icc 1 n with x+y ≤ n and gcd(x,y)=1 — the Icc 1 n bounds are automatic since x+y ≤ n with y ≥ 1 forces x ≤ n-1, matching \"positive integers x,y with x+y ≤ n and gcd(x,y)=1\". The hypothesis n ≥ 3 and conclusion M n = N n + 1 exactly match the informal statement.",
+  "duration_ms": 762479,
+  "cost_usd": 2.32654625
+}

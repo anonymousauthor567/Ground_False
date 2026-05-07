@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-275.lean",
+  "stem": "proofnet-275",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. F is declared as a `Field`, `CharP F p` together with `p ≠ 0` gives precisely \"F is a field of characteristic p ≠ 0\" (and in a field this automatically forces p to be prime, matching the standard mathematical reading). The hypothesis `hn : n > 0` corresponds to \"any positive integer n\", `hm : m = p ^ n` matches m = p^n, and the conclusion `(a + b) ^ m = a^m + b^m` is quantified universally over a, b : F. No extra hypotheses narrow the scope and nothing needed is dropped — this is the standard Frobenius/freshman's dream statement, matching Mathlib's `add_pow_char_pow`.",
+  "duration_ms": 88999,
+  "cost_usd": 0.3190205
+}

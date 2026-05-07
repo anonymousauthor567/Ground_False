@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement component by component. \"Odd primes\" is encoded as `p.Prime ∧ p > 2` and `q.Prime ∧ q > 2`, which is equivalent since 2 is the only even prime. \"Distinct\" becomes `p ≠ q`. \"$p-1$ divides $q-1$\" becomes `p - 1 ∣ q - 1`; natural-number truncated subtraction is fine here because `p, q > 2` ensures `p, q ≥ 3`. The coprimality `(n, pq) = 1` is encoded as `n.gcd (p*q) = 1`, and the conclusion `n^{q-1} ≡ 1 (pq)` is `n^(q-1) ≡ 1 [MOD p*q]`. No hypotheses are added or dropped, and the quantifier structure is preserved.",
+  "duration_ms": 10489,
+  "cost_usd": 0.04834374999999999
+}

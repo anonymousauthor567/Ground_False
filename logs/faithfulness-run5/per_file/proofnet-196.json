@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-196.lean",
+  "stem": "proofnet-196",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement ∀ N, ∃ p ≥ N, p prime ∧ p + 1 ≡ 0 [MOD 4] is the standard encoding of \"infinitely many primes p satisfying the property\", since a subset of ℕ is infinite iff it is unbounded. The condition `p + 1 ≡ 0 [MOD 4]`, given Mathlib's definition of `Nat.ModEq n a b` as `a % n = b % n`, is equivalent to `4 ∣ (p + 1)`, which is precisely `p ≡ -1 (mod 4)`. Hypotheses and quantifier structure match the informal claim exactly, with no added or dropped assumptions.",
+  "duration_ms": 84685,
+  "cost_usd": 0.2382755
+}

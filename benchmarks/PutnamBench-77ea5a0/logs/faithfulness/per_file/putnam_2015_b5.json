@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2015_b5.lean",
+  "stem": "putnam_2015_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes permutations of {1,...,n} as `Bijective` maps from `Finset.Icc 1 n` to itself. `Nat.dist` on ℕ equals |i-j|, so `Nat.dist i j = 1` accurately captures |i-j|=1, and `Nat.dist (pi i) (pi j) ≤ 2` captures |π(i)-π(j)| ≤ 2. The quantification `∀ i j : Finset.Icc 1 n` matches \"for all i,j in {1,...,n}\". The `.ncard` gives the correct cardinality. The conclusion `∀ n ≥ 2, (sum) = putnam_2015_b5_solution` simultaneously captures both \"does not depend on n\" (it equals a fixed constant) and \"find its value\" (that constant is 4). The signs and indices in the alternating sum P(n+5) - P(n+4) - P(n+3) + P(n) match the informal statement exactly. Using ℤ for the arithmetic avoids truncation issues. No hypotheses are silently added or dropped.",
+  "duration_ms": 251566,
+  "cost_usd": 0.7104515
+}

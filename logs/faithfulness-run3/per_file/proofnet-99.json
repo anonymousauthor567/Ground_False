@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-99.lean",
+  "stem": "proofnet-99",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures each component of the informal statement:\n- \"distinct odd primes p, q\" is encoded as `p.Prime ∧ p > 2`, `q.Prime ∧ q > 2`, and `p ≠ q` (since an odd prime is exactly a prime > 2);\n- \"p-1 divides q-1\" becomes `p - 1 ∣ q - 1` — and because p, q ≥ 3 the natural-number subtraction is well-behaved;\n- \"(n, pq) = 1\" is `n.gcd (p*q) = 1`, which is the standard gcd-coprimality statement;\n- the conclusion \"n^{q-1} ≡ 1 (mod pq)\" is `n^(q-1) ≡ 1 [MOD p*q]`, i.e. `Nat.ModEq (p*q) (n^(q-1)) 1`.\nNo extra hypotheses are added and nothing is dropped, so the Lean statement is logically equivalent to the informal one.",
+  "duration_ms": 14956,
+  "cost_usd": 0.07428749999999999
+}

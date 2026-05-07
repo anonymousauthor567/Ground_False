@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-311.lean",
+  "stem": "proofnet-311",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement models a \"countable product\" as a ℕ-indexed family `X : ℕ → Type*` with each factor a topological space, which is the standard formalization. The hypothesis `∀ i, ∃ s : Set (X i), Countable s ∧ Dense s` precisely states that each factor has a countable dense subset (matching Mathlib's `SeparableSpace` definition in `Mathlib/Topology/Bases.lean`), and the conclusion `∃ s : Set (Π i, X i), Countable s ∧ Dense s` precisely states that the product has a countable dense subset. `Countable s` for `s : Set _` is definitionally `Set.Countable s` via the subtype coercion. The quantifier structure, types, and assertion all match the informal claim; finite-index cases are logically equivalent by reindexing/padding. This is Munkres 30.10 rendered faithfully.",
+  "duration_ms": 112943,
+  "cost_usd": 0.36992925
+}

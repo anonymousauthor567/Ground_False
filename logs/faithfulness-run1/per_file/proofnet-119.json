@@ -1,0 +1,11 @@
+{
+  "file": "proofnet-119.lean",
+  "stem": "proofnet-119",
+  "theorem_name": "Munkres_exercise_23_4_corrected",
+  "informal": "Show that if $X$ is an infinite set, it is connected in the finite complement topology.",
+  "lean": "theorem Munkres_exercise_23_4_corrected {X : Type*}\n    (s : Set (CofiniteTopology X)) :\n    s.Infinite → IsConnected s",
+  "verdict": "stronger",
+  "reasoning": "The informal statement asserts only that the whole space X (when infinite) is connected in the cofinite topology. The Lean signature instead asserts that EVERY infinite subset s of CofiniteTopology X is connected (with the subspace topology). This is a strictly stronger claim: applying it to s = Set.univ (under the assumption X is infinite) recovers the informal statement, but the Lean version additionally claims connectedness of every infinite subset. Note also that the Lean version drops the explicit hypothesis \"X is infinite\" and replaces it with \"s is infinite\" (which is a different, though related, hypothesis). Hence the Lean theorem implies the informal one but says more.",
+  "duration_ms": 13026,
+  "cost_usd": 0.055632
+}

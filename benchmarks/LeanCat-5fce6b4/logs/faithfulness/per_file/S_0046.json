@@ -1,0 +1,8 @@
+{
+  "file": "S_0046.lean",
+  "stem": "S_0046",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly formalizes the classical theorem that Nat(F,G) is the end of the hom bifunctor. The `homIntegrandBifunctor` is built as `(Functor.prod F.op G) ⋙ Functor.hom D : Cᵒᵖ × C ⥤ Type u`, which sends (c_op, c') ↦ hom_D(F(c), G(c')), matching the intended bifunctor. Currying it gives `Cᵒᵖ ⥤ C ⥤ Type u`, which is the proper input shape for Mathlib's `end_`. The end of this functor is precisely ∫_c hom_D(F(c), G(c)) since the multiequalizer condition unfolds to the naturality squares. The `Nonempty (... ≅ ...)` wrapper asserts the existence of an isomorphism in Type u, which is a bijection — this matches the informal \"≅\". The SmallCategory hypotheses are the standard Mathlib encoding of \"small category\", and HasEnd is automatically inferred since Type u has all small limits. No hypotheses are added or dropped relative to the informal statement.",
+  "duration_ms": 328749,
+  "cost_usd": 1.1067069999999997
+}

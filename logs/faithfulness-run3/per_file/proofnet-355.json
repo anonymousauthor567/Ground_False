@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-355.lean",
+  "stem": "proofnet-355",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that f : ℝ → ℝ with |f(x) - f(y)| ≤ (x-y)² for all real x, y must be constant. The Lean signature uses f : ℝ → ℝ (matches the domain/codomain), hypothesizes ∀ x y, |f x - f y| ≤ (x - y)^2 (matches the Lipschitz-like condition exactly), and concludes ∃ c, f = (λ _ => c), which is the standard way to express \"f is constant\" (f equals some constant function). The quantifiers, types, and logical structure all line up with the informal claim.",
+  "duration_ms": 11864,
+  "cost_usd": 0.044521750000000006
+}

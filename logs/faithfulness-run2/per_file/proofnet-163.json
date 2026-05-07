@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-163.lean",
+  "stem": "proofnet-163",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement: `X` is typed as a `MetricSpace` with `CompleteSpace` and `Nonempty` instances (nonempty complete metric space), `G : ℕ → Set X` encodes the sequence, and `hG` requires each `G n` to be both open and dense. The conclusion `∃ x, ∀ n, x ∈ G n` is logically equivalent to `⋂ n, G n ≠ ∅`, which is exactly Baire's theorem's claim. The indexing starting at 0 versus 1 in ℕ is an inconsequential reindexing of the same sequence of open dense sets, so the intersection is mathematically identical. No hypotheses are added or dropped.",
+  "duration_ms": 18126,
+  "cost_usd": 0.0410005
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Shakarchi 2.13. `Differentiable ℂ f` on ℂ→ℂ is equivalent to f being entire (analytic everywhere) by standard Mathlib results (e.g., `DifferentiableOn.analyticOn`). The Taylor coefficient cₙ of f at z₀ is exactly f⁽ⁿ⁾(z₀)/n!, which is `iteratedDeriv n f z₀ / (n.factorial : ℂ)`. Since n! is a positive natural number and hence nonzero in ℂ, the condition `iteratedDeriv n f z₀ / (n.factorial : ℂ) = 0` is equivalent to cₙ = 0. The ∀z₀, ∃n quantifier structure matches \"for each z₀, at least one coefficient is 0\". The conclusion `∃ p : Polynomial ℂ, f = fun z => Polynomial.aeval z p` correctly states that f coincides with the polynomial function of some p, matching \"f is a polynomial\".",
+  "duration_ms": 119176,
+  "cost_usd": 0.48017224999999997
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-192.lean",
+  "stem": "proofnet-192",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is: any nonzero ideal I of ℤ[i] contains a nonzero (rational) integer. In Mathlib, GaussianInt = Zsqrtd (-1), where elements are pairs (re, im) ∈ ℤ × ℤ, and an ordinary integer n embeds as ⟨n, 0⟩ — i.e., a Gaussian integer is an integer iff its `im` component is 0. The Lean statement says `I ≠ ⊥ → ∃ z ∈ I, z ≠ 0 ∧ (z : GaussianInt).im = 0`, which is precisely \"I contains some nonzero element whose imaginary part vanishes\", i.e., a nonzero integer. The quantifier `∃ (z : I)` ranges over the subtype of elements of the ideal, and `z ≠ 0` in the subtype is equivalent to nonzero in GaussianInt. No extra hypotheses added or dropped; the conclusion matches.",
+  "duration_ms": 55754,
+  "cost_usd": 0.1929025
+}

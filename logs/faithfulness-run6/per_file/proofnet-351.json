@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-351.lean",
+  "stem": "proofnet-351",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature directly mirrors the informal statement: E is a subset of ℝ, f is a real-valued function, `UniformContinuousOn f E` captures \"uniformly continuous on E\", `Bornology.IsBounded E` captures \"E is bounded in ℝ¹\", and the conclusion `Bornology.IsBounded (Set.image f E)` captures \"f is bounded on E\" (the image of E under f is bounded). Mathlib's `UniformContinuousOn` (Topology/UniformSpace/Defs.lean) matches the standard definition, and `Bornology.IsBounded` on ℝ corresponds to the usual metric boundedness. No hypotheses are added or dropped, and the conclusion is exactly what the informal statement asks.",
+  "duration_ms": 29726,
+  "cost_usd": 0.15923799999999996
+}

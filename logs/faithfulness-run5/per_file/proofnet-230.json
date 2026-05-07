@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal claim correctly once we account for Mathlib's convention that `Subgroup.index` returns 0 for infinite index. The hypothesis `hn : n > 0` combined with `hH : H.index = n` encodes \"H has finite index n\" (since H.index = 0 would mean infinite in Mathlib). The conclusion's `0 < K.index` is essential to prevent the trivial degenerate reading: without it, one could take K = {e} in an infinite G, giving K.index = 0 ≤ n! vacuously, which is not what the informal statement means by |G:K| ≤ n!. The informal inequality |G:K| ≤ n! implicitly requires K to have finite index (since n! is finite), so `0 < K.index` surfaces this implicit premise needed for a faithful encoding. Both additions are making implicit premises explicit rather than narrowing the scope, so the formalization is faithful.",
+  "duration_ms": 118258,
+  "cost_usd": 0.30716024999999997
+}

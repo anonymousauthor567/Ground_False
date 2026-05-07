@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-340.lean",
+  "stem": "proofnet-340",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Rudin's exercise. `EuclideanSpace ℝ (Fin k)` is the standard formalization of ℝ^k. The hypothesis `¬ Set.Countable E` encodes \"E is uncountable\". The definition `P = {x | ∀ U ∈ 𝓝 x, ¬ Set.Countable (U ∩ E)}` correctly defines condensation points: since `U ∈ 𝓝 x` is equivalent to \"U contains an open neighborhood of x\", this quantification is equivalent to \"every open neighborhood of x has uncountable intersection with E\", which is the standard definition. The conclusion `Set.Countable (E \\ P)` precisely states that at most countably many points of E are not condensation points.",
+  "duration_ms": 25539,
+  "cost_usd": 0.099441
+}

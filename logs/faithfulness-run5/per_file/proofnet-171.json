@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-171.lean",
+  "stem": "proofnet-171",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes Rudin's exercise: `ContinuousOn f (Set.Ioo a b)` matches \"f is a continuous real function defined in (a,b)\"; the hypothesis `h` unfolds to \"for all x,y ∈ (a,b), f((x+y)/2) ≤ (f(x)+f(y))/2\"; and the conclusion `ConvexOn ℝ (Set.Ioo a b) f` uses Mathlib's standard definition of convexity on a set (`Convex 𝕜 s ∧ ∀ x ∈ s, ∀ y ∈ s, ∀ a b ≥ 0, a+b=1, f(a•x+b•y) ≤ a•f(x)+b•f(y)`), which coincides with the usual mathematical notion of convexity. The extra hypothesis `hab : a < b` makes explicit the implicit premise that the open interval (a,b) is nonempty — without it the statement would be vacuously trivial, and it is what any reader would assume from the phrase \"(a,b)\". No hypotheses, conclusion, or types are altered beyond what is standard.",
+  "duration_ms": 47968,
+  "cost_usd": 0.20788525
+}

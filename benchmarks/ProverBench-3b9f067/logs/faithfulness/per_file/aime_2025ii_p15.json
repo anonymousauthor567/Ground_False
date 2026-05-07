@@ -1,0 +1,8 @@
+{
+  "file": "aime_2025ii_p15.lean",
+  "stem": "aime_2025ii_p15",
+  "verdict": "incomparable",
+  "reasoning": "The predicate `exactly_two_minima k` is logically unsatisfiable because it forgot to include `x = a` as a disjunct. Applying the universal quantifier at `x = a` (with `0 < a`), the conclusion requires `f k a > f k a ∨ a = b`; both disjuncts are false (strict inequality is irreflexive, and `a ≠ b` is hypothesized). Thus `exactly_two_minima k` is always `False`, making the whole existential `∃ k₁ k₂ k₃, ... ∧ exactly_two_minima k₁ ∧ ...` unprovable/false. The informal statement asserts that the minimum is achieved at exactly two positive reals (AIME 2025 II Problem 15, answer 240, which is a true mathematical fact), so the informal claim is true while the Lean claim is false — these are incomparable. A correct encoding would use `f k x ≥ f k a` with equality precisely when `x ∈ {a, b}`, or add `x = a` as a disjunct.",
+  "duration_ms": 499349,
+  "cost_usd": 1.2748215
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` matches the informal claim. By `clusterPt_principal_iff` in Mathlib, `ClusterPt x (𝓟 Uᶜ)` means every neighborhood of x meets Uᶜ, i.e., x ∈ closure(Uᶜ). So the Lean statement says: U is open iff no x ∈ U is in the closure of Uᶜ, which is exactly equivalent to \"no point of U is a limit of Uᶜ\". Since the quantifier restricts to x ∈ U (so x ∉ Uᶜ), cluster point and accumulation point coincide, so either reading of \"limit\" (Pugh's accumulation point or adherent/cluster point) gives the same statement. Generalizing from Pugh's metric-space context to `TopologicalSpace` is the natural abstract setting; the mathematical content is identical.",
+  "duration_ms": 195364,
+  "cost_usd": 0.57563775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-329.lean",
+  "stem": "proofnet-329",
+  "verdict": "faithful",
+  "reasoning": "The Lean encoding `P n = ∑ i : Fin n, (↑i + 1) * X^i` expands to `1 + 2X + 3X² + ⋯ + nX^(n-1)`, exactly matching the informal definition of $P_n$. The hypotheses `0 < j`, `0 < k`, `j ≠ k` correctly capture \"positive integers with $j \\neq k$\". The conclusion uses `IsCoprime` in `Polynomial ℚ`, which Mathlib defines via Bézout's identity `∃ a b, a*P_j + b*P_k = 1`; since $\\mathbb{Q}[X]$ is a PID, this is equivalent to the standard meaning of \"relatively prime polynomials\" (no common non-constant factor). The quantification structure and ambient ring match the natural reading of this Putnam problem, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 475247,
+  "cost_usd": 0.398989
+}

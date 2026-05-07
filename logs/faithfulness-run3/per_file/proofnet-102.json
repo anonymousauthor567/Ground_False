@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-102.lean",
+  "stem": "proofnet-102",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature encodes exactly the informal claim: for any integer x and any (nat) prime p dividing x^4 - x^2 + 1, p ≡ 1 (mod 12). The notation `[ZMOD 12]` is `Int.ModEq 12`, which corresponds to integer congruence mod 12. Taking p as a natural prime and casting to ℤ for divisibility/congruence matches the standard convention of \"prime divisor.\" The universal quantification over x and p is implicit via free variables in both the informal text and the Lean signature. No extra hypotheses are added (none are needed — the claim is true for all integers x since x^4 - x^2 + 1 > 0 always, and 2, 3 never divide it), and none are dropped. Hypotheses, conclusion, quantifier structure, and types all line up.",
+  "duration_ms": 88289,
+  "cost_usd": 0.284506
+}

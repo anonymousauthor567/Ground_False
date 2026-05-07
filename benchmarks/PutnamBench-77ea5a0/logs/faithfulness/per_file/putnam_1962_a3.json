@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1962_a3.lean",
+  "stem": "putnam_1962_a3",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization is a faithful encoding of Routh's theorem (symmetric case). The naming is shifted (Lean's A', B', C' are the informal P, Q, R on the sides; Lean's P, Q, R are the informal U, V, W forming the inner triangle), but the mathematics matches exactly. Each ratio hypothesis (dist C A'/dist A' B = k, etc.) correctly encodes CP/PB = k, AQ/QC = k, BR/RA = k. The inner triangle vertices are correctly defined as pairwise cevian intersections. The non-collinearity hypothesis captures \"ABC is a triangle\". Using volume (Lebesgue measure) of convex hulls in EuclideanSpace ℝ (Fin 2) correctly represents the triangle areas. The formula (k-1)²/(k²+k+1) matches Routh's theorem for the symmetric case with ratio k. Edge cases (k=1 gives concurrent cevians and area 0; k>0 ensures points are strictly interior on segments) are handled correctly.",
+  "duration_ms": 335910,
+  "cost_usd": 1.03444025
+}

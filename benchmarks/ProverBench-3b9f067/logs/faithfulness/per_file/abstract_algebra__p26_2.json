@@ -1,0 +1,8 @@
+{
+  "file": "abstract_algebra__p26_2.lean",
+  "stem": "abstract_algebra__p26_2",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures Kronecker's theorem. \"Non-constant polynomial\" is encoded as `f.degree > 0`, which correctly excludes zero and constant polynomials. \"Extension field E of F\" is encoded as a type E with a `Field` instance and a ring homomorphism `i : F →+* E` — a standard and correct encoding, since any ring hom from a field to a field is automatically injective. \"f(α) = 0\" is encoded as `IsRoot (f.map i) α`, which unfolds to `(f.map i).eval α = 0`, equivalent to `f.eval₂ i α = 0` via `eval₂_eq_eval_map`; this correctly represents evaluating f at α after transporting coefficients along the extension embedding. The existential/quantifier structure matches, and no hypotheses are added or dropped.",
+  "duration_ms": 83406,
+  "cost_usd": 0.26874825
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1968_b1.lean",
+  "stem": "putnam_1968_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the exact mathematical content: X, Y are integer-valued random variables on a probability space (via MeasureSpace Ω + IsProbabilityMeasure ℙ), each taking finitely many values (Set.Finite (X '' Set.univ)), with no independence assumption. The equation asserts P(min(X,Y)=k) = f(P(X=k), P(Y=k), P(max(X,Y)=k)) via the solution abbrev, matching \"express P(min=k) in terms of p1, p2, p3\". The Measurable hypotheses are implicit premises needed for the probabilities to be well-defined (required for any probability formulation). The solution fun a b c => a + b - c matches the correct identity P(min=k) = P(X=k) + P(Y=k) - P(max=k) verified by case analysis. The conclusion uses .toReal consistently on all four probabilities, which is fine since they are all ≤ 1.",
+  "duration_ms": 152552,
+  "cost_usd": 0.49519575
+}

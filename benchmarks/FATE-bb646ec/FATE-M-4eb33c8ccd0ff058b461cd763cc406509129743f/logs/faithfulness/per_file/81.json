@@ -1,0 +1,8 @@
+{
+  "file": "81.lean",
+  "stem": "81",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to prove that for $\\alpha \\in S_n$ and any $i$, \"$\\alpha$ moves $i$\" iff \"$\\alpha^{-1}$ moves $i$\". The Lean statement encodes \"moves $i$\" correctly as `α i ≠ i`, and uses `Equiv.Perm u` (Mathlib's type of permutations of `u`) with `α⁻¹` for the inverse permutation. The only notable difference is that Lean generalizes the ambient type `u` from a finite set (as $S_n$ literally means symmetric group on $n$ elements) to any type. However, the property \"permutation moves $i$ iff inverse permutation moves $i$\" is a purely formal property of bijections that holds identically in any setting, with the same proof. This is the natural Mathlib-style formulation of the same mathematical content and would be accepted as faithfully capturing the informal claim under standard mathematical reading; the finiteness restriction plays no role in the statement's meaning.",
+  "duration_ms": 200074,
+  "cost_usd": 0.45274825
+}

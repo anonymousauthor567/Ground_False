@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-250.lean",
+  "stem": "proofnet-250",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures exactly the informal claim. `MvPolynomial ℕ ℤ` is the countably-generated polynomial ring ℤ[x_0, x_1, ...] (the 0- vs 1-indexing is irrelevant). The function f enumerates the generators X_{2i}·X_{2i+1} for i ∈ ℕ, producing {X_0·X_1, X_2·X_3, X_4·X_5, ...}, which is precisely the informal generating set (x_1 x_2, x_3 x_4, ...). `span (range f)` is the ideal these generate, `MvPolynomial ℕ ℤ ⧸ span (range f)` is the quotient ring, and `minimalPrimes R'` (defined as `Ideal.minimalPrimes ⊥`) gives exactly the minimal prime ideals of R'. `Infinite (... : Set _)` through subtype coercion is the standard encoding of \"infinitely many\". The hypothesis `hf` just names f definitionally and adds no logical content. No hypotheses are added/dropped; the quantifier structure and conclusion match the informal statement.",
+  "duration_ms": 170959,
+  "cost_usd": 0.7576897499999999
+}

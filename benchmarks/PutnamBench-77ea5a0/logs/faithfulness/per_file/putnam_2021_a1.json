@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2021_a1.lean",
+  "stem": "putnam_2021_a1",
+  "verdict": "faithful",
+  "reasoning": "The formalization correctly captures: (1) grasshopper starts at origin via `(0,0) :: l`; (2) hop length 5 via squared distance 25 using Chain' on consecutive pairs; (3) integer coordinates via `ℤ × ℤ`; (4) reaches (2021, 2021) via `l.getLast! = (2021, 2021)`; (5) number of hops is `l.length` since the chain `[(0,0), l₁, ..., lₖ]` has exactly k transitions between k+1 positions; (6) \"smallest number\" via `IsLeast`. The empty list case is excluded because `getLast!` on an empty list of `ℤ × ℤ` returns the default (0,0) which doesn't equal (2021, 2021). Paths that pass through (2021, 2021) before ending elsewhere are excluded, but this doesn't affect the minimum since any such path can be truncated to a shorter/equal-length path ending at (2021, 2021). The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 208542,
+  "cost_usd": 0.547631
+}

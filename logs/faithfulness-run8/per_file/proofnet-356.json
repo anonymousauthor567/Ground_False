@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-356.lean",
+  "stem": "proofnet-356",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature captures the informal statement accurately. The `Differentiable ℝ g` hypothesis makes explicit the differentiability that is implicit in the informal phrase \"bounded derivative |g'| ≤ M\" (the existence of g' presupposes differentiability), so it is not a weakening — it is surfacing a necessary implicit premise. The bounded-derivative condition `∃ M, ∀ x, |deriv g x| ≤ M` is equivalent to `|g'| ≤ M` under the differentiability assumption (since Mathlib's `deriv` coincides with the classical derivative for differentiable functions). The conclusion `∃ N > 0, ∀ ε > 0, ε < N → Function.Injective (x ↦ x + ε * g x)` is the standard precise reading of \"f is one-to-one if ε is small enough\", with the threshold N allowed to depend on g. The quantifier structure and function definition match exactly.",
+  "duration_ms": 86301,
+  "cost_usd": 0.34317274999999997
+}

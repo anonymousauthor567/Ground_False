@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: if every element of G squares to 1, then G is abelian. The Lean signature takes a group G, hypothesis `∀ x : G, x ^ 2 = 1`, and concludes `∀ a b : G, a * b = b * a`. The conclusion `∀ a b, a*b = b*a` is exactly the unfolded definition of \"G is abelian\" (i.e., a commutative group). The hypothesis matches literally. No extra assumptions (e.g., finiteness, nonemptyness) are added, and no direction is weakened. Therefore the Lean statement is logically equivalent to the informal claim.",
+  "duration_ms": 6792,
+  "cost_usd": 0.03513875
+}

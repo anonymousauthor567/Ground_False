@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-136.lean",
+  "stem": "proofnet-136",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem introduces O and C as the sets of all open and closed subsets of M respectively via the hypotheses hO and hC, and then asks for the existence of a bijection f : O → C. Here O → C uses the standard coercion from Set (Set M) to the subtype {s : Set M // s ∈ O}, so the statement is equivalent to asserting a bijection between the type of open subsets and the type of closed subsets. Bijective in Mathlib means both injective and surjective (as confirmed in Mathlib/Logic/Function/Defs.lean). This captures exactly the informal claim that there is a bijection from 𝒯 onto 𝒦. No hypotheses are added or dropped that change the meaning, and no quantifier structure is altered.",
+  "duration_ms": 92326,
+  "cost_usd": 0.28892975000000004
+}

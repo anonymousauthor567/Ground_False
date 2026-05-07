@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-28.lean",
+  "stem": "proofnet-28",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that addition in ℤ/nℤ is associative. The Lean theorem states ∀ (x y z : ZMod n), (x + y) + z = x + (y + z), which is exactly the associativity law for addition in ZMod n (Mathlib's ℤ/nℤ). The universal quantification over n : ℕ is appropriate since the informal claim is a general statement about residue classes modulo n, and ZMod 0 = ℤ (which also has associative addition) does not cause any drift. The hypotheses, conclusion, and types all match the informal claim.",
+  "duration_ms": 37709,
+  "cost_usd": 0.0372795
+}

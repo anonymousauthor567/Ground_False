@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-183.lean",
+  "stem": "proofnet-183",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures exactly the informal claim. `D = ball 0 1` is the open unit disk, `closure D = closedBall 0 1` is the closed unit disk, and `sphere 0 1` in ℂ is the unit circle ∂D. `DifferentiableOn ℂ f D` formalizes \"holomorphic on D\", and `ContinuousOn f (closure D)` formalizes \"extends continuously to ∂D\" (since continuity on the closed disk is continuity on D together with continuous extension to the boundary). The universally-quantified implication ∀ f, hypotheses → ¬ (f = 1/z on sphere) is logically equivalent to \"there is no such f\". Although f is typed ℂ → ℂ, its values outside closure D are unconstrained, which is a standard faithful encoding. No hypothesis is added, dropped, or changed in scope.",
+  "duration_ms": 84810,
+  "cost_usd": 0.31816725
+}

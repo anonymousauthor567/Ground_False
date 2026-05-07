@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-200.lean",
+  "stem": "proofnet-200",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement expresses \"U ∪ W is a subspace\" via the existence of a submodule whose carrier equals U ∪ W, which is logically equivalent since a submodule is determined by its underlying set. The right-hand side U ≤ W ∨ W ≤ U correctly encodes \"one subspace is contained in the other\" because Submodule.le is set inclusion of carriers. The ambient hypotheses (vector space over a field) match the Axler context, and the biconditional preserves both directions. No hidden finiteness, nontriviality, or decidability assumptions are added, and nothing is dropped.",
+  "duration_ms": 27062,
+  "cost_usd": 0.07286474999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The topological spaces X and Y are general (no extra typeclass assumptions), p is given with a continuity hypothesis matching \"p is a continuous map\", and the implication's antecedent is `∃ f : Y → X, Continuous f ∧ p ∘ f = id` — exactly \"there is a continuous f: Y → X such that p ∘ f equals the identity on Y\" (the `id` is inferred as `id : Y → Y` from the type of `p ∘ f`). The conclusion `IsQuotientMap p` matches Mathlib's standard definition (Surjective p ∧ the topology on Y is coinduced from X via p), which is the usual definition of a quotient map used in Munkres. No hypotheses are added or dropped, and no types are altered.",
+  "duration_ms": 73626,
+  "cost_usd": 0.2146615
+}

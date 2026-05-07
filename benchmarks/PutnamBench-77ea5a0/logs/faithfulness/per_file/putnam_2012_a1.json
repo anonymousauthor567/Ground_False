@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_a1.lean",
+  "stem": "putnam_2012_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes \"d_i, d_j, d_k are sides of an acute triangle\" via the equivalent condition: d_k is the maximum (d_k ≥ d_i, d_k ≥ d_j) and (d_i)² + (d_j)² > (d_k)². For positive reals (guaranteed since all d_i ∈ (1,12) are positive), this is logically equivalent to forming an acute triangle: the inequality implies the triangle inequality ((d_i+d_j)² > d_i²+d_j² > d_k², so d_i+d_j > d_k; the other inequalities hold trivially since d_k is max) and, by the law of cosines, implies the largest angle (opposite d_k) is acute, hence all angles are acute. Conversely, any acute triangle admits a labeling with k as the longest side satisfying this condition. The existential ∃ i j k handles the labeling freedom. The distinctness conditions match, and the interval hypothesis matches exactly. The author's note acknowledges the reformulation, which is mathematically equivalent, not weaker or stronger.",
+  "duration_ms": 101770,
+  "cost_usd": 0.33007125000000004
+}

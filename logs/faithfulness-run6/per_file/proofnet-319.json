@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-319.lean",
+  "stem": "proofnet-319",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `IsOpen U ↔ ∀ x ∈ U, ¬ ClusterPt x (𝓟 Uᶜ)` correctly encodes \"U is open iff no point of U is a limit of its complement.\" Mathlib's `ClusterPt x (𝓟 Uᶜ)` unfolds (via `clusterPt_principal_iff`) to \"every neighborhood of x meets Uᶜ.\" While the classical notion of \"limit point\" technically requires every *punctured* neighborhood to meet the set, the restriction `x ∈ U` means `x ∉ Uᶜ`, so `ClusterPt` and `AccPt` coincide here — the potential distinction is irrelevant on this domain. The iff direction matches: U being open is equivalent to every point of U having a neighborhood disjoint from Uᶜ, which is exactly the negation of the `ClusterPt` condition. The ambient topological space `M` is appropriately general.",
+  "duration_ms": 240325,
+  "cost_usd": 0.53429825
+}

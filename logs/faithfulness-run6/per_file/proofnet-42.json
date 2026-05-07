@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-42.lean",
+  "stem": "proofnet-42",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts `H.index = K.index * H.relindex K` under the hypothesis `H ≤ K`. In Mathlib, `H.index = Nat.card (G ⧸ H)` = |G:H|, `K.index` = |G:K|, and `H.relIndex K = (H.subgroupOf K).index`, which equals |K:H| whenever H ≤ K. The custom `Subgroup.relindex` defined at the top of the file is literally `H.relIndex K`. So the Lean equation reads |G:H| = |G:K| · |K:H|, matching the informal claim including the multiplication order. No finiteness hypothesis is added (respecting \"do not assume G is finite\"), and K ≤ G is built into `K : Subgroup G`. This is exactly Mathlib's `relIndex_mul_index` lemma, so the formalization is logically equivalent to the informal statement.",
+  "duration_ms": 49775,
+  "cost_usd": 0.19822775
+}

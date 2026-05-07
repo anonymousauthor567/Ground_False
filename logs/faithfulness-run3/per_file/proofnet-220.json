@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-220.lean",
+  "stem": "proofnet-220",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement precisely captures the informal claim. `MulAut G` is exactly the group of group automorphisms, so σ being an automorphism is correctly encoded. The hypothesis `hs` encodes \"σ(g) = g iff g = 1\", and `hs2` encodes \"σ² = id\" pointwise, which is equivalent to σ∘σ being the identity automorphism. `[Finite G]` captures the finiteness assumption. The conclusion `∀ x y, x * y = y * x` is the definition of abelian. No hypotheses are dropped or added, and no conclusion is changed.",
+  "duration_ms": 25633,
+  "cost_usd": 0.054102
+}

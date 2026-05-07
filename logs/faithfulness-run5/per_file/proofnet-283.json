@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-283.lean",
+  "stem": "proofnet-283",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses an iff: `(n-1)! ≡ 0 [MOD n] ↔ n ≠ 4`, which captures both directions of the \"except when n=4\" phrase. The forward direction (non-prime n ≠ 4 implies the congruence) is the explicit claim. The backward direction (if the congruence holds, then n ≠ 4) is equivalent to \"3! ≢ 0 mod 4\", which is the implicit content that n=4 is a *genuine* exception — otherwise there would be no reason to mention it as an exception. Using `ℕ+` with `¬ n.Prime` correctly encodes \"n is a positive integer that is not prime\" (PNat.Prime unfolds to Nat.Prime on the coercion). The subtraction `n - 1` for `n : ℕ+` with `1 : ℕ+` uses PNat subtraction saturating at 1, but `Nat.factorial 0 = Nat.factorial 1 = 1`, so no semantic issue arises at the boundary. This iff formulation is a standard and clean formalization of \"show X, except when Y\" and faithfully captures the intended mathematical content.",
+  "duration_ms": 537626,
+  "cost_usd": 1.6412305
+}

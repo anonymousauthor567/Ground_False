@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-134.lean",
+  "stem": "proofnet-134",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement matches the informal statement on every element. The hypothesis `CompletelyRegularSpace X` in Mathlib is defined via separation of points from closed sets by continuous maps to [0,1], without any T₀/T₁ assumption — which corresponds exactly to the informal \"completely regular (separation property only)\" (the parenthetical clarifies that T₁ is not assumed, and `T35Space` would be the stronger T₃.₅ version). `StoneCech X` is Mathlib's Stone-Čech compactification, defined for any topological space. The encoding `IsConnected (univ : Set X)` is the standard way to say \"X is connected\" (equivalent to `ConnectedSpace X`: nonempty + whole space preconnected), used consistently on both sides. The iff direction and quantifier structure are preserved. No hypothesis is silently added or dropped.",
+  "duration_ms": 159306,
+  "cost_usd": 0.552784
+}

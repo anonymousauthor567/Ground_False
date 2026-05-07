@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-197.lean",
+  "stem": "proofnet-197",
+  "verdict": "faithful",
+  "reasoning": "The hypothesis `[Fintype Kˣ]` together with `[Field K]` is equivalent to K being a finite field (K = Kˣ ∪ {0} for a field). The product `∏ x : Kˣ, x` ranges over all units of K, which for a field are exactly the nonzero elements. The equation `= -1` is stated in `Kˣ`, and since `Kˣ → K` is an injective multiplicative map sending `-1 : Kˣ` to `-1 : K`, this is equivalent to the informal claim that the product of nonzero elements of K equals -1. No hypotheses are added or dropped and the conclusion matches.",
+  "duration_ms": 26835,
+  "cost_usd": 0.1117755
+}

@@ -1,0 +1,8 @@
+{
+  "file": "73.lean",
+  "stem": "73",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement formalizes the informal claim via a surjection `f : MvPolynomial (Fin n) k →+* R` (equivalent to presenting R as a quotient) with homogeneous kernel. The hypothesis `RingHom.ker f ≤ RingHom.ker MvPolynomial.constantCoeff` surfaces an implicit premise: since `ker constantCoeff = (x_0,...,x_{n-1})` is the irrelevant ideal P, and any proper homogeneous ideal is automatically contained in P, this hypothesis amounts to requiring R ≠ 0 — which is implicitly needed for the informal \"R_P\" to make sense as a localization at a prime ideal (exactly what `Ideal.map_isPrime_of_surjective` requires). The RHS `Localization.AtPrime ((ker constantCoeff).map f)` is R_{f(P)}, the natural meaning of R_P. The CM definitions (via Ext-depth equalling Krull dimension at all prime localizations) match the standard notion. The `Fin n` vs `n+1` variable indexing is cosmetic since both are universally quantified. No hypothesis or conclusion is genuinely strengthened or weakened.",
+  "duration_ms": 970701,
+  "cost_usd": 1.90741475
+}

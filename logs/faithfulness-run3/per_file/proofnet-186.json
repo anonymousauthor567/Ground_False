@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-186.lean",
+  "stem": "proofnet-186",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says every field homomorphism is injective. The Lean theorem universally quantifies over fields F and G (via `{F : Type*} [Field F] {G : Type*} [Field G]`) and takes an arbitrary ring homomorphism `φ : F →+* G`, concluding `Injective φ`. In Mathlib, `→+*` is the standard encoding of a unital ring homomorphism, which for fields is the standard notion of a field homomorphism (it automatically preserves 1 and multiplicative inverses since it's between fields). The quantifier structure, types, and conclusion match the informal statement exactly, with no added or dropped hypotheses.",
+  "duration_ms": 12941,
+  "cost_usd": 0.04964225
+}

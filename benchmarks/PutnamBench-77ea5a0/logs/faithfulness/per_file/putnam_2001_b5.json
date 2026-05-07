@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2001_b5.lean",
+  "stem": "putnam_2001_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature matches the informal statement exactly. The hypothesis `abint` encodes $a, b \\in (0, 1/2)$ via strict inequalities. `gcont : Continuous g` matches \"continuous real-valued function\" (since `g : ℝ → ℝ`). The hypothesis `hg` universally quantifies the functional equation $g(g(x)) = ag(x) + bx$ over all real $x$. The conclusion `∃ c : ℝ, ∀ x : ℝ, g x = c * x` is precisely \"g(x) = cx for some constant c\". No hypotheses are added or dropped, types are correct, and the quantifier structure matches.",
+  "duration_ms": 12921,
+  "cost_usd": 0.0589105
+}

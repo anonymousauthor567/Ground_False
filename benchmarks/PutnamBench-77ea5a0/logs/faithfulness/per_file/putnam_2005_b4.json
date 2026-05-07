@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_b4.lean",
+  "stem": "putnam_2005_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the Putnam problem. Positive integers m, n are captured by m, n : ℤ with m > 0 ∧ n > 0. The hypothesis hf defines f(m', n') for all positive m', n' as the cardinality (via Set.encard) of {x : Finset.Icc 1 n' → ℤ | ∑ i : Finset.Icc 1 n', |x i| ≤ m'}. The coerced type Finset.Icc 1 n' has exactly n' elements when n' > 0, so functions from it to ℤ correspond precisely to n'-tuples of integers, and the sum condition matches |x_1|+…+|x_n| ≤ m. The set is finite (bounded tuples in ℤ^n), so the ℕ→ℕ∞ coercion in the equation is well-behaved. The conclusion f m n = f n m matches the symmetry claim exactly. Quantifier structure, types, and conditions all align with the informal statement.",
+  "duration_ms": 353607,
+  "cost_usd": 1.0577874999999999
+}

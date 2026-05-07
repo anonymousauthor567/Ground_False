@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1967_b2.lean",
+  "stem": "putnam_1967_b2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `prbound` matches $0 \\le p \\le 1$ and $0 \\le r \\le 1$. The identities `id1` and `id2` are stated as universal over all real x, y — this uniquely determines the coefficients A, B, C (as $p^2$, $2p(1-p)$, $(1-p)^2$) and α, β, γ (as $pr$, $p(1-r)+r(1-p)$, $(1-p)(1-r)$), exactly matching the informal setup. The conclusion `max (max A B) C ≥ 4/9` equals $\\max\\{A,B,C\\} \\ge 4/9$ on the total order ℝ, and similarly for α, β, γ. Combining parts (a) and (b) into a conjunction is logically equivalent to stating them separately. No hypotheses are added or omitted and no types are changed.",
+  "duration_ms": 89026,
+  "cost_usd": 0.29976525
+}

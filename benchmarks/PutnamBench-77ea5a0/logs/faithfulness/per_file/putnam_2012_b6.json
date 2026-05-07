@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2012_b6.lean",
+  "stem": "putnam_2012_b6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypotheses `Odd p`, `Nat.Prime p`, and `p ≡ 2 [MOD 3]` correspond directly to \"odd prime with p ≡ 2 (mod 3)\". The permutation π(x) ≡ x³ (mod p) is encoded as `P : Equiv.Perm (Fin p)` with `P i = i * i * i`, since multiplication in `Fin p` is done modulo p, so `i * i * i` equals i³ mod p. The hypothesis p ≡ 2 (mod 3) ensures the cube map is bijective on Fin p, so such P exists and is unique. For `Perm (Fin p)`, `signAux P` equals `Equiv.Perm.sign P` (both are multiplicative homomorphisms agreeing on generators: 1 on identity and -1 on swaps), so `signAux P = 1` is precisely the condition that P is an even permutation. The conclusion `p ≡ 3 [MOD 4]` matches p ≡ 3 (mod 4). All components align with the informal statement.",
+  "duration_ms": 287809,
+  "cost_usd": 0.92307175
+}

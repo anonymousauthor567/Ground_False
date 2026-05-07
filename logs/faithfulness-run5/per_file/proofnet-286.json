@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-286.lean",
+  "stem": "proofnet-286",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly encodes the sum: `∑ n : Fin (p-1), (n + 1 : ℕ) ^ k` with type ascription forces the `+ 1` to happen in ℕ (after coercing `↑n` from Fin to ℕ), so the indices `↑n + 1` range over {1, 2, ..., p-1}, giving exactly $1^k + 2^k + \\cdots + (p-1)^k$. The conclusion is a conjunction of two implications matching the two branches of the informal statement: `s ≡ 0 [MOD p]` is Nat.ModEq, equivalent to $p \\mid s$, and `s ≡ -1 [ZMOD p]` is Int.ModEq (with s coerced to ℤ), equivalent to $p \\mid s+1$. Both directly correspond to the informal ≡ 0 (mod p) and ≡ -1 (mod p) claims. Since p is prime, p ≥ 2, so Fin (p-1) is nonempty and no degenerate case is mishandled. The quantifier structure, hypotheses, and conclusions match the informal statement exactly.",
+  "duration_ms": 219958,
+  "cost_usd": 0.7523429999999999
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1975_b4.lean",
+  "stem": "putnam_1975_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly encodes the informal statement. `setOf P` with `P (x,y) = (x^2 + y^2 = 1)` is exactly the unit circle C. The existence `∃ B ⊆ setOf P, IsClosed B ∧ ...` captures \"there exists a closed subset B of C\". Closedness in ℝ² agrees with closedness in C since C is closed in ℝ². The condition `∀ x y : ℝ, P (x, y) → Xor' ((x, y) ∈ B) ((-x, -y) ∈ B)` uses Mathlib's `Xor' a b := (a ∧ ¬b) ∨ (b ∧ ¬a)` which means exactly one holds — correctly expressing \"contains exactly one point from each diametrically opposite pair\" (since (x,y) ≠ (-x,-y) for any point on C, and pairs are traversed symmetrically). The existence question is formalized as an iff with the Prop solution, the standard Putnam pattern.",
+  "duration_ms": 76984,
+  "cost_usd": 0.22464075
+}

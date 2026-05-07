@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-33.lean",
+  "stem": "proofnet-33",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts: for any group G, if every element squares to the identity, then G is abelian. The Lean signature quantifies over an arbitrary type G with a Group instance, assumes `∀ x : G, x ^ 2 = 1` (every element squares to the identity), and concludes `∀ a b : G, a*b = b*a`, which is precisely the definition of \"G is abelian\" (commutativity of multiplication). The hypothesis and conclusion match exactly, the quantifier structure is preserved (universal over all groups and all pairs of elements), and no extra assumptions (finiteness, etc.) are imposed. This is a direct, logically equivalent formalization.",
+  "duration_ms": 8523,
+  "cost_usd": 0.0382665
+}

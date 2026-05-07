@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-21.lean",
+  "stem": "proofnet-21",
+  "verdict": "faithful",
+  "reasoning": "The Lean setup `{F V : Type*} [AddCommGroup V] [Field F] [Module F V] [FiniteDimensional F V]` and `S T : End F V` correctly encode \"T, S ∈ L(V)\" for a finite-dimensional V. Hypothesis h1 uses Mathlib's `T.Eigenvalues` (the subtype of distinct eigenvalues of T), so `card T.Eigenvalues = finrank F V` is exactly \"T has dim V distinct eigenvalues\". Hypothesis h2 says each v lies in some eigenspace of S iff it lies in some eigenspace of T; for nonzero v this is exactly \"v is an eigenvector of S iff v is an eigenvector of T\" (with possibly different eigenvalues, since c is existentially quantified separately on each side), and for v = 0 both sides are trivially true — this matches the informal \"S has the same eigenvectors as T (not necessarily with the same eigenvalues)\". The conclusion `S * T = T * S` is ST = TS in End F V. No hypotheses are added or dropped.",
+  "duration_ms": 216187,
+  "cost_usd": 0.72263
+}

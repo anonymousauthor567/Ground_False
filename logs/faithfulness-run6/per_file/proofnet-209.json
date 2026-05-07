@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-209.lean",
+  "stem": "proofnet-209",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement captures each piece of the informal claim: the complex inner product space via `[InnerProductSpace ℂ V]`, normality via `T * adjoint T = adjoint T * T`, self-adjointness via `IsSelfAdjoint T`, and \"all eigenvalues are real\" via `∀ e : T.Eigenvalues, (e : ℂ).im = 0` (where `Module.End.Eigenvalues` is Mathlib's subtype of eigenvalues). The only hypothesis not literally written in the informal text is `[FiniteDimensional ℂ V]`, but this is a necessary implicit premise: without finite-dimensionality, the direction \"all eigenvalues real ⟹ self-adjoint\" fails for normal operators on infinite-dimensional Hilbert spaces (operators can have no eigenvalues while being far from self-adjoint). Per the prompt's guidance, surfacing such implicit premises needed for truth is faithful rather than weaker. The iff direction, quantifier structure, and mathematical objects all match.",
+  "duration_ms": 202815,
+  "cost_usd": 0.6266017500000001
+}

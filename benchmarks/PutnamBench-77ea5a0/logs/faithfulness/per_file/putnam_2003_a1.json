@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2003_a1.lean",
+  "stem": "putnam_2003_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly counts partitions satisfying the conditions. Using `a : ℕ → ℤ` with the auxiliary constraint `∀ i ≥ k, a i = 0` is a standard encoding to handle the k-dependent domain; each valid function corresponds bijectively to one partition since k is uniquely determined (as the count of positive entries). The conditions `a i > 0` for `i : Fin k`, `∑ i : Fin k, a i = n`, weakly increasing via `∀ i : Fin (k-1), a i ≤ a (i+1)`, and `a (k-1) ≤ a 0 + 1` together are equivalent to the chain $a_1 \\leq a_2 \\leq \\cdots \\leq a_k \\leq a_1 + 1$ with positive integer entries summing to $n$. In the expression `a (i+1)` with `a : ℕ → ℤ` and `i : Fin (k-1)`, Lean's expected-type-driven elaboration coerces `i` to `ℕ` then adds 1, giving the natural index. The shift from 1-indexed to 0-indexed matches correctly (a_1 ↔ a(0), a_k ↔ a(k-1)). The formalization is logically equivalent to the informal statement.",
+  "duration_ms": 382084,
+  "cost_usd": 1.0347222500000002
+}

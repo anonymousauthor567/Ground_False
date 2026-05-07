@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-240.lean",
+  "stem": "proofnet-240",
+  "informal": "Prove that if $|G|=462$ then $G$ is not simple.",
+  "lean": "\ntheorem Dummit_Foote_exercise_4_5_23 {G : Type*} [Fintype G] [Group G]\n  (hG : card G = 462) : ¬ IsSimpleGroup G",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature universally quantifies over a type G equipped with a Group structure and Fintype instance, with the hypothesis that the cardinality of G equals 462, and concludes ¬ IsSimpleGroup G. This is exactly the informal claim: any group of order 462 is not simple. The Fintype assumption is necessary to make sense of `card G = 462` (and is implied by having a finite order), and `IsSimpleGroup` in Mathlib is the standard notion of simplicity. No hypotheses are added or dropped, and the conclusion matches.",
+  "duration_ms": 6038,
+  "cost_usd": 0.04338425
+}

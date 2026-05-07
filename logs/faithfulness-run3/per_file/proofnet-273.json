@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-273.lean",
+  "stem": "proofnet-273",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the three claims in the informal statement: (1) `Irreducible p` and `Irreducible q` for p = X³−2 and q = X³+2 in ℤ/7ℤ[X], matching the claim that both polynomials are irreducible; and (2) `Nonempty (Polynomial (ZMod 7) ⧸ span {p} ≃+* Polynomial (ZMod 7) ⧸ span {q})`, which is the standard way to express \"the quotient rings are isomorphic\" — i.e. there exists a ring isomorphism between them. Since these quotients (given irreducibility) are fields and a RingEquiv between fields is exactly a field isomorphism, this correctly captures \"the fields F[x]/(p(x)) and F[x]/(q(x)) are isomorphic.\" The use of `span {p}` with `open Ideal` resolves to `Ideal.span {p}`, which is the principal ideal (p(x)). No extra or missing hypotheses, types, or quantifiers.",
+  "duration_ms": 38488,
+  "cost_usd": 0.110754
+}

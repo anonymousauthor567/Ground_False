@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-3.lean",
+  "stem": "proofnet-3",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says \"a group of even order contains an element of order 2.\" The Lean formalization encodes \"group of even order\" as `[Group G] [Fintype G]` with `hG : Even (card G)` (where `card` is `Fintype.card` due to `open Fintype`), which correctly captures finiteness and even cardinality — finiteness is required for \"order of a group\" to be well-defined. The conclusion `∃ x : G, orderOf x = 2` precisely matches \"contains an element of order 2\" (strict equality to 2, not dividing 2, so it properly excludes the identity). The quantifier structure, types, and mathematical content align exactly.",
+  "duration_ms": 56086,
+  "cost_usd": 0.12241925
+}

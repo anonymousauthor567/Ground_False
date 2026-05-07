@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-360.lean",
+  "stem": "proofnet-360",
+  "verdict": "faithful",
+  "reasoning": "The Lean hypotheses `IsOpen Ω`, `DifferentiableOn ℂ f Ω`, and `∃ c : ℝ, ∀ z ∈ Ω, (f z).im = c` directly encode \"$f$ holomorphic in open set $\\Omega$\" with \"$\\text{Im}(f)$ constant\". The conclusion `∀ a b : Ω, f a = f b` is exactly the statement \"$f$ is constant on $\\Omega$\". The extra `IsPreconnected Ω` hypothesis surfaces an implicit premise needed for the statement to be true: without connectedness, the claim fails (e.g., on two disjoint disks, $f$ could take value 0 on one and 1 on the other, both real-valued holomorphic functions with Im(f) ≡ 0, but non-constant globally). In standard complex analysis, statements about a holomorphic function being constant on an open set implicitly assume the set is a domain (connected open set). Per the system prompt's guidance, surfacing such an implicit truth-preserving premise counts as faithful.",
+  "duration_ms": 92441,
+  "cost_usd": 0.2646355
+}

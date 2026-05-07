@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1977_a5.lean",
+  "stem": "putnam_1977_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal statement. The variables `p m n : ℕ` correctly model \"non-negative integers\"; `Nat.Prime p` matches \"prime\"; `hmgen : m ≥ n` matches \"m ≥ n\". The conclusion `choose (p * m) (p * n) ≡ choose m n [MOD p]` uses `Nat.ModEq`, which is defined as `a % n = b % n`, which is exactly the mathematical meaning of $\\binom{pm}{pn} \\equiv \\binom{m}{n} \\pmod p$. `Nat.choose` is the standard binomial coefficient. No hypotheses are added or dropped, and the quantifier/type structure matches.",
+  "duration_ms": 22426,
+  "cost_usd": 0.09104100000000001
+}

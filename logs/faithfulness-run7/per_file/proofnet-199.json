@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-199.lean",
+  "stem": "proofnet-199",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes Axler's exercise 1.4. The hypotheses `[Field F] [AddCommGroup V] [Module F V]` are the standard Mathlib encoding of \"V is a vector space over the field F\". The universal quantification over `a : F` and `v : V` matches the informal statement's \"if a ∈ F, v ∈ V\". The conclusion `a • v = 0 → a = 0 ∨ v = 0` is a direct transcription. The implicit type parameters `{F V : Type*}` correctly capture that the claim holds for any field and any vector space over it. No hypotheses are added or dropped, and the types match exactly.",
+  "duration_ms": 25219,
+  "cost_usd": 0.10903600000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-173.lean",
+  "stem": "proofnet-173",
+  "verdict": "faithful",
+  "reasoning": "The informal hypothesis $\\sum_{i=0}^{n} C_i/(i+1) = 0$ is captured precisely by `∑ i ∈ range (n+1), C i / (i+1) = 0`, since `Finset.range (n+1) = {0,1,...,n}` and `(i+1)` ranges over `{1,2,...,n+1}`, giving $C_0/1 + C_1/2 + \\cdots + C_n/(n+1)$. The informal conclusion \"the polynomial $C_0 + C_1 x + \\cdots + C_n x^n = 0$ has at least one real root strictly between 0 and 1\" is captured by `∃ x ∈ Set.Ioo 0 1, ∑ i ∈ range (n+1), C i * x^i = 0`, where `Set.Ioo 0 1` is exactly the open interval $(0,1)$. The type `C : ℕ → ℝ` provides real constants, and although C is defined on all of ℕ, only values `C 0, ..., C n` appear in both the hypothesis and conclusion, matching the informal setup. The quantifier structure and types all match correctly.",
+  "duration_ms": 51711,
+  "cost_usd": 0.22502125
+}

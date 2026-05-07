@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-29.lean",
+  "stem": "proofnet-29",
+  "verdict": "faithful",
+  "reasoning": "The informal statement claims that (ZMod n, ·, 1) is not a group for n > 1. Since ZMod n is already a commutative ring in Mathlib, multiplication is automatically a well-defined, associative, total binary operation with identity 1. The only group axiom that can fail is existence of two-sided inverses. Thus \"ZMod n is a group under multiplication\" is logically equivalent to \"∀ x : ZMod n, ∃ y, x*y = 1 ∧ y*x = 1\", and its negation matches exactly what the Lean statement asserts. The hypothesis 1 < n in the Lean statement matches the informal \"n > 1\" condition. The formalization is strictly faithful.",
+  "duration_ms": 109631,
+  "cost_usd": 0.2702425
+}

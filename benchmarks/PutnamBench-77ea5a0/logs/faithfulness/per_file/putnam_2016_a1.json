@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2016_a1.lean",
+  "stem": "putnam_2016_a1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement encodes exactly the informal problem. `IsLeast {j : ℕ | 0 < j ∧ ...} putnam_2016_a1_solution` captures \"smallest positive integer j\" (least element of the set of positive j satisfying the property). `∀ P : ℤ[X]` corresponds to \"every polynomial with integer coefficients\", `∀ k : ℤ` corresponds to \"every integer k\", `derivative^[j] P` is the j-th iterate of the polynomial derivative (the j-th formal derivative), `.eval k` evaluates at k, and `2016 ∣ ...` is \"divisible by 2016\". All quantifiers, types, and the divisibility conclusion match the informal statement precisely.",
+  "duration_ms": 74588,
+  "cost_usd": 0.18356850000000002
+}

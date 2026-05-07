@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-141.lean",
+  "stem": "proofnet-141",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures \"the series ∑ 1/(k(log k)^p) diverges for p ≤ 1\". The function `f k = 1 / (k * (Real.log k) ^ p)` uses `Real.rpow` (since `p : ℝ`) which is the correct real-exponentiation interpretation. The hypothesis `p ≤ 1` matches exactly, and `¬ Summable f` is the correct Mathlib encoding of divergence. The small-k edge cases (k=0,1 where log k = 0, making terms equal to 0 by Lean's 1/0 = 0 convention) are only finitely many terms and do not affect the convergence/divergence determination of the tail, which is what the integral test controls. For all p ≤ 1, including p ≤ 0, the tail series diverges, so the statement is precisely the intended claim.",
+  "duration_ms": 252778,
+  "cost_usd": 0.17610725
+}

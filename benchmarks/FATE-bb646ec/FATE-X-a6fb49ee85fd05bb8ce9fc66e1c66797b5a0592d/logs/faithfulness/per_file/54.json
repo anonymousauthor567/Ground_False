@@ -1,0 +1,8 @@
+{
+  "file": "54.lean",
+  "stem": "54",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes each component. `[CommRing A] [Algebra ℚ A]` captures \"ℚ-algebra\" (commutativity is implicit from the informal notation `x^n A`). `Derivation ℤ A A` is equivalent to `Derivation ℚ A A` on a ℚ-algebra because any ℤ-derivation on a ℚ-vector-space-structured ring is automatically ℚ-linear. `IsHausdorff (Ideal.span {x}) A`, unfolded via Mathlib's definition, asserts `⋂_n (⟨x⟩)^n · A = 0`, which since `(⟨x⟩)^n = ⟨x^n⟩` equals `⋂_n x^n · A = 0` — exactly the informal Hausdorff condition. `x ∈ nonZeroDivisors A` is by definition the non-zero-divisor condition. The conclusion and hypotheses align with the informal statement without adding or removing content.",
+  "duration_ms": 398574,
+  "cost_usd": 0.5021585
+}

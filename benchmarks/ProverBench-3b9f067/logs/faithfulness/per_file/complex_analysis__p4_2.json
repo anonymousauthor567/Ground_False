@@ -1,0 +1,8 @@
+{
+  "file": "complex_analysis__p4_2.lean",
+  "stem": "complex_analysis__p4_2",
+  "verdict": "stronger",
+  "reasoning": "The informal statement is a specific numerical identity: i^73 = i. The Lean theorem signature `i_pow_mod_4 (n : ℕ) : I ^ n = I ^ (n % 4)` states a general identity quantified over all natural numbers n. This general claim directly implies the specific informal claim (by taking n = 73, since 73 % 4 = 1 and I^1 = I), but the informal claim does not imply the general identity. The separately declared axiom `i_pow_73 : I ^ 73 = I` would match the informal statement, but the theorem signature being evaluated here is `i_pow_mod_4`, which asserts substantially more than the informal statement requires.",
+  "duration_ms": 122785,
+  "cost_usd": 0.23124350000000002
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-16.lean",
+  "stem": "proofnet-16",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: intersection of any collection of subspaces of V is a subspace of V. The Lean statement takes an arbitrary vector space V over a field F (via `AddCommGroup V`, `Field F`, `Module F V`), and encodes \"any collection of subspaces\" as an arbitrary indexed family `u : ι → Submodule F V` with ι an arbitrary Type*. It then asserts the existence of a submodule U whose underlying set (carrier) equals the set-theoretic intersection `⋂ i, (u i).carrier`. This is precisely the standard way of expressing \"the intersection is a subspace.\" The empty-index case is correctly handled (empty intersection = Set.univ = ↑⊤). No hypotheses are added or dropped relative to the informal claim, and the quantifier structure matches. This is logically equivalent to the informal statement.",
+  "duration_ms": 88153,
+  "cost_usd": 0.28156725
+}

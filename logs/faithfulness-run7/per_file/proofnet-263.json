@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-263.lean",
+  "stem": "proofnet-263",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes Herstein 2.5.52. G is a finite group (`[Group G] [Fintype G]`); φ : G ≃* G is a MulEquiv, which is exactly a group automorphism. The \"more than three-fourths\" hypothesis is encoded by introducing a Finset I contained in the inversion set (`∀ x ∈ I, φ x = x⁻¹`) with `|I| > 0.75 * |G|` — this is equivalent to requiring the set of inversion-fixed elements to have cardinality > 3/4·|G|, since from the informal hypothesis we can take I to be that whole set, and conversely the existence of such I forces the inversion set to have > 3/4·|G| elements. The conjunctive conclusion `(∀ x, φ x = x⁻¹) ∧ ∀ x y, x*y = y*x` faithfully captures \"φ(y) = y⁻¹ for all y\" and \"G is abelian\". The rational coercion correctly realizes the strict \"more than\" quantity. No hypotheses are added or dropped beyond a logically equivalent reformulation.",
+  "duration_ms": 110731,
+  "cost_usd": 0.34263625
+}

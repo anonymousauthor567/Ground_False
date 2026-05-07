@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a5.lean",
+  "stem": "putnam_1971_a5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully encodes the informal Putnam 1971 A5 problem. The hypothesis `a > 0 ∧ b > 0 ∧ a > b` matches \"positive integers with a > b\". The set `{s : ℕ | ¬∃ m n : ℕ, m*x + n*y = s}` correctly captures \"unattainable scores\" — natural number totals not expressible as m·a + n·b with m, n ≥ 0; since 0 is always attainable (m=n=0), the count equals the count of unattainable positive scores. Requiring `ncard = 35` works correctly because `ncard` returns 0 for infinite sets, ruling out non-coprime (a,b). The condition `¬∃ m n : ℕ, m*x + n*y = 58` expresses \"58 is unattainable\". The conclusion `pab a b ↔ a = 11 ∧ b = 8` is the standard characterization of \"find a and b\" problems, and (11, 8) is indeed the unique solution (verified by Sylvester's formula (a-1)(b-1)/2 = 35 plus the 58-unattainability constraint).",
+  "duration_ms": 143136,
+  "cost_usd": 0.49100625000000003
+}

@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1991_a2.lean",
+  "stem": "putnam_1991_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully formalizes the informal Putnam problem. All hypotheses are correctly encoded: A ≠ B (\"different\"), A^3 = B^3, A^2 * B = B^2 * A, and the conclusion A^2 + B^2 being invertible uses `Nonempty (Invertible ·)`, the standard Mathlib way to express that a matrix has a two-sided multiplicative inverse. The \"can A²+B² be invertible?\" question is correctly encoded via existential quantification combined with an iff to the solution Prop. The added `1 ≤ n` hypothesis makes explicit the implicit premise needed for \"different n×n matrices\" to be sensible (with n = 0 there is only one 0×0 matrix). Since `putnam_1991_a2_solution` is set to False, the theorem asserts that for every n ≥ 1, no such A, B exist with A²+B² invertible, which matches the intended answer \"No\".",
+  "duration_ms": 108466,
+  "cost_usd": 0.31150225
+}

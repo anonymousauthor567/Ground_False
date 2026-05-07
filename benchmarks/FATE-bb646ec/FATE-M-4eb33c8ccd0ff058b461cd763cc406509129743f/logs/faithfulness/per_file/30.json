@@ -1,0 +1,8 @@
+{
+  "file": "30.lean",
+  "stem": "30",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `σ.cycleType.lcm = orderOf σ` exactly matches Mathlib's existing theorem `lcm_cycleType` in `Mathlib/GroupTheory/Perm/Cycle/Type.lean`. By definition, `cycleType` is the multiset obtained by mapping `Finset.card ∘ support` over `cycleFactorsFinset`, where `cycleFactorsFinset` is the finset of disjoint cyclic permutations whose product is σ. For a cycle, the cardinality of its support is exactly its length, so `σ.cycleType` is exactly \"the multiset of lengths of the disjoint cycles in the cycle decomposition,\" and its `lcm` matches the informal \"lcm of the lengths\". The `[Fintype α] [DecidableEq α]` hypotheses are standard and necessary for `cycleType` to be defined (permutations need to have a well-defined cycle decomposition). The claim `orderOf σ = lcm` matches the informal claim exactly.",
+  "duration_ms": 105140,
+  "cost_usd": 0.31229700000000005
+}

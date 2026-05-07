@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-144.lean",
+  "stem": "proofnet-144",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The `^` operator in Lean 4 is right-associative, so `10^10^10^n` correctly parses as `10^(10^(10^n))`, matching $10^{10^{10^n}}$, and `10^10^n` as `10^(10^n)`. The hypothesis `n > 0` matches \"each positive integer $n$\", and the conclusion `¬ Nat.Prime (...)` matches \"is not prime\". Although `Nat` uses truncated subtraction, the subtrahend 1 is vastly smaller than the sum of positive powers of 10, so the expression equals the true integer value. No hypotheses are dropped or added beyond those in the informal statement.",
+  "duration_ms": 127133,
+  "cost_usd": 0.25399505
+}

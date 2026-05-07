@@ -1,0 +1,8 @@
+{
+  "file": "S_0086.lean",
+  "stem": "S_0086",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature uses `{A : Type u} [Category.{v} A] [Abelian A]` to express \"let A be an abelian category\" and `(P : A)` to universally quantify over objects P, matching the informal statement's setup. The functor `preadditiveCoyoneda.obj (op P)` is exactly Hom_A(P, -) : A ⥤ AddCommGrp (i.e., A → Ab), per the Mathlib definition (sends Y ↦ (P ⟶ Y) as an abelian group). `PreservesFiniteColimits` is Mathlib's canonical encoding of \"right exact\" (confirmed in `CategoryTheory/Limits/ExactFunctor.lean`), and `Functor.PreservesEpimorphisms` is the standard \"preserves epimorphisms\" predicate. The biconditional `↔` matches \"if and only if\". No hypotheses are added or dropped, no types are altered, and the target `AddCommGrp` matches Ab.",
+  "duration_ms": 147235,
+  "cost_usd": 0.56545575
+}

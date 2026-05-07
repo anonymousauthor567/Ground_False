@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2010_a2.lean",
+  "stem": "putnam_2010_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization captures the informal statement precisely. \"All positive integers n\" is encoded as `∀ n : ℤ, n > 0 → ...`, which is equivalent (positive integers are exactly positive elements of ℤ, and ℕ or ℤ with positivity constraint are interchangeable here via coercion to ℝ). The derivative `f'(x)` is encoded via `deriv f x`, which agrees with the classical derivative under the `Differentiable ℝ f` hypothesis. The coercions in `x + n` and `(...)/n` automatically send `n : ℤ` to `(↑n : ℝ)`, matching the informal arithmetic. The solution set `{f | ∃ c d : ℝ, ∀ x, f x = c*x + d}` is exactly the set of affine functions, which is the correct Putnam 2010 A2 answer. The \"find all\" formulation is properly rendered as set equality.",
+  "duration_ms": 70496,
+  "cost_usd": 0.16244599999999998
+}

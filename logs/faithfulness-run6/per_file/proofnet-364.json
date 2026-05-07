@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-364.lean",
+  "stem": "proofnet-364",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures the informal claim. (1) \"f is analytic everywhere in ℂ\" is encoded as `Differentiable ℂ f`, which is equivalent on ℂ via Mathlib's `analyticOn_univ_iff_differentiable`. (2) The Taylor coefficient cₙ at z₀ is encoded as `iteratedDeriv n f z₀ / n.factorial`, which matches the standard Taylor formula cₙ = f⁽ⁿ⁾(z₀)/n!, as confirmed by Mathlib's `AnalyticAt.hasFPowerSeriesAt` using `FormalMultilinearSeries.ofScalars`. (3) The quantifier structure \"for each z₀ at least one coefficient is 0\" is correctly encoded as `∀ z₀, ∃ n, ... = 0`. (4) The conclusion \"f is a polynomial\" is encoded as the existence of a `Polynomial ℂ` whose `aeval` equals f, which is the standard way to say f is a polynomial function. No hypotheses are added or dropped, and no quantifier structure is silently changed.",
+  "duration_ms": 112290,
+  "cost_usd": 0.41847299999999993
+}

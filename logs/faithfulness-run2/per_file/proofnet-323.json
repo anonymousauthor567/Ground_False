@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-323.lean",
+  "stem": "proofnet-323",
+  "verdict": "faithful",
+  "reasoning": "The informal statement hypothesizes |f(t) - f(x)| ≤ |t - x|² for all t, x ∈ ℝ, and concludes that f is constant. The Lean hypothesis `∀ x y, |f x - f y| ≤ |x - y| ^ 2` is exactly this condition (universal quantification over reals, matching the absolute value bound). The conclusion `∃ c, f = λ _x => c` asserts that f equals some constant function, which is the standard formalization of \"f is constant.\" The types match (f : ℝ → ℝ), and no extra hypotheses or weakenings are introduced. This is a faithful formalization.",
+  "duration_ms": 9725,
+  "cost_usd": 0.036138750000000004
+}

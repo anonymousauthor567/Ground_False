@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-172.lean",
+  "stem": "proofnet-172",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement correctly captures all three claims: (1) StrictMonoOn f on (a,b), (2) DifferentiableOn g on the image f''(a,b) (which is the natural domain of the inverse), and (3) the derivative formula deriv g (f x) = 1/deriv f x on (a,b). The hypothesis `deriv f x > 0` correctly encodes \"f'(x) > 0\" since Mathlib's `deriv` returns 0 at non-differentiable points, so positivity implicitly includes differentiability. The hypothesis `g(f(x)) = x` on (a,b) is the standard way to formalize \"let g be the inverse function\": it uniquely pins down g on f((a,b)) where the conclusions live, and such g is guaranteed to exist whenever f'>0 (via strict monotonicity). Since f((a,b)) is an open interval (f is strictly monotone and continuous), DifferentiableOn on that image coincides pointwise with DifferentiableAt, so `deriv g (f x)` is well-defined and equals the intended g'(f(x)). No hypotheses are missing or added beyond what is mathematically implicit.",
+  "duration_ms": 149689,
+  "cost_usd": 0.47744149999999996
+}

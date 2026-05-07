@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-185.lean",
+  "stem": "proofnet-185",
+  "verdict": "weaker",
+  "reasoning": "The informal statement \"the center of the product of two groups is the product of their centers\" most naturally asserts equality of subgroups: Z(G × H) = Z(G) × Z(H) as subgroups of G × H (this is Mathlib's canonical `center_prod : center (M × N) = center M ×ˢ center N`, and is what the standard elementwise textbook proof establishes). The Lean formalization, however, uses `Nonempty (center (G × H) ≃* (center G) × (center H))`, which asserts only the existence of an abstract group isomorphism between the two groups. Subgroup equality implies existence of an isomorphism (via the identity), but an abstract isomorphism does not imply that the two sides are the same subgroup of G × H — the MulEquiv need not respect any embedding into G × H. The Lean statement is therefore logically implied by, but does not imply, the informal claim, making it strictly weaker.",
+  "duration_ms": 368013,
+  "cost_usd": 1.0658937499999999
+}

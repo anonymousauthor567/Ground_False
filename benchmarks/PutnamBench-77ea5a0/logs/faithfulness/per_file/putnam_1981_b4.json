@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1981_b4.lean",
+  "stem": "putnam_1981_b4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures Putnam 1981 B4. The type `Matrix (Fin 5) (Fin 7) ℝ` correctly represents 5×7 real matrices. `VAB V` encodes the closure under linear combinations (rA + sB ∈ V), which is the subspace property the informal statement requires. `Vrank V k` correctly expresses \"V contains a matrix of rank k\" via existential quantification. Mathlib's `Matrix.rank` (column rank via `finrank` of `LinearMap.range mulVecLin`) agrees with the determinantal rank definition in the informal statement when working over ℝ (a field). The conclusion `Vrank V 3` matches \"V contains a matrix of rank 3\". The solution being `False` correctly encodes that the universal claim is to be disproved. No hypotheses have been added or dropped, and no quantifier structure has been altered.",
+  "duration_ms": 159643,
+  "cost_usd": 0.492014
+}

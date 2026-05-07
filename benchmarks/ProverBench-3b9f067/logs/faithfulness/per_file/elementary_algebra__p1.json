@@ -1,0 +1,8 @@
+{
+  "file": "elementary_algebra__p1.lean",
+  "stem": "elementary_algebra__p1",
+  "verdict": "stronger",
+  "reasoning": "The informal statement explicitly requires P to be \"a polynomial of degree n\" — this is an essential hypothesis, since the conclusion about P(n+1) is only well-defined via Lagrange interpolation through the n+1 values at i=0,...,n. The Lean formalization omits any degree constraint: there is no `P.degree = n` or `P.natDegree = n` hypothesis. With `hP` auto-included (standard Lean 4 behavior for propositional `variable`s whose type depends only on already-included variables), the Lean theorem quantifies over ALL P : Polynomial ℤ satisfying hP, not just those of degree n. For example, for n=0, Lean claims P(1)=1 whenever P(0)=0, but P(x)=2x gives P(0)=0 and P(1)=2≠1 — showing the Lean claim is strictly broader than the informal's. Logically, Lean implies Informal (restricting to degree-n polynomials), but Informal does not imply Lean (which ranges over additional polynomials). This is an explicit hypothesis dropped, not an implicit premise made explicit, so the correct verdict is stronger.",
+  "duration_ms": 1335713,
+  "cost_usd": 4.766334500000001
+}

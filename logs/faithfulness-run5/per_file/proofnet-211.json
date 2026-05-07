@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-211.lean",
+  "stem": "proofnet-211",
+  "verdict": "faithful",
+  "reasoning": "\"Not commutative\" for a binary operation means the negation of ∀ a b, a⋆b = b⋆a, which is classically equivalent to ∃ a b, a⋆b ≠ b⋆a. With the operation defined as a⋆b = a-b on ℤ, this becomes exactly `∃ a b : ℤ, a - b ≠ b - a`. The types (ℤ), the operation, and the quantifier structure all match the informal statement. The Lean formalization is logically equivalent to the informal claim.",
+  "duration_ms": 9324,
+  "cost_usd": 0.042182
+}

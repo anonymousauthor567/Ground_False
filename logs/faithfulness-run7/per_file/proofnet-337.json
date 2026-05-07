@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-337.lean",
+  "stem": "proofnet-337",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says: with k=1, for any nonzero x ∈ ℝ^1 = ℝ, there is no nonzero y ∈ ℝ with x·y = 0 (where · is the dot product). For 1-dimensional real vectors, the dot product is just ordinary multiplication. The Lean statement `∀ (x : ℝ), x ≠ 0 → ¬ ∃ (y : ℝ), y ≠ 0 ∧ x * y = 0` universally quantifies over nonzero x ∈ ℝ and asserts non-existence of nonzero y ∈ ℝ with x*y = 0. The universal quantification over x is the natural reading of \"prove that for such x...\". The types, hypothesis (x ≠ 0), and conclusion (no nonzero y with product zero) all match exactly.",
+  "duration_ms": 9765,
+  "cost_usd": 0.04603775
+}

@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p13_4.lean",
+  "stem": "calculus__p13_4",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem expresses the informal claim via a biconditional stating that the specific equation y = 8√3(x - π/3) + 4 (which algebraically equals y = 8√3·x + 4 - 8√3·π/3, matching the informal exactly) describes the same line as the point-slope form y - f(π/3) = (2·sec²(π/3)·tan(π/3))·(x - π/3). The RHS is the canonical tangent-line equation at (π/3, f(π/3)) since 2·sec²(x)·tan(x) is the standard expression for the derivative of sec²(x). The iff holding for all (x,y) is equivalent to the conjunction f(π/3) = 4 AND 2·sec²(π/3)·tan(π/3) = 8√3 — which is exactly what the informal tangent line claim requires (correct anchor point and correct slope equal to f'(π/3)). The formulation is somewhat indirect (via iff of two line equations instead of a direct equality), but it is mathematically equivalent to the informal statement.",
+  "duration_ms": 372571,
+  "cost_usd": 0.89510275
+}

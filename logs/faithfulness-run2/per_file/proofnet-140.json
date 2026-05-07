@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-140.lean",
+  "stem": "proofnet-140",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that √(n+1) − √n → 0 as n → ∞ over natural numbers. The Lean theorem uses `Tendsto (λ n => sqrt (n+1) - sqrt n) atTop (𝓝 0)`. The bound `n` in the lambda shadows the outer `(n : ℕ)` parameter; Lean will elaborate its type, and with `Real.sqrt : ℝ → ℝ` plus the default numeric choice, this is naturally `ℕ` (giving the standard sequence limit matching the informal claim). The outer unused `(n : ℕ)` parameter is harmless — since `ℕ` is inhabited, a universal quantification over an unused variable is logically equivalent to the conclusion alone. Thus the Lean statement expresses the same mathematical claim as the informal one.",
+  "duration_ms": 41829,
+  "cost_usd": 0.15270925000000002
+}

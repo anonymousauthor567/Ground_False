@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-252.lean",
+  "stem": "proofnet-252",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the polynomial $x^4+4x^3+6x^2+2x+1$ is irreducible in $\\mathbb{Z}[x]$. The Lean statement uses `Irreducible` applied to exactly this polynomial, typed as `Polynomial ℤ`, which corresponds to $\\mathbb{Z}[x]$. The coefficients (1, 4, 6, 2, 1) match exactly, and Mathlib's `Irreducible` predicate corresponds to the standard notion of irreducibility (not a unit and any factorization has at least one unit factor). There are no added or missing hypotheses or type mismatches.",
+  "duration_ms": 8701,
+  "cost_usd": 0.038553500000000004
+}

@@ -1,0 +1,8 @@
+{
+  "file": "number_theory__p18_1.lean",
+  "stem": "number_theory__p18_1",
+  "verdict": "weaker",
+  "reasoning": "The informal statement claims that the greatest negative element of B = {m+n : 7m+12n=22, m,n ∈ ℤ} is -4. The Lean file correctly defines A and B, but the theorem signature `particular_solution` only asserts `∃ m n : Int, 7 * m + 12 * n = 22`, i.e. that the Diophantine equation has at least one integer solution. This is a helper lemma stating B is nonempty, which is strictly weaker than the informal claim: it does not mention -4, does not say -4 ∈ B, and does not establish that -4 is maximal among the negative elements of B. The informal claim implies the Lean claim (any witness like (-4, ·) gives a solution), but the Lean claim does not imply the informal claim.",
+  "duration_ms": 26545,
+  "cost_usd": 0.0651925
+}

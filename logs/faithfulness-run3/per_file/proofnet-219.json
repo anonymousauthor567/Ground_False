@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-219.lean",
+  "stem": "proofnet-219",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show that for any groups A and B, the direct product A × B is isomorphic to B × A. The Lean statement quantifies over arbitrary types A B with Group instances and asserts Nonempty (A × B ≃* B × A), which is the standard Mathlib encoding of \"there exists a group isomorphism between A × B and B × A\". The `≃*` (MulEquiv) is the appropriate notion of isomorphism for multiplicative structures, and on the product of groups it automatically inherits the direct product group structure. No hypotheses are added or dropped, and the conclusion matches exactly.",
+  "duration_ms": 19274,
+  "cost_usd": 0.03997825000000001
+}

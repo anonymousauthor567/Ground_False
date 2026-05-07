@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-230.lean",
+  "stem": "proofnet-230",
+  "verdict": "weaker",
+  "reasoning": "The hypothesis `H.index = n` together with `n > 0` correctly formalizes \"H has finite index n\" because Mathlib encodes infinite index as 0. However, the conclusion `K.index ≤ n.factorial` is logically weaker than the informal \"|G:K| ≤ n!\". In Mathlib, `Subgroup.index` returns 0 for subgroups of infinite index, so any K with infinite index trivially satisfies `K.index = 0 ≤ n.factorial`. For instance, in any infinite group, the trivial subgroup {e} witnesses the Lean existence claim (it is normal, contained in H, and has index 0), but it does not witness the informal claim, which implicitly requires K to actually have finite index bounded by n!. So the informal statement implies the Lean statement, but not conversely.",
+  "duration_ms": 87463,
+  "cost_usd": 0.24570899999999996
+}

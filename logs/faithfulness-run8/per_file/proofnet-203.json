@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-203.lean",
+  "stem": "proofnet-203",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement `(S * T).Eigenvalues = (T * S).Eigenvalues` captures \"ST and TS have the same eigenvalues\": `Eigenvalues f` is defined as the subtype `{μ : R // f.HasEigenvalue μ}`, and in Lean 4 with propext/funext, type equality of subtypes is equivalent to pointwise iff of the predicates. The `FiniteDimensional F V` hypothesis surfaces an implicit premise needed for the claim to be true: in infinite dimensions, ST and TS can differ on the 0-eigenvalue (e.g., d/dx and multiplication-by-x on F[x] give TS with 0 as eigenvalue but ST without). The statement holds fully in finite dimensions. The ambient setting (`Field F`, `AddCommGroup V`, `Module F V`) correctly encodes \"S, T ∈ L(V)\", and multiplication in `End F V` is composition. Thus the Lean formalization is a faithful rendering with the implicit finite-dimensional premise made explicit.",
+  "duration_ms": 508374,
+  "cost_usd": 1.6740062500000001
+}

@@ -1,0 +1,10 @@
+{
+  "file": "proofnet-83.lean",
+  "stem": "proofnet-83",
+  "informal": "Show that any subgroup of order $p^{n-1}$ in a group $G$ of order $p^n$ is normal in $G$.",
+  "lean": "\ntheorem Herstein_exercise_2_11_22 {p : ℕ} {n : ℕ} {G : Type*} [Fintype G]\n  [Group G] (hp : Nat.Prime p) (hG : card G = p ^ n) {K : Subgroup G}\n  [Fintype K] (hK : card K = p ^ (n-1)) :\n  K.Normal",
+  "verdict": "faithful",
+  "reasoning": "The informal claim is the standard result that an index-p subgroup of a p-group is normal. The Lean signature captures this: G is a finite group of order p^n with p prime, K is a subgroup of order p^(n-1), and the conclusion is K.Normal. The edge cases introduced by Nat subtraction (n=0 gives n-1=0, so |G|=1 and |K|=1, trivially normal; n=1 gives |K|=1, also trivially normal) do not falsify the claim, so no spurious strengthening or weakening occurs. Fintype instances on G and K are natural finiteness witnesses consistent with \"group of order p^n\". The hypothesis structure and conclusion match the informal statement exactly.",
+  "duration_ms": 10173,
+  "cost_usd": 0.05239825
+}

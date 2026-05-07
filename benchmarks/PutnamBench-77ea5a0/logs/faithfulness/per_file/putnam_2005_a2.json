@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_a2.lean",
+  "stem": "putnam_2005_a2",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly captures the informal definition: S = Icc 1 n × Icc 1 3 matches the set, the `unit` predicate correctly encodes Euclidean unit distance for integer lattice points (differ by 1 in exactly one coordinate), and the `rooktour` condition encodes all three clauses — the ∃! over Icc 1 (3n) together with |S| = 3n forces p restricted to Icc 1 (3n) to be a bijection onto S, giving both clauses (i) and (iii), while the adjacency condition captures (ii). The boundary conditions p 0 = 0 and p i = 0 for i > 3n are pure encoding artifacts to make the ℕ → ℤ × ℤ function uniquely determined by its values on Icc 1 (3n), so encard of this set equals the number of rook tours. The endpoints p 1 = (1,1) and p(3n) = (n,1) are correctly imposed. The hypothesis npos : n > 0 is an implicit premise needed for the problem to be well-posed. The solution `fun n ↦ if n = 1 then 0 else 2^(n-2)` matches the known Putnam 2005 A2 answer.",
+  "duration_ms": 330876,
+  "cost_usd": 0.78316725
+}

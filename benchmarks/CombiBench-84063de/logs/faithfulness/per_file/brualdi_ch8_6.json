@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch8_6.lean",
+  "stem": "brualdi_ch8_6",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal problem. The sum $\\sum_{k=0}^{n} h_k$ is correctly represented as `∑ i ∈ Finset.range (n + 1), h i` (since `Finset.range (n+1) = {0, 1, ..., n}`). The function $h_n = 2n^2 - n + 3$ is introduced abstractly via `h : ℕ → ℝ` with the defining hypothesis `h' : ∀ i, h i = 2 * i ^ 2 - i + 3`, which is logically equivalent to defining `h` directly. Since `h` maps to ℝ, the expression `2 * i ^ 2 - i + 3` is computed in ℝ with real subtraction, avoiding any truncation issue. The universal quantification over `n` matches \"find a formula\" valid for all n ≥ 0. The `brualdi_ch8_6_solution` placeholder is the standard pattern for the requested formula. No hypotheses have been silently added or dropped.",
+  "duration_ms": 54334,
+  "cost_usd": 0.1449605
+}

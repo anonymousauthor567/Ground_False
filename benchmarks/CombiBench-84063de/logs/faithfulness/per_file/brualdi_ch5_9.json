@@ -1,0 +1,8 @@
+{
+  "file": "brualdi_ch5_9.lean",
+  "stem": "brualdi_ch5_9",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly what the informal problem asks: evaluate the sum $\\sum_{k=0}^{n}(-1)^{k}\\binom{n}{k}10^{k}$. The range `Finset.range (n+1)` gives the indices $\\{0,1,\\ldots,n\\}$, matching the bounds $k=0$ to $n$. The summand `(-1 : ℤ) ^ k * (n.choose k) * 10 ^ k` literally matches $(-1)^k \\binom{n}{k} 10^k$ in the integers. The \"evaluate\" task is encoded by requiring the sum to equal `brualdi_ch5_9_solution n`, a function that must be given a concrete closed-form definition — this is the standard faithful formalization of \"evaluate\" problems. No hypotheses are added or dropped, and the type ℤ is appropriate for the alternating-sign sum.",
+  "duration_ms": 56446,
+  "cost_usd": 0.155135
+}

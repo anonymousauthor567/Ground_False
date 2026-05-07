@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1984_b1.lean",
+  "stem": "putnam_1984_b1",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. The hypothesis `hf` correctly defines f(n) = 1! + 2! + ... + n! for positive n by summing factorials over Set.Icc 1 n (which is {1,2,...,n}). The conclusion quantifies over n ≥ 1 (matching \"positive integer n\") and states the recurrence f(n+2) = P(n)f(n+1) + Q(n)f(n), with the integer values coerced to ℝ so they can be compared with real-polynomial evaluations. Using polynomials over ℝ instead of ℤ does not weaken or strengthen the claim here, since the equation at integer inputs is equivalent under the integer-to-real embedding. The standard Putnam \"find\" encoding via `putnam_1984_b1_solution` is appropriate. No hypotheses are added or dropped silently.",
+  "duration_ms": 177861,
+  "cost_usd": 0.5254184999999999
+}

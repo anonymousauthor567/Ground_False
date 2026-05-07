@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2005_a4.lean",
+  "stem": "putnam_2005_a4",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization faithfully captures the informal claim: ±1 entries via `Hentries`, mutually orthogonal rows via Mathlib's `HasOrthogonalRows` (defined as `∀ i₁ ≠ i₂, A i₁ ⬝ᵥ A i₂ = 0`), and the existence of an a×b all-ones submatrix via `Ssub` (∃ injective rri, cri with S = H.submatrix rri cri) combined with `Sentries`. The conclusion `a * b ≤ n` matches. The extra hypotheses are either redundant or surface implicit premises: `a ≤ n` and `b ≤ n` are already implied by the injective functions in `Ssub`; `npos` is then implied by `1 ≤ a ∧ a ≤ n`; and `1 ≤ a ∧ 1 ≤ b` makes explicit the standard convention that an \"a×b submatrix\" has positive dimensions (with the trivial a=0 or b=0 cases making ab ≤ n hold vacuously, so this doesn't change the mathematical content). Using ℝ rather than ℤ is inconsequential for this claim.",
+  "duration_ms": 250398,
+  "cost_usd": 0.48278925
+}

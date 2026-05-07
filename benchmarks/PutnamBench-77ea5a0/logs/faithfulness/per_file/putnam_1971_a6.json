@@ -1,0 +1,8 @@
+{
+  "file": "putnam_1971_a6.lean",
+  "stem": "putnam_1971_a6",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature accurately captures the informal statement. The hypothesis `∀ n : ℤ, n > 0 → ∃ m : ℤ, (n : ℝ)^c = m` correctly expresses \"for every positive integer n, n^c is an integer\" — with `(n : ℝ)^c` being `Real.rpow` (confirmed via Mathlib's `noncomputable instance : Pow ℝ ℝ := ⟨rpow⟩`), which is the standard interpretation of raising a positive integer to a real power. Quantifying over `n : ℤ` with `n > 0` is equivalent to quantifying over positive naturals after casting to ℝ. The conclusion `∃ m : ℤ, m ≥ 0 ∧ c = m` correctly states that c equals a non-negative integer (m is coerced to ℝ by the equality). Hypothesis structure, conclusion, and types all match the informal claim without adding or dropping mathematical content.",
+  "duration_ms": 88188,
+  "cost_usd": 0.28818849999999996
+}

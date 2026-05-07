@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-143.lean",
+  "stem": "proofnet-143",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim. \"Infinitely many\" is expressed correctly as ∀ N, ∃ n > N, which is the standard equivalent. Using n : ℕ instead of ℤ is equivalent because any integer expressible as a sum of two squares is necessarily ≥ 0, so the set of qualifying integers coincides with the set of qualifying naturals. Using i : Fin 6 → ℕ for the square bases is equivalent to allowing integers, since a² = |a|² means every sum of two integer squares equals a sum of two natural-number squares. The Fin 6 packaging just groups six existentially quantified naturals (two per term n, n+1, n+2). No hypotheses are silently added or dropped.",
+  "duration_ms": 35951,
+  "cost_usd": 0.12674325
+}

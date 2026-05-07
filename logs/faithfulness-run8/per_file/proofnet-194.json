@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-194.lean",
+  "stem": "proofnet-194",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show $x^2+x+1$ is irreducible in $\\mathbb{F}_2$. The Lean statement formalizes this by quantifying over any field $F$ with `Fintype.card F = 2`, rather than using `ZMod 2` directly. Since all fields of cardinality 2 are (uniquely) isomorphic to $\\mathbb{F}_2 = \\mathbb{Z}/2\\mathbb{Z}$, and irreducibility of a polynomial (with coefficients coming from $\\mathbb{Z}$ via the canonical ring hom) is preserved under ring isomorphism, the universally quantified form is logically equivalent to the specific assertion over $\\mathbb{F}_2$. This is a standard and faithful way to encode \"in $\\mathbb{F}_2$\" in Lean: it neither weakens nor strengthens the claim.",
+  "duration_ms": 64495,
+  "cost_usd": 0.21372124999999997
+}

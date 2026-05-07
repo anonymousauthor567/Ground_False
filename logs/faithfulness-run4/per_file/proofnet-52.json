@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-52.lean",
+  "stem": "proofnet-52",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature correctly formalizes \"a group of order 312 has a normal Sylow p-subgroup for some prime p dividing its order.\" G is universally quantified as any finite group with card G = 312. The existential `∃ (p : ℕ) (P : Sylow p G), p.Prime ∧ (p ∣ card G) ∧ P.Normal` captures \"some prime p dividing |G|\" via the explicit conjuncts `p.Prime` and `p ∣ card G`, and \"a normal Sylow p-subgroup\" via `Sylow p G` together with `P.Normal`. Mathlib's `Sylow p G` is defined as a maximal p-subgroup for any natural p, and `P.Normal` denotes normality of the underlying subgroup, matching the informal meaning. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 94473,
+  "cost_usd": 0.32319725
+}

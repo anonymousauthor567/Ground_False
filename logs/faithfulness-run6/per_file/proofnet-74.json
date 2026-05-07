@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-74.lean",
+  "stem": "proofnet-74",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully encodes the informal claim $C(x^{-1}ax) = x^{-1} C(a) x$. Mathlib's `centralizer {a}` unfolds to `{c | a * c = c * a}`, matching the standard centralizer definition. The LHS `centralizer {x⁻¹ * a * x}` is $C(x^{-1}ax)$. The RHS `(fun g => x⁻¹ * g * x) '' (centralizer {a})` is the image $\\{x^{-1} g x : g \\in C(a)\\}$, which is precisely the conjugate set $x^{-1} C(a) x$. The implicit universal quantification over `G`, `a`, `x` is properly captured by the binders in the theorem signature, with no extra or missing hypotheses.",
+  "duration_ms": 33087,
+  "cost_usd": 0.166658
+}

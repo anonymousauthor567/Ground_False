@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-284.lean",
+  "stem": "proofnet-284",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement uses `IsPrimitiveRoot a (p - 1)` for `a : ZMod p`, which by Mathlib's definition means `a^(p-1) = 1` and `orderOf a = p - 1` — precisely the number-theoretic notion \"a is a primitive root modulo p\" (a generator of (ℤ/pℤ)* of order φ(p) = p - 1). The hypotheses `p.Prime` and `p = 4*t + 1` directly encode \"p is a prime of the form 4t + 1\"; note that primality forces t ≥ 1 automatically. The biconditional matches the informal \"iff\" exactly. For the degenerate case a = 0 in ZMod p, both sides are false (since 0^(p-1) ≠ 1), making the iff vacuously true, which is consistent with the informal reading where non-units can never be primitive roots. This is a strictly faithful formalization; the renamed \"_corrected\" version fixes the original Mathlib-idiomatic mismatch (where `IsPrimitiveRoot a p` would vacuously trivialize the claim by Fermat's little theorem).",
+  "duration_ms": 125523,
+  "cost_usd": 0.44178525
+}

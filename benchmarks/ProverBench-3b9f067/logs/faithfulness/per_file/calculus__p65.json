@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p65.lean",
+  "stem": "calculus__p65",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts that the derivative of g(x) = cos x is g'(x) = -sin x. The Lean signature states `deriv (fun x => Real.cos x) = fun x => -Real.sin x`, i.e., the derivative function of cos equals the function -sin on ℝ. This is exactly the standard formalization (cf. Mathlib's `Real.deriv_cos'`: `deriv cos = fun x => -sin x`). The types are the canonical real cosine and sine, and the conclusion matches pointwise for all x via function extensionality. No hypotheses are added or dropped, and the conclusion is neither weakened (e.g., to a single point) nor strengthened (e.g., to strict differentiability or analyticity). Hence the formalization is strictly faithful.",
+  "duration_ms": 53959,
+  "cost_usd": 0.104432
+}

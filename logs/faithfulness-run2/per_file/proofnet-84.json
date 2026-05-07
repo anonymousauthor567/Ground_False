@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-84.lean",
+  "stem": "proofnet-84",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asks to show there are infinitely many solutions to x² = -1 in the quaternions. The Lean statement asserts that the set {x : Quaternion ℝ | x^2 = -1} is Infinite. Quaternion ℝ is the standard real quaternions (Hamilton's quaternions), the set-builder captures exactly the solutions of x² = -1, and `Infinite` is Mathlib's predicate for having infinitely many elements. The quantifier, ambient type, and conclusion all match what the informal statement requires.",
+  "duration_ms": 6225,
+  "cost_usd": 0.030115750000000004
+}

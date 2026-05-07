@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-300.lean",
+  "stem": "proofnet-300",
+  "verdict": "faithful",
+  "reasoning": "The Lean theorem captures the informal claim exactly. The informal statement posits a continuous map p : X → Y and hypothesizes the existence of a continuous section f : Y → X with p ∘ f = id_Y, concluding that p is a quotient map. The Lean signature has `Continuous p`, the hypothesis `∃ f : Y → X, Continuous f ∧ p ∘ f = id` (the `id` here is inferred as `id : Y → Y` since `p ∘ f : Y → Y`), and the conclusion `IsQuotientMap p`. Mathlib's `IsQuotientMap` (in `Topology/Defs/Induced.lean`) requires surjectivity and that the codomain topology equals the coinduced topology, which is the standard definition. The ambient types X and Y are arbitrary topological spaces, matching the informal statement. No hypotheses are added or omitted.",
+  "duration_ms": 32149,
+  "cost_usd": 0.12370625
+}

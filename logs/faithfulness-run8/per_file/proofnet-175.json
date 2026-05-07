@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-175.lean",
+  "stem": "proofnet-175",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement faithfully captures Rudin's Exercise 5.15. Twice-differentiability on (a,∞) is correctly encoded via `hf'` (differentiability of f) plus `hf''` (differentiability of deriv f) — since (a,∞) is open, `deriv f` and `deriv (deriv f)` correctly represent f' and f'' on this set. The three sets `{|f x| | x ∈ Ioi a}` etc. match the informal definitions, and M0, M1, M2 are defined as their sSups via `hM0, hM1, hM2`. The boundedness hypotheses `hbdd0, hbdd1, hbdd2` are not extra assumptions: Rudin's phrase \"M_i are the least upper bounds\" implicitly requires the sets to be bounded above (otherwise the LUB wouldn't exist in ℝ), and in Lean `sSup` of an unbounded set returns 0 by convention, so `hbdd*` are necessary to make `sSup` match the informal \"least upper bound\". The conclusion `M1^2 ≤ 4 * M0 * M2` matches exactly.",
+  "duration_ms": 201911,
+  "cost_usd": 0.693357
+}

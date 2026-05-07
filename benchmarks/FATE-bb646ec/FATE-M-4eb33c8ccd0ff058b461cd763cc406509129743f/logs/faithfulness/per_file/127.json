@@ -1,0 +1,8 @@
+{
+  "file": "127.lean",
+  "stem": "127",
+  "verdict": "faithful",
+  "reasoning": "The informal statement says that in a monoid G, b is the inverse of a iff aba = a and ab²a = 1. The Lean LHS `b * a = 1 ∧ a * b = 1` is exactly the standard definition of \"b is the inverse of a\" in a monoid (two-sided inverse). The Lean RHS `a * b * a = a ∧ a * b ^ 2 * a = 1` correctly encodes aba = a and ab²a = 1: `*` is left-associative so `a * b * a` is (a*b)*a = aba, and `^` binds tighter than `*` so `a * b ^ 2 * a` is a*(b²)*a = ab²a. The typeclass `[Monoid G]` matches \"monoid with identity\", and the iff is stated universally over a, b : G, matching the informal quantification. No hypotheses are added or dropped, no types or operations are changed, so the formalization is logically equivalent to the informal claim.",
+  "duration_ms": 570247,
+  "cost_usd": 0.30288375000000006
+}

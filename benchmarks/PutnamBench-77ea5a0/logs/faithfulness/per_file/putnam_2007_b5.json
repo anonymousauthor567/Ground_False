@@ -1,0 +1,8 @@
+{
+  "file": "putnam_2007_b5.lean",
+  "stem": "putnam_2007_b5",
+  "verdict": "faithful",
+  "reasoning": "The Lean signature faithfully captures the informal statement. The hypothesis `k > 0` matches \"k is a positive integer\". `P : Finset.range k → Polynomial ℝ` provides exactly k polynomials indexed by {0, 1, ..., k-1} via the coercion to subtype, matching $P_0, P_1, \\ldots, P_{k-1}$. The quantifier `∀ n : ℤ` matches \"for any integer n\". The equation `⌊(n : ℝ) / k⌋ ^ k = ∑ i : Finset.range k, (P i).eval (n : ℝ) * ⌊(n : ℝ) / k⌋ ^ (i : ℕ)` exactly matches the informal equation, summing over i = 0 to k-1. Using `Polynomial ℝ` (rather than over ℤ or ℚ) is reasonable since the informal statement doesn't specify the coefficient ring, and the existential is satisfied by polynomials over ℝ iff it's satisfied by integer-coefficient ones in this context.",
+  "duration_ms": 437939,
+  "cost_usd": 1.2272070000000002
+}

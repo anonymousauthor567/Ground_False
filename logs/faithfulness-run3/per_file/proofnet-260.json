@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-260.lean",
+  "stem": "proofnet-260",
+  "verdict": "faithful",
+  "reasoning": "The informal statement assumes G is a group where every subgroup is normal (a \"Dedekind group\" / Hamiltonian-or-abelian condition), and asks for the existence of some exponent j with ba = a^j b. The Lean statement encodes this exactly: `[Group G]` gives the group, `hG : ∀ (H : Subgroup G), H.Normal` says every subgroup is normal, and the conclusion `∃ (j : ℤ), b*a = a^j * b` matches \"ba = a^j b for some j\". The choice of ℤ for j is correct: since ⟨a⟩ is normal, bab⁻¹ ∈ ⟨a⟩ = {a^n : n ∈ ℤ}, so j is naturally an integer (possibly negative), matching Herstein's standard convention. No hypotheses are added or dropped, and the quantifier structure matches.",
+  "duration_ms": 17760,
+  "cost_usd": 0.0524095
+}

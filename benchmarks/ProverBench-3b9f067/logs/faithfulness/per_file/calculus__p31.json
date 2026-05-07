@@ -1,0 +1,8 @@
+{
+  "file": "calculus__p31.lean",
+  "stem": "calculus__p31",
+  "verdict": "faithful",
+  "reasoning": "The informal statement \"∫_0^a √(a²-x²) dx = a²π/4\" implicitly assumes a > 0 (or at least a ≥ 0), since for a < 0 the integral is over the empty interval Icc 0 a and equals 0, while a²π/4 > 0 — so the literal unrestricted claim is false. The Lean formalization declares `variable {a : ℝ} (ha : 0 < a)`, and in Lean 4 auto-inclusion rules, the hypothesis ha : 0 < a is included in the theorem because its type depends on a, which is used. This surfaces the implicit positivity premise needed for the identity to hold, which is exactly the intended mathematical reading (the integral represents the area of a quarter disk of radius a). The integrand sqrt(a²-x²), the bounds Set.Icc 0 a, and the conclusion a²*π/4 all match the informal notation exactly. The only quibble is excluding a = 0, a degenerate case; this is a standard implicit-premise surfacing, not a narrowing drift, so it should be judged faithful.",
+  "duration_ms": 421682,
+  "cost_usd": 1.4606865
+}

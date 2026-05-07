@@ -1,0 +1,8 @@
+{
+  "file": "S_0050.lean",
+  "stem": "S_0050",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement accurately captures the informal claim. `coyoneda.obj (Opposite.op X)` is precisely the hom-functor `Y ↦ (X ⟶ Y)`, i.e., `Hom_{Set}(X, -)` when `X : Type u`. `PreservesFilteredColimits` is Mathlib's standard notion of preserving filtered colimits (specifically `PreservesFilteredColimitsOfSize.{u,u}` for the `Type u ⥤ Type u` functor), matching the informal definition of \"compact\". `Finite X` is the standard proposition stating X is a finite set. The biconditional thus asserts exactly: an object X in Set is compact iff it is finite. Universes are handled consistently (X : Type u, with the hom-functor landing in Type u), so no silent strengthening or weakening occurs.",
+  "duration_ms": 124673,
+  "cost_usd": 0.49502700000000005
+}

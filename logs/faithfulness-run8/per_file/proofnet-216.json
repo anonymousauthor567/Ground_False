@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-216.lean",
+  "stem": "proofnet-216",
+  "verdict": "faithful",
+  "reasoning": "The informal statement asserts $|ab| = |ba|$ for all $a, b$ in a group $G$, where $|\\cdot|$ is the standard notation for the order of a group element. The Lean signature takes an arbitrary `Group G` and arbitrary elements `a b : G`, and concludes `orderOf (a * b) = orderOf (b * a)`. This captures exactly the same claim: universal quantification over a generic group and generic pairs of elements, with the orders of $ab$ and $ba$ equated. No hypotheses are added or dropped, and the conclusion matches directly. The framing word \"Deduce\" in the informal statement is merely rhetorical and does not alter the mathematical content.",
+  "duration_ms": 24804,
+  "cost_usd": 0.07781800000000001
+}

@@ -1,0 +1,8 @@
+{
+  "file": "aime_2024ii_p7.lean",
+  "stem": "aime_2024ii_p7",
+  "verdict": "faithful",
+  "reasoning": "The Lean formalization correctly encodes the informal statement. The set S correctly captures 4-digit integers (with a ∈ [1,9], b,c,d ∈ [0,9]) satisfying the four divisibility conditions corresponding to replacing each digit with 1: changing a→1 gives 1000+100b+10c+d, changing b→1 gives 1000a+100+10c+d, changing c→1 gives 1000a+100b+10+d, and changing d→1 gives 1000a+100b+10c+1. The `IsGreatest` predicate correctly formalizes \"greatest such integer\" (membership plus upper bound). The conclusion `n/1000 + n%1000 = 699` uses natural number division and modulo, which matches Q (quotient) and R (remainder) of N divided by 1000. The set builder correctly extracts the actual number from the 4-tuple. The formalization is logically equivalent to the informal claim.",
+  "duration_ms": 104732,
+  "cost_usd": 0.32492975
+}

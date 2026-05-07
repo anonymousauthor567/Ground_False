@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-245.lean",
+  "stem": "proofnet-245",
+  "verdict": "faithful",
+  "reasoning": "The Lean statement asserts exactly what the informal statement claims: for a surjective ring homomorphism φ: R → S, the image of the center of R is contained in the center of S. The hypotheses match (`Ring R`, `Ring S`, `φ : R →+* S` is a ring homomorphism, `Function.Surjective φ`), and the conclusion `φ '' (center R) ⊆ center S` is precisely image-of-center-contained-in-center. With `open Set`, `center R` resolves to `Set.center R = { z | IsMulCentral z }`, which for an associative ring coincides exactly with the standard ring-theoretic center (the associativity conditions in `IsMulCentral` hold automatically). No hypotheses are added or dropped, types match, and the quantifier structure is preserved.",
+  "duration_ms": 146895,
+  "cost_usd": 0.36026199999999997
+}

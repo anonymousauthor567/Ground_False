@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-23.lean",
+  "stem": "proofnet-23",
+  "verdict": "faithful",
+  "reasoning": "The informal statement (Axler's polarization identity) uses Axler's convention where the inner product is linear in the first argument. Mathlib uses the opposite convention (conjugate-linear in first), so Mathlib's ⟪u,v⟫ equals the conjugate of Axler's ⟨u,v⟩. Under this convention change, the sign of the imaginary-part terms flips: Axler writes ‖u+iv‖²i − ‖u−iv‖²i, while the correct Mathlib formula uses (‖u−iv‖² − ‖u+iv‖²)·i, which is exactly what the Lean file has. This matches Mathlib's own `inner_eq_sum_norm_sq_div_four` in `Analysis/InnerProductSpace/Basic.lean`. Both statements express the identical mathematical content (the polarization identity), just rendered in their respective conventions. The Lean hypotheses `NormedAddCommGroup V` and `InnerProductSpace ℂ V` correctly encode \"complex inner-product space\", and `u v : V` are universally quantified as in the informal statement. This is a faithful formalization.",
+  "duration_ms": 127624,
+  "cost_usd": 0.47259025
+}

@@ -1,0 +1,8 @@
+{
+  "file": "proofnet-96.lean",
+  "stem": "proofnet-96",
+  "verdict": "faithful",
+  "reasoning": "The informal statement defines the von Mangoldt function Λ(n) = log p if n = p^k (k ≥ 1) else 0, and asks to prove Λ(n) = ∑_{d|n} μ(n/d) log d. The Lean formulation introduces `l` via two hypotheses that exactly characterize Λ: `hl` sets l(p^n) = log p for prime p and positive n, and `hl1` sets l m = 0 for non-prime-powers (using Mathlib's `IsPrimePow`, which is defined as ∃ p k, Prime p ∧ 0 < k ∧ p^k = n — matching the standard convention, including Λ(1) = 0 and Λ(0) = 0). Together these uniquely determine l on all of ℕ because prime power representations are unique. The conclusion `l n = ∑ d ∈ Nat.divisors n, μ(n/d) * log d` is exactly the Dirichlet convolution (μ * log)(n) claimed by the informal identity. The types, quantifiers, and coercions are correct.",
+  "duration_ms": 160306,
+  "cost_usd": 0.4800635000000001
+}
