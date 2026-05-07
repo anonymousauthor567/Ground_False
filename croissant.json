@@ -1,0 +1,173 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "containedIn": "cr:containedIn",
+    "data": {"@id": "cr:data", "@type": "@json"},
+    "dataType": {"@id": "cr:dataType", "@type": "@vocab"},
+    "equivalentProperty": "cr:equivalentProperty",
+    "examples": {"@id": "cr:examples", "@type": "@json"},
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "name": "ProofNet-Verified",
+  "description": "A cleaned and verified version of the ProofNet dataset upgraded to Lean v4.28.0. Contains 367 formally verified undergraduate-level mathematics theorem statements with proofs, covering real and complex analysis, linear algebra, abstract algebra, and topology.",
+  "url": "https://github.com/anonymousauthor567/Ground_False",
+  "license": "https://spdx.org/licenses/Apache-2.0.html",
+  "version": "1.0.0",
+  "datePublished": "2026-05-07",
+  "citeAs": "@misc{proofnetverified2026, title={ProofNet-Verified}, year={2026}, url={https://github.com/anonymousauthor567/Ground_False}}",
+  "conformsTo": "http://mlcommons.org/croissant/1.1",
+  "rai:dataLimitations": "The dataset covers only undergraduate-level pure mathematics from a fixed set of English-language textbooks (Artin, Axler, Dummit-Foote, Herstein, Ireland-Rosen, Munkres, Pugh, Rudin, Shakarchi, and selected Putnam/Cambridge Tripos problems). It does not cover applied mathematics, statistics, computer science theory, or graduate-level topics. All formal statements target Lean 4 (v4.28.0) with Mathlib; results may not transfer to other proof assistants (Coq, Isabelle, etc.). The dataset is not recommended for evaluating general natural language understanding or for tasks outside formal mathematics.",
+  "rai:dataBiases": "The dataset inherits a selection bias toward canonical Western undergraduate mathematics curricula. Topics such as real/complex analysis, abstract algebra, linear algebra, and topology are well-represented, while combinatorics, number theory beyond introductory level, and geometry are underrepresented. The natural language statements are in English only, reflecting the source textbooks. There is no demographic or population data involved.",
+  "rai:personalSensitiveInformation": "This dataset contains no personal or sensitive information. All content consists of mathematical theorem statements and formal proofs derived from published textbooks. No human subjects, demographic data, or personally identifiable information is present.",
+  "rai:dataUseCases": "The dataset is designed to benchmark (1) autoformalization: translating informal mathematical statements into formal Lean 4 specifications, and (2) automatic theorem proving: generating machine-checkable proofs of formal statements. Construct validity is established by verifying each formal statement against its natural language counterpart from a published textbook, and by machine-checking all proofs in Lean 4. The dataset has not been validated for use cases outside formal mathematics benchmarking, such as general NLP evaluation or educational assessment.",
+  "rai:dataSocialImpact": "Positive impacts include advancing automated reasoning and formal verification research, which can improve software reliability and mathematical knowledge accessibility. Negative risks are minimal given the purely mathematical nature of the content; however, overstating model capabilities on this benchmark could mislead users about AI systems' true mathematical reasoning abilities. No specific community fairness concerns apply.",
+  "rai:hasSyntheticData": false,
+  "prov:wasDerivedFrom": [
+    {
+      "@type": "sc:Dataset",
+      "@id": "proofnet-source",
+      "name": "ProofNet",
+      "url": "https://github.com/zhangir-azerbayev/ProofNet",
+      "license": "https://spdx.org/licenses/MIT.html",
+      "publisher": {
+        "@type": "sc:Organization",
+        "name": "Zhangir Azerbayev et al."
+      }
+    },
+    {
+      "@type": "sc:Dataset",
+      "@id": "proofnet-sharp-source",
+      "name": "ProofNet-Sharp",
+      "url": "https://huggingface.co/datasets/PAug/ProofNetSharp",
+      "license": "https://spdx.org/licenses/MIT.html",
+      "publisher": {
+        "@type": "sc:Organization",
+        "name": "PAug"
+      }
+    }
+  ],
+  "prov:wasGeneratedBy": [
+    {
+      "@type": "prov:Activity",
+      "@id": "filtering",
+      "name": "Filtering",
+      "description": "Removed 4 problems with inconsistent natural language and formal statements (Axler exercise 1_6, Axler exercise 1_7, Rudin exercise 1_14, Rudin exercise 1_19), resulting in 367 problems.",
+      "cr:activityType": "https://www.wikidata.org/wiki/Q1520468",
+      "prov:qualifiedAssociation": [
+        {
+          "@type": "prov:Agent",
+          "name": "Human experts",
+          "description": "Manual review of natural language and formal statement alignment."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "@id": "lean-upgrade",
+      "name": "Lean 4 Upgrade",
+      "description": "Upgraded all formal statements from Lean 4 v4.16.0-rc2 (Mathlib) to Lean v4.28.0, enabling compatibility with modern automated proof search tools including Grind, Canonical, and Lean-SMT.",
+      "cr:activityType": "https://www.wikidata.org/wiki/Q1520468",
+      "prov:qualifiedAssociation": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "name": "Lean 4 compiler",
+          "description": "Lean v4.28.0 with Mathlib v4.28.0 used for type-checking upgraded statements."
+        }
+      ]
+    },
+    {
+      "@type": "prov:Activity",
+      "@id": "verification",
+      "name": "Proof Verification",
+      "description": "Provided formal proofs for all 367 theorem statements and verified their correctness by type-checking in Lean v4.28.0 with Mathlib v4.28.0.",
+      "cr:activityType": "https://www.wikidata.org/wiki/Q1757879",
+      "prov:qualifiedAssociation": [
+        {
+          "@type": "prov:SoftwareAgent",
+          "name": "Lean 4 compiler",
+          "description": "Lean v4.28.0 type-checker used to machine-verify all proofs."
+        },
+        {
+          "@type": "prov:Agent",
+          "name": "Human experts",
+          "description": "Authored formal proofs for all 367 theorem statements."
+        }
+      ]
+    }
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileSet",
+      "@id": "proofnet-verified-files",
+      "name": "proofnet-verified-files",
+      "description": "Lean 4 source files containing formal theorem statements and proofs for the ProofNet-Verified benchmark.",
+      "containedIn": [],
+      "encodingFormat": "text/x-lean4",
+      "includes": "proofnet_verified/proofnet-*.lean"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "theorems",
+      "name": "theorems",
+      "description": "Each record corresponds to one verified theorem from an undergraduate mathematics textbook.",
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/filename",
+          "name": "filename",
+          "description": "Name of the Lean source file (e.g., proofnet-1.lean).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "proofnet-verified-files"},
+            "extract": {"fileProperty": "filename"}
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "theorems/content",
+          "name": "content",
+          "description": "Full content of the Lean 4 file, including imports, informal statement comment, and formal theorem statement.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {"@id": "proofnet-verified-files"},
+            "extract": {"fileProperty": "content"}
+          }
+        }
+      ]
+    }
+  ]
+}
